@@ -104,6 +104,27 @@ module.exports = {
 			from: { path: '^src/webview/(render|tools|commands)/' },
 			to: { path: '^src/webview/panels/' },
 		},
+		{
+			name: 'webview-ui-no-panels',
+			severity: 'error',
+			comment: 'The control kit in ui is reusable: it never imports panels.',
+			from: { path: '^src/webview/ui/' },
+			to: { path: '^src/webview/panels/' },
+		},
+		{
+			name: 'webview-platform-isolated',
+			severity: 'error',
+			comment: 'platform is the lowest webview layer: it imports nothing else from the webview.',
+			from: { path: '^src/webview/platform/' },
+			to: { path: '^src/webview/(?!platform/)' },
+		},
+		{
+			name: 'webview-store-below-views',
+			severity: 'error',
+			comment: 'store imports only platform: no render, ui, tools, commands, panels.',
+			from: { path: '^src/webview/store/' },
+			to: { path: '^src/webview/(render|ui|tools|commands|panels)/' },
+		},
 	],
 	options: {
 		doNotFollow: { path: 'node_modules' },
