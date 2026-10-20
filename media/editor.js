@@ -2515,6 +2515,11 @@ const wasOpen = !!etools.querySelector('details[open]');
 		split.addEventListener('dblclick', () => { lay.style.height = ''; persist({ layersH: 0 }); });
 	}
 
+	// Test hook (S0): inert unless a test sets window.__sakugaTestHook = true before this script loads.
+	if (window.__sakugaTestHook === true) {
+		window.__sakugaTest = { layout, boxHalf, resolveRoute, baseEdgeGeom, edgeGeom, arrowLabelGeom, frameRect, frameTitleGeom, contentBox, state: () => ({ nodes, edges, groups, figureFont, arrowsStyle }), setView: v => { Object.assign(view, v); moved = true; }, render };
+	}
+
 	Promise.all([document.fonts.load(`12px 'Sakuga Sans'`), document.fonts.load(`12px 'Sakuga Mono'`)])
 		.finally(() => vscode.postMessage({ type: 'ready' }));
 })();

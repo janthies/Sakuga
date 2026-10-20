@@ -1,0 +1,670 @@
+{
+ "type": "state",
+ "text": "\\begin{tikzpicture}[x=1mm,y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\definecolor{sgc2468AC}{HTML}{2468AC}\n\\definecolor{sgc33333A}{HTML}{33333A}\n\\definecolor{sgc654321}{HTML}{654321}\n\\definecolor{sgcE04080}{HTML}{E04080}\n\\definecolor{sgcF1E4C2}{HTML}{F1E4C2}\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n% sakuga legend off\n\\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC] (box0) at (0,0) {Box 0};\n\\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=north east lines,pattern color=sgc2468AC}] (box1) at (40,0) {Box 1};\n\\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=crosshatch,pattern color=sgc2468AC}] (box2) at (80,0) {Box 2};\n\\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=dots,pattern color=sgc2468AC}] (box3) at (120,0) {Box 3};\n\\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=horizontal lines,pattern color=sgc2468AC}] (box4) at (0,-18) {Box 4};\n\\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=vertical lines,pattern color=sgc2468AC}] (box5) at (40,-18) {Box 5};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north east) -- ([xshift=-2.4mm]path picture bounding box.north east) -- ([yshift=-2.4mm]path picture bounding box.north east) -- cycle;}] (box6) at (80,-18) {Box 6};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north east) -- ([xshift=-5mm]path picture bounding box.north east) -- ([yshift=-5mm]path picture bounding box.north east) -- cycle;}] (box7) at (120,-18) {Box 7};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north west) -- ([xshift=2.4mm]path picture bounding box.north west) -- ([yshift=-2.4mm]path picture bounding box.north west) -- cycle;}] (box8) at (0,-36) {Box 8};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north west) -- ([xshift=5mm]path picture bounding box.north west) -- ([yshift=-5mm]path picture bounding box.north west) -- cycle;}] (box9) at (40,-36) {Box 9};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south east) -- ([xshift=-2.4mm]path picture bounding box.south east) -- ([yshift=2.4mm]path picture bounding box.south east) -- cycle;}] (box10) at (80,-36) {Box 10};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south east) -- ([xshift=-5mm]path picture bounding box.south east) -- ([yshift=5mm]path picture bounding box.south east) -- cycle;}] (box11) at (120,-36) {Box 11};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south west) -- ([xshift=2.4mm]path picture bounding box.south west) -- ([yshift=2.4mm]path picture bounding box.south west) -- cycle;}] (box12) at (0,-54) {Box 12};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south west) -- ([xshift=5mm]path picture bounding box.south west) -- ([yshift=5mm]path picture bounding box.south west) -- cycle;}] (box13) at (40,-54) {Box 13};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-1.2mm,yshift=-1.2mm]path picture bounding box.north east) circle[radius=1.2mm];}] (box14) at (80,-54) {Box 14};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-2.5mm,yshift=-2.5mm]path picture bounding box.north east) circle[radius=2.5mm];}] (box15) at (120,-54) {Box 15};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=1.2mm,yshift=-1.2mm]path picture bounding box.north west) circle[radius=1.2mm];}] (box16) at (0,-72) {Box 16};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=2.5mm,yshift=-2.5mm]path picture bounding box.north west) circle[radius=2.5mm];}] (box17) at (40,-72) {Box 17};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-1.2mm,yshift=1.2mm]path picture bounding box.south east) circle[radius=1.2mm];}] (box18) at (80,-72) {Box 18};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-2.5mm,yshift=2.5mm]path picture bounding box.south east) circle[radius=2.5mm];}] (box19) at (120,-72) {Box 19};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=1.2mm,yshift=1.2mm]path picture bounding box.south west) circle[radius=1.2mm];}] (box20) at (0,-90) {Box 20};\n\\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=2.5mm,yshift=2.5mm]path picture bounding box.south west) circle[radius=2.5mm];}] (box21) at (40,-90) {Box 21};\n\\node[sg box, sg layer=layer1, fill=none, draw=none, postaction={pattern=north east lines,pattern color=black!25}, path picture={\\path[fill=sgc33333A,draw=none,sharp corners] (path picture bounding box.north east) -- ([xshift=-2.4mm]path picture bounding box.north east) -- ([yshift=-2.4mm]path picture bounding box.north east) -- cycle;}] (box22) at (80,-90) {Box 22};\n\\node[sg box, sg layer=layer1, fill=sgGreen!85, dashed, postaction={pattern=dots,pattern color=black!25}, path picture={\\path[fill=sgc33333A,draw=none,sharp corners] ([xshift=-1.2mm,yshift=-1.2mm]path picture bounding box.north east) circle[radius=1.2mm];}] (box23) at (120,-90) {Box 23};\n\\end{tikzpicture}",
+ "nodes": [
+  {
+   "id": "box0",
+   "cat": "",
+   "x": 0,
+   "y": 0,
+   "title": "Box 0",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double",
+    "patternColor": "#2468AC"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box1",
+   "cat": "",
+   "x": 40,
+   "y": 0,
+   "title": "Box 1",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double",
+    "patternColor": "#2468AC",
+    "pattern": "hatched"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box2",
+   "cat": "",
+   "x": 80,
+   "y": 0,
+   "title": "Box 2",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double",
+    "patternColor": "#2468AC",
+    "pattern": "crosshatch"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box3",
+   "cat": "",
+   "x": 120,
+   "y": 0,
+   "title": "Box 3",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double",
+    "patternColor": "#2468AC",
+    "pattern": "dots"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box4",
+   "cat": "",
+   "x": 0,
+   "y": -18,
+   "title": "Box 4",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double",
+    "patternColor": "#2468AC",
+    "pattern": "horizontal"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box5",
+   "cat": "",
+   "x": 40,
+   "y": -18,
+   "title": "Box 5",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double",
+    "patternColor": "#2468AC",
+    "pattern": "vertical"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box6",
+   "cat": "",
+   "x": 80,
+   "y": -18,
+   "title": "Box 6",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box7",
+   "cat": "",
+   "x": 120,
+   "y": -18,
+   "title": "Box 7",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box8",
+   "cat": "",
+   "x": 0,
+   "y": -36,
+   "title": "Box 8",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markCorner": "nw",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box9",
+   "cat": "",
+   "x": 40,
+   "y": -36,
+   "title": "Box 9",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markCorner": "nw",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box10",
+   "cat": "",
+   "x": 80,
+   "y": -36,
+   "title": "Box 10",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markCorner": "se",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box11",
+   "cat": "",
+   "x": 120,
+   "y": -36,
+   "title": "Box 11",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markCorner": "se",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box12",
+   "cat": "",
+   "x": 0,
+   "y": -54,
+   "title": "Box 12",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markCorner": "sw",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box13",
+   "cat": "",
+   "x": 40,
+   "y": -54,
+   "title": "Box 13",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "triangle",
+    "markCorner": "sw",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box14",
+   "cat": "",
+   "x": 80,
+   "y": -54,
+   "title": "Box 14",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box15",
+   "cat": "",
+   "x": 120,
+   "y": -54,
+   "title": "Box 15",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box16",
+   "cat": "",
+   "x": 0,
+   "y": -72,
+   "title": "Box 16",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markCorner": "nw",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box17",
+   "cat": "",
+   "x": 40,
+   "y": -72,
+   "title": "Box 17",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markCorner": "nw",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box18",
+   "cat": "",
+   "x": 80,
+   "y": -72,
+   "title": "Box 18",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markCorner": "se",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box19",
+   "cat": "",
+   "x": 120,
+   "y": -72,
+   "title": "Box 19",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markCorner": "se",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box20",
+   "cat": "",
+   "x": 0,
+   "y": -90,
+   "title": "Box 20",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markCorner": "sw",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box21",
+   "cat": "",
+   "x": 40,
+   "y": -90,
+   "title": "Box 21",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "blue",
+    "border": "dotted",
+    "mark": "circle",
+    "markCorner": "sw",
+    "markSize": "medium",
+    "markColor": "#E04080"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box22",
+   "cat": "",
+   "x": 80,
+   "y": -90,
+   "title": "Box 22",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "pattern": "hatched",
+    "mark": "triangle"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "box23",
+   "cat": "",
+   "x": 120,
+   "y": -90,
+   "title": "Box 23",
+   "code": "",
+   "width": 26,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "green",
+    "border": "dashed",
+    "pattern": "dots",
+    "mark": "circle"
+   },
+   "extra": [],
+   "overrides": []
+  }
+ ],
+ "edges": [],
+ "categories": [],
+ "styles": [],
+ "shared": [
+  {
+   "cat": "",
+   "props": {
+    "fill": "#F1E4C2",
+    "color": "#654321",
+    "border": "double"
+   },
+   "ids": [
+    "box0",
+    "box1",
+    "box2",
+    "box3",
+    "box4",
+    "box5"
+   ]
+  },
+  {
+   "cat": "",
+   "props": {
+    "fill": "blue",
+    "border": "dotted"
+   },
+   "ids": [
+    "box6",
+    "box7",
+    "box8",
+    "box9",
+    "box10",
+    "box11",
+    "box12",
+    "box13",
+    "box14",
+    "box15",
+    "box16",
+    "box17",
+    "box18",
+    "box19",
+    "box20",
+    "box21"
+   ]
+  }
+ ],
+ "groups": [],
+ "layers": [
+  {
+   "id": "layer1",
+   "name": "Layer 1",
+   "hidden": false,
+   "locked": false
+  }
+ ],
+ "font": "small",
+ "legend": false,
+ "arrows": "manhattan",
+ "palette": {
+  "blue": {
+   "name": "sgBlue",
+   "hex": "BBCCEE",
+   "mix": 85
+  },
+  "green": {
+   "name": "sgGreen",
+   "hex": "CCDDAA",
+   "mix": 85
+  },
+  "peach": {
+   "name": "sgPeach",
+   "hex": "FFDDCC",
+   "mix": 100
+  },
+  "grey": {
+   "name": "sgGrey",
+   "hex": "DDDDDD",
+   "mix": 70
+  },
+  "yellow": {
+   "name": "sgYellow",
+   "hex": "EEEEBB",
+   "mix": 85
+  },
+  "cyan": {
+   "name": "sgCyan",
+   "hex": "CCEEFF",
+   "mix": 100
+  },
+  "red": {
+   "name": "sgRed",
+   "hex": "FFCCCC",
+   "mix": 100
+  },
+  "accent": {
+   "name": "palRose",
+   "hex": "CC6677",
+   "mix": 100
+  },
+  "black": {
+   "name": "black",
+   "hex": "000000",
+   "mix": 100
+  },
+  "white": {
+   "name": "white",
+   "hex": "FFFFFF",
+   "mix": 100
+  }
+ },
+ "defaultWidth": 26
+}

@@ -1,0 +1,133 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure"
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "boxes": false,
+    "legend": true
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": true
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n0",
+    "cat": "",
+    "x": 20,
+    "y": 19,
+    "title": "Box",
+    "code": "",
+    "width": 17,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n1",
+    "cat": "",
+    "x": 90,
+    "y": 85,
+    "title": "Box",
+    "code": "",
+    "width": 18,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n2",
+    "cat": "",
+    "x": 75,
+    "y": 88,
+    "title": "Box",
+    "code": "",
+    "width": 31,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n3",
+    "cat": "",
+    "x": 9,
+    "y": 49,
+    "title": "Box",
+    "code": "",
+    "width": 22,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "n0",
+    "to": "n1",
+    "fromAnchor": "west",
+    "toAnchor": "north",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

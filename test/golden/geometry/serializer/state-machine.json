@@ -1,0 +1,258 @@
+{
+ "nodes": [
+  {
+   "id": "idle",
+   "x": 0,
+   "y": 0,
+   "w": 15.491,
+   "h": 15.491,
+   "boxHalf": [
+    7.7455,
+    7.7455
+   ]
+  },
+  {
+   "id": "ready",
+   "x": 45,
+   "y": 0,
+   "w": 15.491,
+   "h": 15.491,
+   "boxHalf": [
+    7.7455,
+    7.7455
+   ]
+  },
+  {
+   "id": "active",
+   "x": 90,
+   "y": 0,
+   "w": 15.491,
+   "h": 15.491,
+   "boxHalf": [
+    7.7455,
+    7.7455
+   ]
+  },
+  {
+   "id": "done",
+   "x": 90,
+   "y": -43,
+   "w": 15.491,
+   "h": 15.491,
+   "boxHalf": [
+    7.7455,
+    7.7455
+   ]
+  },
+  {
+   "id": "error",
+   "x": 45,
+   "y": -43,
+   "w": 15.491,
+   "h": 15.491,
+   "boxHalf": [
+    7.7455,
+    7.7455
+   ]
+  }
+ ],
+ "frames": [],
+ "edges": [
+  {
+   "index": 0,
+   "from": "idle",
+   "to": "idle",
+   "route": {
+    "type": "vhv",
+    "mid": 0
+   },
+   "geometry": {
+    "pts": [
+     [
+      -2.9015,
+      7.1815
+     ],
+     [
+      2.9015,
+      7.1815
+     ]
+    ],
+    "label": [
+     0,
+     12.7446
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "curve": [
+     [
+      -2.9015,
+      7.1815
+     ],
+     [
+      -5.8984,
+      14.599
+     ],
+     [
+      5.8984,
+      14.599
+     ],
+     [
+      2.9015,
+      7.1815
+     ]
+    ],
+    "loop": true,
+    "side": "north",
+    "out": 112,
+    "inn": 68,
+    "d": 8,
+    "sa": "north",
+    "sb": "north"
+   }
+  },
+  {
+   "index": 1,
+   "from": "active",
+   "to": "active",
+   "route": {
+    "type": "vhv",
+    "mid": 0
+   },
+   "geometry": {
+    "pts": [
+     [
+      97.1815,
+      2.9015
+     ],
+     [
+      97.1815,
+      -2.9015
+     ]
+    ],
+    "label": [
+     102.7446,
+     0
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "curve": [
+     [
+      97.1815,
+      2.9015
+     ],
+     [
+      104.599,
+      5.8984
+     ],
+     [
+      104.599,
+      -5.8984
+     ],
+     [
+      97.1815,
+      -2.9015
+     ]
+    ],
+    "loop": true,
+    "side": "east",
+    "out": 22,
+    "inn": -22,
+    "d": 8,
+    "sa": "east",
+    "sb": "east"
+   }
+  },
+  {
+   "index": 2,
+   "from": "idle",
+   "to": "ready",
+   "route": {
+    "type": "line"
+   },
+   "geometry": null
+  },
+  {
+   "index": 3,
+   "from": "ready",
+   "to": "active",
+   "route": {
+    "type": "line"
+   },
+   "geometry": null
+  },
+  {
+   "index": 4,
+   "from": "active",
+   "to": "done",
+   "route": {
+    "type": "line"
+   },
+   "geometry": null
+  },
+  {
+   "index": 5,
+   "from": "active",
+   "to": "error",
+   "route": {
+    "type": "bend",
+    "bend": 14
+   },
+   "geometry": null
+  },
+  {
+   "index": 6,
+   "from": "error",
+   "to": "ready",
+   "route": {
+    "type": "line"
+   },
+   "geometry": null
+  },
+  {
+   "index": 7,
+   "from": "done",
+   "to": "idle",
+   "route": {
+    "type": "hvh",
+    "mid": 45
+   },
+   "geometry": {
+    "pts": [
+     [
+      90,
+      -50.7455
+     ],
+     [
+      90,
+      -65
+     ],
+     [
+      -25,
+      -65
+     ],
+     [
+      -25,
+      0
+     ],
+     [
+      -7.7455,
+      0
+     ]
+    ],
+    "label": [
+     -1.5,
+     -65
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "fixed": true
+   }
+  }
+ ]
+}

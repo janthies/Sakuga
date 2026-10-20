@@ -1,0 +1,309 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure"
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": false
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "idle",
+    "cat": "",
+    "x": 0,
+    "y": 0,
+    "title": "Idle",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "blue"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "ready",
+    "cat": "",
+    "x": 45,
+    "y": 0,
+    "title": "Ready",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "green"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "active",
+    "cat": "",
+    "x": 90,
+    "y": 0,
+    "title": "Active",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "done",
+    "cat": "",
+    "x": 90,
+    "y": -43,
+    "title": "Done",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "green"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "error",
+    "cat": "",
+    "x": 45,
+    "y": -43,
+    "title": "Error",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "red"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "idle",
+    "to": "idle",
+    "kind": "arr",
+    "route": "loop",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "wait",
+    "style": {
+     "side": "above"
+    },
+    "extra": [],
+    "loopOut": 112,
+    "loopIn": 68,
+    "loopSize": 8,
+    "loopSide": "north"
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "active",
+    "to": "active",
+    "kind": "arr",
+    "route": "loop",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "tick",
+    "style": {
+     "side": "right"
+    },
+    "extra": [],
+    "loopOut": 22,
+    "loopIn": -22,
+    "loopSize": 8,
+    "loopSide": "east"
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "idle",
+    "to": "ready",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "start",
+    "style": {
+     "side": "above"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "ready",
+    "to": "active",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "accept",
+    "style": {
+     "side": "above"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "active",
+    "to": "done",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "finish",
+    "style": {
+     "side": "right"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "active",
+    "to": "error",
+    "kind": "arr",
+    "route": "bend",
+    "mid": null,
+    "bend": 14,
+    "head": "end",
+    "label": "fail",
+    "style": {
+     "side": "above"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "error",
+    "to": "ready",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "retry",
+    "style": {
+     "side": "left"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "done",
+    "to": "idle",
+    "fromAnchor": "south",
+    "toAnchor": "west",
+    "kind": "arr",
+    "route": "fixed",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "reset",
+    "style": {
+     "side": "below"
+    },
+    "extra": [],
+    "labelStyle": {
+     "segment": 1
+    },
+    "chain": [
+     "(done.south)",
+     "--",
+     "(done.south |- 0,-65)",
+     "--",
+     "(-25,-65)",
+     "--",
+     "(idle.west -| -25,0)",
+     "--",
+     "(idle.west)"
+    ]
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

@@ -1,0 +1,285 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure"
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "legend": true,
+    "icon": "board"
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": true
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "iconGroup",
+    "name": "",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": ""
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position0",
+    "cat": "work",
+    "x": 0,
+    "y": 0,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "left",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position1",
+    "cat": "work",
+    "x": 40,
+    "y": 0,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "above",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position2",
+    "cat": "work",
+    "x": 80,
+    "y": 0,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "right",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position3",
+    "cat": "work",
+    "x": 0,
+    "y": -22,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "nw",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position4",
+    "cat": "work",
+    "x": 40,
+    "y": -22,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "ne",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position5",
+    "cat": "work",
+    "x": 80,
+    "y": -22,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "sw",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "position6",
+    "cat": "work",
+    "x": 0,
+    "y": -44,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "se",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inherited",
+    "cat": "work",
+    "x": 40,
+    "y": -44,
+    "title": "Category",
+    "icon": "category",
+    "iconPosition": "above",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "free",
+    "kind": "icon",
+    "icon": "board",
+    "x": 80,
+    "y": -44,
+    "width": 8,
+    "minh": 10,
+    "title": "Free icon",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "iconGroup",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "groups"
+  },
+  {
+   "t": "legend"
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

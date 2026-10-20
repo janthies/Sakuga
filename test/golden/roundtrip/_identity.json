@@ -1,0 +1,18 @@
+{
+ "box-decorations": true,
+ "components": true,
+ "icon-positions": true,
+ "labels-and-attachments": true,
+ "rats-architecture": true,
+ "state-machine": true,
+ "routing-fuzz-1a": false,
+ "routing-fuzz-1b": false,
+ "routing-fuzz-50a": false,
+ "routing-fuzz-50b": false,
+ "routing-fuzz-65a": false,
+ "routing-fuzz-65b": false,
+ "routing-fuzz-70a": false,
+ "routing-fuzz-70b": false,
+ "routing-fuzz-78a": false,
+ "routing-fuzz-78b": false
+}

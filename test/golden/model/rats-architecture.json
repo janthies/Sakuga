@@ -1,0 +1,726 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure"
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "normal",
+    "name": "Normal world",
+    "props": {
+     "fill": "blue"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "secure",
+    "name": "Secure world",
+    "props": {
+     "fill": "red"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "hw",
+    "name": "Hardware",
+    "props": {
+     "fill": "grey"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "ok",
+    "name": "Verifier side",
+    "props": {
+     "fill": "green"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "rp",
+    "name": "Relying party",
+    "props": {
+     "fill": "peach"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": false
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "att",
+    "name": "Attester (constrained device)",
+    "frame": "solid",
+    "color": "grey",
+    "parent": "",
+    "titlePosition": "above-center",
+    "titleBold": true,
+    "titleFont": "small",
+    "lineWidth": 1,
+    "frameColor": "#30343B"
+   }
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "nw",
+    "name": "Normal world (untrusted)",
+    "frame": "dashed",
+    "color": "blue",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#2D70A6",
+    "frameColor": "#2D70A6",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed"
+   }
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "sw",
+    "name": "Secure world (SPE, TF-M)",
+    "frame": "dashed",
+    "color": "red",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#CF3C50",
+    "frameColor": "#CF3C50",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed"
+   }
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "hw",
+    "name": "Hardware root of trust",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#6B7280",
+    "frameColor": "#6B7280",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed"
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "app",
+    "cat": "normal",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "rtos",
+    "cat": "normal",
+    "x": 34,
+    "y": 0,
+    "title": "RTOS / TCP/IP",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "client",
+    "cat": "normal",
+    "x": 68,
+    "y": 0,
+    "title": "Attestation\\\\client",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6",
+     "weight": "thick"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "store",
+    "cat": "secure",
+    "x": 0,
+    "y": -34,
+    "title": "Protected\\\\storage",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "crypto",
+    "cat": "secure",
+    "x": 34,
+    "y": -34,
+    "title": "Crypto\\\\service",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "ias",
+    "cat": "secure",
+    "x": 68,
+    "y": -34,
+    "title": "Initial attest.\\\\service $^\\dagger$",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50",
+     "weight": "thick"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "bl1",
+    "cat": "hw",
+    "x": 0,
+    "y": -68,
+    "title": "Boot ROM\\\\(BL1)",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "otp",
+    "cat": "hw",
+    "x": 34,
+    "y": -68,
+    "title": "OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "rec",
+    "cat": "hw",
+    "x": 68,
+    "y": -68,
+    "title": "Boot record\\\\{\\scriptsize measurements}",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "ver",
+    "cat": "ok",
+    "x": 140,
+    "y": -4,
+    "title": "\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}",
+    "code": "",
+    "width": 36,
+    "minh": 28,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "end",
+    "cat": "hw",
+    "x": 128,
+    "y": 30,
+    "title": "\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$",
+    "code": "",
+    "width": 18,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "rvp",
+    "cat": "hw",
+    "x": 152,
+    "y": 30,
+    "title": "\\textbf{Ref.\\ value}\\\\\\textbf{provider}",
+    "code": "",
+    "width": 18,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "rp",
+    "cat": "rp",
+    "x": 140,
+    "y": -68,
+    "title": "\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}",
+    "code": "",
+    "width": 36,
+    "minh": 17,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "note",
+    "kind": "label",
+    "cat": "",
+    "x": 105,
+    "y": -43,
+    "title": "adversary controls\\\\network + NW",
+    "code": "",
+    "width": 28,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#777777",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "foot",
+    "kind": "label",
+    "cat": "",
+    "x": 65,
+    "y": -96,
+    "title": "$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.",
+    "code": "",
+    "width": 165,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#666666",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "groups"
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "client",
+    "to": "ias",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "NSC call\\\\\\texttt{get\\_token(N)}",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "ias",
+    "to": "crypto",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "sign",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize",
+     "side": "above",
+     "dy": 1.5,
+     "color": "#804050",
+     "bold": true
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "otp",
+    "to": "crypto",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "key",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "rec",
+    "to": "ias",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "claims",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "bl1",
+    "to": "rec",
+    "fromAnchor": "south",
+    "toAnchor": "south",
+    "kind": "arr-dashed",
+    "route": "u",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "measures BL2 + images",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "end",
+    "to": "ver",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "endorsements",
+    "style": {
+     "side": "left"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "rvp",
+    "to": "ver",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "golden hashes",
+    "style": {
+     "side": "right"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "ver",
+    "to": "att",
+    "fromAnchor": "west",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "nonce $N$",
+    "style": {
+     "step": 1,
+     "side": "above"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "att",
+    "to": "ver",
+    "fromAnchor": "east",
+    "toAnchor": "west",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "evidence\\\\(EAT / COSE)",
+    "style": {
+     "step": 2,
+     "side": "below"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize",
+     "dx": 2,
+     "dy": -1.5
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "ver",
+    "to": "rp",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "attestation\\\\result",
+    "style": {
+     "step": 3,
+     "side": "right"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "rp",
+    "to": "att",
+    "fromAnchor": "west",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "grant /\\\\quarantine",
+    "style": {
+     "step": 4,
+     "side": "above"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    }
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

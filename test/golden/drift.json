@@ -1,0 +1,2374 @@
+{
+ "total": {
+  "objectsDiffering": 151,
+  "structural": 1,
+  "maxMm": 4.666
+ },
+ "box-decorations": {
+  "differing": 24,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:box0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box4",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box5",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box6",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box7",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box8",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box9",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box10",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box11",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box12",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box13",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box14",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box15",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box16",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box17",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box18",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box19",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box20",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box21",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box22",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:box23",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "components": {
+  "differing": 15,
+  "maxMm": 2.095,
+  "structural": 1,
+  "items": [
+   {
+    "object": "node:app",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      30.1338,
+      3.08
+     ],
+     "canvas": [
+      30.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:att",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.225,
+    "detail": {
+     "tikz": [
+      30.1338,
+      4.9995
+     ],
+     "canvas": [
+      30.135,
+      4.775
+     ]
+    }
+   },
+   {
+    "object": "node:seam",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.225,
+    "detail": {
+     "tikz": [
+      30.1338,
+      4.9995
+     ],
+     "canvas": [
+      30.135,
+      4.775
+     ]
+    }
+   },
+   {
+    "object": "node:swbe",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2.095,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.1752
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:teebe",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:nsenc",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2.095,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.1752
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:psac",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:cysapi",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.225,
+    "detail": {
+     "tikz": [
+      30.1338,
+      4.9995
+     ],
+     "canvas": [
+      30.135,
+      4.775
+     ]
+    }
+   },
+   {
+    "object": "node:entry",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.225,
+    "detail": {
+     "tikz": [
+      30.1338,
+      4.9995
+     ],
+     "canvas": [
+      30.135,
+      4.775
+     ]
+    }
+   },
+   {
+    "object": "node:hdl",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.225,
+    "detail": {
+     "tikz": [
+      20.1138,
+      4.9995
+     ],
+     "canvas": [
+      20.115,
+      4.775
+     ]
+    }
+   },
+   {
+    "object": "node:senc",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2.095,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.1752
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:ops",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2.095,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.1752
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:drv",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      30.1338,
+      3.08
+     ],
+     "canvas": [
+      30.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:hw",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      30.1338,
+      3.08
+     ],
+     "canvas": [
+      30.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "edge:5 nsenc->psac",
+    "what": "arrow missing on the canvas (serializer routes it)",
+    "mm": "structural"
+   }
+  ]
+ },
+ "icon-positions": {
+  "differing": 9,
+  "maxMm": 2,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:position0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:position1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:position2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:position3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:position4",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:position5",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:position6",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:inherited",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 2,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:free",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      4,
+      5
+     ],
+     "canvas": [
+      5.135,
+      5
+     ]
+    }
+   }
+  ]
+ },
+ "labels-and-attachments": {
+  "differing": 43,
+  "maxMm": 1.135,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:title0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title4",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title5",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title6",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title7",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:title8",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      11
+     ],
+     "canvas": [
+      16.135,
+      11
+     ]
+    }
+   },
+   {
+    "object": "node:labelParent",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      43.1338,
+      37
+     ],
+     "canvas": [
+      43.135,
+      37
+     ]
+    }
+   },
+   {
+    "object": "node:parent",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      43.1338,
+      20
+     ],
+     "canvas": [
+      43.135,
+      20
+     ]
+    }
+   },
+   {
+    "object": "node:outsideParent",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      36.1338,
+      32
+     ],
+     "canvas": [
+      36.135,
+      32
+     ]
+    }
+   },
+   {
+    "object": "node:freeLabel",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.338,
+    "detail": {
+     "tikz": [
+      13.1338,
+      3.4179
+     ],
+     "canvas": [
+      13.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:inside0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside4",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon4",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside5",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside5",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon5",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside6",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside6",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon6",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside7",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside7",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon7",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:inside8",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:outside8",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:icon8",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.135,
+    "detail": {
+     "tikz": [
+      3,
+      4
+     ],
+     "canvas": [
+      4.135,
+      4
+     ]
+    }
+   },
+   {
+    "object": "node:child",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      11.1337,
+      6
+     ],
+     "canvas": [
+      11.135,
+      6
+     ]
+    }
+   },
+   {
+    "object": "node:grandchild",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      7.1338,
+      3.08
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:hiddenParent",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      22.1338,
+      8
+     ],
+     "canvas": [
+      22.135,
+      8
+     ]
+    }
+   },
+   {
+    "object": "node:visibleChild",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      8.1337,
+      3.08
+     ],
+     "canvas": [
+      8.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "rats-architecture": {
+  "differing": 15,
+  "maxMm": 1.304,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:app",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:rtos",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:client",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:store",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:crypto",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:ias",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:bl1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:otp",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:rec",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      5.5
+     ],
+     "canvas": [
+      14.135,
+      5.5
+     ]
+    }
+   },
+   {
+    "object": "node:ver",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      19.1338,
+      14
+     ],
+     "canvas": [
+      19.135,
+      14
+     ]
+    }
+   },
+   {
+    "object": "node:end",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.1337,
+      6
+     ],
+     "canvas": [
+      10.135,
+      6
+     ]
+    }
+   },
+   {
+    "object": "node:rvp",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.1337,
+      6
+     ],
+     "canvas": [
+      10.135,
+      6
+     ]
+    }
+   },
+   {
+    "object": "node:rp",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      19.1338,
+      8.5
+     ],
+     "canvas": [
+      19.135,
+      8.5
+     ]
+    }
+   },
+   {
+    "object": "node:note",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 1.304,
+    "detail": {
+     "tikz": [
+      15.1338,
+      4.3845
+     ],
+     "canvas": [
+      15.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:foot",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      83.6338,
+      3.08
+     ],
+     "canvas": [
+      83.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "state-machine": {
+  "differing": 5,
+  "maxMm": 4.666,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:idle",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 4.666,
+    "detail": {
+     "tikz": [
+      7.7455,
+      7.7455
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:ready",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 4.666,
+    "detail": {
+     "tikz": [
+      7.7455,
+      7.7455
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:active",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 4.666,
+    "detail": {
+     "tikz": [
+      7.7455,
+      7.7455
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:done",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 4.666,
+    "detail": {
+     "tikz": [
+      7.7455,
+      7.7455
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:error",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 4.666,
+    "detail": {
+     "tikz": [
+      7.7455,
+      7.7455
+     ],
+     "canvas": [
+      7.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-1a": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      17.6338,
+      3.08
+     ],
+     "canvas": [
+      17.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      12.6337,
+      3.08
+     ],
+     "canvas": [
+      12.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      15.1338,
+      3.08
+     ],
+     "canvas": [
+      15.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      15.6338,
+      3.08
+     ],
+     "canvas": [
+      15.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-1b": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      17.6338,
+      3.08
+     ],
+     "canvas": [
+      17.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      12.6337,
+      3.08
+     ],
+     "canvas": [
+      12.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      15.1338,
+      3.08
+     ],
+     "canvas": [
+      15.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      15.6338,
+      3.08
+     ],
+     "canvas": [
+      15.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-50a": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      15.1338,
+      3.08
+     ],
+     "canvas": [
+      15.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      17.6338,
+      3.08
+     ],
+     "canvas": [
+      17.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.6338,
+      3.08
+     ],
+     "canvas": [
+      14.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      9.1337,
+      3.08
+     ],
+     "canvas": [
+      9.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-50b": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      15.1338,
+      3.08
+     ],
+     "canvas": [
+      15.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      17.6338,
+      3.08
+     ],
+     "canvas": [
+      17.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.6338,
+      3.08
+     ],
+     "canvas": [
+      14.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      9.1337,
+      3.08
+     ],
+     "canvas": [
+      9.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-65a": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      9.6337,
+      3.08
+     ],
+     "canvas": [
+      9.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.1337,
+      3.08
+     ],
+     "canvas": [
+      10.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.6338,
+      3.08
+     ],
+     "canvas": [
+      16.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      12.1337,
+      3.08
+     ],
+     "canvas": [
+      12.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-65b": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      9.6337,
+      3.08
+     ],
+     "canvas": [
+      9.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.1337,
+      3.08
+     ],
+     "canvas": [
+      10.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.6338,
+      3.08
+     ],
+     "canvas": [
+      16.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      12.1337,
+      3.08
+     ],
+     "canvas": [
+      12.135,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-70a": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      17.1338,
+      3.08
+     ],
+     "canvas": [
+      17.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      13.1338,
+      3.08
+     ],
+     "canvas": [
+      13.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.6337,
+      3.08
+     ],
+     "canvas": [
+      10.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-70b": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      17.1338,
+      3.08
+     ],
+     "canvas": [
+      17.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.1338,
+      3.08
+     ],
+     "canvas": [
+      14.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      13.1338,
+      3.08
+     ],
+     "canvas": [
+      13.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.6337,
+      3.08
+     ],
+     "canvas": [
+      10.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-78a": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      3.08
+     ],
+     "canvas": [
+      16.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.6338,
+      3.08
+     ],
+     "canvas": [
+      14.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.6338,
+      3.08
+     ],
+     "canvas": [
+      14.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.6337,
+      3.08
+     ],
+     "canvas": [
+      10.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ },
+ "routing-fuzz-78b": {
+  "differing": 4,
+  "maxMm": 0.001,
+  "structural": 0,
+  "items": [
+   {
+    "object": "node:n0",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      16.1338,
+      3.08
+     ],
+     "canvas": [
+      16.135,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n1",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.6338,
+      3.08
+     ],
+     "canvas": [
+      14.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n2",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      14.6338,
+      3.08
+     ],
+     "canvas": [
+      14.635,
+      3.08
+     ]
+    }
+   },
+   {
+    "object": "node:n3",
+    "what": "boxHalf (tikz.ts vs editor.js copy)",
+    "mm": 0.001,
+    "detail": {
+     "tikz": [
+      10.6337,
+      3.08
+     ],
+     "canvas": [
+      10.635,
+      3.08
+     ]
+    }
+   }
+  ]
+ }
+}

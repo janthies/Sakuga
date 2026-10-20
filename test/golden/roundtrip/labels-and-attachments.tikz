@@ -1,0 +1,97 @@
+% Sakuga figure
+% sakuga style box work {this work} peach legend
+% sakuga legend off
+% sakuga layer layer1 {Layer 1}
+% sakuga layer hidden {Hidden} hidden
+\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
+% sakuga theme begin (generated from the style lines above)
+\tikzset{sg icon stroke/.style={draw=black!60,line width=0.6pt,line cap=round,line join=round}}
+\tikzset{pics/sg object/.style n args={3}{code={\path (-#2/2,-#3/2) rectangle (#2/2,#3/2);\node[anchor=center,inner sep=0pt,outer sep=0pt,minimum width=#2mm,minimum height=#3mm] (-center) at (0,0) {};\if\relax\detokenize{#1}\relax\else\pic[xscale=#2/3,yscale=#3/3] at (-#2/2,#3/2) {sg icon/#1};\fi\node[anchor=west,inner sep=0pt,align=left] (-label) at (#2/2+1,0) {\tikzpictext};}}}
+\def\sgicon#1{\tikz[baseline=-0.3pt]{\path[use as bounding box] (0,0) rectangle (8.544pt,8.544pt);\pic at (0,8.544pt) {sg icon/#1};}}
+\tikzset{sg icon/board/.pic={\begin{scope}[x=1pt,y=1pt,scale=0.355659449,yscale=-1,sg icon stroke]\draw svg "M4 4h16v16H4z";\draw svg "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4";\end{scope}}}
+\definecolor{sgc2468AC}{HTML}{2468AC}
+\definecolor{sgBlue}{HTML}{BBCCEE}
+\definecolor{sgGreen}{HTML}{CCDDAA}
+\definecolor{sgPeach}{HTML}{FFDDCC}
+\definecolor{sgGrey}{HTML}{DDDDDD}
+\definecolor{sgYellow}{HTML}{EEEEBB}
+\definecolor{sgCyan}{HTML}{CCEEFF}
+\definecolor{sgRed}{HTML}{FFCCCC}
+\definecolor{palRose}{HTML}{CC6677}
+\definecolor{black}{HTML}{000000}
+\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2mm][r]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2mm][l]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\ifx\sgpos\sgse\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\parbox{#2mm}{\vspace*{4mm}\centering#3}\fi\fi\fi\fi}
+\def\sgcodesize{}\tikzset{sg want/.style={},sg code font/.code={\def\sgcodesize{\csname#1\endcsname}}}
+\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\sgcodesize\ttfamily\textcolor{black!48}{#1}}}
+\def\sgstep#1{\tikz[baseline=-0.6ex]\node[circle,fill=.,text=white,font=\sffamily\bfseries\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}
+\def\sglabel#1#2{\raisebox{\dimexpr\depth/2-\height/2\relax}{\sgstep{#1}}\hspace{0.8mm}\raisebox{\dimexpr\depth/2-\height/2\relax}{\shortstack{#2}}}
+\tikzset{
+  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
+    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},
+  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},
+  sg style/work/.style={sg box, fill=sgPeach},
+  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
+  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
+  head none/.style={-},
+  sg elabel/.style={align=center, text=black!65, font=\sffamily\scriptsize, fill=white, inner sep=1pt},
+  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},
+  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
+  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},
+  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},
+  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},
+  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},
+  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},
+  sg frame none/.style={inner sep=0pt},
+  sg glabel/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1.5pt},
+  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},
+  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,
+    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
+}
+% sakuga theme end
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title0) at (0,0) {\parbox[c][19.38mm][t]{30mm}{\raggedright Title 0\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title1) at (40,0) {\parbox[c][19.38mm][t]{30mm}{\centering Title 1\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title2) at (80,0) {\parbox[c][19.38mm][t]{30mm}{\raggedleft Title 2\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title3) at (0,-28) {\parbox[c][19.38mm][c]{30mm}{\raggedright Title 3\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title4) at (40,-28) {Title 4\\[-1pt]\sgcode{code}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title5) at (80,-28) {\parbox[c][19.38mm][c]{30mm}{\raggedleft Title 5\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title6) at (0,-56) {\parbox[c][19.38mm][b]{30mm}{\raggedright Title 6\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title7) at (40,-56) {\parbox[c][19.38mm][b]{30mm}{\centering Title 7\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=30mm, minimum height=22mm, sg layer=layer1] (title8) at (80,-56) {\parbox[c][19.38mm][b]{30mm}{\raggedleft Title 8\\[-1pt]\sgcode{code}}};
+\node[sg box, text width=84mm, minimum height=74mm, sg layer=layer1] (labelParent) at (35,-125) {};
+\node[sg box, text width=84mm, minimum height=40mm, sg layer=layer1] (parent) at (35,-205) {\parbox[c][37.38mm][b]{84mm}{\raggedleft Parent}};
+\node[sg box, text width=70mm, minimum height=64mm, sg layer=layer1] (outsideParent) at (165,-125) {};
+\node[sg label, sg label height=6.835893178358932, draw=black!38, text width=24mm, sg layer=layer1, text=sgc2468AC, solid, font=\sffamily\large] (freeLabel) at (110,0) {Free label};
+\node[sg label, sg label height=6.16, anchor=north west, text width=12mm, sg layer=layer1, text=palRose, font=\sffamily\scriptsize] (inside0) at ([shift={(2mm,-2mm)}]labelParent.north west) {In 0};
+\node[sg label, sg label height=6.16, anchor=south east, text width=12mm, sg layer=layer1] (outside0) at ([shift={(-2mm,2mm)}]outsideParent.north west) {Out 0};
+\pic[pic text={}, anchor=north west, sg layer=layer1] (icon0) at ([shift={(13mm,-14mm)}]outsideParent.north west) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, draw=black!38, anchor=north, text width=12mm, sg layer=layer1, text=palRose, solid, font=\sffamily\scriptsize] (inside1) at ([shift={(0mm,-2mm)}]labelParent.north) {In 1};
+\node[sg label, sg label height=6.16, anchor=south, text width=12mm, sg layer=layer1] (outside1) at ([shift={(0mm,2mm)}]outsideParent.north) {Out 1};
+\pic[pic text={}, anchor=north, sg layer=layer1] (icon1) at ([shift={(0mm,-14mm)}]outsideParent.north) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, anchor=north east, text width=12mm, sg layer=layer1, text=palRose, font=\sffamily\scriptsize] (inside2) at ([shift={(-2mm,-2mm)}]labelParent.north east) {In 2};
+\node[sg label, sg label height=6.16, anchor=south west, text width=12mm, sg layer=layer1] (outside2) at ([shift={(2mm,2mm)}]outsideParent.north east) {Out 2};
+\pic[pic text={}, anchor=north east, sg layer=layer1] (icon2) at ([shift={(-13mm,-14mm)}]outsideParent.north east) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, draw=black!38, anchor=west, text width=12mm, sg layer=layer1, text=palRose, solid, font=\sffamily\scriptsize] (inside3) at ([shift={(2mm,0mm)}]labelParent.west) {In 3};
+\node[sg label, sg label height=6.16, anchor=east, text width=12mm, sg layer=layer1] (outside3) at ([shift={(-2mm,0mm)}]outsideParent.west) {Out 3};
+\pic[pic text={}, anchor=west, sg layer=layer1] (icon3) at ([shift={(13mm,0mm)}]outsideParent.west) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, anchor=center, text width=12mm, sg layer=layer1, text=palRose, font=\sffamily\scriptsize] (inside4) at ([shift={(0mm,0mm)}]labelParent.center) {In 4};
+\pic[pic text={}, anchor=center, sg layer=layer1] (icon4) at ([shift={(0mm,0mm)}]outsideParent.center) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, draw=black!38, anchor=east, text width=12mm, sg layer=layer1, text=palRose, solid, font=\sffamily\scriptsize] (inside5) at ([shift={(-2mm,0mm)}]labelParent.east) {In 5};
+\node[sg label, sg label height=6.16, anchor=west, text width=12mm, sg layer=layer1] (outside5) at ([shift={(2mm,0mm)}]outsideParent.east) {Out 5};
+\pic[pic text={}, anchor=east, sg layer=layer1] (icon5) at ([shift={(-13mm,0mm)}]outsideParent.east) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, anchor=south west, text width=12mm, sg layer=layer1, text=palRose, font=\sffamily\scriptsize] (inside6) at ([shift={(2mm,2mm)}]labelParent.south west) {In 6};
+\node[sg label, sg label height=6.16, anchor=north east, text width=12mm, sg layer=layer1] (outside6) at ([shift={(-2mm,-2mm)}]outsideParent.south west) {Out 6};
+\pic[pic text={}, anchor=south west, sg layer=layer1] (icon6) at ([shift={(13mm,14mm)}]outsideParent.south west) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, draw=black!38, anchor=south, text width=12mm, sg layer=layer1, text=palRose, solid, font=\sffamily\scriptsize] (inside7) at ([shift={(0mm,2mm)}]labelParent.south) {In 7};
+\node[sg label, sg label height=6.16, anchor=north, text width=12mm, sg layer=layer1] (outside7) at ([shift={(0mm,-2mm)}]outsideParent.south) {Out 7};
+\pic[pic text={}, anchor=south, sg layer=layer1] (icon7) at ([shift={(0mm,14mm)}]outsideParent.south) {sg object={board}{6}{8}};
+\node[sg label, sg label height=6.16, anchor=south east, text width=12mm, sg layer=layer1, text=palRose, font=\sffamily\scriptsize] (inside8) at ([shift={(-2mm,2mm)}]labelParent.south east) {In 8};
+\node[sg label, sg label height=6.16, anchor=north west, text width=12mm, sg layer=layer1] (outside8) at ([shift={(2mm,-2mm)}]outsideParent.south east) {Out 8};
+\pic[pic text={}, anchor=south east, sg layer=layer1] (icon8) at ([shift={(-13mm,14mm)}]outsideParent.south east) {sg object={board}{6}{8}};
+\node[sg box, anchor=north west, text width=20mm, minimum height=12mm, sg layer=layer1] (child) at ([shift={(1.5mm,-1.5mm)}]parent.north west) {Child};
+\node[sg label, sg label height=6.16, anchor=north, text width=12mm, sg layer=layer1] (grandchild) at ([shift={(0mm,-1mm)}]child.south) {Nested};
+% sakuga hidden \node[sg box, text width=42mm, minimum height=16mm, sg layer=hidden] (hiddenParent) at (100,-200) {hiddenParent};
+% sakuga icons begin (generated anchor for hidden parent)
+\node[sg box, text width=42mm, minimum height=16mm, sg layer=hidden, opacity=0, overlay] (hiddenParent) at (100,-200) {hiddenParent};
+% sakuga icons end
+\node[sg label, sg label height=6.16, anchor=north west, text width=14mm, sg layer=layer1] (visibleChild) at ([shift={(2mm,-2mm)}]hiddenParent.north west) {Visible};
+\end{tikzpicture}

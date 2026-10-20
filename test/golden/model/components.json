@@ -1,0 +1,631 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure. Needs \\usetikzlibrary{arrows.meta} in the preamble."
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "cryptoservice",
+    "name": "CryptoService",
+    "props": {
+     "fill": "blue"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "tee",
+    "name": "TEE",
+    "props": {
+     "fill": "green"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "riot",
+    "name": "RIOT",
+    "props": {
+     "fill": "grey"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": true
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "g1",
+    "name": "attestation module",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": ""
+   }
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "g2",
+    "name": "secure world",
+    "frame": "region",
+    "color": "green",
+    "parent": ""
+   }
+  },
+  {
+   "t": "group",
+   "g": {
+    "id": "g3",
+    "name": "operation",
+    "frame": "dotted",
+    "color": "grey",
+    "parent": "g2"
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "app",
+    "cat": "riot",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "att",
+    "cat": "work",
+    "x": 0,
+    "y": -12,
+    "title": "PSA Attestation API",
+    "code": "psa\\_initial\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "seam",
+    "cat": "work",
+    "x": 0,
+    "y": -24,
+    "title": "Backend interface",
+    "code": "attest\\_backend\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "swbe",
+    "cat": "work",
+    "x": -15,
+    "y": -35,
+    "title": "Software backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "teebe",
+    "cat": "work",
+    "x": 15,
+    "y": -35,
+    "title": "TEE backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "nsenc",
+    "cat": "work",
+    "x": -15,
+    "y": -46,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "psac",
+    "cat": "riot",
+    "x": -15,
+    "y": -60,
+    "title": "PSA Crypto",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "",
+    "group": "",
+    "hidden": true,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "cysapi",
+    "cat": "cryptoservice",
+    "x": 0,
+    "y": -74,
+    "title": "CryptoService API",
+    "code": "CYS\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "entry",
+    "cat": "tee",
+    "x": 0,
+    "y": -89,
+    "title": "Secure entry and dispatch table",
+    "code": "tee\\_secure\\_entry",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "hdl",
+    "cat": "work",
+    "x": -15,
+    "y": -104,
+    "title": "Attestation handler",
+    "code": "tee\\_attest\\_get\\_token",
+    "wantWidth": 26,
+    "width": 37.96,
+    "minh": 0,
+    "layer": "",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "senc",
+    "cat": "work",
+    "x": -15,
+    "y": -117,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "ops",
+    "cat": "tee",
+    "x": 15,
+    "y": -110,
+    "title": "Crypto and RoT operations",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "drv",
+    "cat": "riot",
+    "x": 0,
+    "y": -131,
+    "title": "CC310 driver",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "hw",
+    "cat": "riot",
+    "x": 0,
+    "y": -141,
+    "title": "CC310",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "groups"
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "app",
+    "to": "att",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "att",
+    "to": "seam",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "seam",
+    "to": "swbe",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "seam",
+    "to": "teebe",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "calls",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "swbe",
+    "to": "nsenc",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "nsenc",
+    "to": "psac",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "psac",
+    "to": "cysapi",
+    "kind": "arr",
+    "route": "hvh",
+    "mid": -30,
+    "bend": 0,
+    "head": "end",
+    "label": "PSA",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "teebe",
+    "to": "cysapi",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "both",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "cysapi",
+    "to": "entry",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "entry",
+    "to": "hdl",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "entry",
+    "to": "ops",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "hdl",
+    "to": "senc",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "senc",
+    "to": "drv",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "ops",
+    "to": "drv",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "drv",
+    "to": "hw",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "legend"
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

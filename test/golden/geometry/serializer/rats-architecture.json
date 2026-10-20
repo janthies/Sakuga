@@ -1,0 +1,538 @@
+{
+ "nodes": [
+  {
+   "id": "app",
+   "x": 0,
+   "y": 0,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "rtos",
+   "x": 34,
+   "y": 0,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "client",
+   "x": 68,
+   "y": 0,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "store",
+   "x": 0,
+   "y": -34,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "crypto",
+   "x": 34,
+   "y": -34,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "ias",
+   "x": 68,
+   "y": -34,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "bl1",
+   "x": 0,
+   "y": -68,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "otp",
+   "x": 34,
+   "y": -68,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "rec",
+   "x": 68,
+   "y": -68,
+   "w": 28.2675,
+   "h": 11,
+   "boxHalf": [
+    14.1338,
+    5.5
+   ]
+  },
+  {
+   "id": "ver",
+   "x": 140,
+   "y": -4,
+   "w": 38.2675,
+   "h": 28,
+   "boxHalf": [
+    19.1338,
+    14
+   ]
+  },
+  {
+   "id": "end",
+   "x": 128,
+   "y": 30,
+   "w": 20.2675,
+   "h": 12,
+   "boxHalf": [
+    10.1337,
+    6
+   ]
+  },
+  {
+   "id": "rvp",
+   "x": 152,
+   "y": 30,
+   "w": 20.2675,
+   "h": 12,
+   "boxHalf": [
+    10.1337,
+    6
+   ]
+  },
+  {
+   "id": "rp",
+   "x": 140,
+   "y": -68,
+   "w": 38.2675,
+   "h": 17,
+   "boxHalf": [
+    19.1338,
+    8.5
+   ]
+  },
+  {
+   "id": "note",
+   "x": 105,
+   "y": -43,
+   "w": 30.2675,
+   "h": 8.7689,
+   "boxHalf": [
+    15.1338,
+    4.3845
+   ]
+  },
+  {
+   "id": "foot",
+   "x": 65,
+   "y": -96,
+   "w": 167.2675,
+   "h": 6.16,
+   "boxHalf": [
+    83.6338,
+    3.08
+   ]
+  }
+ ],
+ "frames": [
+  {
+   "id": "att",
+   "x": 34,
+   "y": -35.567,
+   "w": 107.8675,
+   "h": 101.4661
+  },
+  {
+   "id": "nw",
+   "x": 34,
+   "y": 0,
+   "w": 101.8675,
+   "h": 16.6
+  },
+  {
+   "id": "sw",
+   "x": 34,
+   "y": -34,
+   "w": 101.8675,
+   "h": 16.6
+  },
+  {
+   "id": "hw",
+   "x": 34,
+   "y": -71.5,
+   "w": 101.8675,
+   "h": 23.6
+  }
+ ],
+ "edges": [
+  {
+   "index": 0,
+   "from": "client",
+   "to": "ias",
+   "route": {
+    "type": "line"
+   },
+   "geometry": {
+    "pts": [
+     [
+      68,
+      -5.5
+     ],
+     [
+      68,
+      -28.5
+     ]
+    ],
+    "label": [
+     68,
+     -17
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "south",
+    "sb": "north",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 1,
+   "from": "ias",
+   "to": "crypto",
+   "route": {
+    "type": "line"
+   },
+   "geometry": {
+    "pts": [
+     [
+      53.8663,
+      -34
+     ],
+     [
+      48.1338,
+      -34
+     ]
+    ],
+    "label": [
+     51,
+     -34
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "west",
+    "sb": "east",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 2,
+   "from": "otp",
+   "to": "crypto",
+   "route": {
+    "type": "line"
+   },
+   "geometry": {
+    "pts": [
+     [
+      34,
+      -62.5
+     ],
+     [
+      34,
+      -39.5
+     ]
+    ],
+    "label": [
+     34,
+     -51
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "north",
+    "sb": "south",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 3,
+   "from": "rec",
+   "to": "ias",
+   "route": {
+    "type": "line"
+   },
+   "geometry": {
+    "pts": [
+     [
+      68,
+      -62.5
+     ],
+     [
+      68,
+      -39.5
+     ]
+    ],
+    "label": [
+     68,
+     -51
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "north",
+    "sb": "south",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 4,
+   "from": "bl1",
+   "to": "rec",
+   "route": {
+    "type": "line"
+   },
+   "geometry": {
+    "pts": [
+     [
+      0,
+      -73.5
+     ],
+     [
+      0,
+      -80.5
+     ],
+     [
+      68,
+      -80.5
+     ],
+     [
+      68,
+      -73.5
+     ]
+    ],
+    "label": [
+     34,
+     -80.5
+    ],
+    "r": {
+     "type": "vhv",
+     "mid": null
+    },
+    "special": true
+   }
+  },
+  {
+   "index": 5,
+   "from": "end",
+   "to": "ver",
+   "route": {
+    "type": "vert",
+    "at": "a"
+   },
+   "geometry": {
+    "pts": [
+     [
+      129.5,
+      24
+     ],
+     [
+      129.5,
+      10
+     ]
+    ],
+    "label": [
+     129.5,
+     17
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "south",
+    "sb": "north",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 6,
+   "from": "rvp",
+   "to": "ver",
+   "route": {
+    "type": "vert",
+    "at": "a"
+   },
+   "geometry": {
+    "pts": [
+     [
+      150.5,
+      24
+     ],
+     [
+      150.5,
+      10
+     ]
+    ],
+    "label": [
+     150.5,
+     17
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "south",
+    "sb": "north",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 7,
+   "from": "ver",
+   "to": "att",
+   "route": null,
+   "geometry": {
+    "pts": [
+     [
+      120.8663,
+      -0.5
+     ],
+     [
+      87.9337,
+      -0.5
+     ]
+    ],
+    "label": [
+     104.4,
+     -0.5
+    ],
+    "r": {
+     "type": "line",
+     "mid": null
+    },
+    "special": true
+   }
+  },
+  {
+   "index": 8,
+   "from": "att",
+   "to": "ver",
+   "route": null,
+   "geometry": {
+    "pts": [
+     [
+      87.9337,
+      -7.5
+     ],
+     [
+      120.8663,
+      -7.5
+     ]
+    ],
+    "label": [
+     104.4,
+     -7.5
+    ],
+    "r": {
+     "type": "line",
+     "mid": null
+    },
+    "special": true
+   }
+  },
+  {
+   "index": 9,
+   "from": "ver",
+   "to": "rp",
+   "route": {
+    "type": "line"
+   },
+   "geometry": {
+    "pts": [
+     [
+      140,
+      -18
+     ],
+     [
+      140,
+      -59.5
+     ]
+    ],
+    "label": [
+     140,
+     -38.75
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "sa": "south",
+    "sb": "north",
+    "rule": "aligned"
+   }
+  },
+  {
+   "index": 10,
+   "from": "rp",
+   "to": "att",
+   "route": null,
+   "geometry": {
+    "pts": [
+     [
+      120.8663,
+      -68
+     ],
+     [
+      87.9337,
+      -68
+     ]
+    ],
+    "label": [
+     104.4,
+     -68
+    ],
+    "r": {
+     "type": "line",
+     "mid": null
+    },
+    "special": true
+   }
+  }
+ ]
+}

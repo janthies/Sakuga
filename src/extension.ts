@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import { exportSvg } from './export';
-import { apply, fontSize, arrowStyle, categories, overrideKeys, sharedOverrides, styleDefs, styleLine, DEFAULT_WIDTH, edges, groups, layers, isHidden, isLocked, nodeLayer, legendOn, nodes, Op, PALETTE, parse, pasteOps, serialize, setIcons, Icon, TEMPLATE } from './tikz';
+import { apply, Op, parse, pasteOps, serialize, setIcons, Icon, TEMPLATE } from './tikz';
+import { statePayload } from './state';
 
 const log = vscode.window.createOutputChannel('Sakuga');
 const PREAMBLE = '\\usetikzlibrary{arrows.meta, fit, backgrounds, svg.path, shapes.geometric, patterns}';
@@ -78,11 +79,7 @@ class FigureEditor implements vscode.CustomTextEditorProvider {
 		panel.webview.html = page(panel.webview, media);
 
 		const send = () => {
-			const fig = parse(doc.getText());
-			panel.webview.postMessage({
-				type: 'state', text: doc.getText(), nodes: layers(fig).flatMap(l => nodes(fig).filter(n => nodeLayer(fig, n).id === l.id)).map(n => ({ ...n, layer: nodeLayer(fig, n).id, hidden: isHidden(fig, n), locked: isLocked(fig, n), overrides: overrideKeys(fig, n) })), edges: edges(fig).map(x => ({ ...x, overrides: overrideKeys(fig, x) })),
-				categories: categories(fig), styles: styleDefs(fig).map(s => ({ ...s, line: styleLine(s) })), shared: sharedOverrides(fig), groups: groups(fig), layers: layers(fig), font: fontSize(fig), legend: legendOn(fig), arrows: arrowStyle(fig), palette: PALETTE, defaultWidth: DEFAULT_WIDTH,
-			});
+			panel.webview.postMessage(statePayload(doc.getText()));
 		};
 		const changed = vscode.workspace.onDidChangeTextDocument(e => {
 			if (e.document.uri.toString() === doc.uri.toString()) {

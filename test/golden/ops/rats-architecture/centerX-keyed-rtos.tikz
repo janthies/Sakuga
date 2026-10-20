@@ -1,0 +1,114 @@
+% Sakuga figure
+% sakuga style box work {this work} peach legend
+% sakuga style box normal {Normal world} blue legend
+% sakuga style box secure {Secure world} red legend
+% sakuga style box hw {Hardware} grey legend
+% sakuga style box ok {Verifier side} green legend
+% sakuga style box rp {Relying party} peach legend
+% sakuga legend off
+% sakuga group att {Attester (constrained device)} solid grey titlePosition=above-center titleBold=true titleFont=small lineWidth=1 frameColor=#30343B
+% sakuga group nw {Normal world (untrusted)} dashed blue in=att titlePosition=above-left titleBold=true titleColor=#2D70A6 frameColor=#2D70A6 fill=tint fillStrength=18 outline=dashed
+% sakuga group sw {Secure world (SPE, TF-M)} dashed red in=att titlePosition=above-left titleBold=true titleColor=#CF3C50 frameColor=#CF3C50 fill=tint fillStrength=18 outline=dashed
+% sakuga group hw {Hardware root of trust} dashed grey in=att titlePosition=above-left titleBold=true titleColor=#6B7280 frameColor=#6B7280 fill=tint fillStrength=18 outline=dashed
+\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
+% sakuga theme begin (generated from the style lines above)
+\definecolor{sgc1B4364}{HTML}{1B4364}
+\definecolor{sgc1D1F23}{HTML}{1D1F23}
+\definecolor{sgc2D70A6}{HTML}{2D70A6}
+\definecolor{sgc30343B}{HTML}{30343B}
+\definecolor{sgc40444D}{HTML}{40444D}
+\definecolor{sgc666666}{HTML}{666666}
+\definecolor{sgc6B7280}{HTML}{6B7280}
+\definecolor{sgc707A8F}{HTML}{707A8F}
+\definecolor{sgc777777}{HTML}{777777}
+\definecolor{sgc7C2430}{HTML}{7C2430}
+\definecolor{sgc804050}{HTML}{804050}
+\definecolor{sgc858585}{HTML}{858585}
+\definecolor{sgc997A7A}{HTML}{997A7A}
+\definecolor{sgcCF3C50}{HTML}{CF3C50}
+\definecolor{sgBlue}{HTML}{BBCCEE}
+\definecolor{sgGreen}{HTML}{CCDDAA}
+\definecolor{sgPeach}{HTML}{FFDDCC}
+\definecolor{sgGrey}{HTML}{DDDDDD}
+\definecolor{sgYellow}{HTML}{EEEEBB}
+\definecolor{sgCyan}{HTML}{CCEEFF}
+\definecolor{sgRed}{HTML}{FFCCCC}
+\definecolor{palRose}{HTML}{CC6677}
+\definecolor{black}{HTML}{000000}
+\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2mm][r]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2mm][l]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\ifx\sgpos\sgse\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\parbox{#2mm}{\vspace*{4mm}\centering#3}\fi\fi\fi\fi}
+\def\sgcodesize{}\tikzset{sg want/.style={},sg code font/.code={\def\sgcodesize{\csname#1\endcsname}}}
+\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\sgcodesize\ttfamily\textcolor{black!48}{#1}}}
+\def\sgstep#1{\tikz[baseline=-0.6ex]\node[circle,fill=.,text=white,font=\sffamily\bfseries\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}
+\def\sglabel#1#2{\raisebox{\dimexpr\depth/2-\height/2\relax}{\sgstep{#1}}\hspace{0.8mm}\raisebox{\dimexpr\depth/2-\height/2\relax}{\shortstack{#2}}}
+\tikzset{
+  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
+    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},
+  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},
+  sg style/work/.style={sg box, fill=sgPeach},
+  sg style/normal/.style={sg box, fill=sgBlue!85},
+  sg style/secure/.style={sg box, fill=sgRed},
+  sg style/hw/.style={sg box, fill=sgGrey!70},
+  sg style/ok/.style={sg box, fill=sgGreen!85},
+  sg style/rp/.style={sg box, fill=sgPeach},
+  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
+  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
+  head none/.style={-},
+  sg elabel/.style={align=center, text=black!65, font=\sffamily\scriptsize, fill=white, inner sep=1pt},
+  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},
+  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
+  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},
+  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},
+  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},
+  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},
+  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},
+  sg frame none/.style={inner sep=0pt},
+  sg glabel/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1.5pt},
+  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},
+  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,
+    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
+}
+% sakuga theme end
+\node[sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6] (app) at (0,0) {Application};
+\node[sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6] (rtos) at (34,0) {RTOS / TCP/IP};
+\node[sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6, line width=1.2pt] (client) at (68,0) {Attestation\\client};
+\node[sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50] (store) at (34,-34) {Protected\\storage};
+\node[sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50] (crypto) at (34,-34) {Crypto\\service};
+\node[sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50, line width=1.2pt] (ias) at (68,-34) {Initial attest.\\service $^\dagger$};
+\node[sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (bl1) at (0,-68) {Boot ROM\\(BL1)};
+\node[sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (otp) at (34,-68) {OTP / eFuse\\\textbf{IAK}$_{\mathrm{priv}}$};
+\node[sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (rec) at (68,-68) {Boot record\\{\scriptsize measurements}};
+\node[sg style/ok, text width=36mm, minimum height=28mm, sg layer=layer1] (ver) at (34,-4) {\textbf{Verifier}\\[2pt]{\scriptsize appraisal policy}\\{\scriptsize freshness check (N)}\\{\scriptsize $\mathrm{Vrfy}(\mathrm{IAK_{pub}},\sigma)$}};
+\node[sg style/hw, text width=18mm, minimum height=12mm, sg layer=layer1] (end) at (128,30) {\textbf{Endorser}\\IAK$_{\mathrm{pub}}$};
+\node[sg style/hw, text width=18mm, minimum height=12mm, sg layer=layer1] (rvp) at (152,30) {\textbf{Ref.\ value}\\\textbf{provider}};
+\node[sg style/rp, text width=36mm, minimum height=17mm, sg layer=layer1] (rp) at (34,-68) {\textbf{Relying party}\\{\scriptsize fleet backend / gateway}};
+\node[sg label, sg label height=8.76892209768922, text width=28mm, sg layer=layer1, text=sgc777777, font=\sffamily\scriptsize] (note) at (105,-43) {adversary controls\\network + NW};
+\node[sg label, sg label height=6.16, text width=165mm, sg layer=layer1, text=sgc666666, font=\sffamily\scriptsize] (foot) at (65,-96) {$^\dagger$ attested component \quad Roles after RATS (RFC 9334); token format per PSA/EAT.};
+% sakuga groups begin (generated from the group lines)
+\begin{scope}[on background layer]
+\node[inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-8.3) (84.93374999999999,8.3)}] (nw) {};
+\node[inner sep=0pt, outer sep=0pt, fit={(17.066249999999997,-42.3) (84.93374999999999,-25.700000000000003)}] (sw) {};
+\node[inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-83.3) (84.93374999999999,-59.7)}] (hw) {};
+\node[inner sep=0pt, outer sep=0pt, fit={(-19.933750000000003,-86.3) (87.93374999999999,15.166057838660578)}] (att) {};
+\path[sg frame solid, fill=none, draw=sgc30343B, solid, line cap=butt, line width=1pt] (att.south west) rectangle (att.north east);
+\node[sg glabel, anchor=south, outer sep=0pt, text height=7.5pt, text depth=2.5pt, font=\sffamily\small\bfseries, text=sgc1D1F23, text=sgc1D1F23, font=\sffamily\small\bfseries] at (att.north) {Attester (constrained device)};
+\path[sg frame dashed, fill=sgGrey!18, draw=sgc6B7280, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (hw.south west) rectangle (hw.north east);
+\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\sffamily\scriptsize\bfseries, text=sgc6B7280, text=sgc6B7280, font=\sffamily\scriptsize\bfseries] at (hw.north west) {Hardware root of trust};
+\path[sg frame dashed, fill=sgRed!18, draw=sgcCF3C50, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (sw.south west) rectangle (sw.north east);
+\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\sffamily\scriptsize\bfseries, text=sgcCF3C50, text=sgcCF3C50, font=\sffamily\scriptsize\bfseries] at (sw.north west) {Secure world (SPE, TF-M)};
+\path[sg frame dashed, fill=sgBlue!18, draw=sgc2D70A6, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (nw.south west) rectangle (nw.north east);
+\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\sffamily\scriptsize\bfseries, text=sgc2D70A6, text=sgc2D70A6, font=\sffamily\scriptsize\bfseries] at (nw.north west) {Normal world (untrusted)};
+\end{scope}
+% sakuga groups end
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg route=auto, sg implicit from, sg implicit to] (client.south) -- node[sg elabel, outer sep=0pt, text height=12pt, text depth=8pt, font=\sffamily\scriptsize] {NSC call\\\texttt{get\_token(N)}} (client.south |- ias.north);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65222c2273696465223a2261626f7665222c226479223a312e352c22636f6c6f72223a2223383034303530222c22626f6c64223a747275657d7d, sg route=auto, sg implicit from, sg implicit to] (ias.west) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, above, shift={(0mm,1.5mm)}, text=sgc804050, font=\sffamily\scriptsize\bfseries] {sign} (ias.west -| crypto.east);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg route=auto, sg implicit from, sg implicit to] (otp.north) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, font=\sffamily\scriptsize] {key} (otp.north |- crypto.south);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg route=auto, sg implicit from, sg implicit to] (rec.north) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, font=\sffamily\scriptsize] {claims} (rec.north |- ias.south);
+\draw[arr-dashed, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg fixed, sg route=u] ([xshift=0mm,yshift=0mm]bl1.south) -- (0,-80.5) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, font=\sffamily\scriptsize] {measures BL2 + images} (68,-80.5) -- ([xshift=0mm,yshift=0mm]rec.south);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a226c656674227d, sg route=auto, sg implicit from, sg implicit to] ([yshift=-3.5mm]end.west) -- node[sg elabel, left, outer sep=0pt, text height=6pt, text depth=4pt, font=\sffamily\scriptsize] {endorsements} ([yshift=-3.5mm]end.west -| 50.6337,0) -- ([xshift=16.6337mm]ver.north);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a227269676874227d, sg route=auto, sg implicit from, sg implicit to] ([xshift=-7.6337mm]rvp.south) -- node[sg elabel, right, outer sep=0pt, text height=6pt, text depth=4pt, font=\sffamily\scriptsize] {golden hashes} ([xshift=-7.6337mm]rvp.south |- 0,7.5) -- ([yshift=11.5mm]ver.east);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a2261626f7665227d, sg straight, sg route=straight, sg step=1] ([xshift=0mm,yshift=3.5mm]ver.west) -- node[sg elabel, above, outer sep=0pt, text height=6.145795275590551pt, text depth=4.097196850393701pt, font=\sffamily\scriptsize] {\sglabel{1}{nonce $N$}} ([xshift=0mm,yshift=35.06697108066971mm]att.east);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65222c226478223a322c226479223a2d312e357d2c226c656761637953696465223a2262656c6f77227d, sg straight, sg route=straight, sg step=2] ([xshift=0mm,yshift=28.06697108066971mm]att.east) -- node[sg elabel, below, outer sep=0pt, text height=12pt, text depth=8pt, shift={(2mm,-1.5mm)}, font=\sffamily\scriptsize] {\sglabel{2}{evidence\\(EAT / COSE)}} ([xshift=0mm,yshift=-3.5mm]ver.west);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a227269676874227d, sg route=auto, sg implicit from, sg implicit to, sg step=3] ([xshift=-16.1337mm]ver.south) -- node[sg elabel, right, outer sep=0pt, text height=12pt, text depth=8pt, font=\sffamily\scriptsize] {\sglabel{3}{attestation\\result}} ([xshift=-16.1337mm]ver.south |- rp.north);
+\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a2261626f7665227d, sg straight, sg route=straight, sg step=4] ([xshift=0mm,yshift=0mm]rp.west) -- node[sg elabel, above, outer sep=0pt, text height=12pt, text depth=8pt, font=\sffamily\scriptsize] {\sglabel{4}{grant /\\quarantine}} ([xshift=0mm,yshift=-32.43302891933029mm]att.east);
+\end{tikzpicture}

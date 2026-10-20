@@ -1,0 +1,135 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure"
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "boxes": false,
+    "legend": true
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": true
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n0",
+    "cat": "",
+    "x": 30,
+    "y": 50,
+    "title": "Box",
+    "code": "",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n1",
+    "cat": "",
+    "x": 96,
+    "y": 20,
+    "title": "Box",
+    "code": "",
+    "width": 27,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n2",
+    "cat": "",
+    "x": 68,
+    "y": 8,
+    "title": "Box",
+    "code": "",
+    "width": 27,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "n3",
+    "cat": "",
+    "x": 91,
+    "y": 1,
+    "title": "Box",
+    "code": "",
+    "width": 19,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "edge",
+   "e": {
+    "from": "n0",
+    "to": "n1",
+    "fromAnchor": "south",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "fromOffset": 13.6337,
+    "toOffset": 1.54
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

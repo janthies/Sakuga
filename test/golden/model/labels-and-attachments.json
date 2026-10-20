@@ -1,0 +1,1162 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "% Sakuga figure"
+  },
+  {
+   "t": "style",
+   "s": {
+    "kind": "box",
+    "key": "work",
+    "name": "this work",
+    "props": {
+     "fill": "peach"
+    },
+    "legend": true
+   }
+  },
+  {
+   "t": "legendflag",
+   "on": false
+  },
+  {
+   "t": "layer",
+   "layer": {
+    "id": "layer1",
+    "name": "Layer 1",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "t": "layer",
+   "layer": {
+    "id": "hidden",
+    "name": "Hidden",
+    "hidden": true,
+    "locked": false
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title0",
+    "titlePosition": "north west",
+    "cat": "",
+    "x": 0,
+    "y": 0,
+    "title": "Title 0",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title1",
+    "titlePosition": "north",
+    "cat": "",
+    "x": 40,
+    "y": 0,
+    "title": "Title 1",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title2",
+    "titlePosition": "north east",
+    "cat": "",
+    "x": 80,
+    "y": 0,
+    "title": "Title 2",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title3",
+    "titlePosition": "west",
+    "cat": "",
+    "x": 0,
+    "y": -28,
+    "title": "Title 3",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title4",
+    "cat": "",
+    "x": 40,
+    "y": -28,
+    "title": "Title 4",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title5",
+    "titlePosition": "east",
+    "cat": "",
+    "x": 80,
+    "y": -28,
+    "title": "Title 5",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title6",
+    "titlePosition": "south west",
+    "cat": "",
+    "x": 0,
+    "y": -56,
+    "title": "Title 6",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title7",
+    "titlePosition": "south",
+    "cat": "",
+    "x": 40,
+    "y": -56,
+    "title": "Title 7",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title8",
+    "titlePosition": "south east",
+    "cat": "",
+    "x": 80,
+    "y": -56,
+    "title": "Title 8",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "labelParent",
+    "cat": "",
+    "x": 35,
+    "y": -125,
+    "title": "",
+    "code": "",
+    "width": 84,
+    "minh": 74,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "parent",
+    "titlePosition": "south east",
+    "cat": "",
+    "x": 35,
+    "y": -205,
+    "title": "Parent",
+    "code": "",
+    "width": 84,
+    "minh": 40,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outsideParent",
+    "cat": "",
+    "x": 165,
+    "y": -125,
+    "title": "",
+    "code": "",
+    "width": 70,
+    "minh": 64,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "freeLabel",
+    "kind": "label",
+    "cat": "",
+    "x": 110,
+    "y": 0,
+    "title": "Free label",
+    "code": "",
+    "width": 24,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#2468AC",
+     "border": "solid",
+     "font": "large"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside0",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "north west",
+     "ownAnchor": "north west",
+     "dx": 2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 1,
+    "y": -93.08,
+    "title": "In 0",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside0",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north west",
+     "ownAnchor": "south east",
+     "dx": -2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 119.7325,
+    "y": -87.92,
+    "title": "Out 0",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon0",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north west",
+     "ownAnchor": "north west",
+     "dx": 10,
+     "dy": -10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 141.8663,
+    "y": -107,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside1",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "north",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -93.08,
+    "title": "In 1",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside1",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north",
+     "ownAnchor": "south",
+     "dx": 0,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 165,
+    "y": -87.92,
+    "title": "Out 1",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon1",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 165,
+    "y": -107,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside2",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "north east",
+     "ownAnchor": "north east",
+     "dx": -2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 69,
+    "y": -93.08,
+    "title": "In 2",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside2",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north east",
+     "ownAnchor": "south west",
+     "dx": 2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 210.2675,
+    "y": -87.92,
+    "title": "Out 2",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon2",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north east",
+     "ownAnchor": "north east",
+     "dx": -10,
+     "dy": -10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 188.1338,
+    "y": -107,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside3",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "west",
+     "ownAnchor": "west",
+     "dx": 2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 1,
+    "y": -125,
+    "title": "In 3",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside3",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "west",
+     "ownAnchor": "east",
+     "dx": -2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 119.7325,
+    "y": -125,
+    "title": "Out 3",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon3",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "west",
+     "ownAnchor": "west",
+     "dx": 10,
+     "dy": 0
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 141.8663,
+    "y": -125,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside4",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "center",
+     "ownAnchor": "center",
+     "dx": 0,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -125,
+    "title": "In 4",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon4",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "center",
+     "ownAnchor": "center",
+     "dx": 0,
+     "dy": 0
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 165,
+    "y": -125,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside5",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "east",
+     "ownAnchor": "east",
+     "dx": -2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 69,
+    "y": -125,
+    "title": "In 5",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside5",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "east",
+     "ownAnchor": "west",
+     "dx": 2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 210.2675,
+    "y": -125,
+    "title": "Out 5",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon5",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "east",
+     "ownAnchor": "east",
+     "dx": -10,
+     "dy": 0
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 188.1338,
+    "y": -125,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside6",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "south west",
+     "ownAnchor": "south west",
+     "dx": 2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 1,
+    "y": -156.92,
+    "title": "In 6",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside6",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south west",
+     "ownAnchor": "north east",
+     "dx": -2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 119.7325,
+    "y": -162.08,
+    "title": "Out 6",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon6",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south west",
+     "ownAnchor": "south west",
+     "dx": 10,
+     "dy": 10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 141.8663,
+    "y": -143,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside7",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "south",
+     "ownAnchor": "south",
+     "dx": 0,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -156.92,
+    "title": "In 7",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside7",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 165,
+    "y": -162.08,
+    "title": "Out 7",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon7",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south",
+     "ownAnchor": "south",
+     "dx": 0,
+     "dy": 10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 165,
+    "y": -143,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "inside8",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "south east",
+     "ownAnchor": "south east",
+     "dx": -2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 69,
+    "y": -156.92,
+    "title": "In 8",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "outside8",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south east",
+     "ownAnchor": "north west",
+     "dx": 2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 210.2675,
+    "y": -162.08,
+    "title": "Out 8",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "icon8",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south east",
+     "ownAnchor": "south east",
+     "dx": -10,
+     "dy": 10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 188.1338,
+    "y": -143,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "child",
+    "attachment": {
+     "parent": "parent",
+     "anchor": "north west",
+     "ownAnchor": "north west",
+     "dx": 1.5,
+     "dy": -1.5
+    },
+    "cat": "",
+    "x": 4.5,
+    "y": -192.5,
+    "title": "Child",
+    "code": "",
+    "width": 20,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "grandchild",
+    "attachment": {
+     "parent": "child",
+     "anchor": "south",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -1
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 4.5,
+    "y": -202.58,
+    "title": "Nested",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "hiddenParent",
+    "cat": "",
+    "x": 100,
+    "y": -200,
+    "title": "hiddenParent",
+    "code": "",
+    "width": 42,
+    "minh": 16,
+    "layer": "hidden",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "icons"
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "visibleChild",
+    "attachment": {
+     "parent": "hiddenParent",
+     "anchor": "north west",
+     "ownAnchor": "north west",
+     "dx": 2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 88,
+    "y": -197.08,
+    "title": "Visible",
+    "code": "",
+    "width": 14,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": []
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  },
+  {
+   "t": "raw",
+   "text": ""
+  }
+ ]
+}

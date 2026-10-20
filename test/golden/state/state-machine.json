@@ -1,0 +1,350 @@
+{
+ "type": "state",
+ "text": "% Sakuga figure\n% sakuga style box work {this work} peach legend\n% sakuga legend off\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  sg style/work/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg box, text width=12mm, sg layer=layer1, circle, fill=sgBlue!85] (idle) at (0,0) {Idle};\n\\node[sg box, text width=12mm, sg layer=layer1, circle, fill=sgGreen!85] (ready) at (45,0) {Ready};\n\\node[sg box, text width=12mm, sg layer=layer1, circle, fill=sgPeach] (active) at (90,0) {Active};\n\\node[sg box, text width=12mm, sg layer=layer1, circle, fill=sgGreen!85] (done) at (90,-43) {Done};\n\\node[sg box, text width=12mm, sg layer=layer1, circle, fill=sgRed] (error) at (45,-43) {Error};\n\\draw[arr, sg fixed] (idle.112) to[out=112,in=68,min distance=8mm] node[sg elabel, above, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {wait} (idle.68);\n\\draw[arr, sg fixed] (active.22) to[out=22,in=-22,min distance=8mm] node[sg elabel, right, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {tick} (active.-22);\n\\draw[arr, sg straight] (idle) -- node[sg elabel, above, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {start} (ready);\n\\draw[arr, sg straight] (ready) -- node[sg elabel, above, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {accept} (active);\n\\draw[arr, sg straight] (active) -- node[sg elabel, right, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {finish} (done);\n\\draw[arr, sg fixed] (active) to[bend left=14] node[sg elabel, above, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {fail} (error);\n\\draw[arr, sg straight] (error) -- node[sg elabel, left, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {retry} (ready);\n\\draw[arr, sg labels=7b227374796c65223a7b227365676d656e74223a317d2c226c656761637953696465223a2262656c6f77227d, sg fixed] (done.south) -- (done.south |- 0,-65) -- node[sg elabel, below, outer sep=0pt, text height=7.5pt, text depth=5pt, font=\\sffamily\\small] {reset} (-25,-65) -- (idle.west -| -25,0) -- (idle.west);\n\\end{tikzpicture}\n",
+ "nodes": [
+  {
+   "id": "idle",
+   "cat": "",
+   "x": 0,
+   "y": 0,
+   "title": "Idle",
+   "code": "",
+   "width": 12,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "shape": "circle",
+    "fill": "blue"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "ready",
+   "cat": "",
+   "x": 45,
+   "y": 0,
+   "title": "Ready",
+   "code": "",
+   "width": 12,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "shape": "circle",
+    "fill": "green"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "active",
+   "cat": "",
+   "x": 90,
+   "y": 0,
+   "title": "Active",
+   "code": "",
+   "width": 12,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "shape": "circle",
+    "fill": "peach"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "done",
+   "cat": "",
+   "x": 90,
+   "y": -43,
+   "title": "Done",
+   "code": "",
+   "width": 12,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "shape": "circle",
+    "fill": "green"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "id": "error",
+   "cat": "",
+   "x": 45,
+   "y": -43,
+   "title": "Error",
+   "code": "",
+   "width": 12,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "shape": "circle",
+    "fill": "red"
+   },
+   "extra": [],
+   "overrides": []
+  }
+ ],
+ "edges": [
+  {
+   "from": "idle",
+   "to": "idle",
+   "kind": "arr",
+   "route": "loop",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "wait",
+   "style": {
+    "side": "above"
+   },
+   "extra": [],
+   "loopOut": 112,
+   "loopIn": 68,
+   "loopSize": 8,
+   "loopSide": "north",
+   "overrides": []
+  },
+  {
+   "from": "active",
+   "to": "active",
+   "kind": "arr",
+   "route": "loop",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "tick",
+   "style": {
+    "side": "right"
+   },
+   "extra": [],
+   "loopOut": 22,
+   "loopIn": -22,
+   "loopSize": 8,
+   "loopSide": "east",
+   "overrides": []
+  },
+  {
+   "from": "idle",
+   "to": "ready",
+   "kind": "arr",
+   "route": "straight",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "start",
+   "style": {
+    "side": "above"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "from": "ready",
+   "to": "active",
+   "kind": "arr",
+   "route": "straight",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "accept",
+   "style": {
+    "side": "above"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "from": "active",
+   "to": "done",
+   "kind": "arr",
+   "route": "straight",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "finish",
+   "style": {
+    "side": "right"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "from": "active",
+   "to": "error",
+   "kind": "arr",
+   "route": "bend",
+   "mid": null,
+   "bend": 14,
+   "head": "end",
+   "label": "fail",
+   "style": {
+    "side": "above"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "from": "error",
+   "to": "ready",
+   "kind": "arr",
+   "route": "straight",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "retry",
+   "style": {
+    "side": "left"
+   },
+   "extra": [],
+   "overrides": []
+  },
+  {
+   "from": "done",
+   "to": "idle",
+   "fromAnchor": "south",
+   "toAnchor": "west",
+   "kind": "arr",
+   "route": "fixed",
+   "mid": null,
+   "bend": 0,
+   "head": "end",
+   "label": "reset",
+   "style": {
+    "side": "below"
+   },
+   "extra": [],
+   "labelStyle": {
+    "segment": 1
+   },
+   "chain": [
+    "(done.south)",
+    "--",
+    "(done.south |- 0,-65)",
+    "--",
+    "(-25,-65)",
+    "--",
+    "(idle.west -| -25,0)",
+    "--",
+    "(idle.west)"
+   ],
+   "overrides": []
+  }
+ ],
+ "categories": [
+  {
+   "key": "work",
+   "name": "this work",
+   "color": "peach",
+   "legend": true
+  }
+ ],
+ "styles": [
+  {
+   "kind": "box",
+   "key": "work",
+   "name": "this work",
+   "props": {
+    "fill": "peach"
+   },
+   "legend": true,
+   "line": "% sakuga style box work {this work} peach legend"
+  }
+ ],
+ "shared": [
+  {
+   "cat": "",
+   "props": {
+    "fill": "green",
+    "shape": "circle"
+   },
+   "ids": [
+    "ready",
+    "done"
+   ]
+  }
+ ],
+ "groups": [],
+ "layers": [
+  {
+   "id": "layer1",
+   "name": "Layer 1",
+   "hidden": false,
+   "locked": false
+  }
+ ],
+ "font": "small",
+ "legend": false,
+ "arrows": "manhattan",
+ "palette": {
+  "blue": {
+   "name": "sgBlue",
+   "hex": "BBCCEE",
+   "mix": 85
+  },
+  "green": {
+   "name": "sgGreen",
+   "hex": "CCDDAA",
+   "mix": 85
+  },
+  "peach": {
+   "name": "sgPeach",
+   "hex": "FFDDCC",
+   "mix": 100
+  },
+  "grey": {
+   "name": "sgGrey",
+   "hex": "DDDDDD",
+   "mix": 70
+  },
+  "yellow": {
+   "name": "sgYellow",
+   "hex": "EEEEBB",
+   "mix": 85
+  },
+  "cyan": {
+   "name": "sgCyan",
+   "hex": "CCEEFF",
+   "mix": 100
+  },
+  "red": {
+   "name": "sgRed",
+   "hex": "FFCCCC",
+   "mix": 100
+  },
+  "accent": {
+   "name": "palRose",
+   "hex": "CC6677",
+   "mix": 100
+  },
+  "black": {
+   "name": "black",
+   "hex": "000000",
+   "mix": 100
+  },
+  "white": {
+   "name": "white",
+   "hex": "FFFFFF",
+   "mix": 100
+  }
+ },
+ "defaultWidth": 26
+}

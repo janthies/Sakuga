@@ -1,0 +1,620 @@
+{
+ "lines": [
+  {
+   "t": "raw",
+   "text": "\\begin{tikzpicture}[x=1mm,y=1mm, font=\\sffamily\\small]"
+  },
+  {
+   "t": "theme"
+  },
+  {
+   "t": "legendflag",
+   "on": false
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box0",
+    "cat": "",
+    "x": 0,
+    "y": 0,
+    "title": "Box 0",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box1",
+    "cat": "",
+    "x": 40,
+    "y": 0,
+    "title": "Box 1",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "hatched"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box2",
+    "cat": "",
+    "x": 80,
+    "y": 0,
+    "title": "Box 2",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "crosshatch"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box3",
+    "cat": "",
+    "x": 120,
+    "y": 0,
+    "title": "Box 3",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "dots"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box4",
+    "cat": "",
+    "x": 0,
+    "y": -18,
+    "title": "Box 4",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "horizontal"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box5",
+    "cat": "",
+    "x": 40,
+    "y": -18,
+    "title": "Box 5",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "vertical"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box6",
+    "cat": "",
+    "x": 80,
+    "y": -18,
+    "title": "Box 6",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box7",
+    "cat": "",
+    "x": 120,
+    "y": -18,
+    "title": "Box 7",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box8",
+    "cat": "",
+    "x": 0,
+    "y": -36,
+    "title": "Box 8",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "nw",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box9",
+    "cat": "",
+    "x": 40,
+    "y": -36,
+    "title": "Box 9",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "nw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box10",
+    "cat": "",
+    "x": 80,
+    "y": -36,
+    "title": "Box 10",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "se",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box11",
+    "cat": "",
+    "x": 120,
+    "y": -36,
+    "title": "Box 11",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "se",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box12",
+    "cat": "",
+    "x": 0,
+    "y": -54,
+    "title": "Box 12",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "sw",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box13",
+    "cat": "",
+    "x": 40,
+    "y": -54,
+    "title": "Box 13",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "sw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box14",
+    "cat": "",
+    "x": 80,
+    "y": -54,
+    "title": "Box 14",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box15",
+    "cat": "",
+    "x": 120,
+    "y": -54,
+    "title": "Box 15",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box16",
+    "cat": "",
+    "x": 0,
+    "y": -72,
+    "title": "Box 16",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "nw",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box17",
+    "cat": "",
+    "x": 40,
+    "y": -72,
+    "title": "Box 17",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "nw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box18",
+    "cat": "",
+    "x": 80,
+    "y": -72,
+    "title": "Box 18",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "se",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box19",
+    "cat": "",
+    "x": 120,
+    "y": -72,
+    "title": "Box 19",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "se",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box20",
+    "cat": "",
+    "x": 0,
+    "y": -90,
+    "title": "Box 20",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "sw",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box21",
+    "cat": "",
+    "x": 40,
+    "y": -90,
+    "title": "Box 21",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "sw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box22",
+    "cat": "",
+    "x": 80,
+    "y": -90,
+    "title": "Box 22",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "pattern": "hatched",
+     "mark": "triangle"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "box23",
+    "cat": "",
+    "x": 120,
+    "y": -90,
+    "title": "Box 23",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green",
+     "border": "dashed",
+     "pattern": "dots",
+     "mark": "circle"
+    },
+    "extra": []
+   }
+  },
+  {
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
+  }
+ ]
+}
