@@ -1,0 +1,16 @@
+const assert=require('node:assert/strict'),t=require('../out/tikz');
+const fig=t.parse(t.TEMPLATE),before=t.serialize(fig);
+t.apply(fig,{op:'sheet',width:180});let saved=t.serialize(fig);
+assert(saved.includes('% sakuga sheet 180'));
+assert.equal(t.serialize(t.parse(saved)),saved,'Sheet metadata round trips through source edits');
+t.apply(fig,{op:'sheet',width:146});assert.equal(t.serialize(fig),before,'Default width is omitted');
+for(const width of [NaN,Infinity,0,401])t.apply(fig,{op:'sheet',width});
+assert.equal(t.serialize(fig),before,'Invalid sheet widths do not mutate the file');
+t.apply(fig,{op:'category',key:'work',color:'#2468AC',legend:false});
+saved=t.serialize(fig);const restored=t.parse(saved);
+assert.equal(t.categories(restored)[0].legend,false);
+assert.equal(t.categories(restored)[0].color,'#2468AC');
+assert(saved.includes('\\definecolor{sgc2468AC}{HTML}{2468AC}'),'Custom category colour is defined for export');
+assert(!saved.includes('% sakuga legend begin'),'Per-category legend exclusion is reflected in TikZ');
+t.apply(restored,{op:'category',key:'work',legend:true});assert(!t.serialize(restored).includes('no-legend'));
+console.log('Sheet default/metadata/validation and category colour/legend round trips passed.');
