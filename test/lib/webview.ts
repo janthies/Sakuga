@@ -16,18 +16,30 @@ const SCRIPTS = ['routes.js', 'text.js', 'sketch.js', 'editor.js'];
 export const VIEWPORT = { width: 1200, height: 800 };
 export const VIEW = { s: 4, ox: 100, oy: 400 };
 
-export interface Canvas { window: any; hook: any; svg: string; sent: any[]; frames: Map<number, () => void>; saved: () => any }
+export interface Canvas {
+	window: any;
+	hook: any;
+	svg: string;
+	sent: any[];
+	frames: Map<number, () => void>;
+	saved: () => any;
+}
 
 // Deterministic stand-in for canvas measureText: the advance tables of media/text.js, so widths do not depend on a font.
 function measureWidth(text: any, font: string, SakugaText: any): number {
 	const m = /([\d.]+)px '([^']+)'/.exec(font)!;
-	const pt = parseFloat(m[1]) * 72.27 / 96;
-	return SakugaText.mm(text, pt, m[2] === 'Sakuga Mono' ? 'mono' : 'sans') * 96 / 25.4;
+	const pt = (parseFloat(m[1]) * 72.27) / 96;
+	return (SakugaText.mm(text, pt, m[2] === 'Sakuga Mono' ? 'mono' : 'sans') * 96) / 25.4;
 }
 
 // Boot the real media scripts in jsdom, post the icons and state messages the host would send, and return the canvas.
 // onPost sees every message the webview sends to the host (the interactive tests answer ops with a new state).
-export function boot(state: any, icons: unknown[], onPost?: (m: any, canvas: Canvas) => void, initialSaved?: unknown): Canvas {
+export function boot(
+	state: any,
+	icons: unknown[],
+	onPost?: (m: any, canvas: Canvas) => void,
+	initialSaved?: unknown,
+): Canvas {
 	const dom = new JSDOM(`<!DOCTYPE html><html><body>${BODY}</body></html>`, { runScripts: 'outside-only' });
 	const w: any = dom.window;
 	const sent: any[] = [];
@@ -35,21 +47,48 @@ export function boot(state: any, icons: unknown[], onPost?: (m: any, canvas: Can
 	let saved: any = initialSaved;
 	const frames = new Map<number, () => void>();
 	let frame = 0;
-	w.requestAnimationFrame = (fn: () => void) => { frames.set(++frame, fn); return frame; };
-	w.cancelAnimationFrame = (id: number) => { frames.delete(id); };
+	w.requestAnimationFrame = (fn: () => void) => {
+		frames.set(++frame, fn);
+		return frame;
+	};
+	w.cancelAnimationFrame = (id: number) => {
+		frames.delete(id);
+	};
 	w.Element.prototype.setPointerCapture = () => {};
 	w.Element.prototype.scrollIntoView = () => {};
 	let canvas: Canvas;
-	w.acquireVsCodeApi = () => ({ postMessage: (m: any) => { sent.push(m); onPost?.(m, canvas); }, getState: () => saved, setState: (s: any) => { saved = s; } });
+	w.acquireVsCodeApi = () => ({
+		postMessage: (m: any) => {
+			sent.push(m);
+			onPost?.(m, canvas);
+		},
+		getState: () => saved,
+		setState: (s: any) => {
+			saved = s;
+		},
+	});
 	w.document.fonts = { load: () => Promise.resolve([]) };
-	w.ResizeObserver = class { observe() {} disconnect() {} };
+	w.ResizeObserver = class {
+		observe() {}
+		disconnect() {}
+	};
 	const rect = { x: 0, y: 0, left: 0, top: 0, right: VIEWPORT.width, bottom: VIEWPORT.height, ...VIEWPORT };
 	const none = { x: 0, y: 0, left: 0, top: 0, right: 0, bottom: 0, width: 0, height: 0 };
-	w.Element.prototype.getBoundingClientRect = function () { return this.id === 'canvas' || this.id === 'desk' ? rect : none; };
-	const context = { font: '', measureText(t: string) { return { width: measureWidth(t, this.font, w.SakugaText) }; } };
+	w.Element.prototype.getBoundingClientRect = function () {
+		return this.id === 'canvas' || this.id === 'desk' ? rect : none;
+	};
+	const context = {
+		font: '',
+		measureText(t: string) {
+			return { width: measureWidth(t, this.font, w.SakugaText) };
+		},
+	};
 	w.HTMLCanvasElement.prototype.getContext = () => context;
-	for (const f of SCRIPTS) { w.eval(read(`media/${f}`)); }
-	const post = (data: unknown) => w.dispatchEvent(new w.MessageEvent('message', { data: JSON.parse(JSON.stringify(data)) }));
+	for (const f of SCRIPTS) {
+		w.eval(read(`media/${f}`));
+	}
+	const post = (data: unknown) =>
+		w.dispatchEvent(new w.MessageEvent('message', { data: JSON.parse(JSON.stringify(data)) }));
 	post({ type: 'icons', icons });
 	post(state);
 	const hook = w.__sakugaTest;

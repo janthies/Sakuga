@@ -10,11 +10,19 @@ const EXT = /\.(ts|js|css)$/;
 const SKIP = ['media/dist'];
 
 function* walk(dir) {
-	if (!fs.existsSync(path.join(ROOT, dir))) { return; }
+	if (!fs.existsSync(path.join(ROOT, dir))) {
+		return;
+	}
 	for (const e of fs.readdirSync(path.join(ROOT, dir), { withFileTypes: true })) {
 		const rel = `${dir}/${e.name}`;
-		if (SKIP.includes(rel)) { continue; }
-		if (e.isDirectory()) { yield* walk(rel); } else if (EXT.test(e.name)) { yield rel; }
+		if (SKIP.includes(rel)) {
+			continue;
+		}
+		if (e.isDirectory()) {
+			yield* walk(rel);
+		} else if (EXT.test(e.name)) {
+			yield rel;
+		}
 	}
 }
 
@@ -23,8 +31,10 @@ let warnings = 0;
 for (const file of [...walk('src'), ...walk('media')]) {
 	const text = fs.readFileSync(path.join(ROOT, file), 'utf8');
 	const lines = text.length === 0 ? 0 : text.split('\n').length - (text.endsWith('\n') ? 1 : 0);
-	if (lines <= LIMIT) { continue; }
-	if (ENFORCED.some(p => file.startsWith(p))) {
+	if (lines <= LIMIT) {
+		continue;
+	}
+	if (ENFORCED.some((p) => file.startsWith(p))) {
 		console.error(`error: ${file} has ${lines} lines (limit ${LIMIT})`);
 		errors++;
 	} else {

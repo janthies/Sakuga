@@ -22,6 +22,8 @@ for (const { name, text } of inputs()) {
 test('which inputs round-trip byte-identically today', () => {
 	expectGolden('roundtrip/_identity.json', json(identity));
 	for (const { name, text } of inputs()) {
-		if (identity[name]) { assert.equal(t.serialize(t.parse(text)), text); }
+		if (identity[name]) {
+			assert.equal(t.serialize(t.parse(text)), text);
+		}
 	}
 });

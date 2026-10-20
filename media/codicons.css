@@ -1,20 +1,63 @@
 /* Subset of Microsoft codicons (CC-BY-4.0, https://github.com/microsoft/vscode-codicons); codicon.ttf bundled unchanged. */
-@font-face{font-family:codicon;src:url('codicon.ttf') format('truetype');}
-.ci{font:normal 16px/1 codicon;display:inline-block;text-rendering:auto;-webkit-font-smoothing:antialiased;user-select:none}
-.ci-menu::before{content:"\eb94"}
-.ci-layers::before{content:"\ebd2"}
-.ci-export::before{content:"\ebac"}
-.ci-chevron-right::before{content:"\eab6"}
-.ci-chevron-down::before{content:"\eab4"}
-.ci-add::before{content:"\ea60"}
-.ci-eye::before{content:"\ea70"}
-.ci-eye-closed::before{content:"\eae7"}
-.ci-lock::before{content:"\ea75"}
-.ci-unlock::before{content:"\eb74"}
-.ci-question::before{content:"\eb32"}
-.ci-copy::before{content:"\ebcc"}
-.ci-close::before{content:"\ea76"}
-.ci-gear::before{content:"\eaf8"}
-.ci-symbol-ruler::before{content:"\ea96"}
-.ci-warning::before{content:"\ea6c"}
-.ci-file-code::before{content:"\eae9"}
+@font-face {
+	font-family: codicon;
+	src: url('codicon.ttf') format('truetype');
+}
+.ci {
+	font: normal 16px/1 codicon;
+	display: inline-block;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	user-select: none;
+}
+.ci-menu::before {
+	content: '\eb94';
+}
+.ci-layers::before {
+	content: '\ebd2';
+}
+.ci-export::before {
+	content: '\ebac';
+}
+.ci-chevron-right::before {
+	content: '\eab6';
+}
+.ci-chevron-down::before {
+	content: '\eab4';
+}
+.ci-add::before {
+	content: '\ea60';
+}
+.ci-eye::before {
+	content: '\ea70';
+}
+.ci-eye-closed::before {
+	content: '\eae7';
+}
+.ci-lock::before {
+	content: '\ea75';
+}
+.ci-unlock::before {
+	content: '\eb74';
+}
+.ci-question::before {
+	content: '\eb32';
+}
+.ci-copy::before {
+	content: '\ebcc';
+}
+.ci-close::before {
+	content: '\ea76';
+}
+.ci-gear::before {
+	content: '\eaf8';
+}
+.ci-symbol-ruler::before {
+	content: '\ea96';
+}
+.ci-warning::before {
+	content: '\ea6c';
+}
+.ci-file-code::before {
+	content: '\eae9';
+}

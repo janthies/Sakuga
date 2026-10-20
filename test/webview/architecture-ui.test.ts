@@ -8,35 +8,63 @@ import { loadIcons } from '../lib/env';
 const t = loadIcons();
 
 test('frame endpoint drops, numeric controls, next step, style transfer and frame clipboard', () => {
-	const s = new Session(figure(
-		[['a', 0, 0, { title: 'A', cat: 'work', minh: 12 }], ['b', 70, 0, { title: 'B', cat: 'work', minh: 12 }]],
-		[{ from: 'b', to: 'a', style: { step: 2, color: 'blue', lineWidth: .75, tipWidth: 2, tipLength: 3, side: 'left' } }, { from: 'a', to: 'b', style: { step: 5, color: 'red' } }],
-		[{ op: 'addGroup', id: 'g', name: 'Frame', frame: 'dashed', color: 'blue', parent: '' }, { op: 'setGroup', ids: ['a'], group: 'g' }],
-	));
-	const selectEdge = (i: number, x = 35, y = 0) => { s.down(x, y, `[data-edge="${i}"]`); s.up(x, y); };
+	const s = new Session(
+		figure(
+			[
+				['a', 0, 0, { title: 'A', cat: 'work', minh: 12 }],
+				['b', 70, 0, { title: 'B', cat: 'work', minh: 12 }],
+			],
+			[
+				{
+					from: 'b',
+					to: 'a',
+					style: { step: 2, color: 'blue', lineWidth: 0.75, tipWidth: 2, tipLength: 3, side: 'left' },
+				},
+				{ from: 'a', to: 'b', style: { step: 5, color: 'red' } },
+			],
+			[
+				{ op: 'addGroup', id: 'g', name: 'Frame', frame: 'dashed', color: 'blue', parent: '' },
+				{ op: 'setGroup', ids: ['a'], group: 'g' },
+			],
+		),
+	);
+	const selectEdge = (i: number, x = 35, y = 0) => {
+		s.down(x, y, `[data-edge="${i}"]`);
+		s.up(x, y);
+	};
 	const input = (row: string) => s.row(row).querySelector('input');
-	const change = (row: string, value: string) => { const el = input(row); el.value = value; el.dispatchEvent(new s.window.Event('change', { bubbles: true })); };
+	const change = (row: string, value: string) => {
+		const el = input(row);
+		el.value = value;
+		el.dispatchEvent(new s.window.Event('change', { bubbles: true }));
+	};
 
 	// The next free step number is the placeholder of the Step field.
 	selectEdge(0);
 	assert.equal(input('Step').placeholder, '1');
-	s.apply({ op: 'style', indices: [0], style: { step: 1 } }); s.apply({ op: 'style', indices: [1], style: { step: 3 } });
+	s.apply({ op: 'style', indices: [0], style: { step: 1 } });
+	s.apply({ op: 'style', indices: [1], style: { step: 3 } });
 	assert.equal(input('Step').placeholder, '2');
-	s.apply({ op: 'style', indices: [0], style: { step: 2 } }); s.apply({ op: 'style', indices: [1], style: { step: 5 } });
+	s.apply({ op: 'style', indices: [0], style: { step: 2 } });
+	s.apply({ op: 'style', indices: [1], style: { step: 5 } });
 
-	const frame = s.hook.frameRect('g'), x = frame.x + frame.w / 2;
+	const frame = s.hook.frameRect('g'),
+		x = frame.x + frame.w / 2;
 	selectEdge(0);
-	s.down(50, 0, '[data-endpoint="0:to"]'); s.move(x, 0);
-	assert.equal(s.hook.drag().target.id, 'g'); assert.equal(s.hook.drag().target.anchor, 'east');
+	s.down(50, 0, '[data-endpoint="0:to"]');
+	s.move(x, 0);
+	assert.equal(s.hook.drag().target.id, 'g');
+	assert.equal(s.hook.drag().target.anchor, 'east');
 	s.up(x, 0);
-	assert.equal(s.lastOp.to, 'g'); assert.equal(s.lastOp.toAnchor, 'east');
+	assert.equal(s.lastOp.to, 'g');
+	assert.equal(s.lastOp.toAnchor, 'east');
 	assert.equal(s.hook.baseEdgeGeom(s.hook.state().edges[0]).pts.at(-1)[0], x);
 
 	// Numeric controls, integer badges, clearing and 0.05 pt increments.
 	selectEdge(0);
 	const before = s.ops.length;
 	change('Line width', '.65');
-	assert.equal(s.lastOp.ops[0].style.lineWidth, .65);
+	assert.equal(s.lastOp.ops[0].style.lineWidth, 0.65);
 	change('Step', '1.5');
 	assert.equal(s.ops.length, before + 1, 'A fractional step is not accepted');
 	change('Step', '4');
@@ -44,7 +72,7 @@ test('frame endpoint drops, numeric controls, next step, style transfer and fram
 	change('Step', '');
 	// The field posts a cleared step as 0 (the original primitive test posted null from its own callback).
 	assert.equal(s.lastOp.style.step, 0);
-	s.apply({ op: 'style', indices: [0], style: { step: 2, lineWidth: .75 } });
+	s.apply({ op: 'style', indices: [0], style: { step: 2, lineWidth: 0.75 } });
 
 	selectEdge(0);
 	s.key('c', { ctrlKey: true, altKey: true, code: 'KeyC' });
@@ -59,17 +87,23 @@ test('frame endpoint drops, numeric controls, next step, style transfer and fram
 	s.apply({ op: 'style', indices: [1], style: { color: 'red' } });
 	selectEdge(0);
 	s.key('c', { ctrlKey: true, altKey: true, code: 'KeyC' });
-	s.down(0, 0, s.node('a')); s.up(0, 0);
+	s.down(0, 0, s.node('a'));
+	s.up(0, 0);
 	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
 	assert.equal(s.lastOp.ops.at(-1).style.color, 'blue');
-	const frameEdge = () => { const r = s.hook.frameRect('g'); return [r.x - r.w / 2, r.y]; };
-	s.down(...frameEdge() as [number, number], '[data-group="g"]'); s.up(...frameEdge() as [number, number]);
+	const frameEdge = () => {
+		const r = s.hook.frameRect('g');
+		return [r.x - r.w / 2, r.y];
+	};
+	s.down(...(frameEdge() as [number, number]), '[data-group="g"]');
+	s.up(...(frameEdge() as [number, number]));
 	assert.equal(s.selection.group, 'g');
 	s.key('c', { ctrlKey: true, altKey: true, code: 'KeyC' });
 	selectEdge(1);
 	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
 	assert.equal(s.lastOp.ops[0].style.color, 'blue');
-	s.down(...frameEdge() as [number, number], '[data-group="g"]'); s.up(...frameEdge() as [number, number]);
+	s.down(...(frameEdge() as [number, number]), '[data-group="g"]');
+	s.up(...(frameEdge() as [number, number]));
 	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
 	assert.equal(s.lastOp.op, 'groupProps');
 	selectEdge(0);

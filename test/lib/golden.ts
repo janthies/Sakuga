@@ -18,5 +18,7 @@ export function expectGolden(name: string, actual: string): void {
 
 // Floats are rounded to 4 decimals (0.0001 mm) so a different Node version cannot flip a last digit.
 const r4 = (v: number) => Math.round(v * 1e4) / 1e4 + 0;
-export const json = (v: unknown) => JSON.stringify(v, (_k, x) => (typeof x === 'number' && Number.isFinite(x) ? r4(x) : x), 1) + '\n';
-export const roundSvg = (s: string) => s.replace(/-?\d+\.\d+(?:e[-+]?\d+)?|-?\d+e[-+]?\d+/g, m => String(r4(Number(m))));
+export const json = (v: unknown) =>
+	JSON.stringify(v, (_k, x) => (typeof x === 'number' && Number.isFinite(x) ? r4(x) : x), 1) + '\n';
+export const roundSvg = (s: string) =>
+	s.replace(/-?\d+\.\d+(?:e[-+]?\d+)?|-?\d+e[-+]?\d+/g, (m) => String(r4(Number(m))));

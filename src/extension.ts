@@ -7,15 +7,34 @@ const log = vscode.window.createOutputChannel('Sakuga');
 const PREAMBLE = '\\usetikzlibrary{arrows.meta, fit, backgrounds, svg.path, shapes.geometric, patterns}';
 
 export async function activate(context: vscode.ExtensionContext) {
-	const icons: Icon[] = JSON.parse(Buffer.from(await vscode.workspace.fs.readFile(vscode.Uri.joinPath(context.extensionUri, 'icons', 'icons.json'))).toString('utf8'));
+	const icons: Icon[] = JSON.parse(
+		Buffer.from(
+			await vscode.workspace.fs.readFile(vscode.Uri.joinPath(context.extensionUri, 'icons', 'icons.json')),
+		).toString('utf8'),
+	);
 	setIcons(icons);
 	const editor = new FigureEditor(context.extensionUri, icons);
-	for (const command of ['left','centerX','right','top','centerY','bottom','distributeX','distributeY','sameW','sameH','tidy']) {
-		context.subscriptions.push(vscode.commands.registerCommand(`sakuga.sketch.${command}`, (args) => editor.sketch(command,!!args?.preview)));
+	for (const command of [
+		'left',
+		'centerX',
+		'right',
+		'top',
+		'centerY',
+		'bottom',
+		'distributeX',
+		'distributeY',
+		'sameW',
+		'sameH',
+		'tidy',
+	]) {
+		context.subscriptions.push(
+			vscode.commands.registerCommand(`sakuga.sketch.${command}`, (args) => editor.sketch(command, !!args?.preview)),
+		);
 	}
 	context.subscriptions.push(
-		vscode.window.registerCustomEditorProvider('sakuga.figure', editor,
-			{ webviewOptions: { retainContextWhenHidden: true } }),
+		vscode.window.registerCustomEditorProvider('sakuga.figure', editor, {
+			webviewOptions: { retainContextWhenHidden: true },
+		}),
 		vscode.commands.registerCommand('sakuga.newFigure', newFigure),
 	);
 }
@@ -58,18 +77,27 @@ async function write(doc: vscode.TextDocument, text: string) {
 		b++;
 	}
 	const edit = new vscode.WorkspaceEdit();
-	edit.replace(doc.uri, new vscode.Range(doc.positionAt(a), doc.positionAt(old.length - b)), text.slice(a, text.length - b));
+	edit.replace(
+		doc.uri,
+		new vscode.Range(doc.positionAt(a), doc.positionAt(old.length - b)),
+		text.slice(a, text.length - b),
+	);
 	await vscode.workspace.applyEdit(edit);
 }
 
 class FigureEditor implements vscode.CustomTextEditorProvider {
- private readonly panels = new Set<vscode.WebviewPanel>();
- sketch(command: string, preview = false) {
-  const panel = [...this.panels].find(p => p.active);
-  if (panel) { panel.webview.postMessage({type:'sketch',command,preview}); }
- }
+	private readonly panels = new Set<vscode.WebviewPanel>();
+	sketch(command: string, preview = false) {
+		const panel = [...this.panels].find((p) => p.active);
+		if (panel) {
+			panel.webview.postMessage({ type: 'sketch', command, preview });
+		}
+	}
 
-	constructor(private readonly root: vscode.Uri, private readonly icons: Icon[]) { }
+	constructor(
+		private readonly root: vscode.Uri,
+		private readonly icons: Icon[],
+	) {}
 
 	async resolveCustomTextEditor(doc: vscode.TextDocument, panel: vscode.WebviewPanel): Promise<void> {
 		this.panels.add(panel);
@@ -81,14 +109,14 @@ class FigureEditor implements vscode.CustomTextEditorProvider {
 		const send = () => {
 			panel.webview.postMessage(statePayload(doc.getText()));
 		};
-		const changed = vscode.workspace.onDidChangeTextDocument(e => {
+		const changed = vscode.workspace.onDidChangeTextDocument((e) => {
 			if (e.document.uri.toString() === doc.uri.toString()) {
 				send();
 			}
 		});
 		panel.onDidDispose(() => changed.dispose());
 
-		panel.webview.onDidReceiveMessage(async msg => {
+		panel.webview.onDidReceiveMessage(async (msg) => {
 			switch (msg.type) {
 				case 'ready':
 					panel.webview.postMessage({ type: 'icons', icons: this.icons });
@@ -121,7 +149,7 @@ class FigureEditor implements vscode.CustomTextEditorProvider {
 					const fig = parse(doc.getText());
 					const { ops, ids } = pasteOps(fig, msg.text, msg.dx, msg.dy);
 					if (ids.length) {
-						apply(fig, { op: 'batch', ops: ops.map(op => op.op === 'addNode' ? { ...op, layer: msg.layer } : op) });
+						apply(fig, { op: 'batch', ops: ops.map((op) => (op.op === 'addNode' ? { ...op, layer: msg.layer } : op)) });
 						await write(doc, serialize(fig));
 						panel.webview.postMessage({ type: 'select', ids });
 					}

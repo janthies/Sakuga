@@ -165,8 +165,10 @@
 		"test:golden": "node --import tsx --test test/*.test.ts",
 		"test:webview": "node --import tsx --test test/webview/*.test.ts",
 		"test:tex": "node --import tsx --test test/tex/*.test.ts",
-		"check": "npm run compile && npm run typecheck && npm run depcruise && npm run fitness && npm run test:golden && npm run test:webview",
-		"check:tex": "npm run test:tex && for f in scripts/check-architecture.cjs scripts/check-boxdeco.cjs scripts/check-icons.cjs scripts/check-labels.cjs scripts/check-layers.cjs scripts/check-opacity.cjs scripts/check-routing.cjs scripts/check-styles.cjs scripts/check-styling.cjs; do echo \"== $f\"; nice -n 19 node $f || exit 1; done"
+		"check": "npm run compile && npm run typecheck && npm run depcruise && npm run format:check && npm run fitness && npm run test:golden && npm run test:webview",
+		"check:tex": "npm run test:tex && for f in scripts/check-architecture.cjs scripts/check-boxdeco.cjs scripts/check-icons.cjs scripts/check-labels.cjs scripts/check-layers.cjs scripts/check-opacity.cjs scripts/check-routing.cjs scripts/check-styles.cjs scripts/check-styling.cjs; do echo \"== $f\"; nice -n 19 node $f || exit 1; done",
+		"format": "prettier --write \"src/**/*.ts\" \"media/*.js\" \"media/*.css\" \"test/**/*.ts\" \"scripts/*.cjs\"",
+		"format:check": "prettier --check \"src/**/*.ts\" \"media/*.js\" \"media/*.css\" \"test/**/*.ts\" \"scripts/*.cjs\""
 	},
 	"devDependencies": {
 		"@types/node": "^20.0.0",
