@@ -10,15 +10,10 @@
     "kind": "box",
     "key": "work",
     "name": "this work",
-    "props": {
-     "fill": "peach"
-    },
-    "legend": true
+    "props": {},
+    "legend": false,
+    "color": "peach"
    }
-  },
-  {
-   "t": "legendflag",
-   "on": false
   },
   {
    "t": "layer",

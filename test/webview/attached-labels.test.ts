@@ -13,21 +13,16 @@ test('drag, inheritance, detach and attach, additional nodes, frame titles, styl
 	sequence(start());
 });
 
-test('old frame presets keep fill, outline, colour, width and corner preset', () => {
+test('old frame presets become groups; group look edits have no canvas effect', () => {
 	for (const frame of t.FRAMES) {
-		const f = t.parse(`% sakuga group old {Old} ${frame} blue\n${t.TEMPLATE}`),
-			g = t.groups(f)[0],
-			look = t.frameAppearance(g);
-		assert.equal(look.fill, frame === 'region' ? 'tint' : 'none');
-		assert.equal(look.outline, ['region', 'none'].includes(frame) ? 'none' : frame);
-		assert.equal(look.color, '#737373');
+		const f = t.parse(`% sakuga group old {Old} ${frame} blue\n${t.TEMPLATE}`);
+		assert.equal(t.groups(f)[0].frame, 'none');
 		assert.equal(t.serialize(t.parse(t.serialize(f))), t.serialize(f));
 	}
-	// A former folder can acquire just a fill, without accidentally acquiring an outline.
-	const folder = t.parse(t.TEMPLATE);
-	t.apply(folder, { op: 'addGroup', id: 'folder', name: 'Folder', frame: 'none' });
-	t.apply(folder, { op: 'groupProps', id: 'folder', fill: 'tint' });
-	assert.equal(t.frameAppearance(t.groups(folder)[0]).outline, 'none');
+	const f = t.parse(t.TEMPLATE);
+	t.apply(f, { op: 'addGroup', id: 'folder', name: 'Folder' });
+	t.apply(f, { op: 'groupProps', id: 'folder', fill: 'tint' });
+	assert.equal(t.groups(f)[0].fill, undefined);
 });
 
 test('label edits retain unanchored routing geometry', () => {

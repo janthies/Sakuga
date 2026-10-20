@@ -63,6 +63,7 @@ export function apply(fig: Figure, op: Op): void {
 		case 'setLayer':
 			for (const id of op.ids) reparent(fig, id, op.layer);
 			break;
+		case 'figure':
 		case 'sheet':
 		case 'font':
 		case 'arrows':

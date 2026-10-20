@@ -6,7 +6,6 @@ import type { Item, TextItem } from '../model/item';
 import { childrenOf, descendants, itemById, layerOf } from '../model/tree-queries';
 import { payload, projectTree, setParent, syncTree } from '../model/tree';
 import { insert } from '../model/lines';
-import { anchorPoint } from '../geometry/boxes';
 import { geometryOf } from '../geometry/figure-geometry';
 import type { TreeOp } from './types';
 
@@ -78,7 +77,7 @@ function textNode(fig: Figure, i: TextItem): FigNode {
 		style: { compact: true, font: i.placement?.font, textColor: i.placement?.color },
 	};
 }
-export function reparent(fig: Figure, id: string, parent: string, index?: number) {
+export function reparent(fig: Figure, id: string, parent: string, index?: number, makeTitle = false) {
 	syncTree(fig);
 	let i = itemById(fig, id);
 	if (!i) return;
@@ -102,7 +101,11 @@ export function reparent(fig: Figure, id: string, parent: string, index?: number
 		i.node = n;
 		i.role = undefined;
 	}
-	if (i.kind === 'Text' && inlineText(fig, i, itemById(fig, parent))) {
+	if (
+		i.kind === 'Text' &&
+		(makeTitle || ['Line', 'Connector'].includes(itemById(fig, parent)?.kind || '')) &&
+		inlineText(fig, i, itemById(fig, parent))
+	) {
 		projectTree(fig);
 		syncTree(fig);
 		return;
@@ -111,21 +114,72 @@ export function reparent(fig: Figure, id: string, parent: string, index?: number
 		const n = i.node!,
 			p = itemById(fig, parent);
 		if (p?.kind === 'Shape') {
-			const [x, y] = anchorPoint(p.node, 'center');
-			n.attachment = { parent, anchor: 'center', ownAnchor: 'center', dx: n.x - x, dy: n.y - y };
+			const anchors = [
+				'north west',
+				'north',
+				'north east',
+				'west',
+				'center',
+				'east',
+				'south west',
+				'south',
+				'south east',
+			];
+			const anchor = anchors.sort((a, b) => {
+				const u = geometryOf(fig).anchor(p.node, a),
+					v = geometryOf(fig).anchor(p.node, b);
+				return Math.hypot(n.x - u[0], n.y - u[1]) - Math.hypot(n.x - v[0], n.y - v[1]);
+			})[0];
+			const [x, y] = geometryOf(fig).anchor(p.node, anchor);
+			n.attachment = { parent, anchor, ownAnchor: 'center', dx: n.x - x, dy: n.y - y };
 		} else delete n.attachment;
+	}
+	if (i.kind === 'Frame' || i.kind === 'Line') {
+		const p = itemById(fig, parent);
+		if (p?.kind === 'Shape') {
+			const b = i.kind === 'Frame' ? geometryOf(fig).frame(i.id) : { x: i.line.start[0], y: i.line.start[1] };
+			const anchors = [
+				'north west',
+				'north',
+				'north east',
+				'west',
+				'center',
+				'east',
+				'south west',
+				'south',
+				'south east',
+			];
+			if (b) {
+				const anchor = anchors.sort((a, c) => {
+					const u = geometryOf(fig).anchor(p.node, a),
+						v = geometryOf(fig).anchor(p.node, c);
+					return Math.hypot(b.x - u[0], b.y - u[1]) - Math.hypot(b.x - v[0], b.y - v[1]);
+				})[0];
+				const [x, y] = geometryOf(fig).anchor(p.node, anchor);
+				payload(i).attachment = { parent, anchor, ownAnchor: 'center', dx: b.x - x, dy: b.y - y };
+			}
+		} else delete payload(i).attachment;
 	}
 	projectTree(fig);
 	syncTree(fig);
 }
 export function detach(fig: Figure, id: string) {
 	syncTree(fig);
-	reparent(fig, id, layerOf(fig, id));
+	const i = itemById(fig, id),
+		p = i && itemById(fig, i.parent);
+	if (i?.kind === 'Frame') {
+		ungroup(fig, id);
+		return;
+	}
+	if (p) reparent(fig, id, p.parent);
 }
 export function ungroup(fig: Figure, id: string) {
 	syncTree(fig);
 	const g = itemById(fig, id);
-	if (g?.kind !== 'Frame') return;
+	if (g?.kind !== 'Frame') {
+		detach(fig, id);
+		return;
+	}
 	for (const c of childrenOf(fig, id))
 		if (c.kind !== 'Connector' && !(c.kind === 'Text' && c.role === 'title')) reparent(fig, c.id, g.parent);
 	deleteItem(fig, id);
@@ -148,6 +202,11 @@ export function moveItem(fig: Figure, id: string, x: number, y: number) {
 				: [0, 0];
 	const dx = x - origin[0],
 		dy = y - origin[1];
+	if ((i.kind === 'Frame' || i.kind === 'Line') && payload(i).attachment) {
+		const a = payload(i).attachment!;
+		a.dx += dx;
+		a.dy += dy;
+	}
 	for (const c of [i, ...descendants(fig, id)]) {
 		if (c.kind === 'Line') {
 			c.line.start = [c.line.start[0] + dx, c.line.start[1] + dy];
@@ -193,7 +252,7 @@ export function applyTree(fig: Figure, op: TreeOp) {
 			syncTree(fig);
 			const i = itemById(fig, op.id);
 			if (i?.kind === 'Text') i.placement = op.placement;
-			reparent(fig, op.id, op.parent, op.index);
+			reparent(fig, op.id, op.parent, op.index, true);
 			break;
 		}
 		case 'reparent':

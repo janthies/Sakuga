@@ -169,7 +169,7 @@ export function bindProp(ctx: PanelCtx, key: PropKey): Bound | null {
 			const store_ = (v: string) => (UNSET_DEFAULT.has(key) && v === def.default ? '' : v);
 			if (
 				AS_SELECT.has(key) ||
-				options.length > 7 ||
+				options.length > (key === 'shape' ? 8 : 7) ||
 				!options.every((o) => hasGlyph(o.value, o.label) || o.text || o.value === '')
 			) {
 				const c = new SelectControl(options, label);

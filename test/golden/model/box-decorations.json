@@ -11,10 +11,6 @@
    "t": "theme"
   },
   {
-   "t": "legendflag",
-   "on": false
-  },
-  {
    "t": "node",
    "n": {
     "id": "box0",

@@ -29,20 +29,17 @@ export const styleDefs = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'sty
 export const findStyle = (fig: Figure, key: string | undefined, kind?: StyleKind) =>
 	key ? styleDefs(fig).find((s) => s.key === key && (!kind || s.kind === kind)) : undefined;
 
-// The box styles as the old category list: colour, icon, "icon in boxes", legend flag.
+// Semantic categories use exactly one marker and independent surface settings.
 export const categories = (fig: Figure): Category[] =>
 	styleDefs(fig)
 		.filter((s) => s.kind === 'box')
 		.map((s) => ({
 			key: s.key,
+			fill: s.fill,
+			outlineColor: s.outlineColor,
 			outline: s.outline,
-			emphasis: s.emphasis,
-			props: s.props,
-			kinds: s.kinds,
 			name: s.name,
-			color: fig.theme?.palette?.[s.props.fill] || s.props.fill || 'white',
-			icon: s.icon,
-			boxes: s.boxes,
+			...(s.icon ? { icon: s.icon } : { color: s.color || s.props.fill || 'white' }),
 			legend: !!s.legend,
 		}));
 
@@ -88,7 +85,7 @@ export function groupMembers(fig: Figure, id: string): FigNode[] {
 	});
 }
 
-export const legendOn = (fig: Figure) => fig.lines.every((l) => l.t !== 'legendflag' || l.on);
+export const legendOn = (fig: Figure) => categories(fig).some((c) => c.legend);
 
 export const arrowStyle = (fig: Figure) => {
 	const f = fig.lines.find((l) => l.t === 'arrowsflag');

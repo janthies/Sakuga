@@ -59,7 +59,7 @@ test('grouped previews, filtering, keyboard selection, clearing, dismissal and p
 	assert.equal(panel(s).hidden, true);
 });
 
-test('visual style choice shows swatch and icon and picks by keyboard', () => {
+test('visual category choice shows its icon marker and picks by keyboard', () => {
 	const s = new Session(figure([['p', 0, 0, { cat: 'work' }]], [], [{ op: 'styleEdit', key: 'work', icon: 'board' }]), {
 		palette: { peach: { hex: 'FFDDCC', mix: 100 } },
 	});
@@ -67,8 +67,8 @@ test('visual style choice shows swatch and icon and picks by keyboard', () => {
 	s.up(0, 0);
 	const choice = s.row('Style').querySelector('button.visual-choice');
 	s.click(choice);
-	assert.equal(choice.children[0].style.background, 'rgb(255, 221, 204)');
-	assert.equal(choice.children[1].tagName.toLowerCase(), 'svg');
+	assert.equal(choice.querySelector('.swatch'), null);
+	assert.equal(choice.children[0].tagName.toLowerCase(), 'svg');
 	const panelEl = s.document.querySelector('.choice-panel');
 	s.document.activeElement.dispatchEvent(
 		new s.window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true, cancelable: true }),

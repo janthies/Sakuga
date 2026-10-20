@@ -1,7 +1,7 @@
 import { categoryHeader, themeHeader } from './look';
 // Writing a figure back to TikZ.
 import { resolvePorts } from '../geometry/ports';
-import { subtreeState } from '../model/tree-queries';
+import { ancestors, subtreeState } from '../model/tree-queries';
 import { lineReference } from './line-reference';
 import { lineSource } from './line';
 import { treeState } from './tree-state';
@@ -21,6 +21,7 @@ export function nodeSource(fig: Figure, n: FigNode): string {
 	return nodeLine(
 		{
 			...n,
+			iconPosition: n.iconPosition || (nodeIcon(fig, n) && n.cat ? 'nw' : undefined),
 			style: n.style,
 			hidden: isHidden(fig, n),
 			extra: [...n.extra, ...(n.hidden && nodeLayer(fig, n).hidden ? ['sg hidden'] : [])],
@@ -44,7 +45,8 @@ export function serialize(fig: Figure): string {
 			return;
 		}
 		visited.add(n.id);
-		const p = n.attachment && nodes(fig).find((p) => p.id === n.attachment!.parent);
+		const parent = ancestors(fig, n.id).find((i) => i.kind === 'Shape');
+		const p = parent && 'node' in parent ? parent.node : undefined;
 		if (p) {
 			visit(p);
 		}
@@ -98,6 +100,9 @@ export function serialize(fig: Figure): string {
 	}
 	const geo = geometryOf(fig);
 	return [
+		...(fig.figure
+			? [`% sakuga figure place=${fig.figure.place} label=${fig.figure.label} caption={${fig.figure.caption}}`]
+			: []),
 		...themeHeader(fig),
 		...lines.flatMap((l) => {
 			switch (l.t) {
@@ -128,7 +133,7 @@ export function serialize(fig: Figure): string {
 					];
 				case 'group':
 					return [
-						`% sakuga group ${l.g.id} {${l.g.name}} ${l.g.frame} ${l.g.color}${l.g.parent ? ` in=${l.g.parent}` : ''}${groupOptions(l.g)}`,
+						`${subtreeState(fig, l.g.id, 'hidden') ? '% sakuga hidden ' : ''}% sakuga group ${l.g.id} {${l.g.name}} ${l.g.frame} ${l.g.color}${l.g.parent ? ` in=${l.g.parent}` : ''}${groupOptions(l.g)}`,
 					];
 				case 'groups':
 					return groupsBlock(fig);

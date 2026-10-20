@@ -71,15 +71,24 @@ export function inGroup(n: FigNode, id: string, groups: Group[]): boolean {
 }
 
 // Boxes in paint order: a box after the one it hangs on.
-export function paintOrder(nodes: FigNode[]): FigNode[] {
+export function paintOrder(nodes: FigNode[], groups: Group[] = []): FigNode[] {
 	const index = new Map(nodes.map((n) => [n.id, n]));
 	const ordered: FigNode[] = [],
 		seen = new Set<string>();
 	const visit = (n: FigNode) => {
 		if (seen.has(n.id)) return;
 		seen.add(n.id);
-		const parent = n.attachment && index.get(n.attachment.parent);
-		if (parent) visit(parent);
+		let parent = n.attachment?.parent || n.treeParent;
+		const chain = new Set<string>();
+		while (parent && !chain.has(parent)) {
+			chain.add(parent);
+			const box = index.get(parent);
+			if (box) {
+				visit(box);
+				break;
+			}
+			parent = groups.find((g) => g.id === parent)?.treeParent;
+		}
 		ordered.push(n);
 	};
 	nodes.forEach(visit);

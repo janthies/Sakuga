@@ -36,12 +36,6 @@ export function labelDrop(p: Pt, n: ViewNode) {
 			a = labelPoint(baseEdgeGeom({ ...store.edges[i], labelStyle: st }), st);
 		if (Math.hypot(a![0] - p.x, a![1] - p.y) < 3) return { index: i, style: st };
 	}
-	for (const g of typeof store.groups === 'undefined' ? [] : store.groups) {
-		const b = frameRect(g.id);
-		if (b && Math.abs(p.x - b.x) < b.w / 2 + 3 && Math.abs(p.y - b.y - b.h / 2) < 3) {
-			const G = frameTitleGeom(g);
-			return { group: g.id, style: { dx: fine(p.x - G!.p[0]), dy: fine(p.y - G!.p[1]) } };
-		}
-	}
+
 	return null;
 }

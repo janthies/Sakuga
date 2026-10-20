@@ -7,6 +7,11 @@ import type { FigureOp, Run } from './types';
 
 export function applyFigure(fig: Figure, op: FigureOp, run: Run): void {
 	switch (op.op) {
+		case 'figure': {
+			const { op: _, ...patch } = op;
+			fig.figure = { place: 't', label: '', caption: '', ...fig.figure, ...patch };
+			break;
+		}
 		case 'sheet': {
 			if (!Number.isFinite(op.width) || op.width < 50 || op.width > 400) break;
 			fig.lines = fig.lines.filter((l) => !(l.t === 'raw' && /^%\s*sakuga sheet\s+/.test(l.text)));
@@ -29,12 +34,7 @@ export function applyFigure(fig: Figure, op: FigureOp, run: Run): void {
 			break;
 		}
 		case 'legend': {
-			const f = fig.lines.find((l) => l.t === 'legendflag');
-			if (f && f.t === 'legendflag') {
-				f.on = op.on;
-			} else {
-				insert(fig, { t: 'legendflag', on: op.on });
-			}
+			for (const l of fig.lines) if (l.t === 'style' && l.s.kind === 'box') l.s.legend = op.on;
 			break;
 		}
 	}

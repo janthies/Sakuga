@@ -13,6 +13,18 @@
    ]
   },
   {
+   "id": "iconGroup-background",
+   "x": 80,
+   "y": -44,
+   "w": 13.6,
+   "h": 15.6,
+   "lines": 1,
+   "half": [
+    6.8,
+    7.8
+   ]
+  },
+  {
    "id": "inherited",
    "x": 40,
    "y": -44,
@@ -109,15 +121,7 @@
    ]
   }
  ],
- "frames": [
-  {
-   "id": "iconGroup",
-   "x": 80,
-   "y": -44,
-   "w": 13.6,
-   "h": 15.6
-  }
- ],
+ "frames": [],
  "frameTitles": [
   {
    "id": "iconGroup",

@@ -40,10 +40,12 @@ export function styleColor(key: string | undefined, fallback: string): string {
 export const weight = (st: any): number =>
 	(st?.lineWidth ?? (({ medium: 0.8, thick: 1.2 } as Record<string, number>)[st?.weight] || 0.45)) * PT;
 export const dash = (st: any): string =>
-	st?.border === 'dashed'
-		? `${n4(3 * PT)} ${n4(3 * PT)}`
-		: st?.border === 'dotted'
-			? `${n4(weight(st))} ${n4(2 * PT)}`
-			: 'none';
+	st?.dashOn !== undefined
+		? `${n4(st.dashOn * PT)} ${n4((st.dashOff ?? 3) * PT)}`
+		: st?.border === 'dashed'
+			? `${n4(3 * PT)} ${n4(3 * PT)}`
+			: st?.border === 'dotted'
+				? `${n4(weight(st))} ${n4(2 * PT)}`
+				: 'none';
 export const opacityOf = (layers: { id: string; opacity?: number }[], id: string | undefined) =>
 	layers.find((l) => l.id === id)?.opacity ?? 1;

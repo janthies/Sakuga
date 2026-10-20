@@ -6,7 +6,7 @@ import { categories } from '../model/queries';
 import { categoryValues } from '../styles/cascade';
 import { houseValues, ITEM_KINDS } from '../schema/theme';
 import { emitOptions } from './options';
-import { readStyleLine, styleLine } from './style-line';
+import { readStyleLine } from './style-line';
 
 export const kindToken: Record<ItemKind, string> = {
 	Shape: 'shape',
@@ -55,7 +55,18 @@ export function readCategory(line: string): StyleDef | null {
 	const d = readStyleLine('box', m[1], m[2], tail);
 	const bare = tail.trim().split(/\s+/)[0];
 	if (bare && !bare.includes('=') && !['legend', 'boxes'].includes(bare)) d.props.fill = bare;
+	d.color = bare?.includes('=') ? /(?:^|\s)color=(\S+)/.exec(tail)?.[1] : undefined;
+	if (d.color || /^icon=/.test(tail.trim())) {
+		d.fill = d.props.fill;
+		d.props = {};
+	}
+	d.outlineColor = /(?:^|\s)outlineColor=(\S+)/.exec(tail)?.[1];
 	d.outline = /(?:^|\s)outline=(\S+)/.exec(tail)?.[1];
+	if (d.outline?.includes(':')) {
+		const [color, style] = d.outline.split(':');
+		d.outlineColor = color === 'theme' ? undefined : color;
+		d.outline = style;
+	}
 	d.emphasis = /(?:^|\s)emphasis=(\S+)/.exec(tail)?.[1];
 	delete d.props.outline;
 	delete d.props.emphasis;
@@ -65,12 +76,7 @@ export function readCategory(line: string): StyleDef | null {
 	return d;
 }
 export function categoryHeader(d: StyleDef): string {
-	return (
-		styleLine(d).replace('% sakuga style box ', '% sakuga category ') +
-		(d.outline ? ` outline=${d.outline}` : '') +
-		(d.emphasis ? ` emphasis=${d.emphasis}` : '') +
-		(d.kinds ? ` kinds=${encodeURIComponent(JSON.stringify(d.kinds))}` : '')
-	);
+	return `% sakuga category ${d.key} {${d.name}} ${d.icon ? `icon=${d.icon}` : `color=${d.color || d.props.fill || 'white'}`}${d.fill !== undefined ? ` fill=${d.fill}` : ''}${d.outlineColor || d.outline ? ` outline=${d.outlineColor || 'theme'}:${d.outline || 'solid'}` : ''}${d.legend ? ' legend' : ''}`;
 }
 export function lookStyles(fig: Figure): string[] {
 	return [
@@ -84,16 +90,9 @@ export function lookStyles(fig: Figure): string[] {
 				: [];
 		}),
 		...categories(fig).flatMap((c) =>
-			ITEM_KINDS.map((kind) => {
+			ITEM_KINDS.filter((k) => k !== 'Frame').map((kind) => {
 				const props = categoryValues(fig, c, kind);
-				const options =
-					kind === 'Frame'
-						? [
-								`fill=${fill(props.color).split('!')[0]}!${props.fillStrength ?? 30}`,
-								`draw=${fill(props.frameColor)}`,
-								`text=${fill(props.titleColor)}`,
-							]
-						: emitOptions(props, { arrow: kind === 'Connector' || kind === 'Line', forceDefaults: true });
+				const options = emitOptions(props, { arrow: kind === 'Connector' || kind === 'Line', forceDefaults: true });
 				if (kind === 'Icon' && props.textColor)
 					options.push(`sg icon stroke/.append style={draw=${fill(props.textColor)}}`);
 				return `  cat-${c.key}-${kindToken[kind]}/.style={${options.join(', ')}},`;

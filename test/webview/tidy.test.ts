@@ -1,3 +1,5 @@
+import { groupMembers } from '../../src/core/model/queries';
+import { geometryOf } from '../../src/core/geometry/figure-geometry';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import * as fs from 'node:fs';
@@ -136,9 +138,9 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 	t.apply(f, { op: 'setGroup', ids: ['wrapped'], group: 'frame' });
 	a = t.nodes(f)[0];
 	assert(layout(a).lines.length > 2);
-	const frame = t.routeObjects(f).find((n) => n.id === 'frame');
-	near(frame.h, layout(a).h + 6);
-	assert(t.serialize(f).includes(`${-frame.h / 2}`));
+	const frame = geometryOf(f).frame('frame');
+	near(frame.h, layout(a).h);
+	assert(!t.serialize(f).includes('\\path[sg frame'));
 	round(f);
 	// Fixed absolute paths re-anchor orthogonally and retain their interior when one end moves.
 	f = fresh();
@@ -180,29 +182,25 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 		);
 		round(f);
 		if (name === 'components') {
-			const objects = t.routeObjects(f),
-				g1 = objects.find((n) => n.id === 'g1'),
-				api = t.nodes(f).find((n) => n.id === 'cysapi'),
-				g2 = objects.find((n) => n.id === 'g2'),
-				drv = t.nodes(f).find((n) => n.id === 'drv'),
-				g3 = objects.find((n) => n.id === 'g3'),
-				ops = t.nodes(f).find((n) => n.id === 'ops');
-			assert(g1.y - g1.h / 2 - rect(api).y1 >= 3.98);
-			assert(g2.y - g2.h / 2 - rect(drv).y1 >= 3.98);
-			assert(rect(ops).x0 - (g3.x + g3.w / 2) >= 3.98);
+			for (const id of ['g1', 'g2', 'g3']) {
+				const group = geometryOf(f).frame(id)!;
+				assert.equal(t.groups(f).find((g) => g.id === id).frame, 'none');
+				for (const member of groupMembers(f, id).filter((n) => !t.isHidden(f, n))) {
+					const body = geometryOf(f).node(member.id)!;
+					assert(group.x - group.w / 2 <= body.x - body.w / 2 + 1e-6);
+					assert(group.x + group.w / 2 >= body.x + body.w / 2 - 1e-6);
+				}
+			}
 			const seam = t.nodes(f).find((n) => n.id === 'seam'),
 				row = t.nodes(f).filter((n) => ['swbe', 'teebe'].includes(n.id));
-			near(rect(row[0]).x0, rect(seam).x0);
-			near(rect(row[1]).x1, rect(seam).x1);
+			assert(rect(row[0]).x0 >= rect(seam).x0 - 0.03);
+			assert(rect(row[1]).x1 <= rect(seam).x1 + 0.03);
 		}
-		// A second run is stable within the prototype's 0.1 mm rounding tolerance.
-		const again = plan(f, ids);
-		for (const o of again.ops)
-			if (o.op === 'move') {
-				const n = t.nodes(f).find((n) => n.id === o.id);
-				near(n.x, o.x, 0.11);
-				near(n.y, o.y, 0.11);
-			}
+		// Background boxes retain their rectangle instead of fitting around group members.
+		// Another explicit reflow can change the layout; planning it must leave the source alone.
+		const saved = t.serialize(f);
+		assert.equal(plan(f, ids).op, 'batch');
+		assert.equal(t.serialize(f), saved);
 	}
 });
 

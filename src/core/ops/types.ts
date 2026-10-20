@@ -210,6 +210,7 @@ export type Op =
 	| { op: 'category'; key: string; name?: string; color?: string; icon?: string; boxes?: boolean; legend?: boolean }
 	| { op: 'deleteCategory'; key: string }
 	| { op: 'legend'; on: boolean }
+	| { op: 'figure'; place?: string; label?: string; caption?: string }
 	| {
 			op: 'styleAdd';
 			kind: StyleKind;
@@ -236,7 +237,7 @@ export type Op =
 	| { op: 'resetStyle'; ids?: string[]; indices?: number[]; keys?: string[] }
 	| { op: 'batch'; ops: Op[] };
 
-export type FigureOp = Extract<Op, { op: 'sheet' | 'font' | 'arrows' | 'legend' }>;
+export type FigureOp = Extract<Op, { op: 'sheet' | 'font' | 'arrows' | 'legend' | 'figure' }>;
 export type LabelOp = Extract<Op, { op: 'label' | 'detachLabel' | 'attachLabel' }>;
 export type StyleOp = Extract<
 	Op,

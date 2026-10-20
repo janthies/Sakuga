@@ -95,13 +95,17 @@ test('moving and deleting act on subtrees; inherited hidden/locked retain child 
 
 test('ungroup promotes members one level; deleting a frame removes members and incident connectors', () => {
 	const f = parse(source),
-		before = nodes(f).map((n) => [n.id, n.x, n.y]);
+		before = nodes(f)
+			.map((n) => [n.id, n.x, n.y])
+			.sort();
 	ungroup(f, 'inner');
 	assert.equal(itemById(f, 'inner'), undefined);
 	assert.equal(itemById(f, 'a')?.parent, 'outer');
 	assert.equal(items(f).find((i) => i.kind === 'Connector')?.parent, 'outer');
 	assert.deepEqual(
-		nodes(f).map((n) => [n.id, n.x, n.y]),
+		nodes(f)
+			.map((n) => [n.id, n.x, n.y])
+			.sort(),
 		before,
 	);
 	apply(f, { op: 'deleteGroup', id: 'outer' });
@@ -167,7 +171,7 @@ test('Text identities, title replacement, detach and sibling order survive saves
 	apply(back, { op: 'text', id: 'new-title', text: 'Edited' });
 	assert.equal(node(back, 'a').title, 'Edited');
 	apply(back, { op: 'detach', id: 'new-title' });
-	assert.equal(itemById(back, 'new-title')?.parent, 'back');
+	assert.equal(itemById(back, 'new-title')?.parent, 'inner');
 	assert.equal(node(back, 'new-title').title, 'Edited');
 	assert.equal(new Set(items(back).map((i) => i.id)).size, items(back).length);
 });
@@ -223,13 +227,13 @@ test('reparent index determines sibling drawing order and survives serialization
 	reparent(f, 'b', 'inner', 1);
 	assert.deepEqual(
 		childrenOf(f, 'inner')
-			.filter((i) => i.kind === 'Shape')
+			.filter((i) => i.kind === 'Shape' && ['a', 'b'].includes(i.id))
 			.map((i) => i.id),
 		['b', 'a'],
 	);
 	assert.deepEqual(
 		nodes(f)
-			.filter((n) => n.group === 'inner' && !n.kind)
+			.filter((n) => n.group === 'inner' && ['a', 'b'].includes(n.id))
 			.map((n) => n.id),
 		['b', 'a'],
 	);
@@ -238,7 +242,7 @@ test('reparent index determines sibling drawing order and survives serialization
 	assert.equal(serialize(back), output);
 	assert.deepEqual(
 		childrenOf(back, 'inner')
-			.filter((i) => i.kind === 'Shape')
+			.filter((i) => i.kind === 'Shape' && ['a', 'b'].includes(i.id))
 			.map((i) => i.id),
 		['b', 'a'],
 	);

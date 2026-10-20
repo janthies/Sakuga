@@ -41,7 +41,7 @@ export const catFill = fillOf;
 
 export function nodePrims(env: Env): Prim[] {
 	const out: Prim[] = [];
-	for (const n of paintOrder(env.fig.nodes)) {
+	for (const n of paintOrder(env.fig.nodes, env.fig.groups)) {
 		if (!n.hidden) out.push(nodePrim(env, n));
 	}
 	return out;
@@ -55,7 +55,14 @@ function nodePrim(env: Env, n: FigNode): Prim {
 	const kids: Prim[] = [];
 	const hit = n.locked ? { hit: { k: 'locked' } as const } : { hit: { k: 'node', id: n.id } as const };
 	const klass = n.locked ? 'locked-node' : 'node';
-	const r = n.kind === 'label' || n.style?.shape === 'rectangle' ? 0 : n.style?.shape === 'pill' ? h / 2 : 1.4 * PT;
+	const r =
+		n.style?.cornerRadius !== undefined
+			? n.style.cornerRadius * PT
+			: n.kind === 'label' || n.style?.shape === 'rectangle'
+				? 0
+				: n.style?.shape === 'pill'
+					? h / 2
+					: 1.4 * PT;
 	const area = { x: n.x - w / 2, y: -(n.y + h / 2), width: w, height: h, fill: 'transparent' };
 	if (n.kind === 'icon') {
 		const symbol = icon(env, `${key}:icon`, n.icon as string, n.x - w / 2, n.y, w, h);
@@ -99,6 +106,7 @@ function nodePrim(env: Env, n: FigNode): Prim {
 						? 'none'
 						: styleColor(n.style?.color, STROKE),
 				'stroke-dasharray': dash(n.style),
+				...(n.style?.roundCap ? { 'stroke-linecap': 'round' } : {}),
 				'stroke-width': weight(n.style),
 				class: klass,
 			},
@@ -122,7 +130,7 @@ function titleLines(env: Env, n: FigNode, key: string, w: number, h: number, lin
 	const pitch = ({ 8: 9.5, 9: 11, 10: 12, 10.95: 13.6, 12: 14 } as Record<number, number>)[fpt] * PT,
 		codePitch = pitch - PT;
 	const total = (lines.length - 1) * pitch + (n.code ? codePitch : 0);
-	const pos = n.iconPosition || 'left',
+	const pos = n.iconPosition || (env.fig.categories.find((c) => c.key === n.cat)?.icon ? 'nw' : 'left'),
 		name = env.geo.icon(n) ?? '';
 	const shiftX = name ? (pos === 'left' ? 2 : pos === 'right' ? -2 : 0) : 0;
 	const shiftY = name && !['left', 'right'].includes(pos) ? (['sw', 'se'].includes(pos) ? 2 : -2) : 0;

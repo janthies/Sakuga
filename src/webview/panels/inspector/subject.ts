@@ -181,7 +181,11 @@ export class StyleSubject implements Subject {
 	}
 
 	read(def: PropDef): Reading {
-		const v = this.styleDefinition.props[def.key];
+		const d = this.styleDefinition;
+		const v =
+			d.kind === 'box'
+				? ({ fill: d.fill ?? d.color, color: d.outlineColor, border: d.outline } as Record<string, unknown>)[def.key]
+				: d.props[def.key];
 		return {
 			value: v ?? (def.type === 'number' ? defaultOf(def, this.styleDefinition.props) : ''),
 			mixed: false,

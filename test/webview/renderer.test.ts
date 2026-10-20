@@ -25,7 +25,7 @@ test('renderer: hit() maps an event target to what the tools need', () => {
 	assert.deepEqual(hit(s, s.node(node.id)), { k: 'node', id: node.id });
 	assert.deepEqual(hit(s, s.svg.querySelector('[data-edge="0"]')), { k: 'edge', index: 0 });
 	const group = s.svg.querySelector('[data-group]');
-	assert.deepEqual(hit(s, group), { k: 'group', id: group.dataset.group });
+	assert.equal(group, null, 'groups have no canvas hit target');
 	assert.equal(hit(s, s.svg), null, 'the background is nothing');
 	// handles appear with the selection
 	s.down(node.x, node.y, s.node(node.id));

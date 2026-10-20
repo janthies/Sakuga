@@ -10,15 +10,10 @@
     "kind": "box",
     "key": "work",
     "name": "this work",
-    "props": {
-     "fill": "peach"
-    },
-    "legend": true
+    "props": {},
+    "legend": false,
+    "color": "peach"
    }
-  },
-  {
-   "t": "legendflag",
-   "on": false
   },
   {
    "t": "tree"
@@ -344,6 +339,7 @@
     "loopIn": 68,
     "loopSize": 8,
     "loopSide": "north",
+    "hidden": false,
     "treeParent": "layer1",
     "order": 10,
     "fromPort": {
@@ -372,7 +368,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -405,6 +400,7 @@
     "loopIn": -22,
     "loopSize": 8,
     "loopSide": "east",
+    "hidden": false,
     "treeParent": "layer1",
     "order": 12,
     "fromPort": {
@@ -433,7 +429,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -462,6 +457,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 14,
     "fromPort": {
@@ -490,7 +486,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -519,6 +514,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 16,
     "fromPort": {
@@ -547,7 +543,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -576,6 +571,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 18,
     "fromPort": {
@@ -604,7 +600,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -633,6 +628,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 20,
     "fromPort": {
@@ -661,7 +657,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -690,6 +685,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 22,
     "fromPort": {
@@ -718,7 +714,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -765,6 +760,7 @@
      "--",
      "([yshift=0mm]idle.west)"
     ],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 24,
     "fromPort": {
@@ -793,7 +789,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    }
   },
@@ -1291,6 +1286,7 @@
     "loopIn": 68,
     "loopSize": 8,
     "loopSide": "north",
+    "hidden": false,
     "treeParent": "layer1",
     "order": 10,
     "fromPort": {
@@ -1319,7 +1315,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1399,6 +1394,7 @@
     "loopIn": -22,
     "loopSize": 8,
     "loopSide": "east",
+    "hidden": false,
     "treeParent": "layer1",
     "order": 12,
     "fromPort": {
@@ -1427,7 +1423,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1503,6 +1498,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 14,
     "fromPort": {
@@ -1531,7 +1527,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1607,6 +1602,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 16,
     "fromPort": {
@@ -1635,7 +1631,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1711,6 +1706,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 18,
     "fromPort": {
@@ -1739,7 +1735,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1815,6 +1810,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 20,
     "fromPort": {
@@ -1843,7 +1839,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1919,6 +1914,7 @@
      "font": "small"
     },
     "extra": [],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 22,
     "fromPort": {
@@ -1947,7 +1943,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2041,6 +2036,7 @@
      "--",
      "([yshift=0mm]idle.west)"
     ],
+    "hidden": false,
     "treeParent": "layer1",
     "order": 24,
     "fromPort": {
@@ -2069,7 +2065,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {

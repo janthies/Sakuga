@@ -45,7 +45,7 @@ export class FigureGeometry {
 	// The icon a box shows: its own, or the one of its style.
 	icon(n: FigNode): string | undefined {
 		const c = this.input.categories.find((c) => c.key === n.cat);
-		return n.icon === 'none' ? undefined : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon;
+		return n.icon === 'none' ? undefined : n.icon === 'category' || (!n.icon && !!c?.icon) ? c?.icon : n.icon;
 	}
 	// A box as TeX sets it: width, height and wrapped lines.
 	size(n: FigNode): Size {

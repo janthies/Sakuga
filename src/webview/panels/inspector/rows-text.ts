@@ -138,7 +138,7 @@ export function styleIconRow(c: PanelCtx): RowControls {
 	const boxes = c.sel.nodes.filter(isBox);
 	if (!boxes.length || boxes.length !== c.sel.nodes.length) return null;
 	const toggle = new Toggle({ label: 'Use style icon in this box' });
-	toggle.set(sameOr(boxes.map((n) => n.icon === 'category' || (!n.icon && !!catOf(n.cat)?.boxes))));
+	toggle.set(sameOr(boxes.map((n) => n.icon === 'category' || (!n.icon && !!catOf(n.cat)?.icon))));
 	toggle.onCommit((on) =>
 		post(
 			nodeOps(

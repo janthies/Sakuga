@@ -137,7 +137,7 @@ export function attachedIcons(fig: Figure, objects = nodes(fig)): string[] {
 		if (!name) {
 			continue;
 		}
-		const p = n.iconPosition || 'left';
+		const p = n.iconPosition || (n.cat && nodeIcon(fig, n) ? 'nw' : 'left');
 		const anchor =
 			(
 				{

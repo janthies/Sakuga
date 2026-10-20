@@ -9,52 +9,14 @@ import type { GroupOp, Run } from './types';
 export function applyGroup(fig: Figure, op: GroupOp, run: Run): void {
 	switch (op.op) {
 		case 'addGroup': {
-			const g: Group = {
-				fill: op.fill ?? (!op.frame ? 'tint' : undefined),
-				fillStrength: op.fillStrength,
-				outline: op.outline ?? (!op.frame ? 'dashed' : undefined),
-				labelStyle: op.labelStyle,
-				padding: op.padding,
-				titlePosition: op.titlePosition ?? 'above-left',
-				titleBold: op.titleBold ?? true,
-				titleFont: op.titleFont,
-				titleColor: op.titleColor,
-				lineWidth: op.lineWidth,
-				frameColor: op.frameColor,
-				id: op.id,
-				name: op.name,
-				frame: op.frame || 'dashed',
-				color: op.color || 'grey',
-				parent: op.parent || '',
-			};
+			const g: Group = { id: op.id, name: op.name, frame: 'none', color: 'grey', parent: op.parent || '' };
 			insert(fig, { t: 'group', g });
 			if (!op.frame) context.newDefaultGroups.add(g);
 			break;
 		}
 		case 'groupProps': {
 			const g = groups(fig).find((x) => x.id === op.id);
-			if (g) {
-				for (const key of groupKeys()) {
-					if ((op as any)[key] !== undefined) (g as any)[key] = (op as any)[key];
-				}
-				if (op.name !== undefined) {
-					g.name = op.name;
-				}
-				if (op.frame !== undefined) {
-					g.frame = op.frame;
-					context.newDefaultGroups.delete(g);
-				}
-				if (op.color !== undefined) {
-					g.color = op.color;
-				}
-				if (op.parent !== undefined && op.parent !== g.id) {
-					g.parent = op.parent;
-				}
-				if (g.frame === 'none' && op.frame === undefined) {
-					if (g.outline && g.outline !== 'none') g.frame = 'solid';
-					else if (g.fill && g.fill !== 'none') g.frame = 'region';
-				}
-			}
+			if (g && op.name !== undefined) g.name = op.name;
 			break;
 		}
 		case 'setGroup':

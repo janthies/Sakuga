@@ -1,3 +1,4 @@
+import { reparent } from './tree';
 // Operations on labels.
 import { darkerColor } from '../model/colour';
 import { Figure, LabelStyle } from '../model/figure';
@@ -6,6 +7,10 @@ import { cleanLabel } from '../styles/appearance';
 import type { LabelOp, Run } from './types';
 
 export function applyLabel(fig: Figure, op: LabelOp, run: Run): void {
+	if (op.group) {
+		if (op.op === 'attachLabel') reparent(fig, op.id, op.group);
+		return;
+	}
 	const node = (id: string) => nodes(fig).find((n) => n.id === id);
 	switch (op.op) {
 		case 'label': {

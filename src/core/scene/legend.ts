@@ -10,8 +10,8 @@ const smallerPt = (pt: number) => ({ 8: 6, 9: 8, 10: 9, 10.95: 10, 12: 10.95 })[
 
 export function legendPrims(env: Env): Prim[] {
 	const used = new Set(env.fig.nodes.map((n) => n.cat));
-	const list = env.fig.categories.filter((c) => c.legend !== false);
-	if (!env.fig.legend || !list.length) return [];
+	const list = env.fig.categories.filter((c) => !!c.legend);
+	if (!list.length) return [];
 	const b = nodesBox(env);
 	const out: Prim[] = [];
 	list.forEach((c, i) => {

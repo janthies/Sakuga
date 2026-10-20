@@ -114,7 +114,6 @@ export function syncTree(fig: Figure): void {
 				frame: g,
 			};
 			all.push(i);
-			text(i, g.name, '', g.labelStyle, 0, g.titleId);
 		} else if (l.t === 'line') {
 			const p = l.line,
 				i: Item = { ...base(p, p.id, p.group || p.layer || fallback), kind: 'Line', line: p };
@@ -207,7 +206,7 @@ export function projectTree(fig: Figure): void {
 			n.group = ancestors(fig, i.id).find((p) => p.kind === 'Frame')?.id || '';
 			const parent = itemById(fig, i.parent);
 			if (parent?.kind !== 'Shape') delete n.attachment;
-		} else if (i.kind === 'Frame') i.frame.parent = itemById(fig, i.parent)?.kind === 'Frame' ? i.parent : '';
+		} else if (i.kind === 'Frame') i.frame.parent = ancestors(fig, i.id).find((a) => a.kind === 'Frame')?.id || '';
 		else if (i.kind === 'Line') {
 			i.line.layer = layerOf(fig, i.id);
 			i.line.group = ancestors(fig, i.id).find((p) => p.kind === 'Frame')?.id || '';

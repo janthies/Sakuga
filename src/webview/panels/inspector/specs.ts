@@ -190,35 +190,8 @@ const ARROW: SectionSpec[] = [
 ];
 
 const FRAME: SectionSpec[] = [
-	{
-		id: 'text',
-		title: 'Title',
-		rows: [
-			{ label: 'Name', custom: frameNameRow },
-			{ label: 'Title at', custom: frameTitlePositionRow },
-			{ label: 'Bold / size', props: ['titleBold', 'titleFont'] },
-			{ prop: 'titleColor' },
-		],
-	},
-	{
-		id: 'appearance',
-		title: 'Appearance',
-		rows: [
-			{ label: 'Fill', custom: frameFillRow },
-			{ prop: 'color', label: 'Colour' },
-			{ prop: 'fillStrength', label: 'Strength' },
-			{ prop: 'outline', label: 'Line' },
-			{ prop: 'frameColor', label: 'Outline colour' },
-			{ prop: 'lineWidth' },
-			OPACITY,
-		],
-	},
-	{
-		id: 'arrange',
-		title: 'Arrange',
-		collapsed: true,
-		rows: [{ prop: 'padding' }, TIDY, { label: 'Position', custom: positionRow }, ...ARRANGE_END],
-	},
+	{ id: 'text', title: 'Group', rows: [{ label: 'Name', custom: frameNameRow }] },
+	{ id: 'arrange', title: 'Arrange', rows: [{ label: 'Position', custom: positionRow }, ...ARRANGE_END] },
 ];
 
 const ATTACHED: SectionSpec[] = [

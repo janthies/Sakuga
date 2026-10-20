@@ -52,11 +52,19 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 				kind: op.kind,
 				key,
 				name: op.name,
-				props: { ...styleableOf(op.kind, op.props), ...(src ? styleableOf(op.kind, src.style) : {}) },
+				props: {},
+				color: op.icon ? undefined : op.props?.fill || 'white',
+				fill: op.icon ? op.props?.fill : undefined,
+				outlineColor: op.props?.color,
+				outline: op.props?.border,
 				...(op.icon ? { icon: op.icon } : {}),
 				...(op.boxes ? { boxes: true } : {}),
 				legend: op.legend ?? false,
 			};
+			const themeProps = Object.fromEntries(
+				Object.entries(op.props || {}).filter(([k]) => !['fill', 'color', 'border'].includes(k)),
+			);
+			if (Object.keys(themeProps).length) run(fig, { op: 'themeEdit', kind: 'Shape', props: themeProps });
 			insert(fig, { t: 'style', s: def });
 			const targets: any[] = [
 				...(src ? [src] : []),
@@ -75,6 +83,18 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 		case 'styleEdit': {
 			const def = findStyle(fig, op.key);
 			if (!def) {
+				break;
+			}
+			if (def.kind === 'box') {
+				const patch = {
+					...(op.name !== undefined ? { name: op.name } : {}),
+					...(op.icon !== undefined ? { icon: op.icon } : {}),
+					...(op.legend !== undefined ? { legend: op.legend } : {}),
+					...(op.props?.fill !== undefined ? { fill: op.props?.fill } : {}),
+					...(op.props?.color !== undefined ? { outlineColor: op.props?.color } : {}),
+					...(op.props?.border !== undefined ? { outline: op.props?.border } : {}),
+				};
+				run(fig, { op: 'categoryEdit', key: op.key, patch });
 				break;
 			}
 			restyle(fig, def, (users) => {
@@ -133,6 +153,10 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 			break;
 		}
 		case 'styleDelete': {
+			if (!op.to && findStyle(fig, op.key)?.kind === 'box') {
+				run(fig, { op: 'categoryDelete', key: op.key });
+				break;
+			}
 			const def = findStyle(fig, op.key);
 			if (!def) {
 				break;
@@ -181,27 +205,22 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 		}
 		case 'addCategory':
 			run(fig, {
-				op: 'styleAdd',
-				kind: 'box',
-				key: op.key,
-				name: op.name,
-				props: { fill: op.color },
-				icon: op.icon,
-				boxes: op.boxes,
-				legend: op.legend ?? true,
+				op: 'categoryAdd',
+				category: {
+					key: op.key,
+					name: op.name,
+					...(op.icon ? { icon: op.icon } : { color: op.color }),
+					legend: op.legend ?? true,
+				},
 			});
 			break;
-		case 'category':
-			run(fig, {
-				op: 'styleEdit',
-				key: op.key,
-				name: op.name,
-				icon: op.icon,
-				boxes: op.boxes,
-				legend: op.legend,
-				props: op.color !== undefined ? { fill: op.color } : undefined,
-			});
+		case 'category': {
+			const patch = Object.fromEntries(
+				Object.entries(op).filter(([k, v]) => !['op', 'key', 'boxes'].includes(k) && v !== undefined),
+			);
+			run(fig, { op: 'categoryEdit', key: op.key, patch });
 			break;
+		}
 		case 'deleteCategory':
 			run(fig, { op: 'categoryDelete', key: op.key });
 			break;

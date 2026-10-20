@@ -42,15 +42,6 @@ const iconRows = (def: ViewStyle): RowSpec[] => [
 			return p;
 		},
 	},
-	{
-		label: 'Icon in boxes',
-		custom: () => {
-			const t = new Toggle({ label: 'Use the icon in boxes' });
-			t.set(!!def.boxes);
-			t.onCommit((boxes) => edit(def, { boxes: !!boxes }));
-			return t;
-		},
-	},
 ];
 
 const knockOut = (def: ViewStyle): RowSpec => ({
@@ -73,13 +64,18 @@ function editorRows(def: ViewStyle): RowSpec[] {
 	switch (def.kind) {
 		case 'box':
 			return [
-				{ prop: 'fill', label: 'Colour' },
+				{
+					label: 'Marker colour',
+					custom: () => {
+						const c = new TextControl({ ariaLabel: 'Marker colour' });
+						c.set(def.color || '');
+						c.onCommit((color) => post({ op: 'categoryEdit', key: def.key, patch: { color: color || 'white' } }));
+						return c;
+					},
+				},
+				{ prop: 'fill', label: 'Fill' },
 				{ prop: 'border', label: 'Outline' },
 				{ prop: 'color', label: 'Outline colour' },
-				{ prop: 'weight', label: 'Width' },
-				{ prop: 'shape' },
-				{ label: 'Font', props: ['text', 'font'] },
-				{ prop: 'textColor' },
 				...iconRows(def),
 				legendRow(def),
 			];

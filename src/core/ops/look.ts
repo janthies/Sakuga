@@ -27,6 +27,7 @@ export function applyLook(fig: Figure, op: LookOp) {
 		const theme = (fig.theme ||= {});
 		if (op.fontSize !== undefined) theme.fontSize = op.fontSize;
 		if (op.palette) theme.palette = { ...theme.palette, ...op.palette };
+		if (op.kind === 'Frame') return;
 		if (op.kind) {
 			const props = ((theme.kinds ||= {})[op.kind] ||= {});
 			for (const [k, v] of Object.entries(op.props || {})) {
@@ -39,25 +40,44 @@ export function applyLook(fig: Figure, op: LookOp) {
 	if (op.op === 'categoryAdd') {
 		if (findStyle(fig, op.category.key)) return;
 		const c = op.category;
-		fig.lines.unshift({ t: 'style', s: { kind: 'box', ...c, props: { ...c.props, fill: c.color } } });
+		fig.lines.unshift({ t: 'style', s: { kind: 'box', ...c, color: c.icon ? undefined : c.color, props: {} } });
 		return;
 	}
 	if (op.op === 'categoryEdit') {
 		const d = findStyle(fig, op.key);
 		if (d) {
-			const { color, props, ...patch } = op.patch;
-			Object.assign(d, patch);
-			Object.assign(d.props, props, color !== undefined ? { fill: color } : {});
+			Object.assign(d, op.patch);
+			if (op.patch.icon) delete d.color;
+			else if (op.patch.color) delete d.icon;
+			if (!d.icon && !d.color) d.color = 'white';
+			delete d.kinds;
+			delete d.emphasis;
+			d.props = {};
 		}
 		return;
 	}
 	if (op.op === 'categoryDelete') {
-		for (const i of fig.items || []) if (payload(i).cat === op.key) payload(i).cat = '';
+		const users = (fig.items || [])
+			.filter((i) => categoryKey(fig, i) === op.key)
+			.map((i) => ({ i, own: Object.fromEntries(Object.entries(resolveLook(fig, i)).map(([k, v]) => [k, v.value])) }));
+		for (const { i, own } of users) {
+			const p = payload(i);
+			p.look = { own, resolved: { ...own } };
+			if ('node' in i && i.node) {
+				i.node.style = { ...own };
+				if ((!i.node.icon || i.node.icon === 'category') && i.kind === 'Shape') {
+					i.node.icon = findStyle(fig, op.key)?.icon;
+					if (i.node.icon) i.node.iconPosition ||= 'nw';
+				}
+			} else if (i.kind === 'Line') i.line.style = { ...own };
+			else if (i.kind === 'Connector') i.connector.style = { ...own };
+			p.cat = '';
+		}
 		fig.lines = fig.lines.filter((l) => l.t !== 'style' || l.s.key !== op.key);
 		return;
 	}
 	const i = itemById(fig, op.id);
-	if (!i) return;
+	if (!i || i.kind === 'Frame') return;
 	const p = payload(i),
 		own = ownValues(i);
 	if (op.op === 'setCategory') p.cat = op.category;
@@ -71,22 +91,20 @@ export function applyLook(fig: Figure, op: LookOp) {
 		if (op.op === 'applyToCategory') {
 			const d = findStyle(fig, categoryKey(fig, i));
 			if (!d) return;
-			if (i.kind === 'Shape' && props.fill !== undefined) {
-				d.props.fill = props.fill;
-				delete d.kinds?.Shape?.fill;
-				const { fill, ...rest } = props;
-				Object.assign(((d.kinds ||= {}).Shape ||= {}), rest);
-			} else Object.assign(((d.kinds ||= {})[i.kind] ||= {}), props);
+			for (const [k, v] of Object.entries(props)) {
+				if (k === 'fill') d.fill = v;
+				else if (k === 'color') d.outlineColor = v;
+				else if (k === 'border') d.outline = v;
+				else {
+					Object.assign((((fig.theme ||= {}).kinds ||= {})[i.kind] ||= {}), { [k]: v });
+				}
+			}
 		} else Object.assign((((fig.theme ||= {}).kinds ||= {})[i.kind] ||= {}), props);
 		for (const k of Object.keys(props)) delete own[k];
 	}
 	p.look = { own, resolved: { ...((p as any).style || p.look?.resolved || {}) } };
 	// Replace the projection immediately so settle does not interpret the previous values as new edits.
-	if (i.kind === 'Frame') {
-		for (const k of Object.keys(p.look.resolved)) if (!(k in own)) delete (p as any)[k];
-		Object.assign(p, own);
-		p.look.resolved = { ...own };
-	} else if (i.kind !== 'Text' || i.node) {
+	if (i.kind !== 'Text' || i.node) {
 		(p as any).style = { ...own };
 		p.look.resolved = { ...own };
 	}

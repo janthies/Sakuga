@@ -10,80 +10,23 @@
    "locked": false,
    "kind": "Frame",
    "frame": {
+    "hidden": false,
     "id": "att",
     "name": "Attester (constrained device)",
-    "frame": "solid",
+    "frame": "none",
     "color": "grey",
     "parent": "",
-    "titlePosition": "above-center",
-    "titleBold": true,
-    "titleFont": "small",
-    "lineWidth": 1,
-    "frameColor": "#30343B",
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "att-title",
+    "locked": false,
     "look": {
      "own": {
-      "frame": "solid",
-      "color": "grey",
-      "frameColor": "#30343B",
-      "lineWidth": 1,
-      "titlePosition": "above-center",
-      "titleBold": true,
-      "titleFont": "small"
+      "frame": "none",
+      "color": "grey"
      },
-     "resolved": {
-      "frame": "solid",
-      "color": "grey",
-      "frameColor": "#30343B",
-      "outline": "",
-      "fill": "",
-      "fillStrength": 30,
-      "lineWidth": 1,
-      "padding": 3,
-      "titlePosition": "above-center",
-      "titleBold": true,
-      "titleFont": "small",
-      "titleColor": ""
-     }
-    },
-    "outline": "",
-    "fill": "",
-    "fillStrength": 30,
-    "padding": 3,
-    "titleColor": "",
-    "hidden": false,
-    "locked": false
-   }
-  },
-  {
-   "id": "att-title",
-   "parent": "att",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
+     "resolved": {}
     }
-   },
-   "text": "Attester (constrained device)",
-   "code": "",
-   "role": "title",
-   "treeParent": "att"
+   }
   },
   {
    "id": "nw",
@@ -93,82 +36,23 @@
    "locked": false,
    "kind": "Frame",
    "frame": {
+    "hidden": false,
     "id": "nw",
     "name": "Normal world (untrusted)",
-    "frame": "dashed",
+    "frame": "none",
     "color": "blue",
     "parent": "att",
-    "titlePosition": "above-left",
-    "titleBold": true,
-    "titleColor": "#2D70A6",
-    "frameColor": "#2D70A6",
-    "fill": "tint",
-    "fillStrength": 18,
-    "outline": "dashed",
     "treeParent": "att",
     "order": 2,
-    "titleId": "nw-title",
+    "locked": false,
     "look": {
      "own": {
-      "frame": "dashed",
-      "color": "blue",
-      "frameColor": "#2D70A6",
-      "outline": "dashed",
-      "fill": "tint",
-      "fillStrength": 18,
-      "titlePosition": "above-left",
-      "titleBold": true,
-      "titleColor": "#2D70A6"
+      "frame": "none",
+      "color": "blue"
      },
-     "resolved": {
-      "frame": "dashed",
-      "color": "blue",
-      "frameColor": "#2D70A6",
-      "outline": "dashed",
-      "fill": "tint",
-      "fillStrength": 18,
-      "lineWidth": 0.7,
-      "padding": 2.8,
-      "titlePosition": "above-left",
-      "titleBold": true,
-      "titleFont": "scriptsize",
-      "titleColor": "#2D70A6"
-     }
-    },
-    "lineWidth": 0.7,
-    "padding": 2.8,
-    "titleFont": "scriptsize",
-    "hidden": false,
-    "locked": false
-   }
-  },
-  {
-   "id": "nw-title",
-   "parent": "nw",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
+     "resolved": {}
     }
-   },
-   "text": "Normal world (untrusted)",
-   "code": "",
-   "role": "title",
-   "treeParent": "nw"
+   }
   },
   {
    "id": "sw",
@@ -178,82 +62,23 @@
    "locked": false,
    "kind": "Frame",
    "frame": {
+    "hidden": false,
     "id": "sw",
     "name": "Secure world (SPE, TF-M)",
-    "frame": "dashed",
+    "frame": "none",
     "color": "red",
     "parent": "att",
-    "titlePosition": "above-left",
-    "titleBold": true,
-    "titleColor": "#CF3C50",
-    "frameColor": "#CF3C50",
-    "fill": "tint",
-    "fillStrength": 18,
-    "outline": "dashed",
     "treeParent": "att",
     "order": 4,
-    "titleId": "sw-title",
+    "locked": false,
     "look": {
      "own": {
-      "frame": "dashed",
-      "color": "red",
-      "frameColor": "#CF3C50",
-      "outline": "dashed",
-      "fill": "tint",
-      "fillStrength": 18,
-      "titlePosition": "above-left",
-      "titleBold": true,
-      "titleColor": "#CF3C50"
+      "frame": "none",
+      "color": "red"
      },
-     "resolved": {
-      "frame": "dashed",
-      "color": "red",
-      "frameColor": "#CF3C50",
-      "outline": "dashed",
-      "fill": "tint",
-      "fillStrength": 18,
-      "lineWidth": 0.7,
-      "padding": 2.8,
-      "titlePosition": "above-left",
-      "titleBold": true,
-      "titleFont": "scriptsize",
-      "titleColor": "#CF3C50"
-     }
-    },
-    "lineWidth": 0.7,
-    "padding": 2.8,
-    "titleFont": "scriptsize",
-    "hidden": false,
-    "locked": false
-   }
-  },
-  {
-   "id": "sw-title",
-   "parent": "sw",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
+     "resolved": {}
     }
-   },
-   "text": "Secure world (SPE, TF-M)",
-   "code": "",
-   "role": "title",
-   "treeParent": "sw"
+   }
   },
   {
    "id": "hw",
@@ -263,58 +88,94 @@
    "locked": false,
    "kind": "Frame",
    "frame": {
+    "hidden": false,
     "id": "hw",
     "name": "Hardware root of trust",
-    "frame": "dashed",
+    "frame": "none",
     "color": "grey",
     "parent": "att",
-    "titlePosition": "above-left",
-    "titleBold": true,
-    "titleColor": "#6B7280",
-    "frameColor": "#6B7280",
-    "fill": "tint",
-    "fillStrength": 18,
-    "outline": "dashed",
     "treeParent": "att",
     "order": 6,
-    "titleId": "hw-title",
+    "locked": false,
     "look": {
      "own": {
-      "frame": "dashed",
-      "color": "grey",
-      "frameColor": "#6B7280",
-      "outline": "dashed",
-      "fill": "tint",
-      "fillStrength": 18,
-      "titlePosition": "above-left",
-      "titleBold": true,
-      "titleColor": "#6B7280"
+      "frame": "none",
+      "color": "grey"
      },
-     "resolved": {
-      "frame": "dashed",
-      "color": "grey",
-      "frameColor": "#6B7280",
-      "outline": "dashed",
-      "fill": "tint",
-      "fillStrength": 18,
-      "lineWidth": 0.7,
-      "padding": 2.8,
-      "titlePosition": "above-left",
-      "titleBold": true,
-      "titleFont": "scriptsize",
-      "titleColor": "#6B7280"
-     }
-    },
-    "lineWidth": 0.7,
-    "padding": 2.8,
-    "titleFont": "scriptsize",
-    "hidden": false,
-    "locked": false
+     "resolved": {}
+    }
    }
   },
   {
-   "id": "hw-title",
-   "parent": "hw",
+   "id": "att-background",
+   "parent": "att",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "att-background",
+    "title": "",
+    "code": "",
+    "x": 34,
+    "y": -35.567,
+    "width": 105.6,
+    "minh": 101.4661,
+    "cat": "",
+    "layer": "layer1",
+    "group": "att",
+    "treeParent": "att",
+    "order": -1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "cornerRadius": 2.5,
+     "fill": "none",
+     "color": "#30343B",
+     "border": "solid",
+     "weight": "thin",
+     "lineWidth": 1,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "titleId": "att-background-title",
+    "look": {
+     "own": {
+      "cornerRadius": 2.5,
+      "fill": "none",
+      "border": "solid",
+      "color": "#30343B",
+      "lineWidth": 1
+     },
+     "resolved": {
+      "cornerRadius": 2.5,
+      "fill": "none",
+      "color": "#30343B",
+      "border": "solid",
+      "weight": "thin",
+      "lineWidth": 1,
+      "shape": "rounded",
+      "font": "small",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "att-background-title",
+   "parent": "att-background",
    "order": 0,
    "hidden": false,
    "locked": false,
@@ -335,10 +196,629 @@
      "markColor": "#33333A"
     }
    },
-   "text": "Hardware root of trust",
+   "text": "",
    "code": "",
    "role": "title",
-   "treeParent": "hw"
+   "treeParent": "att-background"
+  },
+  {
+   "id": "att-label",
+   "parent": "att-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attester (constrained device)",
+   "code": "",
+   "node": {
+    "id": "att-label",
+    "title": "Attester (constrained device)",
+    "code": "",
+    "x": 34,
+    "y": 17.4505,
+    "width": 26,
+    "minh": 0,
+    "cat": "",
+    "layer": "layer1",
+    "group": "att",
+    "treeParent": "att-background",
+    "order": 1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "text": "bold",
+     "textColor": "#1D1F23",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "kind": "label",
+    "attachment": {
+     "parent": "att-background",
+     "anchor": "north west",
+     "ownAnchor": "center",
+     "dx": 53.9338,
+     "dy": 2.2845
+    },
+    "look": {
+     "own": {
+      "compact": true,
+      "font": "small",
+      "text": "bold",
+      "fill": "none",
+      "textColor": "#1D1F23"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "text": "bold",
+      "textColor": "#1D1F23",
+      "compact": true,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   },
+   "attachment": {
+    "parent": "att-background",
+    "anchor": "north west",
+    "ownAnchor": "center",
+    "dx": 53.9338,
+    "dy": 2.2845
+   }
+  },
+  {
+   "id": "nw-background",
+   "parent": "nw",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "nw-background",
+    "title": "",
+    "code": "",
+    "x": 34,
+    "y": 0,
+    "width": 99.6,
+    "minh": 16.6,
+    "cat": "",
+    "layer": "layer1",
+    "group": "nw",
+    "treeParent": "nw",
+    "order": -1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#F3F6FC",
+     "color": "#2D70A6",
+     "border": "dashed",
+     "weight": "thin",
+     "lineWidth": 0.7,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "titleId": "nw-background-title",
+    "look": {
+     "own": {
+      "cornerRadius": 2.5,
+      "dashOn": 9,
+      "dashOff": 3,
+      "fill": "#F3F6FC",
+      "border": "dashed",
+      "color": "#2D70A6",
+      "lineWidth": 0.7
+     },
+     "resolved": {
+      "cornerRadius": 2.5,
+      "dashOn": 9,
+      "dashOff": 3,
+      "fill": "#F3F6FC",
+      "color": "#2D70A6",
+      "border": "dashed",
+      "weight": "thin",
+      "lineWidth": 0.7,
+      "shape": "rounded",
+      "font": "small",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "nw-background-title",
+   "parent": "nw-background",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "look": {
+    "own": {},
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "text": "",
+   "code": "",
+   "role": "title",
+   "treeParent": "nw-background"
+  },
+  {
+   "id": "nw-label",
+   "parent": "nw-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Normal world (untrusted)",
+   "code": "",
+   "node": {
+    "id": "nw-label",
+    "title": "Normal world (untrusted)",
+    "code": "",
+    "x": -3.0551,
+    "y": 10.233,
+    "width": 26,
+    "minh": 0,
+    "cat": "",
+    "layer": "layer1",
+    "group": "nw",
+    "treeParent": "nw-background",
+    "order": 1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "scriptsize",
+     "text": "bold",
+     "textColor": "#2D70A6",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "kind": "label",
+    "attachment": {
+     "parent": "nw-background",
+     "anchor": "north west",
+     "ownAnchor": "west",
+     "dx": 0.5272,
+     "dy": 1.933
+    },
+    "look": {
+     "own": {
+      "compact": true,
+      "font": "scriptsize",
+      "text": "bold",
+      "fill": "none",
+      "textColor": "#2D70A6"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "scriptsize",
+      "text": "bold",
+      "textColor": "#2D70A6",
+      "compact": true,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   },
+   "attachment": {
+    "parent": "nw-background",
+    "anchor": "north west",
+    "ownAnchor": "west",
+    "dx": 0.5272,
+    "dy": 1.933
+   }
+  },
+  {
+   "id": "sw-background",
+   "parent": "sw",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "sw-background",
+    "title": "",
+    "code": "",
+    "x": 34,
+    "y": -34,
+    "width": 99.6,
+    "minh": 16.6,
+    "cat": "",
+    "layer": "layer1",
+    "group": "sw",
+    "treeParent": "sw",
+    "order": -1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#FFF6F6",
+     "color": "#CF3C50",
+     "border": "dashed",
+     "weight": "thin",
+     "lineWidth": 0.7,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "titleId": "sw-background-title",
+    "look": {
+     "own": {
+      "cornerRadius": 2.5,
+      "dashOn": 9,
+      "dashOff": 3,
+      "fill": "#FFF6F6",
+      "border": "dashed",
+      "color": "#CF3C50",
+      "lineWidth": 0.7
+     },
+     "resolved": {
+      "cornerRadius": 2.5,
+      "dashOn": 9,
+      "dashOff": 3,
+      "fill": "#FFF6F6",
+      "color": "#CF3C50",
+      "border": "dashed",
+      "weight": "thin",
+      "lineWidth": 0.7,
+      "shape": "rounded",
+      "font": "small",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "sw-background-title",
+   "parent": "sw-background",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "look": {
+    "own": {},
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "text": "",
+   "code": "",
+   "role": "title",
+   "treeParent": "sw-background"
+  },
+  {
+   "id": "sw-label",
+   "parent": "sw-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Secure world (SPE, TF-M)",
+   "code": "",
+   "node": {
+    "id": "sw-label",
+    "title": "Secure world (SPE, TF-M)",
+    "code": "",
+    "x": -3.0551,
+    "y": -23.767,
+    "width": 26,
+    "minh": 0,
+    "cat": "",
+    "layer": "layer1",
+    "group": "sw",
+    "treeParent": "sw-background",
+    "order": 1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "scriptsize",
+     "text": "bold",
+     "textColor": "#CF3C50",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "kind": "label",
+    "attachment": {
+     "parent": "sw-background",
+     "anchor": "north west",
+     "ownAnchor": "west",
+     "dx": 0.5272,
+     "dy": 1.933
+    },
+    "look": {
+     "own": {
+      "compact": true,
+      "font": "scriptsize",
+      "text": "bold",
+      "fill": "none",
+      "textColor": "#CF3C50"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "scriptsize",
+      "text": "bold",
+      "textColor": "#CF3C50",
+      "compact": true,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   },
+   "attachment": {
+    "parent": "sw-background",
+    "anchor": "north west",
+    "ownAnchor": "west",
+    "dx": 0.5272,
+    "dy": 1.933
+   }
+  },
+  {
+   "id": "hw-background",
+   "parent": "hw",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "hw-background",
+    "title": "",
+    "code": "",
+    "x": 34,
+    "y": -71.5,
+    "width": 99.6,
+    "minh": 23.6,
+    "cat": "",
+    "layer": "layer1",
+    "group": "hw",
+    "treeParent": "hw",
+    "order": -1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#F9F9F9",
+     "color": "#6B7280",
+     "border": "dashed",
+     "weight": "thin",
+     "lineWidth": 0.7,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "titleId": "hw-background-title",
+    "look": {
+     "own": {
+      "cornerRadius": 2.5,
+      "dashOn": 9,
+      "dashOff": 3,
+      "fill": "#F9F9F9",
+      "border": "dashed",
+      "color": "#6B7280",
+      "lineWidth": 0.7
+     },
+     "resolved": {
+      "cornerRadius": 2.5,
+      "dashOn": 9,
+      "dashOff": 3,
+      "fill": "#F9F9F9",
+      "color": "#6B7280",
+      "border": "dashed",
+      "weight": "thin",
+      "lineWidth": 0.7,
+      "shape": "rounded",
+      "font": "small",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "hw-background-title",
+   "parent": "hw-background",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "look": {
+    "own": {},
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "text": "",
+   "code": "",
+   "role": "title",
+   "treeParent": "hw-background"
+  },
+  {
+   "id": "hw-label",
+   "parent": "hw-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Hardware root of trust",
+   "code": "",
+   "node": {
+    "id": "hw-label",
+    "title": "Hardware root of trust",
+    "code": "",
+    "x": -3.0551,
+    "y": -57.767,
+    "width": 26,
+    "minh": 0,
+    "cat": "",
+    "layer": "layer1",
+    "group": "hw",
+    "treeParent": "hw-background",
+    "order": 1,
+    "hidden": false,
+    "locked": false,
+    "extra": [],
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "scriptsize",
+     "text": "bold",
+     "textColor": "#6B7280",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "kind": "label",
+    "attachment": {
+     "parent": "hw-background",
+     "anchor": "north west",
+     "ownAnchor": "west",
+     "dx": 0.5272,
+     "dy": 1.933
+    },
+    "look": {
+     "own": {
+      "compact": true,
+      "font": "scriptsize",
+      "text": "bold",
+      "fill": "none",
+      "textColor": "#6B7280"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "scriptsize",
+      "text": "bold",
+      "textColor": "#6B7280",
+      "compact": true,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   },
+   "attachment": {
+    "parent": "hw-background",
+    "anchor": "north west",
+    "ownAnchor": "west",
+    "dx": 0.5272,
+    "dy": 1.933
+   }
   },
   {
    "id": "app",
@@ -1174,7 +1654,7 @@
     "locked": false,
     "style": {
      "fill": "green",
-     "color": "#9E9E9E",
+     "color": "#7A8566",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -1195,7 +1675,7 @@
      "own": {},
      "resolved": {
       "fill": "green",
-      "color": "#9E9E9E",
+      "color": "#7A8566",
       "border": "solid",
       "weight": "thin",
       "lineWidth": 0.45,
@@ -1261,7 +1741,7 @@
     "locked": false,
     "style": {
      "fill": "grey",
-     "color": "#9E9E9E",
+     "color": "#858585",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -1282,7 +1762,7 @@
      "own": {},
      "resolved": {
       "fill": "grey",
-      "color": "#9E9E9E",
+      "color": "#858585",
       "border": "solid",
       "weight": "thin",
       "lineWidth": 0.45,
@@ -1348,7 +1828,7 @@
     "locked": false,
     "style": {
      "fill": "grey",
-     "color": "#9E9E9E",
+     "color": "#858585",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -1369,7 +1849,7 @@
      "own": {},
      "resolved": {
       "fill": "grey",
-      "color": "#9E9E9E",
+      "color": "#858585",
       "border": "solid",
       "weight": "thin",
       "lineWidth": 0.45,
@@ -1435,7 +1915,7 @@
     "locked": false,
     "style": {
      "fill": "peach",
-     "color": "#9E9E9E",
+     "color": "#99857A",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -1456,7 +1936,7 @@
      "own": {},
      "resolved": {
       "fill": "peach",
-      "color": "#9E9E9E",
+      "color": "#99857A",
       "border": "solid",
       "weight": "thin",
       "lineWidth": 0.45,
@@ -1652,6 +2132,7 @@
     "labelStyle": {
      "font": "scriptsize"
     },
+    "hidden": false,
     "treeParent": "att",
     "order": 36,
     "fromPort": {
@@ -1677,7 +2158,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1762,6 +2242,7 @@
      "color": "#804050",
      "bold": true
     },
+    "hidden": false,
     "treeParent": "sw",
     "order": 38,
     "fromPort": {
@@ -1787,7 +2268,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1872,6 +2352,7 @@
     "labelStyle": {
      "font": "scriptsize"
     },
+    "hidden": false,
     "treeParent": "att",
     "order": 40,
     "fromPort": {
@@ -1897,7 +2378,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -1978,6 +2458,7 @@
     "labelStyle": {
      "font": "scriptsize"
     },
+    "hidden": false,
     "treeParent": "att",
     "order": 42,
     "fromPort": {
@@ -2003,7 +2484,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2088,6 +2568,7 @@
     },
     "fromOffset": 0,
     "toOffset": 0,
+    "hidden": false,
     "treeParent": "hw",
     "order": 44,
     "fromPort": {
@@ -2113,7 +2594,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2195,6 +2675,7 @@
     "labelStyle": {
      "font": "scriptsize"
     },
+    "hidden": false,
     "treeParent": "layer1",
     "order": 46,
     "fromPort": {
@@ -2223,7 +2704,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2305,6 +2785,7 @@
     "labelStyle": {
      "font": "scriptsize"
     },
+    "hidden": false,
     "treeParent": "layer1",
     "order": 48,
     "fromPort": {
@@ -2333,7 +2814,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2420,6 +2900,7 @@
     },
     "fromOffset": 3.5,
     "toOffset": 35.067,
+    "hidden": false,
     "treeParent": "layer1",
     "order": 50,
     "fromPort": {
@@ -2450,7 +2931,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2539,6 +3019,7 @@
     },
     "fromOffset": 28.067,
     "toOffset": -3.5,
+    "hidden": false,
     "treeParent": "layer1",
     "order": 52,
     "fromPort": {
@@ -2569,7 +3050,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2654,6 +3134,7 @@
     "labelStyle": {
      "font": "scriptsize"
     },
+    "hidden": false,
     "treeParent": "layer1",
     "order": 54,
     "fromPort": {
@@ -2684,7 +3165,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2771,6 +3251,7 @@
     },
     "fromOffset": 0,
     "toOffset": -32.433,
+    "hidden": false,
     "treeParent": "layer1",
     "order": 56,
     "fromPort": {
@@ -2801,7 +3282,6 @@
       "font": "small"
      }
     },
-    "hidden": false,
     "locked": false
    },
    "source": {
@@ -2853,6 +3333,570 @@
  ],
  "lines": [],
  "nodes": [
+  {
+   "id": "att-background",
+   "title": "",
+   "code": "",
+   "x": 34,
+   "y": -35.567,
+   "width": 105.6,
+   "minh": 101.4661,
+   "cat": "",
+   "layer": "layer1",
+   "group": "att",
+   "treeParent": "att",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "cornerRadius": 2.5,
+    "fill": "none",
+    "color": "#30343B",
+    "border": "solid",
+    "weight": "thin",
+    "lineWidth": 1,
+    "shape": "rounded",
+    "font": "small",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "titleId": "att-background-title",
+   "look": {
+    "own": {
+     "cornerRadius": 2.5,
+     "fill": "none",
+     "border": "solid",
+     "color": "#30343B",
+     "lineWidth": 1
+    },
+    "resolved": {
+     "cornerRadius": 2.5,
+     "fill": "none",
+     "color": "#30343B",
+     "border": "solid",
+     "weight": "thin",
+     "lineWidth": 1,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "cornerRadius",
+    "fill",
+    "border",
+    "color",
+    "lineWidth"
+   ]
+  },
+  {
+   "id": "att-label",
+   "title": "Attester (constrained device)",
+   "code": "",
+   "x": 34,
+   "y": 17.4505,
+   "width": 26,
+   "minh": 0,
+   "cat": "",
+   "layer": "layer1",
+   "group": "att",
+   "treeParent": "att-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "text": "bold",
+    "textColor": "#1D1F23",
+    "compact": true,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "kind": "label",
+   "attachment": {
+    "parent": "att-background",
+    "anchor": "north west",
+    "ownAnchor": "center",
+    "dx": 53.9338,
+    "dy": 2.2845
+   },
+   "look": {
+    "own": {
+     "compact": true,
+     "font": "small",
+     "text": "bold",
+     "fill": "none",
+     "textColor": "#1D1F23"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "text": "bold",
+     "textColor": "#1D1F23",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "compact",
+    "font",
+    "text",
+    "fill",
+    "textColor"
+   ]
+  },
+  {
+   "id": "nw-background",
+   "title": "",
+   "code": "",
+   "x": 34,
+   "y": 0,
+   "width": 99.6,
+   "minh": 16.6,
+   "cat": "",
+   "layer": "layer1",
+   "group": "nw",
+   "treeParent": "nw",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "cornerRadius": 2.5,
+    "dashOn": 9,
+    "dashOff": 3,
+    "fill": "#F3F6FC",
+    "color": "#2D70A6",
+    "border": "dashed",
+    "weight": "thin",
+    "lineWidth": 0.7,
+    "shape": "rounded",
+    "font": "small",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "titleId": "nw-background-title",
+   "look": {
+    "own": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#F3F6FC",
+     "border": "dashed",
+     "color": "#2D70A6",
+     "lineWidth": 0.7
+    },
+    "resolved": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#F3F6FC",
+     "color": "#2D70A6",
+     "border": "dashed",
+     "weight": "thin",
+     "lineWidth": 0.7,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "cornerRadius",
+    "dashOn",
+    "dashOff",
+    "fill",
+    "border",
+    "color",
+    "lineWidth"
+   ]
+  },
+  {
+   "id": "nw-label",
+   "title": "Normal world (untrusted)",
+   "code": "",
+   "x": -3.0551,
+   "y": 10.233,
+   "width": 26,
+   "minh": 0,
+   "cat": "",
+   "layer": "layer1",
+   "group": "nw",
+   "treeParent": "nw-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "scriptsize",
+    "text": "bold",
+    "textColor": "#2D70A6",
+    "compact": true,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "kind": "label",
+   "attachment": {
+    "parent": "nw-background",
+    "anchor": "north west",
+    "ownAnchor": "west",
+    "dx": 0.5272,
+    "dy": 1.933
+   },
+   "look": {
+    "own": {
+     "compact": true,
+     "font": "scriptsize",
+     "text": "bold",
+     "fill": "none",
+     "textColor": "#2D70A6"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "scriptsize",
+     "text": "bold",
+     "textColor": "#2D70A6",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "compact",
+    "font",
+    "text",
+    "fill",
+    "textColor"
+   ]
+  },
+  {
+   "id": "sw-background",
+   "title": "",
+   "code": "",
+   "x": 34,
+   "y": -34,
+   "width": 99.6,
+   "minh": 16.6,
+   "cat": "",
+   "layer": "layer1",
+   "group": "sw",
+   "treeParent": "sw",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "cornerRadius": 2.5,
+    "dashOn": 9,
+    "dashOff": 3,
+    "fill": "#FFF6F6",
+    "color": "#CF3C50",
+    "border": "dashed",
+    "weight": "thin",
+    "lineWidth": 0.7,
+    "shape": "rounded",
+    "font": "small",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "titleId": "sw-background-title",
+   "look": {
+    "own": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#FFF6F6",
+     "border": "dashed",
+     "color": "#CF3C50",
+     "lineWidth": 0.7
+    },
+    "resolved": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#FFF6F6",
+     "color": "#CF3C50",
+     "border": "dashed",
+     "weight": "thin",
+     "lineWidth": 0.7,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "cornerRadius",
+    "dashOn",
+    "dashOff",
+    "fill",
+    "border",
+    "color",
+    "lineWidth"
+   ]
+  },
+  {
+   "id": "sw-label",
+   "title": "Secure world (SPE, TF-M)",
+   "code": "",
+   "x": -3.0551,
+   "y": -23.767,
+   "width": 26,
+   "minh": 0,
+   "cat": "",
+   "layer": "layer1",
+   "group": "sw",
+   "treeParent": "sw-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "scriptsize",
+    "text": "bold",
+    "textColor": "#CF3C50",
+    "compact": true,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "kind": "label",
+   "attachment": {
+    "parent": "sw-background",
+    "anchor": "north west",
+    "ownAnchor": "west",
+    "dx": 0.5272,
+    "dy": 1.933
+   },
+   "look": {
+    "own": {
+     "compact": true,
+     "font": "scriptsize",
+     "text": "bold",
+     "fill": "none",
+     "textColor": "#CF3C50"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "scriptsize",
+     "text": "bold",
+     "textColor": "#CF3C50",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "compact",
+    "font",
+    "text",
+    "fill",
+    "textColor"
+   ]
+  },
+  {
+   "id": "hw-background",
+   "title": "",
+   "code": "",
+   "x": 34,
+   "y": -71.5,
+   "width": 99.6,
+   "minh": 23.6,
+   "cat": "",
+   "layer": "layer1",
+   "group": "hw",
+   "treeParent": "hw",
+   "order": -1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "cornerRadius": 2.5,
+    "dashOn": 9,
+    "dashOff": 3,
+    "fill": "#F9F9F9",
+    "color": "#6B7280",
+    "border": "dashed",
+    "weight": "thin",
+    "lineWidth": 0.7,
+    "shape": "rounded",
+    "font": "small",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "titleId": "hw-background-title",
+   "look": {
+    "own": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#F9F9F9",
+     "border": "dashed",
+     "color": "#6B7280",
+     "lineWidth": 0.7
+    },
+    "resolved": {
+     "cornerRadius": 2.5,
+     "dashOn": 9,
+     "dashOff": 3,
+     "fill": "#F9F9F9",
+     "color": "#6B7280",
+     "border": "dashed",
+     "weight": "thin",
+     "lineWidth": 0.7,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "cornerRadius",
+    "dashOn",
+    "dashOff",
+    "fill",
+    "border",
+    "color",
+    "lineWidth"
+   ]
+  },
+  {
+   "id": "hw-label",
+   "title": "Hardware root of trust",
+   "code": "",
+   "x": -3.0551,
+   "y": -57.767,
+   "width": 26,
+   "minh": 0,
+   "cat": "",
+   "layer": "layer1",
+   "group": "hw",
+   "treeParent": "hw-background",
+   "order": 1,
+   "hidden": false,
+   "locked": false,
+   "extra": [],
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "scriptsize",
+    "text": "bold",
+    "textColor": "#6B7280",
+    "compact": true,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "kind": "label",
+   "attachment": {
+    "parent": "hw-background",
+    "anchor": "north west",
+    "ownAnchor": "west",
+    "dx": 0.5272,
+    "dy": 1.933
+   },
+   "look": {
+    "own": {
+     "compact": true,
+     "font": "scriptsize",
+     "text": "bold",
+     "fill": "none",
+     "textColor": "#6B7280"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "scriptsize",
+     "text": "bold",
+     "textColor": "#6B7280",
+     "compact": true,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "overrides": [
+    "compact",
+    "font",
+    "text",
+    "fill",
+    "textColor"
+   ]
+  },
   {
    "id": "app",
    "cat": "normal",
@@ -3394,7 +4438,7 @@
    "locked": false,
    "style": {
     "fill": "green",
-    "color": "#9E9E9E",
+    "color": "#7A8566",
     "border": "solid",
     "weight": "thin",
     "lineWidth": 0.45,
@@ -3415,7 +4459,7 @@
     "own": {},
     "resolved": {
      "fill": "green",
-     "color": "#9E9E9E",
+     "color": "#7A8566",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -3446,7 +4490,7 @@
    "locked": false,
    "style": {
     "fill": "grey",
-    "color": "#9E9E9E",
+    "color": "#858585",
     "border": "solid",
     "weight": "thin",
     "lineWidth": 0.45,
@@ -3467,7 +4511,7 @@
     "own": {},
     "resolved": {
      "fill": "grey",
-     "color": "#9E9E9E",
+     "color": "#858585",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -3498,7 +4542,7 @@
    "locked": false,
    "style": {
     "fill": "grey",
-    "color": "#9E9E9E",
+    "color": "#858585",
     "border": "solid",
     "weight": "thin",
     "lineWidth": 0.45,
@@ -3519,7 +4563,7 @@
     "own": {},
     "resolved": {
      "fill": "grey",
-     "color": "#9E9E9E",
+     "color": "#858585",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -3550,7 +4594,7 @@
    "locked": false,
    "style": {
     "fill": "peach",
-    "color": "#9E9E9E",
+    "color": "#99857A",
     "border": "solid",
     "weight": "thin",
     "lineWidth": 0.45,
@@ -3571,7 +4615,7 @@
     "own": {},
     "resolved": {
      "fill": "peach",
-     "color": "#9E9E9E",
+     "color": "#99857A",
      "border": "solid",
      "weight": "thin",
      "lineWidth": 0.45,
@@ -3722,6 +4766,7 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "hidden": false,
    "treeParent": "att",
    "order": 36,
    "fromPort": {
@@ -3747,7 +4792,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": []
   },
@@ -3780,6 +4824,7 @@
     "color": "#804050",
     "bold": true
    },
+   "hidden": false,
    "treeParent": "sw",
    "order": 38,
    "fromPort": {
@@ -3805,7 +4850,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": []
   },
@@ -3834,6 +4878,7 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "hidden": false,
    "treeParent": "att",
    "order": 40,
    "fromPort": {
@@ -3859,7 +4904,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": []
   },
@@ -3888,6 +4932,7 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "hidden": false,
    "treeParent": "att",
    "order": 42,
    "fromPort": {
@@ -3913,7 +4958,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": []
   },
@@ -3946,6 +4990,7 @@
    },
    "fromOffset": 0,
    "toOffset": 0,
+   "hidden": false,
    "treeParent": "hw",
    "order": 44,
    "fromPort": {
@@ -3971,7 +5016,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": []
   },
@@ -4001,6 +5045,7 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "hidden": false,
    "treeParent": "layer1",
    "order": 46,
    "fromPort": {
@@ -4029,7 +5074,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": [
     "side"
@@ -4061,6 +5105,7 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "hidden": false,
    "treeParent": "layer1",
    "order": 48,
    "fromPort": {
@@ -4089,7 +5134,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": [
     "side"
@@ -4126,6 +5170,7 @@
    },
    "fromOffset": 3.5,
    "toOffset": 35.067,
+   "hidden": false,
    "treeParent": "layer1",
    "order": 50,
    "fromPort": {
@@ -4156,7 +5201,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": [
     "step",
@@ -4196,6 +5240,7 @@
    },
    "fromOffset": 28.067,
    "toOffset": -3.5,
+   "hidden": false,
    "treeParent": "layer1",
    "order": 52,
    "fromPort": {
@@ -4226,7 +5271,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": [
     "step",
@@ -4260,6 +5304,7 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "hidden": false,
    "treeParent": "layer1",
    "order": 54,
    "fromPort": {
@@ -4290,7 +5335,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": [
     "step",
@@ -4328,6 +5372,7 @@
    },
    "fromOffset": 0,
    "toOffset": -32.433,
+   "hidden": false,
    "treeParent": "layer1",
    "order": 56,
    "fromPort": {
@@ -4358,7 +5403,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": [
     "step",
@@ -4369,57 +5413,39 @@
  "categories": [
   {
    "key": "work",
-   "props": {
-    "fill": "peach"
-   },
    "name": "this work",
    "color": "peach",
-   "legend": true
+   "legend": false
   },
   {
    "key": "normal",
-   "props": {
-    "fill": "blue"
-   },
    "name": "Normal world",
    "color": "blue",
-   "legend": true
+   "legend": false
   },
   {
    "key": "secure",
-   "props": {
-    "fill": "red"
-   },
    "name": "Secure world",
    "color": "red",
-   "legend": true
+   "legend": false
   },
   {
    "key": "hw",
-   "props": {
-    "fill": "grey"
-   },
    "name": "Hardware",
    "color": "grey",
-   "legend": true
+   "legend": false
   },
   {
    "key": "ok",
-   "props": {
-    "fill": "green"
-   },
    "name": "Verifier side",
    "color": "green",
-   "legend": true
+   "legend": false
   },
   {
    "key": "rp",
-   "props": {
-    "fill": "peach"
-   },
    "name": "Relying party",
    "color": "peach",
-   "legend": true
+   "legend": false
   }
  ],
  "styles": [
@@ -4427,61 +5453,55 @@
    "kind": "box",
    "key": "work",
    "name": "this work",
-   "props": {
-    "fill": "peach"
-   },
-   "legend": true,
-   "line": "% sakuga style box work {this work} peach legend"
+   "props": {},
+   "legend": false,
+   "color": "peach",
+   "line": "% sakuga style box work {this work}"
   },
   {
    "kind": "box",
    "key": "normal",
    "name": "Normal world",
-   "props": {
-    "fill": "blue"
-   },
-   "legend": true,
-   "line": "% sakuga style box normal {Normal world} blue legend"
+   "props": {},
+   "legend": false,
+   "color": "blue",
+   "line": "% sakuga style box normal {Normal world}"
   },
   {
    "kind": "box",
    "key": "secure",
    "name": "Secure world",
-   "props": {
-    "fill": "red"
-   },
-   "legend": true,
-   "line": "% sakuga style box secure {Secure world} red legend"
+   "props": {},
+   "legend": false,
+   "color": "red",
+   "line": "% sakuga style box secure {Secure world}"
   },
   {
    "kind": "box",
    "key": "hw",
    "name": "Hardware",
-   "props": {
-    "fill": "grey"
-   },
-   "legend": true,
-   "line": "% sakuga style box hw {Hardware} grey legend"
+   "props": {},
+   "legend": false,
+   "color": "grey",
+   "line": "% sakuga style box hw {Hardware}"
   },
   {
    "kind": "box",
    "key": "ok",
    "name": "Verifier side",
-   "props": {
-    "fill": "green"
-   },
-   "legend": true,
-   "line": "% sakuga style box ok {Verifier side} green legend"
+   "props": {},
+   "legend": false,
+   "color": "green",
+   "line": "% sakuga style box ok {Verifier side}"
   },
   {
    "kind": "box",
    "key": "rp",
    "name": "Relying party",
-   "props": {
-    "fill": "peach"
-   },
-   "legend": true,
-   "line": "% sakuga style box rp {Relying party} peach legend"
+   "props": {},
+   "legend": false,
+   "color": "peach",
+   "line": "% sakuga style box rp {Relying party}"
   }
  ],
  "shared": [
@@ -4537,7 +5557,8 @@
   {
    "cat": "hw",
    "props": {
-    "color": "#9E9E9E",
+    "fill": "grey",
+    "color": "#858585",
     "border": "solid",
     "weight": "thin",
     "lineWidth": 0.45,
@@ -4552,198 +5573,76 @@
  ],
  "groups": [
   {
+   "hidden": false,
    "id": "att",
    "name": "Attester (constrained device)",
-   "frame": "solid",
+   "frame": "none",
    "color": "grey",
    "parent": "",
-   "titlePosition": "above-center",
-   "titleBold": true,
-   "titleFont": "small",
-   "lineWidth": 1,
-   "frameColor": "#30343B",
    "treeParent": "layer1",
    "order": 0,
-   "titleId": "att-title",
+   "locked": false,
    "look": {
     "own": {
-     "frame": "solid",
-     "color": "grey",
-     "frameColor": "#30343B",
-     "lineWidth": 1,
-     "titlePosition": "above-center",
-     "titleBold": true,
-     "titleFont": "small"
+     "frame": "none",
+     "color": "grey"
     },
-    "resolved": {
-     "frame": "solid",
-     "color": "grey",
-     "frameColor": "#30343B",
-     "outline": "",
-     "fill": "",
-     "fillStrength": 30,
-     "lineWidth": 1,
-     "padding": 3,
-     "titlePosition": "above-center",
-     "titleBold": true,
-     "titleFont": "small",
-     "titleColor": ""
-    }
-   },
-   "outline": "",
-   "fill": "",
-   "fillStrength": 30,
-   "padding": 3,
-   "titleColor": "",
-   "hidden": false,
-   "locked": false
+    "resolved": {}
+   }
   },
   {
+   "hidden": false,
    "id": "nw",
    "name": "Normal world (untrusted)",
-   "frame": "dashed",
+   "frame": "none",
    "color": "blue",
    "parent": "att",
-   "titlePosition": "above-left",
-   "titleBold": true,
-   "titleColor": "#2D70A6",
-   "frameColor": "#2D70A6",
-   "fill": "tint",
-   "fillStrength": 18,
-   "outline": "dashed",
    "treeParent": "att",
    "order": 2,
-   "titleId": "nw-title",
+   "locked": false,
    "look": {
     "own": {
-     "frame": "dashed",
-     "color": "blue",
-     "frameColor": "#2D70A6",
-     "outline": "dashed",
-     "fill": "tint",
-     "fillStrength": 18,
-     "titlePosition": "above-left",
-     "titleBold": true,
-     "titleColor": "#2D70A6"
+     "frame": "none",
+     "color": "blue"
     },
-    "resolved": {
-     "frame": "dashed",
-     "color": "blue",
-     "frameColor": "#2D70A6",
-     "outline": "dashed",
-     "fill": "tint",
-     "fillStrength": 18,
-     "lineWidth": 0.7,
-     "padding": 2.8,
-     "titlePosition": "above-left",
-     "titleBold": true,
-     "titleFont": "scriptsize",
-     "titleColor": "#2D70A6"
-    }
-   },
-   "lineWidth": 0.7,
-   "padding": 2.8,
-   "titleFont": "scriptsize",
-   "hidden": false,
-   "locked": false
+    "resolved": {}
+   }
   },
   {
+   "hidden": false,
    "id": "sw",
    "name": "Secure world (SPE, TF-M)",
-   "frame": "dashed",
+   "frame": "none",
    "color": "red",
    "parent": "att",
-   "titlePosition": "above-left",
-   "titleBold": true,
-   "titleColor": "#CF3C50",
-   "frameColor": "#CF3C50",
-   "fill": "tint",
-   "fillStrength": 18,
-   "outline": "dashed",
    "treeParent": "att",
    "order": 4,
-   "titleId": "sw-title",
+   "locked": false,
    "look": {
     "own": {
-     "frame": "dashed",
-     "color": "red",
-     "frameColor": "#CF3C50",
-     "outline": "dashed",
-     "fill": "tint",
-     "fillStrength": 18,
-     "titlePosition": "above-left",
-     "titleBold": true,
-     "titleColor": "#CF3C50"
+     "frame": "none",
+     "color": "red"
     },
-    "resolved": {
-     "frame": "dashed",
-     "color": "red",
-     "frameColor": "#CF3C50",
-     "outline": "dashed",
-     "fill": "tint",
-     "fillStrength": 18,
-     "lineWidth": 0.7,
-     "padding": 2.8,
-     "titlePosition": "above-left",
-     "titleBold": true,
-     "titleFont": "scriptsize",
-     "titleColor": "#CF3C50"
-    }
-   },
-   "lineWidth": 0.7,
-   "padding": 2.8,
-   "titleFont": "scriptsize",
-   "hidden": false,
-   "locked": false
+    "resolved": {}
+   }
   },
   {
+   "hidden": false,
    "id": "hw",
    "name": "Hardware root of trust",
-   "frame": "dashed",
+   "frame": "none",
    "color": "grey",
    "parent": "att",
-   "titlePosition": "above-left",
-   "titleBold": true,
-   "titleColor": "#6B7280",
-   "frameColor": "#6B7280",
-   "fill": "tint",
-   "fillStrength": 18,
-   "outline": "dashed",
    "treeParent": "att",
    "order": 6,
-   "titleId": "hw-title",
+   "locked": false,
    "look": {
     "own": {
-     "frame": "dashed",
-     "color": "grey",
-     "frameColor": "#6B7280",
-     "outline": "dashed",
-     "fill": "tint",
-     "fillStrength": 18,
-     "titlePosition": "above-left",
-     "titleBold": true,
-     "titleColor": "#6B7280"
+     "frame": "none",
+     "color": "grey"
     },
-    "resolved": {
-     "frame": "dashed",
-     "color": "grey",
-     "frameColor": "#6B7280",
-     "outline": "dashed",
-     "fill": "tint",
-     "fillStrength": 18,
-     "lineWidth": 0.7,
-     "padding": 2.8,
-     "titlePosition": "above-left",
-     "titleBold": true,
-     "titleFont": "scriptsize",
-     "titleColor": "#6B7280"
-    }
-   },
-   "lineWidth": 0.7,
-   "padding": 2.8,
-   "titleFont": "scriptsize",
-   "hidden": false,
-   "locked": false
+    "resolved": {}
+   }
   }
  ],
  "layers": [

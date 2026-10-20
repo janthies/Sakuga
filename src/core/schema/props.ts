@@ -35,7 +35,7 @@ const BNA: Kind[] = ['box', 'label', 'arrow'];
 const palette = Object.keys(PALETTE);
 export const BORDERS = ['solid', 'dashed', 'dotted', 'double', 'none'] as const;
 export const WEIGHTS = ['thin', 'medium', 'thick'] as const;
-export const SHAPES = ['rounded', 'rectangle', 'pill', 'ellipse', 'circle', 'diamond', 'cylinder'] as const;
+export const SHAPES = ['rounded', 'rectangle', 'pill', 'ellipse', 'circle', 'diamond', 'triangle', 'cylinder'] as const;
 export const TEXT_STYLES = ['bold', 'italic', 'bold-italic'] as const;
 export const TIPS = ['Latex', 'Stealth', 'triangle', 'barb', 'circle', 'bar', 'none'] as const;
 export const PATTERNS = ['hatched', 'crosshatch', 'dots', 'horizontal', 'vertical'] as const;
@@ -53,6 +53,10 @@ const framePadding = (o: Record<string, any>) =>
 	frameLine(o) === 'dashed' ? 2.8 : frameLine(o) === 'dotted' ? 1.8 : 3;
 
 export const PROPS: PropDef[] = [
+	{ key: 'cornerRadius', kinds: BN, type: 'number', styleable: false, length: 'geometry' },
+	{ key: 'dashOn', kinds: BN, type: 'number', styleable: false, length: 'stroke' },
+	{ key: 'dashOff', kinds: BN, type: 'number', styleable: false, length: 'stroke' },
+	{ key: 'roundCap', kinds: BN, type: 'boolean', styleable: false },
 	{
 		key: 'frame',
 		kinds: ['frame'],

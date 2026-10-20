@@ -10,8 +10,7 @@ export function inlineText(fig: Figure, i: TextItem, parent: Item | undefined): 
 	const siblings = childrenOf(fig, parent.id).filter((c) => c.kind === 'Text' && c.id !== i.id);
 	const first = siblings[0];
 	const path = parent.kind === 'Line' || parent.kind === 'Connector';
-	if (!path && !((parent.kind === 'Shape' || parent.kind === 'Frame') && (!first || i.order < first.order)))
-		return false;
+	if (!path && !(parent.kind === 'Shape' && (!first || i.order < first.order))) return false;
 	const text = i.text,
 		code = i.code || '',
 		st = i.placement;
@@ -64,11 +63,6 @@ export function inlineText(fig: Figure, i: TextItem, parent: Item | undefined): 
 			parent.node.title = text;
 			parent.node.code = code;
 			parent.node.titleId = i.id;
-		}
-		if (parent.kind === 'Frame') {
-			parent.frame.name = text;
-			parent.frame.titleId = i.id;
-			parent.frame.labelStyle = st;
 		}
 	}
 	if (i.node) fig.lines = fig.lines.filter((l) => !(l.t === 'node' && l.n === i.node));

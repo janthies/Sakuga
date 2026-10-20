@@ -1,5 +1,5 @@
 import { readTheme, readCategory, readCategoryOption } from './look';
-import { migrateLooks } from '../styles/migrate';
+import { migrateCategories, migrateFrames, migrateLooks } from '../styles/migrate';
 // Reading a figure file into the model.
 import { migratePorts } from '../geometry/migrate-ports';
 import { resolvePorts } from '../geometry/ports';
@@ -44,6 +44,11 @@ export function parse(text: string): Figure {
 						? 'groups'
 						: 'legend';
 			lines.push({ t: block });
+			continue;
+		}
+		const figureHeader = /^% sakuga figure place=(\S*) label=(\S*) caption=\{(.*)\}$/.exec(line);
+		if (figureHeader) {
+			fig.figure = { place: figureHeader[1], label: figureHeader[2], caption: figureHeader[3] };
 			continue;
 		}
 		if (readTheme(fig, line)) continue;
@@ -238,7 +243,7 @@ export function parse(text: string): Figure {
 		if (m) {
 			lines.push({
 				t: 'group',
-				g: { id: m[1], name: m[2], frame: m[3], color: m[4], parent: m[5] ?? '', ...readGroup(m[6]) },
+				g: { hidden: !!hidden, id: m[1], name: m[2], frame: m[3], color: m[4], parent: m[5] ?? '', ...readGroup(m[6]) },
 			});
 			continue;
 		}
@@ -257,6 +262,7 @@ export function parse(text: string): Figure {
 		}
 		const e = m && parsePath(opts(m[1]), m[2]);
 		if (e) {
+			e.hidden ||= !!hidden;
 			lines.push({ t: 'edge', e });
 			continue;
 		}
@@ -288,6 +294,10 @@ export function parse(text: string): Figure {
 		readTreeState(fig, tree);
 		resolvePorts(fig);
 	} else migratePorts(fig);
+	migrateCategories(fig);
+	migrateFrames(fig);
 	settle(fig);
+	for (const n of nodes(fig)) normalizeWidth(fig, n);
+	resolveAttachments(fig);
 	return fig;
 }

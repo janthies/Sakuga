@@ -186,12 +186,10 @@ test('inspector panes: ordered sections, multi-selection size batches, arrow and
 		rows().some((r: any) => r.children[0].textContent === 'Route'),
 		'Arrow route remains editable',
 	);
-	const f = s.hook.frameRect('frame');
-	s.down(f.x - f.w / 2, f.y, '[data-group="frame"]');
-	s.up(f.x - f.w / 2, f.y);
+	s.click(s.window.document.querySelector('[data-id="frame"]'));
 	assert.equal(s.selection.group, 'frame');
 	assert.ok(!pane('pane-selection').querySelector('.empty'), 'A selected frame is not an empty selection');
-	assert.ok(rows().some((r: any) => r.children[0].textContent === 'Title at'));
+	assert.ok(rows().some((r: any) => r.children[0].textContent === 'Name'));
 });
 
 test('no sheet is drawn and Fit centres the content', () => {

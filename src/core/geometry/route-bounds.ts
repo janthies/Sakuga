@@ -27,7 +27,7 @@ export function bounds(
 			.map((b) => {
 				const child = groups.find((g) => g.id === b.id)!,
 					pos = child.titlePosition || 'legacy';
-				if (child.name && (pos.startsWith('above') || pos === 'below-left')) {
+				if (child.frame !== 'none' && child.name && (pos.startsWith('above') || pos === 'below-left')) {
 					const extra = ((TITLE_PT[child.titleFont || 'scriptsize']! + 3) * 25.4) / 72.27;
 					return { ...b, h: b.h + extra, y: b.y + (pos === 'below-left' ? -extra / 2 : extra / 2) };
 				}
@@ -47,6 +47,9 @@ export function bounds(
 	const x0 = Math.min(...items.map((n) => n.x - n.w / 2)) - m,
 		x1 = Math.max(...items.map((n) => n.x + n.w / 2)) + m;
 	const y0 = Math.min(...items.map((n) => n.y - n.h / 2)) - m,
-		y1 = Math.max(...items.map((n) => n.y + n.h / 2)) + m + (g.titlePosition?.startsWith('inside') ? 5 : 0);
+		y1 =
+			Math.max(...items.map((n) => n.y + n.h / 2)) +
+			m +
+			(g.frame !== 'none' && g.titlePosition?.startsWith('inside') ? 5 : 0);
 	return { id, x: (x0 + x1) / 2, y: (y0 + y1) / 2, w: x1 - x0, h: y1 - y0, group: g.parent, frame: true };
 }

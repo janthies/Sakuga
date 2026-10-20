@@ -42,7 +42,7 @@ export type Item =
 export const CHILD_RULES: Record<ItemKind | 'Layer', readonly ItemKind[]> = {
 	Layer: ['Shape', 'Frame', 'Text', 'Icon', 'Line', 'Connector'],
 	Frame: ['Shape', 'Frame', 'Text', 'Icon', 'Line', 'Connector'],
-	Shape: ['Text', 'Icon', 'Shape'],
+	Shape: ['Text', 'Icon', 'Shape', 'Frame', 'Line'],
 	Connector: ['Text'],
 	Line: ['Text'],
 	Text: [],

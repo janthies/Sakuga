@@ -10,15 +10,10 @@
     "kind": "box",
     "key": "work",
     "name": "this work",
-    "props": {
-     "fill": "peach"
-    },
-    "legend": false
+    "props": {},
+    "legend": false,
+    "color": "peach"
    }
-  },
-  {
-   "t": "legendflag",
-   "on": true
   },
   {
    "t": "raw",
@@ -271,6 +266,7 @@
     "extra": [],
     "fromOffset": 1.54,
     "toOffset": 3.6337,
+    "hidden": false,
     "treeParent": "layer1",
     "order": 8,
     "fromPort": {
@@ -688,6 +684,7 @@
     "extra": [],
     "fromOffset": 1.54,
     "toOffset": 3.6337,
+    "hidden": false,
     "treeParent": "layer1",
     "order": 8,
     "fromPort": {

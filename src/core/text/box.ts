@@ -17,12 +17,17 @@ export function layout(n: NodeLike, font = 'small'): Size {
 		h = Math.max(
 			Math.max(6.16, (pt + 7.45 + (ls.length - 1) * baseline + (n.code ? baseline - 1 : 0)) * PT) +
 				(n.icon && n.icon !== 'none' && !['left', 'right'].includes(n.iconPosition || 'left') ? 4 : 0),
-			n.minh || 0,
+			n.style?.shape === 'triangle' ? 0 : n.minh || 0,
 		);
 	if (n.style?.shape === 'circle') w = h = Math.hypot(w - 0.158, h - 0.158) + 0.158;
 	if (n.style?.shape === 'ellipse') {
 		w = (w - 0.158) * Math.SQRT2 + 0.158;
 		h = (h - 0.158) * Math.SQRT2 + 0.158;
+	}
+	if (n.style?.shape === 'triangle') {
+		const radius = Math.max(Math.SQRT2 * Math.max(w - 0.158, h - 0.158), (n.minh || 6) / 2, 3);
+		w = Math.sqrt(3) * radius + 0.158;
+		h = 1.5 * radius + 0.158;
 	}
 	if (n.style?.shape === 'diamond') w = h = w + h - 0.183;
 	if (n.style?.shape === 'cylinder') {

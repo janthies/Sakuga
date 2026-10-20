@@ -97,36 +97,10 @@ export function sequence(s: Session) {
 	apply({ op: 'detachLabel', index: 0, slot: 0, id: 'extra2', x: 20, y: -10 });
 	canonical();
 	assert.equal((edges()[0].labels ?? []).length, 0);
-	// Attach to a frame replaces its title; detaching clears it. Frame label style inherits on reset.
-	apply({ op: 'attachLabel', id: 'extra2', group: 'world', style: { dx: 3, dy: 2 } });
-	assert.equal(groups()[0].name, 'Edited');
-	canonical();
-	apply({ op: 'label', group: 'world', style: { color: null, font: null, bold: null } });
-	apply({ op: 'groupProps', id: 'world', color: 'red' });
-	canonical();
-	apply({ op: 'detachLabel', group: 'world', id: 'title-free', x: 0, y: -25 });
-	canonical();
-	assert.equal(groups()[0].name, '');
-	apply({ op: 'attachLabel', id: 'title-free', group: 'world', style: { dx: 1, dy: 2 } });
-	canonical();
-	// Style clipboard uses label properties only and clears the destination's own values.
-	const G2 = s.hook.arrowLabelGeom(state(s).edges[0]);
-	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
-	s.up(G2.p[0], G2.p[1]);
-	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
-	s.up(G2.p[0], G2.p[1]);
-	assert.equal(s.selection.label.index, 0);
-	s.key('c', { ctrlKey: true, altKey: true, code: 'KeyC' });
-	const T = s.hook.frameTitleGeom(state(s).groups[0]);
-	s.down(T.p[0], T.p[1], label(s, { group: 'world' }));
-	s.up(T.p[0], T.p[1]);
-	s.down(T.p[0], T.p[1], label(s, { group: 'world' }));
-	s.up(T.p[0], T.p[1]);
-	assert.equal(s.selection.group, 'world');
-	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
-	const pasted = s.lastOp;
-	assert.equal(pasted.op, 'groupProps');
-	assert.equal(pasted.id, 'world');
+	// A group member remains an ordinary label with its own position.
+	apply({ op: 'reparent', id: 'extra2', newParent: 'world' });
+	assert.equal(t.itemById(s.fig(), 'extra2').parent, 'world');
+	assert.equal(groups()[0].name, 'World');
 	canonical();
 	// Legacy placement survives an own side/position, and reset still inherits the old preset.
 	apply({ op: 'style', indices: [0], style: { side: 'below', position: 'start' } });
@@ -134,6 +108,7 @@ export function sequence(s: Session) {
 	const saved = t.parse(canonical());
 	assert.equal(t.edges(saved)[0].style.side, 'below');
 	assert.equal(t.edges(saved)[0].style.position, 'start');
+	const G2 = s.hook.arrowLabelGeom(state(s).edges[0]);
 	// An inspector edit and its document echo retain label selection.
 	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
 	s.up(G2.p[0], G2.p[1]);
@@ -177,6 +152,6 @@ export function sequence(s: Session) {
 			background: true,
 		},
 	});
-	apply({ op: 'label', group: 'world', style: { dx: 2, dy: 3, font: 'small' } });
+
 	return { expected: s.hook.arrowLabelGeom(state(s).edges[0]).p, frame: s.hook.frameTitleGeom(state(s).groups[0]) };
 }

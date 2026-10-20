@@ -5642,12 +5642,9 @@
  "categories": [
   {
    "key": "work",
-   "props": {
-    "fill": "peach"
-   },
    "name": "this work",
    "color": "peach",
-   "legend": true
+   "legend": false
   }
  ],
  "styles": [
@@ -5655,11 +5652,10 @@
    "kind": "box",
    "key": "work",
    "name": "this work",
-   "props": {
-    "fill": "peach"
-   },
-   "legend": true,
-   "line": "% sakuga style box work {this work} peach legend"
+   "props": {},
+   "legend": false,
+   "color": "peach",
+   "line": "% sakuga style box work {this work}"
   }
  ],
  "shared": [

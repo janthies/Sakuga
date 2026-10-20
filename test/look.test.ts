@@ -6,7 +6,7 @@ import { markOption } from '../src/core/codec/opt-fill';
 import { readOptions } from '../src/core/codec/options';
 import { darkerColor } from '../src/core/model/colour';
 
-const source = String.raw`% sakuga category tee {TEE} green icon=shield legend
+const source = String.raw`% sakuga category tee {TEE} color=green legend
 % sakuga layer layer1 {Layer 1}
 \begin{tikzpicture}[x=1mm,y=1mm]
 \node[sg shape,cat-tee-shape] (a) at (0,0) {A};
@@ -44,7 +44,7 @@ test('categories map to each kind and text children inherit recursively', () => 
 	assert.equal(resolveLook(fig, 'note').textColor.value, dark);
 	apply(fig, { op: 'addGroup', id: 'frame', name: 'Frame' });
 	apply(fig, { op: 'setCategory', id: 'frame', category: 'tee' });
-	assert.deepEqual(resolveLook(fig, 'frame').titleColor, { value: dark, source: { category: 'tee' } });
+	assert.deepEqual(resolveLook(fig, 'frame'), {});
 	apply(fig, { op: 'addNode', id: 'icon', x: 5, y: 5, title: '', cat: 'tee', kind: 'icon', icon: 'shield' });
 	assert.equal(resolveLook(fig, 'icon').textColor.value, dark);
 });
@@ -97,7 +97,7 @@ test('legacy styles migrate to categories and item overrides with their look', (
 });
 
 test('legend uses exactly one marker and includes flagged unused categories', () => {
-	const fig = parse(source);
+	const fig = parse(source.replace('color=green', 'icon=shield'));
 	apply(fig, { op: 'categoryAdd', category: { key: 'unused', name: 'Unused', color: 'blue', legend: true } });
 	const legend = legendBlock(fig).join('\n');
 	assert.equal((legend.match(/sg swatch/g) || []).length, 1);

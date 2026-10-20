@@ -383,6 +383,7 @@
     "extra": [],
     "fromOffset": 6.1337,
     "toOffset": 15.1337,
+    "hidden": false,
     "treeParent": "layer1",
     "order": 8,
     "fromPort": {
@@ -662,6 +663,7 @@
    "extra": [],
    "fromOffset": 6.1337,
    "toOffset": 15.1337,
+   "hidden": false,
    "treeParent": "layer1",
    "order": 8,
    "fromPort": {
@@ -686,7 +688,6 @@
      "font": "small"
     }
    },
-   "hidden": false,
    "locked": false,
    "overrides": []
   }
@@ -694,9 +695,6 @@
  "categories": [
   {
    "key": "work",
-   "props": {
-    "fill": "peach"
-   },
    "name": "this work",
    "color": "peach",
    "legend": false
@@ -707,11 +705,10 @@
    "kind": "box",
    "key": "work",
    "name": "this work",
-   "props": {
-    "fill": "peach"
-   },
+   "props": {},
    "legend": false,
-   "line": "% sakuga style box work {this work} peach"
+   "color": "peach",
+   "line": "% sakuga style box work {this work}"
   }
  ],
  "shared": [
@@ -744,7 +741,7 @@
   }
  ],
  "font": "small",
- "legend": true,
+ "legend": false,
  "arrows": "manhattan",
  "palette": {
   "blue": {

@@ -61,6 +61,78 @@
    ]
   },
   {
+   "id": "g1-background",
+   "x": 0,
+   "y": -29.0879,
+   "w": 65.8675,
+   "h": 49.7748,
+   "lines": 1,
+   "half": [
+    32.9337,
+    24.8874
+   ]
+  },
+  {
+   "id": "g1-label",
+   "x": -19.0551,
+   "y": -6.1335,
+   "w": 26.7029,
+   "h": 4.2175,
+   "lines": 1,
+   "half": [
+    13.3515,
+    2.1088
+   ]
+  },
+  {
+   "id": "g2-background",
+   "x": -3.39,
+   "y": -103.9879,
+   "w": 73.0475,
+   "h": 45.9748,
+   "lines": 1,
+   "half": [
+    36.5237,
+    22.9874
+   ]
+  },
+  {
+   "id": "g2-label",
+   "x": -26.0351,
+   "y": -82.9335,
+   "w": 26.7029,
+   "h": 4.2175,
+   "lines": 1,
+   "half": [
+    13.3515,
+    2.1088
+   ]
+  },
+  {
+   "id": "g3-background",
+   "x": -15,
+   "y": -110.5879,
+   "w": 43.8275,
+   "h": 26.7748,
+   "lines": 1,
+   "half": [
+    21.9137,
+    13.3874
+   ]
+  },
+  {
+   "id": "g3-label",
+   "x": -23.0351,
+   "y": -99.1335,
+   "w": 26.7029,
+   "h": 4.2175,
+   "lines": 1,
+   "half": [
+    13.3515,
+    2.1088
+   ]
+  },
+  {
    "id": "hdl",
    "x": -15,
    "y": -104,
@@ -169,40 +241,18 @@
    ]
   }
  ],
- "frames": [
-  {
-   "id": "g1",
-   "x": 0,
-   "y": -29.0879,
-   "w": 65.8675,
-   "h": 49.7748
-  },
-  {
-   "id": "g2",
-   "x": -3.39,
-   "y": -103.9879,
-   "w": 73.0475,
-   "h": 45.9748
-  },
-  {
-   "id": "g3",
-   "x": -15,
-   "y": -110.5879,
-   "w": 43.8275,
-   "h": 26.7748
-  }
- ],
+ "frames": [],
  "frameTitles": [
   {
    "id": "g1",
    "title": {
     "p": [
      -32.4066,
-     -6.1335
+     -5.9578
     ],
     "anchor": [
      -32.9337,
-     -4.2005
+     -4.0248
     ],
     "pt": 8,
     "align": "start"
@@ -213,11 +263,11 @@
    "title": {
     "p": [
      -39.3866,
-     -82.9335
+     -82.7578
     ],
     "anchor": [
      -39.9137,
-     -81.0005
+     -80.8248
     ],
     "pt": 8,
     "align": "start"
@@ -228,11 +278,11 @@
    "title": {
     "p": [
      -36.3866,
-     -99.1335
+     -98.9578
     ],
     "anchor": [
      -36.9137,
-     -97.2005
+     -97.0248
     ],
     "pt": 8,
     "align": "start"
@@ -267,9 +317,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -290,9 +339,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -323,9 +371,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -346,9 +393,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -364,48 +410,46 @@
    "base": {
     "pts": [
      [
-      -15,
+      -6.8175,
       -28.9995
      ],
      [
-      -15,
+      -7.9428,
       -29.8248
      ]
     ],
     "label": [
-     -15,
+     -7.3802,
      -29.4121
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      -15,
+      -6.8175,
       -28.9995
      ],
      [
-      -15,
+      -7.9428,
       -29.8248
      ]
     ],
     "label": [
-     -15,
+     -7.3802,
      -29.4121
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -421,59 +465,57 @@
    "base": {
     "pts": [
      [
-      15,
+      6.8175,
       -28.9995
      ],
      [
-      15,
+      10.8,
       -31.92
      ]
     ],
     "label": [
-     15,
+     8.8088,
      -30.4598
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      15,
+      6.8175,
       -28.9995
      ],
      [
-      15,
+      10.8,
       -31.92
      ]
     ],
     "label": [
-     15,
+     8.8088,
      -30.4598
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": [
     {
      "slot": null,
      "g": {
       "p": [
-       15,
+       8.8088,
        -30.4598
       ],
       "anchor": [
-       15,
+       8.8088,
        -30.4598
       ],
       "w": 7.7853,
@@ -510,9 +552,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -533,9 +574,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -566,9 +606,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -589,9 +628,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -691,48 +729,46 @@
    "base": {
     "pts": [
      [
-      15,
+      13.8154,
       -38.08
      ],
      [
-      15,
+      1.9229,
       -69.0005
      ]
     ],
     "label": [
-     15,
+     7.8691,
      -53.5402
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      15,
+      13.8154,
       -38.08
      ],
      [
-      15,
+      1.9229,
       -69.0005
      ]
     ],
     "label": [
-     15,
+     7.8691,
      -53.5402
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -763,9 +799,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -786,9 +821,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -804,48 +838,46 @@
    "base": {
     "pts": [
      [
-      0,
+      -4.9995,
       -93.9995
      ],
      [
-      0,
+      -10.0005,
       -99.0005
      ]
     ],
     "label": [
-     0,
+     -7.5,
      -96.5
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      0,
+      -4.9995,
       -93.9995
      ],
      [
-      0,
+      -10.0005,
       -99.0005
      ]
     ],
     "label": [
-     0,
+     -7.5,
      -96.5
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -861,48 +893,46 @@
    "base": {
     "pts": [
      [
-      15,
+      3.5711,
       -93.9995
      ],
      [
-      15,
+      11.3034,
       -104.8248
      ]
     ],
     "label": [
-     15,
+     7.4372,
      -99.4121
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      15,
+      3.5711,
       -93.9995
      ],
      [
-      15,
+      11.3034,
       -104.8248
      ]
     ],
     "label": [
-     15,
+     7.4372,
      -99.4121
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -933,9 +963,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -956,9 +985,8 @@
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -974,48 +1002,46 @@
    "base": {
     "pts": [
      [
-      -15,
+      -9.4551,
       -122.1752
      ],
      [
-      -15,
+      -3.3,
       -127.92
      ]
     ],
     "label": [
-     -15,
+     -6.3775,
      -125.0476
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      -15,
+      -9.4551,
       -122.1752
      ],
      [
-      -15,
+      -3.3,
       -127.92
      ]
     ],
     "label": [
-     -15,
+     -6.3775,
      -125.0476
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },
@@ -1031,48 +1057,46 @@
    "base": {
     "pts": [
      [
-      15,
+      11.3034,
       -115.1752
      ],
      [
-      15,
+      2.2,
       -127.92
      ]
     ],
     "label": [
-     15,
+     6.7517,
      -121.5476
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
      [
-      15,
+      11.3034,
       -115.1752
      ],
      [
-      15,
+      2.2,
       -127.92
      ]
     ],
     "label": [
-     15,
+     6.7517,
      -121.5476
     ],
     "r": {
      "type": "line"
     },
     "special": true,
-    "sa": "south",
-    "sb": "north",
-    "rule": "aligned"
+    "blocked": true,
+    "rule": "blocked"
    },
    "labels": []
   },

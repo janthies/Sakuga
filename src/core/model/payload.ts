@@ -3,6 +3,10 @@ import type { TreeState, Port } from './item-base';
 // The figure model: boxes, arrows, groups, layers, named styles and the line list that keeps the file order.
 
 export interface ObjectStyle {
+	cornerRadius?: number;
+	dashOn?: number;
+	dashOff?: number;
+	roundCap?: boolean;
 	compact?: boolean;
 	lineWidth?: number;
 	tipLength?: number;
@@ -37,18 +41,15 @@ export interface Icon {
 	rects?: { x: number; y: number; width: number; height: number; rx?: number }[];
 }
 
-export interface Category {
+interface CategorySettings {
+	fill?: string;
+	outlineColor?: string;
 	outline?: string;
-	emphasis?: string;
-	props?: Record<string, any>;
-	kinds?: Partial<Record<import('./item-base').ItemKind, Record<string, any>>>;
 	key: string;
 	name: string;
-	color: string;
-	icon?: string;
-	boxes?: boolean;
 	legend?: boolean;
 }
+export type Category = CategorySettings & ({ color: string; icon?: never } | { icon: string; color?: never });
 
 // A named style acts on every object that names it. One flat level per kind, no inheritance.
 // props use the names of ObjectStyle (a box style's colour is its fill); an object keeps only
@@ -56,9 +57,12 @@ export interface Category {
 export type StyleKind = 'box' | 'arrow' | 'frame' | 'label';
 
 export interface StyleDef {
+	color?: string;
+	fill?: string;
+	outlineColor?: string;
 	outline?: string;
 	emphasis?: string;
-	kinds?: Category['kinds'];
+	kinds?: Partial<Record<import('./item-base').ItemKind, Record<string, any>>>;
 	kind: StyleKind;
 	key: string;
 	name: string;

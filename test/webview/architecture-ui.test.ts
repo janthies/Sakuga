@@ -48,17 +48,9 @@ test('frame endpoint drops, numeric controls, next step, style transfer and fram
 	s.apply({ op: 'style', indices: [0], style: { step: 2 } });
 	s.apply({ op: 'style', indices: [1], style: { step: 5 } });
 
-	const frame = s.hook.frameRect('g'),
-		x = frame.x + frame.w / 2;
-	selectEdge(0);
-	s.down(50, 0, '[data-endpoint="0:to"]');
-	s.move(x, 0);
-	assert.equal(s.hook.drag().target.id, 'g');
-	assert.equal(s.hook.drag().target.anchor, 'east');
-	s.up(x, 0);
-	assert.equal(s.lastOp.to, 'g');
-	assert.equal(s.lastOp.toAnchor, 'east');
-	assert.equal(s.hook.baseEdgeGeom(s.hook.state().edges[0]).pts.at(-1)[0], x);
+	// Groups have no canvas target; attach arrows through endpoint IDs.
+	s.apply({ op: 'arrow', index: 0, to: 'g', toAnchor: 'east' });
+	assert.equal(t.edges(s.fig())[0].to, 'g');
 
 	// Numeric controls, integer badges, clearing and 0.05 pt increments.
 	selectEdge(0);
@@ -91,21 +83,9 @@ test('frame endpoint drops, numeric controls, next step, style transfer and fram
 	s.up(0, 0);
 	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
 	assert.equal(s.lastOp.ops.at(-1).style.color, 'blue');
-	const frameEdge = () => {
-		const r = s.hook.frameRect('g');
-		return [r.x - r.w / 2, r.y];
-	};
-	s.down(...(frameEdge() as [number, number]), '[data-group="g"]');
-	s.up(...(frameEdge() as [number, number]));
+	s.click(s.window.document.querySelector('[data-id="g"]'));
 	assert.equal(s.selection.group, 'g');
-	s.key('c', { ctrlKey: true, altKey: true, code: 'KeyC' });
-	selectEdge(1);
-	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
-	assert.equal(s.lastOp.ops[0].style.color, 'blue');
-	s.down(...(frameEdge() as [number, number]), '[data-group="g"]');
-	s.up(...(frameEdge() as [number, number]));
-	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
-	assert.equal(s.lastOp.op, 'groupProps');
+	assert.equal(s.svg.querySelector('[data-group="g"]'), null);
 	selectEdge(0);
 	s.click(s.button('Colour from source', s.inspector));
 	assert.equal(s.lastOp.ops[0].style.color, t.darkerColor('peach'));

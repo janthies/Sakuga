@@ -46,7 +46,6 @@
     minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
 }
 % sakuga theme end
-% sakuga legend off
 \node[sg shape, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC] (box0) at (0,0) {Box 0};
 \node[sg shape, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=north east lines,pattern color=sgc2468AC}] (box1) at (40,0) {Box 1};
 \node[sg shape, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=crosshatch,pattern color=sgc2468AC}] (box2) at (80,0) {Box 2};

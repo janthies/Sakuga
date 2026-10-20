@@ -20,6 +20,12 @@ export function boxShape(
 	if (shape === 'ellipse' || shape === 'circle') {
 		return prim('ellipse', key, { ...attrs, cx: n.x, cy: -n.y, rx: w / 2, ry: h / 2 }, hit);
 	}
+	if (shape === 'triangle') {
+		const radius = (h - 0.158) / 1.5,
+			half = (w - 0.158) / 2;
+		const d = `M ${n4(n.x)} ${n4(-(n.y + radius))} L ${n4(n.x + half)} ${n4(-(n.y - radius / 2))} L ${n4(n.x - half)} ${n4(-(n.y - radius / 2))} Z`;
+		return prim('path', key, { ...attrs, d }, hit);
+	}
 	if (shape === 'diamond') {
 		const d = `M ${n4(n.x)} ${n4(-(n.y + h / 2))} L ${n4(n.x + w / 2)} ${n4(-n.y)} L ${n4(n.x)} ${n4(-(n.y - h / 2))} L ${n4(n.x - w / 2)} ${n4(-n.y)} Z`;
 		return prim('path', key, { ...attrs, d }, hit);

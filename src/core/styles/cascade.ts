@@ -7,33 +7,28 @@ import { itemById } from '../model/tree-queries';
 import { categories } from '../model/queries';
 import { darkerColor, cssFill } from '../model/colour';
 import { themeValues } from '../schema/theme';
-import { defsOf, defaultOf } from '../schema';
+import { defsOf } from '../schema';
 
 export function categoryKey(fig: Figure, i: Item): string {
+	if (i.kind === 'Frame') return '';
 	const p = payload(i);
 	if (p.cat) return p.cat;
 	return i.kind === 'Text' && itemById(fig, i.parent) ? categoryKey(fig, itemById(fig, i.parent)!) : '';
 }
 export function categoryValues(fig: Figure, c: Category, kind: ItemKind): Record<string, any> {
-	const color = fig.theme?.palette?.[c.color] || c.color;
-	const dark = darkerColor(color);
-	return {
-		...(kind === 'Shape'
-			? {
-					...c.props,
-					fill: color,
-					...(c.props?.weight && c.props.lineWidth === undefined
-						? { lineWidth: ({ thin: 0.45, medium: 0.8, thick: 1.2 } as Record<string, number>)[c.props.weight] }
-						: {}),
-				}
-			: {}),
-		...(kind === 'Frame' ? { color, fill: 'tint', frameColor: dark, titleColor: dark } : {}),
-		...(kind === 'Connector' || kind === 'Line' ? { color: dark } : {}),
-		...(kind === 'Text' || kind === 'Icon' ? { textColor: dark } : {}),
-		...(c.outline ? { [kind === 'Frame' ? 'outline' : 'border']: c.outline } : {}),
-		...(c.emphasis ? { text: c.emphasis } : {}),
-		...c.kinds?.[kind],
-	};
+	if (kind === 'Frame') return {};
+	const marker = c.color || 'white';
+	const color = fig.theme?.palette?.[marker] || marker;
+	const stroke = c.outlineColor || (c.icon ? themeValues(fig, 'Shape').color : darkerColor(color));
+	const outline = fig.theme?.palette?.[stroke] || stroke;
+	if (kind === 'Shape')
+		return {
+			fill: (c.fill && (fig.theme?.palette?.[c.fill] || c.fill)) ?? (c.icon ? 'none' : color),
+			color: outline,
+			border: c.outline || 'solid',
+		};
+	if (kind === 'Connector' || kind === 'Line') return { color: outline, border: c.outline || 'solid' };
+	return { textColor: outline };
 }
 export function currentValues(i: Item): Record<string, any> {
 	if (i.kind === 'Frame') {
@@ -63,7 +58,7 @@ export function ownValues(i: Item): Record<string, any> {
 }
 export function resolveLook(fig: Figure, item: Item | string): Record<string, ResolvedValue> {
 	const i = typeof item === 'string' ? itemById(fig, item) : item;
-	if (!i) return {};
+	if (!i || i.kind === 'Frame') return {};
 	const out: Record<string, ResolvedValue> = {};
 	const add = (values: Record<string, any>, source: ResolvedValue['source']) => {
 		for (const [key, value] of Object.entries(values)) out[key] = { value, source };
@@ -80,20 +75,7 @@ export function resolveLook(fig: Figure, item: Item | string): Record<string, Re
 	if (c) add(category, { category: key });
 	const own = ownValues(i);
 	add(own, 'item');
-	if (i.kind === 'Frame')
-		for (const d of defsOf('frame')) {
-			if (
-				typeof d.default === 'function' &&
-				own[d.key] === undefined &&
-				category[d.key] === undefined &&
-				fig.theme?.kinds?.Frame?.[d.key] === undefined
-			) {
-				out[d.key] = {
-					value: defaultOf(d, Object.fromEntries(Object.entries(out).map(([k, v]) => [k, v.value]))),
-					source: 'theme',
-				};
-			}
-		}
+
 	if (own.weight && own.lineWidth === undefined)
 		out.lineWidth = {
 			value: ({ thin: 0.45, medium: 0.8, thick: 1.2 } as Record<string, number>)[own.weight],
@@ -103,6 +85,7 @@ export function resolveLook(fig: Figure, item: Item | string): Record<string, Re
 }
 export function projectLook(fig: Figure): void {
 	for (const i of fig.items || []) {
+		if (i.kind === 'Shape' && categories(fig).some((c) => c.key === i.node.cat && c.icon)) i.node.iconPosition ||= 'nw';
 		const p = payload(i),
 			own = ownValues(i);
 		const resolved = Object.fromEntries(Object.entries(resolveLook(fig, i)).map(([k, v]) => [k, v.value]));

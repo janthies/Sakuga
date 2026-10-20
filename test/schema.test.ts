@@ -326,17 +326,26 @@ test('seeded property round trip: categories, theme and group lines', () => {
 		}
 		t.apply(fig, { op: 'addGroup', id: 'g1', name: 'G', frame, color: 'blue', ...g });
 		// The op may add defaults of its own (a new group gets a title position); compare with what the figure holds.
+		for (const k of Object.keys(g)) delete g[k];
 		Object.assign(g, (fig.lines as any[]).find((l) => l.t === 'group').g);
 		const text1 = t.serialize(fig),
 			parsed = t.parse(text1);
 		if (t.serialize(parsed) !== text1) failures.push(`seed ${seed}: text differs`);
 		const defs = (parsed.lines as any[]).filter((l) => l.t === 'style').map((l) => l.s);
 		KINDS.forEach((kind, i) => {
+			if (kind === 'frame') return;
 			const def =
 				kind === 'box'
-					? defs.find((d: any) => d.key === `s${i}`)
+					? {
+							props: {
+								...t.themeValues(parsed, 'Shape'),
+								fill: defs.find((d: any) => d.key === `s${i}`)?.color,
+								color: defs.find((d: any) => d.key === `s${i}`)?.outlineColor,
+								border: defs.find((d: any) => d.key === `s${i}`)?.outline,
+							},
+						}
 					: {
-							props: t.themeValues(parsed, kind === 'arrow' ? 'Connector' : kind === 'frame' ? 'Frame' : 'Text'),
+							props: t.themeValues(parsed, kind === 'arrow' ? 'Connector' : 'Text'),
 						};
 			for (const d of defsOf(kind).filter((x) => x.styleable)) {
 				if (wrote[i][d.key] !== undefined && !survives(kind, d, wrote[i][d.key], def?.props[d.key])) {

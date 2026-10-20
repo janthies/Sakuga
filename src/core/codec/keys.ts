@@ -10,6 +10,7 @@ export const shapeKeys: Record<string, string> = {
 	ellipse: 'ellipse',
 	circle: 'circle',
 	diamond: 'diamond',
+	triangle: 'regular polygon, regular polygon sides=3',
 	cylinder: 'cylinder',
 };
 

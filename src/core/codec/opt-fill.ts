@@ -37,9 +37,16 @@ const shape: OptionCodec = {
 	kinds: ['node'],
 	emit: (p, c) =>
 		p.shape && shapeKeys[p.shape]
-			? [p.shape === 'pill' ? `rounded corners=${Math.round(c.height * 50) / 100}mm` : shapeKeys[p.shape]]
+			? p.shape === 'triangle'
+				? ['regular polygon', 'regular polygon sides=3']
+				: [p.shape === 'pill' ? `rounded corners=${Math.round(c.height * 50) / 100}mm` : shapeKeys[p.shape]]
 			: [],
 	read(o, p) {
+		if (o === 'regular polygon sides=3') return true;
+		if (o === 'regular polygon') {
+			p.shape = 'triangle';
+			return true;
+		}
 		const s =
 			Object.keys(shapeKeys).find((k) => shapeKeys[k] === o) || (/^rounded corners=[\d.]+mm$/.test(o) ? 'pill' : '');
 		if (!s) return false;
@@ -160,7 +167,42 @@ const mark: OptionCodec = {
 	},
 };
 
+const backgroundSurface: OptionCodec = {
+	owns: ['cornerRadius', 'dashOn', 'dashOff', 'roundCap'],
+	kinds: ['node'],
+	emit: (p) => [
+		...(p.cornerRadius !== undefined
+			? [`rounded corners=${p.cornerRadius}pt`, `sg corner radius=${p.cornerRadius}`]
+			: []),
+		...(p.dashOn !== undefined ? [`dash pattern=on ${p.dashOn}pt off ${p.dashOff ?? 3}pt`] : []),
+		...(p.roundCap ? ['line cap=round'] : []),
+	],
+	read(o, p) {
+		if (o.startsWith('sg corner radius=')) {
+			p.cornerRadius = +o.slice(17);
+			return true;
+		}
+		let m = /^rounded corners=([\d.]+)pt$/.exec(o);
+		if (m && !['0', '1.4'].includes(m[1])) {
+			p.cornerRadius = +m[1];
+			return true;
+		}
+		m = /^dash pattern=on ([\d.]+)pt off ([\d.]+)pt$/.exec(o);
+		if (m) {
+			p.dashOn = +m[1];
+			p.dashOff = +m[2];
+			return true;
+		}
+		if (o === 'line cap=round') {
+			p.roundCap = true;
+			return true;
+		}
+		return false;
+	},
+};
+
 export const fillCodecs: OptionCodec[] = [
+	backgroundSurface,
 	compact,
 	shape,
 	textColor,

@@ -19,14 +19,11 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 				category: {
 					key: d.key,
 					name: d.name,
-					color: d.props.fill || 'white',
-					props: d.props,
-					icon: d.icon,
-					boxes: d.boxes,
-					legend: d.legend,
+					...(d.icon ? { icon: d.icon } : { color: d.color || 'white' }),
+					fill: d.fill,
 					outline: d.outline,
-					emphasis: d.emphasis,
-					kinds: d.kinds,
+					outlineColor: d.outlineColor,
+					legend: d.legend,
 				},
 			});
 			have.add(d.key);

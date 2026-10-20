@@ -43,7 +43,7 @@ export class ChoiceControl extends Field<string> {
 	}
 
 	private paint(target: HTMLElement, option: ChoiceOption): void {
-		if (option.color) {
+		if (option.color && !option.icon) {
 			const dot = h('i', 'swatch');
 			dot.style.background = option.color;
 			target.append(dot);

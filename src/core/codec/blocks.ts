@@ -183,37 +183,7 @@ export function groupsBlock(fig: Figure): string[] {
 			`\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(${b.x - b.w / 2},${b.y - b.h / 2}) (${b.x + b.w / 2},${b.y + b.h / 2})}] (${g.id}) {};`,
 		);
 	}
-	for (const g of [...sized].reverse()) {
-		const member = groupMembers(fig, g.id).find((n) => !isHidden(fig, n));
-		const alpha = member ? opacity(nodeLayer(fig, member).opacity) : 1;
-		const alphaKey = alpha !== 1 ? `, opacity=${alpha}` : '';
-		const look = frameAppearance(g),
-			base = g.frame === 'none' ? 'solid' : g.frame;
-		const fillKey =
-			look.fill === 'none' ? ', fill=none' : ', fill=' + fill(g.color).split('!')[0] + '!' + look.strength;
-		out.push(
-			`\\path[sg frame, ${g.cat ? `cat-${g.cat}-frame, ` : ''}sg frame ${base}${fillKey}, draw=${look.outline === 'none' ? 'none' : fill(look.color)}, ${look.outline === 'dashed' ? 'dash pattern=on 9pt off 3pt' : look.outline === 'dotted' ? 'dash pattern=on 0pt off 4.5pt' : 'solid'}, line cap=${look.outline === 'dotted' ? 'round' : 'butt'}, line width=${look.width}pt${alphaKey}] (${g.id}.south west) rectangle (${g.id}.north east);`,
-		);
-		const position = g.titlePosition || 'legacy';
-		if (g.name && !g.labelStyle?.hidden && (position !== 'legacy' || g.frame === 'region')) {
-			const [corner, anchor] = (
-				{
-					'above-left': ['north west', 'south west'],
-					'above-center': ['north', 'south'],
-					'inside-top-left': ['north west', 'north west'],
-					'inside-top-right': ['north east', 'north east'],
-					'below-left': ['south west', 'north west'],
-					legacy: ['north west', 'north west'],
-				} as Record<string, string[]>
-			)[position] || ['north west', 'south west'];
-			const color =
-				g.titleColor ||
-				(position === 'legacy' ? '' : darkerColor(g.frameColor || (g.outline ? darkerColor(g.color) : '#737373')));
-			out.push(
-				`\\node[sg glabel${g.name.includes('\\\\') ? ', align=left' : ''}, anchor=${anchor}, outer sep=0pt, text height=${({ scriptsize: 8, footnotesize: 9, small: 10, normalsize: 10.95, large: 12 } as Record<string, number>)[g.labelStyle?.font || g.titleFont || 'scriptsize'] * 0.75}pt, text depth=${({ scriptsize: 8, footnotesize: 9, small: 10, normalsize: 10.95, large: 12 } as Record<string, number>)[g.labelStyle?.font || g.titleFont || 'scriptsize'] * 0.25}pt${g.titleBold ? ', font=\\sffamily\\' + (g.titleFont || 'scriptsize') + '\\bfseries' : g.titleFont ? ', font=\\sffamily\\' + g.titleFont : ''}${color ? ', text=' + fill(color) : ''}${labelOptions(g.labelStyle, { font: g.titleFont || 'scriptsize', bold: g.titleBold || false, color: color || '' })}${alphaKey}] at (${g.id}.${corner}) {${g.name}};`,
-			);
-		}
-	}
+
 	out.push('\\end{scope}', '% sakuga groups end');
 	return out;
 }
@@ -232,7 +202,7 @@ export function legendBlock(fig: Figure): string[] {
 		out.push(
 			c.icon
 				? `\\node[anchor=center,inner sep=0pt] at (${x + 1.8},${y - 1.8}) {\\sgicon{${c.icon}}};`
-				: `\\node[sg swatch, fill=${fill(c.color)}, anchor=north west] at (${x},${y}) {};`,
+				: `\\node[sg swatch, fill=${fill(c.color || 'white')}, anchor=north west] at (${x},${y}) {};`,
 		);
 		out.push(
 			`\\node[anchor=west, inner sep=0pt, font=\\sffamily\\${smallerFont(fontSize(fig))}] at (${num(x + 4.6)},${num(y - 1.8)}) {${c.name}};`,

@@ -21,7 +21,7 @@ export function boxHalf(n: FigNode): [number, number] {
 
 export function nodeIcon(fig: Figure, n: FigNode): string | undefined {
 	const c = categories(fig).find((c) => c.key === n.cat);
-	return n.icon === 'none' ? undefined : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon;
+	return n.icon === 'none' ? undefined : n.icon === 'category' || (!n.icon && !!c?.icon) ? c?.icon : n.icon;
 }
 
 export function anchorPoint(n: FigNode, anchor: string): [number, number] {
@@ -70,4 +70,51 @@ export function resolveAttachments(fig: Figure) {
 		style: { ...o.style, font: o.style?.font || fontSize(fig) },
 	});
 	placeAttached(nodes(fig), (n) => boxHalf(sized(n)));
+	placeContainers(fig);
 }
+
+// Groups and lines attached to boxes use the same anchor contract as nodes.
+// Their payload coordinates stay absolute for the routing and scene adapters.
+export function placeContainers(fig: Figure) {
+	const sized = (n: FigNode) => ({
+		...n,
+		icon: nodeIcon(fig, n),
+		style: { ...n.style, font: n.style?.font || fontSize(fig) },
+	});
+	const visit = (id: string) => {
+		const i = itemById(fig, id);
+		if (!i) return;
+		const a = payload(i).attachment;
+		const p = a && itemById(fig, a.parent);
+		if (a && p?.kind === 'Shape' && (i.kind === 'Frame' || i.kind === 'Line')) {
+			const objects = nodes(fig).map((n) => {
+				const [w, h] = boxHalf(sized(n));
+				return { ...n, w: w * 2, h: h * 2 };
+			});
+			const b = i.kind === 'Frame' ? bounds(i.id, objects, groups(fig)) : { x: i.line.start[0], y: i.line.start[1] };
+			if (b) {
+				const [x, y] = anchorPoint(sized(p.node), a.anchor),
+					dx = x + a.dx - b.x,
+					dy = y + a.dy - b.y;
+				for (const c of [i, ...descendants(fig, i.id)]) {
+					if ('node' in c && c.node) {
+						c.node.x += dx;
+						c.node.y += dy;
+					}
+					if (c.kind === 'Line') {
+						c.line.start = [c.line.start[0] + dx, c.line.start[1] + dy];
+						c.line.end = [c.line.end[0] + dx, c.line.end[1] + dy];
+					}
+				}
+			}
+		}
+		placeAttached(nodes(fig), (n) => boxHalf(sized(n)));
+		for (const c of childrenOf(fig, id)) visit(c.id);
+	};
+	for (const i of fig.items || []) if (!itemById(fig, i.parent)) visit(i.id);
+}
+
+import { itemById, childrenOf, descendants } from '../model/tree-queries';
+import { payload } from '../model/tree';
+import { groups } from '../model/queries';
+import { bounds } from './route-bounds';

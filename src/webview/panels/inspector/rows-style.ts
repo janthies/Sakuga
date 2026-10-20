@@ -16,7 +16,7 @@ import type { PanelCtx, RowControls } from './spec';
 
 export const styleSwatch = (def: ViewStyle) =>
 	def.kind === 'box'
-		? styleColor(def.props.fill, '#ffffff')
+		? styleColor(def.color, '#ffffff')
 		: def.kind === 'arrow'
 			? styleColor(def.props.color, ARROW)
 			: def.kind === 'label'
