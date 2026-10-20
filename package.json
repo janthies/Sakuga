@@ -88,6 +88,12 @@
 				"title": "Same height",
 				"category": "Sakuga",
 				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.tidy",
+				"title": "Tidy up",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
 			}
 		],
 		"keybindings": [
@@ -140,6 +146,14 @@
 				"command": "sakuga.sketch.sameH",
 				"key": "alt+b",
 				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.tidy",
+				"key": "alt+t",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus",
+				"args": {
+					"preview": true
+				}
 			}
 		]
 	},

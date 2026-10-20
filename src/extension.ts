@@ -9,8 +9,8 @@ export async function activate(context: vscode.ExtensionContext) {
 	const icons: Icon[] = JSON.parse(Buffer.from(await vscode.workspace.fs.readFile(vscode.Uri.joinPath(context.extensionUri, 'icons', 'icons.json'))).toString('utf8'));
 	setIcons(icons);
 	const editor = new FigureEditor(context.extensionUri, icons);
-	for (const command of ['left','centerX','right','top','centerY','bottom','distributeX','distributeY','sameW','sameH']) {
-		context.subscriptions.push(vscode.commands.registerCommand(`sakuga.sketch.${command}`, () => editor.sketch(command)));
+	for (const command of ['left','centerX','right','top','centerY','bottom','distributeX','distributeY','sameW','sameH','tidy']) {
+		context.subscriptions.push(vscode.commands.registerCommand(`sakuga.sketch.${command}`, (args) => editor.sketch(command,!!args?.preview)));
 	}
 	context.subscriptions.push(
 		vscode.window.registerCustomEditorProvider('sakuga.figure', editor,
@@ -63,9 +63,9 @@ async function write(doc: vscode.TextDocument, text: string) {
 
 class FigureEditor implements vscode.CustomTextEditorProvider {
  private readonly panels = new Set<vscode.WebviewPanel>();
- sketch(command: string) {
+ sketch(command: string, preview = false) {
   const panel = [...this.panels].find(p => p.active);
-  if (panel) { panel.webview.postMessage({type:'sketch',command}); }
+  if (panel) { panel.webview.postMessage({type:'sketch',command,preview}); }
  }
 
 	constructor(private readonly root: vscode.Uri, private readonly icons: Icon[]) { }
@@ -193,6 +193,7 @@ function page(webview: vscode.Webview, media: vscode.Uri): string {
 <input id="edit" type="text" spellcheck="false">
 <div id="etools"></div>
 <script nonce="${nonce}" src="${uri('routes.js')}"></script>
+<script nonce="${nonce}" src="${uri('text.js')}"></script>
 <script nonce="${nonce}" src="${uri('sketch.js')}"></script>
 <script nonce="${nonce}" src="${uri('editor.js')}"></script>
 </body>

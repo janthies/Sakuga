@@ -308,38 +308,10 @@
 		return visualChoice(options.map(([value,label]) => { const c = catOf(value); return {value,label,color:c ? fillOf(value) : '',icon:c?.icon}; }), value, onChange);
 	}
 	function colourChoice(value, onChange) { return visualChoice(Object.keys(palette).map(k => ({value:k,label:k,color:styleColor(k,'#fff')})), value, onChange); }
-	function titleLines(n) {
-		const out = [];
-		for (const part of n.title.split('\\\\')) {
-			let line = '';
-			for (const word of show(part).trim().split(/\s+/)) {
-				const next = line ? `${line} ${word}` : word;
-				if (line && textMm(next, fontPt(n), 'Sakuga Sans', n.style) + (effectiveIcon(n) && ['left','right'].includes(n.iconPosition || 'left') ? 4 : 0) > n.width * 0.97) {
-					out.push(line);
-					line = word;
-				} else {
-					line = next;
-				}
-			}
-			out.push(line);
-		}
-		return out;
-	}
-	const effectiveIcon = n => { const c = catOf(n.cat); return n.icon === 'none' ? '' : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon; };
-	function layout(n) {
-		if (n.kind === 'icon') { return {w:n.width,h:n.minh || n.width,lines:[]}; }
-		const lines = titleLines(n);
-		const count = lines.length + (n.code ? 1 : 0);
-		const pt = fontPt(n);if(n.kind==='label' && n.style?.compact)return {w:n.width+2*PT,h:Math.max(lines.length*pt*PT*1.25,n.style?.step ? 3.6 : 0)+2*PT,lines};
-  const baseline = {8:9.5,9:11,10:12,10.95:13.6,12:14}[pt];
- const th = Math.max(6.16, (pt + 7.45 + (lines.length - 1) * baseline + (n.code ? baseline - 1 : 0)) * PT);
-		let w = n.width + 2 * XSEP + LINE, h = Math.max(th + (effectiveIcon(n) && !['left','right'].includes(n.iconPosition || 'left') ? 4 : 0), n.minh || 0);
- if (n.style?.shape === 'circle') { w=h=Math.hypot(w-LINE,h-LINE)+LINE; }
- if (n.style?.shape === 'ellipse') { w=(w-LINE)*Math.SQRT2+LINE; h=(h-LINE)*Math.SQRT2+LINE; }
- if (n.style?.shape === 'diamond') { w=h=w+h-0.183; }
- if (n.style?.shape === 'cylinder') { const r=(pt+7+(lines.length-1)*baseline+(n.code ? baseline-1 : 0))*PT/2; const c=Math.sqrt(1-((r-3.5*PT)/r)**2); w+=r*(3-c); h=r*2+LINE; }
- return {w,h,lines};
-	}
+ const effectiveIcon = n => { const c = catOf(n.cat); return n.icon === 'none' ? '' : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon; };
+	function titleLines(n) { return SakugaText.lines({...n,icon:effectiveIcon(n)},figureFont); }
+ function layout(n) { return SakugaText.layout({...n,icon:effectiveIcon(n)},figureFont); }
+
 	function nodeAt(p, margin = 0) {
 		return paintOrder().reverse().find(n => {
 			if (n.hidden || n.locked) { return false; }
@@ -973,7 +945,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		w.hidden = !sheetInfo.over;
 		w.textContent = sheetInfo.over === 1 ? '1 object outside the sheet' : `${sheetInfo.over} objects outside the sheet`;
 	}
-	function render() { renderBase(); updateZoombar(); }
+	function render() { renderBase(); drawTidyPreview(); updateZoombar(); }
 	function renderBase() {
 		if (selN.size || selE.size || selG) { selectedLayers.clear(); }
 		svg.replaceChildren();
@@ -1059,7 +1031,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 					y -= pitch;
 				}
 				if (n.code) {
-					text(gn, tx, y + pitch - codePitch, show(n.code), smallerPt(fontPt(n)), 'Sakuga Mono', CODE, textAnchor);
+					text(gn, tx, y + pitch - codePitch, show(n.code), SakugaText.sizes[SakugaText.codeSize(n,figureFont)], 'Sakuga Mono', CODE, textAnchor);
 				}
 			}
 			if (!n.locked && selected && selN.size === 1 && selE.size === 0 && editing !== n.id) {
@@ -1234,6 +1206,7 @@ const wasOpen = !!etools.querySelector('details[open]');
  }
 
 	function renderInspector() {
+        if(tidyPreview)return;
 		renderInspectorRaw();
 	}
 	function renderInspectorRaw() {
@@ -1266,7 +1239,7 @@ const wasOpen = !!etools.querySelector('details[open]');
             let target=current;
             if(figureMode){ target=current==='Categories' ? current : ({'Sheet width':'Sheet','Font size':'Text',Arrows:'Arrows',Legend:'Legend',Grid:'Grid'}[name] || current); }
             else {
-                if(['Title','Code','Label','Name','Text','Font size','Title size','Bold title','bold','italic','Knock-out','Text colour','Title colour','Title at','Title position'].includes(name)) target='Text';
+                if(['Code size','Title','Code','Label','Name','Text','Font size','Title size','Bold title','bold','italic','Knock-out','Text colour','Title colour','Title at','Title position'].includes(name)) target='Text';
                 else if(['Icon','Icons','Category icon','Pattern','Pattern colour','Corner mark','Corner','Mark size','Mark colour','Shape'].includes(name) || name==='Position' && controls[0]?.className==='segments')target='Shape & decoration';
                 else if(name==='Category')target='Fill';
                 else if(name==='Thin frame')target='Outline';
@@ -1305,6 +1278,7 @@ const wasOpen = !!etools.querySelector('details[open]');
         };
 
 		if (selN.size >= 2) { sketchControls(getSection('Arrange')); }
+        if(!selE.size || selN.size)tidyControl(getSection('Arrange'));
 		const count = selN.size + selE.size;
 		const n = count === 1 && selN.size ? byId([...selN][0]) : null;
 		const ei = count === 1 && selE.size ? [...selE][0] : -1;
@@ -1375,7 +1349,7 @@ const wasOpen = !!etools.querySelector('details[open]');
      const sign=mode==='inside' ? -1 : 1; attach({...n.attachment,anchor,ownAnchor:mode==='inside' ? anchor : opposite[anchor],dx:anchor.includes('west') ? -sign*1.5 : anchor.includes('east') ? sign*1.5 : 0,dy:anchor.includes('north') ? sign*1.5 : anchor.includes('south') ? -sign*1.5 : 0});
     })); }
    }
-			row('Width', field(n.width, v => post({ op: 'node', id: n.id, width: +v }), { type: 'number' }), unit('mm'));
+			row('Width', field(n.wantWidth ?? n.width, v => post({ op: 'node', id: n.id, width: +v }), { type: 'number' }), unit('mm'));
 			row('Height', field(r1(layout(n).h), v => post({ op: 'node', id: n.id, minh: +v }), { type: 'number' }), unit('mm'));
 		} else if (e) {
 			section('Arrow');
@@ -1454,6 +1428,12 @@ const wasOpen = !!etools.querySelector('details[open]');
     if (['markCorner','markSize','markColor'].includes(prop) && !objects.some(o => o.style?.mark && o.style.mark !== 'none'))continue;
     const control=styleSelect(prop,values,objects,style=>post({op:'batch',ops:[{op:'style',...(arrow ? {indices:[...selE]} : {ids:[...selN]}),style}]}));
     control._inspectorSection=current;row(name,control);
+    if(!arrow && prop==='font' && objects.every(n=>!n.kind)){
+     const same=objects.every(n=>(n.codeFont || '')===(objects[0].codeFont || ''));
+     row('Code size',choice([...(same ? [] : [['*','Mixed']]),['','One step below title'],...['tiny',...Object.keys(sizes)].filter(v=>SakugaText.sizes[v]<=Math.min(...objects.map(n=>smallerPt(fontPt(n))))).map(v=>[v,v])],same ? objects[0].codeFont || '' : '*',codeFont=>{if(codeFont!=='*')post({op:'batch',ops:objects.map(n=>({op:'node',id:n.id,codeFont}))});}));
+     for(const n of objects)if(n.wantWidth!==undefined){const hint=document.createElement('p');hint.className='empty';hint.textContent='box widened to fit `'+SakugaText.need(n,figureFont).content+'`';getSection('Text').append(hint);}
+    }
+
    }
   }
 		if (count > 0) {
@@ -1563,6 +1543,7 @@ const wasOpen = !!etools.querySelector('details[open]');
   ['Tab / Shift+Tab', 'next connected box / box below; type title'],
   ['Esc in a new empty box', 'cancel box and arrow'],
   ['Type a character', 'replace box/label title; D/R and existing shortcuts take priority'],
+  ['Alt+T', 'hold to preview Tidy up, release to apply; Esc cancels'],
   ...SKETCH_CONTROLS.map(([,label,key])=>[key,label]),
 		['Del', 'delete'],
 		['Esc', 'clear selection'],
@@ -1591,7 +1572,7 @@ const wasOpen = !!etools.querySelector('details[open]');
   styleClip=null;
 		if (ids.length) {
 			const n = byId(ids[0]);
-			styleClip = { color:n.style?.color || n.style?.textColor || n.style?.fill || (typeof catOf!=='undefined' ? catOf(n.cat)?.color : ''), nodeStyle: {...n.style}, cat: n.cat, width: n.width, minh: n.minh, kind: styleClip && styleClip.kind };
+			styleClip = { color:n.style?.color || n.style?.textColor || n.style?.fill || (typeof catOf!=='undefined' ? catOf(n.cat)?.color : ''), nodeStyle: {...n.style}, codeFont:n.codeFont || '', cat: n.cat, width: n.wantWidth ?? n.width, minh: n.minh, kind: styleClip && styleClip.kind };
 		}
 		if (ix.length) {
 			const e = edges[ix[0]];
@@ -1608,7 +1589,7 @@ const wasOpen = !!etools.querySelector('details[open]');
   if(!styleClip.nodeStyle && selN.size) ops.push({op:'style',ids:[...selN],style:{color:styleClip.color || '',textColor:styleClip.color || ''}});
   if(!styleClip.edgeStyle && selE.size) ops.push({op:'style',indices:[...selE],style:{color:styleClip.color || ''}});
 		if (styleClip.width !== undefined) {
-			for (const id of selN) { ops.push({ op: 'node', id, cat: styleClip.cat, width: styleClip.width, minh: styleClip.minh }); }
+			for (const id of selN) { ops.push({ op: 'node', id, cat: styleClip.cat, width: styleClip.width, minh: styleClip.minh, codeFont:styleClip.codeFont }); }
 		}
 		if (styleClip.kind) {
 			for (const i of selE) { ops.push({ op: 'arrow', index: i, kind: styleClip.kind, route: styleClip.route, head: styleClip.head, lane:styleClip.lane ?? null }); }
@@ -1622,7 +1603,9 @@ const wasOpen = !!etools.querySelector('details[open]');
 	function nodeLine(n) {
 		if (n.kind === 'icon') { return `\\pic[pic text={${n.title}}] (${n.id}) at (${r1(n.x)},${r1(n.y)}) {sg object={${n.icon || ''}}{${r1(n.width)}}{${r1(n.minh || n.width)}}};`; }
 		const o = [n.kind === 'label' ? 'sg label' : n.cat ? `cat-${n.cat}` : 'sg box'];
-		if (n.width !== defaultWidth) { o.push(`text width=${r1(n.width)}mm`); }
+		if(n.wantWidth!==undefined && n.wantWidth!==n.width)o.push(`sg want=${n.wantWidth}`);
+        if(n.codeFont)o.push(`sg code font=${n.codeFont}`);
+		if (n.width !== defaultWidth) { o.push(`text width=${n.width}mm`); }
 		if (n.minh > 0) { o.push(`minimum height=${r1(n.minh)}mm`); }
 		if (n.icon) { o.push(`sg icon=${n.icon}`); }
 		if (n.iconPosition) { o.push(`sg icon position=${n.iconPosition}`); }
@@ -1681,7 +1664,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		const map = new Map(ids.map(id => [id, `n${next++}`]));
 		const ops = ids.map(id => {
 			const n = byId(id);
-			return { op: 'addNode', titlePosition:n.titlePosition, id: map.get(id), x: n.x + dx, y: n.y + dy, title: n.title, icon: n.icon, iconPosition: n.iconPosition, kind: n.kind, code: n.code, cat: n.cat, width: n.width, minh: n.minh, style: n.style, extra: n.extra };
+			return { op: 'addNode', wantWidth:n.wantWidth, codeFont:n.codeFont, titlePosition:n.titlePosition, id: map.get(id), x: n.x + dx, y: n.y + dy, title: n.title, icon: n.icon, iconPosition: n.iconPosition, kind: n.kind, code: n.code, cat: n.cat, width: n.width, minh: n.minh, style: n.style, extra: n.extra };
 		});
 		for (const id of ids) { const n=byId(id), a=n.attachment; if (a) { ops.push({op:'attach',id:map.get(id),attachment:{...a,parent:map.get(a.parent)||a.parent,dx:a.dx+(map.has(a.parent) ? 0 : dx),dy:a.dy+(map.has(a.parent) ? 0 : dy)}}); } }
 		for (const e of edges) {
@@ -1734,7 +1717,26 @@ const wasOpen = !!etools.querySelector('details[open]');
 		return 'n' + (Math.max(0, ...used) + 1);
 	}
 
+ let tidyPreview=null,tidyHeld=false;
+ function tidyPlan(){return SakugaSketch.tidy(nodes,groups,edges,[...selN],layout);}
+ function previewTidy(){if(!tidyPreview){tidyPreview=tidyPlan();render();}}
+ function cancelTidy(){tidyPreview=null;tidyHeld=false;render();}
+ function applyTidy(){const batch=tidyPreview || tidyPlan();tidyPreview=null;tidyHeld=false;if(batch.ops.length)post(batch);render();}
+ function tidyControl(parent){
+  const b=document.createElement('button');b.type='button';b.textContent=selN.size ? 'Tidy up' : 'Tidy up figure';b.title='Tidy up (Alt+T)';
+  b.onmouseenter=previewTidy;b.onmouseleave=()=>{if(!tidyHeld)cancelTidy();};b.onclick=()=>{b.blur();applyTidy();};parent.append(b);
+ }
+ function drawTidyPreview(){
+  if(!tidyPreview)return;
+  const g=el('g',{'pointer-events':'none',opacity:.55},svg);
+  const ns=nodes.map(n=>({...n,...tidyPreview.ops.find(o=>o.op==='node'&&o.id===n.id),...tidyPreview.ops.find(o=>o.op==='move'&&o.id===n.id)})),es=edges.map((e,index)=>({...e,...tidyPreview.ops.find(o=>o.op==='arrow'&&o.index===index)}));
+  for(const group of groups){const b=SakugaRoutes.bounds(group.id,ns.map(n=>({...n,...layout(n)})),groups,new Set(),es);if(b&&group.frame!=='none')el('rect',{x:px(b.x-b.w/2),y:py(b.y+b.h/2),width:b.w*view.s,height:b.h*view.s,fill:'none',stroke:'var(--sel)','stroke-dasharray':'5 3'},g);}
+
+  for(const n of nodes){const move=tidyPreview.ops.find(o=>o.op==='move'&&o.id===n.id),props=tidyPreview.ops.find(o=>o.op==='node'&&o.id===n.id);if(!move&&!props)continue;const q={...n,...props,...move},s=layout(q);el('rect',{x:px(q.x-s.w/2),y:py(q.y+s.h/2),width:s.w*view.s,height:s.h*view.s,fill:'var(--sel)','fill-opacity':.12,stroke:'var(--sel)','stroke-dasharray':'5 3'},g);}
+ }
+ window.addEventListener('blur',()=>{if(tidyPreview)cancelTidy();});
  function sketchCommand(command) {
+  if(command==='tidy'){if(!floating&&!editing&&!isTyping()){tidyHeld=true;previewTidy();}return;}
   if (floating || editing || isTyping()) { return; }
   const ids=[...selN].filter(id=>byId(id)&&!byId(id).locked&&!byId(id).hidden);
   if(ids.length<2) { return; }
@@ -2178,6 +2180,8 @@ const wasOpen = !!etools.querySelector('details[open]');
 		const k = ev.key.toLowerCase();
 		const ids = [...selN].filter(byId), ix = [...selE].filter(i => edges[i]);
 		const one = ids.length === 1 && ix.length === 0 ? byId(ids[0]) : null;
+		if(ev.altKey && !ctrl && !ev.shiftKey && k==='t'){ev.preventDefault();tidyHeld=true;previewTidy();return;}
+        if(ev.key==='Escape' && tidyPreview){ev.preventDefault();cancelTidy();return;}
 		const alignment = ev.altKey && !ctrl && !ev.shiftKey && SKETCH_CONTROLS.find(c=>c[2].toLowerCase() === `alt+${k}`);
 		if (alignment) { sketchCommand(alignment[0]); } else if (ctrl && !ev.altKey && (ev.code === 'BracketRight' || ev.code === 'BracketLeft') && (ids.length || selG)) {
  const current = layers.findIndex(l => l.id === (one?.layer || activeLayer)), target = layers[current + (ev.code === 'BracketRight' ? 1 : -1)]; if (target) { moveToLayer(selectedRoots(),target.id); }
@@ -2236,6 +2240,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		ev.preventDefault();
 	});
 	document.addEventListener('keyup', ev => {
+        if(tidyHeld && (ev.key.toLowerCase()==='t' || ev.key==='Alt')){ev.preventDefault();applyTidy();return;}
 		if (ev.key === ' ') {
 			space = false;
 			svg.classList.remove('panning');
@@ -2277,7 +2282,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 
 	window.addEventListener('message', ev => {
 		const m = ev.data;
-		if (m.type === 'sketch') { sketchCommand(m.command); return; }
+		if (m.type === 'sketch') { if(m.command==='tidy' && !m.preview){if(!floating&&!editing&&!isTyping())applyTidy();}else sketchCommand(m.command); return; }
 		if (m.type === 'icons') { icons = m.icons; buildIconPanel(); render(); return; }
 		if (m.type === 'select') {
 			pendingSelect = m.ids;
@@ -2286,6 +2291,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 			if (pendingSelect && pendingSelect.every(byId)) { selG = null; selN = new Set(pendingSelect.filter(id => byId(id) && !byId(id).hidden && !byId(id).locked)); selE = new Set(); pendingSelect = null; render(); }
 			return;
 		}
+		tidyPreview=null;tidyHeld=false;
 		const previousSheet=SHEET;
         SHEET = +(m.text.match(/^%\s*sakuga sheet\s+([\d.]+)\s*$/m)?.[1]) || 146;
 		

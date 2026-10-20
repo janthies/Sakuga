@@ -1,4 +1,5 @@
 const routing = require('../media/routes.js');
+const textGeometry = require('../media/text.js');
 // The figure file is TikZ. Sakuga understands one node or one arrow per line, category lines
 // in the header and two generated blocks (theme and legend); every other line is kept as it is.
 
@@ -30,7 +31,7 @@ export const ANCHORS = ['north west', 'north', 'north east', 'west', 'center', '
 export interface Attachment { parent: string; anchor: string; ownAnchor: string; dx: number; dy: number }
 export interface FigNode {
 	titlePosition?: string; attachment?: Attachment;
-	style?: ObjectStyle; id: string; icon?: string; iconPosition?: string; kind?: string; cat: string; x: number; y: number; title: string; code: string; width: number; minh: number;
+	wantWidth?: number; codeFont?: string; style?: ObjectStyle; id: string; icon?: string; iconPosition?: string; kind?: string; cat: string; x: number; y: number; title: string; code: string; width: number; minh: number;
 	layer: string; group: string; hidden: boolean; locked: boolean; extra: string[];
 }
 // A group is a folder in the layer stack; it can draw a frame or a tinted region around its members.
@@ -293,10 +294,12 @@ export function parse(text: string): Figure {
 					id: m[2], attachment, titlePosition, kind: o.includes('sg label') ? 'label' : undefined, cat, x: +m[3], y: +m[4],
 					title: icon ? title.slice(icon[0].length) : title, icon: o.find(x => x.startsWith('sg icon='))?.slice(8) || icon?.[1], iconPosition: o.find(x => x.startsWith('sg icon position='))?.slice(17),
 					code: code ? code[1] : '',
+                    wantWidth: o.some(x=>x.startsWith('sg want=')) ? +o.find(x=>x.startsWith('sg want='))!.slice(8) : undefined,
+                    codeFont: o.find(x=>x.startsWith('sg code font='))?.slice(13),
 					width: w ? parseFloat(w.split('=')[1]) : DEFAULT_WIDTH,
 					minh: h ? parseFloat(h.split('=')[1]) : 0,
 					layer: layer ? layer.split('=')[1].trim() : '', group: g ? g.split('=')[1].trim() : '', hidden: o.includes('sg hidden') || !!hidden, locked: o.includes('sg locked'),
-					...readStyle(o.filter(x => !x.startsWith('sg icon') && !x.startsWith('cat-') && x !== 'sg box' && x !== 'sg label' && !x.startsWith('sg label height=') && !(o.includes('sg compact') && /^(text height|text depth)=/.test(x)) && !(o.includes('sg label') && x === 'draw=black!38') && !(attachment && x === `anchor=${attachment.ownAnchor}`) && x !== w && x !== h && x !== g && x !== layer && x !== 'sg hidden' && x !== 'sg locked')),
+					...readStyle(o.filter(x => !x.startsWith('sg want=') && !x.startsWith('sg code font=') && !x.startsWith('sg icon') && !x.startsWith('cat-') && x !== 'sg box' && x !== 'sg label' && !x.startsWith('sg label height=') && !(o.includes('sg compact') && /^(text height|text depth)=/.test(x)) && !(o.includes('sg label') && x === 'draw=black!38') && !(attachment && x === `anchor=${attachment.ownAnchor}`) && x !== w && x !== h && x !== g && x !== layer && x !== 'sg hidden' && x !== 'sg locked')),
 				},
 			});
 			continue;
@@ -324,6 +327,7 @@ export function parse(text: string): Figure {
 	for (const n of nodes(fig)) {
 		if (nodeLayer(fig, n).hidden) { n.hidden = individuallyHidden.has(n.id); }
 	}
+	for (const n of nodes(fig)) normalizeWidth(fig,n);
 	resolveAttachments(fig);
 	return fig;
 }
@@ -398,7 +402,7 @@ function parsePath(o: string[], path: string): FigEdge | null {
 	return e;
 }
 
-const num = (v: number) => String(Math.round(v * 10) / 10);
+const num = (v: number) => String(Math.round(v * 100) / 100);
 
 export const nodes = (fig: Figure) => fig.lines.flatMap(l => l.t === 'node' ? [l.n] : []);
 export const edges = (fig: Figure) => fig.lines.flatMap(l => l.t === 'edge' ? [l.e] : []);
@@ -431,19 +435,16 @@ export const arrowStyle = (fig: Figure) => {
 	return f && f.t === 'arrowsflag' ? f.style : 'manhattan';
 };
 
-// Rough box size for routing decisions; the canvas uses the same numbers.
+// Content width and wrapped geometry shared with the canvas.
+function normalizeWidth(fig: Figure,n: FigNode): void {
+ const effective={...n,icon:nodeIcon(fig,n)};textGeometry.normalize(effective,fontSize(fig));
+ n.width=effective.width;
+ if(effective.wantWidth===undefined)delete n.wantWidth;else n.wantWidth=effective.wantWidth;
+ if(effective.codeFont===undefined)delete n.codeFont;else n.codeFont=effective.codeFont;
+}
+
 export function boxHalf(n: FigNode): [number, number] {
-	if (n.kind === 'icon') { return [n.width / 2, (n.minh || n.width) / 2]; }
-	const pt = ({scriptsize:8,footnotesize:9,small:10,normalsize:10.95,large:12} as Record<string,number>)[n.style?.font || 'small'] || 10;
- const baseline = ({8:9.5,9:11,10:12,10.95:13.6,12:14} as Record<number,number>)[pt];
- const lineCount = n.title.split('\\\\').length;
- if(n.kind==='label' && n.style?.compact) return [(n.width+2*25.4/72.27)/2,(Math.max(lineCount*pt*1.25*25.4/72.27,n.style?.step ? 3.6 : 0)+2*25.4/72.27)/2];
- const h = Math.max(Math.max(6.16, (pt + 7.45 + (lineCount - 1) * baseline + (n.code ? baseline - 1 : 0)) * 25.4 / 72.27) + (n.icon && n.icon !== 'none' && !['left','right'].includes(n.iconPosition || 'left') ? 4 : 0), n.minh), w = n.width + 2.2675;
- if (n.style?.shape === 'circle') { const r = Math.hypot((w-0.158)/2, (h-0.158)/2)+0.079; return [r,r]; }
- if (n.style?.shape === 'ellipse') { return [(w-0.158)*Math.SQRT2/2+0.079,(h-0.158)*Math.SQRT2/2+0.079]; }
- if (n.style?.shape === 'diamond') { return [(w+h-0.183)/2,(w+h-0.183)/2]; }
- if (n.style?.shape === 'cylinder') { const r = (pt + 7 + (lineCount - 1) * baseline + (n.code ? baseline - 1 : 0)) * 25.4 / 72.27 / 2; const c = Math.sqrt(1 - Math.pow((r - 3.5 * 25.4 / 72.27) / r, 2)); return [(w + r * (3-c))/2, r+0.079]; }
- return [w/2,h/2];
+ const {w,h}=textGeometry.layout(n);return [w/2,h/2];
 }
 
 // The shape an arrow gets. Manhattan: a straight vertical or horizontal line where the boxes face
@@ -531,8 +532,10 @@ function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpa
 	if (n.kind === 'label') { o.push(`sg label height=${boxHalf({...n,style:{...n.style,font:n.style?.font || figureFont}})[1]*2}`); }
 	if (n.kind === 'label' && n.style?.border && n.style.border !== 'none') { o.push('draw=black!38'); }
 	if (n.attachment && n.kind !== 'icon') { o.push(`anchor=${n.attachment.ownAnchor}`); }
+	if(n.wantWidth !== undefined && n.wantWidth !== n.width) o.push(`sg want=${n.wantWidth}`);
+    if(n.codeFont && n.codeFont !== smallerFont(n.style?.font || figureFont)) o.push(`sg code font=${n.codeFont}`);
 	if (n.width !== DEFAULT_WIDTH) {
-		o.push(`text width=${num(n.width)}mm`);
+		o.push(`text width=${n.width}mm`);
 	}
 	if (n.minh > 0) {
 		o.push(`minimum height=${num(n.minh)}mm`);
@@ -554,7 +557,7 @@ function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpa
 	 const pos = n.titlePosition, h = boxHalf({...n,icon:undefined,style:{...n.style,shape:'',font:n.style?.font || figureFont}})[1]*2 - 7.45*25.4/72.27;
 	 content = `\\parbox[c][${num(h)}mm][${pos.includes('north') ? 't' : pos.includes('south') ? 'b' : 'c'}]{${num(n.width)}mm}{\\${pos.includes('west') ? 'raggedright' : pos.includes('east') ? 'raggedleft' : 'centering'} ${content}}`;
 	}
-	const label = hasIcon ? `\\sgcontent{${n.iconPosition || 'left'}}{${num(n.width)}}{${content}}` : content;
+	const label = hasIcon ? `\\sgcontent{${n.iconPosition || 'left'}}{${n.width}}{${content}}` : content;
 	const line = `\\node[${[...o, ...styleOptions(n.style, false, boxHalf({...n, style: {...n.style, font: n.style?.font || figureFont}})[1] * 2), ...opacityOptions(n.style?.opacity,layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
 	return n.hidden ? `% sakuga hidden ${line}` : line;
 }
@@ -712,7 +715,8 @@ function themeBlock(fig: Figure): string[] {
 		...[...custom].sort().map(hex => `\\definecolor{sgc${hex}}{HTML}{${hex}}`),
 		...Object.keys(PALETTE).filter(c => c !== 'white').map(c => `\\definecolor{${PALETTE[c].name}}{HTML}{${PALETTE[c].hex}}`),
 		String.raw`\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2mm][r]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2mm][l]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\ifx\sgpos\sgse\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\parbox{#2mm}{\vspace*{4mm}\centering#3}\fi\fi\fi\fi}`,
-		String.raw`\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\ttfamily\textcolor{black!48}{#1}}}`,
+		String.raw`\def\sgcodesize{}\tikzset{sg want/.style={},sg code font/.code={\def\sgcodesize{\csname#1\endcsname}}}`,
+		String.raw`\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\sgcodesize\ttfamily\textcolor{black!48}{#1}}}`,
 		String.raw`\def\sgstep#1{\tikz[baseline=-0.6ex]\node[circle,fill=.,text=white,font=\sffamily\bfseries\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}`,
 		String.raw`\def\sglabel#1#2{\raisebox{\dimexpr\depth/2-\height/2\relax}{\sgstep{#1}}\hspace{0.8mm}\raisebox{\dimexpr\depth/2-\height/2\relax}{\shortstack{#2}}}`,
 		'\\tikzset{',
@@ -890,9 +894,9 @@ export type Op =
 
 	| { op: 'attach'; id: string; attachment: Attachment | null }
 	| { op: 'move'; id: string; x: number; y: number }
-	| { op: 'addNode'; titlePosition?: string; attachment?: Attachment; style?: ObjectStyle; extra?: string[]; layer?: string; id: string; x: number; y: number; title: string; cat: string; icon?: string; iconPosition?: string; kind?: string; code?: string; width?: number; minh?: number; from?: string }
+	| { op: 'addNode'; wantWidth?: number; codeFont?: string; titlePosition?: string; attachment?: Attachment; style?: ObjectStyle; extra?: string[]; layer?: string; id: string; x: number; y: number; title: string; cat: string; icon?: string; iconPosition?: string; kind?: string; code?: string; width?: number; minh?: number; from?: string }
 	| { op: 'addEdge'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; labelStyle?: LabelStyle; labels?: AttachedLabel[]; fromAnchor?: string; toAnchor?: string; lane?: number; style?: ObjectStyle; extra?: string[]; from: string; to: string; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
-	| { op: 'node'; titlePosition?: string; id: string; title?: string; icon?: string; iconPosition?: string; kind?: string; code?: string; cat?: string; width?: number; minh?: number }
+	| { op: 'node'; wantWidth?: number; codeFont?: string; titlePosition?: string; id: string; title?: string; icon?: string; iconPosition?: string; kind?: string; code?: string; cat?: string; width?: number; minh?: number }
 	| { op: 'arrow'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[] | null; waypoints?: number[][]; resetAuto?: boolean; from?: string; to?: string; fromAnchor?: string; toAnchor?: string; lane?: number | null; index: number; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
 	| { op: 'arrows'; style: string }
 	| { op: 'sheet'; width: number }
@@ -1035,7 +1039,7 @@ export function apply(fig: Figure, op: Op): void {
 		}
 		case 'addNode':
 			insert(fig, { t: 'node', n: {
-				titlePosition: op.titlePosition, attachment: op.attachment && {...op.attachment}, style: op.style, id: op.id, cat: op.cat, x: op.x, y: op.y, title: op.title, icon: op.icon, iconPosition: op.iconPosition, kind: op.kind, code: op.code ?? '',
+				wantWidth:op.wantWidth, codeFont:op.codeFont, titlePosition: op.titlePosition, attachment: op.attachment && {...op.attachment}, style: op.style, id: op.id, cat: op.cat, x: op.x, y: op.y, title: op.title, icon: op.icon, iconPosition: op.iconPosition, kind: op.kind, code: op.code ?? '',
 				width: op.width ?? DEFAULT_WIDTH, minh: op.minh ?? 0, layer: layers(fig).find(l => l.id === op.layer)?.id ?? layers(fig)[0].id, group: '', hidden: false, locked: false, extra: op.extra ?? [],
 			} });
 			if (op.from) {
@@ -1057,7 +1061,9 @@ export function apply(fig: Figure, op: Op): void {
 				if (op.title !== undefined) { n.title = op.title; }
 				if (op.code !== undefined) { n.code = op.code; }
 				if (op.cat !== undefined) { n.cat = op.cat; }
-				if (op.width !== undefined && op.width > 0) { n.width = op.width; }
+				if (op.width !== undefined && op.width > 0) { n.width = op.width; delete n.wantWidth; }
+                if(op.wantWidth !== undefined && op.wantWidth>0)n.wantWidth=op.wantWidth;
+                if(op.codeFont !== undefined)n.codeFont=op.codeFont || undefined;
 				if (op.minh !== undefined && op.minh >= 0) { n.minh = op.minh; }
 			}
 			break;
@@ -1192,6 +1198,7 @@ export function apply(fig: Figure, op: Op): void {
 			break;
 		}
 	}
+ for(const n of nodes(fig))normalizeWidth(fig,n);
 	resolveAttachments(fig);
 }
 
@@ -1230,7 +1237,7 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 		map.set(n.id, id);
 		ops.push({
 			op: 'addNode', titlePosition:n.titlePosition, id, x: n.x + dx, y: n.y + dy, title: n.title, icon: n.icon, iconPosition: n.iconPosition, kind: n.kind, code: n.code,
-			style: n.style, extra: n.extra, cat: have.has(n.cat) ? n.cat : '', width: n.width, minh: n.minh,
+			wantWidth:n.wantWidth, codeFont:n.codeFont, style: n.style, extra: n.extra, cat: have.has(n.cat) ? n.cat : '', width: n.width, minh: n.minh,
 		});
 	}
 	for (const n of nodes(src)) { if(map.has(n.group)) ops.push({op:'setGroup',ids:[map.get(n.id)!],group:map.get(n.group)!}); }

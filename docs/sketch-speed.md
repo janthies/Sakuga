@@ -10,6 +10,7 @@ Each command sends one existing `batch` operation, hence one document edit.
 | Align top / vertical centre / bottom | Alt+W / Alt+V / Alt+S |
 | Distribute horizontal / vertical edge gaps | Alt+X / Alt+Y |
 | Same width / height | Alt+U / Alt+B |
+| Tidy up selection / whole figure if empty | Alt+T (hold to preview, release to apply) |
 | Next connected box / box below | Tab / Shift+Tab |
 | Edit existing title | Enter / F2 |
 
@@ -67,3 +68,40 @@ Bounding-box translation, rigid-group handling and gap accumulation were adapted
 from Excalidraw's MIT `packages/element/src/align.ts` and `distribute.ts`.
 The research's pinned revision could not be fetched; accessible upstream master
 files were inspected instead. Notices are in `media/sketch.LICENSE.txt`.
+
+## Tidy up and content widths
+
+The Arrange section offers **Tidy up** (or **Tidy up figure** without a selection).
+Hover previews ghost outlines; clicking applies one batch, including neighbour pushes
+and manual-route repairs. Alt+T previews while held and applies on release; Escape
+or losing focus cancels. The command palette applies directly. Alt+T does not conflict
+with the installed Volute extension or Sakuga's align/size keys.
+
+Tidy preserves nesting and order. It cuts the drawing into rows and columns, uses
+median positive figure gaps with a 4 mm minimum (8 mm across labelled arrows),
+justifies rows spanning at least 85% of their container, and equalizes plain-box row
+heights. Frames include padding and titles. Columns are planned separately. Free
+labels/icons stay in place unless selected or pushed by growth. Growth pushes
+unselected neighbours below/right, including footnotes and chains of neighbours;
+locked and hidden objects remain excluded. Fixed routes retain their interior and
+re-anchor their end segments; explicit U detours retain endpoint clearance.
+
+Width in Arrange is the wanted width. Actual text width is at least that value and
+at least the longest title word or code line, using advances from the shipped fonts.
+A side icon reserves 4 mm. Shortening content or selecting a smaller **Code size**
+in Text lets the box shrink back. Code size defaults to one step below the title,
+with choices down to tiny. A quiet hint identifies the content that widened a box.
+Canvas and serializer share wrapped title lines and frame geometry in `media/text.js`.
+
+The dialect adds `sg want=26` only when wanted width differs from actual `text width`,
+and `sg code font=tiny` only for a nondefault code size. Files without `sg want` use
+the existing text width as wanted width. Copy/paste preserves both values. Coordinates
+and explicit minimum heights now retain hundredths of a millimetre so these plans
+round-trip without changing frame bounds.
+
+Cross-column alignment would need shared constraints for originally aligned rows
+and associations between free labels and those rows. Arbitrary TeX macros, maths,
+and inline font changes still use the existing plain-text measurement approximation.
+Physical Alt+T delivery in VS Code remains a manual smoke check; no install is run.
+Run `node scripts/check-tidy.cjs` for layout fixtures, pushes, persistence, frame fit,
+manual routes, and actual preview/key handlers.
