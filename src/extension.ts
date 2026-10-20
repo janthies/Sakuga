@@ -217,9 +217,7 @@ function page(webview: vscode.Webview, media: vscode.Uri): string {
 </div>
 <input id="edit" type="text" spellcheck="false">
 <div id="etools"></div>
-<script nonce="${nonce}" src="${uri('routes.js')}"></script>
-<script nonce="${nonce}" src="${uri('text.js')}"></script>
-<script nonce="${nonce}" src="${uri('sketch.js')}"></script>
+<script nonce="${nonce}" src="${uri('dist/shared.js')}"></script>
 <script nonce="${nonce}" src="${uri('editor.js')}"></script>
 </body>
 </html>`;

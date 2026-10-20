@@ -11,7 +11,7 @@ const BODY = `<header id="bar"><button id="drawerToggle" class="tbtn"></button><
 <input id="edit" type="text"><div id="etools"></div>`;
 
 // Scripts in the order page() loads them.
-const SCRIPTS = ['routes.js', 'text.js', 'sketch.js', 'editor.js'];
+const SCRIPTS = ['dist/shared.js', 'editor.js'];
 
 export const VIEWPORT = { width: 1200, height: 800 };
 export const VIEW = { s: 4, ox: 100, oy: 400 };
@@ -25,7 +25,7 @@ export interface Canvas {
 	saved: () => any;
 }
 
-// Deterministic stand-in for canvas measureText: the advance tables of media/text.js, so widths do not depend on a font.
+// Deterministic stand-in for canvas measureText: the advance tables of src/core/text, so widths do not depend on a font.
 function measureWidth(text: any, font: string, SakugaText: any): number {
 	const m = /([\d.]+)px '([^']+)'/.exec(font)!;
 	const pt = (parseFloat(m[1]) * 72.27) / 96;

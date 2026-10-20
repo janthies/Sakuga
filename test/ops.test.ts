@@ -7,8 +7,8 @@ import { ROOT, read, loadIcons } from './lib/env';
 
 const t = loadIcons();
 const { statePayload } = require('../src/state');
-const sketch = require('../media/sketch');
-const text = require('../media/text');
+const sketch = require('../src/shared').sketch;
+const text = require('../src/shared').text;
 
 // Layout as editor.js passes it to sketch.js: effective icon from the categories, the figure font.
 function editorLayout(p: any) {

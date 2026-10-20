@@ -9,6 +9,9 @@ examples/**
 
 work/**
 
+# built webview bundle (shared text, routing and layout code)
+!media/dist/shared.js
+
 # build and tooling files
 test/**
 scripts/**
@@ -21,3 +24,4 @@ tsconfig*.json
 .tsbuild/**
 sakuga.vsix
 out/tikz.js
+out/shared.js

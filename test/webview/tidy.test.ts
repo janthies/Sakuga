@@ -8,9 +8,9 @@ import { loadIcons } from '../lib/env';
 
 // Tidy up: measured layout, persistence, neighbour growth and the canvas preview handlers (ported from scripts/check-tidy.cjs).
 const t = loadIcons();
-const sketch = require('../../media/sketch'),
-	text = require('../../media/text'),
-	routes = require('../../media/routes');
+const sketch = require('../../src/shared').sketch,
+	text = require('../../src/shared').text,
+	routes = require('../../src/shared').routes;
 const near = (a: number, b: number, tol = 0.03) => assert(Math.abs(a - b) < tol, `${a} != ${b}`);
 test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, content width, code sizes, wrapped frames, fixed/U routes and round trips', () => {
 	const near = (a, b, tol = 0.03) => assert(Math.abs(a - b) < tol, `${a} != ${b}`);

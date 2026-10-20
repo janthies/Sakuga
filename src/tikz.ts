@@ -1,5 +1,6 @@
-const routing = require('../media/routes.js');
-const textGeometry = require('../media/text.js');
+import * as routing from './core/layout/route';
+import * as textGeometry from './core/text';
+import { fromHex, toHex } from './core/util/hex';
 // The figure file is TikZ. Sakuga understands one node or one arrow per line, category lines
 // in the header and two generated blocks (theme and legend); every other line is kept as it is.
 
@@ -365,7 +366,7 @@ function readGroup(tail: string): Partial<Group> {
 				: ['padding', 'lineWidth', 'fillStrength'].includes(m[1])
 					? +m[2]
 					: m[1] === 'labelStyle'
-						? JSON.parse(Buffer.from(m[2], 'hex').toString())
+						? JSON.parse(fromHex(m[2]))
 						: m[2];
 	}
 	return g;
@@ -384,10 +385,7 @@ function groupOptions(g: Group): string {
 				(g as any)[k] !== v &&
 				!(['padding', 'lineWidth'].includes(k) && (g as any)[k] === 0),
 		)
-		.map(
-			([k]) =>
-				` ${k}=${k === 'labelStyle' ? Buffer.from(JSON.stringify(cleanLabel(g.labelStyle))).toString('hex') : (g as any)[k]}`,
-		)
+		.map(([k]) => ` ${k}=${k === 'labelStyle' ? toHex(JSON.stringify(cleanLabel(g.labelStyle))) : (g as any)[k]}`)
 		.join('');
 }
 export function cleanLabel(st: LabelStyle = {}): LabelStyle {
@@ -1166,7 +1164,7 @@ function parsePath(o: string[], path: string): FigEdge | null {
 	};
 	const meta = o.find((x) => x.startsWith('sg labels='));
 	if (meta) {
-		const data = JSON.parse(Buffer.from(meta.slice(10), 'hex').toString());
+		const data = JSON.parse(fromHex(meta.slice(10)));
 		e.labelStyle = data.style;
 		e.labels = data.labels;
 		if (data.text !== undefined) e.label = data.text;
@@ -1242,7 +1240,7 @@ function parsePath(o: string[], path: string): FigEdge | null {
 	}
 
 	if (meta) {
-		const data = JSON.parse(Buffer.from(meta.slice(10), 'hex').toString());
+		const data = JSON.parse(fromHex(meta.slice(10)));
 		if (data.legacySide) e.style = { ...e.style, side: data.legacySide };
 		if (data.legacyPosition) e.style = { ...e.style, position: data.legacyPosition };
 	}
@@ -1666,7 +1664,7 @@ function edgeLine(fig: Figure, e: FigEdge): string {
 		if (e.style?.side) (labelData as any).legacySide = e.style.side;
 		if (e.style?.position) (labelData as any).legacyPosition = e.style.position;
 	}
-	if (Object.keys(labelData).length) o.push('sg labels=' + Buffer.from(JSON.stringify(labelData)).toString('hex'));
+	if (Object.keys(labelData).length) o.push('sg labels=' + toHex(JSON.stringify(labelData)));
 	if (!e.label) {
 		if (e.style?.side) o.push(`sg label side=${e.style.side}`);
 		if (e.style?.position) o.push(`sg label position=${e.style.position}`);
@@ -1792,7 +1790,7 @@ function edgeLine(fig: Figure, e: FigEdge): string {
 					c = anchor ? routing.point(n, anchor, n) : [n.x, n.y];
 				const offset = id === e.from ? e.fromOffset : e.toOffset;
 				if (offset !== undefined && /^(north|south|east|west)$/.test(anchor || '')) {
-					const text = routing.portText(n, anchor, p);
+					const text = routing.portText(n, anchor!, p);
 					return offset === 0 && !text.includes('shift')
 						? `([${/north|south/.test(anchor!) ? 'x' : 'y'}shift=0mm]${id}.${anchor})`
 						: text;

@@ -2,7 +2,7 @@
 
 The architecture controls extend the existing inspector and arrow toolbar. New groups have a light tint, a dashed outline in a darker group colour, and a bold title above-left; grouping existing frames creates a solid outer frame with no fill. Old group comments retain their original title placement and weight until edited.
 
-Arrow endpoints can be dragged to a box side or frame edge. Selected arrows expose endpoint handles. Start/end side selectors and the U route are also in the inspector. Frame ports project onto the other endpoint's row or column, so protocol messages terminate at the outer boundary. Nested frame sizes include child frames, their titles and internal U routes. Shared millimetre geometry in `media/routes.js` drives the canvas and generated paths.
+Arrow endpoints can be dragged to a box side or frame edge. Selected arrows expose endpoint handles. Start/end side selectors and the U route are also in the inspector. Frame ports project onto the other endpoint's row or column, so protocol messages terminate at the outer boundary. Nested frame sizes include child frames, their titles and internal U routes. Shared millimetre geometry in `src/core/layout/route.ts` drives the canvas and generated paths.
 
 Parallel arrows share automatic lanes, 3.5 mm either side of the centre for a pair; further arrows add lanes at 7 mm spacing. The first arrow uses the upper horizontal lane. A numeric Lane value overrides this arrangement; clearing the field restores automatic placement. Step numbers use the next unused positive integer when **Set next step** is clicked. Existing numbers never change automatically; clearing the Step field removes a badge.
 

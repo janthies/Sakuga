@@ -6,7 +6,7 @@ import { loadIcons } from '../lib/env';
 
 // LuaLaTeX probe of Tidy up (ported from the end of scripts/check-tidy.cjs): the widened line fits and a wrapped box retains frame padding.
 const t = loadIcons();
-const text = require('../../media/text');
+const text = require('../../src/shared').text;
 const near = (a, b, tol = 0.03) => assert(Math.abs(a - b) < tol, `${a} != ${b}`);
 const fresh = () => t.parse(t.TEMPLATE),
 	add = (f, id, x, y, more = {}) => t.apply(f, { op: 'addNode', id, x, y, title: id, cat: '', width: 26, ...more });

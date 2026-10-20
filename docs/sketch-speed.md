@@ -67,7 +67,7 @@ and cancellation. The existing `scripts/check-*.cjs` checks also run unchanged.
 Bounding-box translation, rigid-group handling and gap accumulation were adapted
 from Excalidraw's MIT `packages/element/src/align.ts` and `distribute.ts`.
 The research's pinned revision could not be fetched; accessible upstream master
-files were inspected instead. Notices are in `media/sketch.LICENSE.txt`.
+files were inspected instead. Notices are in `media/sketch.LICENSE.txt` (the code lives in `src/core/layout/sketch-*.ts`).
 
 ## Tidy up and content widths
 
@@ -91,7 +91,7 @@ at least the longest title word or code line, using advances from the shipped fo
 A side icon reserves 4 mm. Shortening content or selecting a smaller **Code size**
 in Text lets the box shrink back. Code size defaults to one step below the title,
 with choices down to tiny. A quiet hint identifies the content that widened a box.
-Canvas and serializer share wrapped title lines and frame geometry in `media/text.js`.
+Canvas and serializer share wrapped title lines and frame geometry in `src/core/text`.
 
 The dialect adds `sg want=26` only when wanted width differs from actual `text width`,
 and `sg code font=tiny` only for a nondefault code size. Files without `sg want` use

@@ -111,12 +111,12 @@ interface OptionCodec { owns: PropKey[]; kinds: Kind[]; emit(p: Props, c: EmitCt
 ## 7 Migration steps (strangler: each step one commit or PR, goldens identical unless marked re-baseline)
 | # | Step | Touches | Done when | Effort | State |
 |---|---|---|---|---|---|
-| S0 | Goldens, jsdom harness, test hook | test/**, editor.js (hook only) | Goldens committed; green twice in a row; drift.json filled | 1 R | open |
-| S1 | `check`, `check:tex`, CI workflow | package.json, .github/ | CI green | 0.2 R | open |
-| S2 | Port the 9 slicing UI checks to the harness | scripts → test/webview | No test reads editor.js as text | 1 R | open |
-| S3 | Tooling: esbuild, tsconfig per layer, depcruise, prettier config, blame-ignore | build files, install.sh | VSIX installs, examples open, goldens identical | 0.5 R | open |
-| S4 | Prettier on all files (formatting only) | all | `prettier --check` in check | 0.1 R | open |
-| S5 | text/routes/sketch.js → core TS; `util/hex`; IIFE shim keeps old globals | media/*.js, tikz.ts, script requires | media copies deleted | 0.5 R | open |
+| S0 | Goldens, jsdom harness, test hook | test/**, editor.js (hook only) | Goldens committed; green twice in a row; drift.json filled | 1 R | done |
+| S1 | `check`, `check:tex`, CI workflow | package.json, .github/ | CI green | 0.2 R | done |
+| S2 | Port the 9 slicing UI checks to the harness | scripts → test/webview | No test reads editor.js as text | 1 R | done |
+| S3 | Tooling: esbuild, tsconfig per layer, depcruise, prettier config, blame-ignore | build files, install.sh | VSIX installs, examples open, goldens identical | 0.5 R | done |
+| S4 | Prettier on all files (formatting only) | all | `prettier --check` in check | 0.1 R | done |
+| S5 | text/routes/sketch.js → core TS; `util/hex`; IIFE shim keeps old globals | media/*.js, tikz.ts, script requires | media copies deleted | 0.5 R | done |
 | S6 | Split tikz.ts into core modules; tikz.ts becomes a barrel | src/core/** | No core file over 400 lines; core rules on | 1.5 R | open |
 | S7 | Host ports, bridge, `viewModel()` into core | extension.ts, export.ts, host/, bridge/ | extension.ts under 80 lines; fake-port tests | 1 R | open |
 | S8 | Webview to TS (`@ts-nocheck`), imports core, shim removed | editor.js, page() scripts | SVG goldens identical; VS Code smoke test (CSP, fonts) | 0.5 R | open |

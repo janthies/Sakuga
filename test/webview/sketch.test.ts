@@ -6,7 +6,7 @@ import { loadIcons } from '../lib/env';
 
 // Alignment, distribution, Tab placement and the sketch keys of the real editor (ported from scripts/check-sketch.cjs).
 const t = loadIcons();
-const sketch = require('../../media/sketch');
+const sketch = require('../../src/shared').sketch;
 const pkg = require('../../package.json');
 
 test('sketch geometry: alignment, equal edge gaps, key objects, sizes, rigid groups, locks and Tab placement', () => {

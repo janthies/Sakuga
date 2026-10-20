@@ -5,7 +5,7 @@ const assert = require('node:assert/strict'),
 	path = require('node:path');
 const { execFileSync } = require('node:child_process');
 const t = require('../out/tikz'),
-	routing = require('../media/routes');
+	routing = require('../out/shared').routes;
 const root = path.resolve(__dirname, '..');
 const f = t.parse(t.TEMPLATE),
 	apply = (o) => t.apply(f, o);
