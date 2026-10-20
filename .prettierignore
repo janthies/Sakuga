@@ -1,0 +1,9 @@
+out/
+.tsbuild/
+node_modules/
+media/dist/
+test/golden/
+icons/
+work/
+*.tikz
+*.svg

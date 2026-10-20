@@ -8,7 +8,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")"
 VSCODE_NODE="$(dirname "$(readlink -f "$(command -v code)")")/../code"
 
 npm install --no-audit --no-fund --loglevel=error
-npm run compile
+npm run compile  # esbuild: out/extension.js
 ELECTRON_RUN_AS_NODE=1 "$VSCODE_NODE" node_modules/@vscode/vsce/vsce package --allow-missing-repository --skip-license --out sakuga.vsix
 code --install-extension sakuga.vsix --force
 echo "Installed. Run 'Developer: Reload Window' in open VS Code windows to load the new version."

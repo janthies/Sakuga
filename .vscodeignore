@@ -8,3 +8,16 @@ examples/**
 !icons/icons.json
 
 work/**
+
+# build and tooling files
+test/**
+scripts/**
+.github/**
+.dependency-cruiser.cjs
+.prettierrc
+.prettierignore
+.git-blame-ignore-revs
+tsconfig*.json
+.tsbuild/**
+sakuga.vsix
+out/tikz.js
