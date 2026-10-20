@@ -22,19 +22,15 @@ export function slugKey(name: string, taken: string[]): string {
 	return key;
 }
 
-export const usersOf = (fig: Figure, def: StyleDef): (FigNode | FigEdge)[] =>
-	def.kind === 'arrow'
-		? edges(fig).filter((e) => e.styleKey === def.key)
-		: nodes(fig).filter((n) => n.cat === def.key && nodeStyleKind(n) === def.kind);
+export const usersOf = (fig: Figure, def: StyleDef): (FigNode | FigEdge)[] => [
+	...nodes(fig).filter((n) => n.cat === def.key),
+	...edges(fig).filter((e) => e.cat === def.key || e.styleKey === def.key),
+];
 
 // Change a style definition while the users keep their overrides.
 export function restyle(fig: Figure, def: StyleDef, mutate: (users: (FigNode | FigEdge)[]) => void) {
-	const users = usersOf(fig, def),
-		before = users.map((u) => overrideOf(def.kind, u.style || {}, def.props));
+	const users = usersOf(fig, def);
 	mutate(users);
-	users.forEach((u, i) => {
-		u.style = mergeStyle(def.kind, def.props, before[i]);
-	});
 }
 
 // A property change on an object. On a styled object an empty value means "back to the style",

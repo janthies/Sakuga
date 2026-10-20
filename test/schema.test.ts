@@ -302,13 +302,13 @@ test('seeded property round trip: serialize, parse, serialize is the identity fo
 				}
 			}
 		};
-		expect.forEach((e, i) => check(e.kind, e.style, back[i]?.style, `node ${i} (${e.kind})`));
-		arrows.forEach((a, i) => check('arrow', a, edgesBack[i]?.style, `arrow ${i}`));
+		expect.forEach((e, i) => check(e.kind, e.style, back[i]?.look?.own, `node ${i} (${e.kind})`));
+		arrows.forEach((a, i) => check('arrow', a, edgesBack[i]?.look?.own, `arrow ${i}`));
 	}
 	assert.deepEqual(failures.slice(0, 20), []);
 });
 
-test('seeded property round trip: named styles and group lines', () => {
+test('seeded property round trip: categories, theme and group lines', () => {
 	const failures: string[] = [];
 	for (let seed = 1; seed <= 100; seed++) {
 		const random = rng(seed * 104729),
@@ -332,9 +332,14 @@ test('seeded property round trip: named styles and group lines', () => {
 		if (t.serialize(parsed) !== text1) failures.push(`seed ${seed}: text differs`);
 		const defs = (parsed.lines as any[]).filter((l) => l.t === 'style').map((l) => l.s);
 		KINDS.forEach((kind, i) => {
-			const def = defs.find((d: any) => d.key === `s${i}`);
+			const def =
+				kind === 'box'
+					? defs.find((d: any) => d.key === `s${i}`)
+					: {
+							props: t.themeValues(parsed, kind === 'arrow' ? 'Connector' : kind === 'frame' ? 'Frame' : 'Text'),
+						};
 			for (const d of defsOf(kind).filter((x) => x.styleable)) {
-				if (!survives(kind, d, wrote[i][d.key], def?.props[d.key])) {
+				if (wrote[i][d.key] !== undefined && !survives(kind, d, wrote[i][d.key], def?.props[d.key])) {
 					failures.push(
 						`seed ${seed} style ${kind}.${d.key}: wrote ${JSON.stringify(wrote[i][d.key])}, read ${JSON.stringify(def?.props[d.key])}`,
 					);

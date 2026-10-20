@@ -25,6 +25,7 @@ export function applyArrow(fig: Figure, op: ArrowOp, run: Run): void {
 					}
 				}
 				if (op.styleKey !== undefined) {
+					e.cat = op.styleKey;
 					if (e.style) {
 						for (const k of styleable('arrow')) {
 							delete (e.style as any)[k];

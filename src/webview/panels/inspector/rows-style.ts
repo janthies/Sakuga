@@ -55,16 +55,16 @@ export function styleRow(c: PanelCtx): RowControls {
 		[
 			{ value: '', label: 'Plain', color: '#ffffff' },
 			...store.styles
-				.filter((s) => s.kind === i.kind)
+				.filter((s) => s.kind === 'box')
 				.map((s) => ({ value: s.key, label: show(s.name), color: styleSwatch(s), icon: s.icon })),
 		],
-		'Style',
+		'Category',
 	);
 	picker.set(i.same);
 	picker.onCommit((v) => {
 		if (v === null) return;
 		if (i.kind === 'box') store.lastCat = v;
-		post({ op: 'batch', ops: i.ids.map((id) => ({ op: 'node', id, cat: v })) });
+		post({ op: 'batch', ops: i.ids.map((id) => ({ op: 'setCategory', id, category: v })) });
 	});
 	if (!i.overrides) return picker;
 	const badge = h(
@@ -91,7 +91,7 @@ export function styleActionsRow(c: PanelCtx): RowControls {
 		actions.push({
 			label: 'Reset to style',
 			title: 'Remove the overrides of this object',
-			run: () => post({ op: 'resetStyle', ids: i.ids }),
+			run: () => post({ op: 'batch', ops: i.ids.map((id) => ({ op: 'resetOverride', id })) }),
 		});
 	}
 	const others = def ? styleUsers(def) - 1 : 0;
@@ -102,7 +102,7 @@ export function styleActionsRow(c: PanelCtx): RowControls {
 				others > 0
 					? `The style "${show(def.name)}" takes this look; ${others} other ${others === 1 ? 'object changes' : 'objects change'}`
 					: 'The style takes this look',
-			run: () => post({ op: 'styleUpdate', key: def.key, id: i.ids[0] }),
+			run: () => post({ op: 'applyToCategory', id: i.ids[0] }),
 		});
 	}
 	if (i.ids.length === 1) {

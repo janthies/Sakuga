@@ -88,14 +88,14 @@ export function decorations(key: string, n: FigNode, w: number, h: number, box: 
 			size = st.markSize === 'medium' ? 5 : 2.4,
 			right = corner.endsWith('e'),
 			top = corner.startsWith('n'),
-			cx = right ? x + w : x,
-			cy = top ? y : y + h,
+			cx = right ? x + w - 0.5 : x + 0.5,
+			cy = top ? y + 0.5 : y + h - 0.5,
 			dx = right ? -size : size,
 			dy = top ? size : -size,
 			fill = styleColor(st.markColor, '#33333A');
 		g.push(
 			st.mark === 'circle'
-				? prim('circle', `${key}:mark`, { cx: cx + dx / 2, cy: cy + dy / 2, r: size / 2, fill })
+				? prim('circle', `${key}:mark`, { cx: cx + dx / 2, cy: cy + dy / 2, r: size / 4, fill })
 				: prim('path', `${key}:mark`, { d: `M ${n4(cx)} ${n4(cy)} l ${n4(dx)} 0 l ${n4(-dx)} ${n4(dy)} Z`, fill }),
 		);
 	}

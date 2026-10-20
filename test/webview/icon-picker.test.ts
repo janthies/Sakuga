@@ -71,5 +71,5 @@ test('visual style choice shows swatch and icon and picks by keyboard', () => {
 	assert.equal(s.document.activeElement.textContent, 'Plain');
 	assert.ok(panelEl.contains(s.document.activeElement));
 	s.click(s.document.activeElement);
-	assert.equal(s.lastOp.ops[0].cat, '');
+	assert.equal(s.lastOp.ops[0].category, '');
 });

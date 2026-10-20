@@ -19,6 +19,7 @@ export function readOptions(options: string[], arrow = false, styled = false): {
 		extra: string[] = [],
 		ctx: ReadCtx = { arrow, styled };
 	for (const o of options) {
+		if (/^cat-.*-(shape|frame|conn|text|icon|line)$/.test(o) || o === 'sg icon') continue;
 		if (!CODECS.some((k) => k.read(o, style, ctx))) {
 			extra.push(o);
 		}

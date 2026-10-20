@@ -2,7 +2,8 @@
 // give every editable object (including titles and path labels) one identity and parent.
 import type { Attachment, FigEdge, FigNode, Group, LabelStyle, ObjectStyle } from './payload';
 
-export type ItemKind = 'Shape' | 'Frame' | 'Text' | 'Icon' | 'Line' | 'Connector';
+import type { ItemKind } from './item-base';
+export type { ItemKind } from './item-base';
 import type { TreeState, Endpoint } from './item-base';
 export type { TreeState, Endpoint, Port } from './item-base';
 export interface FigLine extends TreeState {
@@ -15,7 +16,7 @@ export interface FigLine extends TreeState {
 	labels?: { id?: string; text: string; style?: LabelStyle }[];
 	extra: string[];
 }
-interface Base {
+interface Base extends TreeState {
 	id: string;
 	parent: string;
 	order: number;

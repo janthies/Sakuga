@@ -3,7 +3,9 @@ import { itemById, layerOf, subtreeState, descendants, orderedSiblings } from '.
 import { Category, FigEdge, FigNode, Figure, Layer, StyleKind } from './figure';
 
 export const fontSize = (fig: Figure) =>
-	fig.lines.flatMap((l) => (l.t === 'raw' && /^% sakuga font /.test(l.text) ? [l.text.slice(14)] : []))[0] || 'small';
+	fig.theme?.fontSize ||
+	fig.lines.flatMap((l) => (l.t === 'raw' && /^% sakuga font /.test(l.text) ? [l.text.slice(14)] : []))[0] ||
+	'small';
 
 export const smallerFont = (size: string) =>
 	({ scriptsize: 'tiny', footnotesize: 'scriptsize', small: 'footnotesize', normalsize: 'small', large: 'normalsize' })[
@@ -33,8 +35,12 @@ export const categories = (fig: Figure): Category[] =>
 		.filter((s) => s.kind === 'box')
 		.map((s) => ({
 			key: s.key,
+			outline: s.outline,
+			emphasis: s.emphasis,
+			props: s.props,
+			kinds: s.kinds,
 			name: s.name,
-			color: s.props.fill || 'white',
+			color: fig.theme?.palette?.[s.props.fill] || s.props.fill || 'white',
 			icon: s.icon,
 			boxes: s.boxes,
 			legend: !!s.legend,

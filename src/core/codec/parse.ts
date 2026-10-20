@@ -1,3 +1,5 @@
+import { readTheme, readCategory, readCategoryOption } from './look';
+import { migrateLooks } from '../styles/migrate';
 // Reading a figure file into the model.
 import { migratePorts } from '../geometry/migrate-ports';
 import { resolvePorts } from '../geometry/ports';
@@ -17,6 +19,7 @@ import { settle } from '../styles/resolve';
 
 export function parse(text: string): Figure {
 	const lines: Line[] = [];
+	const fig: Figure = { lines };
 	let tree = '';
 	const individuallyHidden = new Set<string>();
 	const labelKeys = new Set(Array.from(text.matchAll(/^%\s*sakuga style label\s+([\w-]+)/gm), (m) => m[1]));
@@ -41,6 +44,12 @@ export function parse(text: string): Figure {
 						? 'groups'
 						: 'legend';
 			lines.push({ t: block });
+			continue;
+		}
+		if (readTheme(fig, line)) continue;
+		const category = readCategory(line);
+		if (category) {
+			lines.push({ t: 'style', s: category });
 			continue;
 		}
 		if (line.startsWith('% sakuga tree ')) {
@@ -128,7 +137,7 @@ export function parse(text: string): Figure {
 					minh: +m[7],
 					title: value('pic text').slice(1, -1),
 					code: '',
-					cat: '',
+					cat: readCategoryOption(o) || '',
 					layer: value('sg layer'),
 					group: value('sg in'),
 					hidden: !!hidden || o.includes('sg hidden'),
@@ -150,7 +159,7 @@ export function parse(text: string): Figure {
 				individuallyHidden.add(m[2]);
 			}
 			const styleOpt = o.find((x) => x.startsWith('sg style/') || x.startsWith('cat-'));
-			const cat = styleOpt ? styleOpt.slice(styleOpt.startsWith('cat-') ? 4 : 9) : '';
+			const cat = readCategoryOption(o) ?? (styleOpt ? styleOpt.slice(styleOpt.startsWith('cat-') ? 4 : 9) : '');
 			const isLabel = o.includes('sg text') || o.includes('sg label') || labelKeys.has(cat);
 			const w = o.find((x) => /^text width\s*=/.test(x));
 			const h = o.find((x) => /^minimum height\s*=/.test(x));
@@ -253,7 +262,7 @@ export function parse(text: string): Figure {
 		}
 		lines.push({ t: 'raw', text: line });
 	}
-	const fig = { lines };
+	migrateLooks(fig);
 	for (const n of nodes(fig))
 		if (n.kind === 'label' && n.style?.step)
 			n.title = n.title.startsWith('\\sglabel{')
@@ -279,5 +288,6 @@ export function parse(text: string): Figure {
 		readTreeState(fig, tree);
 		resolvePorts(fig);
 	} else migratePorts(fig);
+	settle(fig);
 	return fig;
 }

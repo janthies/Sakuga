@@ -1,3 +1,4 @@
+import { themeHeader, categoryHeader } from './look';
 // The part of a figure a copy puts on the clipboard: the selected boxes, arrows and groups, with what they need to paste.
 import { lineSource } from './line';
 import { descendants } from '../model/tree-queries';
@@ -5,7 +6,6 @@ import { lineItems } from '../model/tree';
 import { edgeLine } from './edge-line';
 import { groupOptions } from './group';
 import { nodeSource } from './serialize';
-import { styleLine } from './style-line';
 import { geometryOf } from '../geometry/figure-geometry';
 import type { Figure } from '../model/figure';
 import type { ObjectRef } from '../model/refs';
@@ -53,9 +53,10 @@ export function serializeSubset(fig: Figure, refs: ObjectRef[]): string {
 	const used = new Set([...[...ids].map((id) => node(id)!.cat), ...selected.map((e) => e.styleKey)].filter(Boolean));
 	const geo = geometryOf(fig);
 	return [
+		...themeHeader(fig),
 		...styleDefs(fig)
 			.filter((s) => used.has(s.key))
-			.map(styleLine),
+			.map(categoryHeader),
 		...groups(fig)
 			.filter((g) => copied.has(g.id))
 			.map(

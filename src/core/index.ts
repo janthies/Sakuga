@@ -67,3 +67,8 @@ export { slugKey } from './ops/style-helpers';
 export { apply } from './ops/apply';
 export { TEMPLATE } from './codec/template';
 export { pasteOps } from './ops/paste';
+
+export { resolveLook, categoryKey, categoryValues } from './styles/cascade';
+export { houseValues, themeValues } from './schema/theme';
+export type { Theme, ValueSource, ResolvedValue } from './model/look';
+export type { LookOp } from './ops/look';

@@ -1,15 +1,17 @@
+import { syncTree } from '../model/tree';
+import { projectLook } from './cascade';
 // Resolving, merging and overriding named styles.
 import { FigEdge, FigNode, Figure, ObjectStyle, StyleKind } from '../model/figure';
 import { edges, findStyle, nodeStyleKind, nodes } from '../model/queries';
 import { styleable, travelGroups } from '../schema';
 
-const objectKey = (o: FigNode | FigEdge) => ('from' in o ? o.styleKey : o.cat);
+const objectKey = (o: FigNode | FigEdge) => o.cat || ('from' in o ? o.styleKey : undefined);
 
 export const objectKind = (o: FigNode | FigEdge): StyleKind | null => ('from' in o ? 'arrow' : nodeStyleKind(o));
 
 export const styleOf = (fig: Figure, o: FigNode | FigEdge) => {
 	const k = objectKind(o);
-	return k ? findStyle(fig, objectKey(o), k) : undefined;
+	return findStyle(fig, objectKey(o));
 };
 
 export const isSet = (v: unknown) => v !== undefined && v !== null && v !== '';
@@ -71,29 +73,13 @@ export function overrideOf(kind: StyleKind, st: Record<string, any>, base: Recor
 }
 
 export function overrideKeys(fig: Figure, o: FigNode | FigEdge): string[] {
-	const def = styleOf(fig, o),
-		kind = objectKind(o);
-	if (!def || !kind) {
-		return [];
-	}
-	const ov = overrideOf(kind, o.style || {}, def.props);
-	const keys = new Set(styleable(kind).filter((k) => (ov as any)[k] !== undefined));
-	for (const g of travelGroups(kind)) {
-		if (g.some((k) => keys.has(k))) {
-			g.forEach((k) => keys.add(k));
-		}
-	}
-	return styleable(kind).filter((k) => keys.has(k));
+	return Object.keys(o.look?.own || o.style || {});
 }
 
 // Make every styled object carry style + overrides (idempotent).
 export function settle(fig: Figure) {
-	for (const o of [...nodes(fig), ...edges(fig)]) {
-		const def = styleOf(fig, o);
-		if (def) {
-			o.style = mergeStyle(def.kind, def.props, o.style || {});
-		}
-	}
+	syncTree(fig);
+	projectLook(fig);
 }
 
 // Boxes that share the same overrides against the same style: candidates for a new style.

@@ -24,7 +24,7 @@ export function planTidy(
 		SELECT = selected.join(','),
 		GROUPS = groups,
 		EDGES = edges;
-	const plain = (n: any) => !n.kind && (!n.style?.shape || ['rectangle', 'pill'].includes(n.style.shape));
+	const plain = (n: any) => !n.kind && (!n.style?.shape || ['rectangle', 'rounded', 'pill'].includes(n.style.shape));
 	const NODES = nodes.filter((n) => !n.hidden && (!(n.kind === 'label' || n.kind === 'icon') || SEL.has(n.id)));
 	const median = (a: any) => {
 		a = a.slice().sort((x: any, y: any) => x - y);

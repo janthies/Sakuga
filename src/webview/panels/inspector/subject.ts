@@ -81,13 +81,16 @@ export class ObjectSubject implements Subject {
 	read(def: PropDef): Reading {
 		const values = this.items.map((i) => own(i, def));
 		const styled = (i: Item) => {
-			const key = i.edge ? i.edge.styleKey : i.node!.cat;
+			const key = i.edge ? i.edge.cat || i.edge.styleKey : i.node!.cat;
 			return !!key && !!styleDef(key) && !(i.node?.kind === 'icon');
 		};
 		return {
 			value: values[0],
 			mixed: !same(values),
-			inherited: this.items.every((i) => styled(i) && def.styleable && !isOverride(i.node || i.edge!, def.key)),
+			inherited: this.items.every((i) => {
+				const o = (i.node || i.edge)!;
+				return o.look ? !(def.key in o.look.own) : styled(i) && def.styleable && !isOverride(o, def.key);
+			}),
 		};
 	}
 

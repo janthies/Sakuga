@@ -184,7 +184,7 @@
        },
        "attrs": {
         "fill": "rgb(231,231,231)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -236,7 +236,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -303,7 +303,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -370,7 +370,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -439,7 +439,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -491,7 +491,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -560,7 +560,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -627,7 +627,7 @@
        },
        "attrs": {
         "fill": "rgb(212,226,183)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -694,7 +694,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -761,7 +761,7 @@
        },
        "attrs": {
         "fill": "rgb(255,221,204)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -830,7 +830,7 @@
        },
        "attrs": {
         "fill": "rgb(212,226,183)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -899,7 +899,7 @@
        },
        "attrs": {
         "fill": "rgb(231,231,231)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -951,7 +951,7 @@
        },
        "attrs": {
         "fill": "rgb(231,231,231)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1362,7 +1362,7 @@
         "dominant-baseline": "central",
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
-        "fill": "#595959",
+        "fill": "#808080",
         "pointer-events": "none",
         "font-weight": "normal",
         "font-style": "normal"

@@ -76,6 +76,8 @@ export function syncTree(fig: Figure): void {
 				owner.id,
 			),
 			kind: 'Text',
+			cat: prior?.cat,
+			look: prior?.look,
 			text: value,
 			code,
 			order: slot,

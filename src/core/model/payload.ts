@@ -38,6 +38,10 @@ export interface Icon {
 }
 
 export interface Category {
+	outline?: string;
+	emphasis?: string;
+	props?: Record<string, any>;
+	kinds?: Partial<Record<import('./item-base').ItemKind, Record<string, any>>>;
 	key: string;
 	name: string;
 	color: string;
@@ -52,6 +56,9 @@ export interface Category {
 export type StyleKind = 'box' | 'arrow' | 'frame' | 'label';
 
 export interface StyleDef {
+	outline?: string;
+	emphasis?: string;
+	kinds?: Category['kinds'];
 	kind: StyleKind;
 	key: string;
 	name: string;

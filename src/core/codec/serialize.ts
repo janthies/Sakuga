@@ -1,3 +1,4 @@
+import { categoryHeader, themeHeader } from './look';
 // Writing a figure back to TikZ.
 import { resolvePorts } from '../geometry/ports';
 import { subtreeState } from '../model/tree-queries';
@@ -9,7 +10,6 @@ import { groupsBlock, legendBlock, pictureFont, themeBlock } from './blocks';
 import { edgeLine } from './edge-line';
 import { groupOptions } from './group';
 import { attachedIcons, hiddenReference, nodeLine } from './node-line';
-import { styleLine } from './style-line';
 import { nodeIcon, resolveAttachments } from '../geometry/boxes';
 import { geometryOf } from '../geometry/figure-geometry';
 import { FigNode, Figure, Line } from '../model/figure';
@@ -97,8 +97,9 @@ export function serialize(fig: Figure): string {
 		lines.splice(at < 0 ? 0 : at, 0, { t: 'tree' });
 	}
 	const geo = geometryOf(fig);
-	return lines
-		.flatMap((l) => {
+	return [
+		...themeHeader(fig),
+		...lines.flatMap((l) => {
 			switch (l.t) {
 				case 'tree':
 					return [treeState(fig)];
@@ -134,7 +135,7 @@ export function serialize(fig: Figure): string {
 				case 'arrowsflag':
 					return [`% sakuga arrows ${l.style}`];
 				case 'style':
-					return [styleLine(l.s)];
+					return [categoryHeader(l.s)];
 				case 'legendflag':
 					return [`% sakuga legend ${l.on ? 'on' : 'off'}`];
 				case 'theme':
@@ -146,6 +147,6 @@ export function serialize(fig: Figure): string {
 				case 'raw':
 					return [l.text.includes('\\begin{tikzpicture}') ? pictureFont(l.text, fontSize(fig)) : l.text];
 			}
-		})
-		.join('\n');
+		}),
+	].join('\n');
 }

@@ -38,6 +38,7 @@ export type TreeOp =
 	| { op: 'endpoint'; id: string; end: 'source' | 'target'; endpoint: Endpoint };
 
 export type Op =
+	| import('./look').LookOp
 	| TreeOp
 	| { op: 'label'; index?: number; group?: string; slot?: number; text?: string; style?: LabelStyle }
 	| {

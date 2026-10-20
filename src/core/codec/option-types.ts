@@ -6,6 +6,8 @@ export type Target = 'node' | 'arrow';
 
 export interface EmitCtx {
 	arrow: boolean;
+	forceDefaults?: boolean;
+	effective?: ObjectStyle;
 	// Height of the box in mm, for pill corners.
 	height: number;
 	// The style defines a line width, so a thin box must say so to override it.

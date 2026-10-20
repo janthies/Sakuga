@@ -16,8 +16,10 @@ test('serializeSubset copies the selected boxes with their styles, groups and th
 	assert.equal(lines.filter((l) => /^\\node\[/.test(l)).length, 2);
 	assert.equal(lines.filter((l) => /^\\draw\[/.test(l)).length, 1, 'the arrow between the two boxes comes along');
 	assert.ok(
-		lines.every((l) => l.startsWith('% sakuga style') || source.includes(l)),
-		'every line is a line of the file',
+		lines.every(
+			(l) => l.startsWith('% sakuga category') || l.startsWith('% sakuga theme') || t.serialize(fig).includes(l),
+		),
+		'every line is a line of the migrated file',
 	);
 	assert.equal(t.serializeSubset(fig, []), '');
 	const target = t.parse(source);

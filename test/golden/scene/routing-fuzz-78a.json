@@ -26,8 +26,8 @@
         "id": "n0"
        },
        "attrs": {
-        "fill": "#ffffff",
-        "stroke": "#9e9e9e",
+        "fill": "rgb(255,255,255)",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -78,8 +78,8 @@
         "id": "n1"
        },
        "attrs": {
-        "fill": "#ffffff",
-        "stroke": "#9e9e9e",
+        "fill": "rgb(255,255,255)",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -130,8 +130,8 @@
         "id": "n2"
        },
        "attrs": {
-        "fill": "#ffffff",
-        "stroke": "#9e9e9e",
+        "fill": "rgb(255,255,255)",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
@@ -182,8 +182,8 @@
         "id": "n3"
        },
        "attrs": {
-        "fill": "#ffffff",
-        "stroke": "#9e9e9e",
+        "fill": "rgb(255,255,255)",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",

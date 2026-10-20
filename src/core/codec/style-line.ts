@@ -56,7 +56,7 @@ export function styleLine(d: StyleDef): string {
 	if (d.legend) {
 		parts.push('legend');
 	}
-	for (const k of styleable(d.kind)) {
+	for (const k of Object.keys(p)) {
 		if (p[k] !== undefined && p[k] !== null && p[k] !== '') {
 			parts.push(`${k}=${p[k]}`);
 		}

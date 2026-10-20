@@ -15,14 +15,19 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 	for (const d of styleDefs(src)) {
 		if (!have.has(d.key)) {
 			ops.push({
-				op: 'styleAdd',
-				kind: d.kind,
-				key: d.key,
-				name: d.name,
-				props: d.props,
-				icon: d.icon,
-				boxes: d.boxes,
-				legend: d.legend,
+				op: 'categoryAdd',
+				category: {
+					key: d.key,
+					name: d.name,
+					color: d.props.fill || 'white',
+					props: d.props,
+					icon: d.icon,
+					boxes: d.boxes,
+					legend: d.legend,
+					outline: d.outline,
+					emphasis: d.emphasis,
+					kinds: d.kinds,
+				},
 			});
 			have.add(d.key);
 		}
@@ -67,7 +72,7 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 			code: n.code,
 			wantWidth: n.wantWidth,
 			codeFont: n.codeFont,
-			style: n.style,
+			style: n.look?.own || n.style,
 			extra: n.extra,
 			cat: have.has(n.cat) ? n.cat : '',
 			width: n.width,
@@ -83,7 +88,7 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 			start: [l.start[0] + dx, l.start[1] + dy],
 			end: [l.end[0] + dx, l.end[1] + dy],
 			parent: map.get(l.treeParent || ''),
-			style: l.style,
+			style: l.look?.own || l.style,
 			labels: l.labels?.map((v) => ({ ...v, id: undefined })),
 		});
 	}

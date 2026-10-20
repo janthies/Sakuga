@@ -4,16 +4,20 @@ import type { OptionCodec } from './option-types';
 import { fill } from '../model/colour';
 import { ObjectStyle } from '../model/figure';
 
-export function markOption(st: ObjectStyle): string {
+export function markOption(st: ObjectStyle, legacy = false): string {
 	const corner = st.markCorner || 'ne',
 		anchor = `path picture bounding box.${cornerKeys[corner] || cornerKeys.ne}`;
 	const size = st.markSize === 'medium' ? 5 : 2.4,
 		x = corner.endsWith('e') ? -1 : 1,
 		y = corner.startsWith('n') ? -1 : 1;
+	const inset = legacy ? 0 : 0.5;
+	const origin = `([xshift=${x * inset}mm,yshift=${y * inset}mm]${anchor})`;
 	const path =
 		st.mark === 'circle'
-			? `([xshift=${(x * size) / 2}mm,yshift=${(y * size) / 2}mm]${anchor}) circle[radius=${size / 2}mm]`
-			: `(${anchor}) -- ([xshift=${x * size}mm]${anchor}) -- ([yshift=${y * size}mm]${anchor}) -- cycle`;
+			? `([xshift=${x * (inset + size / 2)}mm,yshift=${y * (inset + size / 2)}mm]${anchor}) circle[radius=${legacy ? size / 2 : size / 4}mm]`
+			: legacy
+				? `(${anchor}) -- ([xshift=${x * size}mm]${anchor}) -- ([yshift=${y * size}mm]${anchor}) -- cycle`
+				: `${origin} -- ([xshift=${x * (inset + size)}mm,yshift=${y * inset}mm]${anchor}) -- ([xshift=${x * inset}mm,yshift=${y * (inset + size)}mm]${anchor}) -- cycle`;
 	return `path picture={\\path[fill=${fill(st.markColor || '#33333A')},draw=none,sharp corners] ${path};}`;
 }
 
@@ -142,9 +146,15 @@ const mark: OptionCodec = {
 		if (!color || !corner || !size) return false;
 		const c = Object.keys(cornerKeys).find((k) => cornerKeys[k] === corner[1])!;
 		if (c !== 'ne') candidate.markCorner = c;
-		if (Math.abs(+size[1]) * (candidate.mark === 'circle' ? 2 : 1) === 5) candidate.markSize = 'medium';
+		if (
+			o.includes('radius=1.25mm') ||
+			o.includes('shift=5.5mm') ||
+			o.includes('shift=-5.5mm') ||
+			Math.abs(+size[1]) * (candidate.mark === 'circle' ? 2 : 1) === 5
+		)
+			candidate.markSize = 'medium';
 		if (color[1] !== 'sgc33333A') candidate.markColor = readColor(color[1]);
-		if (markOption(candidate) !== o) return false;
+		if (markOption(candidate) !== o && markOption(candidate, true) !== o) return false;
 		Object.assign(p, candidate);
 		return true;
 	},

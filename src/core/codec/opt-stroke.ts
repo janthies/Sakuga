@@ -42,8 +42,8 @@ const opacityCodec: OptionCodec = {
 const arrowLineWidth: OptionCodec = {
 	owns: ['lineWidth'],
 	kinds: ['arrow'],
-	emit: (p) =>
-		p.lineWidth !== undefined && p.lineWidth !== arrowDefault('lineWidth')
+	emit: (p, c) =>
+		p.lineWidth !== undefined && (c.forceDefaults || p.lineWidth !== arrowDefault('lineWidth'))
 			? [`line width=${p.lineWidth}pt`, `sg line width=${p.lineWidth}`]
 			: [],
 	read(o, p, c) {
@@ -59,7 +59,8 @@ const arrowLineWidth: OptionCodec = {
 const tipSize = (key: 'tipLength' | 'tipWidth', word: string): OptionCodec => ({
 	owns: [key],
 	kinds: ['arrow'],
-	emit: (p) => (p[key] !== undefined && p[key] !== arrowDefault(key) ? [`sg ${word}=${p[key]}`] : []),
+	emit: (p, c) =>
+		p[key] !== undefined && (c.forceDefaults || p[key] !== arrowDefault(key)) ? [`sg ${word}=${p[key]}`] : [],
 	read(o, p, c) {
 		if (!c.arrow || !o.startsWith(`sg ${word}=`)) return false;
 		p[key] = +o.split('=')[1];
@@ -87,7 +88,7 @@ const weight: OptionCodec = {
 		if (p.weight && p.weight !== 'thin' && !(c.arrow && p.lineWidth !== undefined)) {
 			return [`line width=${p.weight === 'medium' ? '0.8' : '1.2'}pt`];
 		}
-		return !c.arrow && p.weight === 'thin' && c.thin ? ['line width=0.45pt'] : [];
+		return !c.arrow && p.weight === 'thin' && (c.thin || c.forceDefaults) ? ['line width=0.45pt'] : [];
 	},
 	read(o, p, c) {
 		if (!/^line width=[\d.]+pt$/.test(o)) return false;
@@ -130,13 +131,17 @@ const font: OptionCodec = {
 const tips: OptionCodec = {
 	owns: ['start', 'end', 'tipLength', 'tipWidth'],
 	kinds: ['arrow'],
-	emit(p) {
+	emit(p, c) {
 		const changed =
+			(c.forceDefaults && [p.start, p.end, p.tipLength, p.tipWidth].some((v) => v !== undefined)) ||
 			(p.tipLength !== undefined && p.tipLength !== arrowDefault('tipLength')) ||
 			(p.tipWidth !== undefined && p.tipWidth !== arrowDefault('tipWidth')) ||
 			(p.start && p.start !== 'none') ||
 			(p.end && p.end !== 'Latex');
-		return changed ? [`{${scaledTip(p.start || 'none', p)}}-{${scaledTip(p.end || 'Latex', p)}}`] : [];
+		const effective = { ...c.effective, ...p };
+		return changed
+			? [`{${scaledTip(effective.start || 'none', effective)}}-{${scaledTip(effective.end || 'Latex', effective)}}`]
+			: [];
 	},
 	read(o, p, c) {
 		const m = c.arrow ? /^\{(.*)\}-\{(.*)\}$/.exec(o) : null;

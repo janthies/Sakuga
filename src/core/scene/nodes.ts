@@ -58,7 +58,9 @@ function nodePrim(env: Env, n: FigNode): Prim {
 	const r = n.kind === 'label' || n.style?.shape === 'rectangle' ? 0 : n.style?.shape === 'pill' ? h / 2 : 1.4 * PT;
 	const area = { x: n.x - w / 2, y: -(n.y + h / 2), width: w, height: h, fill: 'transparent' };
 	if (n.kind === 'icon') {
-		kids.push(icon(env, `${key}:icon`, n.icon as string, n.x - w / 2, n.y, w, h));
+		const symbol = icon(env, `${key}:icon`, n.icon as string, n.x - w / 2, n.y, w, h);
+		symbol.attrs.stroke = styleColor(n.style?.textColor, '#666');
+		kids.push(symbol);
 		kids.push(prim('rect', `${key}:area`, { ...area, class: klass }, hit));
 		if (env.opts.editing !== n.id) {
 			kids.push(

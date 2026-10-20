@@ -161,19 +161,7 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 				if (op.code !== undefined) {
 					n.code = op.code;
 				}
-				if (
-					op.cat !== undefined &&
-					op.cat !== n.cat &&
-					(!op.cat || !findStyle(fig, op.cat) || findStyle(fig, op.cat)!.kind === nodeStyleKind(n))
-				) {
-					const kind = nodeStyleKind(n);
-					if (kind && n.style) {
-						for (const k of styleable(kind)) {
-							delete (n.style as any)[k];
-						}
-					}
-					n.cat = op.cat;
-				}
+				if (op.cat !== undefined) n.cat = op.cat;
 				if (op.width !== undefined && op.width > 0) {
 					n.width = op.width;
 					delete n.wantWidth;

@@ -32,6 +32,14 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 			}
 			break;
 		case 'styleAdd': {
+			if (op.kind !== 'box') {
+				run(fig, {
+					op: 'themeEdit',
+					kind: op.kind === 'arrow' ? 'Connector' : op.kind === 'frame' ? 'Frame' : 'Text',
+					props: op.props,
+				});
+				break;
+			}
 			const taken = styleDefs(fig).map((d) => d.key);
 			const key = op.key && /^[\w-]+$/.test(op.key) && !taken.includes(op.key) ? op.key : slugKey(op.name, taken);
 			const src: any =
@@ -156,7 +164,7 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 			];
 			for (const t of targets) {
 				const kind = objectKind(t);
-				if (!kind || !styleOf(fig, t)) {
+				if (!kind) {
 					continue;
 				}
 				const keys = new Set(op.keys?.length ? op.keys : styleable(kind));
@@ -195,7 +203,7 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 			});
 			break;
 		case 'deleteCategory':
-			run(fig, { op: 'styleDelete', key: op.key });
+			run(fig, { op: 'categoryDelete', key: op.key });
 			break;
 	}
 }

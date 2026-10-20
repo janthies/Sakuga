@@ -1,3 +1,5 @@
+import { categoryOption, readCategoryOption } from './look';
+import { itemOverrides } from '../styles/cascade';
 import type { Figure } from '../model/figure';
 import type { FigLine } from '../model/item';
 import { layerOf, subtreeState } from '../model/tree-queries';
@@ -15,6 +17,7 @@ export function readLine(o: string[], path: string): FigLine | null {
 	const value = (key: string) => o.find((v) => v.startsWith(key + '='))?.slice(key.length + 1);
 	return {
 		id: value('sg id') || '',
+		cat: readCategoryOption(o),
 		start: [+m[1], +m[2]],
 		end: [+m[3], +m[4]],
 		layer: value('sg layer'),
@@ -32,8 +35,9 @@ export function lineSource(fig: Figure, l: FigLine): string {
 		alpha = layers(fig).find((v) => v.id === layer)?.opacity;
 	const o = [
 		'sg line',
+		...categoryOption(l.cat || '', 'Line'),
 		'sg id=' + l.id,
-		...emitOptions(l.style),
+		...emitOptions(itemOverrides(l), { forceDefaults: true }),
 		...opacityOptions(l.style?.opacity, alpha),
 		...(l.group ? ['sg in=' + l.group] : []),
 		...(layer ? ['sg layer=' + layer] : []),

@@ -1023,7 +1023,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1072,7 +1072,7 @@
          "key": "n:box6:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 94.1338 14.92 l -2.4 0 l 2.4 2.4 Z",
+          "d": "M 93.6338 15.42 l -2.4 0 l 2.4 2.4 Z",
           "fill": "#E04080"
          }
         }
@@ -1122,7 +1122,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1171,7 +1171,7 @@
          "key": "n:box7:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 134.1338 14.92 l -5 0 l 5 5 Z",
+          "d": "M 133.6338 15.42 l -5 0 l 5 5 Z",
           "fill": "#E04080"
          }
         }
@@ -1221,7 +1221,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1270,7 +1270,7 @@
          "key": "n:box8:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M -14.1337 32.92 l 2.4 0 l -2.4 2.4 Z",
+          "d": "M -13.6337 33.42 l 2.4 0 l -2.4 2.4 Z",
           "fill": "#E04080"
          }
         }
@@ -1320,7 +1320,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1369,7 +1369,7 @@
          "key": "n:box9:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 25.8663 32.92 l 5 0 l -5 5 Z",
+          "d": "M 26.3663 33.42 l 5 0 l -5 5 Z",
           "fill": "#E04080"
          }
         }
@@ -1419,7 +1419,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1468,7 +1468,7 @@
          "key": "n:box10:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 94.1338 39.08 l -2.4 0 l 2.4 -2.4 Z",
+          "d": "M 93.6338 38.58 l -2.4 0 l 2.4 -2.4 Z",
           "fill": "#E04080"
          }
         }
@@ -1518,7 +1518,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1567,7 +1567,7 @@
          "key": "n:box11:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 134.1338 39.08 l -5 0 l 5 -5 Z",
+          "d": "M 133.6338 38.58 l -5 0 l 5 -5 Z",
           "fill": "#E04080"
          }
         }
@@ -1617,7 +1617,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1666,7 +1666,7 @@
          "key": "n:box12:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M -14.1337 57.08 l 2.4 0 l -2.4 -2.4 Z",
+          "d": "M -13.6337 56.58 l 2.4 0 l -2.4 -2.4 Z",
           "fill": "#E04080"
          }
         }
@@ -1716,7 +1716,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1765,7 +1765,7 @@
          "key": "n:box13:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 25.8663 57.08 l 5 0 l -5 -5 Z",
+          "d": "M 26.3663 56.58 l 5 0 l -5 -5 Z",
           "fill": "#E04080"
          }
         }
@@ -1815,7 +1815,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1864,9 +1864,9 @@
          "key": "n:box14:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 92.9338,
-          "cy": 52.12,
-          "r": 1.2,
+          "cx": 92.4338,
+          "cy": 52.62,
+          "r": 0.6,
           "fill": "#E04080"
          }
         }
@@ -1916,7 +1916,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -1965,9 +1965,9 @@
          "key": "n:box15:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 131.6338,
-          "cy": 53.42,
-          "r": 2.5,
+          "cx": 131.1338,
+          "cy": 53.92,
+          "r": 1.25,
           "fill": "#E04080"
          }
         }
@@ -2017,7 +2017,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2066,9 +2066,9 @@
          "key": "n:box16:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": -12.9337,
-          "cy": 70.12,
-          "r": 1.2,
+          "cx": -12.4337,
+          "cy": 70.62,
+          "r": 0.6,
           "fill": "#E04080"
          }
         }
@@ -2118,7 +2118,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2167,9 +2167,9 @@
          "key": "n:box17:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 28.3663,
-          "cy": 71.42,
-          "r": 2.5,
+          "cx": 28.8663,
+          "cy": 71.92,
+          "r": 1.25,
           "fill": "#E04080"
          }
         }
@@ -2219,7 +2219,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2268,9 +2268,9 @@
          "key": "n:box18:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 92.9338,
-          "cy": 73.88,
-          "r": 1.2,
+          "cx": 92.4338,
+          "cy": 73.38,
+          "r": 0.6,
           "fill": "#E04080"
          }
         }
@@ -2320,7 +2320,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2369,9 +2369,9 @@
          "key": "n:box19:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 131.6338,
-          "cy": 72.58,
-          "r": 2.5,
+          "cx": 131.1338,
+          "cy": 72.08,
+          "r": 1.25,
           "fill": "#E04080"
          }
         }
@@ -2421,7 +2421,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2470,9 +2470,9 @@
          "key": "n:box20:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": -12.9337,
-          "cy": 91.88,
-          "r": 1.2,
+          "cx": -12.4337,
+          "cy": 91.38,
+          "r": 0.6,
           "fill": "#E04080"
          }
         }
@@ -2522,7 +2522,7 @@
        },
        "attrs": {
         "fill": "rgb(197,212,241)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "0.1582 0.7029",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2571,9 +2571,9 @@
          "key": "n:box21:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 28.3663,
-          "cy": 90.58,
-          "r": 2.5,
+          "cx": 28.8663,
+          "cy": 90.08,
+          "r": 1.25,
           "fill": "#E04080"
          }
         }
@@ -2696,7 +2696,7 @@
          "key": "n:box22:box:mark",
          "kind": "path",
          "attrs": {
-          "d": "M 94.1338 86.92 l -2.4 0 l 2.4 2.4 Z",
+          "d": "M 93.6338 87.42 l -2.4 0 l 2.4 2.4 Z",
           "fill": "#33333A"
          }
         },
@@ -2757,7 +2757,7 @@
        },
        "attrs": {
         "fill": "rgb(212,226,183)",
-        "stroke": "#9e9e9e",
+        "stroke": "#9E9E9E",
         "stroke-dasharray": "1.0544 1.0544",
         "stroke-width": 0.1582,
         "class": "node",
@@ -2860,9 +2860,9 @@
          "key": "n:box23:box:mark",
          "kind": "circle",
          "attrs": {
-          "cx": 132.9338,
-          "cy": 88.12,
-          "r": 1.2,
+          "cx": 132.4338,
+          "cy": 88.62,
+          "r": 0.6,
           "fill": "#33333A"
          }
         },

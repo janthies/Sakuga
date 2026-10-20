@@ -1,3 +1,4 @@
+import { applyLook } from './look';
 // Applying an operation to a figure: dispatch to the family handlers, then settle styles, widths and attachments.
 import { migratePorts } from '../geometry/migrate-ports';
 import { resolvePorts } from '../geometry/ports';
@@ -27,6 +28,17 @@ export function apply(fig: Figure, op: Op): void {
 	);
 	const node = (id: string) => nodes(fig).find((n) => n.id === id);
 	switch (op.op) {
+		case 'setOverride':
+		case 'resetOverride':
+		case 'applyToCategory':
+		case 'applyToTheme':
+		case 'setCategory':
+		case 'themeEdit':
+		case 'categoryAdd':
+		case 'categoryEdit':
+		case 'categoryDelete':
+			applyLook(fig, op);
+			break;
 		case 'addText':
 		case 'reparent':
 		case 'detach':

@@ -1,3 +1,5 @@
+import { categoryOption } from './look';
+import { itemOverrides } from '../styles/cascade';
 // Writing arrows.
 import * as routing from '../geometry/route';
 import { toHex } from '../util/hex';
@@ -8,15 +10,14 @@ import { FigureGeometry, geometryOf } from '../geometry/figure-geometry';
 import { FigEdge, Figure, LabelStyle, ObjectStyle } from '../model/figure';
 import { edgeLayerOpacity, fontSize, nodes } from '../model/queries';
 import { cleanLabel } from '../styles/appearance';
-import { overrideOf, styleOf } from '../styles/resolve';
 import { num } from '../util/num';
 
 export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometryOf(fig)): string {
-	const edef = styleOf(fig, e);
-	const eown: ObjectStyle | undefined = edef ? overrideOf('arrow', e.style || {}, edef.props) : e.style;
+	const eown: ObjectStyle | undefined = itemOverrides(e);
 	const o = [
 		'sg conn',
-		...(e.styleKey ? [`sg style/${e.styleKey}`] : e.kind === 'arr-dashed' ? ['arr-dashed'] : []),
+		...categoryOption(e.cat || '', 'Connector'),
+		...(e.kind === 'arr-dashed' ? ['arr-dashed'] : []),
 		`sg id=${e.id}`,
 	];
 	const labelData = {
@@ -213,5 +214,5 @@ export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometry
 	} else {
 		path = `(${A}) --${lbl('')} (${B})`;
 	}
-	return `\\draw[${[...o, ...emitOptions(eown && (eown.start || eown.end || eown.tipLength !== undefined || eown.tipWidth !== undefined) ? { ...eown, start: eown.start || (e.head === 'both' ? 'Latex' : 'none'), end: eown.end || (e.head === 'none' ? 'none' : 'Latex') } : eown, { arrow: true }), ...opacityOptions(e.style?.opacity, edgeLayerOpacity(fig, e)), ...e.extra].join(', ')}] ${path};`;
+	return `\\draw[${[...o, ...emitOptions(eown, { arrow: true, forceDefaults: true, effective: e.style }), ...opacityOptions(e.style?.opacity, edgeLayerOpacity(fig, e)), ...e.extra].join(', ')}] ${path};`;
 }

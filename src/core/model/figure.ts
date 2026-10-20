@@ -20,6 +20,7 @@ export type Line =
 	| { t: 'raw'; text: string };
 
 export interface Figure {
+	theme?: import('./look').Theme;
 	items?: Item[];
 	lines: Line[];
 }

@@ -1,3 +1,5 @@
+import { categoryOption } from './look';
+import { itemOverrides } from '../styles/cascade';
 // Writing boxes: the node line, its hidden reference and attached icons.
 import { emitOptions } from './options';
 import { opacityOptions } from './opt-stroke';
@@ -5,7 +7,6 @@ import { anchorPoint, boxHalf, nodeIcon } from '../geometry/boxes';
 import { DEFAULT_WIDTH } from '../model/constants';
 import { FigNode, Figure, ObjectStyle } from '../model/figure';
 import { findStyle, fontSize, isHidden, nodeOpacity, nodeStyleKind, nodes, smallerFont } from '../model/queries';
-import { overrideOf } from '../styles/resolve';
 import { num } from '../util/num';
 
 function coordinate(n: FigNode): string {
@@ -19,6 +20,9 @@ function coordinate(n: FigNode): string {
 export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpacity = 1, fig?: Figure): string {
 	if (n.kind === 'icon') {
 		const o = [
+			'sg icon',
+			...categoryOption(n.cat, 'Icon'),
+			...emitOptions(itemOverrides(n)),
 			`pic text={${n.title}}`,
 			...(n.attachment ? [`anchor=${n.attachment.ownAnchor}`] : []),
 			...(n.layer ? [`sg layer=${n.layer}`] : []),
@@ -31,8 +35,11 @@ export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, l
 		return n.hidden ? `% sakuga hidden ${line}` : line;
 	}
 	const def = fig && n.cat && nodeStyleKind(n) ? findStyle(fig, n.cat, nodeStyleKind(n)!) : undefined;
-	const own: ObjectStyle | undefined = def ? overrideOf(def.kind, n.style || {}, def.props) : n.style;
-	const o = [n.kind === 'label' ? 'sg text' : 'sg shape', ...(n.cat ? [`sg style/${n.cat}`] : [])];
+	const own: ObjectStyle | undefined = itemOverrides(n);
+	const o = [
+		n.kind === 'label' ? 'sg text' : 'sg shape',
+		...categoryOption(n.cat, n.kind === 'label' ? 'Text' : 'Shape'),
+	];
 	if (n.kind === 'label') {
 		o.push(`sg label height=${boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2}`);
 	}
@@ -87,7 +94,7 @@ export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, l
 	}
 	if (n.titleHidden) content = `\\phantom{${content}}`;
 	const label = hasIcon ? `\\sgcontent{${n.iconPosition || 'left'}}{${n.width}}{${content}}` : content;
-	const line = `\\node[${[...o, ...emitOptions(own, { height: boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2, thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity, layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
+	const line = `\\node[${[...o, ...emitOptions(own, { forceDefaults: true, height: boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2, thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity, layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
 	return n.hidden ? `% sakuga hidden ${line}` : line;
 }
 

@@ -1,3 +1,4 @@
+import { readCategoryOption } from './look';
 // The path of an arrow: coordinates in parentheses, operators between them, at most one label node.
 import { pathLabels } from './path-labels';
 import { fromHex } from '../util/hex';
@@ -59,6 +60,7 @@ export function parsePath(o: string[], path: string): FigEdge | null {
 	const kind = o.find((x) => (ARROWS as readonly string[]).includes(x)) ?? 'arr';
 	const head = o.includes('head both') ? 'both' : o.includes('head none') ? 'none' : 'end';
 	const e: FigEdge = {
+		cat: readCategoryOption(o),
 		...(styleOpt ? { styleKey: styleOpt.slice(9) } : {}),
 		id: o.find((x) => x.startsWith('sg id='))?.slice(6),
 		from,

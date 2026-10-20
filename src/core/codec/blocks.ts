@@ -1,3 +1,4 @@
+import { lookStyles } from './look';
 // The generated blocks: icons, theme, frames and legend.
 import { lineItems } from '../model/tree';
 import { subtreeState } from '../model/tree-queries';
@@ -33,7 +34,7 @@ function iconCode(fig: Figure): string[] {
 		[
 			...nodes(fig).map((n) => nodeIcon(fig, n)),
 			...categories(fig)
-				.filter((c) => legendOn(fig) && usedCats.has(c.key))
+				.filter((c) => legendOn(fig) && c.legend)
 				.map((c) => c.icon),
 		].filter(Boolean),
 	);
@@ -64,6 +65,10 @@ function iconCode(fig: Figure): string[] {
 
 export function themeBlock(fig: Figure): string[] {
 	const custom = new Set<string>();
+	for (const m of lookStyles(fig)
+		.join(',')
+		.matchAll(/sgc([0-9A-F]{6})/g))
+		custom.add(m[1]);
 	for (const d of styleDefs(fig)) {
 		for (const match of styleDefOptions(d)
 			.join(', ')
@@ -104,7 +109,10 @@ export function themeBlock(fig: Figure): string[] {
 		...[...custom].sort().map((hex) => `\\definecolor{sgc${hex}}{HTML}{${hex}}`),
 		...Object.keys(PALETTE)
 			.filter((c) => c !== 'white')
-			.map((c) => `\\definecolor{${PALETTE[c].name}}{HTML}{${PALETTE[c].hex}}`),
+			.map(
+				(c) =>
+					`\\definecolor{${PALETTE[c].name}}{HTML}{${fig.theme?.palette?.[c]?.replace('#', '') || PALETTE[c].hex}}`,
+			),
 		String.raw`\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2mm][r]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2mm][l]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\ifx\sgpos\sgse\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\parbox{#2mm}{\vspace*{4mm}\centering#3}\fi\fi\fi\fi}`,
 		String.raw`\def\sgcodesize{}\tikzset{sg want/.style={},sg code font/.code={\def\sgcodesize{\csname#1\endcsname}}}`,
 		String.raw`\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\sgcodesize\ttfamily\textcolor{black!48}{#1}}}`,
@@ -116,7 +124,7 @@ export function themeBlock(fig: Figure): string[] {
 		'  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},',
 		'  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},',
 		'  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},',
-		...styleDefs(fig).map((d) => `  sg style/${d.key}/.style={${styleDefOptions(d).join(', ')}},`),
+
 		'  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},',
 		'  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},',
 		'  head none/.style={-},',
@@ -134,6 +142,7 @@ export function themeBlock(fig: Figure): string[] {
 		'  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},',
 		'  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,',
 		'    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},',
+		...lookStyles(fig),
 		'}',
 		'% sakuga theme end',
 	];
@@ -183,7 +192,7 @@ export function groupsBlock(fig: Figure): string[] {
 		const fillKey =
 			look.fill === 'none' ? ', fill=none' : ', fill=' + fill(g.color).split('!')[0] + '!' + look.strength;
 		out.push(
-			`\\path[sg frame ${base}${fillKey}, draw=${look.outline === 'none' ? 'none' : fill(look.color)}, ${look.outline === 'dashed' ? 'dash pattern=on 9pt off 3pt' : look.outline === 'dotted' ? 'dash pattern=on 0pt off 4.5pt' : 'solid'}, line cap=${look.outline === 'dotted' ? 'round' : 'butt'}, line width=${look.width}pt${alphaKey}] (${g.id}.south west) rectangle (${g.id}.north east);`,
+			`\\path[sg frame, ${g.cat ? `cat-${g.cat}-frame, ` : ''}sg frame ${base}${fillKey}, draw=${look.outline === 'none' ? 'none' : fill(look.color)}, ${look.outline === 'dashed' ? 'dash pattern=on 9pt off 3pt' : look.outline === 'dotted' ? 'dash pattern=on 0pt off 4.5pt' : 'solid'}, line cap=${look.outline === 'dotted' ? 'round' : 'butt'}, line width=${look.width}pt${alphaKey}] (${g.id}.south west) rectangle (${g.id}.north east);`,
 		);
 		const position = g.titlePosition || 'legacy';
 		if (g.name && !g.labelStyle?.hidden && (position !== 'legacy' || g.frame === 'region')) {
@@ -212,7 +221,7 @@ export function groupsBlock(fig: Figure): string[] {
 // Legend: one swatch per used category, three per column, below the figure's bottom-left corner.
 export function legendBlock(fig: Figure): string[] {
 	const used = new Set(nodes(fig).map((n) => n.cat));
-	const cats = categories(fig).filter((c) => used.has(c.key) && c.legend);
+	const cats = categories(fig).filter((c) => c.legend);
 	if (!legendOn(fig) || cats.length === 0) {
 		return [];
 	}
@@ -220,9 +229,13 @@ export function legendBlock(fig: Figure): string[] {
 	cats.forEach((c, i) => {
 		const x = Math.floor(i / 3) * 34,
 			y = -7 - (i % 3) * 6;
-		out.push(`\\node[sg swatch, fill=${fill(c.color)}, anchor=north west] at (${x},${y}) {};`);
 		out.push(
-			`\\node[anchor=west, inner sep=0pt, font=\\sffamily\\${smallerFont(fontSize(fig))}] at (${num(x + 4.6)},${num(y - 1.8)}) {${c.icon ? `\\sgicon{${c.icon}}\\ ` : ''}${c.name}};`,
+			c.icon
+				? `\\node[anchor=center,inner sep=0pt] at (${x + 1.8},${y - 1.8}) {\\sgicon{${c.icon}}};`
+				: `\\node[sg swatch, fill=${fill(c.color)}, anchor=north west] at (${x},${y}) {};`,
+		);
+		out.push(
+			`\\node[anchor=west, inner sep=0pt, font=\\sffamily\\${smallerFont(fontSize(fig))}] at (${num(x + 4.6)},${num(y - 1.8)}) {${c.name}};`,
 		);
 	});
 	out.push('\\end{scope}', '% sakuga legend end');
