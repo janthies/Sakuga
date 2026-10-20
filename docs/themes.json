@@ -1,0 +1,927 @@
+{
+ "themes": {
+  "jan": {
+   "name": "jan",
+   "description": "Jan current: Tol pale (BBCCEE, CCDDAA, DDDDDD) + peach FFDDCC + Tol muted rose CC6677; series completed from Tol bright/vibrant",
+   "source": "Tol note 3.2 + Jan",
+   "roles": {
+    "text": "000000",
+    "stroke": "black!45",
+    "arrow": "black!60",
+    "boundary": "black!80",
+    "regionA": "BBCCEE",
+    "regionB": "CCDDAA",
+    "regionC": "FFDDCC",
+    "neutral": "DDDDDD",
+    "alert": "CC6677"
+   },
+   "series": [
+    "4477AA",
+    "EE7733",
+    "117733",
+    "AA3377",
+    "DDCC77",
+    "66CCEE"
+   ],
+   "sequential": [
+    "471365",
+    "414487",
+    "2F6C8E",
+    "21908D",
+    "2FB47C",
+    "7AD151",
+    "DFE318"
+   ],
+   "diverging": [
+    "2166AC",
+    "4393C3",
+    "92C5DE",
+    "F7F7F7",
+    "F4A582",
+    "D6604D",
+    "B2182B"
+   ],
+   "tint_rule": "region = fill!30 (TikZ), box fill = fill",
+   "bases": null,
+   "derived": {
+    "regionA_region30": "EBF0FA",
+    "regionB_region30": "F0F5E5",
+    "regionC_region30": "FFF5F0",
+    "neutral_region30": "F5F5F5",
+    "alert_region30": "F0D1D6"
+   }
+  },
+  "tol-light": {
+   "name": "tol-light",
+   "description": "Tol light fills, Tol muted series, vibrant red as alert",
+   "source": "Tol note 3.2 (light, muted, vibrant)",
+   "roles": {
+    "text": "000000",
+    "stroke": "black!45",
+    "arrow": "black!60",
+    "boundary": "black!80",
+    "regionA": "77AADD",
+    "regionB": "BBCC33",
+    "regionC": "EE8866",
+    "neutral": "DDDDDD",
+    "alert": "CC3311"
+   },
+   "series": [
+    "332288",
+    "DDCC77",
+    "117733",
+    "AA4499",
+    "88CCEE",
+    "44AA99"
+   ],
+   "sequential": [
+    "471365",
+    "414487",
+    "2F6C8E",
+    "21908D",
+    "2FB47C",
+    "7AD151",
+    "DFE318"
+   ],
+   "diverging": [
+    "2166AC",
+    "4393C3",
+    "92C5DE",
+    "F7F7F7",
+    "F4A582",
+    "D6604D",
+    "B2182B"
+   ],
+   "tint_rule": "region = fill!30 (TikZ), box fill = fill",
+   "bases": {
+    "A": "77AADD",
+    "B": "BBCC33",
+    "C": "EE8866",
+    "N": "DDDDDD"
+   },
+   "derived": {
+    "regionA_region30": "D6E5F5",
+    "regionB_region30": "EBF0C2",
+    "regionC_region30": "FADBD1",
+    "neutral_region30": "F5F5F5",
+    "alert_region30": "F0C2B8"
+   }
+  },
+  "okabe-ito": {
+   "name": "okabe-ito",
+   "description": "Okabe-Ito/Wong: tints of sky blue, bluish green, yellow, grey; vermillion alert",
+   "source": "Wong 2011 / Okabe-Ito",
+   "roles": {
+    "text": "000000",
+    "stroke": "black!45",
+    "arrow": "black!60",
+    "boundary": "black!80",
+    "regionA": "B3DDF5",
+    "regionB": "8CD3C0",
+    "regionC": "F8F3AA",
+    "neutral": "D1D1D1",
+    "alert": "D55E00"
+   },
+   "series": [
+    "0072B2",
+    "E69F00",
+    "009E73",
+    "CC79A7",
+    "56B4E9",
+    "F0E442"
+   ],
+   "sequential": [
+    "002B62",
+    "35456C",
+    "5B606E",
+    "7C7B78",
+    "A19975",
+    "C8B866",
+    "F3DB42"
+   ],
+   "diverging": [
+    "2166AC",
+    "4393C3",
+    "92C5DE",
+    "F7F7F7",
+    "F4A582",
+    "D6604D",
+    "B2182B"
+   ],
+   "tint_rule": "region = fill!30 (TikZ), box fill = fill",
+   "bases": {
+    "A": "56B4E9",
+    "B": "009E73",
+    "C": "F0E442",
+    "N": "999999"
+   },
+   "derived": {
+    "regionA_region30": "E8F5FC",
+    "regionB_region30": "DCF2EC",
+    "regionC_region30": "FDFBE5",
+    "neutral_region30": "F1F1F1",
+    "alert_region30": "F2CFB2"
+   }
+  },
+  "catppuccin-latte": {
+   "name": "catppuccin-latte",
+   "description": "Catppuccin Latte accents; neutral = Latte overlay0 (unverified hex)",
+   "source": "Catppuccin Latte (MIT)",
+   "roles": {
+    "text": "000000",
+    "stroke": "black!45",
+    "arrow": "black!60",
+    "boundary": "black!80",
+    "regionA": "B0C9FC",
+    "regionB": "BCDEB5",
+    "regionC": "FFC9AA",
+    "neutral": "DCDEE3",
+    "alert": "D20F39"
+   },
+   "series": [
+    "1E66F5",
+    "FE640B",
+    "179299",
+    "EA76CB",
+    "4C4F69"
+   ],
+   "sequential": [
+    "471365",
+    "414487",
+    "2F6C8E",
+    "21908D",
+    "2FB47C",
+    "7AD151",
+    "DFE318"
+   ],
+   "diverging": [
+    "2166AC",
+    "4393C3",
+    "92C5DE",
+    "F7F7F7",
+    "F4A582",
+    "D6604D",
+    "B2182B"
+   ],
+   "tint_rule": "region = fill!30 (TikZ), box fill = fill",
+   "bases": {
+    "A": "1E66F5",
+    "B": "40A02B",
+    "C": "FE640B",
+    "N": "9CA0B0"
+   },
+   "derived": {
+    "regionA_region30": "E7EFFE",
+    "regionB_region30": "EBF5E9",
+    "regionC_region30": "FFEFE5",
+    "neutral_region30": "F4F5F7",
+    "alert_region30": "F2B7C4"
+   }
+  },
+  "nippon": {
+   "name": "nippon",
+   "description": "Traditional Japanese colours: gunjo, rokusho, sakura, ginnezumi; alert enji",
+   "source": "Wikipedia: Traditional colors of Japan (hex secondary)",
+   "roles": {
+    "text": "000000",
+    "stroke": "black!45",
+    "arrow": "black!60",
+    "boundary": "black!80",
+    "regionA": "BED1DF",
+    "regionB": "B3CABA",
+    "regionC": "FCC9B9",
+    "neutral": "D5CFCB",
+    "alert": "9D2933"
+   },
+   "series": [
+    "1F4788",
+    "FFA400",
+    "407A52",
+    "86ABA5",
+    "97867C"
+   ],
+   "sequential": [
+    "FFF8E7",
+    "AFC5BC",
+    "71A3A2",
+    "48919B",
+    "2D608E",
+    "1D3A6C",
+    "192236"
+   ],
+   "diverging": [
+    "1F4788",
+    "5C8BAE",
+    "B7CBDC",
+    "F4F0E9",
+    "E9B6A8",
+    "C3272B",
+    "9D2933"
+   ],
+   "tint_rule": "region = fill!30 (TikZ), box fill = fill",
+   "bases": {
+    "A": "5D8CAE",
+    "B": "407A52",
+    "C": "FCC9B9",
+    "N": "97867C"
+   },
+   "derived": {
+    "regionA_region30": "EBF1F5",
+    "regionB_region30": "E8EFEA",
+    "regionC_region30": "FEEFEA",
+    "neutral_region30": "F2F1EF",
+    "alert_region30": "E2BFC2"
+   }
+  },
+  "print-contrast": {
+   "name": "print-contrast",
+   "description": "Tol high/medium-contrast: few hues, survives greyscale; 5 series",
+   "source": "Tol note 3.2 (high-/medium-contrast)",
+   "roles": {
+    "text": "000000",
+    "stroke": "black!45",
+    "arrow": "black!60",
+    "boundary": "black!80",
+    "regionA": "ABC7E3",
+    "regionB": "F6E3AB",
+    "regionC": "F6C7D0",
+    "neutral": "C7C7C7",
+    "alert": "994455"
+   },
+   "series": [
+    "004488",
+    "DDAA33",
+    "6699CC",
+    "997700",
+    "EE99AA"
+   ],
+   "sequential": [
+    "471365",
+    "414487",
+    "2F6C8E",
+    "21908D",
+    "2FB47C",
+    "7AD151",
+    "DFE318"
+   ],
+   "diverging": [
+    "2166AC",
+    "4393C3",
+    "92C5DE",
+    "F7F7F7",
+    "F4A582",
+    "D6604D",
+    "B2182B"
+   ],
+   "tint_rule": "region = fill!30 (TikZ), box fill = fill",
+   "bases": {
+    "A": "6699CC",
+    "B": "EECC66",
+    "C": "EE99AA",
+    "N": "999999"
+   },
+   "derived": {
+    "regionA_region30": "E6EEF7",
+    "regionB_region30": "FCF7E6",
+    "regionC_region30": "FCEEF1",
+    "neutral_region30": "EEEEEE",
+    "alert_region30": "E0C7CC"
+   }
+  }
+ },
+ "checks": {
+  "jan": {
+   "series_minde": {
+    "normal": 27.2,
+    "deuteranopia": 12.4,
+    "protanopia": 12.1,
+    "tritanopia": 9.6
+   },
+   "series+alert_minde": {
+    "normal": 18.1,
+    "deuteranopia": 12.4,
+    "protanopia": 12.1,
+    "tritanopia": 7.2
+   },
+   "fills+alert_minde": {
+    "normal": 13.2,
+    "deuteranopia": 6.0,
+    "protanopia": 8.2,
+    "tritanopia": 6.6
+   },
+   "series_grey_minDL": 2.0,
+   "series_grey_L": [
+    42,
+    44,
+    49,
+    63,
+    77,
+    82
+   ],
+   "fills_grey_minDL": 2.5,
+   "black_on_fill": {
+    "regionA": 13.0,
+    "regionB": 14.5,
+    "regionC": 16.5,
+    "neutral": 15.5,
+    "alert": 5.7
+   },
+   "black_on_30": {
+    "regionA": 18.4,
+    "regionB": 18.9,
+    "regionC": 19.6,
+    "neutral": 19.3,
+    "alert": 14.8
+   },
+   "series_vs_white": [
+    4.7,
+    2.9,
+    5.7,
+    6.1,
+    1.6,
+    1.8
+   ],
+   "black_on_series": [
+    4.5,
+    7.3,
+    3.7,
+    3.4,
+    13.0,
+    11.4
+   ],
+   "sequential_minstep": {
+    "normal": 14.9,
+    "deuteranopia": 8.4,
+    "protanopia": 7.7,
+    "tritanopia": 9.5
+   },
+   "sequential_L": [
+    19,
+    32,
+    43,
+    54,
+    66,
+    76,
+    87
+   ],
+   "sequential_monotoneL": true,
+   "diverging_minstep": {
+    "normal": 16.3,
+    "deuteranopia": 14.4,
+    "protanopia": 15.2,
+    "tritanopia": 14.4
+   },
+   "diverging_L": [
+    42,
+    58,
+    77,
+    97,
+    75,
+    55,
+    38
+   ],
+   "diverging_monotoneL": null
+  },
+  "tol-light": {
+   "series_minde": {
+    "normal": 23.2,
+    "deuteranopia": 18.2,
+    "protanopia": 13.3,
+    "tritanopia": 12.3
+   },
+   "series+alert_minde": {
+    "normal": 23.2,
+    "deuteranopia": 13.3,
+    "protanopia": 8.1,
+    "tritanopia": 12.3
+   },
+   "fills+alert_minde": {
+    "normal": 20.9,
+    "deuteranopia": 10.1,
+    "protanopia": 19.1,
+    "tritanopia": 10.4
+   },
+   "series_grey_minDL": 2.0,
+   "series_grey_L": [
+    23,
+    44,
+    46,
+    64,
+    79,
+    82
+   ],
+   "fills_grey_minDL": 1.1,
+   "black_on_fill": {
+    "regionA": 8.6,
+    "regionB": 11.8,
+    "regionC": 8.3,
+    "neutral": 15.5,
+    "alert": 4.0
+   },
+   "black_on_30": {
+    "regionA": 16.4,
+    "regionB": 17.8,
+    "regionC": 16.1,
+    "neutral": 19.3,
+    "alert": 13.1
+   },
+   "series_vs_white": [
+    12.2,
+    1.6,
+    5.7,
+    5.3,
+    1.8,
+    2.8
+   ],
+   "black_on_series": [
+    1.7,
+    13.0,
+    3.7,
+    4.0,
+    11.9,
+    7.5
+   ],
+   "sequential_minstep": {
+    "normal": 14.9,
+    "deuteranopia": 8.4,
+    "protanopia": 7.7,
+    "tritanopia": 9.5
+   },
+   "sequential_L": [
+    19,
+    32,
+    43,
+    54,
+    66,
+    76,
+    87
+   ],
+   "sequential_monotoneL": true,
+   "diverging_minstep": {
+    "normal": 16.3,
+    "deuteranopia": 14.4,
+    "protanopia": 15.2,
+    "tritanopia": 14.4
+   },
+   "diverging_L": [
+    42,
+    58,
+    77,
+    97,
+    75,
+    55,
+    38
+   ],
+   "diverging_monotoneL": null
+  },
+  "okabe-ito": {
+   "series_minde": {
+    "normal": 21.7,
+    "deuteranopia": 11.5,
+    "protanopia": 12.3,
+    "tritanopia": 11.1
+   },
+   "series+alert_minde": {
+    "normal": 21.7,
+    "deuteranopia": 11.5,
+    "protanopia": 12.3,
+    "tritanopia": 11.1
+   },
+   "fills+alert_minde": {
+    "normal": 14.0,
+    "deuteranopia": 3.8,
+    "protanopia": 5.9,
+    "tritanopia": 6.5
+   },
+   "series_grey_minDL": 0.7,
+   "series_grey_L": [
+    46,
+    58,
+    61,
+    70,
+    71,
+    89
+   ],
+   "fills_grey_minDL": 2.1,
+   "black_on_fill": {
+    "regionA": 14.6,
+    "regionB": 12.2,
+    "regionC": 18.4,
+    "neutral": 13.8,
+    "alert": 5.4
+   },
+   "black_on_30": {
+    "regionA": 18.9,
+    "regionB": 18.0,
+    "regionC": 20.1,
+    "neutral": 18.6,
+    "alert": 14.3
+   },
+   "series_vs_white": [
+    5.2,
+    2.3,
+    3.4,
+    3.1,
+    2.3,
+    1.3
+   ],
+   "black_on_series": [
+    4.0,
+    9.3,
+    6.1,
+    6.9,
+    9.1,
+    15.9
+   ],
+   "sequential_minstep": {
+    "normal": 9.1,
+    "deuteranopia": 8.9,
+    "protanopia": 8.7,
+    "tritanopia": 6.6
+   },
+   "sequential_L": [
+    18,
+    30,
+    41,
+    52,
+    63,
+    75,
+    87
+   ],
+   "sequential_monotoneL": true,
+   "diverging_minstep": {
+    "normal": 16.3,
+    "deuteranopia": 14.4,
+    "protanopia": 15.2,
+    "tritanopia": 14.4
+   },
+   "diverging_L": [
+    42,
+    58,
+    77,
+    97,
+    75,
+    55,
+    38
+   ],
+   "diverging_monotoneL": null
+  },
+  "catppuccin-latte": {
+   "series_minde": {
+    "normal": 22.8,
+    "deuteranopia": 13.2,
+    "protanopia": 11.9,
+    "tritanopia": 12.2
+   },
+   "series+alert_minde": {
+    "normal": 22.8,
+    "deuteranopia": 13.2,
+    "protanopia": 11.9,
+    "tritanopia": 11.0
+   },
+   "fills+alert_minde": {
+    "normal": 15.8,
+    "deuteranopia": 5.4,
+    "protanopia": 2.4,
+    "tritanopia": 8.1
+   },
+   "series_grey_minDL": 3.8,
+   "series_grey_L": [
+    34,
+    48,
+    55,
+    62,
+    65
+   ],
+   "fills_grey_minDL": 0.4,
+   "black_on_fill": {
+    "regionA": 12.6,
+    "regionB": 14.3,
+    "regionC": 14.2,
+    "neutral": 15.6,
+    "alert": 3.9
+   },
+   "black_on_30": {
+    "regionA": 18.2,
+    "regionB": 18.8,
+    "regionC": 18.7,
+    "neutral": 19.3,
+    "alert": 12.3
+   },
+   "series_vs_white": [
+    4.9,
+    3.0,
+    3.7,
+    2.6,
+    8.0
+   ],
+   "black_on_series": [
+    4.3,
+    7.0,
+    5.6,
+    8.0,
+    2.6
+   ],
+   "sequential_minstep": {
+    "normal": 14.9,
+    "deuteranopia": 8.4,
+    "protanopia": 7.7,
+    "tritanopia": 9.5
+   },
+   "sequential_L": [
+    19,
+    32,
+    43,
+    54,
+    66,
+    76,
+    87
+   ],
+   "sequential_monotoneL": true,
+   "diverging_minstep": {
+    "normal": 16.3,
+    "deuteranopia": 14.4,
+    "protanopia": 15.2,
+    "tritanopia": 14.4
+   },
+   "diverging_L": [
+    42,
+    58,
+    77,
+    97,
+    75,
+    55,
+    38
+   ],
+   "diverging_monotoneL": null
+  },
+  "nippon": {
+   "series_minde": {
+    "normal": 23.0,
+    "deuteranopia": 12.6,
+    "protanopia": 11.5,
+    "tritanopia": 15.2
+   },
+   "series+alert_minde": {
+    "normal": 23.0,
+    "deuteranopia": 8.6,
+    "protanopia": 11.5,
+    "tritanopia": 15.2
+   },
+   "fills+alert_minde": {
+    "normal": 11.9,
+    "deuteranopia": 3.6,
+    "protanopia": 3.9,
+    "tritanopia": 3.6
+   },
+   "series_grey_minDL": 7.4,
+   "series_grey_L": [
+    31,
+    46,
+    57,
+    67,
+    75
+   ],
+   "fills_grey_minDL": 0.7,
+   "black_on_fill": {
+    "regionA": 13.4,
+    "regionB": 12.1,
+    "regionC": 14.2,
+    "neutral": 13.6,
+    "alert": 2.8
+   },
+   "black_on_30": {
+    "regionA": 18.4,
+    "regionB": 18.0,
+    "regionC": 18.7,
+    "neutral": 18.6,
+    "alert": 12.5
+   },
+   "series_vs_white": [
+    9.1,
+    2.0,
+    5.1,
+    2.5,
+    3.5
+   ],
+   "black_on_series": [
+    2.3,
+    10.6,
+    4.1,
+    8.4,
+    6.0
+   ],
+   "sequential_minstep": {
+    "normal": 8.3,
+    "deuteranopia": 9.0,
+    "protanopia": 8.1,
+    "tritanopia": 8.1
+   },
+   "sequential_L": [
+    98,
+    78,
+    64,
+    56,
+    39,
+    25,
+    13
+   ],
+   "sequential_monotoneL": true,
+   "diverging_minstep": {
+    "normal": 8.8,
+    "deuteranopia": 9.7,
+    "protanopia": 7.5,
+    "tritanopia": 9.7
+   },
+   "diverging_L": [
+    31,
+    56,
+    81,
+    95,
+    78,
+    43,
+    36
+   ],
+   "diverging_monotoneL": null
+  },
+  "print-contrast": {
+   "series_minde": {
+    "normal": 17.9,
+    "deuteranopia": 17.9,
+    "protanopia": 16.7,
+    "tritanopia": 6.7
+   },
+   "series+alert_minde": {
+    "normal": 17.9,
+    "deuteranopia": 17.9,
+    "protanopia": 16.7,
+    "tritanopia": 6.7
+   },
+   "fills+alert_minde": {
+    "normal": 12.7,
+    "deuteranopia": 5.0,
+    "protanopia": 2.0,
+    "tritanopia": 8.3
+   },
+   "series_grey_minDL": 0.4,
+   "series_grey_L": [
+    29,
+    52,
+    62,
+    72,
+    73
+   ],
+   "fills_grey_minDL": 1.1,
+   "black_on_fill": {
+    "regionA": 12.0,
+    "regionB": 16.5,
+    "regionC": 14.0,
+    "neutral": 12.4,
+    "alert": 3.3
+   },
+   "black_on_30": {
+    "regionA": 17.9,
+    "regionB": 19.6,
+    "regionC": 18.6,
+    "neutral": 18.1,
+    "alert": 13.2
+   },
+   "series_vs_white": [
+    9.6,
+    2.1,
+    3.0,
+    4.2,
+    2.1
+   ],
+   "black_on_series": [
+    2.2,
+    9.9,
+    7.0,
+    5.0,
+    9.8
+   ],
+   "sequential_minstep": {
+    "normal": 14.9,
+    "deuteranopia": 8.4,
+    "protanopia": 7.7,
+    "tritanopia": 9.5
+   },
+   "sequential_L": [
+    19,
+    32,
+    43,
+    54,
+    66,
+    76,
+    87
+   ],
+   "sequential_monotoneL": true,
+   "diverging_minstep": {
+    "normal": 16.3,
+    "deuteranopia": 14.4,
+    "protanopia": 15.2,
+    "tritanopia": 14.4
+   },
+   "diverging_L": [
+    42,
+    58,
+    77,
+    97,
+    75,
+    55,
+    38
+   ],
+   "diverging_monotoneL": null
+  }
+ },
+ "baselines": {
+  "tol-bright": {
+   "normal": 23.7,
+   "deuteranopia": 14.7,
+   "protanopia": 14.0,
+   "tritanopia": 8.7
+  },
+  "tol-muted-6": {
+   "normal": 23.2,
+   "deuteranopia": 18.2,
+   "protanopia": 13.3,
+   "tritanopia": 12.3
+  },
+  "okabe-ito-7": {
+   "normal": 21.7,
+   "deuteranopia": 11.5,
+   "protanopia": 12.3,
+   "tritanopia": 11.1
+  },
+  "tableau10": {
+   "normal": 18.1,
+   "deuteranopia": 0.7,
+   "protanopia": 1.3,
+   "tritanopia": 7.0
+  },
+  "carbon-first6": {
+   "normal": 20.6,
+   "deuteranopia": 15.8,
+   "protanopia": 9.5,
+   "tritanopia": 15.9
+  },
+  "brewer-Set2-6": {
+   "normal": 20.8,
+   "deuteranopia": 5.8,
+   "protanopia": 1.6,
+   "tritanopia": 7.1
+  },
+  "brewer-Dark2-6": {
+   "normal": 19.3,
+   "deuteranopia": 3.4,
+   "protanopia": 6.1,
+   "tritanopia": 5.8
+  },
+  "brewer-Set1-6": {
+   "normal": 24.9,
+   "deuteranopia": 4.3,
+   "protanopia": 6.1,
+   "tritanopia": 13.3
+  }
+ }
+}

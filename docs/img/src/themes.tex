@@ -1,0 +1,190 @@
+% AI draft figure (Claude). The same diagram in six candidate themes; only role colours change.
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\footnotesize,
+  bx/.style={draw=black!45, line width=0.5pt, rounded corners=1.5pt, minimum width=22mm,
+             minimum height=7mm, inner sep=1pt, text=black!85, align=center},
+  m/.style={-{Stealth[length=1.6mm, width=1.2mm]}, draw=black!60, line width=0.6pt},
+  g/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1pt}]
+\begin{scope}[shift={(0,0)}]
+\definecolor{regionA}{HTML}{BBCCEE}
+\definecolor{regionB}{HTML}{CCDDAA}
+\definecolor{regionC}{HTML}{FFDDCC}
+\definecolor{neutral}{HTML}{DDDDDD}
+\definecolor{alert}{HTML}{CC6677}
+\definecolor{s1}{HTML}{4477AA}
+\definecolor{s2}{HTML}{EE7733}
+\definecolor{s3}{HTML}{117733}
+\definecolor{s4}{HTML}{AA3377}
+\definecolor{s5}{HTML}{DDCC77}
+\definecolor{s6}{HTML}{66CCEE}
+\node[anchor=west, font=\sffamily\small, text=black!80] at (0,0) {\texttt{jan}};
+\fill[regionA!30] (0,-5) rectangle (33,-26);
+\fill[regionB!30] (35,-5) rectangle (68,-26);
+\draw[draw=black!80, line width=1.4pt] (34,-4) -- (34,-27);
+\node[g, anchor=north west] at (0.5,-5.5) {non-secure};
+\node[g, anchor=north east] at (67.5,-5.5) {secure};
+\node[bx, fill=regionA] (a) at (16.5,-17) {RIOT};
+\node[bx, fill=regionB] (b) at (51.5,-17) {riot-tee};
+\node[bx, fill=regionC] (c) at (16.5,-33) {BL1};
+\node[bx, fill=neutral] (n) at (51.5,-33) {nRF9160};
+\draw[m] (a) -- (b);
+\draw[-{Bar[width=2.2mm]}, draw=alert, line width=0.8pt, dash pattern=on 2pt off 1.5pt] ([xshift=-6mm]a.south) -- ([xshift=-6mm]c.north);
+\draw[draw=s1, line width=1.3pt] (0.0,-42) -- (8.0,-42); \fill[s1] (4.0,-42) circle (0.9);
+\draw[draw=s2, line width=1.3pt] (11.3,-42) -- (19.3,-42); \fill[s2] (15.3,-42) circle (0.9);
+\draw[draw=s3, line width=1.3pt] (22.6,-42) -- (30.6,-42); \fill[s3] (26.6,-42) circle (0.9);
+\draw[draw=s4, line width=1.3pt] (33.9,-42) -- (41.9,-42); \fill[s4] (37.9,-42) circle (0.9);
+\draw[draw=s5, line width=1.3pt] (45.2,-42) -- (53.2,-42); \fill[s5] (49.2,-42) circle (0.9);
+\draw[draw=s6, line width=1.3pt] (56.5,-42) -- (64.5,-42); \fill[s6] (60.5,-42) circle (0.9);
+\end{scope}
+\begin{scope}[shift={(78,0)}]
+\definecolor{regionA}{HTML}{77AADD}
+\definecolor{regionB}{HTML}{BBCC33}
+\definecolor{regionC}{HTML}{EE8866}
+\definecolor{neutral}{HTML}{DDDDDD}
+\definecolor{alert}{HTML}{CC3311}
+\definecolor{s1}{HTML}{332288}
+\definecolor{s2}{HTML}{DDCC77}
+\definecolor{s3}{HTML}{117733}
+\definecolor{s4}{HTML}{AA4499}
+\definecolor{s5}{HTML}{88CCEE}
+\definecolor{s6}{HTML}{44AA99}
+\node[anchor=west, font=\sffamily\small, text=black!80] at (0,0) {\texttt{tol-light}};
+\fill[regionA!30] (0,-5) rectangle (33,-26);
+\fill[regionB!30] (35,-5) rectangle (68,-26);
+\draw[draw=black!80, line width=1.4pt] (34,-4) -- (34,-27);
+\node[g, anchor=north west] at (0.5,-5.5) {non-secure};
+\node[g, anchor=north east] at (67.5,-5.5) {secure};
+\node[bx, fill=regionA] (a) at (16.5,-17) {RIOT};
+\node[bx, fill=regionB] (b) at (51.5,-17) {riot-tee};
+\node[bx, fill=regionC] (c) at (16.5,-33) {BL1};
+\node[bx, fill=neutral] (n) at (51.5,-33) {nRF9160};
+\draw[m] (a) -- (b);
+\draw[-{Bar[width=2.2mm]}, draw=alert, line width=0.8pt, dash pattern=on 2pt off 1.5pt] ([xshift=-6mm]a.south) -- ([xshift=-6mm]c.north);
+\draw[draw=s1, line width=1.3pt] (0.0,-42) -- (8.0,-42); \fill[s1] (4.0,-42) circle (0.9);
+\draw[draw=s2, line width=1.3pt] (11.3,-42) -- (19.3,-42); \fill[s2] (15.3,-42) circle (0.9);
+\draw[draw=s3, line width=1.3pt] (22.6,-42) -- (30.6,-42); \fill[s3] (26.6,-42) circle (0.9);
+\draw[draw=s4, line width=1.3pt] (33.9,-42) -- (41.9,-42); \fill[s4] (37.9,-42) circle (0.9);
+\draw[draw=s5, line width=1.3pt] (45.2,-42) -- (53.2,-42); \fill[s5] (49.2,-42) circle (0.9);
+\draw[draw=s6, line width=1.3pt] (56.5,-42) -- (64.5,-42); \fill[s6] (60.5,-42) circle (0.9);
+\end{scope}
+\begin{scope}[shift={(0,-50)}]
+\definecolor{regionA}{HTML}{B3DDF5}
+\definecolor{regionB}{HTML}{8CD3C0}
+\definecolor{regionC}{HTML}{F8F3AA}
+\definecolor{neutral}{HTML}{D1D1D1}
+\definecolor{alert}{HTML}{D55E00}
+\definecolor{s1}{HTML}{0072B2}
+\definecolor{s2}{HTML}{E69F00}
+\definecolor{s3}{HTML}{009E73}
+\definecolor{s4}{HTML}{CC79A7}
+\definecolor{s5}{HTML}{56B4E9}
+\definecolor{s6}{HTML}{F0E442}
+\node[anchor=west, font=\sffamily\small, text=black!80] at (0,0) {\texttt{okabe-ito}};
+\fill[regionA!30] (0,-5) rectangle (33,-26);
+\fill[regionB!30] (35,-5) rectangle (68,-26);
+\draw[draw=black!80, line width=1.4pt] (34,-4) -- (34,-27);
+\node[g, anchor=north west] at (0.5,-5.5) {non-secure};
+\node[g, anchor=north east] at (67.5,-5.5) {secure};
+\node[bx, fill=regionA] (a) at (16.5,-17) {RIOT};
+\node[bx, fill=regionB] (b) at (51.5,-17) {riot-tee};
+\node[bx, fill=regionC] (c) at (16.5,-33) {BL1};
+\node[bx, fill=neutral] (n) at (51.5,-33) {nRF9160};
+\draw[m] (a) -- (b);
+\draw[-{Bar[width=2.2mm]}, draw=alert, line width=0.8pt, dash pattern=on 2pt off 1.5pt] ([xshift=-6mm]a.south) -- ([xshift=-6mm]c.north);
+\draw[draw=s1, line width=1.3pt] (0.0,-42) -- (8.0,-42); \fill[s1] (4.0,-42) circle (0.9);
+\draw[draw=s2, line width=1.3pt] (11.3,-42) -- (19.3,-42); \fill[s2] (15.3,-42) circle (0.9);
+\draw[draw=s3, line width=1.3pt] (22.6,-42) -- (30.6,-42); \fill[s3] (26.6,-42) circle (0.9);
+\draw[draw=s4, line width=1.3pt] (33.9,-42) -- (41.9,-42); \fill[s4] (37.9,-42) circle (0.9);
+\draw[draw=s5, line width=1.3pt] (45.2,-42) -- (53.2,-42); \fill[s5] (49.2,-42) circle (0.9);
+\draw[draw=s6, line width=1.3pt] (56.5,-42) -- (64.5,-42); \fill[s6] (60.5,-42) circle (0.9);
+\end{scope}
+\begin{scope}[shift={(78,-50)}]
+\definecolor{regionA}{HTML}{B0C9FC}
+\definecolor{regionB}{HTML}{BCDEB5}
+\definecolor{regionC}{HTML}{FFC9AA}
+\definecolor{neutral}{HTML}{DCDEE3}
+\definecolor{alert}{HTML}{D20F39}
+\definecolor{s1}{HTML}{1E66F5}
+\definecolor{s2}{HTML}{FE640B}
+\definecolor{s3}{HTML}{179299}
+\definecolor{s4}{HTML}{EA76CB}
+\definecolor{s5}{HTML}{4C4F69}
+\node[anchor=west, font=\sffamily\small, text=black!80] at (0,0) {\texttt{catppuccin-latte}};
+\fill[regionA!30] (0,-5) rectangle (33,-26);
+\fill[regionB!30] (35,-5) rectangle (68,-26);
+\draw[draw=black!80, line width=1.4pt] (34,-4) -- (34,-27);
+\node[g, anchor=north west] at (0.5,-5.5) {non-secure};
+\node[g, anchor=north east] at (67.5,-5.5) {secure};
+\node[bx, fill=regionA] (a) at (16.5,-17) {RIOT};
+\node[bx, fill=regionB] (b) at (51.5,-17) {riot-tee};
+\node[bx, fill=regionC] (c) at (16.5,-33) {BL1};
+\node[bx, fill=neutral] (n) at (51.5,-33) {nRF9160};
+\draw[m] (a) -- (b);
+\draw[-{Bar[width=2.2mm]}, draw=alert, line width=0.8pt, dash pattern=on 2pt off 1.5pt] ([xshift=-6mm]a.south) -- ([xshift=-6mm]c.north);
+\draw[draw=s1, line width=1.3pt] (0.0,-42) -- (8.0,-42); \fill[s1] (4.0,-42) circle (0.9);
+\draw[draw=s2, line width=1.3pt] (11.3,-42) -- (19.3,-42); \fill[s2] (15.3,-42) circle (0.9);
+\draw[draw=s3, line width=1.3pt] (22.6,-42) -- (30.6,-42); \fill[s3] (26.6,-42) circle (0.9);
+\draw[draw=s4, line width=1.3pt] (33.9,-42) -- (41.9,-42); \fill[s4] (37.9,-42) circle (0.9);
+\draw[draw=s5, line width=1.3pt] (45.2,-42) -- (53.2,-42); \fill[s5] (49.2,-42) circle (0.9);
+\end{scope}
+\begin{scope}[shift={(0,-100)}]
+\definecolor{regionA}{HTML}{BED1DF}
+\definecolor{regionB}{HTML}{B3CABA}
+\definecolor{regionC}{HTML}{FCC9B9}
+\definecolor{neutral}{HTML}{D5CFCB}
+\definecolor{alert}{HTML}{9D2933}
+\definecolor{s1}{HTML}{1F4788}
+\definecolor{s2}{HTML}{FFA400}
+\definecolor{s3}{HTML}{407A52}
+\definecolor{s4}{HTML}{86ABA5}
+\definecolor{s5}{HTML}{97867C}
+\node[anchor=west, font=\sffamily\small, text=black!80] at (0,0) {\texttt{nippon}};
+\fill[regionA!30] (0,-5) rectangle (33,-26);
+\fill[regionB!30] (35,-5) rectangle (68,-26);
+\draw[draw=black!80, line width=1.4pt] (34,-4) -- (34,-27);
+\node[g, anchor=north west] at (0.5,-5.5) {non-secure};
+\node[g, anchor=north east] at (67.5,-5.5) {secure};
+\node[bx, fill=regionA] (a) at (16.5,-17) {RIOT};
+\node[bx, fill=regionB] (b) at (51.5,-17) {riot-tee};
+\node[bx, fill=regionC] (c) at (16.5,-33) {BL1};
+\node[bx, fill=neutral] (n) at (51.5,-33) {nRF9160};
+\draw[m] (a) -- (b);
+\draw[-{Bar[width=2.2mm]}, draw=alert, line width=0.8pt, dash pattern=on 2pt off 1.5pt] ([xshift=-6mm]a.south) -- ([xshift=-6mm]c.north);
+\draw[draw=s1, line width=1.3pt] (0.0,-42) -- (8.0,-42); \fill[s1] (4.0,-42) circle (0.9);
+\draw[draw=s2, line width=1.3pt] (11.3,-42) -- (19.3,-42); \fill[s2] (15.3,-42) circle (0.9);
+\draw[draw=s3, line width=1.3pt] (22.6,-42) -- (30.6,-42); \fill[s3] (26.6,-42) circle (0.9);
+\draw[draw=s4, line width=1.3pt] (33.9,-42) -- (41.9,-42); \fill[s4] (37.9,-42) circle (0.9);
+\draw[draw=s5, line width=1.3pt] (45.2,-42) -- (53.2,-42); \fill[s5] (49.2,-42) circle (0.9);
+\end{scope}
+\begin{scope}[shift={(78,-100)}]
+\definecolor{regionA}{HTML}{ABC7E3}
+\definecolor{regionB}{HTML}{F6E3AB}
+\definecolor{regionC}{HTML}{F6C7D0}
+\definecolor{neutral}{HTML}{C7C7C7}
+\definecolor{alert}{HTML}{994455}
+\definecolor{s1}{HTML}{004488}
+\definecolor{s2}{HTML}{DDAA33}
+\definecolor{s3}{HTML}{6699CC}
+\definecolor{s4}{HTML}{997700}
+\definecolor{s5}{HTML}{EE99AA}
+\node[anchor=west, font=\sffamily\small, text=black!80] at (0,0) {\texttt{print-contrast}};
+\fill[regionA!30] (0,-5) rectangle (33,-26);
+\fill[regionB!30] (35,-5) rectangle (68,-26);
+\draw[draw=black!80, line width=1.4pt] (34,-4) -- (34,-27);
+\node[g, anchor=north west] at (0.5,-5.5) {non-secure};
+\node[g, anchor=north east] at (67.5,-5.5) {secure};
+\node[bx, fill=regionA] (a) at (16.5,-17) {RIOT};
+\node[bx, fill=regionB] (b) at (51.5,-17) {riot-tee};
+\node[bx, fill=regionC] (c) at (16.5,-33) {BL1};
+\node[bx, fill=neutral] (n) at (51.5,-33) {nRF9160};
+\draw[m] (a) -- (b);
+\draw[-{Bar[width=2.2mm]}, draw=alert, line width=0.8pt, dash pattern=on 2pt off 1.5pt] ([xshift=-6mm]a.south) -- ([xshift=-6mm]c.north);
+\draw[draw=s1, line width=1.3pt] (0.0,-42) -- (8.0,-42); \fill[s1] (4.0,-42) circle (0.9);
+\draw[draw=s2, line width=1.3pt] (11.3,-42) -- (19.3,-42); \fill[s2] (15.3,-42) circle (0.9);
+\draw[draw=s3, line width=1.3pt] (22.6,-42) -- (30.6,-42); \fill[s3] (26.6,-42) circle (0.9);
+\draw[draw=s4, line width=1.3pt] (33.9,-42) -- (41.9,-42); \fill[s4] (37.9,-42) circle (0.9);
+\draw[draw=s5, line width=1.3pt] (45.2,-42) -- (53.2,-42); \fill[s5] (49.2,-42) circle (0.9);
+\end{scope}
+\end{tikzpicture}
+\end{figure}

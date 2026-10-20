@@ -1,0 +1,35 @@
+% AI draft figure (Claude). Sakuga: who edits what, and how a figure reaches Overleaf.
+\definecolor{palBlue} {HTML}{BBCCEE}
+\definecolor{palGreen}{HTML}{CCDDAA}
+\definecolor{palPeach}{HTML}{FFDDCC}
+\definecolor{palGrey} {HTML}{DDDDDD}
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\footnotesize,
+  bx/.style={draw=black!45, line width=0.5pt, rounded corners=1.5pt, minimum width=36mm,
+             minimum height=12mm, inner sep=1.5pt, text=black!85, align=center},
+  m/.style={-{Stealth[length=1.6mm, width=1.2mm]}, draw=black!60, line width=0.6pt},
+  r/.style={m, dash pattern=on 2.5pt off 1.5pt},
+  g/.style={font=\sffamily\scriptsize, text=black!60, inner sep=1pt, align=center},
+  sub/.style={font=\sffamily\scriptsize, text=black!65}]
+\node[bx, fill=palBlue]  (ed) at (18,0)   {Sakuga-Editor\\[-1pt]{\scriptsize\color{black!65}Text und Zeichnung}};
+\node[bx, fill=palGreen] (f)  at (73,0)   {\texttt{fig.tikz}\\[-1pt]{\scriptsize\color{black!65}Sakuga-Dialekt}};
+\node[bx, fill=palPeach] (cc) at (128,0)  {Claude Code\\[-1pt]{\scriptsize\color{black!65}Verschönern}};
+\node[bx, fill=palGrey]  (pv) at (73,-28)  {Vorschau\\[-1pt]{\scriptsize\color{black!65}LaTeX, deine Schriften}};
+\node[bx, fill=palGreen] (th) at (128,-28) {Theme\\[-1pt]\texttt{\scriptsize hausstil.theme}};
+\node[bx, fill=white]    (sty) at (128,-52) {\texttt{\scriptsize sakuga-theme.sty}\\[-1pt]{\scriptsize\color{black!65}Farben und Stile}};
+\node[bx, fill=palGrey]  (ol) at (73,-76)  {Overleaf};
+\draw[m] ([yshift=2.5mm]ed.east) -- node[g, above] {speichert} ([yshift=2.5mm]f.west);
+\draw[r] ([yshift=-2.5mm]f.west) -- node[g, below] {live} ([yshift=-2.5mm]ed.east);
+\draw[m] ([yshift=2.5mm]cc.west) -- node[g, above] {Patch} ([yshift=2.5mm]f.east);
+\draw[r] ([yshift=-2.5mm]f.east) -- node[g, below] {liest} ([yshift=-2.5mm]cc.west);
+\draw[m] (f) -- node[g, left] {TikZ} (pv);
+\draw[m] (th) -- node[g, above] {Stile} (pv);
+\draw[m] (pv.west) -| node[g, above, pos=0.25] {Bild} (ed.south);
+\draw[r] (85,-22) -- (85,-14) -- node[g, above] {Render, Überlappungen} (120,-14) -- (120,-6);
+\draw[m] (th) -- node[g, right] {erzeugt} (sty);
+\draw[m] (6,-6) -- (6,-76) -- node[g, above] {kopieren} (ol.west);
+\draw[m] (sty.south) |- (ol.east);
+\node[g, anchor=east, align=right] at (126,-67) {einmal, nur im\\Paket-Modus};
+\end{tikzpicture}
+\end{figure}

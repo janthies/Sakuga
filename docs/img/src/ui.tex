@@ -1,0 +1,72 @@
+% AI draft figure (Claude). Wireframe of the Sakuga editor: TikZ text, canvas, inspector, toolbar, status line.
+\definecolor{palBlue} {HTML}{BBCCEE}
+\definecolor{palGreen}{HTML}{CCDDAA}
+\definecolor{palGrey} {HTML}{DDDDDD}
+\begin{figure}[tbp]
+\centering
+\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\footnotesize,
+  bx/.style={draw=black!45, line width=0.5pt, rounded corners=1.5pt, minimum width=18mm,
+             minimum height=7mm, inner sep=1pt, text=black!85, align=center, font=\sffamily\scriptsize},
+  m/.style={-{Stealth[length=1.6mm, width=1.2mm]}, draw=black!60, line width=0.6pt},
+  g/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1pt},
+  btn/.style={draw=black!35, line width=0.4pt, rounded corners=1pt, fill=white, inner sep=1.2pt,
+              font=\sffamily\scriptsize, text=black!75, minimum height=4.5mm},
+  key/.style={font=\sffamily\scriptsize, text=black!55, anchor=west, inner sep=0.5pt},
+  val/.style={font=\sffamily\scriptsize, text=black!85, anchor=west, inner sep=0.5pt},
+  code/.style={font=\ttfamily\fontsize{5.4}{6.4}\selectfont, text=black!75, anchor=west, inner sep=0pt}]
+% frame, toolbar, status line
+\draw[black!45, line width=0.5pt] (0,0) rectangle (146,-82);
+\fill[black!4] (0.25,-0.25) rectangle (145.75,-8);
+\draw[black!25] (0,-8) -- (146,-8);
+\node[btn, anchor=west] (b1) at (2,-4) {Vorlage: Komponenten};
+\node[btn, right=2mm of b1] (b2) {Layout};
+\node[btn, right=2mm of b2] (b3) {Theme: jan};
+\node[btn, right=2mm of b3] (b4) {Schrift: Open Sans};
+\node[btn, anchor=east] at (144,-4) {TikZ kopieren};
+\fill[black!4] (0.25,-76) rectangle (145.75,-81.75);
+\draw[black!25] (0,-76) -- (146,-76);
+\node[g, anchor=west] at (2,-79) {Breite 92 mm \quad keine Überlappungen \quad Vorschau 0,3 s};
+% text pane
+\fill[black!2] (0.25,-8.25) rectangle (54,-75.75);
+\draw[black!25] (54,-8) -- (54,-76);
+\node[g, anchor=west] at (2,-11.5) {\texttt{fig.tikz}};
+\fill[palGreen!45] (1,-30.4) rectangle (53.5,-33.6);
+\foreach \l [count=\i] in {
+  {\textbackslash begin\{tikzpicture\}[sakuga]},
+  {\textbackslash node[ns] (app) at (0,0) \{Anwendung\};},
+  {\textbackslash node[ns] (riot) at (0,-16) \{RIOT\};},
+  {\textbackslash node[s,pin] (tee) at (30,-16) \{riot-tee\};},
+  {\textbackslash node[hw] (cc) at (30,-36) \{CC310\};},
+  {\textbackslash draw[call] (app) -- (riot);},
+  {\textbackslash draw[call] (riot) -- (tee);},
+  {\textbackslash draw[call] (tee) -- (cc);},
+  {\textbackslash end\{tikzpicture\}}}
+  \node[code] at (2,-17-5*\i+5) {\l};
+% canvas with a small diagram
+\fill[palBlue!30]  (57,-15) rectangle (81,-50);
+\fill[palGreen!30] (85,-15) rectangle (108,-50);
+\draw[black!80, line width=1.4pt] (83,-13) -- (83,-52);
+\node[g, anchor=north west] at (57.5,-15.5) {non-secure};
+\node[g, anchor=north east] at (107.5,-15.5) {secure};
+\node[bx, fill=palBlue]  (app) at (69,-25) {Anwendung};
+\node[bx, fill=palBlue]  (riot) at (69,-41) {RIOT};
+\node[bx, fill=palGreen] (tee) at (96.5,-41) {riot-tee};
+\node[bx, fill=palGrey]  (hw) at (96.5,-61) {CC310};
+\draw[m] (app) -- (riot);
+\draw[m] (riot) -- (tee);
+\draw[m] (tee) -- (hw);
+\draw[black!70, line width=0.4pt, dash pattern=on 1pt off 1pt] ([xshift=-1.2mm,yshift=1.2mm]tee.north west) rectangle ([xshift=1.2mm,yshift=-1.2mm]tee.south east);
+\foreach \a in {north, east}
+  \filldraw[fill=white, draw=black!70, line width=0.4pt] ($(tee.\a)!-2.6mm!(tee.center)$) circle (0.9);
+% inspector
+\draw[black!25] (110,-8) -- (110,-76);
+\node[font=\sffamily\scriptsize\bfseries, text=black!70, anchor=west] at (112,-12) {riot-tee};
+\foreach \k/\v [count=\i] in {Rolle/secure, Code/\texttt{tee\_*}, Position/gepinnt}
+  {\node[key] at (112,-13-5*\i) {\k}; \node[val] at (126,-13-5*\i) {\v};
+   \draw[black!12] (112,-15.5-5*\i) -- (144,-15.5-5*\i);}
+\node[font=\sffamily\scriptsize\bfseries, text=black!70, anchor=west] at (112,-37) {Legende};
+\fill[palBlue]  (112.5,-41.5) rectangle ++(3,-3); \node[val] at (117,-43) {non-secure};
+\fill[palGreen] (112.5,-46.5) rectangle ++(3,-3); \node[val] at (117,-48) {secure};
+\draw[m] (112.5,-53) -- ++(6,0); \node[val] at (120,-53) {Aufruf};
+\end{tikzpicture}
+\end{figure}
