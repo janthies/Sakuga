@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { input, isTyping, svg } from '../platform/dom';
 import { vscode } from '../platform/host';
@@ -96,7 +95,7 @@ export const appState: AppState = {
 	},
 	edit: (id, text) => startEdit(id, text),
 	nextBox(below) {
-		const draft = makeDraft(one(), below);
+		const draft = makeDraft(one()!, below);
 		beginEdit({ kind: 'draft', id: draft.node.id, draft });
 	},
 	setLastCat(key) {
@@ -126,12 +125,12 @@ export const appState: AppState = {
 			y: snap((store.view.oy - r.height / 2) / store.view.s),
 		};
 	},
-	pendingEdit(id) {
+	pendingEdit(id: string) {
 		store.pendingEdit = id;
 	},
-	pendingSelect(list) {
+	pendingSelect(list: string[]) {
 		store.pendingSelect = list;
 	},
-	preambleText: () => document.getElementById('pre').textContent,
-	openObjectMenu: () => document.querySelector('.lc-obj')?.click(),
+	preambleText: () => document.getElementById('pre')!.textContent,
+	openObjectMenu: () => document.querySelector<HTMLElement>('.lc-obj')?.click(),
 };

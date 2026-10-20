@@ -1,5 +1,4 @@
-// @ts-nocheck
-
+declare function acquireVsCodeApi(): { postMessage(m: unknown): void; getState(): any; setState(s: unknown): void };
 export const vscode = acquireVsCodeApi();
 
 export function initPlatformHost() {

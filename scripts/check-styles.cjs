@@ -2,7 +2,7 @@
 const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
-const t = require('../out/tikz.js');
+const t = require('../out/core.js');
 t.setIcons(JSON.parse(fs.readFileSync(path.join(__dirname, '../icons/icons.json'), 'utf8')));
 const base = '\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n\\end{tikzpicture}\n';
 const add = (fig, id, cat, extra = {}) => t.apply(fig, { op: 'addNode', id, x: 0, y: 0, title: id, cat, ...extra });

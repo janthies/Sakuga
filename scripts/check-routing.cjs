@@ -4,7 +4,7 @@ const assert = require('node:assert/strict'),
 	path = require('node:path'),
 	{ execFileSync: run } = require('node:child_process');
 const R = require('../out/shared').routes,
-	t = require('../out/tikz'),
+	t = require('../out/core.js'),
 	root = path.resolve(__dirname, '..'),
 	work = path.join(root, 'work');
 fs.mkdirSync(work, { recursive: true });

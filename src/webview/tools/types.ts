@@ -1,10 +1,12 @@
 // What a tool sees and says. Nothing here touches the DOM or the store: the dispatcher in live/ turns DOM events into
 // CanvasEvents and applies the Steps that come back.
 
+import type { LabelRef } from '../../core/model/refs';
+import type { OpLike } from '../../core/model/node';
+
 export type Point = { x: number; y: number };
 export type Mods = { ctrl: boolean; shift: boolean; alt: boolean; space: boolean };
-// Reference to an arrow label (index, slot) or a frame title (group).
-export type LabelRef = { group?: string; index?: number; slot?: number };
+export type { LabelRef };
 
 /** What was under the pointer, as the renderer marked it. */
 export type HitRef =
@@ -49,7 +51,7 @@ export interface Selection {
 }
 
 // Ops are the legacy op shapes the host applies (src/core/ops); a preview is applied to the webview's model only.
-export type Op = { op: string; [k: string]: any };
+export type Op = OpLike;
 /** A change shown on screen before it is committed: node geometry, arrow fields, a label style. */
 export interface PreviewOp {
 	nodes?: { id: string; x?: number; y?: number; width?: number; minh?: number; attachment?: any }[];

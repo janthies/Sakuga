@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { svg } from '../platform/dom';
 import { appState } from './state';
@@ -48,8 +47,8 @@ export function initKeyboard() {
 		['paste', 'clipboard.paste'],
 	]) {
 		document.addEventListener(type, (ev) => {
-			if (commandById(id).when(appState)) {
-				commandById(id).run(appState, ev);
+			if (commandById(id)!.when(appState)) {
+				commandById(id)!.run(appState, ev);
 			}
 		});
 	}

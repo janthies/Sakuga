@@ -1,4 +1,3 @@
-// @ts-nocheck
 // The adapter between the store and the renderer: build the scene and the overlay from the store, draw them.
 import { buildScene } from '../../core/scene';
 import { store } from '../store/store';

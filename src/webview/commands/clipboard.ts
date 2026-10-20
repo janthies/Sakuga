@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { parse } from '../../core/codec/parse';
 import { serializeSubset } from '../../core/codec/subset';
 import { store } from '../store/store';
@@ -6,22 +5,24 @@ import { byId, post } from '../store/model';
 import { edgeGeom } from '../render/edges';
 import { src } from '../platform/dom';
 import { render } from '../render/scene';
+import type { ObjectRef } from '../../core/model/refs';
+import type { Op } from '../tools/types';
 
 // Copy: the selected boxes, arrows and groups as TikZ, written by the same serializer as the file.
 export function clip() {
-	const refs = [
-		...[...store.selN].map((id) => ({ k: 'node', id })),
-		...[...store.selE].map((index) => ({ k: 'edge', index })),
-		...(store.selG ? [{ k: 'group', id: store.selG }] : []),
+	const refs: ObjectRef[] = [
+		...[...store.selN].map((id) => ({ k: 'node' as const, id })),
+		...[...store.selE].map((index) => ({ k: 'edge' as const, index })),
+		...(store.selG ? [{ k: 'group' as const, id: store.selG }] : []),
 	];
 	return serializeSubset(parse(src.value), refs);
 }
 // The batch op that copies the boxes `ids` (and the arrows between them) by (dx, dy), and the ids of the copies.
-export function duplicateOps(ids, dx, dy) {
+export function duplicateOps(ids: string[], dx: number, dy: number): { op: Op; select: string[] } {
 	let next = Math.max(0, ...store.nodes.map((n) => +(/^n(\d+)$/.exec(n.id) || [0, 0])[1])) + 1;
 	const map = new Map(ids.map((id) => [id, `n${next++}`]));
-	const ops = ids.map((id) => {
-		const n = byId(id);
+	const ops: Op[] = ids.map((id) => {
+		const n = byId(id)!;
 		return {
 			op: 'addNode',
 			wantWidth: n.wantWidth,
@@ -43,7 +44,7 @@ export function duplicateOps(ids, dx, dy) {
 		};
 	});
 	for (const id of ids) {
-		const n = byId(id),
+		const n = byId(id)!,
 			a = n.attachment;
 		if (a) {
 			ops.push({
@@ -77,7 +78,7 @@ export function duplicateOps(ids, dx, dy) {
 					? {
 							waypoints: edgeGeom(e)
 								.pts.slice(1, -1)
-								.map((p) => [p[0] + dx, p[1] + dy]),
+								.map((p: number[]) => [p[0] + dx, p[1] + dy]),
 						}
 					: {}),
 				from: map.get(e.from),
@@ -97,7 +98,7 @@ export function duplicateOps(ids, dx, dy) {
 	}
 	return { op: { op: 'batch', ops }, select: [...map.values()] };
 }
-export function duplicate(ids, dx, dy) {
+export function duplicate(ids: string[], dx: number, dy: number) {
 	const { op, select } = duplicateOps(ids, dx, dy);
 	store.pendingSelect = select;
 	post(op);

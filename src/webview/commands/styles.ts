@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { byId, catOf, post } from '../store/model';
 import { darkerColor } from '../render/svg';
@@ -6,11 +5,14 @@ import { nextStyleName } from '../store/layers';
 import { labelTarget } from '../render/labelgeom';
 import { render } from '../render/scene';
 import { styleable } from '../../core/schema';
+import type { StyleKind } from '../../core/model/figure';
+import type { StyleClip } from '../store/types';
+import type { Op } from '../tools/types';
 
 // Style of a box: category, width and height; of an arrow: its line.
 export function copyStyle() {
 	if (store.selN.label) {
-		store.styleClip = { labelStyle: { ...labelTarget().style } };
+		store.styleClip = { labelStyle: { ...labelTarget()!.style } };
 		render();
 		return;
 	}
@@ -19,7 +21,7 @@ export function copyStyle() {
 	const g = typeof store.groups !== 'undefined' && store.groups.find((g) => g.id === store.selG);
 	if (g) {
 		store.styleClip = {
-			groupStyle: Object.fromEntries(styleable('frame').map((k) => [k, g[k]])),
+			groupStyle: Object.fromEntries(styleable('frame').map((k) => [k, (g as Record<string, any>)[k]])),
 			color: g.frameColor || g.color,
 		};
 		render();
@@ -27,7 +29,7 @@ export function copyStyle() {
 	}
 	store.styleClip = null;
 	if (ids.length) {
-		const n = byId(ids[0]);
+		const n = byId(ids[0])!;
 		store.styleClip = {
 			color:
 				n.style?.color ||
@@ -39,7 +41,6 @@ export function copyStyle() {
 			cat: n.cat,
 			width: n.wantWidth ?? n.width,
 			minh: n.minh,
-			kind: store.styleClip && store.styleClip.kind,
 		};
 	}
 	if (ix.length) {
@@ -49,7 +50,8 @@ export function copyStyle() {
 			color: e.style?.color || '',
 			edgeStyle: {
 				...Object.fromEntries(Object.entries(e.style || {}).filter(([k]) => k !== 'step')),
-				lineWidth: e.style?.lineWidth ?? ({ medium: 0.8, thick: 1.2 }[e.style?.weight] || 0.45),
+				lineWidth:
+					e.style?.lineWidth ?? ({ medium: 0.8, thick: 1.2 } as Record<string, number>)[e.style?.weight ?? ''] ?? 0.45,
 			},
 			lane: e.lane,
 			kind: e.kind,
@@ -68,7 +70,7 @@ export function pasteStyle() {
 		labelChange(Object.fromEntries(['font', 'bold', 'italic', 'color', 'background'].map((k) => [k, st[k] ?? null])));
 		return;
 	}
-	const ops = [];
+	const ops: Op[] = [];
 	const g = typeof store.groups !== 'undefined' && store.groups.find((g) => g.id === store.selG);
 	if (g) {
 		post({
@@ -149,7 +151,7 @@ export function pasteStyle() {
 						'markSize',
 						'markColor',
 						'textColor',
-					].map((k) => [k, store.styleClip.nodeStyle[k] || '']),
+					].map((k) => [k, store.styleClip!.nodeStyle![k] || '']),
 				),
 			},
 		});
@@ -162,7 +164,12 @@ export function pasteStyle() {
 				opacity: store.styleClip.edgeStyle.opacity ?? 1,
 				...Object.fromEntries(
 					['border', 'color', 'weight', 'position', 'side', 'start', 'end', 'lineWidth', 'tipLength', 'tipWidth'].map(
-						(k) => [k, store.styleClip.edgeStyle[k] ?? { lineWidth: 0.45, tipLength: 1.5, tipWidth: 1.2 }[k] ?? ''],
+						(k) => [
+							k,
+							store.styleClip!.edgeStyle![k] ??
+								({ lineWidth: 0.45, tipLength: 1.5, tipWidth: 1.2 } as Record<string, number>)[k] ??
+								'',
+						],
 					),
 				),
 			},
@@ -173,9 +180,9 @@ export function pasteStyle() {
 	}
 }
 // A new style takes its look from an object (or is empty), then opens in the Styles list for naming.
-export function addStyle(kind, from, assign) {
+export function addStyle(kind: StyleKind, from: { id: string } | undefined, assign?: unknown) {
 	const name = nextStyleName(kind),
-		props = {};
+		props: Record<string, any> = {};
 	if (!from) {
 		if (kind === 'box') {
 			props.fill =
@@ -198,16 +205,20 @@ export function addStyle(kind, from, assign) {
 		legend: kind === 'box' && !!colour && colour !== 'white' && colour !== 'none',
 	});
 }
-export function resetToAuto(indices = [...store.selE]) {
+export function resetToAuto(indices: number[] = [...store.selE]) {
 	post({ op: 'batch', ops: indices.map((index) => ({ op: 'arrow', index, resetAuto: true })) });
 }
-export function sourceColour(indices) {
+export function sourceColour(indices: number[]) {
 	post({
 		op: 'batch',
 		ops: indices.map((i) => {
 			const n = byId(store.edges[i].from),
-				g = typeof store.groups !== 'undefined' && store.groups.find((g) => g.id === store.edges[i].from);
-			return { op: 'style', indices: [i], style: { color: darkerColor(catOf(n?.cat)?.color || g?.color || 'grey') } };
+				g = store.groups.find((g) => g.id === store.edges[i].from);
+			return {
+				op: 'style',
+				indices: [i],
+				style: { color: darkerColor((n ? catOf(n.cat) : undefined)?.color || g?.color || 'grey') },
+			};
 		}),
 	});
 }
@@ -217,6 +228,6 @@ export function nextStep() {
 	while (used.has(n)) n++;
 	return n;
 }
-export function labelChange(style, ref = store.selN.label) {
+export function labelChange(style: Record<string, unknown>, ref = store.selN.label) {
 	post({ op: 'label', ...ref, style });
 }

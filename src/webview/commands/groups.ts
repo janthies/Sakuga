@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { completeOrder, selectedRoots } from '../store/layers';
 import { byId, groupById, post } from '../store/model';
@@ -9,7 +8,7 @@ export function groupSelection() {
 		return;
 	}
 	const parents = roots.map((id) => groupById(id)?.parent ?? byId(id)?.group ?? '');
-	const ancestors = (parent) => {
+	const ancestors = (parent: string | undefined) => {
 		const result = [''];
 		while (parent && !result.includes(parent)) {
 			result.unshift(parent);
@@ -25,11 +24,11 @@ export function groupSelection() {
 	const group = {
 		id: `g${i}`,
 		name: `group ${i}`,
-		frame: roots.some((id) => groupById(id)?.frame && groupById(id).frame !== 'none') ? 'solid' : 'dashed',
+		frame: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'solid' : 'dashed',
 		color: 'grey',
 		parent,
-		fill: roots.some((id) => groupById(id)?.frame && groupById(id).frame !== 'none') ? 'none' : 'tint',
-		outline: roots.some((id) => groupById(id)?.frame && groupById(id).frame !== 'none') ? 'solid' : 'dashed',
+		fill: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'none' : 'tint',
+		outline: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'solid' : 'dashed',
 	};
 	const ns = store.nodes.map((n) => ({ ...n, group: roots.includes(n.id) ? group.id : n.group }));
 	const gs = [...store.groups.map((g) => ({ ...g, parent: roots.includes(g.id) ? group.id : g.parent })), group];

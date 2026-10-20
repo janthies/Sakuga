@@ -17,7 +17,7 @@ export function inputs(): { name: string; text: string }[] {
 
 // Load the shipped icon catalogue like the host does at activation.
 export function loadIcons() {
-	const t = require('../../src/tikz');
+	const t = require('../../src/core');
 	t.setIcons(JSON.parse(read('icons/icons.json')));
 	return t;
 }

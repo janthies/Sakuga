@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../../store/store';
 import { attachmentFor, byId, catOf, descendant, layout, nodeAt, snap } from '../../store/model';
 import { newId, selectLayer } from '../../store/layers';

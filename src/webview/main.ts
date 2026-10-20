@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { PROTOCOL } from '../bridge/protocol';
 import { vscode } from './platform/host';
 import { initPlatformHost } from './platform/host';

@@ -1,42 +1,47 @@
-// @ts-nocheck
 import { store } from './store';
 import { byId, groupById, inGroup, members, post } from './model';
 import { KIND_NAMES, show } from './constants';
 import { hierarchy as coreHierarchy } from '../../core/scene';
+import type { Group } from '../../core/model/figure';
+import type { ViewNode } from './types';
+
+type Item = { kind: string; id: string; children: Item[] };
 
 // Sort sibling subtrees by their frontmost node, then flatten each subtree as a block.
 export const hierarchy = (ns = store.nodes, gs = store.groups) => coreHierarchy(ns, gs);
-export function completeOrder(ns, gs) {
-	const flatten = (items) => items.flatMap((item) => (item.kind === 'node' ? [item.id] : flatten(item.children)));
-	const front = flatten(hierarchy(ns, gs));
+export function completeOrder(ns: ViewNode[], gs: Group[]) {
+	const flatten = (items: Item[]): string[] =>
+		items.flatMap((item) => (item.kind === 'node' ? [item.id] : flatten(item.children)));
+	const front = flatten(hierarchy(ns, gs) as Item[]);
 	return [...ns.map((n) => n.id).filter((id) => !front.includes(id)), ...front.reverse()];
 }
 export function selectedRoots() {
 	if (store.selG) {
-		return [store.selG, ...[...store.selN].filter((id) => !inGroup(byId(id), store.selG))];
+		return [store.selG, ...[...store.selN].filter((id) => !inGroup(byId(id)!, store.selG!))];
 	}
 	return [...store.selN];
 }
-export function selectLayer(id, toggle = false) {
+export function selectLayer(id: string, toggle = false) {
 	const group = groupById(id),
 		ids = group ? members(id) : [id];
 	if (!toggle) {
 		store.selN = new Set();
 	}
 	const remove = toggle && (group ? store.selG === id : store.selN.has(id));
-	for (const key of ids.filter((key) => byId(key) && !byId(key).hidden && !byId(key).locked)) {
+	for (const key of ids.filter((key) => byId(key) && !byId(key)!.hidden && !byId(key)!.locked)) {
 		if (remove) {
 			store.selN.delete(key);
 		} else {
 			store.selN.add(key);
 		}
 	}
-	store.selG = group && !remove && ids.some((key) => byId(key) && !byId(key).hidden && !byId(key).locked) ? id : null;
+	store.selG = group && !remove && ids.some((key) => byId(key) && !byId(key)!.hidden && !byId(key)!.locked) ? id : null;
 	store.keyObject = toggle && !remove ? id : null;
 	store.selE = new Set();
 }
-export function dropLayers(target, above, into = true) {
-	if (!store.layerDrag) {
+export function dropLayers(target: string, above: boolean, into = true) {
+	// A layer-row drag ({ layer }) is dropped by the layer panel itself.
+	if (!Array.isArray(store.layerDrag)) {
 		return;
 	}
 	const roots = store.layerDrag;
@@ -55,7 +60,7 @@ export function dropLayers(target, above, into = true) {
 	const block = store.nodes
 		.filter((n) => moving.has(n.id))
 		.map((n) => ({ ...n, group: roots.includes(n.id) ? parent : n.group }));
-	let at;
+	let at: number;
 	if (targetGroup) {
 		const indices = ns.flatMap((n, i) => (inGroup(n, target, gs) ? [i] : []));
 		at = indices.length ? (into || above ? Math.max(...indices) + 1 : Math.min(...indices)) : ns.length;
@@ -71,14 +76,14 @@ export function dropLayers(target, above, into = true) {
 		],
 	});
 }
-export function moveToLayer(ids, layer) {
+export function moveToLayer(ids: string[], layer: string) {
 	if (!ids.length) {
 		return;
 	}
 	post({ op: 'batch', ops: [{ op: 'setLayer', ids, layer }] });
 	store.activeLayer = layer;
 }
-export function slug(name, except) {
+export function slug(name: string, except?: string) {
 	const base =
 		show(name)
 			.toLowerCase()
@@ -98,7 +103,7 @@ export function newId() {
 	const used = store.nodes.map((n) => +(/^n(\d+)$/.exec(n.id) || [0, 0])[1]);
 	return 'n' + (Math.max(0, ...used) + 1);
 }
-export function nextStyleName(kind) {
+export function nextStyleName(kind: keyof typeof KIND_NAMES) {
 	let i = store.styles.filter((s) => s.kind === kind).length + 1;
 	while (store.styles.some((s) => s.name === `${KIND_NAMES[kind]} style ${i}`)) {
 		i++;

@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../../store/store';
 import { input, svg } from '../../platform/dom';
 import { byId, post, resolveAttached, toMm } from '../../store/model';
@@ -9,7 +8,7 @@ import { applyPreview } from '../preview';
 import { liveCtx } from './ctx';
 import { closeField, focusField, openField } from './editview';
 import { fit } from './view';
-import type { CanvasEvent, EditTarget, Selection, Step, Tool } from '../types';
+import type { CanvasEvent, EditTarget, HitRef, Selection, Step, Tool } from '../types';
 
 // Turns DOM events into CanvasEvents for the active tool and applies the Steps it returns to the store.
 const idle = new IdleTool(liveCtx);
@@ -48,7 +47,7 @@ function canvasEvent(ev: any): CanvasEvent {
 		screen: { x: ev.clientX, y: ev.clientY },
 		button: ev.button,
 		mods: { ctrl: ev.ctrlKey || ev.metaKey, shift: ev.shiftKey, alt: ev.altKey, space: store.space },
-		hit: renderer.hit(ev.target) ?? { k: 'none' },
+		hit: (renderer.hit(ev.target) ?? { k: 'none' }) as HitRef,
 		text: input.value,
 	};
 }
@@ -56,7 +55,7 @@ function canvasEvent(ev: any): CanvasEvent {
 /** Open the text field on a box or arrow (Enter, a typed character, Tab, a new box). */
 export function beginEdit(target: EditTarget, text?: string) {
 	const step = new TextEditTool(liveCtx, target).open(text);
-	tool = step.next;
+	tool = step.next!;
 	store.drag = null;
 	apply(step);
 	if (step.render !== false) render();
@@ -140,7 +139,7 @@ export function initDispatch() {
 			fit();
 		}
 		renderView();
-	}).observe(document.getElementById('desk'));
+	}).observe(document.getElementById('desk')!);
 }
 /** Open the text field on a box, as Enter or a double-click does. */
 export function startEdit(id: string, text?: string) {

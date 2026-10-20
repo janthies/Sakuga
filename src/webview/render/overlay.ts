@@ -1,4 +1,3 @@
-// @ts-nocheck
 // The selection, handles, guides and previews drawn above the figure, as primitives in screen pixels.
 // Everything here comes from the store state (selection, hover, drag, tidy preview), never from the scene.
 import { PT } from '../../core/text';
@@ -12,15 +11,9 @@ import { edgeGeom } from './edges';
 import { arrowLabelGeom, frameTitleGeom, labelTarget } from './labelgeom';
 import { show } from '../store/constants';
 import { dragPrims } from './overlay-drag';
-
-export class Out {
-	prims: Prim[] = [];
-	add(kind, attrs, rest = {}) {
-		const p = prim(kind, 'o' + this.prims.length, attrs, rest);
-		this.prims.push(p);
-		return p;
-	}
-}
+import { Out } from './out';
+import type { Attrs, PrimKind } from '../../core/scene';
+import type { ViewNode } from '../store/types';
 
 // The overlay, plus the single selected arrow (the floating toolbar needs it).
 export function buildOverlay(): { prims: Prim[]; edge: { i: number; G: any } | null } {
@@ -100,7 +93,7 @@ function edgeHandles(o: Out) {
 	return { i, G };
 }
 
-function nodeSelection(o: Out, n) {
+function nodeSelection(o: Out, n: ViewNode) {
 	const { w, h } = layout(n);
 	const selected = store.selN.has(n.id);
 	if (selected) {
@@ -128,7 +121,7 @@ function nodeSelection(o: Out, n) {
 			['s', 0, -1],
 			['sw', -1, -1],
 			['w', -1, 0],
-		]) {
+		] as [string, number, number][]) {
 			o.add(
 				'rect',
 				{
@@ -175,7 +168,7 @@ function nodeSelection(o: Out, n) {
 }
 
 function multiSelection(o: Out) {
-	if (!(store.selN.size > 1 && [...store.selN].every((id) => !byId(id).locked && !byId(id).hidden) && !store.editing))
+	if (!(store.selN.size > 1 && [...store.selN].every((id) => !byId(id)!.locked && !byId(id)!.hidden) && !store.editing))
 		return;
 	const b = selBox([...store.selN]),
 		m = 2.5,
@@ -201,7 +194,7 @@ function multiSelection(o: Out) {
 		['s', cx, b.y0 - m],
 		['sw', b.x0 - m, b.y0 - m],
 		['w', b.x0 - m, cy],
-	]) {
+	] as [string, number, number][]) {
 		o.add(
 			'rect',
 			{
@@ -223,7 +216,7 @@ function multiSelection(o: Out) {
 function attachments(o: Out) {
 	for (const n of store.nodes.filter((n) => !n.hidden && store.selN.has(n.id))) {
 		if (n.attachment && byId(n.attachment.parent)) {
-			const p = anchorPoint(byId(n.attachment.parent), n.attachment.anchor),
+			const p = anchorPoint(byId(n.attachment.parent)!, n.attachment.anchor),
 				q = anchorPoint(n, n.attachment.ownAnchor);
 			o.add('line', {
 				x1: px(p.x),
@@ -255,7 +248,7 @@ function selectedLabel(o: Out) {
 		if (geom) labelOutline(o, geom, geom.w, geom.h, 'middle');
 	}
 }
-function labelOutline(o: Out, geom, w, h, align) {
+function labelOutline(o: Out, geom: { p: number[]; anchor: number[] }, w: number, h: number, align: string) {
 	const p = geom.p;
 	o.add('line', {
 		x1: px(geom.anchor[0]),

@@ -4,7 +4,7 @@ const fs = require('node:fs'),
 	os = require('node:os'),
 	path = require('node:path');
 const { spawn } = require('node:child_process');
-const t = require('../out/tikz.js');
+const t = require('../out/core.js');
 t.setIcons(JSON.parse(fs.readFileSync(path.join(__dirname, '../icons/icons.json'), 'utf8')));
 let fig = t.parse(t.TEMPLATE);
 const apply = (op) => t.apply(fig, op);

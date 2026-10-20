@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { byId, fontPt, layout, textMm } from '../store/model';
 import { bbox } from './svg';
@@ -6,6 +5,7 @@ import { frameRect } from './anchors';
 import { PT, show } from '../store/constants';
 import { arrowLabelGeom, frameTitleGeom } from './labelgeom';
 import { edgeGeom } from './edges';
+import type { LabelStyle } from '../../core/model/figure';
 
 function contentObjects() {
 	const boxes = store.nodes
@@ -20,7 +20,7 @@ function contentObjects() {
 		if (!b) continue;
 		boxes.push({ x0: b.x - b.w / 2, x1: b.x + b.w / 2, y0: b.y - b.h / 2, y1: b.y + b.h / 2 });
 		if (g.name) {
-			const G = frameTitleGeom(g),
+			const G = frameTitleGeom(g)!,
 				w = textMm(show(g.name), G.pt, 'Sakuga Sans') + 3 * PT,
 				h = G.pt * PT + 3 * PT;
 			const x = G.p[0] - (G.align === 'middle' ? w / 2 : G.align === 'end' ? w : 0);
@@ -28,16 +28,16 @@ function contentObjects() {
 		}
 	}
 	for (const e of store.edges) {
-		if (e.hidden || byId(e.from)?.hidden || byId(e.to)?.hidden) continue;
+		if (byId(e.from)?.hidden || byId(e.to)?.hidden) continue;
 		const G = edgeGeom(e);
 		if (!G?.pts?.length) continue;
 		boxes.push({
-			x0: Math.min(...G.pts.map((p) => p[0])),
-			x1: Math.max(...G.pts.map((p) => p[0])),
-			y0: Math.min(...G.pts.map((p) => p[1])),
-			y1: Math.max(...G.pts.map((p) => p[1])),
+			x0: Math.min(...G.pts.map((p: number[]) => p[0])),
+			x1: Math.max(...G.pts.map((p: number[]) => p[0])),
+			y0: Math.min(...G.pts.map((p: number[]) => p[1])),
+			y1: Math.max(...G.pts.map((p: number[]) => p[1])),
 		});
-		const labels = [
+		const labels: { text: string; style?: LabelStyle; step?: number }[] = [
 			...(e.label || e.style?.step ? [{ text: e.label || '', style: e.labelStyle, step: e.style?.step }] : []),
 			...(e.labels || []),
 		];

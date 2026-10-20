@@ -1,4 +1,3 @@
-// @ts-nocheck
 // Previews while the pointer is down or Tidy is held: guides, copies, the band, connect lines, anchors.
 import * as coreRoutes from '../../core/layout/route';
 import { PT } from '../../core/text';
@@ -7,8 +6,11 @@ import { anchorPoint, byId, layout, nodeAt, px, py } from '../store/model';
 import { ANCHORS, ARROW, LINE } from '../store/constants';
 import { border, fillOf } from './svg';
 import { endpointObject, endpointTarget } from './anchors';
+import type { Out } from './out';
+import type { DragOverlay, ViewNode } from '../store/types';
+import type { Op } from '../tools/types';
 
-export function dragPrims(o) {
+export function dragPrims(o: Out) {
 	const d = store.drag;
 	for (const gd of (d && d.guides) || []) {
 		o.add(
@@ -20,7 +22,7 @@ export function dragPrims(o) {
 	}
 	if (d && d.move && d.copy && (d.dx || d.dy)) {
 		for (const id of d.orig.keys()) {
-			const n = byId(id);
+			const n = byId(id)!;
 			const { w, h } = layout(n);
 			o.add('rect', {
 				x: px(n.x + d.dx - w / 2),
@@ -69,11 +71,11 @@ export function dragPrims(o) {
 }
 
 // The ports of the box under the pointer, while an arrow end is dragged.
-function endpointPorts(o, d) {
+function endpointPorts(o: Out, d: DragOverlay) {
 	const target = endpointTarget({ x: d.x, y: d.y });
 	const n = target && endpointObject(target.id);
-	if (!n || n.frame) return;
-	const box = { ...n, ...layout(n) };
+	if (!n || (n as { frame?: unknown }).frame) return;
+	const box = { ...n, ...layout(n as ViewNode) };
 	for (const side of ['north', 'east', 'south', 'west'])
 		for (const f of [0, 0.25, 1 / 3, 0.5, 2 / 3, 0.75, 1]) {
 			const off = (f - 0.5) * (/north|south/.test(side) ? box.w : box.h),
@@ -107,8 +109,8 @@ function endpointPorts(o, d) {
 }
 
 // A faint arrow from the box to the pointer or to the box under it.
-function connectArrow(o, d) {
-	const a = byId(d.connect);
+function connectArrow(o: Out, d: DragOverlay) {
+	const a = byId(d.connect)!;
 	const target = nodeAt(d);
 	const [x1, y1] = border(a, d.x, d.y);
 	const [x2, y2] = target && target !== a ? border(target, a.x, a.y) : [d.x, d.y];
@@ -143,7 +145,7 @@ function connectArrow(o, d) {
 }
 
 // The nine anchors of the box a dragged box would attach to.
-function anchorGrid(o, d) {
+function anchorGrid(o: Out, d: DragOverlay) {
 	const { parent, anchor } = d.target,
 		{ w, h } = layout(parent);
 	ANCHORS.forEach((a, i) => {
@@ -164,9 +166,9 @@ function anchorGrid(o, d) {
 }
 
 // What Tidy up would do, drawn dashed over the figure.
-function tidyPreview(o) {
+function tidyPreview(o: Out) {
 	if (!store.tidyPreview) return;
-	const ops = store.tidyPreview.ops;
+	const ops: Op[] = store.tidyPreview.ops;
 	const ns = store.nodes.map((n) => ({
 			...n,
 			...ops.find((p) => p.op === 'node' && p.id === n.id),

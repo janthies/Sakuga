@@ -1,5 +1,6 @@
 import * as vscode from 'vscode';
-import { setIcons, Icon } from './tikz';
+import { setIcons } from './core/context';
+import type { Icon } from './core/model/figure';
 import { newFigure, SKETCH_COMMANDS } from './host/vscode/commands';
 import { FigureEditorProvider } from './host/vscode/editorProvider';
 

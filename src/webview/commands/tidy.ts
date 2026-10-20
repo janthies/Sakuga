@@ -1,10 +1,10 @@
-// @ts-nocheck
 import * as coreSketch from '../../core/layout/sketch';
 import { store } from '../store/store';
 import { byId, groupById, layout, members, post } from '../store/model';
 import { render } from '../render/scene';
+import type { Op } from '../tools/types';
 
-function tidyPlan() {
+function tidyPlan(): Op {
 	return coreSketch.tidy(store.nodes, store.groups, store.edges, [...store.selN], layout);
 }
 export function previewTidy() {
@@ -30,15 +30,16 @@ export function holdTidy() {
 	previewTidy();
 }
 // Align, distribute or equalise the selected boxes, about the reference box if one is set.
-export function arrange(command) {
-	const ids = [...store.selN].filter((id) => byId(id) && !byId(id).locked && !byId(id).hidden);
+export function arrange(command: string) {
+	const ids = [...store.selN].filter((id) => byId(id) && !byId(id)!.locked && !byId(id)!.hidden);
 	if (ids.length < 2) {
 		return;
 	}
-	const key = store.selN.has(store.keyObject)
-		? store.keyObject
-		: groupById(store.keyObject) && members(store.keyObject).every((id) => store.selN.has(id))
-			? members(store.keyObject)[0]
+	const ref = store.keyObject ?? '';
+	const key = store.selN.has(ref)
+		? ref
+		: groupById(ref) && members(ref).every((id) => store.selN.has(id))
+			? members(ref)[0]
 			: null;
 	const batch =
 		command === 'sameW' || command === 'sameH'

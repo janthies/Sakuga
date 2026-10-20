@@ -1,21 +1,23 @@
-// @ts-nocheck
 import { vscode } from '../platform/host';
+import type { Store } from './types';
+
+const saved = (): { grid?: number; recentColors?: string[]; tab?: string } => vscode.getState() || {};
 
 // The one store: everything the old closure kept in `let` variables.
-export const store = {
+export const store: Store = {
 	rev: 0,
 	figureFont: 'small',
-	selectedLayers: new Set(),
+	selectedLayers: new Set<string>(),
 	layers: [],
 	activeLayer: 'layer1',
-	expandedLayers: new Set(),
+	expandedLayers: new Set<string>(),
 	groups: [],
 	selG: null,
 	layerAnchor: null,
 	layerDrag: null,
-	collapsed: new Set(),
+	collapsed: new Set<string>(),
 	icons: [],
-	openStyles: new Set(),
+	openStyles: new Set<string>(),
 	pendingStyleFocus: null,
 	nodes: [],
 	edges: [],
@@ -27,8 +29,8 @@ export const store = {
 	defaultWidth: 26,
 	keyObject: null,
 	freshBox: null,
-	selN: new Set(),
-	selE: new Set(),
+	selN: new Set<string>(),
+	selE: new Set<number>(),
 	view: { s: 4, ox: 0, oy: 0 },
 	drag: null,
 	hover: null,
@@ -42,8 +44,8 @@ export const store = {
 	styleClip: null,
 	lastPaste: '',
 	pasteCount: 0,
-	grid: (vscode.getState() || {}).grid || 1,
-	recentColors: (vscode.getState() || {}).recentColors || [],
+	grid: saved().grid || 1,
+	recentColors: saved().recentColors || [],
 	arrowsStyle: 'manhattan',
 	floating: null,
 	iconPanel: null,
@@ -58,5 +60,5 @@ export const store = {
 	sent: null,
 	timer: null,
 	lastInspectorSelection: '',
-	tab: (vscode.getState() || {}).tab || 'figure',
+	tab: saved().tab || 'figure',
 };

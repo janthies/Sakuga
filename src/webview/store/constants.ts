@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { vscode } from '../platform/host';
 import { rowOf, styleable } from '../../core/schema';
 
@@ -15,7 +14,8 @@ const HEIGHTS = [0, 6.16, 9.55];
 export { LINE, STROKE, ARROW, ARROW_DASHED, CODE } from '../../core/scene/style';
 export const PX_PER_MM = 96 / 25.4;
 export const sizes = { scriptsize: 8, footnotesize: 9, small: 10, normalsize: 10.95, large: 12 };
-export const smallerPt = (pt) => ({ 8: 6, 9: 8, 10: 9, 10.95: 10, 12: 10.95 })[pt] || 9;
+export const smallerPt = (pt: number) =>
+	(({ 8: 6, 9: 8, 10: 9, 10.95: 10, 12: 10.95 }) as Record<number, number>)[pt] || 9;
 export const ANCHORS = [
 	'north west',
 	'north',
@@ -43,21 +43,21 @@ export const ICON = {
 	none: '<path d="M2 8 H14"/>',
 	dashed: '<path d="M2 8 H14" stroke-dasharray="3 2"/>',
 };
-export const icon = (key) =>
+export const icon = (key: keyof typeof ICON) =>
 	`<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">${ICON[key]}</svg>`;
 // ---- Named styles: a style acts on its objects; an object only keeps what differs from it ----
 export const SIZE_LABEL = { tiny: '6', scriptsize: '8', footnotesize: '9', small: '10', normalsize: '11', large: '12' };
 export const KIND_NAMES = { box: 'Box', arrow: 'Arrow', frame: 'Frame', label: 'Label' };
 export const STYLE_KEYS = styleable('box');
 export const ROW_OF = rowOf();
-export const ROUTE_OPTS = [
+export const ROUTE_OPTS: string[][] = [
 	['auto', 'figure style'],
 	['straight', 'straight'],
 	['manhattan', 'manhattan'],
 	['curved', 'curved'],
 	['u', 'U route'],
 ];
-export const routeOpts = (e) =>
+export const routeOpts = (e: { route: string }) =>
 	['hvh', 'vhv', 'bend', 'fixed', 'loop'].includes(e.route) ? [...ROUTE_OPTS, [e.route, 'set by hand']] : ROUTE_OPTS;
 export const HEAD_OPTS = [
 	['end', 'at the end'],
@@ -74,7 +74,7 @@ const LINE_OPTS = [
 	['arr-dashed', 'dashed'],
 ];
 // TeX to display text and back: \_ is an underscore, \cmd{x} shows x, \\ breaks the line.
-export const show = (t) => t.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1').replace(/\\([_&%#$])/g, '$1');
-export const tex = (t) => t.replace(/(^|[^\\])([_&%#$])/g, '$1\\$2').replace(/(^|[^\\])([_&%#$])/g, '$1\\$2');
-export const r1 = (v) => String(Math.round(v * 10) / 10);
-export const dismissedHints = () => new Set((vscode.getState() || {}).dismissedHints || []);
+export const show = (t: string) => t.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1').replace(/\\([_&%#$])/g, '$1');
+export const tex = (t: string) => t.replace(/(^|[^\\])([_&%#$])/g, '$1\\$2').replace(/(^|[^\\])([_&%#$])/g, '$1\\$2');
+export const r1 = (v: number) => String(Math.round(v * 10) / 10);
+export const dismissedHints = () => new Set<string>((vscode.getState() || {}).dismissedHints || []);

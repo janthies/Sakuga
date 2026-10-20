@@ -1,5 +1,5 @@
 // Rebuild reference 02 entirely through Sakuga model operations.
-const t = require('../out/tikz.js');
+const t = require('../out/core.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const root = path.resolve(__dirname, '..');

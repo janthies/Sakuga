@@ -1,5 +1,7 @@
 import * as vscode from 'vscode';
-import { parse, serialize, TEMPLATE } from '../../tikz';
+import { parse } from '../../core/codec/parse';
+import { serialize } from '../../core/codec/serialize';
+import { TEMPLATE } from '../../core/codec/template';
 
 export const SKETCH_COMMANDS = [
 	'left',

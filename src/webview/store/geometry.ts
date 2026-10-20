@@ -1,10 +1,9 @@
-// @ts-nocheck
 import { FigureGeometry } from '../../core/geometry/figure-geometry';
 import { store } from './store';
 
 // The geometry of the figure as the store holds it now. It is rebuilt only when the store's revision or one of its
 // lists changed, so each arrow is routed once per change and not once per question.
-let cache = null;
+let cache: { key: Record<string, unknown>; geometry: FigureGeometry } | null = null;
 export function geo() {
 	const k = cache?.key;
 	if (
@@ -37,7 +36,7 @@ export function geo() {
 			}),
 		};
 	}
-	return cache.geometry;
+	return cache!.geometry;
 }
 // Call after changing nodes, arrows or groups in place.
 export const touch = () => {

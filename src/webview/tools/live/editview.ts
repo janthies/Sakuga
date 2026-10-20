@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../../store/store';
 import { byId, fontPt, layout, px, py, textMm } from '../../store/model';
 import { CODE_PT, PT, TITLE_PT, show } from '../../store/constants';
@@ -26,7 +25,7 @@ export function openField(target: EditTarget) {
 		etools.style.display = 'none';
 		return;
 	}
-	const n = byId(target.id);
+	const n = byId(target.id)!;
 	store.editing = target.id;
 	const { w, h } = layout(n);
 	Object.assign(input.style, {

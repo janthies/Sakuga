@@ -1,5 +1,5 @@
 const assert = require('node:assert/strict'),
-	t = require('../out/tikz');
+	t = require('../out/core.js');
 const fig = t.parse(t.TEMPLATE),
 	before = t.serialize(fig);
 t.apply(fig, { op: 'sheet', width: 180 });

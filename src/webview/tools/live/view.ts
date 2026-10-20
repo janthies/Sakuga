@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../../store/store';
 import { svg } from '../../platform/dom';
 import { contentBox } from '../../render/boxes';

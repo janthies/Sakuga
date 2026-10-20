@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { execFileSync } = require('node:child_process');
-const tikz = require('../out/tikz.js');
+const tikz = require('../out/core.js');
 const root = path.resolve(__dirname, '..');
 const fig = tikz.parse(tikz.TEMPLATE);
 const apply = (op) => tikz.apply(fig, op);

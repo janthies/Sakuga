@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const os = require('node:os');
 const path = require('node:path');
 const { spawn } = require('node:child_process');
-const t = require('../out/tikz.js');
+const t = require('../out/core.js');
 let fig = t.parse(t.TEMPLATE);
 const apply = (op) => t.apply(fig, op);
 const roundTrip = () => {

@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const os = require('node:os');
 const { execFileSync } = require('node:child_process');
-const t = require('../out/tikz.js');
+const t = require('../out/core.js');
 const fig = t.parse('\\begin{tikzpicture}[x=1mm,y=1mm]\n% sakuga legend off\n\\end{tikzpicture}');
 const fixtures = [];
 for (const pattern of ['', 'hatched', 'crosshatch', 'dots', 'horizontal', 'vertical']) {

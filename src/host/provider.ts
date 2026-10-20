@@ -1,6 +1,12 @@
 import { compatible, PROTOCOL, ToHost, ToWebview } from '../bridge/protocol';
 import { viewModel } from '../core/view/viewModel';
-import { apply, Icon, Op, parse, pasteOps, serialize, TEMPLATE } from '../tikz';
+import { parse } from '../core/codec/parse';
+import { serialize } from '../core/codec/serialize';
+import { TEMPLATE } from '../core/codec/template';
+import type { Icon } from '../core/model/figure';
+import { apply } from '../core/ops/apply';
+import { pasteOps } from '../core/ops/paste';
+import type { Op } from '../core/ops/types';
 import { writeDocument } from './documentSync';
 import { exportSvg, ExportDeps } from './exportService';
 import type { ClipboardPort, Disposable, DocumentPort, UiPort, WebviewPort } from './ports';

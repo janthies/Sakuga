@@ -3,20 +3,28 @@
 // TODO(S10 and later): replace the derived 'state' snapshot by { t: 'doc'; text; version } and the webview parsing the text
 // itself (docs/architecture.md section 2, ADR-2). Until then these types must describe today's traffic and nothing more.
 
+import type { Category, FigEdge, FigNode, Group, Layer, StyleDef } from '../core/model/figure';
+
 /** Bumped whenever a message changes shape. The webview announces it in 'ready'. */
 export const PROTOCOL = 1;
 
-/** The derived snapshot of the document (see core/view/viewModel.ts); object shapes stay loose until core/model types them. */
+/** A box or label of the snapshot: hidden and locked already include its layer; `overrides` names what differs from its style. */
+export type ViewNode = FigNode & { overrides?: string[] };
+export type ViewEdge = FigEdge & { overrides?: string[] };
+/** A named style with its one-line TikZ form. */
+export type ViewStyle = StyleDef & { line?: string };
+
+/** The derived snapshot of the document (see core/view/viewModel.ts). */
 export interface StateMessage {
 	type: 'state';
 	text: string;
-	nodes: Record<string, any>[];
-	edges: Record<string, any>[];
-	categories: Record<string, any>[];
-	styles: Record<string, any>[];
+	nodes: ViewNode[];
+	edges: ViewEdge[];
+	categories: Category[];
+	styles: ViewStyle[];
 	shared: Record<string, any>[];
-	groups: Record<string, any>[];
-	layers: Record<string, any>[];
+	groups: Group[];
+	layers: Layer[];
 	font: string;
 	legend: boolean;
 	arrows: string;

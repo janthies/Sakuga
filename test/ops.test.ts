@@ -78,7 +78,7 @@ test('build-rats-architecture output', () => {
 		mkdirSync: () => undefined,
 	};
 	const req = (id: string) =>
-		id === '../out/tikz.js' ? require('../src/tikz') : id === 'node:fs' ? fakeFs : require(id);
+		id === '../out/core.js' ? require('../src/core') : id === 'node:fs' ? fakeFs : require(id);
 	const log = console.log;
 	console.log = () => undefined;
 	try {

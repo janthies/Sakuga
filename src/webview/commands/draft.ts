@@ -1,13 +1,13 @@
-// @ts-nocheck
 import * as coreSketch from '../../core/layout/sketch';
 import { store } from '../store/store';
 import { layout } from '../store/model';
 import { newId } from '../store/layers';
+import type { ViewNode } from '../store/types';
 
 // The style of a box without the properties that differ from it.
-function withoutOverrides(n) {
+function withoutOverrides(n: ViewNode) {
 	const def = store.styles.find((s) => s.key === n.cat),
-		st = { ...n.style };
+		st: Record<string, any> = { ...n.style };
 	for (const k of n.overrides || []) {
 		if (def && def.props[k] !== undefined) {
 			st[k] = def.props[k];
@@ -18,7 +18,7 @@ function withoutOverrides(n) {
 	return st;
 }
 // Tab: add a box (and the arrow to it) after the selected one, unsent, and select it. Returns the draft.
-export function makeDraft(n, below) {
+export function makeDraft(n: ViewNode, below: boolean) {
 	store.activeLayer = n.layer || store.activeLayer;
 	const draft = coreSketch.nextBox(
 		store.nodes,

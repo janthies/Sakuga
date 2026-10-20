@@ -135,7 +135,7 @@ export class IdleTool implements Tool {
 		switch (hit.k) {
 			case 'corner': {
 				const ed = c.edges[hit.index],
-					pts = coreRoutes.removeCorner(c.edgeGeom(ed).pts, hit.j);
+					pts = coreRoutes.removeCorner(c.edgeGeom(ed).pts, hit.j)!;
 				return { commit: { op: 'arrow', index: hit.index, ...fixedUpdate(c, ed, pts) }, render: false };
 			}
 			case 'label':

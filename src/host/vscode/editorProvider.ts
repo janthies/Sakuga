@@ -1,5 +1,5 @@
 import * as vscode from 'vscode';
-import type { Icon } from '../../tikz';
+import type { Icon } from '../../core/model/figure';
 import { page } from '../page';
 import { nodeTexRunner } from '../node/texRunner';
 import { openFigure } from '../provider';

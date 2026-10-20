@@ -3,6 +3,7 @@
 	"references": [
 		{ "path": "./tsconfig.core.json" },
 		{ "path": "./tsconfig.host.json" },
+		{ "path": "./tsconfig.webview.json" },
 		{ "path": "./tsconfig.test.json" }
 	]
 }

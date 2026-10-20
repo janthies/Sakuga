@@ -1,0 +1,12 @@
+{
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"lib": ["ES2022", "DOM", "DOM.Iterable"],
+		"types": [],
+		"rootDir": "src",
+		"outDir": ".tsbuild/webview",
+		"tsBuildInfoFile": ".tsbuild/webview.tsbuildinfo"
+	},
+	"include": ["src/webview/**/*", "src/bridge/**/*"],
+	"references": [{ "path": "./tsconfig.core.json" }]
+}
