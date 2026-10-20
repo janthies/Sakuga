@@ -10,7 +10,7 @@ class Element {
 const handlers={},messages=[];
 const c=vm.createContext({Set,Map,Math,SakugaRoutes:routes,svg:{addEventListener:(k,v)=>handlers[k]=v,setPointerCapture(){}},document:{createElement:()=>new Element()},post:o=>messages.push(o),render(){},toMm:e=>({x:e.x,y:e.y}),endEdit(){},startEdit(){},vscode:{postMessage:o=>messages.push(o)},layout:n=>{const [w,h]=t.boxHalf(n);return {w:w*2,h:h*2};},paintOrder:()=>[],textMm:s=>s.length*1.4,show:s=>s});
 const run=s=>vm.runInContext(s,c),load=(a,b)=>run(source.slice(source.indexOf(a),source.indexOf(b)));
-run(`let nodes=[],edges=[],groups=[],cats=[],palette={},selN=new Set(),selE=new Set(),selG=null,styleClip=null,drag=null,hover=null,editing=null,space=false,lastCat='',pendingSelect=null;const selectedLayers=new Set(),src={value:''};const arrowsStyle='manhattan',CODE_PT=8,PT=25.4/72.27;const byId=id=>nodes.find(n=>n.id===id),catOf=id=>cats.find(c=>c.key===id),snap=x=>x,fine=x=>x,r1=String;`);
+run(`let nodes=[],edges=[],groups=[],cats=[],styles=[],shared=[],palette={},selN=new Set(),selE=new Set(),selG=null,styleClip=null,drag=null,hover=null,editing=null,space=false,lastCat='',pendingSelect=null;const selectedLayers=new Set(),src={value:''};const arrowsStyle='manhattan',CODE_PT=8,PT=25.4/72.27;const byId=id=>nodes.find(n=>n.id===id),catOf=id=>cats.find(c=>c.key===id),snap=x=>x,fine=x=>x,r1=String;`);
 load(' const ANCHORS','\n\tfunction toMm');
 load('\tfunction nodeAt','\t// Point on the border');
 // Override paintOrder after nodeAt's definition via the provided function.

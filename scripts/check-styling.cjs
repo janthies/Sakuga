@@ -81,7 +81,7 @@ tikz.apply(tips, { op: 'style', indices: [0], style: { start: 'bar' } });
 assert.equal(tikz.edges(tips)[0].style.end, 'Stealth');
 const defaults = tikz.parse(tikz.TEMPLATE);
 tikz.apply(defaults, { op: 'addNode', id: 'plain', x: 0, y: 0, title: 'Box', cat: 'work' });
-assert.match(tikz.serialize(defaults), /\\node\[cat-work, sg layer=layer1\]/);
+assert.match(tikz.serialize(defaults), /\\node\[sg style\/work, sg layer=layer1\]/);
 assert.match(tikz.serialize(tikz.parse('\\begin{tikzpicture}\n\\end{tikzpicture}')), /font=\\sffamily\\small/);
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sakuga-style-check-'));
 fs.writeFileSync(path.join(dir, 'figure.tikz'), serialized);

@@ -47,7 +47,7 @@ apply({ op: 'reorder', order: ['c', 'a', 'b'] });
 text = roundTrip();
 assert(text.indexOf('(a) at') < text.indexOf('(c) at'));
 assert(text.indexOf('(c) at') < text.indexOf('(b) at'));
-assert(text.lastIndexOf('\\node[cat-') < text.indexOf('\\draw[arr'));
+assert(text.lastIndexOf('\\node[sg style/') < text.indexOf('\\draw[arr'));
 apply({ op: 'reorderLayers', order: ['upper', 'layer1'] });
 text = roundTrip();
 assert(text.indexOf('(b) at') < text.indexOf('(a) at'));

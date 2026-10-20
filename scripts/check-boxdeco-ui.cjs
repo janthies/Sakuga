@@ -20,7 +20,7 @@ const run=s=>vm.runInContext(s,context);
 run(`let recentColors=[];let state={grid:2,other:'preserved'};const vscode={getState:()=>state,setState:s=>state=s};let grid=2;const saveState=()=>vscode.setState({...vscode.getState(),grid,recentColors});`);
 run(source.slice(source.indexOf('\tconst styleColor'),source.indexOf(' function textMm')));
 run(source.slice(source.indexOf(' const styleFields'),source.indexOf('\n\tfunction renderInspector')));
-run(source.slice(source.indexOf(' function drawDecorations'),source.indexOf('\n\tfunction sheetBox()')));
+run(source.slice(source.indexOf(' function drawDecorations'),source.indexOf('\n\tfunction contentBox()')));
 run("const changes=[];const control=styleSelect('fill',['','blue'],[{style:{fill:'blue'}},{style:{fill:'#112233'}}],s=>changes.push(s));");
 assert.equal(run('control.children[0].value'),'*');
 run("control.children[1].value='#abcdef';control.children[1].onchange();");

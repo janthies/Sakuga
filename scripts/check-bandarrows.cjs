@@ -22,7 +22,7 @@ const run = code => vm.runInContext(code, context);
 const load = (start, end) => run(source.slice(source.indexOf(start), source.indexOf(end)));
 run(`
  const selectedLayers=new Set();
- let nodes = [], edges = [], cats = [], selN = new Set(), selE = new Set();
+ let nodes = [], edges = [], cats = [], styles = [], shared = [], selN = new Set(), selE = new Set();
  let drag = null, editing = null, space = false, selG = null, hover = null;
  let styleClip = null, pendingSelect = null, defaultWidth = 26, arrowsStyle = 'manhattan';
  const src = {value: ''};

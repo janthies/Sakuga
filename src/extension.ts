@@ -1,6 +1,6 @@
 import * as vscode from 'vscode';
 import { exportSvg } from './export';
-import { apply, fontSize, arrowStyle, categories, DEFAULT_WIDTH, edges, groups, layers, isHidden, isLocked, nodeLayer, legendOn, nodes, Op, PALETTE, parse, pasteOps, serialize, setIcons, Icon, TEMPLATE } from './tikz';
+import { apply, fontSize, arrowStyle, categories, overrideKeys, sharedOverrides, styleDefs, styleLine, DEFAULT_WIDTH, edges, groups, layers, isHidden, isLocked, nodeLayer, legendOn, nodes, Op, PALETTE, parse, pasteOps, serialize, setIcons, Icon, TEMPLATE } from './tikz';
 
 const log = vscode.window.createOutputChannel('Sakuga');
 const PREAMBLE = '\\usetikzlibrary{arrows.meta, fit, backgrounds, svg.path, shapes.geometric, patterns}';
@@ -80,8 +80,8 @@ class FigureEditor implements vscode.CustomTextEditorProvider {
 		const send = () => {
 			const fig = parse(doc.getText());
 			panel.webview.postMessage({
-				type: 'state', text: doc.getText(), nodes: layers(fig).flatMap(l => nodes(fig).filter(n => nodeLayer(fig, n).id === l.id)).map(n => ({ ...n, layer: nodeLayer(fig, n).id, hidden: isHidden(fig, n), locked: isLocked(fig, n) })), edges: edges(fig),
-				categories: categories(fig), groups: groups(fig), layers: layers(fig), font: fontSize(fig), legend: legendOn(fig), arrows: arrowStyle(fig), palette: PALETTE, defaultWidth: DEFAULT_WIDTH,
+				type: 'state', text: doc.getText(), nodes: layers(fig).flatMap(l => nodes(fig).filter(n => nodeLayer(fig, n).id === l.id)).map(n => ({ ...n, layer: nodeLayer(fig, n).id, hidden: isHidden(fig, n), locked: isLocked(fig, n), overrides: overrideKeys(fig, n) })), edges: edges(fig).map(x => ({ ...x, overrides: overrideKeys(fig, x) })),
+				categories: categories(fig), styles: styleDefs(fig).map(s => ({ ...s, line: styleLine(s) })), shared: sharedOverrides(fig), groups: groups(fig), layers: layers(fig), font: fontSize(fig), legend: legendOn(fig), arrows: arrowStyle(fig), palette: PALETTE, defaultWidth: DEFAULT_WIDTH,
 			});
 		};
 		const changed = vscode.workspace.onDidChangeTextDocument(e => {
@@ -181,7 +181,7 @@ function page(webview: vscode.Webview, media: vscode.Uri): string {
 	</aside>
 	<div id="desk">
 		<svg id="canvas" aria-label="Figure canvas"></svg>
-		<div id="zoombar"><span id="zi-size"></span><span class="vsep"></span><span id="zi-zoom" title="100 % is true size on screen"></span><button id="fitw" title="Show the whole sheet">Fit sheet</button><span id="zi-warn" hidden></span></div>
+		<div id="zoombar"><span id="zi-size"></span><span class="vsep"></span><span id="zi-zoom" title="100 % is true size on screen"></span><button id="fitw" title="Fit the whole figure">Fit</button></div>
 	</div>
 	<aside id="sidebar" data-tab="figure">
 		<nav id="tabs" role="tablist"><button role="tab" data-tab="figure" aria-selected="true">Figure</button><button role="tab" data-tab="selection">Selection<span id="tab-count"></span></button></nav>

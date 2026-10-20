@@ -16,7 +16,7 @@ const context=vm.createContext({
 });
 const run=code=>vm.runInContext(code,context);
 const load=(start,end)=>run(source.slice(source.indexOf(start),source.indexOf(end)));
-run(`let nodes=[],edges=[],cats=[],selN=new Set(),selE=new Set(),drag=null,selG=null,hover=null,editing=null,space=false,pendingSelect=null,lastCat='';
+run(`let nodes=[],edges=[],cats=[],styles=[],shared=[],selN=new Set(),selE=new Set(),drag=null,selG=null,hover=null,editing=null,space=false,pendingSelect=null,lastCat='';
 const byId=id=>nodes.find(n=>n.id===id);const snap=v=>v,fine=v=>Math.round(v*10)/10,r1=String;
 const selectedLayers=new Set();const src={value:''};const defaultWidth=26;`);
 load(' const ANCHORS','\n\tfunction toMm');

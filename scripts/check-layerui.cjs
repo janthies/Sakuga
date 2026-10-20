@@ -24,10 +24,10 @@ const body=new Element('body'), list=new Element('div'),inspector=new Element('d
 for(const id of ['group','ungroup','layer-tools','tab-count','zoombar','zi-size','zi-zoom','zi-warn']) { const el=new Element('button');el.id=id;body.append(el); }
 const document={activeElement:body,createElement:tag=>new Element(tag),getElementById:id=>body.querySelector('#'+id),querySelector:s=>s==='#layer-controls select'?body.querySelector('#layer-controls')?.querySelector('select'):body.querySelector(s),addEventListener(){}};
 const messages=[],frames=new Map();let nextFrame=0;
-const context=vm.createContext({document,inspector,svg,Element,Set,Map,Math,Option:class extends Element {constructor(label,value){super('option');this.textContent=label;this.value=value;}},requestAnimationFrame:fn=>{frames.set(++nextFrame,fn);return nextFrame;},cancelAnimationFrame:id=>frames.delete(id),post:op=>messages.push(op),catOf:()=>null,descendant:()=>false,icon:()=>'',show:x=>x,tex:x=>x,fillOf:()=> '#fff',snap:x=>x,newId:()=> 'new-box',styleFields:()=>[],styleSelect:()=>new Element('select'),styleColour:()=>new Element('div'),iconPicker:()=>new Element('select'),anchorPicker:()=>new Element('div'),label:()=>new Element('code'),categoryChoice:()=>new Element('select'),effectiveIcon:()=>'',copyStyle(){},pasteStyle(){},sketchControls(){},tidyControl(){},tidyPreview:null,drawTidyPreview(){},emphasisToggle:()=>new Element('div'), segmented:()=>new Element('div'), titlePositionPicker:()=>new Element('div'), unit:x=>Object.assign(new Element('span'),{textContent:x})});
+const context=vm.createContext({document,inspector,svg,Element,Set,Map,Math,Option:class extends Element {constructor(label,value){super('option');this.textContent=label;this.value=value;}},requestAnimationFrame:fn=>{frames.set(++nextFrame,fn);return nextFrame;},cancelAnimationFrame:id=>frames.delete(id),post:op=>messages.push(op),catOf:()=>null,descendant:()=>false,icon:()=>'',show:x=>x,tex:x=>x,fillOf:()=> '#fff',snap:x=>x,newId:()=> 'new-box',styleFields:()=>[],styleSelect:()=>new Element('select'),styleColour:()=>new Element('div'),iconPicker:()=>new Element('select'),anchorPicker:()=>new Element('div'),label:()=>new Element('code'),categoryChoice:()=>new Element('select'),visualChoice:()=>new Element('button'),effectiveIcon:()=>'',copyStyle(){},pasteStyle(){},sketchControls(){},tidyControl(){},tidyPreview:null,drawTidyPreview(){},emphasisToggle:()=>new Element('div'), segmented:()=>new Element('div'), titlePositionPicker:()=>new Element('div'), unit:x=>Object.assign(new Element('span'),{textContent:x})});
 const run=code=>vm.runInContext(code,context);
 const load=(a,b)=>run(source.slice(source.indexOf(a),source.indexOf(b)));
-run(`let layers=[{id:'back',name:'Back',opacity:.5},{id:'front',name:'Front'}],activeLayer='back',nodes=[{id:'outer',layer:'back',title:'',x:0,y:0,width:80,minh:60,style:{}},{id:'inner',layer:'back',title:'Inner',x:0,y:0,width:18,minh:10,style:{opacity:.3}},{id:'target',layer:'front',title:'Target',x:70,y:0,width:18,minh:10,style:{}}],edges=[{from:'inner',to:'target',kind:'arr',route:'straight',head:'end',label:'',style:{opacity:.3}}],groups=[],cats=[],palette={},selN=new Set(),selE=new Set(),selG=null,layerDrag=null,layerAnchor=null,pendingEdit=null,pendingSelect=null,lastCat='',editing=null,hover=null,drag=null,grid=1,view={s:4,ox:100,oy:400};
+run(`let layers=[{id:'back',name:'Back',opacity:.5},{id:'front',name:'Front'}],activeLayer='back',nodes=[{id:'outer',layer:'back',title:'',x:0,y:0,width:80,minh:60,style:{}},{id:'inner',layer:'back',title:'Inner',x:0,y:0,width:18,minh:10,style:{opacity:.3}},{id:'target',layer:'front',title:'Target',x:70,y:0,width:18,minh:10,style:{}}],edges=[{from:'inner',to:'target',kind:'arr',route:'straight',head:'end',label:'',style:{opacity:.3}}],groups=[],cats=[],styles=[],shared=[],palette={},selN=new Set(),selE=new Set(),selG=null,layerDrag=null,layerAnchor=null,pendingEdit=null,pendingSelect=null,lastCat='',editing=null,hover=null,drag=null,grid=1,view={s:4,ox:100,oy:400};
 let SHEET=146,sheetInfo={h:0,over:0},lastInspectorSelection='';const PX_PER_MM=96/25.4;const vscode={getState:()=>({}),setState(){}},persist=()=>{},setTab=()=>{};const selectedLayers=new Set(),expandedLayers=new Set(['back','front']),collapsed=new Set(),sizes={small:10},figureFont='small',legend=false,styleClip=null,floating=null;
 const byId=id=>nodes.find(n=>n.id===id),groupById=id=>groups.find(g=>g.id===id),members=()=>[],hierarchy=ns=>ns.map(n=>({id:n.id,kind:'node',children:[]})),inGroup=()=>false,isBox=n=>!n.kind;
 const layout=n=>({w:n.width+2.27,h:n.minh||6.16,lines:[n.title]}),fontPt=()=>10,r1=String;
@@ -40,7 +40,7 @@ const drawIcon=()=>{},drawDecorations=()=>{},renderLegend=()=>{},drawGroups=()=>
 load('\tfunction selectLayer(', '\tfunction groupSelection('); // selection/hierarchy helpers
 load(' let layerScrollFrame', '\n\tfunction drawGroups(');
 load(' function darkerColor(', '\n\tfunction toMm');
-load('\tfunction renderInspector()', '\n\tconst SHORTCUTS');
+load('\t// ---- Named styles', '\n\tconst SHORTCUTS');
 load('\tfunction deleteSelection()', '\n\tfunction unit(');
 run('render()');
 const controls=()=>body.querySelector('#layer-controls');
@@ -85,7 +85,7 @@ list.events.dragleave({relatedTarget:body});assert.equal(run('layerScrollFrame')
 load('\tfunction border(', '\n\tfunction bbox(');
 load('\tfunction boxHalf(', '\n\tfunction selBox(');
 load(' function drawBox(', '\n function drawDecorations(');
-const renderCanvas=source.slice(source.indexOf('    function sheetObjects()'),source.indexOf('\n\t// The same legend'));
+const renderCanvas=source.slice(source.indexOf('    function contentObjects()'),source.indexOf('\n\t// The same legend'));
 run(renderCanvas.replace('function render()', 'function renderCanvas()'));
 run('selN.clear();selE.clear();byId("inner").style.opacity=.3;renderCanvas()');
 const [,framesGroup,nodeGroup,arrowGroup]=svg.children;
@@ -103,8 +103,8 @@ console.log('Layer/object Delete, opacity controls, add-at-centre editing, drop 
 const pane=id=>inspector.querySelector('#'+id);
 const sectionNames=id=>pane(id).children.filter(d=>d.className==='inspector-section').map(d=>d.children[0].textContent);
 run("selN=new Set(['inner']);selE.clear();renderInspector()");
-assert.deepEqual(sectionNames('pane-selection'),['Text','Fill','Outline','Shape & decoration','Arrange']);
-assert.deepEqual(sectionNames('pane-figure'),['Sheet','Text','Arrows','Legend','Grid','Categories']);
+assert.deepEqual(sectionNames('pane-selection'),['Style','Text','Fill','Outline','Route & tips','Shape & decoration','Arrange']);
+assert.deepEqual(sectionNames('pane-figure'),['Text','Arrows','Legend','Grid','Styles']);
 assert(pane('pane-selection').querySelector('.row'),'Single node inspector builds controls');
 run("selN=new Set(['inner','target']);renderInspector()");
 const rows=pane('pane-selection').querySelectorAll('.row');
@@ -117,14 +117,13 @@ run("selE.clear();groups=[{id:'frame',name:'Frame',frame:'dashed',color:'grey'}]
 assert(!pane('pane-selection').querySelector('.empty'),'A selected frame is not an empty selection');
 assert(pane('pane-selection').querySelectorAll('.row').some(r=>r.children[0].textContent==='Title at'));
 console.log('Variant A panes, ordered inspector sections, multi-selection size batches, arrow and frame inspectors passed.');
-// Panning objects must never recenter the sheet. Overflow includes free-icon captions.
-const sheetBefore=run('sheetBox()');
+// No sheet is drawn: no page rectangle, dimension line or out-of-sheet flags; Fit frames the content.
 run("selG=null;groups=[];byId('inner').x=300;renderCanvas()");
-assert.equal(run('sheetBox().x0'),sheetBefore.x0);
-assert.equal(run('sheetBox().x1'),sheetBefore.x1);
-assert(run('sheetInfo.over')>0);
-assert(svg.querySelectorAll('rect').some(e=>e.attributes.class==='over-flag'));
+assert(!svg.querySelectorAll('rect').some(e=>e.attributes.class==='sheet'||e.attributes.class==='over-flag'));
+assert(!svg.querySelectorAll('path').some(e=>e.attributes.class==='dim'));
+const content=run('contentBox()');
+assert(content.x1>=300);
 load('\tfunction fit()',"\twindow.addEventListener('message'");run('fit()');
-assert.equal(run('view.ox'),400,'Fit centres the fixed sheet, independent of object x');
+assert(Math.abs(run('view.ox')+(content.x0+content.x1)/2*run('view.s')-400)<1e-6,'Fit centres the content');
 assert(run('view.s')>0);
-console.log('Fixed sheet origin, overflow flags and sheet-fit geometry passed.');
+console.log('Canvas without sheet, content box and content-fit geometry passed.');

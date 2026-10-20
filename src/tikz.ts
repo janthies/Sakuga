@@ -27,6 +27,24 @@ export interface Icon { name: string; category: string; paths: string[]; circles
 let iconCatalog: Icon[] = [];
 export function setIcons(icons: Icon[]) { iconCatalog = icons; }
 export interface Category { key: string; name: string; color: string; icon?: string; boxes?: boolean; legend?: boolean }
+// A named style acts on every object that names it. One flat level per kind, no inheritance.
+// props use the names of ObjectStyle (a box style's colour is its fill); an object keeps only
+// the properties that differ from its style, which are its overrides.
+export type StyleKind = 'box' | 'arrow' | 'frame' | 'label';
+export const STYLE_KINDS: StyleKind[] = ['box', 'arrow', 'frame', 'label'];
+export interface StyleDef { kind: StyleKind; key: string; name: string; legend?: boolean; icon?: string; boxes?: boolean; props: Record<string, any> }
+// Properties a style can hold for the objects that use it, and groups that always travel together
+// (a font size without the emphasis, or the tips of an arrow, would change meaning if split).
+export const STYLEABLE: Record<StyleKind, string[]> = {
+	box: ['fill', 'color', 'border', 'weight', 'lineWidth', 'shape', 'font', 'text', 'textColor'],
+	label: ['fill', 'color', 'border', 'weight', 'lineWidth', 'font', 'text', 'textColor'],
+	arrow: ['color', 'border', 'lineWidth', 'tipLength', 'tipWidth', 'start', 'end'],
+	frame: ['frame', 'color', 'frameColor', 'outline', 'fill', 'fillStrength', 'lineWidth', 'padding', 'titlePosition', 'titleBold', 'titleFont', 'titleColor'],
+};
+const STYLE_GROUPS: Record<StyleKind, string[][]> = { box: [['font', 'text'], ['weight', 'lineWidth']], label: [['font', 'text'], ['weight', 'lineWidth']], arrow: [['tipLength', 'tipWidth', 'start', 'end']], frame: [] };
+const PRIMARY: Record<StyleKind, string> = { box: 'fill', label: 'textColor', arrow: 'color', frame: 'color' };
+const NUMBER_PROPS = ['lineWidth', 'tipLength', 'tipWidth', 'fillStrength', 'padding'];
+const BOOLEAN_PROPS = ['titleBold'];
 export const ANCHORS = ['north west', 'north', 'north east', 'west', 'center', 'east', 'south west', 'south', 'south east'];
 export interface Attachment { parent: string; anchor: string; ownAnchor: string; dx: number; dy: number }
 export interface FigNode {
@@ -47,7 +65,7 @@ export const FRAMES = ['none', 'dashed', 'dotted', 'solid', 'region'] as const;
 // by hand. mid = null puts the corner at the target. head: 'end', 'both' or 'none'.
 // Fixed chains use native coordinate/operator tokens; editable waypoints are absolute mm.
 // Side offsets and loop control distances use mm; loop angles use TikZ degrees.
-export interface FigEdge { fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; fromAnchor?: string; toAnchor?: string; lane?: number;
+export interface FigEdge { styleKey?: string; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; fromAnchor?: string; toAnchor?: string; lane?: number;
 	labelStyle?: LabelStyle; labels?: AttachedLabel[]; style?: ObjectStyle; from: string; to: string; kind: string; route: string; mid: number | null; bend: number;
 	head: string; label: string; extra: string[];
 }
@@ -57,7 +75,7 @@ const MARKERS = ['sg straight', 'sg manhattan', 'sg curved', 'sg fixed'];
 type Line =
 	| { t: 'node'; n: FigNode }
 	| { t: 'edge'; e: FigEdge }
-	| { t: 'cat'; c: Category }
+	| { t: 'style'; s: StyleDef }
 	| { t: 'legendflag'; on: boolean }
 	| { t: 'arrowsflag'; style: string }
 	| { t: 'layer'; layer: Layer }
@@ -78,6 +96,7 @@ const GROUP = /^%\s*sakuga group\s+([\w-]+)\s+\{([^}]*)\}\s+(\w+)\s+([#\w-]+)(?:
 const LAYER = /^%\s*sakuga layer\s+([\w-]+)\s+\{([^}]*)\}(?:\s+(hidden))?(?:\s+(locked))?(?:\s+opacity=([\d.]+))?\s*$/;
 const HIDDEN = /^%\s*sakuga hidden\s+(.*)$/;
 const CAT = /^%\s*sakuga category\s+([\w-]+)\s+\{([^}]*)\}\s+([#\w]+)(?:\s+icon=([\w-]+))?(?:\s+(boxes))?(?:\s+(no-legend))?\s*$/;
+const STYLE = /^%\s*sakuga style\s+(box|arrow|frame|label)\s+([\w-]+)\s+\{([^}]*)\}(.*)$/;
 const LEGENDFLAG = /^%\s*sakuga legend\s+(on|off)\s*$/;
 const CODE = /\\\\\[-1pt\]\\sgcode\{(.*)\}$/;
 
@@ -94,7 +113,7 @@ function opts(s: string): string[] {
 	return out.filter(Boolean);
 }
 
-const shapeKeys: Record<string,string> = {rectangle:'rounded corners=0pt', pill:'rounded corners=100mm', ellipse:'ellipse', circle:'circle', diamond:'diamond', cylinder:'cylinder'};
+const shapeKeys: Record<string,string> = {rounded:'rounded corners=1.4pt', rectangle:'rounded corners=0pt', pill:'rounded corners=100mm', ellipse:'ellipse', circle:'circle', diamond:'diamond', cylinder:'cylinder'};
 const tipKeys: Record<string,string> = {Latex:'Latex[length=1.5mm, width=1.2mm]', Stealth:'Stealth[length=1.5mm, width=1.2mm]', triangle:'Triangle[open, length=1.5mm, width=1.2mm]', barb:'Straight Barb[length=1.5mm, width=1.2mm]', circle:'Circle[length=1.2mm]', bar:'Bar[width=1.2mm]', none:''};
 const patternKeys: Record<string,string> = {hatched:'north east lines', crosshatch:'crosshatch', dots:'dots', horizontal:'horizontal lines', vertical:'vertical lines'};
 const cornerKeys: Record<string,string> = {ne:'north east', nw:'north west', se:'south east', sw:'south west'};
@@ -151,14 +170,14 @@ export const edgeLayerOpacity = (fig: Figure, e: FigEdge) => { const source = no
 function scaledTip(key: string, st: ObjectStyle): string {
  return (tipKeys[key] || '').replace(/length=[\d.]+mm/,`length=${st.tipLength ?? 1.5}mm`).replace(/width=[\d.]+mm/,`width=${st.tipWidth ?? 1.2}mm`);
 }
-function styleOptions(st: ObjectStyle = {}, arrow = false, height = 6.16): string[] {
+function styleOptions(st: ObjectStyle = {}, arrow = false, height = 6.16, ctx: { thin?: boolean; redraw?: boolean } = {}): string[] {
  const out: string[] = [];
  if(st.compact) out.push('sg compact');
  if (!arrow && st.shape && shapeKeys[st.shape]) { out.push(st.shape === 'pill' ? `rounded corners=${Math.round(height * 50) / 100}mm` : shapeKeys[st.shape]); }
  if (st.textColor) { out.push(`text=${fill(st.textColor)}`); }
  if (st.fill) { out.push(`fill=${st.fill === 'none' ? 'none' : fill(st.fill)}`); }
  if (st.color) { out.push(`draw=${st.color === 'black' ? 'black' : fill(st.color)}`); }
- if (st.border) { out.push(st.border === 'none' ? 'draw=none' : st.border); if (st.border === 'double') { out.push('double distance=0.8pt'); } }
+ if (st.border) { out.push(st.border === 'none' ? 'draw=none' : ctx.redraw && st.border === 'solid' ? 'draw=black!38' : st.border); if (st.border === 'double') { out.push('double distance=0.8pt'); } }
  if (!arrow && st.patternColor) { out.push(`pattern color=${fill(st.patternColor)}`); }
  if (!arrow && st.pattern && patternKeys[st.pattern]) { out.push(`postaction={pattern=${patternKeys[st.pattern]},pattern color=${fill(st.patternColor || 'black!25')}}`); }
  if (!arrow && st.mark && st.mark !== 'none') { out.push(markOption(st)); }
@@ -166,12 +185,14 @@ function styleOptions(st: ObjectStyle = {}, arrow = false, height = 6.16): strin
  if (arrow && st.tipLength !== undefined && st.tipLength !== 1.5) { out.push(`sg tip length=${st.tipLength}`); }
  if (arrow && st.tipWidth !== undefined && st.tipWidth !== 1.2) { out.push(`sg tip width=${st.tipWidth}`); }
  if (st.step) { out.push(`sg step=${st.step}`); }
- if (st.weight && st.weight !== 'thin' && !(arrow && st.lineWidth !== undefined)) { out.push(`line width=${st.weight === 'medium' ? '0.8' : '1.2'}pt`); }
+ if (!arrow && st.lineWidth !== undefined) { out.push(`line width=${st.lineWidth}pt`); }
+ else if (st.weight && st.weight !== 'thin' && !(arrow && st.lineWidth !== undefined)) { out.push(`line width=${st.weight === 'medium' ? '0.8' : '1.2'}pt`); }
+ else if (!arrow && st.weight === 'thin' && ctx.thin) { out.push('line width=0.45pt'); }
  if (st.font || st.text) { out.push(`font=\\sffamily${st.font ? '\\'+st.font : ''}${st.text === 'bold' ? '\\bfseries' : st.text === 'italic' ? '\\itshape' : st.text === 'bold-italic' ? '\\bfseries\\itshape' : ''}`); }
  if (arrow && ((st.tipLength !== undefined && st.tipLength !== 1.5) || (st.tipWidth !== undefined && st.tipWidth !== 1.2) || (st.start && st.start !== 'none') || (st.end && st.end !== 'Latex'))) { out.push(`{${scaledTip(st.start || 'none', st)}}-{${scaledTip(st.end || 'Latex', st)}}`); }
  return out;
 }
-function readStyle(options: string[], arrow = false): {style: ObjectStyle; extra: string[]} {
+function readStyle(options: string[], arrow = false, styled = false): {style: ObjectStyle; extra: string[]} {
  const style: ObjectStyle = {}, extra: string[] = [];
  for (const o of options) {
   const shape = Object.keys(shapeKeys).find(k => shapeKeys[k] === o) || (/^rounded corners=[\d.]+mm$/.test(o) ? 'pill' : '');
@@ -200,6 +221,9 @@ function readStyle(options: string[], arrow = false): {style: ObjectStyle; extra
   }
   else if (o.startsWith('text=') && readColor(o.slice(5))) { style.textColor = readColor(o.slice(5)); }
   else if (o === 'draw=none') { style.border = 'none'; }
+  else if (styled && !arrow && o === 'draw=black!38') { style.border = 'solid'; }
+  else if (styled && !arrow && o === 'line width=0.45pt') { style.weight = 'thin'; }
+  else if (!arrow && /^line width=[\d.]+pt$/.test(o) && !/^line width=(0.8|1.2)pt$/.test(o)) { style.lineWidth = parseFloat(o.slice(11)); }
   else if (/^(fill|draw)=/.test(o)) {
    const v = o.split('=')[1], color = readColor(v) || (v === 'none' ? v : '');
    if (color) { style[o.startsWith('fill') ? 'fill' : 'color'] = color; } else { extra.push(o); }
@@ -221,9 +245,105 @@ function readStyle(options: string[], arrow = false): {style: ObjectStyle; extra
  return {style, extra};
 }
 
+
+// ---- Named styles: reading and writing the `% sakuga style` lines ----
+function readStyleLine(kind: StyleKind, key: string, name: string, tail: string): StyleDef {
+ const def: StyleDef = { kind, key, name, props: {}, legend: false };
+ for (const tok of tail.trim().split(/\s+/).filter(Boolean)) {
+  let m: RegExpExecArray | null;
+  if (tok === 'boxes') { def.boxes = true; }
+  else if (tok === 'legend') { def.legend = true; }
+  else if ((m = /^icon=([\w-]+)$/.exec(tok))) { def.icon = m[1]; }
+  else if ((m = /^([A-Za-z]+)=(.*)$/.exec(tok))) { def.props[m[1]] = NUMBER_PROPS.includes(m[1]) ? +m[2] : BOOLEAN_PROPS.includes(m[1]) ? m[2] === 'true' : m[2]; }
+  else if (kind === 'arrow' && /^(solid|dashed|dotted|double)$/.test(tok)) { def.props.border = tok; }
+  else if (kind === 'frame' && /^(none|dashed|dotted|solid|region)$/.test(tok)) { def.props.frame = tok; }
+  else if (PALETTE[tok] || /^#[0-9a-f]{6}$/i.test(tok)) { def.props[PRIMARY[kind]] = tok; }
+ }
+ return def;
+}
+const isColour = (v: unknown) => typeof v === 'string' && (!!PALETTE[v] || /^#[0-9a-f]{6}$/i.test(v));
+export function styleLine(d: StyleDef): string {
+ const p = { ...d.props }, parts: string[] = [];
+ if (d.kind === 'arrow' && p.border) { parts.push(p.border); delete p.border; }
+ if (d.kind === 'frame' && p.frame) { parts.push(p.frame); delete p.frame; }
+ const primary = PRIMARY[d.kind];
+ if (isColour(p[primary])) { parts.push(p[primary]); delete p[primary]; }
+ if (d.icon) { parts.push('icon=' + d.icon); }
+ if (d.boxes) { parts.push('boxes'); }
+ if (d.legend) { parts.push('legend'); }
+ for (const k of STYLEABLE[d.kind]) { if (p[k] !== undefined && p[k] !== null && p[k] !== '') { parts.push(`${k}=${p[k]}`); } }
+ return `% sakuga style ${d.kind} ${d.key} {${d.name}}${parts.length ? ' ' + parts.join(' ') : ''}`;
+}
+export const styleDefs = (fig: Figure) => fig.lines.flatMap(l => l.t === 'style' ? [l.s] : []);
+export const findStyle = (fig: Figure, key: string | undefined, kind?: StyleKind) => key ? styleDefs(fig).find(s => s.key === key && (!kind || s.kind === kind)) : undefined;
+// The box styles as the old category list: colour, icon, "icon in boxes", legend flag.
+export const categories = (fig: Figure): Category[] => styleDefs(fig).filter(s => s.kind === 'box').map(s => ({ key: s.key, name: s.name, color: s.props.fill || 'white', icon: s.icon, boxes: s.boxes, legend: !!s.legend }));
+export const nodeStyleKind = (n: FigNode): StyleKind | null => n.kind === 'icon' ? null : n.kind === 'label' ? 'label' : 'box';
+const objectKey = (o: FigNode | FigEdge) => 'from' in o ? o.styleKey : o.cat;
+const objectKind = (o: FigNode | FigEdge): StyleKind | null => 'from' in o ? 'arrow' : nodeStyleKind(o);
+export const styleOf = (fig: Figure, o: FigNode | FigEdge) => { const k = objectKind(o); return k ? findStyle(fig, objectKey(o), k) : undefined; };
+const isSet = (v: unknown) => v !== undefined && v !== null && v !== '';
+export const styleableOf = (kind: StyleKind, st: Record<string, any> = {}) => Object.fromEntries(STYLEABLE[kind].filter(k => isSet(st[k])).map(k => [k, st[k]]));
+// The object's own values on top of its style; a group is taken whole from the object if it names any of it.
+export function mergeStyle(kind: StyleKind, base: Record<string, any>, st: Record<string, any>): ObjectStyle {
+ const out: any = { ...st }, groups = STYLE_GROUPS[kind], grouped = new Set(groups.flat());
+ for (const k of STYLEABLE[kind]) { if (!grouped.has(k) && out[k] === undefined && isSet(base[k])) { out[k] = base[k]; } }
+ for (const g of groups) { if (g.every(k => out[k] === undefined)) { for (const k of g) { if (isSet(base[k])) { out[k] = base[k]; } } } }
+ return out;
+}
+// What an object changes against its style (plus every property a style cannot hold).
+export function overrideOf(kind: StyleKind, st: Record<string, any>, base: Record<string, any>): ObjectStyle {
+ const out: any = {}, groups = STYLE_GROUPS[kind], grouped = new Set(groups.flat());
+ for (const k of Object.keys(st)) { if (!STYLEABLE[kind].includes(k)) { out[k] = st[k]; } }
+ for (const k of STYLEABLE[kind]) { if (!grouped.has(k) && st[k] !== undefined && st[k] !== base[k]) { out[k] = st[k]; } }
+ for (const g of groups) { if (g.some(k => st[k] !== base[k])) { for (const k of g) { if (st[k] !== undefined) { out[k] = st[k]; } } } }
+ return out;
+}
+export function overrideKeys(fig: Figure, o: FigNode | FigEdge): string[] {
+ const def = styleOf(fig, o), kind = objectKind(o);
+ if (!def || !kind) { return []; }
+ const ov = overrideOf(kind, o.style || {}, def.props);
+ const keys = new Set(STYLEABLE[kind].filter(k => (ov as any)[k] !== undefined));
+ for (const g of STYLE_GROUPS[kind]) { if (g.some(k => keys.has(k))) { g.forEach(k => keys.add(k)); } }
+ return STYLEABLE[kind].filter(k => keys.has(k));
+}
+// Make every styled object carry style + overrides (idempotent).
+export function settle(fig: Figure) {
+ for (const o of [...nodes(fig), ...edges(fig)]) {
+  const def = styleOf(fig, o);
+  if (def) { o.style = mergeStyle(def.kind, def.props, o.style || {}); }
+ }
+}
+// Boxes that share the same overrides against the same style: candidates for a new style.
+export function sharedOverrides(fig: Figure): { cat: string; props: Record<string, any>; ids: string[] }[] {
+ const groupsOf = new Map<string, { cat: string; props: Record<string, any>; ids: string[] }>();
+ for (const n of nodes(fig)) {
+  if (n.kind) { continue; }
+  const def = findStyle(fig, n.cat, 'box');
+  const props = def ? styleableOf('box', overrideOf('box', n.style || {}, def.props)) : styleableOf('box', n.style || {});
+  if (!Object.keys(props).length) { continue; }
+  const sig = JSON.stringify([n.cat, Object.entries(props).sort()]);
+  const g = groupsOf.get(sig) ?? { cat: n.cat, props, ids: [] };
+  g.ids.push(n.id); groupsOf.set(sig, g);
+ }
+ return [...groupsOf.values()].filter(g => g.ids.length >= 2);
+}
+function withTips(st: ObjectStyle): ObjectStyle {
+ return st.start || st.end || st.tipLength !== undefined || st.tipWidth !== undefined ? { ...st, start: st.start || 'none', end: st.end || 'Latex' } : st;
+}
+// Options of the TikZ style definition `sg style/<key>`.
+function styleDefOptions(d: StyleDef): string[] {
+ const p = d.props as ObjectStyle;
+ if (d.kind === 'box') { return ['sg box', ...styleOptions(p, false)]; }
+ if (d.kind === 'label') { return ['sg label', ...(p.border && p.border !== 'none' ? ['draw=black!38'] : []), ...styleOptions(p, false)]; }
+ if (d.kind === 'arrow') { return ['arr', ...styleOptions(withTips(p), true)]; }
+ return [`sg frame ${(d.props.frame && d.props.frame !== 'none') ? d.props.frame : 'dashed'}`];
+}
+
 export function parse(text: string): Figure {
 	const lines: Line[] = [];
 	const individuallyHidden = new Set<string>();
+	const labelKeys = new Set(Array.from(text.matchAll(/^%\s*sakuga style label\s+([\w-]+)/gm), m => m[1]));
 	let block: 'theme' | 'legend' | 'groups' | 'icons' | null = null;
 	for (let line of text.split(/\r?\n/)) {
 		const hidden = HIDDEN.exec(line);
@@ -249,7 +369,12 @@ export function parse(text: string): Figure {
 		if (m) { lines.push({ t: 'layer', layer: { id: m[1], name: m[2], hidden: !!m[3], locked: !!m[4], ...(m[5] !== undefined ? {opacity: opacity(+m[5])} : {}) } }); continue; }
 		m = CAT.exec(line);
 		if (m) {
-			lines.push({ t: 'cat', c: { key: m[1], name: m[2], color: m[3], icon: m[4], boxes: !!m[5], ...(m[6] ? {legend:false} : {}) } });
+			lines.push({ t: 'style', s: { kind: 'box', key: m[1], name: m[2], props: { fill: m[3] }, icon: m[4], boxes: !!m[5], legend: !m[6] } });
+			continue;
+		}
+		m = STYLE.exec(line);
+		if (m) {
+			lines.push({ t: 'style', s: readStyleLine(m[1] as StyleKind, m[2], m[3], m[4]) });
 			continue;
 		}
 		m = LEGENDFLAG.exec(line);
@@ -273,7 +398,9 @@ export function parse(text: string): Figure {
 		if (m) {
 			const o = opts(m[1]);
 			if (o.includes('sg hidden')) { individuallyHidden.add(m[2]); }
-			const cat = (o.find(x => x.startsWith('cat-')) ?? '').slice(4);
+			const styleOpt = o.find(x => x.startsWith('sg style/') || x.startsWith('cat-'));
+				const cat = styleOpt ? styleOpt.slice(styleOpt.startsWith('cat-') ? 4 : 9) : '';
+				const isLabel = o.includes('sg label') || labelKeys.has(cat);
 			const w = o.find(x => /^text width\s*=/.test(x));
 			const h = o.find(x => /^minimum height\s*=/.test(x));
 			const layer = o.find(x => /^sg layer\s*=/.test(x));
@@ -291,7 +418,7 @@ export function parse(text: string): Figure {
 			const icon = /^\\sgicon\{([\w-]+)\}\\ /.exec(title);
 			lines.push({
 				t: 'node', n: {
-					id: m[2], attachment, titlePosition, kind: o.includes('sg label') ? 'label' : undefined, cat, x: +m[3], y: +m[4],
+					id: m[2], attachment, titlePosition, kind: isLabel ? 'label' : undefined, cat, x: +m[3], y: +m[4],
 					title: icon ? title.slice(icon[0].length) : title, icon: o.find(x => x.startsWith('sg icon='))?.slice(8) || icon?.[1], iconPosition: o.find(x => x.startsWith('sg icon position='))?.slice(17),
 					code: code ? code[1] : '',
                     wantWidth: o.some(x=>x.startsWith('sg want=')) ? +o.find(x=>x.startsWith('sg want='))!.slice(8) : undefined,
@@ -299,7 +426,7 @@ export function parse(text: string): Figure {
 					width: w ? parseFloat(w.split('=')[1]) : DEFAULT_WIDTH,
 					minh: h ? parseFloat(h.split('=')[1]) : 0,
 					layer: layer ? layer.split('=')[1].trim() : '', group: g ? g.split('=')[1].trim() : '', hidden: o.includes('sg hidden') || !!hidden, locked: o.includes('sg locked'),
-					...readStyle(o.filter(x => !x.startsWith('sg want=') && !x.startsWith('sg code font=') && !x.startsWith('sg icon') && !x.startsWith('cat-') && x !== 'sg box' && x !== 'sg label' && !x.startsWith('sg label height=') && !(o.includes('sg compact') && /^(text height|text depth)=/.test(x)) && !(o.includes('sg label') && x === 'draw=black!38') && !(attachment && x === `anchor=${attachment.ownAnchor}`) && x !== w && x !== h && x !== g && x !== layer && x !== 'sg hidden' && x !== 'sg locked')),
+					...readStyle(o.filter(x => !x.startsWith('sg want=') && !x.startsWith('sg code font=') && !x.startsWith('sg icon') && x !== styleOpt && x !== 'sg box' && x !== 'sg label' && !x.startsWith('sg label height=') && !(o.includes('sg compact') && /^(text height|text depth)=/.test(x)) && !(isLabel && x === 'draw=black!38') && !(attachment && x === `anchor=${attachment.ownAnchor}`) && x !== w && x !== h && x !== g && x !== layer && x !== 'sg hidden' && x !== 'sg locked'), false, !!cat),
 				},
 			});
 			continue;
@@ -329,6 +456,7 @@ export function parse(text: string): Figure {
 	}
 	for (const n of nodes(fig)) normalizeWidth(fig,n);
 	resolveAttachments(fig);
+	settle(fig);
 	return fig;
 }
 
@@ -352,12 +480,13 @@ function parsePath(o: string[], path: string): FigEdge | null {
 	}
 	const from = ids(coords[0])[0], to = ids(coords[coords.length - 1]).slice(-1)[0];
  const endpointAnchor = (c: string) => /-\||\|-/.test(c) ? undefined : /\.(north west|north east|south west|south east|north|south|east|west|center)(?=\s|\))/.exec(c)?.[1];
+	const styleOpt = o.find(x => x.startsWith('sg style/'));
 	const kind = o.find(x => (ARROWS as readonly string[]).includes(x)) ?? 'arr';
 	const head = o.includes('head both') ? 'both' : o.includes('head none') ? 'none' : 'end';
 	const e: FigEdge = {
-		from, to, fromAnchor:endpointAnchor(coords[0]), toAnchor:endpointAnchor(coords[coords.length-1]), kind, route: 'auto', mid: null, bend: 0, head,
+		...(styleOpt ? {styleKey: styleOpt.slice(9)} : {}), from, to, fromAnchor:endpointAnchor(coords[0]), toAnchor:endpointAnchor(coords[coords.length-1]), kind, route: 'auto', mid: null, bend: 0, head,
 		label: label ? label.replace(/^node\[[^\]]*\]\s*\{/, '').slice(0, -1) : '',
-		...readStyle(o.filter(x => x !== kind && x !== 'head both' && x !== 'head none' && !MARKERS.includes(x) && !/^sg (lane|route|mid|bend)=/.test(x) && !/^sg implicit /.test(x) && !x.startsWith('sg labels=')), true),
+		...readStyle(o.filter(x => x !== kind && x !== styleOpt && x !== 'head both' && x !== 'head none' && !MARKERS.includes(x) && !/^sg (lane|route|mid|bend)=/.test(x) && !/^sg implicit /.test(x) && !x.startsWith('sg labels=')), true, !!styleOpt),
 	};
  const meta=o.find(x=>x.startsWith('sg labels=')); if(meta) { const data=JSON.parse(Buffer.from(meta.slice(10),'hex').toString()); e.labelStyle=data.style; e.labels=data.labels;if(data.text!==undefined)e.label=data.text; }
 	if (label) { e.style = { ...e.style, ...(/near start/.test(label) ? {position:'start'} : /near end/.test(label) ? {position:'end'} : {}), ...(!e.labelStyle?.side && /, above/.test(label) ? {side:'above'} : !e.labelStyle?.side && /, below/.test(label) ? {side:'below'} : !e.labelStyle?.side && /, left/.test(label) ? {side:'left'} : !e.labelStyle?.side && /, right/.test(label) ? {side:'right'} : {}) }; }
@@ -406,7 +535,6 @@ const num = (v: number) => String(Math.round(v * 100) / 100);
 
 export const nodes = (fig: Figure) => fig.lines.flatMap(l => l.t === 'node' ? [l.n] : []);
 export const edges = (fig: Figure) => fig.lines.flatMap(l => l.t === 'edge' ? [l.e] : []);
-export const categories = (fig: Figure) => fig.lines.flatMap(l => l.t === 'cat' ? [l.c] : []);
 export const groups = (fig: Figure) => fig.lines.flatMap(l => l.t === 'group' ? [l.g] : []);
 export const layers = (fig: Figure): Layer[] => {
 	const ls = fig.lines.flatMap(l => l.t === 'layer' ? [l.layer] : []);
@@ -522,15 +650,17 @@ function coordinate(n: FigNode): string {
  return a ? `([shift={(${num(a.dx-ox)}mm,${num(a.dy-oy)}mm)}]${a.parent}.${a.anchor})` : `(${num(n.x)},${num(n.y)})`;
 }
 
-function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpacity = 1): string {
+function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpacity = 1, fig?: Figure): string {
 	if (n.kind === 'icon') {
 		const o = [`pic text={${n.title}}`, ...(n.attachment ? [`anchor=${n.attachment.ownAnchor}`] : []), ...(n.layer ? [`sg layer=${n.layer}`] : []), ...(n.group ? [`sg in=${n.group}`] : []), ...(n.locked ? ['sg locked'] : []), ...opacityOptions(n.style?.opacity,layerOpacity), ...n.extra];
 		const line = `\\pic[${o.join(', ')}] (${n.id}) at ${coordinate(n)} {sg object={${n.icon || ''}}{${num(n.width)}}{${num(n.minh || n.width)}}};`;
 		return n.hidden ? `% sakuga hidden ${line}` : line;
 	}
-	const o = [n.kind === 'label' ? 'sg label' : n.cat ? `cat-${n.cat}` : 'sg box'];
+	const def = fig && n.cat && nodeStyleKind(n) ? findStyle(fig, n.cat, nodeStyleKind(n)!) : undefined;
+	const own: ObjectStyle | undefined = def ? overrideOf(def.kind, n.style || {}, def.props) : n.style;
+	const o = [n.cat ? `sg style/${n.cat}` : n.kind === 'label' ? 'sg label' : 'sg box'];
 	if (n.kind === 'label') { o.push(`sg label height=${boxHalf({...n,style:{...n.style,font:n.style?.font || figureFont}})[1]*2}`); }
-	if (n.kind === 'label' && n.style?.border && n.style.border !== 'none') { o.push('draw=black!38'); }
+	if (n.kind === 'label' && own?.border && own.border !== 'none') { o.push('draw=black!38'); }
 	if (n.attachment && n.kind !== 'icon') { o.push(`anchor=${n.attachment.ownAnchor}`); }
 	if(n.wantWidth !== undefined && n.wantWidth !== n.width) o.push(`sg want=${n.wantWidth}`);
     if(n.codeFont && n.codeFont !== smallerFont(n.style?.font || figureFont)) o.push(`sg code font=${n.codeFont}`);
@@ -558,7 +688,7 @@ function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpa
 	 content = `\\parbox[c][${num(h)}mm][${pos.includes('north') ? 't' : pos.includes('south') ? 'b' : 'c'}]{${num(n.width)}mm}{\\${pos.includes('west') ? 'raggedright' : pos.includes('east') ? 'raggedleft' : 'centering'} ${content}}`;
 	}
 	const label = hasIcon ? `\\sgcontent{${n.iconPosition || 'left'}}{${n.width}}{${content}}` : content;
-	const line = `\\node[${[...o, ...styleOptions(n.style, false, boxHalf({...n, style: {...n.style, font: n.style?.font || figureFont}})[1] * 2), ...opacityOptions(n.style?.opacity,layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
+	const line = `\\node[${[...o, ...styleOptions(own, false, boxHalf({...n, style: {...n.style, font: n.style?.font || figureFont}})[1] * 2, { thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity,layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
 	return n.hidden ? `% sakuga hidden ${line}` : line;
 }
 
@@ -570,7 +700,7 @@ function hiddenReference(fig: Figure, n: FigNode): string[] {
 	};
 	if (!descendants(n.id)) { return []; }
 	return ['% sakuga icons begin (generated anchor for hidden parent)',
-		nodeLine({...n,hidden:false,extra:[...n.extra,'opacity=0','overlay']},fontSize(fig),!!nodeIcon(fig,n)),
+		nodeLine({...n,hidden:false,extra:[...n.extra,'opacity=0','overlay']},fontSize(fig),!!nodeIcon(fig,n),1,fig),
 		'% sakuga icons end'];
 }
 
@@ -603,7 +733,9 @@ export function specialGeometry(fig: Figure, e: FigEdge): any {
  return routing.geometry(e,a,b,edges(fig),arrowStyle(fig),objects,prior);
 }
 function edgeLine(fig: Figure, e: FigEdge): string {
-	const o = [e.kind];
+	const edef = styleOf(fig, e);
+	const eown: ObjectStyle | undefined = edef ? overrideOf('arrow', e.style || {}, edef.props) : e.style;
+	const o = [e.styleKey ? `sg style/${e.styleKey}` : e.kind];
  const labelData={...(Object.keys(cleanLabel(e.labelStyle)).length ? {style:cleanLabel(e.labelStyle)} : {}),...(e.labels?.length ? {labels:e.labels.map(l=>({...l,style:cleanLabel(l.style)}))} : {})};
  if(e.labels?.length) (labelData as any).text=e.label;
  if(e.labelStyle || e.labels?.length){if(e.style?.side)(labelData as any).legacySide=e.style.side;if(e.style?.position)(labelData as any).legacyPosition=e.style.position;}
@@ -679,7 +811,7 @@ function edgeLine(fig: Figure, e: FigEdge): string {
 	} else {
 		path = `(${A}) --${lbl('')} (${B})`;
 	}
-	return `\\draw[${[...o, ...styleOptions(e.style && (e.style.start || e.style.end || e.style.tipLength !== undefined || e.style.tipWidth !== undefined) ? { ...e.style, start: e.style.start || (e.head === 'both' ? 'Latex' : 'none'), end: e.style.end || (e.head === 'none' ? 'none' : 'Latex') } : e.style, true), ...opacityOptions(e.style?.opacity,edgeLayerOpacity(fig,e)), ...e.extra].join(', ')}] ${path};`;
+	return `\\draw[${[...o, ...styleOptions(eown && (eown.start || eown.end || eown.tipLength !== undefined || eown.tipWidth !== undefined) ? { ...eown, start: eown.start || (e.head === 'both' ? 'Latex' : 'none'), end: eown.end || (e.head === 'none' ? 'none' : 'Latex') } : eown, true), ...opacityOptions(e.style?.opacity,edgeLayerOpacity(fig,e)), ...e.extra].join(', ')}] ${path};`;
 }
 
 function iconCode(fig: Figure): string[] {
@@ -698,9 +830,8 @@ function iconCode(fig: Figure): string[] {
 }
 
 function themeBlock(fig: Figure): string[] {
-	const cats = categories(fig);
 	const custom = new Set<string>();
-    for(const c of cats){if(/^#[0-9a-f]{6}$/i.test(c.color))custom.add(c.color.slice(1).toUpperCase());}
+    for(const d of styleDefs(fig)){ for(const match of styleDefOptions(d).join(', ').matchAll(/sgc([0-9A-F]{6})/g)) { custom.add(match[1]); } }
 	for (const [objects, arrow] of [[nodes(fig), false], [edges(fig), true]] as const) {
 	 for (const o of objects) {
 	  for (const match of [...styleOptions(o.style, arrow), ...o.extra].join(', ').matchAll(/sgc([0-9A-F]{6})/g)) { custom.add(match[1]); }
@@ -710,7 +841,7 @@ function themeBlock(fig: Figure): string[] {
 	for (const g of groups(fig)) { for (const c of [g.color,frameAppearance(g).color,g.frameColor,g.titleColor,g.labelStyle?.color,darkerColor(g.color),darkerColor(g.frameColor || (g.outline ? darkerColor(g.color) : '#737373'))]) { if (c && /^#[0-9a-f]{6}$/i.test(c)) custom.add(c.slice(1).toUpperCase()); } }
  for(const e of edges(fig)) for(const l of [e.labelStyle,...(e.labels || []).map(l=>l.style)]) if(l?.color?.startsWith('#')) custom.add(l.color.slice(1).toUpperCase());
 	return [
-		'% sakuga theme begin (generated from the category lines above)',
+		'% sakuga theme begin (generated from the style lines above)',
 		...iconCode(fig),
 		...[...custom].sort().map(hex => `\\definecolor{sgc${hex}}{HTML}{${hex}}`),
 		...Object.keys(PALETTE).filter(c => c !== 'white').map(c => `\\definecolor{${PALETTE[c].name}}{HTML}{${PALETTE[c].hex}}`),
@@ -724,7 +855,7 @@ function themeBlock(fig: Figure): string[] {
 		`    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=${DEFAULT_WIDTH}mm, fill=white},`,
 		'  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},',
 		'  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},',
-		...cats.map(c => `  cat-${c.key}/.style={sg box, fill=${fill(c.color)}},`),
+		...styleDefs(fig).map(d => `  sg style/${d.key}/.style={${styleDefOptions(d).join(', ')}},`),
 		'  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},',
 		'  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},',
 		'  head none/.style={-},',
@@ -787,7 +918,7 @@ function groupsBlock(fig: Figure): string[] {
 // Legend: one swatch per used category, three per column, below the figure's bottom-left corner.
 function legendBlock(fig: Figure): string[] {
 	const used = new Set(nodes(fig).map(n => n.cat));
-	const cats = categories(fig).filter(c => used.has(c.key) && c.legend!==false);
+	const cats = categories(fig).filter(c => used.has(c.key) && c.legend);
 	if (!legendOn(fig) || cats.length === 0) {
 		return [];
 	}
@@ -808,6 +939,7 @@ function pictureFont(line: string, size: string): string {
 }
 
 export function serialize(fig: Figure): string {
+	settle(fig);
 	resolveAttachments(fig);
 	const ordered: FigNode[] = [], visited = new Set<string>();
 	const visit = (n: FigNode) => { if (visited.has(n.id)) { return; } visited.add(n.id); const p = n.attachment && nodes(fig).find(p => p.id === n.attachment!.parent); if (p) { visit(p); } ordered.push(n); };
@@ -837,7 +969,7 @@ export function serialize(fig: Figure): string {
 	}
 	return lines.flatMap(l => {
 		switch (l.t) {
-			case 'node': return [nodeLine({ ...l.n, style: l.n.style, hidden: isHidden(fig, l.n), extra: [...l.n.extra, ...(l.n.hidden && nodeLayer(fig, l.n).hidden ? ['sg hidden'] : [])] }, fontSize(fig), !!nodeIcon(fig,l.n), opacity(nodeLayer(fig,l.n).opacity)), ...hiddenReference(fig,l.n), ...(nodeIcon(fig,l.n) && l.n.kind !== 'icon' && !isHidden(fig,l.n) ? attachedIcons(fig,[l.n]) : [])];
+			case 'node': return [nodeLine({ ...l.n, style: l.n.style, hidden: isHidden(fig, l.n), extra: [...l.n.extra, ...(l.n.hidden && nodeLayer(fig, l.n).hidden ? ['sg hidden'] : [])] }, fontSize(fig), !!nodeIcon(fig,l.n), opacity(nodeLayer(fig,l.n).opacity), fig), ...hiddenReference(fig,l.n), ...(nodeIcon(fig,l.n) && l.n.kind !== 'icon' && !isHidden(fig,l.n) ? attachedIcons(fig,[l.n]) : [])];
 			case 'edge': {
 				const hiddenGroup = groups(fig).some(g=>(g.id===l.e.from || g.id===l.e.to) && groupMembers(fig,g.id).every(n=>isHidden(fig,n)));
 				const hid = hiddenGroup || nodes(fig).some(n => isHidden(fig, n) && (n.id === l.e.from || n.id === l.e.to));
@@ -847,7 +979,7 @@ export function serialize(fig: Figure): string {
 			case 'group': return [`% sakuga group ${l.g.id} {${l.g.name}} ${l.g.frame} ${l.g.color}${l.g.parent ? ` in=${l.g.parent}` : ''}${groupOptions(l.g)}`];
 			case 'groups': return groupsBlock(fig);
 			case 'arrowsflag': return [`% sakuga arrows ${l.style}`];
-			case 'cat': return [`% sakuga category ${l.c.key} {${l.c.name}} ${l.c.color}${l.c.icon ? ` icon=${l.c.icon}` : ''}${l.c.boxes ? ' boxes' : ''}${l.c.legend===false ? ' no-legend' : ''}`];
+			case 'style': return [styleLine(l.s)];
 			case 'legendflag': return [`% sakuga legend ${l.on ? 'on' : 'off'}`];
 			case 'theme': return themeBlock(fig);
 			case 'icons': return attachedIcons(fig);
@@ -865,12 +997,12 @@ function insert(fig: Figure, line: Line) {
 		at = last('node');
 	}
 	if (at < 0 && line.t === 'group') {
-		at = Math.max(last('cat'), last('legendflag'), last('arrowsflag'));
+		at = Math.max(last('style'), last('legendflag'), last('arrowsflag'));
 	}
 	if (at < 0 && (line.t === 'legendflag' || line.t === 'arrowsflag')) {
-		at = Math.max(last('cat'), last('legendflag'));
+		at = Math.max(last('style'), last('legendflag'));
 	}
-	if (at < 0 && (line.t === 'cat' || line.t === 'legendflag' || line.t === 'arrowsflag' || line.t === 'group' || line.t === 'layer')) {
+	if (at < 0 && (line.t === 'style' || line.t === 'legendflag' || line.t === 'arrowsflag' || line.t === 'group' || line.t === 'layer')) {
 		at = fig.lines.findIndex(l => l.t === 'raw' && l.text.includes('\\begin{tikzpicture}')) - 1;
 	}
 	if (at < 0 && line.t === 'node') {
@@ -895,9 +1027,9 @@ export type Op =
 	| { op: 'attach'; id: string; attachment: Attachment | null }
 	| { op: 'move'; id: string; x: number; y: number }
 	| { op: 'addNode'; wantWidth?: number; codeFont?: string; titlePosition?: string; attachment?: Attachment; style?: ObjectStyle; extra?: string[]; layer?: string; id: string; x: number; y: number; title: string; cat: string; icon?: string; iconPosition?: string; kind?: string; code?: string; width?: number; minh?: number; from?: string }
-	| { op: 'addEdge'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; labelStyle?: LabelStyle; labels?: AttachedLabel[]; fromAnchor?: string; toAnchor?: string; lane?: number; style?: ObjectStyle; extra?: string[]; from: string; to: string; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
+	| { op: 'addEdge'; styleKey?: string; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; labelStyle?: LabelStyle; labels?: AttachedLabel[]; fromAnchor?: string; toAnchor?: string; lane?: number; style?: ObjectStyle; extra?: string[]; from: string; to: string; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
 	| { op: 'node'; wantWidth?: number; codeFont?: string; titlePosition?: string; id: string; title?: string; icon?: string; iconPosition?: string; kind?: string; code?: string; cat?: string; width?: number; minh?: number }
-	| { op: 'arrow'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[] | null; waypoints?: number[][]; resetAuto?: boolean; from?: string; to?: string; fromAnchor?: string; toAnchor?: string; lane?: number | null; index: number; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
+	| { op: 'arrow'; styleKey?: string; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[] | null; waypoints?: number[][]; resetAuto?: boolean; from?: string; to?: string; fromAnchor?: string; toAnchor?: string; lane?: number | null; index: number; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
 	| { op: 'arrows'; style: string }
 	| { op: 'sheet'; width: number }
 	| { op: 'addLayer'; id: string; name: string }
@@ -918,6 +1050,11 @@ export type Op =
 	| { op: 'category'; key: string; name?: string; color?: string; icon?: string; boxes?: boolean; legend?: boolean }
 	| { op: 'deleteCategory'; key: string }
 	| { op: 'legend'; on: boolean }
+	| { op: 'styleAdd'; kind: StyleKind; key?: string; name: string; props?: Record<string, any>; icon?: string; boxes?: boolean; legend?: boolean; from?: { id?: string; index?: number }; assign?: { ids?: string[]; indices?: number[] } }
+	| { op: 'styleEdit'; key: string; name?: string; props?: Record<string, any>; icon?: string; boxes?: boolean; legend?: boolean }
+	| { op: 'styleUpdate'; key: string; id?: string; index?: number }
+	| { op: 'styleDelete'; key: string; to?: string }
+	| { op: 'resetStyle'; ids?: string[]; indices?: number[]; keys?: string[] }
 	| { op: 'batch'; ops: Op[] };
 
 export function slugKey(name: string, taken: string[]): string {
@@ -929,6 +1066,37 @@ export function slugKey(name: string, taken: string[]): string {
 		key = `${base}-${i}`;
 	}
 	return key;
+}
+
+const usersOf = (fig: Figure, def: StyleDef): (FigNode | FigEdge)[] => def.kind === 'arrow' ? edges(fig).filter(e => e.styleKey === def.key) : nodes(fig).filter(n => n.cat === def.key && nodeStyleKind(n) === def.kind);
+// Change a style definition while the users keep their overrides.
+function restyle(fig: Figure, def: StyleDef, mutate: (users: (FigNode | FigEdge)[]) => void) {
+ const users = usersOf(fig, def), before = users.map(u => overrideOf(def.kind, u.style || {}, def.props));
+ mutate(users);
+ users.forEach((u, i) => { u.style = mergeStyle(def.kind, def.props, before[i]); });
+}
+// A property change on an object. On a styled object an empty value means "back to the style",
+// except where the style itself differs from the house look and the object asks for the house look.
+function patchStyle(fig: Figure, o: FigNode | FigEdge, patch: ObjectStyle): ObjectStyle {
+ const st: any = { ...o.style, ...patch }, kind = objectKind(o), def = styleOf(fig, o);
+ if (kind === 'box' || kind === 'label') {
+  if ('weight' in patch && !('lineWidth' in patch)) { delete st.lineWidth; }
+  if (patch.lineWidth !== undefined && patch.lineWidth !== null && patch.weight === undefined) { delete st.weight; }
+ }
+ if (!def || !kind) { for (const k of Object.keys(st)) { if (st[k] === null) { delete st[k]; } } return st; }
+ const base = def.props;
+ for (const k of STYLEABLE[kind]) {
+  if (!(k in patch) || isSet((patch as any)[k])) { continue; }
+  if (k === 'border' && base.border && base.border !== 'solid') { st.border = 'solid'; }
+  else if (k === 'shape' && base.shape && base.shape !== 'rounded') { st.shape = 'rounded'; }
+  else if (k === 'weight' && (base.lineWidth !== undefined || (base.weight && base.weight !== 'thin'))) { st.weight = 'thin'; delete st.lineWidth; }
+  else { delete st[k]; }
+ }
+ for (const g of STYLE_GROUPS[kind]) {
+  if (!g.some(k => k in patch)) { continue; }
+  if (g.every(k => !isSet(st[k])) && g.some(k => isSet(base[k]))) { if (g[0] === 'font') { st.font = fontSize(fig); } else if (g[0] === 'weight') { st.weight = 'thin'; } }
+ }
+ return st;
 }
 
 export function apply(fig: Figure, op: Op): void {
@@ -964,9 +1132,60 @@ export function apply(fig: Figure, op: Op): void {
   if (FONT_SIZES.includes(op.size)) { fig.lines = fig.lines.filter(l => !(l.t === 'raw' && /^% sakuga font /.test(l.text))); fig.lines.unshift({t:'raw', text:`% sakuga font ${op.size}`}); }
   break;
  case 'style':
-  for (const n of nodes(fig)) { if (op.ids?.includes(n.id)) { n.style = {...n.style, ...op.style}; } }
-  for (const i of op.indices || []) { const e = edges(fig)[i]; if (e) { e.style = {...e.style, ...op.style}; if (op.style.start !== undefined || op.style.end !== undefined) { e.style.start = e.style.start || (e.head === 'both' ? 'Latex' : 'none'); e.style.end = e.style.end || (e.head === 'none' ? 'none' : 'Latex'); e.head = 'end'; } if (op.style.border !== undefined) { e.kind = 'arr'; } } }
+  for (const n of nodes(fig)) { if (op.ids?.includes(n.id)) { n.style = patchStyle(fig, n, op.style); } }
+  for (const i of op.indices || []) { const e = edges(fig)[i]; if (e) { e.style = patchStyle(fig, e, op.style); if (op.style.start !== undefined || op.style.end !== undefined) { e.style.start = e.style.start || (e.head === 'both' ? 'Latex' : 'none'); e.style.end = e.style.end || (e.head === 'none' ? 'none' : 'Latex'); e.head = 'end'; } if (op.style.border !== undefined) { e.kind = 'arr'; } } }
   break;
+ case 'styleAdd': {
+  const taken = styleDefs(fig).map(d => d.key);
+  const key = op.key && /^[\w-]+$/.test(op.key) && !taken.includes(op.key) ? op.key : slugKey(op.name, taken);
+  const src: any = op.from?.id !== undefined ? node(op.from.id) : op.from?.index !== undefined ? edges(fig)[op.from.index] : undefined;
+  const def: StyleDef = { kind: op.kind, key, name: op.name, props: { ...styleableOf(op.kind, op.props), ...(src ? styleableOf(op.kind, src.style) : {}) }, ...(op.icon ? { icon: op.icon } : {}), ...(op.boxes ? { boxes: true } : {}), legend: op.legend ?? false };
+  insert(fig, { t: 'style', s: def });
+  const targets: any[] = [...(src ? [src] : []), ...(op.assign?.ids || []).flatMap(id => node(id) ?? []), ...(op.assign?.indices || []).flatMap(i => edges(fig)[i] ?? [])];
+  for (const t of targets) { if ('from' in t) { t.styleKey = key; } else { t.cat = key; } }
+  break;
+ }
+ case 'styleEdit': {
+  const def = findStyle(fig, op.key); if (!def) { break; }
+  restyle(fig, def, users => {
+   if (op.name !== undefined && op.name !== def.name) {
+    const key = slugKey(op.name, styleDefs(fig).filter(d => d !== def).map(d => d.key));
+    for (const u of users) { if ('from' in u) { u.styleKey = key; } else { u.cat = key; } }
+    def.key = key; def.name = op.name;
+   }
+   for (const [k, v] of Object.entries(op.props || {})) { if (isSet(v)) { def.props[k] = v; } else { delete def.props[k]; } }
+   if (op.icon !== undefined) { if (op.icon) { def.icon = op.icon; } else { delete def.icon; } }
+   if (op.boxes !== undefined) { def.boxes = op.boxes; }
+   if (op.legend !== undefined) { def.legend = op.legend; }
+  });
+  break;
+ }
+ case 'styleUpdate': {
+  const def = findStyle(fig, op.key); if (!def) { break; }
+  const src: any = op.id !== undefined ? node(op.id) : op.index !== undefined ? edges(fig)[op.index] : undefined; if (!src) { break; }
+  restyle(fig, def, () => { Object.assign(def.props, styleableOf(def.kind, src.style)); });
+  break;
+ }
+ case 'styleDelete': {
+  const def = findStyle(fig, op.key); if (!def) { break; }
+  const dest = findStyle(fig, op.to, def.kind);
+  for (const u of usersOf(fig, def)) {
+   if (dest) { for (const k of STYLEABLE[def.kind]) { delete (u.style as any)?.[k]; } if ('from' in u) { u.styleKey = dest.key; } else { u.cat = dest.key; } }
+   else if ('from' in u) { delete u.styleKey; } else { u.cat = ''; }
+  }
+  fig.lines = fig.lines.filter(l => !(l.t === 'style' && l.s === def));
+  break;
+ }
+ case 'resetStyle': {
+  const targets: any[] = [...nodes(fig).filter(n => op.ids?.includes(n.id)), ...(op.indices || []).flatMap(i => edges(fig)[i] ?? [])];
+  for (const t of targets) {
+   const kind = objectKind(t); if (!kind || !styleOf(fig, t)) { continue; }
+   const keys = new Set(op.keys?.length ? op.keys : STYLEABLE[kind]);
+   for (const g of STYLE_GROUPS[kind]) { if (g.some(k => keys.has(k))) { g.forEach(k => keys.add(k)); } }
+   for (const k of keys) { delete t.style?.[k]; }
+  }
+  break;
+ }
  case 'mergeLayers':
   if (layers(fig).some(l => l.id === op.target)) { for (const n of nodes(fig)) { if (op.ids.includes(nodeLayer(fig,n).id)) { n.layer = op.target; } } fig.lines = fig.lines.filter(l => !(l.t === 'layer' && op.ids.includes(l.layer.id) && l.layer.id !== op.target)); }
   break;
@@ -1048,7 +1267,7 @@ export function apply(fig: Figure, op: Op): void {
 			break;
 		case 'addEdge':
 			insert(fig, { t: 'edge', e: {
-				labelStyle:op.labelStyle && {...op.labelStyle}, labels:op.labels?.map(l=>({...l,style:{...l.style}})), ...Object.fromEntries(['fromOffset','toOffset','loopSide','loopSize','loopOut','loopIn','looseness','loopMax','chain','waypoints'].filter(k=>(op as any)[k]!==undefined).map(k=>[k,(op as any)[k]])), fromAnchor:op.fromAnchor, toAnchor:op.toAnchor, lane:op.lane, style: op.style, from: op.from, to: op.to, kind: op.kind ?? 'arr', route: op.route ?? 'auto', mid: op.mid ?? null, bend: op.bend ?? 0,
+				...(op.styleKey ? {styleKey: op.styleKey} : {}), labelStyle:op.labelStyle && {...op.labelStyle}, labels:op.labels?.map(l=>({...l,style:{...l.style}})), ...Object.fromEntries(['fromOffset','toOffset','loopSide','loopSize','loopOut','loopIn','looseness','loopMax','chain','waypoints'].filter(k=>(op as any)[k]!==undefined).map(k=>[k,(op as any)[k]])), fromAnchor:op.fromAnchor, toAnchor:op.toAnchor, lane:op.lane, style: op.style, from: op.from, to: op.to, kind: op.kind ?? 'arr', route: op.route ?? 'auto', mid: op.mid ?? null, bend: op.bend ?? 0,
 				head: op.head ?? 'end', label: op.label ?? '', extra: op.extra ?? [],
 			} });
 			break;
@@ -1060,7 +1279,11 @@ export function apply(fig: Figure, op: Op): void {
 				if (op.iconPosition !== undefined) { n.iconPosition = op.iconPosition; }
 				if (op.title !== undefined) { n.title = op.title; }
 				if (op.code !== undefined) { n.code = op.code; }
-				if (op.cat !== undefined) { n.cat = op.cat; }
+				if (op.cat !== undefined && op.cat !== n.cat && (!op.cat || !findStyle(fig, op.cat) || findStyle(fig, op.cat)!.kind === nodeStyleKind(n))) {
+						const kind = nodeStyleKind(n);
+						if (kind && n.style) { for (const k of STYLEABLE[kind]) { delete (n.style as any)[k]; } }
+						n.cat = op.cat;
+					}
 				if (op.width !== undefined && op.width > 0) { n.width = op.width; delete n.wantWidth; }
                 if(op.wantWidth !== undefined && op.wantWidth>0)n.wantWidth=op.wantWidth;
                 if(op.codeFont !== undefined)n.codeFont=op.codeFont || undefined;
@@ -1073,7 +1296,8 @@ export function apply(fig: Figure, op: Op): void {
 			if (e) {
     if(e.route==='fixed' && e.chain && ['from','to','fromAnchor','toAnchor','fromOffset','toOffset'].some(k=>(op as any)[k]!==undefined)){e.waypoints=specialGeometry(fig,e)?.pts.slice(1,-1);delete e.chain;}
 				for (const key of ['from','to','fromAnchor','toAnchor','lane'] as const) { if (op[key] !== undefined) { if (key==='lane' && op[key]===null) delete e.lane; else (e as any)[key]=op[key]; } }
-				if (op.kind !== undefined) { e.kind = op.kind; if (e.style) { delete e.style.border; } }
+				if (op.styleKey !== undefined) { if (e.style) { for (const k of STYLEABLE.arrow) { delete (e.style as any)[k]; } } if (op.styleKey) { e.styleKey = op.styleKey; e.kind = 'arr'; } else { delete e.styleKey; } }
+					if (op.kind !== undefined) { e.kind = op.kind; if (e.style) { delete e.style.border; } }
 				if (op.route !== undefined) { e.route = op.route; if(op.route!=='fixed'){delete e.chain;delete e.waypoints;} }
     for(const key of ['fromOffset','toOffset','loopSide','loopSize','loopOut','loopIn','looseness','loopMax','chain','waypoints'] as const)if(op[key]!==undefined){if(key==='chain' && op[key]===null)delete e.chain;else (e as any)[key]=op[key];}
     if(op.loopSide!==undefined){for(const k of ['fromAnchor','toAnchor','fromOffset','toOffset'])delete (e as any)[k];}
@@ -1096,32 +1320,13 @@ export function apply(fig: Figure, op: Op): void {
 			break;
 		}
 		case 'addCategory':
-			insert(fig, { t: 'cat', c: { key: op.key, name: op.name, color: op.color, icon: op.icon, boxes: op.boxes } });
+			apply(fig, { op: 'styleAdd', kind: 'box', key: op.key, name: op.name, props: { fill: op.color }, icon: op.icon, boxes: op.boxes, legend: op.legend ?? true });
 			break;
-		case 'category': {
-			const c = categories(fig).find(x => x.key === op.key);
-			if (c) {
-				if (op.name !== undefined && op.name !== c.name) {
-					// the key follows the name, so the TikZ style reads like the category
-					const key = slugKey(op.name, categories(fig).filter(x => x !== c).map(x => x.key));
-					for (const n of nodes(fig)) {
-						if (n.cat === c.key) { n.cat = key; }
-					}
-					c.key = key;
-					c.name = op.name;
-				}
-				if (op.icon !== undefined) { c.icon = op.icon; }
-				if (op.boxes !== undefined) { c.boxes = op.boxes; }
-                if (op.legend !== undefined) { c.legend = op.legend; }
-				if (op.color !== undefined) { c.color = op.color; }
-			}
+		case 'category':
+			apply(fig, { op: 'styleEdit', key: op.key, name: op.name, icon: op.icon, boxes: op.boxes, legend: op.legend, props: op.color !== undefined ? { fill: op.color } : undefined });
 			break;
-		}
 		case 'deleteCategory':
-			fig.lines = fig.lines.filter(l => !(l.t === 'cat' && l.c.key === op.key));
-			for (const n of nodes(fig)) {
-				if (n.cat === op.key) { n.cat = ''; }
-			}
+			apply(fig, { op: 'styleDelete', key: op.key });
 			break;
 		case 'batch': {
 			// Move parents first so a selection moves once, regardless of selection order.
@@ -1198,13 +1403,14 @@ export function apply(fig: Figure, op: Op): void {
 			break;
 		}
 	}
+ settle(fig);
  for(const n of nodes(fig))normalizeWidth(fig,n);
 	resolveAttachments(fig);
 }
 
 // A new figure: self-contained, everything it needs is defined inside the picture.
 export const TEMPLATE = String.raw`% Sakuga figure
-% sakuga category work {this work} peach
+% sakuga style box work {this work} peach legend
 % sakuga legend on
 \begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
 \end{tikzpicture}
@@ -1215,11 +1421,11 @@ export const TEMPLATE = String.raw`% Sakuga figure
 export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { ops: Op[]; ids: string[] } {
 	const src = parse(text);
 	const ops: Op[] = [];
-	const have = new Set(categories(fig).map(c => c.key));
-	for (const c of categories(src)) {
-		if (!have.has(c.key)) {
-			ops.push({ op: 'addCategory', key: c.key, name: c.name, color: c.color, icon: c.icon, boxes: c.boxes });
-			have.add(c.key);
+	const have = new Set(styleDefs(fig).map(d => d.key));
+	for (const d of styleDefs(src)) {
+		if (!have.has(d.key)) {
+			ops.push({ op: 'styleAdd', kind: d.kind, key: d.key, name: d.name, props: d.props, icon: d.icon, boxes: d.boxes, legend: d.legend });
+			have.add(d.key);
 		}
 	}
 	const used = new Set([...nodes(fig).map(n => n.id),...groups(fig).map(g=>g.id)]);
@@ -1245,7 +1451,7 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 	for (const e of edges(src)) {
 		const a = map.get(e.from), b = map.get(e.to);
 		if (a && b) {
-			ops.push({ op: 'addEdge', fromOffset:e.fromOffset,toOffset:e.toOffset,loopSide:e.loopSide,loopSize:e.loopSize,loopOut:e.loopOut,loopIn:e.loopIn,looseness:e.looseness,loopMax:e.loopMax,...(e.route==='fixed'?{waypoints:specialGeometry(src,e)?.pts.slice(1,-1).map((p:number[])=>[p[0]+dx,p[1]+dy])}:{}), fromAnchor:e.fromAnchor,toAnchor:e.toAnchor,lane:e.lane, labelStyle:e.labelStyle,labels:e.labels,style: e.style, extra: e.extra, from: a, to: b, kind: e.kind, route: e.route, mid: e.mid === null ? null : e.mid + (e.route==='hvh' || (e.route==='u' && /east|west/.test(e.fromAnchor || '')) ? dx : dy), bend: e.bend, head: e.head, label: e.label });
+			ops.push({ op: 'addEdge', fromOffset:e.fromOffset,toOffset:e.toOffset,loopSide:e.loopSide,loopSize:e.loopSize,loopOut:e.loopOut,loopIn:e.loopIn,looseness:e.looseness,loopMax:e.loopMax,...(e.route==='fixed'?{waypoints:specialGeometry(src,e)?.pts.slice(1,-1).map((p:number[])=>[p[0]+dx,p[1]+dy])}:{}), fromAnchor:e.fromAnchor,toAnchor:e.toAnchor,lane:e.lane, styleKey: e.styleKey && have.has(e.styleKey) ? e.styleKey : undefined, labelStyle:e.labelStyle,labels:e.labels,style: e.style, extra: e.extra, from: a, to: b, kind: e.kind, route: e.route, mid: e.mid === null ? null : e.mid + (e.route==='hvh' || (e.route==='u' && /east|west/.test(e.fromAnchor || '')) ? dx : dy), bend: e.bend, head: e.head, label: e.label });
 		}
 	}
 	return { ops, ids: nodes(src).map(n=>map.get(n.id)!) };

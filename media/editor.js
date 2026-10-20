@@ -11,8 +11,6 @@
 	const XSEP = 3 * PT, LINE = 0.45 * PT;
 	const HEIGHTS = [0, 6.16, 9.55];         // box height in mm for 1 and 2 lines of text
 	const STROKE = '#9e9e9e', ARROW = '#808080', ARROW_DASHED = '#a6a6a6', CODE = '#858585';
-	let SHEET = 146;   // text width of the thesis in mm: the width of the sheet
-	let sheetInfo = { over: 0, h: 0 };
 	const PX_PER_MM = 96 / 25.4;             // 100 % zoom = true size on screen
 
 	const svg = document.getElementById('canvas');
@@ -31,7 +29,8 @@
 	let groups = [], selG = null, layerAnchor = null, layerDrag = null;
 	const collapsed = new Set();
 	let icons = [];
-	let nodes = [], edges = [], cats = [], legend = true, palette = {}, defaultWidth = 26;
+	let openStyles = new Set(), pendingStyleFocus = null;
+	let nodes = [], edges = [], cats = [], styles = [], shared = [], legend = true, palette = {}, defaultWidth = 26;
 	let keyObject = null, freshBox = null;
 	let selN = new Set(), selE = new Set();  // selected box ids and arrow indices
 	let view = { s: 4, ox: 0, oy: 0 };       // px per mm and the position of (0,0) in px
@@ -905,7 +904,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 
  }
 
-    function sheetObjects() {
+    function contentObjects() {
         const boxes=nodes.filter(n=>!n.hidden).map(n=>{
             const {w,h}=layout(n), labelWidth=n.kind==='icon' && n.title ? 1+textMm(show(n.title),fontPt(n),'Sakuga Sans') : 0;
             return {x0:n.x-w/2,x1:n.x+w/2+labelWidth,y0:n.y-h/2,y1:n.y+h/2};
@@ -928,44 +927,28 @@ const wasOpen = !!etools.querySelector('details[open]');
         }
         return boxes;
     }
-	function sheetBox() {
-		if (!nodes.length) { return { x0: -SHEET / 2, x1: SHEET / 2, y1: 40, y0: -40 }; }
+	// The extent of everything drawn, with the legend rows; Fit and the size read-out use it.
+	function contentBox() {
+		if (!nodes.length) { return { x0: -40, x1: 40, y1: 40, y0: -40 }; }
 		const b = bbox(), used = new Set(nodes.map(n => n.cat));
 		const rows = Math.min(3, cats.filter(c => used.has(c.key) && c.legend!==false).length);
-        const objects=sheetObjects();
-		const bottom = Math.min(legend && rows ? b.y0 - 7 - rows * 6 : b.y0,...objects.map(b=>b.y0)) - 6, top = Math.max(b.y1,...objects.map(b=>b.y1)) + 6;
-		const h = Math.max(60, Math.ceil((top - bottom) / 10) * 10);
-		return { x0: -SHEET / 2, x1: SHEET / 2, y1: top, y0: top - h };
+		const objects = contentObjects();
+		return {
+			x0: Math.min(b.x0, ...objects.map(o => o.x0)), x1: Math.max(b.x1, ...objects.map(o => o.x1)),
+			y0: Math.min(legend && rows ? b.y0 - 7 - rows * 6 : b.y0, ...objects.map(o => o.y0)), y1: Math.max(b.y1, ...objects.map(o => o.y1)),
+		};
 	}
 	function updateZoombar() {
 		const z = document.getElementById('zoombar'); if (!z) { return; }
-		document.getElementById('zi-size').textContent = `Sheet ${SHEET} \u00d7 ${Math.round(sheetInfo.h)} mm`;
+		const C = contentBox();
+		document.getElementById('zi-size').textContent = nodes.length ? `Figure ${Math.round(C.x1 - C.x0)} \u00d7 ${Math.round(C.y1 - C.y0)} mm` : 'Empty figure';
 		document.getElementById('zi-zoom').textContent = `${Math.round(view.s / PX_PER_MM * 100)} %`;
-		const w = document.getElementById('zi-warn');
-		w.hidden = !sheetInfo.over;
-		w.textContent = sheetInfo.over === 1 ? '1 object outside the sheet' : `${sheetInfo.over} objects outside the sheet`;
 	}
 	function render() { renderBase(); drawTidyPreview(); updateZoombar(); }
 	function renderBase() {
 		if (selN.size || selE.size || selG) { selectedLayers.clear(); }
 		svg.replaceChildren();
 		const gg = el('g', {}, svg), gf = el('g', {}, svg), gn = el('g', {}, svg), ge = el('g', {}, svg), go = el('g', {}, svg);
-		// The sheet: exactly the text width wide; what fits on it fits the thesis.
-		const S = sheetBox();
-		sheetInfo = { over: 0, h: S.y1 - S.y0 };
-		el('rect', { x: px(S.x0), y: py(S.y1), width: (S.x1 - S.x0) * view.s, height: (S.y1 - S.y0) * view.s, fill: '#fff', class: 'sheet' }, gg);
-		{ // dimension line above the sheet
-			const y = py(S.y1) - 14, xa = px(S.x0), xb = px(S.x1);
-			el('path', { d: `M ${xa} ${y - 4} V ${y + 4} M ${xb} ${y - 4} V ${y + 4} M ${xa} ${y} H ${xb}`, class: 'dim' }, gg);
-			const lab = el('text', { x: (xa + xb) / 2, y: y - 6, 'text-anchor': 'middle', class: 'dim-label' }, gg);
-			lab.textContent = `text width ${SHEET} mm`;
-		}
-		for (const b of sheetObjects()) {
-			if (b.x0 < S.x0 - 0.05 || b.x1 > S.x1 + 0.05) {
-				sheetInfo.over++;
-				el('rect', { x: px(b.x0) - 3, y: py(b.y1) - 3, width: (b.x1-b.x0) * view.s + 6, height: (b.y1-b.y0) * view.s + 6, rx: 3, class: 'over-flag' }, go);
-			}
-		}
 		if (grid >= 2 && grid * view.s >= 10) {
 			const r = svg.getBoundingClientRect();
 			const x0 = Math.ceil(-view.ox / view.s / grid) * grid, x1 = (r.width - view.ox) / view.s;
@@ -1136,7 +1119,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 	// Inspector: the selection, the categories of this figure, and figure settings.
  const styleFields = arrow => [
  ...(arrow ? [] : [['Shape','shape',['','rectangle','pill','ellipse','circle','diamond','cylinder']], ['Text','text',['','bold','italic','bold-italic']], ['Font size','font',['',...Object.keys(sizes)]], ['Colour','fill',['',...Object.keys(palette),'none']], ['Pattern','pattern',['','hatched','crosshatch','dots','horizontal','vertical']], ['Pattern colour','patternColor',['',...Object.keys(palette)]], ['Corner mark','mark',['','triangle','circle']], ['Corner','markCorner',['','nw','se','sw']], ['Mark size','markSize',['','medium']], ['Mark colour','markColor',['',...Object.keys(palette)]]]),
- ['Line','border',['','solid','dashed','dotted','none',...(arrow ? [] : ['double'])]], ['Colour','color',['',...Object.keys(palette)]], ...(arrow ? [['Line width (pt)','lineWidth',null],['Tip length (mm)','tipLength',null],['Tip width (mm)','tipWidth',null]] : [['Width','weight',['','medium','thick']],['Line width (pt)','lineWidth',null]]),
+ ['Line','border',['','solid','dashed','dotted','none',...(arrow ? [] : ['double'])]], ['Colour','color',['',...Object.keys(palette)]], ...(arrow ? [['Line width (pt)','lineWidth',null],['Tip length (mm)','tipLength',null],['Tip width (mm)','tipWidth',null]] : [['Width','weight',['','medium','thick']]]),
  ...(arrow ? [['Start','start',['none','Latex','Stealth','triangle','barb','circle','bar']], ['End','end',['Latex','Stealth','triangle','barb','circle','bar','none']], ['Label at','position',['','start','end']], ['Label side','side',['','above','below','left','right']]] : [])
  ];
  // Small visual choices share one keyboard-accessible button vocabulary.
@@ -1156,20 +1139,36 @@ const wasOpen = !!etools.querySelector('details[open]');
  function segmented(options,value,change) {
   const wrap=document.createElement('div');wrap.className='segments';wrap.value=value;wrap.setAttribute('role','group');
   if(value==='*'){const mixed=document.createElement('span');mixed.textContent='Mixed';mixed.className='mixed';wrap.append(mixed);}
-  for(const [v,name] of options){
+  for(const [v,name,tip,text] of options){
    if(v==='*')continue;
-   const b=document.createElement('button');b.type='button';b.title=name;b.setAttribute('aria-label',name);b.setAttribute('aria-pressed',String(v===value));
-   b.innerHTML=choiceGlyph(v,name);b.onclick=()=>change(v);wrap.append(b);
+   const b=document.createElement('button');b.type='button';b.title=tip || name;b.setAttribute('aria-label',tip || name);b.setAttribute('aria-pressed',String(v===value));
+   b.innerHTML=text!==undefined ? `<span>${text}</span>` : choiceGlyph(v,name);b.onclick=()=>change(v);wrap.append(b);
   } return wrap;
  }
+
  function choiceGlyph(v,name) {
-  const paths={rectangle:'M2 4h12v8H2z',pill:'M6 4h4a4 4 0 0 1 0 8H6a4 4 0 0 1 0-8z',ellipse:'M8 4a6 4 0 1 1 0 8a6 4 0 1 1 0-8',circle:'M8 2a6 6 0 1 1 0 12a6 6 0 1 1 0-12',diamond:'M8 2l6 6-6 6-6-6z',cylinder:'M2 5c0-4 12-4 12 0v6c0 4-12 4-12 0z M2 5c0 4 12 4 12 0',straight:'M2 12L14 4',manhattan:'M2 12h6V4h6',curved:'M2 12C12 12 4 4 14 4',u:'M2 4v8h12V4',auto:'M2 12h6V4h6 M2 3h3 M3.5 1.5v3',none:'M3 13L13 3',solid:'M2 8h12',dashed:'M2 8h3m3 0h3m2 0h1',dotted:'M2 8h.1m3 0h.1m3 0h.1m3 0h.1',double:'M2 6h12M2 10h12',Latex:'M2 8h12M10 4l4 4-4 4',Stealth:'M2 8h12M9 3l5 5-5 5 2-5z',triangle:'M3 12L8 3l5 9z',barb:'M2 8h12M10 4l4 4-4 4',bar:'M2 8h10M12 3v10',bold:'M5 2h4a3 3 0 0 1 0 6H5V2z M5 8h5a3 3 0 0 1 0 6H5V8z',italic:'M7 2h6M3 14h6M10 2L6 14','bold-italic':'M5 2h4a3 3 0 0 1 0 6H5V2z M5 8h5a3 3 0 0 1 0 6H5V8z M14 3l-2 10',above:'M2 11h12M5 7l3-4 3 4',below:'M2 5h12M5 9l3 4 3-4',left:'M11 2v12M7 5L3 8l4 3',right:'M5 2v12M9 5l4 3-4 3'};
+  const lineWeights={Thin:1,Medium:2,Thick:3.4};
+  if(lineWeights[name])return `<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="${lineWeights[name]}" stroke-linecap="round" aria-hidden="true"><path d="M2 8h12"/></svg>`;
+  const paths={rectangle:'M2 4h12v8H2z',pill:'M6 4h4a4 4 0 0 1 0 8H6a4 4 0 0 1 0-8z',ellipse:'M8 4a6 4 0 1 1 0 8a6 4 0 1 1 0-8',circle:'M8 2a6 6 0 1 1 0 12a6 6 0 1 1 0-12',diamond:'M8 2l6 6-6 6-6-6z',cylinder:'M2 5c0-4 12-4 12 0v6c0 4-12 4-12 0z M2 5c0 4 12 4 12 0',straight:'M2 12L14 4',end:'M2 8h12M10 4l4 4-4 4',both:'M2 8h12M6 4L2 8l4 4M10 4l4 4-4 4',manhattan:'M2 12h6V4h6',curved:'M2 12C12 12 4 4 14 4',hatched:'M3 13L13 3M3 8L8 3M8 13L13 8',crosshatch:'M3 13L13 3M3 8L8 3M8 13L13 8M3 3L13 13M3 8L8 13M8 3L13 8',dots:'M4 4h.1M8 4h.1M12 4h.1M4 8h.1M8 8h.1M12 8h.1M4 12h.1M8 12h.1M12 12h.1',horizontal:'M2 4h12M2 8h12M2 12h12',vertical:'M4 2v12M8 2v12M12 2v12',u:'M2 4v8h12V4',auto:'M2 12h6V4h6 M2 3h3 M3.5 1.5v3',none:'M3 13L13 3',solid:'M2 8h12',dashed:'M2 8h3m3 0h3m2 0h1',dotted:'M2 8h.1m3 0h.1m3 0h.1m3 0h.1',double:'M2 6h12M2 10h12',Latex:'M2 8h12M10 4l4 4-4 4',Stealth:'M2 8h12M9 3l5 5-5 5 2-5z',triangle:'M3 12L8 3l5 9z',barb:'M2 8h12M10 4l4 4-4 4',bar:'M2 8h10M12 3v10',bold:'M5 2h4a3 3 0 0 1 0 6H5V2z M5 8h5a3 3 0 0 1 0 6H5V8z',italic:'M7 2h6M3 14h6M10 2L6 14','bold-italic':'M5 2h4a3 3 0 0 1 0 6H5V2z M5 8h5a3 3 0 0 1 0 6H5V8z M14 3l-2 10',above:'M2 11h12M5 7l3-4 3 4',below:'M2 5h12M5 9l3 4 3-4',left:'M11 2v12M7 5L3 8l4 3',right:'M5 2v12M9 5l4 3-4 3'};
   const path=paths[v];
   if(path)return `<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="${path}"/></svg>`;
   if(!v && /outline/i.test(name))return choiceGlyph('solid','Solid');
   if(!v && name==='Normal')return '<span>N</span>';
+  if(!v && name==='None')return choiceGlyph('none','None');
   if(!v)return '<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><rect x="2" y="4" width="12" height="8" rx="2"/></svg>';
   return `<span>${String(name).replace(/[&<>"']/g,'')}</span>`;
+ }
+ // Outline width: thin / medium / thick, and a number only on demand.
+ function weightControl(objects,change) {
+  const first=objects[0].style || {}, key=o=>`${o.style?.weight || ''}|${o.style?.lineWidth ?? ''}`;
+  const same=objects.every(o=>key(o)===key(objects[0])), custom=objects.some(o=>o.style?.lineWidth !== undefined);
+  const wrap=document.createElement('div');wrap.className='width-control';
+  wrap.append(segmented([['','Thin'],['medium','Medium'],['thick','Thick']],same ? (custom ? '#' : first.weight || '') : '*',v=>change({weight:v})));
+  const number=numberControl(first.lineWidth ?? ({medium:.8,thick:1.2}[first.weight] || .45),v=>change({lineWidth:v ?? .45}),{min:.05});
+  number.hidden=!custom;number.setAttribute('aria-label','Line width (pt)');
+  const toggle=document.createElement('button');toggle.type='button';toggle.className='custom-toggle';toggle.textContent='custom';toggle.title='Enter a line width in pt';toggle.setAttribute('aria-pressed',String(custom));
+  toggle.onclick=()=>{number.hidden=!number.hidden;toggle.setAttribute('aria-pressed',String(!number.hidden));if(!number.hidden)number.focus();};
+  wrap.append(toggle,number);return wrap;
  }
  function styleSelect(prop, values, objects, change) {
   if(values===null) {const mixed=objects.some(o=>o.style?.[prop]!==objects[0].style?.[prop]);const defaults={lineWidth:0.45,tipLength:1.5,tipWidth:1.2};return numberControl(mixed ? null : objects[0].style?.[prop] ?? (prop==='lineWidth' ? ({medium:.8,thick:1.2}[objects[0].style?.weight] || .45) : defaults[prop]),v=>change({[prop]:v ?? defaults[prop]}),{min:0.05,placeholder:mixed ? 'Mixed' : ''});}
@@ -1181,13 +1180,16 @@ const wasOpen = !!etools.querySelector('details[open]');
    const wrap=document.createElement('div');wrap.className='segments';wrap.value=value;wrap.setAttribute('role','group');wrap.setAttribute('aria-label','Text emphasis');
    for(const key of ['bold','italic']){const b=document.createElement('button');b.type='button';b.title=key;b.setAttribute('aria-label',key);b.setAttribute('aria-pressed',value==='*' ? 'mixed' : String(value.includes(key)));b.innerHTML=choiceGlyph(key,key);b.onclick=()=>{const bold=key==='bold' ? !value.includes('bold') : value.includes('bold'),italic=key==='italic' ? !value.includes('italic') : value.includes('italic');change({text:bold && italic ? 'bold-italic' : bold ? 'bold' : italic ? 'italic' : ''});};wrap.append(b);}return wrap;
   }
-  if(['shape','border','text','start','end','side','position','mark','markCorner','weight'].includes(prop))return segmented(values.map(v=>[v,({nw:'Top left',ne:'Top right',sw:'Bottom left',se:'Bottom right'}[v] || v) || ({shape:'Rounded rectangle',border:'Default outline',text:'Normal',position:'Middle',side:'On the line',mark:'None',weight:'Thin'}[prop] || 'Default')]),value,v=>change({[prop]:v}));
+  if(prop==='font')return sizeSegments(values.map(v=>[v,v || 'Figure font size']),value,v=>change({font:v}));
+  if(prop==='markSize')return segmented([['','Small (2.4 mm)',undefined,'S'],['medium','Medium (5 mm)',undefined,'M']],value,v=>change({markSize:v}));
+  if(prop==='weight')return weightControl(objects,change);
+  if(['shape','border','text','start','end','side','position','mark','markCorner','pattern'].includes(prop))return segmented(values.map(v=>[v,({nw:'Top left',ne:'Top right',sw:'Bottom left',se:'Bottom right'}[v] || v) || ({shape:'Rounded rectangle',border:'Default outline',text:'Normal',position:'Middle',side:'On the line',mark:'None',pattern:'None'}[prop] || 'Default')]),value,v=>change({[prop]:v}));
   for (const v of value === '*' ? ['*',...values] : values) { select.add(new Option(v === '*' ? '(mixed)' : ({nw:'top left',se:'bottom right',sw:'bottom left',medium:prop === 'markSize' ? 'medium (5 mm)' : 'medium'}[v] || v) || ({shape:'rounded rectangle',fill:'category',border:'solid',color:'grey',weight:'thin',text:'normal',font:'figure',position:'middle',side:'on the line',pattern:'none',mark:'none',markCorner:'top right',markSize:'small (2.4 mm)'}[prop] || 'default'),v)); } select.value = value;
   select.onchange = () => { if (select.value !== '*') { if (prop === 'mark') { select.blur(); } change({[prop]:select.value}); } }; return select;
  }
  function styleColour(prop, value, change) {
   const wrap = document.createElement('div'); wrap.className = 'style-colour';
-  const defaults = {fill:'category / white',color:'grey',patternColor:'black 25%',markColor:'#33333A',textColor:'black'};
+  const defaults = {fill:'style / white',color:'grey',patternColor:'black 25%',markColor:'#33333A',textColor:'black'};
   const options = [{value:'',label:defaults[prop]}, ...Object.keys(palette).map(k => ({value:k,label:k,color:styleColor(k,'#fff')})), ...(prop === 'fill' ? [{value:'none',label:'none'}] : []), ...recentColors.map(k => ({value:k,label:k,color:k}))];
   if (value === '*') { options.unshift({value:'*',label:'(mixed)'}); }
   else if (value && !options.some(o => o.value === value)) { options.push({value,label:value,color:styleColor(value,'#fff')}); }
@@ -1205,6 +1207,44 @@ const wasOpen = !!etools.querySelector('details[open]');
   wrap.append(swatches,picker,hex); return wrap;
  }
 
+	// ---- Named styles: a style acts on its objects; an object only keeps what differs from it ----
+	const SIZE_LABEL = { tiny: '6', scriptsize: '8', footnotesize: '9', small: '10', normalsize: '11', large: '12' };
+	// Font sizes as one row of buttons labelled with the point size.
+	function sizeSegments(options,value,change) {
+	 return segmented(options.map(([v,label])=>v==='*' ? [v,label] : [v,label,v ? `${label} (${SIZE_LABEL[v] || '?'} pt)` : label,v ? SIZE_LABEL[v] || v : 'Auto']),value,change);
+	}
+	const KIND_NAMES = { box: 'Box', arrow: 'Arrow', frame: 'Frame', label: 'Label' };
+	const STYLE_KEYS = ['fill', 'color', 'border', 'weight', 'lineWidth', 'shape', 'font', 'text', 'textColor'];
+	const ROW_OF = { lineWidth: 'weight' };
+	const styleDef = key => styles.find(s => s.key === key);
+	const nodeStyleKind = n => n.kind === 'label' ? 'label' : n.kind ? '' : 'box';
+	const styleUsers = def => def.kind === 'arrow' ? edges.filter(e => e.styleKey === def.key).length : nodes.filter(n => n.cat === def.key && nodeStyleKind(n) === def.kind).length;
+	const styleSwatch = def => def.kind === 'box' ? styleColor(def.props.fill, '#ffffff') : def.kind === 'arrow' ? styleColor(def.props.color, ARROW) : def.kind === 'label' ? styleColor(def.props.textColor, '#444444') : styleColor(def.props.color, '#bbbbbb');
+	const dismissedHints = () => new Set((vscode.getState() || {}).dismissedHints || []);
+	function styleChoice(kind, value, onChange) {
+		const options = [{ value: '', label: 'Plain', color: '#ffffff' }, ...styles.filter(s => s.kind === kind).map(s => ({ value: s.key, label: show(s.name), color: styleSwatch(s), icon: s.icon }))];
+		if (value === '*') { options.unshift({ value: '*', label: '(mixed)' }); }
+		const b = visualChoice(options, value, onChange); b.setAttribute('aria-label', 'Style'); return b;
+	}
+	function nextStyleName(kind) { let i = styles.filter(s => s.kind === kind).length + 1; while (styles.some(s => s.name === `${KIND_NAMES[kind]} style ${i}`)) { i++; } return `${KIND_NAMES[kind]} style ${i}`; }
+	// A new style takes its look from an object (or is empty), then opens in the Styles list for naming.
+	function addStyle(kind, from, assign) {
+		const name = nextStyleName(kind), props = {};
+		if (!from) {
+			if (kind === 'box') { props.fill = Object.keys(palette).filter(k => k !== 'white' && !cats.some(c => c.color === k))[0] || 'grey'; }
+			if (kind === 'frame') { props.frame = 'dashed'; props.color = 'grey'; }
+		}
+		const colour = from ? (byId(from.id)?.style?.fill) : props.fill;
+		pendingStyleFocus = name;
+		post({ op: 'styleAdd', kind, name, props, from, assign, legend: kind === 'box' && !!colour && colour !== 'white' && colour !== 'none' });
+	}
+	function markOverride(r, ids, indices, props) {
+		r.classList.add('overridden');
+		const reset = document.createElement('button'); reset.type = 'button'; reset.className = 'reset-prop'; reset.textContent = 'reset'; reset.title = 'Back to the style';
+		reset.onclick = () => post({ op: 'resetStyle', ...(ids ? { ids } : { indices }), keys: props });
+		r.append(reset);
+	}
+	const isOverride = (o, prop) => (o.overrides || []).includes(prop) || (prop === 'weight' && (o.overrides || []).includes('lineWidth'));
 	function renderInspector() {
         if(tidyPreview)return;
 		renderInspectorRaw();
@@ -1225,11 +1265,11 @@ const wasOpen = !!etools.querySelector('details[open]');
             d.ontoggle=()=>persist({sections:{...vscode.getState()?.sections,[key]:d.open}});
             d.append(h,body);parent.append(d);sections.set(key,body);return body;
         };
-        for(const title of ['Text','Fill','Outline','Shape & decoration','Arrange'])getSection(title);
-        for(const title of ['Sheet','Text','Arrows','Legend','Grid','Categories'])getSection(title,figure);
+        for(const title of ['Style','Text','Fill','Outline','Route & tips','Shape & decoration','Arrange'])getSection(title);
+        for(const title of ['Text','Arrows','Legend','Grid','Styles'])getSection(title,figure);
         const section = title => {
-            if(title==='Categories' || title==='Figure'){figureMode=true;current=title==='Figure' ? 'Sheet' : title;return;}
-            current=['Fill','Outline'].includes(title) ? title : 'Text';
+            if(title==='Styles' || title==='Figure'){figureMode=true;current=title==='Figure' ? 'Text' : title;return;}
+            current=['Style','Fill','Outline'].includes(title) ? title : 'Text';
         };
         const row = (name, ...controls) => {
             const r=document.createElement('div');r.className='row';
@@ -1237,14 +1277,15 @@ const wasOpen = !!etools.querySelector('details[open]');
             const suffix=/ \((pt|mm|%)\)$/.exec(name);
             if(suffix){label.textContent=name.slice(0,-suffix[0].length);r.append(unit(suffix[1]));}
             let target=current;
-            if(figureMode){ target=current==='Categories' ? current : ({'Sheet width':'Sheet','Font size':'Text',Arrows:'Arrows',Legend:'Legend',Grid:'Grid'}[name] || current); }
+            if(figureMode){ target=current==='Styles' ? current : ({'Font size':'Text',Arrows:'Arrows',Legend:'Legend',Grid:'Grid'}[name] || current); }
             else {
                 if(['Code size','Title','Code','Label','Name','Text','Font size','Title size','Bold title','bold','italic','Knock-out','Text colour','Title colour','Title at','Title position'].includes(name)) target='Text';
-                else if(['Icon','Icons','Category icon','Pattern','Pattern colour','Corner mark','Corner','Mark size','Mark colour','Shape'].includes(name) || name==='Position' && controls[0]?.className==='segments')target='Shape & decoration';
-                else if(name==='Category')target='Fill';
+                else if(['Icon','Icons','Style icon','Pattern','Pattern colour','Corner mark','Corner','Mark size','Mark colour','Shape'].includes(name) || name==='Position' && controls[0]?.className==='segments')target='Shape & decoration';
+                else if(name==='Style')target='Style';
                 else if(name==='Thin frame')target='Outline';
                 else if(['X','Y','Width','Height','Padding','Strength','Opacity','Move to layer','Attached to','Parent anchor','Own anchor','Offset X','Offset Y','From','To','Start side','End side','Lane','Step'].includes(name))target=name==='Strength' ? 'Fill' : 'Arrange';
-                else if(['Route','Heads','Start','End','Label at','Label side','Side'].includes(name))target='Shape & decoration';
+                else if(['Route','Heads','Start','End'].includes(name))target='Route & tips';
+                else if(['Label at','Label side','Side'].includes(name))target='Shape & decoration';
             }
             target=controls[0]?._inspectorSection || target;
             getSection(target,figureMode ? figure : selection).append(r);
@@ -1272,11 +1313,47 @@ const wasOpen = !!etools.querySelector('details[open]');
 		};
         const choice = (options, value, onChange) => {
             if(options.some(([v])=>v==='inside-top-left'))return titlePositionPicker(options,value,onChange);
+            if(options.some(([v])=>SIZE_LABEL[v]))return sizeSegments(options,value,onChange);
             if(options.length<=7 && options.every(([v])=>!Object.keys(sizes).includes(v)) && !options.some(([v])=>nodes.some(n=>n.id===v) || layers.some(l=>l.id===v)))return segmented(options,value,onChange);
             const select=document.createElement('select');
             for(const [v,label] of options)select.add(new Option(label,v));select.value=value;select.onchange=()=>onChange(select.value);return select;
         };
 
+
+        // Style picker on top, the "+N" of overrides, and the three exits from them.
+        const styleHeader = ids => {
+            const objs = ids.map(byId), kind = nodeStyleKind(objs[0]);
+            const same = objs.every(o => o.cat === objs[0].cat) ? objs[0].cat : '*';
+            const keys = o => [...new Set((o.overrides || []).map(k => ROW_OF[k] || k))];
+            const nOver = same === '*' ? 0 : Math.max(...objs.map(o => keys(o).length));
+            const picker = styleChoice(kind, same, v => { if (v !== '*') { if (kind === 'box') { lastCat = v; } post({ op: 'batch', ops: ids.map(id => ({ op: 'node', id, cat: v })) }); } });
+            const r = row('Style', picker);
+            if (nOver) { const c = document.createElement('span'); c.className = 'override-count'; c.textContent = `+${nOver}`; c.title = `${nOver} propert${nOver === 1 ? 'y differs' : 'ies differ'} from the style`; r.append(c); }
+            const plainProps = same === '' && objs.some(o => STYLE_KEYS.some(k => o.style?.[k] !== undefined && o.style[k] !== ''));
+            const def = styleDef(same);
+            if (nOver || plainProps) {
+                const wrap = document.createElement('div'); wrap.className = 'buttons style-actions';
+                const button = (text, title, fn) => { const b = document.createElement('button'); b.type = 'button'; b.textContent = text; b.title = title; b.onclick = fn; wrap.append(b); return b; };
+                if (nOver) { button('Reset to style', 'Remove the overrides of this object', () => post({ op: 'resetStyle', ids })); }
+                if (nOver && ids.length === 1 && def) {
+                    const others = styleUsers(def) - 1;
+                    button('Update style from this object', others > 0 ? `The style "${show(def.name)}" takes this look; ${others} other ${others === 1 ? 'object changes' : 'objects change'}` : 'The style takes this look', () => post({ op: 'styleUpdate', key: def.key, id: ids[0] }));
+                    if (others > 0) { const note = document.createElement('p'); note.className = 'style-note'; note.textContent = `Changes ${others} other ${kind === 'label' ? 'label' : 'box'}${others === 1 ? '' : 'es'}.`; wrap.append(note); }
+                }
+                if (ids.length === 1) { button('New style from this object', 'Make a new style with this look', () => addStyle(kind, { id: ids[0] })); }
+                getSection('Style').append(wrap);
+            }
+            const dismissed = dismissedHints();
+            const hint = kind === 'box' ? shared.find(g => !dismissed.has(JSON.stringify([g.cat, g.props])) && ids.some(id => g.ids.includes(id))) : null;
+            if (hint) {
+                const box = document.createElement('div'); box.className = 'style-hint';
+                const text = document.createElement('span'); text.textContent = `${hint.ids.length} boxes share the same overrides: make a style?`;
+                const actions = document.createElement('div'); actions.className = 'buttons';
+                const make = document.createElement('button'); make.type = 'button'; make.textContent = 'Make style'; make.onclick = () => addStyle('box', { id: hint.ids[0] }, { ids: hint.ids });
+                const no = document.createElement('button'); no.type = 'button'; no.textContent = 'Dismiss'; no.onclick = () => { persist({ dismissedHints: [...dismissed, JSON.stringify([hint.cat, hint.props])] }); renderInspectorRaw(); };
+                actions.append(make, no); box.append(text, actions); getSection('Style').append(box);
+            }
+        };
 		if (selN.size >= 2) { sketchControls(getSection('Arrange')); }
         if(!selE.size || selN.size)tidyControl(getSection('Arrange'));
 		const count = selN.size + selE.size;
@@ -1318,18 +1395,16 @@ const wasOpen = !!etools.querySelector('details[open]');
 
 		} else if (n) {
 			section(n.kind === 'icon' ? 'Free icon' : n.kind === 'label' ? 'Label' : 'Box');
+			if (n.kind !== 'icon') { styleHeader([n.id]); }
             if(n.kind==='icon'){row('Font size',choice([['','Figure'],...Object.keys(sizes).map(v=>[v,v])],n.style?.font || '',font=>post({op:'style',ids:[n.id],style:{font}})));row('Text',styleSelect('text',['','bold','italic','bold-italic'],[n],style=>post({op:'style',ids:[n.id],style})));}
-   row('Text colour',styleColour('textColor',n.style?.textColor || '',style=>post({op:'style',ids:[n.id],style})));
 			if (n.kind !== 'label') { row('Icon', iconPicker(effectiveIcon(n), icon => post({ op: 'node', id: n.id, icon: icon || (n.kind === 'icon' ? '' : 'none') }))); }
 			if (isBox(n)) {
 			row('Position', choice([['left','Left of title'],['above','Above title'],['right','Right of title'],['nw','Top left'],['ne','Top right'],['sw','Bottom left'],['se','Bottom right']], n.iconPosition || 'left', iconPosition => post({op:'node', id:n.id, iconPosition})));
-			const inherit = document.createElement('input'); inherit.type = 'checkbox'; inherit.setAttribute('aria-label','Use category icon in this box'); inherit.checked = n.icon === 'category' || (!n.icon && catOf(n.cat)?.boxes); inherit.onchange = () => post({op:'node', id:n.id, icon:inherit.checked ? 'category' : 'none'}); row('Category icon', inherit);
+			const inherit = document.createElement('input'); inherit.type = 'checkbox'; inherit.setAttribute('aria-label','Use style icon in this box'); inherit.checked = n.icon === 'category' || (!n.icon && catOf(n.cat)?.boxes); inherit.onchange = () => post({op:'node', id:n.id, icon:inherit.checked ? 'category' : 'none'}); row('Style icon', inherit);
 			}
 			row(n.kind === 'icon' ? 'Label' : 'Title', field(show(n.title.split('\\\\').join(' / ')), v => post({ op: 'node', id: n.id, title: v.split(' / ').map(tex).join('\\\\') })));
 			if (isBox(n)) { row('Code', field(show(n.code), v => post({ op: 'node', id: n.id, code: tex(v) }), { mono: true }));
-			row('Category', categoryChoice([['', '(none)'], ...cats.map(c => [c.key, show(c.name)]), ['+', 'New category…']], n.cat, v => {
-				if (v === '+') { addCategory(n.id); } else { lastCat = v; post({ op: 'node', id: n.id, cat: v }); }
-			})); }
+			}
 
    if (isBox(n)) { row('Title position',anchorPicker(n.titlePosition || 'center',titlePosition=>post({op:'node',id:n.id,titlePosition}))); }
    const attach = attachment => post({op:'attach',id:n.id,attachment});
@@ -1385,13 +1460,10 @@ const wasOpen = !!etools.querySelector('details[open]');
 				const boxes = ids.filter(id => byId(id).kind !== 'icon');
 				if (boxes.length) {
 					row('Position', choice([['left','Left of title'],['above','Above title'],['right','Right of title'],['nw','Top left'],['ne','Top right'],['sw','Bottom left'],['se','Bottom right']], byId(boxes[0]).iconPosition || 'left', iconPosition => post({op:'batch',ops:boxes.map(id=>({op:'node',id,iconPosition}))})));
-					const inherit = document.createElement('button'); inherit.textContent = 'Use category icons'; inherit.onclick = () => post({op:'batch',ops:boxes.map(id=>({op:'node',id,icon:'category'}))}); row('Icons',inherit);
+					const inherit = document.createElement('button'); inherit.textContent = 'Use style icons'; inherit.onclick = () => post({op:'batch',ops:boxes.map(id=>({op:'node',id,icon:'category'}))}); row('Icons',inherit);
 				}
-				const same = ids.every(id => byId(id).cat === byId(ids[0]).cat) ? byId(ids[0]).cat : '*';
-				const opts = [['', '(none)'], ...cats.map(c => [c.key, show(c.name)])];
-				row('Category', categoryChoice(same === '*' ? [['*', '(mixed)'], ...opts] : opts, same, v => {
-					if (v !== '*') { lastCat = v; post({ op: 'batch', ops: ids.map(id => ({ op: 'node', id, cat: v })) }); }
-				}));
+				const styled = ids.filter(id => nodeStyleKind(byId(id)));
+				if (styled.length && styled.every(id => nodeStyleKind(byId(id)) === nodeStyleKind(byId(styled[0])))) { styleHeader(styled); }
 			}
 			if (selE.size) {
 				const ix = [...selE];
@@ -1424,10 +1496,11 @@ const wasOpen = !!etools.querySelector('details[open]');
    const objects = arrow ? [...selE].map(i => edges[i]) : [...selN].map(byId).filter(n => n.kind !== 'icon'); if (!objects.length) { continue; }
    section(arrow ? 'Arrow style' : 'Style');
    for (const [name,prop,values] of styleFields(arrow)) {
-    current=['text','font','textColor'].includes(prop) ? 'Text' : prop==='fill' ? 'Fill' : ['border','color','weight','lineWidth'].includes(prop) ? 'Outline' : 'Shape & decoration';
+    current=['text','font','textColor'].includes(prop) ? 'Text' : prop==='fill' ? 'Fill' : ['border','color','weight','lineWidth'].includes(prop) ? 'Outline' : ['start','end'].includes(prop) ? 'Route & tips' : 'Shape & decoration';
     if (['markCorner','markSize','markColor'].includes(prop) && !objects.some(o => o.style?.mark && o.style.mark !== 'none'))continue;
     const control=styleSelect(prop,values,objects,style=>post({op:'batch',ops:[{op:'style',...(arrow ? {indices:[...selE]} : {ids:[...selN]}),style}]}));
-    control._inspectorSection=current;row(name,control);
+    control._inspectorSection=current;const styledRow=row(name,control);
+    if(objects.some(o=>isOverride(o,prop)))markOverride(styledRow,arrow ? null : [...selN],arrow ? [...selE] : null,[prop]);
     if(!arrow && prop==='font' && objects.every(n=>!n.kind)){
      const same=objects.every(n=>(n.codeFont || '')===(objects[0].codeFont || ''));
      row('Code size',choice([...(same ? [] : [['*','Mixed']]),['','One step below title'],...['tiny',...Object.keys(sizes)].filter(v=>SakugaText.sizes[v]<=Math.min(...objects.map(n=>smallerPt(fontPt(n))))).map(v=>[v,v])],same ? objects[0].codeFont || '' : '*',codeFont=>{if(codeFont!=='*')post({op:'batch',ops:objects.map(n=>({op:'node',id:n.id,codeFont}))});}));
@@ -1435,6 +1508,11 @@ const wasOpen = !!etools.querySelector('details[open]');
     }
 
    }
+  }
+  if (n) {
+   current='Text';
+   const colourRow=row('Text colour',styleColour('textColor',n.style?.textColor || '',style=>post({op:'style',ids:[n.id],style})));
+   if(isOverride(n,'textColor'))markOverride(colourRow,[n.id],null,['textColor']);
   }
 		if (count > 0) {
 			const b1 = document.createElement('button');
@@ -1458,32 +1536,81 @@ const wasOpen = !!etools.querySelector('details[open]');
 			selection.appendChild(p);
 		}
 
-		section('Categories');
-        const categoryList=getSection('Categories',figure);
-        const heading=document.createElement('div');heading.className='category-heading';heading.textContent='Colour · Icon · Name';
-        const legendHeading=document.createElement('span');legendHeading.textContent='Legend';heading.append(legendHeading);categoryList.append(heading);
-        cats.forEach(c=>{
-            const item=document.createElement('div');item.className='category-item';
-            const line=document.createElement('div');line.className='category-line';
-            const sw=document.createElement('button');sw.className='category-swatch';sw.style.background=fillOf(c.key);sw.title='Edit '+show(c.name)+' colour';sw.setAttribute('aria-label',sw.title);
-            const picker=iconPicker(c.icon,icon=>post({op:'category',key:c.key,icon}));
-            const name=field(show(c.name),v=>post({op:'category',key:c.key,name:tex(v)}));name.setAttribute('aria-label','Category name');
-            const inLegend=document.createElement('input');inLegend.type='checkbox';inLegend.checked=c.legend!==false;inLegend.title='Include in legend';inLegend.setAttribute('aria-label','Include '+show(c.name)+' in legend');inLegend.onchange=()=>post({op:'category',key:c.key,legend:inLegend.checked});
-            const edit=document.createElement('div');edit.className='category-edit';edit.hidden=true;
-            const colors=styleColour('fill',c.color,v=>post({op:'category',key:c.key,color:v.fill==='none' ? 'white' : v.fill || 'grey'}));
-            const boxes=document.createElement('input');boxes.type='checkbox';boxes.checked=!!c.boxes;boxes.onchange=()=>post({op:'category',key:c.key,boxes:boxes.checked});
-            const boxLabel=document.createElement('label');boxLabel.textContent='Use icon in boxes';boxLabel.prepend(boxes);
-            const del=document.createElement('button');del.textContent='Remove category';del.onclick=()=>post({op:'deleteCategory',key:c.key});
-            edit.append(colors,boxLabel,del);sw.onclick=()=>{edit.hidden=!edit.hidden;sw.setAttribute('aria-expanded',String(!edit.hidden));};
-            line.append(sw,picker,name,inLegend);item.append(line,edit);categoryList.append(item);
-        });
-		const add = document.createElement('button');
-		add.textContent = 'Add category';
-		add.addEventListener('click', () => addCategory(null));
-		getSection('Categories',figure).appendChild(add);
+		section('Styles');
+        const styleList=getSection('Styles',figure);
+        const editStyle=(def,change)=>post({op:'styleEdit',key:def.key,...change});
+        const styleEditor=def=>{
+            const panel=document.createElement('div');panel.className='category-edit style-edit';
+            const fake=[{style:def.props}];
+            const line=(name,control)=>{const r=document.createElement('div');r.className='row';const l=document.createElement('span');l.textContent=name;r.append(l,control);panel.append(r);return r;};
+            const prop=(name,key,values)=>line(name,styleSelect(key,values,fake,patch=>editStyle(def,{props:patch})));
+            const sizesList=['',...Object.keys(sizes)];
+            if(def.kind==='box'){
+                prop('Colour','fill',['',...Object.keys(palette),'none']);
+                prop('Outline','border',['','solid','dashed','dotted','none','double']);
+                prop('Outline colour','color',['',...Object.keys(palette)]);
+                prop('Width','weight',['','medium','thick']);
+                prop('Shape','shape',['','rectangle','pill','ellipse','circle','diamond','cylinder']);
+                prop('Text','text',['','bold','italic','bold-italic']);
+                prop('Font size','font',sizesList);
+                line('Text colour',styleColour('textColor',def.props.textColor || '',patch=>editStyle(def,{props:patch})));
+                line('Icon',iconPicker(def.icon,icon=>editStyle(def,{icon})));
+                const boxes=document.createElement('input');boxes.type='checkbox';boxes.checked=!!def.boxes;boxes.setAttribute('aria-label','Use the icon in boxes');boxes.onchange=()=>editStyle(def,{boxes:boxes.checked});line('Icon in boxes',boxes);
+            } else if(def.kind==='label'){
+                prop('Text','text',['','bold','italic','bold-italic']);
+                prop('Font size','font',sizesList);
+                line('Text colour',styleColour('textColor',def.props.textColor || '',patch=>editStyle(def,{props:patch})));
+                prop('Knock-out','fill',['none','white']);
+                prop('Outline','border',['','solid','dashed','dotted','none']);
+            } else if(def.kind==='arrow'){
+                prop('Line','border',['','solid','dashed','dotted']);
+                prop('Colour','color',['',...Object.keys(palette)]);
+                prop('Line width (pt)','lineWidth',null);
+                prop('Start','start',['none','Latex','Stealth','triangle','barb','circle','bar']);
+                prop('End','end',['Latex','Stealth','triangle','barb','circle','bar','none']);
+            } else {
+                line('Colour',styleColour('color',def.props.color || '',patch=>editStyle(def,{props:{color:patch.color || 'grey'}})));
+                line('Outline',choice(['none','solid','dashed','dotted','region'].map(v=>[v,v]),def.props.frame || 'dashed',frame=>editStyle(def,{props:{frame}})));
+            }
+            if(def.kind==='box' || def.kind==='arrow'){
+                const flag=document.createElement('input');flag.type='checkbox';flag.checked=!!def.legend;flag.setAttribute('aria-label','Show in legend');flag.onchange=()=>editStyle(def,{legend:flag.checked});line('In legend',flag);
+            }
+            const users=styleUsers(def),remove=document.createElement('button');remove.type='button';remove.textContent='Delete style';
+            const confirm=document.createElement('div');confirm.className='style-delete';confirm.hidden=true;
+            const where=document.createElement('select');where.setAttribute('aria-label','Where the objects go');
+            where.add(new Option('Keep their look, without a style',''));
+            for(const o of styles.filter(s=>s.kind===def.kind && s.key!==def.key))where.add(new Option('Move to '+show(o.name),o.key));
+            const ok=document.createElement('button');ok.type='button';ok.textContent='Delete';ok.onclick=()=>post({op:'styleDelete',key:def.key,to:where.value});
+            const cancel=document.createElement('button');cancel.type='button';cancel.textContent='Cancel';cancel.onclick=()=>{confirm.hidden=true;remove.hidden=false;};
+            const ask=document.createElement('span');ask.textContent=`${users} object${users===1 ? '' : 's'} use${users===1 ? 's' : ''} it. Where do they go?`;
+            const row2=document.createElement('div');row2.className='buttons';row2.append(ok,cancel);confirm.append(ask,where,row2);
+            remove.onclick=()=>{if(!users){post({op:'styleDelete',key:def.key});return;}remove.hidden=true;confirm.hidden=false;};
+            panel.append(remove,confirm);
+            return panel;
+        };
+        for(const kind of ['box','arrow','frame','label']){
+            const defs=styles.filter(s=>s.kind===kind);
+            const head=document.createElement('div');head.className='category-heading style-group';
+            const title=document.createElement('span');title.textContent=KIND_NAMES[kind]+' styles';
+            const addButton=document.createElement('button');addButton.type='button';addButton.className='icon';addButton.textContent='+';addButton.title='Add a '+kind+' style';addButton.setAttribute('aria-label','Add a '+kind+' style');addButton.onclick=()=>addStyle(kind);
+            const legendHeading=document.createElement('span');legendHeading.textContent=kind==='box' ? 'Legend' : '';
+            head.append(title,legendHeading,addButton);styleList.append(head);
+            if(!defs.length){const none=document.createElement('p');none.className='empty style-empty';none.textContent='None yet';styleList.append(none);}
+            for(const def of defs){
+                const item=document.createElement('div');item.className='category-item style-item';
+                const line=document.createElement('div');line.className='category-line style-line';
+                const sw=document.createElement('button');sw.type='button';sw.className='category-swatch';sw.style.background=styleSwatch(def);sw.title='Edit '+show(def.name);sw.setAttribute('aria-label',sw.title);
+                const name=field(show(def.name),v=>{const next=tex(v);if(openStyles.has(def.key)){openStyles.delete(def.key);openStyles.add(slug(next,def.key));}editStyle(def,{name:next});});name.setAttribute('aria-label','Style name');name.dataset.styleName=def.key;
+                const users=document.createElement('span');users.className='style-count';const count=styleUsers(def);users.textContent=String(count);users.title=count+(count===1 ? ' object uses' : ' objects use')+' this style';
+                const inLegend=document.createElement('input');inLegend.type='checkbox';inLegend.disabled=kind!=='box' && kind!=='arrow';inLegend.hidden=kind!=='box';inLegend.checked=!!def.legend;inLegend.title='Include in legend';inLegend.setAttribute('aria-label','Include '+show(def.name)+' in legend');inLegend.onchange=()=>editStyle(def,{legend:inLegend.checked});
+                const edit=styleEditor(def);edit.hidden=!openStyles.has(def.key);sw.setAttribute('aria-expanded',String(!edit.hidden));
+                const toggle=()=>{edit.hidden=!edit.hidden;if(edit.hidden)openStyles.delete(def.key);else openStyles.add(def.key);sw.setAttribute('aria-expanded',String(!edit.hidden));};
+                sw.onclick=toggle;line.onclick=ev=>{if(ev.target===line||ev.target===users)toggle();};
+                line.append(sw,name,users,inLegend);item.append(line,edit);styleList.append(item);
+            }
+        }
 
 		section('Figure');
-		row('Sheet width', field(SHEET, v => { post({op:'sheet',width:Math.max(50,Math.min(400,+v || 146))}); }, { type: 'number' }), unit('mm'));
  row('Font size', choice(Object.keys(sizes).map(v => [v,v]), figureFont, size => post({op:'font',size})));
 		const lg = document.createElement('input');
 		lg.type = 'checkbox';
@@ -1534,7 +1661,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		['Ctrl+C, Ctrl+X, Ctrl+V', 'copy, cut, paste (as TikZ)'],
 		['Ctrl+Alt+C, Ctrl+Alt+V', 'copy and paste style'],
 		['Arrow keys', 'nudge 1 mm, with Shift 5 mm'],
-		['1–9', 'category'],
+		['1–9', 'box style'],
 		['D', 'dashed arrow on or off'],
 		['R', 'next route of the arrow'],
 		['Shift+drag a corner', 'scale the selection evenly'],
@@ -1602,7 +1729,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 	// Copy also includes selected arrows and the endpoint boxes needed to paste them.
 	function nodeLine(n) {
 		if (n.kind === 'icon') { return `\\pic[pic text={${n.title}}] (${n.id}) at (${r1(n.x)},${r1(n.y)}) {sg object={${n.icon || ''}}{${r1(n.width)}}{${r1(n.minh || n.width)}}};`; }
-		const o = [n.kind === 'label' ? 'sg label' : n.cat ? `cat-${n.cat}` : 'sg box'];
+		const o = [n.cat ? `sg style/${n.cat}` : n.kind === 'label' ? 'sg label' : 'sg box'];
 		if(n.wantWidth!==undefined && n.wantWidth!==n.width)o.push(`sg want=${n.wantWidth}`);
         if(n.codeFont)o.push(`sg code font=${n.codeFont}`);
 		if (n.width !== defaultWidth) { o.push(`text width=${n.width}mm`); }
@@ -1614,7 +1741,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 	}
 
 	function edgeLine(e) {
-		const o = [e.kind, ...(e.head !== 'end' ? [`head ${e.head}`] : [])];
+		const o = [e.styleKey ? `sg style/${e.styleKey}` : e.kind, ...(e.head !== 'end' ? [`head ${e.head}`] : [])];
 		if(e.from===e.to)o.push('sg fixed');else if (['straight', 'manhattan', 'curved'].includes(e.route)) { o.push(`sg ${e.route}`); } else if (e.route !== 'auto') { o.push('sg fixed'); }
 		o.push(...(e.extra || []));
 		const a = byId(e.from), b = byId(e.to), r = resolveRoute(e, a, b), A = e.from, B = e.to;
@@ -1651,9 +1778,9 @@ const wasOpen = !!etools.querySelector('details[open]');
 		}
 		for (const id of ids) { const a=byId(id)?.attachment; if (a && byId(a.parent)) { ids.add(a.parent); } }
 		if (!ids.size) { return ''; }
-		const used = new Set([...ids].map(id => byId(id).cat));
+		const used = new Set([...[...ids].map(id => byId(id).cat), ...selected.map(e => e.styleKey)].filter(Boolean));
 		return [
-			...cats.filter(c => used.has(c.key) && c.legend!==false).map(c => `% sakuga category ${c.key} {${c.name}} ${c.color}${c.icon ? ` icon=${c.icon}` : ''}${c.boxes ? ' boxes' : ''}${c.legend===false ? ' no-legend' : ''}`),
+			...styles.filter(s => used.has(s.key)).map(s => s.line),
 			...(typeof groups==='undefined' ? [] : groups.filter(g=>copiedGroups.has(g.id)).map(g=>src.value.split('\n').find(line=>line.startsWith('% sakuga group '+g.id+' ')) || `% sakuga group ${g.id} {${g.name}} ${g.frame} ${g.color}${g.parent ? ' in='+g.parent : ''}`)),
 			...nodes.filter(n => ids.has(n.id)).map(n => src.value.split('\n').find(line => new RegExp(String.raw`\\(?:node|pic)\[.*\]\s*\(${n.id}\)\s*at\s*\(`).test(line)) || nodeLine(n)),
 			...selected.filter(e => (ids.has(e.from)||copiedGroups.has(e.from)) && (ids.has(e.to)||copiedGroups.has(e.to))).map(e => { const index = edges.indexOf(e); return src.value.split('\n').filter(line => /^(?:% sakuga hidden )?\\draw\[/.test(line)).map(line => line.replace(/^% sakuga hidden /,''))[index] || edgeLine(e); }),
@@ -1669,7 +1796,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		for (const id of ids) { const n=byId(id), a=n.attachment; if (a) { ops.push({op:'attach',id:map.get(id),attachment:{...a,parent:map.get(a.parent)||a.parent,dx:a.dx+(map.has(a.parent) ? 0 : dx),dy:a.dy+(map.has(a.parent) ? 0 : dy)}}); } }
 		for (const e of edges) {
 			if (map.has(e.from) && map.has(e.to)) {
-				ops.push({ op: 'addEdge', fromAnchor:e.fromAnchor,toAnchor:e.toAnchor,fromOffset:e.fromOffset,toOffset:e.toOffset,loopSide:e.loopSide,loopSize:e.loopSize,loopOut:e.loopOut,loopIn:e.loopIn,looseness:e.looseness,loopMax:e.loopMax,...(e.route==='fixed'?{waypoints:edgeGeom(e).pts.slice(1,-1).map(p=>[p[0]+dx,p[1]+dy])}:{}), from: map.get(e.from), to: map.get(e.to), kind: e.kind, route: e.route, mid: e.mid, bend: e.bend, head: e.head, label: e.label, labelStyle:e.labelStyle,labels:e.labels,style: e.style, extra: e.extra });
+				ops.push({ op: 'addEdge', styleKey:e.styleKey, fromAnchor:e.fromAnchor,toAnchor:e.toAnchor,fromOffset:e.fromOffset,toOffset:e.toOffset,loopSide:e.loopSide,loopSize:e.loopSize,loopOut:e.loopOut,loopIn:e.loopIn,looseness:e.looseness,loopMax:e.loopMax,...(e.route==='fixed'?{waypoints:edgeGeom(e).pts.slice(1,-1).map(p=>[p[0]+dx,p[1]+dy])}:{}), from: map.get(e.from), to: map.get(e.to), kind: e.kind, route: e.route, mid: e.mid, bend: e.bend, head: e.head, label: e.label, labelStyle:e.labelStyle,labels:e.labels,style: e.style, extra: e.extra });
 			}
 		}
 		pendingSelect = [...map.values()];
@@ -1696,20 +1823,12 @@ const wasOpen = !!etools.querySelector('details[open]');
 		return u;
 	}
 
-	function slug(name) {
+	function slug(name, except) {
 		const base = show(name).toLowerCase().replace(/ä/g, 'ae').replace(/ö/g, 'oe').replace(/ü/g, 'ue').replace(/ß/g, 'ss')
 			.replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '') || 'cat';
 		let key = base;
-		for (let i = 2; cats.some(c => c.key === key); i++) { key = `${base}-${i}`; }
+		for (let i = 2; styles.some(s => s.key === key && s.key !== except); i++) { key = `${base}-${i}`; }
 		return key;
-	}
-	function addCategory(nodeId) {
-		const name = `category ${cats.length + 1}`;
-		const key = slug(name);
-		const free = Object.keys(palette).filter(k => k !== 'white' && !cats.some(c => c.color === k));
-		post({ op: 'addCategory', key, name, color: free[0] || 'grey' });
-		if (nodeId) { post({ op: 'node', id: nodeId, cat: key }); }
-		lastCat = key;
 	}
 
 	function newId() {
@@ -1761,12 +1880,18 @@ const wasOpen = !!etools.querySelector('details[open]');
   const n=selN.size===1 && !selE.size && byId([...selN][0]);
   if(!isBox(n)||n.locked||n.hidden)return false;
   activeLayer=n.layer || activeLayer;
-  const draft=SakugaSketch.nextBox(nodes,edges,n,newId(),below,layout);
+  const draft=SakugaSketch.nextBox(nodes,edges,{...n,style:withoutOverrides(n)},newId(),below,layout);
   freshBox=draft;nodes.push(draft.node);edges.push(draft.edge);
   selG=null;keyObject=null;selN=new Set([draft.node.id]);selE.clear();
   startEdit(draft.node.id);return true;
  }
 
+	// The style of a box without the properties that differ from it.
+	function withoutOverrides(n) {
+		const def = styles.find(s => s.key === n.cat), st = { ...n.style };
+		for (const k of n.overrides || []) { if (def && def.props[k] !== undefined) { st[k] = def.props[k]; } else { delete st[k]; } }
+		return st;
+	}
 	function startEdit(id) {
 		const n = byId(id);
 		if (!n) { return; }
@@ -2272,12 +2397,13 @@ const wasOpen = !!etools.querySelector('details[open]');
 		vscode.postMessage({ type: 'paste', layer: activeLayer, text: t, dx: 5 * pasteCount, dy: -5 * pasteCount });
 	});
 
-	// Start so that the thesis text width (146 mm) and the whole figure fit into the canvas.
+	// Fit the content (boxes, arrows, frames, legend) into the canvas.
 	function fit() {
-		const r = svg.getBoundingClientRect(), S = sheetBox(), pad = 36;
-		view.s = Math.max(1, Math.min(14, (r.width - 2 * pad) / SHEET, (r.height - 44 - 56) / (S.y1 - S.y0)));
-		view.ox = r.width / 2;
-		view.oy = 44 + Math.max(0, (r.height - 44 - 56 - (S.y1 - S.y0) * view.s) / 2) + S.y1 * view.s;
+		const r = svg.getBoundingClientRect(), C = contentBox(), pad = 40;
+		const w = Math.max(1, C.x1 - C.x0), h = Math.max(1, C.y1 - C.y0);
+		view.s = Math.max(1, Math.min(14, (r.width - 2 * pad) / w, (r.height - 2 * pad) / h));
+		view.ox = r.width / 2 - (C.x0 + C.x1) / 2 * view.s;
+		view.oy = r.height / 2 + (C.y0 + C.y1) / 2 * view.s;
 	}
 
 	window.addEventListener('message', ev => {
@@ -2292,8 +2418,6 @@ const wasOpen = !!etools.querySelector('details[open]');
 			return;
 		}
 		tidyPreview=null;tidyHeld=false;
-		const previousSheet=SHEET;
-        SHEET = +(m.text.match(/^%\s*sakuga sheet\s+([\d.]+)\s*$/m)?.[1]) || 146;
 		
 		figureFont = m.font || 'small';
 		showText(m.text);
@@ -2307,11 +2431,14 @@ const wasOpen = !!etools.querySelector('details[open]');
 		edges = m.edges;
   if (freshBox) { nodes.push(freshBox.node); edges.push(freshBox.edge); }
 		cats = m.categories;
+		styles = m.styles || [];
+		shared = m.shared || [];
+		if (pendingStyleFocus) { const made = styles.find(s => s.name === pendingStyleFocus); if (made) { openStyles.add(made.key); setTab('figure'); setTimeout(() => document.querySelector(`[data-style-name="${made.key}"]`)?.select(), 0); pendingStyleFocus = null; } }
 		legend = m.legend;
 		arrowsStyle = m.arrows || 'manhattan';
 		palette = m.palette;
 		defaultWidth = m.defaultWidth;
-		if (!fitted || SHEET!==previousSheet && !moved) { fit(); fitted = true; }
+		if (!fitted) { fit(); fitted = true; }
   const selectedAttached=selN.label;
 		selN = new Set([...selN].filter(id => byId(id) && !byId(id).locked && !byId(id).hidden));
   if(selectedAttached)selN.label=selectedAttached;

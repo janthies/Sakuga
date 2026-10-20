@@ -75,7 +75,7 @@ const ctx=vm.createContext({SakugaSketch:sketch,Set,Map,Math,layout,input,
  state:[seed],view:{s:4},newId:()=> 'fresh'
 });
 const run=code=>vm.runInContext(code,ctx),load=(start,end)=>run(source.slice(source.indexOf(start),source.indexOf(end)));
-run("let nodes=state.map(n=>({...n})), edges=[],groups=[],selN=new Set(['seed']),selE=new Set(),keyObject=null,freshBox=null,editing=null,floating=null,space=false,selG=null,pendingSelect=null,activeLayer='layer1',cats=[],lastCat='',drag=null;const byId=id=>nodes.find(n=>n.id===id);");
+run("let nodes=state.map(n=>({...n})), edges=[],groups=[],selN=new Set(['seed']),selE=new Set(),keyObject=null,freshBox=null,editing=null,floating=null,space=false,selG=null,pendingSelect=null,activeLayer='layer1',cats=[],styles=[],shared=[],lastCat='',drag=null;const byId=id=>nodes.find(n=>n.id===id);");
 load(' const SKETCH_CONTROLS','\n\tconst SHORTCUTS');
 load(' function sketchCommand','\n\tfunction edgeInside');
 load("\tdocument.addEventListener('keydown', ev => {\n\t\tif (floating", "\tdocument.addEventListener('keyup'");

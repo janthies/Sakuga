@@ -249,13 +249,9 @@ button { display: inline-flex; align-items: center; justify-content: center; gap
 #preamble pre { flex: 1; padding: 0; border: 0; margin: 0; font-size: 11px; }
 #preamble .pre-body button { color: var(--muted); height: 24px; }
 
-/* desk and sheet */
-#desk { position: relative; padding: 0; background: var(--desk); min-width: 200px; }
+/* desk: one plain canvas */
+#desk { position: relative; padding: 0; background: var(--vscode-editor-background, var(--surface)); min-width: 200px; }
 #canvas { background: transparent; }
-#canvas .sheet { filter: drop-shadow(0 1px 1px rgba(0,0,0,.12)) drop-shadow(0 4px 14px rgba(0,0,0,.14)); }
-#canvas .dim { stroke: var(--muted); stroke-width: 1; fill: none; }
-#canvas .dim-label { fill: var(--muted); font: 11px var(--vscode-font-family); }
-#canvas .over-flag { fill: none; stroke: var(--vscode-errorForeground, #d13438); stroke-width: 1.5; stroke-dasharray: 5 3; pointer-events: none; }
 #zoombar {
 	position: absolute; left: 50%; bottom: 12px; transform: translateX(-50%);
 	display: flex; align-items: center; gap: 8px; height: 28px; padding: 0 4px 0 12px; white-space: nowrap;
@@ -263,8 +259,6 @@ button { display: inline-flex; align-items: center; justify-content: center; gap
 	box-shadow: 0 1px 4px var(--vscode-widget-shadow, rgba(0,0,0,.15)); font-size: 11.5px; color: var(--muted);
 }
 #zoombar button { height: 22px; font-size: 11.5px; color: var(--vscode-foreground); }
-#zi-warn { color: var(--vscode-errorForeground, #d13438); font-weight: 600; padding: 0 8px; }
-#zi-warn[hidden] { display: none; }
 
 /* right column */
 #sidebar { width: 300px; background: var(--panel); border-left: 1px solid var(--line); }
@@ -385,3 +379,33 @@ input:focus, select:focus { outline: 1px solid var(--accent); outline-offset: -1
 #inspector .buttons button:hover, #inspector .category-edit > button:hover { background: var(--vscode-button-secondaryHoverBackground,var(--hover)); }
 #inspector .anchor-picker { grid-template-columns: repeat(3,24px); }
 #inspector button.no-colour:hover { background: linear-gradient(135deg,transparent 46%,var(--vscode-errorForeground,#c44) 47%,var(--vscode-errorForeground,#c44) 53%,transparent 54%); }
+
+/* named styles */
+#inspector .row > button, #inspector .style-actions button, #inspector .style-hint button, #inspector .style-delete button, #inspector .style-edit > button {
+	background: var(--vscode-button-secondaryBackground, transparent); color: var(--vscode-button-secondaryForeground, inherit);
+	border-color: var(--line); justify-content: center;
+}
+#inspector .row > button:hover:not(:disabled), #inspector .style-actions button:hover, #inspector .style-hint button:hover { background: var(--vscode-button-secondaryHoverBackground, var(--hover)); }
+#inspector .row > button.reset-prop { min-height: 18px; height: 18px; padding: 0 6px; font-size: 10px; background: transparent; border-color: transparent; color: var(--accent); }
+#inspector .row > button.reset-prop:hover { text-decoration: underline; background: transparent; }
+#inspector .row.overridden { box-shadow: inset 2px 0 0 var(--accent); padding-left: 6px; margin-left: -8px; }
+#inspector .row.overridden > span:first-child { color: var(--vscode-foreground); font-weight: 600; }
+#inspector .override-count { font-size: 11px; font-weight: 600; color: var(--accent); }
+#inspector .style-actions { flex-direction: column; align-items: stretch; margin-top: 0; }
+#inspector .style-note { margin: -2px 0 2px; color: var(--muted); font-size: 11px; }
+#inspector .style-hint { display: flex; flex-direction: column; gap: 6px; margin: 8px 0 4px; padding: 6px 8px; border-left: 2px solid var(--accent); background: color-mix(in srgb, var(--vscode-input-background) 50%, transparent); font-size: 11.5px; }
+#inspector .style-hint .buttons { margin-top: 0; }
+#inspector .style-group { align-items: center; margin-top: 10px; }
+#inspector .style-group button.icon { width: 22px; height: 22px; min-height: 22px; padding: 0; font-size: 15px; line-height: 1; }
+#inspector .style-line { grid-template-columns: 18px minmax(0,1fr) 22px 24px; cursor: pointer; }
+#inspector .style-count { color: var(--muted); font-size: 11px; text-align: right; }
+#inspector .style-edit .row { grid-template-columns: 76px minmax(0,1fr); }
+#inspector .style-edit { display: block; }
+#inspector .style-delete { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; font-size: 11.5px; }
+#inspector .style-edit > button { margin-top: 6px; width: 100%; }
+#inspector .style-empty { padding: 2px 0 6px; font-size: 11px; }
+#inspector .width-control { display: flex; align-items: center; gap: 4px; flex-wrap: wrap; }
+#inspector .width-control .segments { flex: 1 1 auto; }
+#inspector .width-control .custom-toggle { min-height: 22px; height: 22px; padding: 0 6px; font-size: 10px; color: var(--muted); }
+#inspector .width-control .custom-toggle[aria-pressed=true] { color: var(--vscode-foreground); background: var(--hover); }
+#inspector .width-control input[type=number] { width: 64px; }
