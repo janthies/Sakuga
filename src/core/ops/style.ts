@@ -4,7 +4,7 @@ import { insert } from '../model/lines';
 import { edges, findStyle, nodes, styleDefs } from '../model/queries';
 import { patchStyle, restyle, slugKey, usersOf } from './style-helpers';
 import { isSet, objectKind, styleOf, styleableOf } from '../styles/resolve';
-import { STYLEABLE, STYLE_GROUPS } from '../styles/tables';
+import { styleable, travelGroups } from '../schema';
 import type { StyleOp, Run } from './types';
 
 export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
@@ -132,7 +132,7 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 			const dest = findStyle(fig, op.to, def.kind);
 			for (const u of usersOf(fig, def)) {
 				if (dest) {
-					for (const k of STYLEABLE[def.kind]) {
+					for (const k of styleable(def.kind)) {
 						delete (u.style as any)?.[k];
 					}
 					if ('from' in u) {
@@ -159,8 +159,8 @@ export function applyStyle(fig: Figure, op: StyleOp, run: Run): void {
 				if (!kind || !styleOf(fig, t)) {
 					continue;
 				}
-				const keys = new Set(op.keys?.length ? op.keys : STYLEABLE[kind]);
-				for (const g of STYLE_GROUPS[kind]) {
+				const keys = new Set(op.keys?.length ? op.keys : styleable(kind));
+				for (const g of travelGroups(kind)) {
 					if (g.some((k) => keys.has(k))) {
 						g.forEach((k) => keys.add(k));
 					}

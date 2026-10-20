@@ -1,6 +1,6 @@
 // Operations on groups.
 import { context } from '../context';
-import { groupDefaults } from '../codec/group';
+import { groupKeys } from '../schema';
 import { Figure, Group } from '../model/figure';
 import { insert } from '../model/lines';
 import { groups, nodes } from '../model/queries';
@@ -34,7 +34,7 @@ export function applyGroup(fig: Figure, op: GroupOp, run: Run): void {
 		case 'groupProps': {
 			const g = groups(fig).find((x) => x.id === op.id);
 			if (g) {
-				for (const key of Object.keys(groupDefaults)) {
+				for (const key of groupKeys()) {
 					if ((op as any)[key] !== undefined) (g as any)[key] = (op as any)[key];
 				}
 				if (op.name !== undefined) {

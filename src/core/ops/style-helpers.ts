@@ -2,7 +2,7 @@
 import { FigEdge, FigNode, Figure, ObjectStyle, StyleDef } from '../model/figure';
 import { edges, fontSize, nodeStyleKind, nodes } from '../model/queries';
 import { isSet, mergeStyle, objectKind, overrideOf, styleOf } from '../styles/resolve';
-import { STYLEABLE, STYLE_GROUPS } from '../styles/tables';
+import { styleable, travelGroups } from '../schema';
 
 export function slugKey(name: string, taken: string[]): string {
 	const base =
@@ -60,7 +60,7 @@ export function patchStyle(fig: Figure, o: FigNode | FigEdge, patch: ObjectStyle
 		return st;
 	}
 	const base = def.props;
-	for (const k of STYLEABLE[kind]) {
+	for (const k of styleable(kind)) {
 		if (!(k in patch) || isSet((patch as any)[k])) {
 			continue;
 		}
@@ -75,7 +75,7 @@ export function patchStyle(fig: Figure, o: FigNode | FigEdge, patch: ObjectStyle
 			delete st[k];
 		}
 	}
-	for (const g of STYLE_GROUPS[kind]) {
+	for (const g of travelGroups(kind)) {
 		if (!g.some((k) => k in patch)) {
 			continue;
 		}

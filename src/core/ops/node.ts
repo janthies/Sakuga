@@ -3,7 +3,7 @@ import { ANCHORS, DEFAULT_WIDTH } from '../model/constants';
 import { Figure } from '../model/figure';
 import { insert } from '../model/lines';
 import { edges, findStyle, layers, nodeStyleKind, nodes } from '../model/queries';
-import { STYLEABLE } from '../styles/tables';
+import { styleable } from '../schema';
 import type { NodeOp, Run } from './types';
 
 export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
@@ -158,7 +158,7 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 				) {
 					const kind = nodeStyleKind(n);
 					if (kind && n.style) {
-						for (const k of STYLEABLE[kind]) {
+						for (const k of styleable(kind)) {
 							delete (n.style as any)[k];
 						}
 					}

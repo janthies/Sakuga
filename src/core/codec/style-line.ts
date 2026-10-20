@@ -1,8 +1,9 @@
 // Named styles: the `% sakuga style` lines and the TikZ style definitions.
-import { styleOptions } from './style-options';
+import { emitOptions } from './options';
+import { readValue } from './values';
 import { PALETTE } from '../model/colour';
 import { ObjectStyle, StyleDef, StyleKind } from '../model/figure';
-import { BOOLEAN_PROPS, NUMBER_PROPS, PRIMARY, STYLEABLE } from '../styles/tables';
+import { primaryProp, styleable } from '../schema';
 
 // ---- Named styles: reading and writing the `% sakuga style` lines ----
 export function readStyleLine(kind: StyleKind, key: string, name: string, tail: string): StyleDef {
@@ -16,13 +17,13 @@ export function readStyleLine(kind: StyleKind, key: string, name: string, tail: 
 		} else if ((m = /^icon=([\w-]+)$/.exec(tok))) {
 			def.icon = m[1];
 		} else if ((m = /^([A-Za-z]+)=(.*)$/.exec(tok))) {
-			def.props[m[1]] = NUMBER_PROPS.includes(m[1]) ? +m[2] : BOOLEAN_PROPS.includes(m[1]) ? m[2] === 'true' : m[2];
+			def.props[m[1]] = readValue(m[1], m[2]);
 		} else if (kind === 'arrow' && /^(solid|dashed|dotted|double)$/.test(tok)) {
 			def.props.border = tok;
 		} else if (kind === 'frame' && /^(none|dashed|dotted|solid|region)$/.test(tok)) {
 			def.props.frame = tok;
 		} else if (PALETTE[tok] || /^#[0-9a-f]{6}$/i.test(tok)) {
-			def.props[PRIMARY[kind]] = tok;
+			def.props[primaryProp(kind)] = tok;
 		}
 	}
 	return def;
@@ -41,7 +42,7 @@ export function styleLine(d: StyleDef): string {
 		parts.push(p.frame);
 		delete p.frame;
 	}
-	const primary = PRIMARY[d.kind];
+	const primary = primaryProp(d.kind);
 	if (isColour(p[primary])) {
 		parts.push(p[primary]);
 		delete p[primary];
@@ -55,7 +56,7 @@ export function styleLine(d: StyleDef): string {
 	if (d.legend) {
 		parts.push('legend');
 	}
-	for (const k of STYLEABLE[d.kind]) {
+	for (const k of styleable(d.kind)) {
 		if (p[k] !== undefined && p[k] !== null && p[k] !== '') {
 			parts.push(`${k}=${p[k]}`);
 		}
@@ -73,13 +74,13 @@ function withTips(st: ObjectStyle): ObjectStyle {
 export function styleDefOptions(d: StyleDef): string[] {
 	const p = d.props as ObjectStyle;
 	if (d.kind === 'box') {
-		return ['sg box', ...styleOptions(p, false)];
+		return ['sg box', ...emitOptions(p)];
 	}
 	if (d.kind === 'label') {
-		return ['sg label', ...(p.border && p.border !== 'none' ? ['draw=black!38'] : []), ...styleOptions(p, false)];
+		return ['sg label', ...(p.border && p.border !== 'none' ? ['draw=black!38'] : []), ...emitOptions(p)];
 	}
 	if (d.kind === 'arrow') {
-		return ['arr', ...styleOptions(withTips(p), true)];
+		return ['arr', ...emitOptions(withTips(p), { arrow: true })];
 	}
 	return [`sg frame ${d.props.frame && d.props.frame !== 'none' ? d.props.frame : 'dashed'}`];
 }

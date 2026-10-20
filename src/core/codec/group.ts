@@ -1,53 +1,23 @@
-// Group options: reading the tail of a group line and writing it back.
-import { fromHex, toHex } from '../util/hex';
+// Group options: reading the tail of a group line and writing it back, from the frame properties of the schema.
+import { readValue, writeValue } from './values';
 import { Group } from '../model/figure';
-import { cleanLabel } from '../styles/appearance';
-
-export const groupDefaults: Record<string, unknown> = {
-	padding: 0,
-	titlePosition: 'legacy',
-	titleBold: false,
-	titleFont: 'scriptsize',
-	titleColor: '',
-	lineWidth: 0,
-	frameColor: '',
-	fill: '',
-	fillStrength: 30,
-	outline: '',
-	labelStyle: undefined,
-};
+import { defaultOf, groupKeys, groupLineDefs } from '../schema';
 
 export function readGroup(tail: string): Partial<Group> {
 	const g: any = {};
-	for (const m of (tail || '').matchAll(
-		/(padding|titlePosition|titleBold|titleFont|titleColor|lineWidth|frameColor|fill|fillStrength|outline|labelStyle)=([^ ]+)/g,
-	)) {
-		g[m[1]] =
-			m[1] === 'titleBold'
-				? m[2] === 'true'
-				: ['padding', 'lineWidth', 'fillStrength'].includes(m[1])
-					? +m[2]
-					: m[1] === 'labelStyle'
-						? JSON.parse(fromHex(m[2]))
-						: m[2];
+	for (const m of (tail || '').matchAll(new RegExp(`(${groupKeys().join('|')})=([^ ]+)`, 'g'))) {
+		g[m[1]] = readValue(m[1], m[2], true);
 	}
 	return g;
 }
 
+// A property is written when the group sets it to something other than what its frame look implies.
 export function groupOptions(g: Group): string {
-	const defaults = {
-		...groupDefaults,
-		padding: g.frame === 'dashed' ? 2.8 : g.frame === 'dotted' ? 1.8 : 3,
-		lineWidth: g.frame === 'region' || g.frame === 'none' ? 0 : g.frame === 'dotted' ? 1.5 : 0.7,
-	};
-	return Object.entries(defaults)
-		.filter(
-			([k, v]) =>
-				(g as any)[k] !== undefined &&
-				(g as any)[k] !== '' &&
-				(g as any)[k] !== v &&
-				!(['padding', 'lineWidth'].includes(k) && (g as any)[k] === 0),
-		)
-		.map(([k]) => ` ${k}=${k === 'labelStyle' ? toHex(JSON.stringify(cleanLabel(g.labelStyle))) : (g as any)[k]}`)
+	return groupLineDefs()
+		.filter((d) => {
+			const v = (g as any)[d.key];
+			return v !== undefined && v !== '' && v !== defaultOf(d, g) && !(d.length && v === 0);
+		})
+		.map((d) => ` ${d.key}=${writeValue(d, (g as any)[d.key])}`)
 		.join('');
 }

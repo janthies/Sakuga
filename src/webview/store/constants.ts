@@ -1,5 +1,6 @@
 // @ts-nocheck
 import { vscode } from '../platform/host';
+import { rowOf, styleable } from '../../core/schema';
 
 export const NS = 'http://www.w3.org/2000/svg';
 // Look of Fig. 5.2 (fig_components.tex); sizes measured from LuaLaTeX output.
@@ -51,8 +52,8 @@ export const icon = (key) =>
 // ---- Named styles: a style acts on its objects; an object only keeps what differs from it ----
 export const SIZE_LABEL = { tiny: '6', scriptsize: '8', footnotesize: '9', small: '10', normalsize: '11', large: '12' };
 export const KIND_NAMES = { box: 'Box', arrow: 'Arrow', frame: 'Frame', label: 'Label' };
-export const STYLE_KEYS = ['fill', 'color', 'border', 'weight', 'lineWidth', 'shape', 'font', 'text', 'textColor'];
-export const ROW_OF = { lineWidth: 'weight' };
+export const STYLE_KEYS = styleable('box');
+export const ROW_OF = rowOf();
 export const ROUTE_OPTS = [
 	['auto', 'figure style'],
 	['straight', 'straight'],

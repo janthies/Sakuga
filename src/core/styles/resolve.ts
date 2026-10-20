@@ -1,7 +1,7 @@
 // Resolving, merging and overriding named styles.
 import { FigEdge, FigNode, Figure, ObjectStyle, StyleKind } from '../model/figure';
 import { edges, findStyle, nodeStyleKind, nodes } from '../model/queries';
-import { STYLEABLE, STYLE_GROUPS } from './tables';
+import { styleable, travelGroups } from '../schema';
 
 const objectKey = (o: FigNode | FigEdge) => ('from' in o ? o.styleKey : o.cat);
 
@@ -15,14 +15,18 @@ export const styleOf = (fig: Figure, o: FigNode | FigEdge) => {
 export const isSet = (v: unknown) => v !== undefined && v !== null && v !== '';
 
 export const styleableOf = (kind: StyleKind, st: Record<string, any> = {}) =>
-	Object.fromEntries(STYLEABLE[kind].filter((k) => isSet(st[k])).map((k) => [k, st[k]]));
+	Object.fromEntries(
+		styleable(kind)
+			.filter((k) => isSet(st[k]))
+			.map((k) => [k, st[k]]),
+	);
 
 // The object's own values on top of its style; a group is taken whole from the object if it names any of it.
 export function mergeStyle(kind: StyleKind, base: Record<string, any>, st: Record<string, any>): ObjectStyle {
 	const out: any = { ...st },
-		groups = STYLE_GROUPS[kind],
+		groups = travelGroups(kind),
 		grouped = new Set(groups.flat());
-	for (const k of STYLEABLE[kind]) {
+	for (const k of styleable(kind)) {
 		if (!grouped.has(k) && out[k] === undefined && isSet(base[k])) {
 			out[k] = base[k];
 		}
@@ -42,14 +46,14 @@ export function mergeStyle(kind: StyleKind, base: Record<string, any>, st: Recor
 // What an object changes against its style (plus every property a style cannot hold).
 export function overrideOf(kind: StyleKind, st: Record<string, any>, base: Record<string, any>): ObjectStyle {
 	const out: any = {},
-		groups = STYLE_GROUPS[kind],
+		groups = travelGroups(kind),
 		grouped = new Set(groups.flat());
 	for (const k of Object.keys(st)) {
-		if (!STYLEABLE[kind].includes(k)) {
+		if (!styleable(kind).includes(k)) {
 			out[k] = st[k];
 		}
 	}
-	for (const k of STYLEABLE[kind]) {
+	for (const k of styleable(kind)) {
 		if (!grouped.has(k) && st[k] !== undefined && st[k] !== base[k]) {
 			out[k] = st[k];
 		}
@@ -73,13 +77,13 @@ export function overrideKeys(fig: Figure, o: FigNode | FigEdge): string[] {
 		return [];
 	}
 	const ov = overrideOf(kind, o.style || {}, def.props);
-	const keys = new Set(STYLEABLE[kind].filter((k) => (ov as any)[k] !== undefined));
-	for (const g of STYLE_GROUPS[kind]) {
+	const keys = new Set(styleable(kind).filter((k) => (ov as any)[k] !== undefined));
+	for (const g of travelGroups(kind)) {
 		if (g.some((k) => keys.has(k))) {
 			g.forEach((k) => keys.add(k));
 		}
 	}
-	return STYLEABLE[kind].filter((k) => keys.has(k));
+	return styleable(kind).filter((k) => keys.has(k));
 }
 
 // Make every styled object carry style + overrides (idempotent).

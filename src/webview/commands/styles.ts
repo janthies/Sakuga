@@ -5,6 +5,7 @@ import { darkerColor } from '../render/svg';
 import { nextStyleName } from '../store/layers';
 import { labelTarget } from '../render/labelgeom';
 import { render } from '../render/scene';
+import { styleable } from '../../core/schema';
 
 // Style of a box: category, width and height; of an arrow: its line.
 export function copyStyle() {
@@ -18,22 +19,7 @@ export function copyStyle() {
 	const g = typeof store.groups !== 'undefined' && store.groups.find((g) => g.id === store.selG);
 	if (g) {
 		store.styleClip = {
-			groupStyle: Object.fromEntries(
-				[
-					'frame',
-					'fill',
-					'fillStrength',
-					'outline',
-					'color',
-					'frameColor',
-					'padding',
-					'lineWidth',
-					'titlePosition',
-					'titleBold',
-					'titleFont',
-					'titleColor',
-				].map((k) => [k, g[k]]),
-			),
+			groupStyle: Object.fromEntries(styleable('frame').map((k) => [k, g[k]])),
 			color: g.frameColor || g.color,
 		};
 		render();

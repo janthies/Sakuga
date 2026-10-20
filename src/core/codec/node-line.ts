@@ -1,5 +1,6 @@
 // Writing boxes: the node line, its hidden reference and attached icons.
-import { opacityOptions, styleOptions } from './style-options';
+import { emitOptions } from './options';
+import { opacityOptions } from './opt-stroke';
 import { anchorPoint, boxHalf, nodeIcon } from '../geometry/boxes';
 import { DEFAULT_WIDTH } from '../model/constants';
 import { FigNode, Figure, ObjectStyle } from '../model/figure';
@@ -85,7 +86,7 @@ export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, l
 		content = `\\parbox[c][${num(h)}mm][${pos.includes('north') ? 't' : pos.includes('south') ? 'b' : 'c'}]{${num(n.width)}mm}{\\${pos.includes('west') ? 'raggedright' : pos.includes('east') ? 'raggedleft' : 'centering'} ${content}}`;
 	}
 	const label = hasIcon ? `\\sgcontent{${n.iconPosition || 'left'}}{${n.width}}{${content}}` : content;
-	const line = `\\node[${[...o, ...styleOptions(own, false, boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2, { thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity, layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
+	const line = `\\node[${[...o, ...emitOptions(own, { height: boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2, thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity, layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
 	return n.hidden ? `% sakuga hidden ${line}` : line;
 }
 

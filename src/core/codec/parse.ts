@@ -2,7 +2,7 @@
 import { readGroup } from './group';
 import { ARROWSFLAG, CAT, CODE, EDGE, GROUP, HIDDEN, LAYER, LEGENDFLAG, NODE, PIC, STYLE, opts } from './lexer';
 import { parsePath } from './parse-path';
-import { readStyle } from './read-style';
+import { readOptions } from './options';
 import { readStyleLine } from './style-line';
 import { normalizeWidth, resolveAttachments } from '../geometry/boxes';
 import { DEFAULT_WIDTH } from '../model/constants';
@@ -122,7 +122,7 @@ export function parse(text: string): Figure {
 					group: value('sg in'),
 					hidden: !!hidden || o.includes('sg hidden'),
 					locked: o.includes('sg locked'),
-					...readStyle(
+					...readOptions(
 						o.filter((v) => !/^(?:pic text|anchor|sg layer|sg in)=/.test(v) && v !== 'sg locked' && v !== 'sg hidden'),
 					),
 				},
@@ -184,7 +184,7 @@ export function parse(text: string): Figure {
 					group: g ? g.split('=')[1].trim() : '',
 					hidden: o.includes('sg hidden') || !!hidden,
 					locked: o.includes('sg locked'),
-					...readStyle(
+					...readOptions(
 						o.filter(
 							(x) =>
 								!x.startsWith('sg want=') &&

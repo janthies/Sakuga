@@ -2,7 +2,7 @@
 import { context } from '../context';
 import { labelOptions } from './label';
 import { styleDefOptions } from './style-line';
-import { styleOptions } from './style-options';
+import { emitOptions } from './options';
 import { nodeIcon } from '../geometry/boxes';
 import { routeObjects } from '../geometry/resolve';
 import { PALETTE, darkerColor, fill } from '../model/colour';
@@ -74,7 +74,7 @@ export function themeBlock(fig: Figure): string[] {
 		[edges(fig), true],
 	] as const) {
 		for (const o of objects) {
-			for (const match of [...styleOptions(o.style, arrow), ...o.extra].join(', ').matchAll(/sgc([0-9A-F]{6})/g)) {
+			for (const match of [...emitOptions(o.style, { arrow }), ...o.extra].join(', ').matchAll(/sgc([0-9A-F]{6})/g)) {
 				custom.add(match[1]);
 			}
 		}

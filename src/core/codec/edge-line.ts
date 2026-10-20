@@ -2,7 +2,8 @@
 import * as routing from '../geometry/route';
 import { toHex } from '../util/hex';
 import { labelMetrics, labelOptions } from './label';
-import { opacityOptions, styleOptions } from './style-options';
+import { emitOptions } from './options';
+import { opacityOptions } from './opt-stroke';
 import { nodeIcon } from '../geometry/boxes';
 import { resolveRoute, routeObjects, specialGeometry } from '../geometry/resolve';
 import { FigEdge, Figure, LabelStyle, ObjectStyle } from '../model/figure';
@@ -217,5 +218,5 @@ export function edgeLine(fig: Figure, e: FigEdge): string {
 	} else {
 		path = `(${A}) --${lbl('')} (${B})`;
 	}
-	return `\\draw[${[...o, ...styleOptions(eown && (eown.start || eown.end || eown.tipLength !== undefined || eown.tipWidth !== undefined) ? { ...eown, start: eown.start || (e.head === 'both' ? 'Latex' : 'none'), end: eown.end || (e.head === 'none' ? 'none' : 'Latex') } : eown, true), ...opacityOptions(e.style?.opacity, edgeLayerOpacity(fig, e)), ...e.extra].join(', ')}] ${path};`;
+	return `\\draw[${[...o, ...emitOptions(eown && (eown.start || eown.end || eown.tipLength !== undefined || eown.tipWidth !== undefined) ? { ...eown, start: eown.start || (e.head === 'both' ? 'Latex' : 'none'), end: eown.end || (e.head === 'none' ? 'none' : 'Latex') } : eown, { arrow: true }), ...opacityOptions(e.style?.opacity, edgeLayerOpacity(fig, e)), ...e.extra].join(', ')}] ${path};`;
 }

@@ -36,7 +36,7 @@ export type {
 	Figure,
 } from './core/model/figure';
 export { setIcons } from './core/context';
-export { STYLEABLE } from './core/styles/tables';
+export { styleable } from './core/schema';
 export { cleanLabel, frameAppearance } from './core/styles/appearance';
 export { styleLine } from './core/codec/style-line';
 export {

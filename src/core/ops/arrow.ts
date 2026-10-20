@@ -2,7 +2,7 @@
 import { specialGeometry } from '../geometry/resolve';
 import { Figure } from '../model/figure';
 import { edges, nodes } from '../model/queries';
-import { STYLEABLE } from '../styles/tables';
+import { styleable } from '../schema';
 import type { ArrowOp, Run } from './types';
 
 export function applyArrow(fig: Figure, op: ArrowOp, run: Run): void {
@@ -26,7 +26,7 @@ export function applyArrow(fig: Figure, op: ArrowOp, run: Run): void {
 				}
 				if (op.styleKey !== undefined) {
 					if (e.style) {
-						for (const k of STYLEABLE.arrow) {
+						for (const k of styleable('arrow')) {
 							delete (e.style as any)[k];
 						}
 					}

@@ -1,7 +1,7 @@
 // The path of an arrow: coordinates in parentheses, operators between them, at most one label node.
 import { fromHex } from '../util/hex';
 import { MARKERS } from './keys';
-import { readStyle } from './read-style';
+import { readOptions } from './options';
 import { ARROWS } from '../model/constants';
 import { FigEdge } from '../model/figure';
 
@@ -69,7 +69,7 @@ export function parsePath(o: string[], path: string): FigEdge | null {
 		bend: 0,
 		head,
 		label: label ? label.replace(/^node\[[^\]]*\]\s*\{/, '').slice(0, -1) : '',
-		...readStyle(
+		...readOptions(
 			o.filter(
 				(x) =>
 					x !== kind &&
