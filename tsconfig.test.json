@@ -1,12 +1,21 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"types": ["node"],
+		"types": [
+			"node"
+		],
 		"noImplicitAny": false,
 		"rootDir": ".",
 		"outDir": ".tsbuild/test",
-		"tsBuildInfoFile": ".tsbuild/test.tsbuildinfo"
+		"tsBuildInfoFile": ".tsbuild/test.tsbuildinfo",
+		"strictNullChecks": false
 	},
-	"include": ["test/**/*.ts"],
-	"references": [{ "path": "./tsconfig.host.json" }]
+	"include": [
+		"test/**/*.ts"
+	],
+	"references": [
+		{
+			"path": "./tsconfig.host.json"
+		}
+	]
 }
