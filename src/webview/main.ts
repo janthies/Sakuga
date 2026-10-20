@@ -1,3 +1,8 @@
+// @ts-nocheck
+import * as coreText from '../core/text';
+import * as coreRoutes from '../core/layout/route';
+import * as coreSketch from '../core/layout/sketch';
+
 // Sakuga canvas. Draws the boxes and arrows of the TikZ file in the look they get in the PDF and
 // sends edits as operations; the extension writes them into the file and sends the new state back.
 (() => {
@@ -363,8 +368,7 @@
 		);
 	}
 	function frameRect(id) {
-		if (typeof SakugaRoutes === 'undefined') return null;
-		return SakugaRoutes.bounds(
+		return coreRoutes.bounds(
 			id,
 			nodes.map((n) => ({ ...n, ...layout(n) })),
 			groups,
@@ -389,7 +393,7 @@
 			return {
 				id: n.id,
 				anchor,
-				...(typeof SakugaRoutes !== 'undefined' ? SakugaRoutes.snapPort({ ...n, w, h }, anchor, p, disableSnap) : {}),
+				...coreRoutes.snapPort({ ...n, w, h }, anchor, p, disableSnap),
 			};
 		}
 		if (typeof groups === 'undefined') return null;
@@ -823,10 +827,10 @@
 		return n.icon === 'none' ? '' : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon;
 	};
 	function titleLines(n) {
-		return SakugaText.lines({ ...n, icon: effectiveIcon(n) }, figureFont);
+		return coreText.lines({ ...n, icon: effectiveIcon(n) }, figureFont);
 	}
 	function layout(n) {
-		return SakugaText.layout({ ...n, icon: effectiveIcon(n) }, figureFont);
+		return coreText.layout({ ...n, icon: effectiveIcon(n) }, figureFont);
 	}
 
 	function nodeAt(p, margin = 0) {
@@ -1032,17 +1036,16 @@
 		const a = byId(e.from),
 			b = byId(e.to);
 		if (
-			typeof SakugaRoutes !== 'undefined' &&
-			(['auto', 'manhattan', 'fixed', 'loop'].includes(e.route) ||
-				e.from === e.to ||
-				e.labelStyle ||
-				e.labels?.length ||
-				e.fromAnchor ||
-				e.toAnchor ||
-				!a ||
-				!b ||
-				SakugaRoutes.lane(e, edges) ||
-				e.route === 'u')
+			['auto', 'manhattan', 'fixed', 'loop'].includes(e.route) ||
+			e.from === e.to ||
+			e.labelStyle ||
+			e.labels?.length ||
+			e.fromAnchor ||
+			e.toAnchor ||
+			!a ||
+			!b ||
+			coreRoutes.lane(e, edges) ||
+			e.route === 'u'
 		) {
 			const aa = endpointObject(e.from),
 				bb = endpointObject(e.to);
@@ -1054,10 +1057,10 @@
 				!e.toAnchor &&
 				!aa.frame &&
 				!bb.frame &&
-				!SakugaRoutes.lane(e, edges) &&
+				!coreRoutes.lane(e, edges) &&
 				e.route !== 'u'
 			)
-				return SakugaRoutes.legacyGeometry(e, { ...aa, ...layout(aa) }, { ...bb, ...layout(bb) }, arrowsStyle);
+				return coreRoutes.legacyGeometry(e, { ...aa, ...layout(aa) }, { ...bb, ...layout(bb) }, arrowsStyle);
 			const objects = nodes
 				.map((n) => ({ ...n, ...layout(n) }))
 				.concat(
@@ -1071,10 +1074,10 @@
 				.map((o) => {
 					const x = objects.find((n) => n.id === o.from),
 						y = objects.find((n) => n.id === o.to);
-					return x && y ? SakugaRoutes.geometry(o, x, y, edges, arrowsStyle, objects)?.pts : null;
+					return x && y ? coreRoutes.geometry(o, x, y, edges, arrowsStyle, objects)?.pts : null;
 				})
 				.filter(Boolean);
-			return SakugaRoutes.geometry(
+			return coreRoutes.geometry(
 				e,
 				{ ...aa, ...(aa.frame ? {} : layout(aa)) },
 				{ ...bb, ...(bb.frame ? {} : layout(bb)) },
@@ -2668,7 +2671,7 @@
 						tx,
 						y + pitch - codePitch,
 						show(n.code),
-						SakugaText.sizes[SakugaText.codeSize(n, figureFont)],
+						coreText.sizes[coreText.codeSize(n, figureFont)],
 						'Sakuga Mono',
 						CODE,
 						textAnchor,
@@ -2867,7 +2870,7 @@
 				for (const side of ['north', 'east', 'south', 'west'])
 					for (const f of [0, 0.25, 1 / 3, 0.5, 2 / 3, 0.75, 1]) {
 						const off = (f - 0.5) * (/north|south/.test(side) ? box.w : box.h),
-							p = SakugaRoutes.port(box, side, off);
+							p = coreRoutes.port(box, side, off);
 						el(
 							'circle',
 							{ cx: px(p[0]), cy: py(p[1]), r: 2.5, fill: '#fff', stroke: 'var(--sel)', 'pointer-events': 'none' },
@@ -2897,7 +2900,7 @@
 			const n = drag.target && endpointObject(drag.target.id),
 				pt =
 					n && !n.frame
-						? SakugaRoutes.port({ ...n, ...layout(n) }, drag.target.anchor, drag.target.offset)
+						? coreRoutes.port({ ...n, ...layout(n) }, drag.target.anchor, drag.target.offset)
 						: [drag.x, drag.y];
 			el(
 				'circle',
@@ -4499,7 +4502,7 @@
 								...(same ? [] : [['*', 'Mixed']]),
 								['', 'One step below title'],
 								...['tiny', ...Object.keys(sizes)]
-									.filter((v) => SakugaText.sizes[v] <= Math.min(...objects.map((n) => smallerPt(fontPt(n)))))
+									.filter((v) => coreText.sizes[v] <= Math.min(...objects.map((n) => smallerPt(fontPt(n)))))
 									.map((v) => [v, v]),
 							],
 							same ? objects[0].codeFont || '' : '*',
@@ -4513,7 +4516,7 @@
 						if (n.wantWidth !== undefined) {
 							const hint = document.createElement('p');
 							hint.className = 'empty';
-							hint.textContent = 'box widened to fit `' + SakugaText.need(n, figureFont).content + '`';
+							hint.textContent = 'box widened to fit `' + coreText.need(n, figureFont).content + '`';
 							getSection('Text').append(hint);
 						}
 				}
@@ -5090,14 +5093,14 @@
 			B = e.to;
 		const lbl = (pos) => (e.label ? ` node[sg elabel${pos}] {${e.label}}` : '');
 		let path;
-		const G = typeof SakugaRoutes !== 'undefined' && edgeGeom(e);
+		const G = edgeGeom(e);
 		if (G && (G.rule || G.fixed || G.loop)) {
 			const aa = { ...a, ...layout(a) },
 				bb = { ...b, ...layout(b) },
 				sa = G.sa || e.fromAnchor || 'east',
 				sb = G.sb || e.toAnchor || 'west';
 			if (G.loop)
-				path = `${SakugaRoutes.portText(aa, sa, G.pts[0])} to[out=${G.out},in=${G.inn},min distance=${e.loopSize ?? 8}mm]${lbl('')} ${SakugaRoutes.portText(bb, sb, G.pts.at(-1))}`;
+				path = `${coreRoutes.portText(aa, sa, G.pts[0])} to[out=${G.out},in=${G.inn},min distance=${e.loopSize ?? 8}mm]${lbl('')} ${coreRoutes.portText(bb, sb, G.pts.at(-1))}`;
 			else {
 				if (G.rule)
 					o.push(
@@ -5105,10 +5108,10 @@
 						...(!e.fromAnchor ? ['sg implicit from'] : []),
 						...(!e.toAnchor ? ['sg implicit to'] : []),
 					);
-				path = SakugaRoutes.polyline(
+				path = coreRoutes.polyline(
 					G.pts,
-					SakugaRoutes.portText(aa, sa, G.pts[0]),
-					SakugaRoutes.portText(bb, sb, G.pts.at(-1)),
+					coreRoutes.portText(aa, sa, G.pts[0]),
+					coreRoutes.portText(bb, sb, G.pts.at(-1)),
 					lbl(''),
 				);
 			}
@@ -5331,7 +5334,7 @@
 	let tidyPreview = null,
 		tidyHeld = false;
 	function tidyPlan() {
-		return SakugaSketch.tidy(nodes, groups, edges, [...selN], layout);
+		return coreSketch.tidy(nodes, groups, edges, [...selN], layout);
 	}
 	function previewTidy() {
 		if (!tidyPreview) {
@@ -5376,7 +5379,7 @@
 			})),
 			es = edges.map((e, index) => ({ ...e, ...tidyPreview.ops.find((o) => o.op === 'arrow' && o.index === index) }));
 		for (const group of groups) {
-			const b = SakugaRoutes.bounds(
+			const b = coreRoutes.bounds(
 				group.id,
 				ns.map((n) => ({ ...n, ...layout(n) })),
 				groups,
@@ -5446,8 +5449,8 @@
 				: null;
 		const batch =
 			command === 'sameW' || command === 'sameH'
-				? SakugaSketch.sameSize(nodes, ids, key, command === 'sameW' ? 'w' : 'h', layout)
-				: SakugaSketch.arrange(nodes, groups, ids, key, command, layout);
+				? coreSketch.sameSize(nodes, ids, key, command === 'sameW' ? 'w' : 'h', layout)
+				: coreSketch.arrange(nodes, groups, ids, key, command, layout);
 		if (batch.ops.length) {
 			post(batch);
 		}
@@ -5463,7 +5466,7 @@
 			b.title = `${label} (${key})`;
 			b.setAttribute('aria-label', b.title);
 			b.innerHTML = `<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true"><path d="${path}"/></svg>`;
-			b.disabled = command.startsWith('distribute') && SakugaSketch.units(nodes, groups, [...selN], layout).length < 3;
+			b.disabled = command.startsWith('distribute') && coreSketch.units(nodes, groups, [...selN], layout).length < 3;
 			b.onclick = () => {
 				b.blur();
 				sketchCommand(command);
@@ -5482,7 +5485,7 @@
 		const n = selN.size === 1 && !selE.size && byId([...selN][0]);
 		if (!isBox(n) || n.locked || n.hidden) return false;
 		activeLayer = n.layer || activeLayer;
-		const draft = SakugaSketch.nextBox(nodes, edges, { ...n, style: withoutOverrides(n) }, newId(), below, layout);
+		const draft = coreSketch.nextBox(nodes, edges, { ...n, style: withoutOverrides(n) }, newId(), below, layout);
 		freshBox = draft;
 		nodes.push(draft.node);
 		edges.push(draft.edge);
@@ -6018,8 +6021,8 @@
 								: pts.at(-2)[1] > pts.at(-1)[1]
 									? 'north'
 									: 'south'),
-					off = SakugaRoutes.snapPort(box, side, p, ev.altKey).offset,
-					point = SakugaRoutes.port(box, side, off),
+					off = coreRoutes.snapPort(box, side, p, ev.altKey).offset,
+					point = coreRoutes.port(box, side, off),
 					axis = h ? 1 : 0;
 				if (pts.length === 2) {
 					const end = pts[1],
@@ -6294,7 +6297,7 @@
 		if (t.dataset.corner !== undefined) {
 			const [index, j] = t.dataset.corner.split(':').map(Number),
 				e = edges[index],
-				pts = SakugaRoutes.removeCorner(edgeGeom(e).pts, j);
+				pts = coreRoutes.removeCorner(edgeGeom(e).pts, j);
 			post({ op: 'arrow', index, ...fixedUpdate(e, pts) });
 			return;
 		}

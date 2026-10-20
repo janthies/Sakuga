@@ -1,5 +1,5 @@
 // Bundles with esbuild: out/extension.js (loaded by VS Code), out/tikz.js and out/shared.js (required by scripts/*.cjs and tests),
-// and media/dist/shared.js (the webview's SakugaText/SakugaRoutes/SakugaSketch globals until S8).
+// and media/dist/webview.js (the webview: src/webview/main.ts bundled with core, no sourcemap).
 const esbuild = require('esbuild');
 const fs = require('fs');
 const path = require('path');
@@ -21,11 +21,12 @@ esbuild.buildSync({
 });
 esbuild.buildSync({
 	absWorkingDir: root,
-	entryPoints: { shared: 'src/webview-shim.ts' },
+	entryPoints: { webview: 'src/webview/main.ts' },
 	outdir: 'media/dist',
 	bundle: true,
 	platform: 'browser',
 	format: 'iife',
 	target: 'es2022',
+	sourcemap: false,
 	logLevel: 'warning',
 });

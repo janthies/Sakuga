@@ -2,6 +2,7 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { JSDOM } from 'jsdom';
 import { ROOT, read } from './env';
+import { mm } from '../../src/core/text';
 
 // The body of page() in src/extension.ts (copied; the CSP, fonts and stylesheets do not matter here).
 const BODY = `<header id="bar"><button id="drawerToggle" class="tbtn"></button><button id="addBox" class="tool"></button><button id="addLabel" class="tool"></button><span id="addIcon" class="tool"><span class="lbl">Icon</span></span><button id="help"></button><table id="keys"></table><button id="exportSvg"></button></header>
@@ -11,7 +12,7 @@ const BODY = `<header id="bar"><button id="drawerToggle" class="tbtn"></button><
 <input id="edit" type="text"><div id="etools"></div>`;
 
 // Scripts in the order page() loads them.
-const SCRIPTS = ['dist/shared.js', 'editor.js'];
+const SCRIPTS = ['dist/webview.js'];
 
 export const VIEWPORT = { width: 1200, height: 800 };
 export const VIEW = { s: 4, ox: 100, oy: 400 };
@@ -26,10 +27,10 @@ export interface Canvas {
 }
 
 // Deterministic stand-in for canvas measureText: the advance tables of src/core/text, so widths do not depend on a font.
-function measureWidth(text: any, font: string, SakugaText: any): number {
+function measureWidth(text: any, font: string): number {
 	const m = /([\d.]+)px '([^']+)'/.exec(font)!;
 	const pt = (parseFloat(m[1]) * 72.27) / 96;
-	return (SakugaText.mm(text, pt, m[2] === 'Sakuga Mono' ? 'mono' : 'sans') * 96) / 25.4;
+	return (mm(text, pt, m[2] === 'Sakuga Mono' ? 'mono' : 'sans') * 96) / 25.4;
 }
 
 // Boot the real media scripts in jsdom, post the icons and state messages the host would send, and return the canvas.
@@ -80,7 +81,7 @@ export function boot(
 	const context = {
 		font: '',
 		measureText(t: string) {
-			return { width: measureWidth(t, this.font, w.SakugaText) };
+			return { width: measureWidth(t, this.font) };
 		},
 	};
 	w.HTMLCanvasElement.prototype.getContext = () => context;

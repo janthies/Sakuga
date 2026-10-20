@@ -9,8 +9,8 @@ examples/**
 
 work/**
 
-# built webview bundle (shared text, routing and layout code)
-!media/dist/shared.js
+# built webview bundle (src/webview bundled with core)
+!media/dist/webview.js
 
 # build and tooling files
 test/**
