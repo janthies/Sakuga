@@ -35,7 +35,7 @@
         "stroke-linecap": "butt",
         "stroke-dasharray": "3.1631382316313825 1.054379410543794",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       }
      ],
@@ -121,9 +121,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position0-title",
+        "parent": "position0"
        }
       }
      ],
@@ -202,9 +207,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position1-title",
+        "parent": "position1"
        }
       }
      ],
@@ -283,9 +293,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position2-title",
+        "parent": "position2"
        }
       }
      ],
@@ -364,9 +379,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position3-title",
+        "parent": "position3"
        }
       }
      ],
@@ -445,9 +465,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position4-title",
+        "parent": "position4"
        }
       }
      ],
@@ -526,9 +551,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position5-title",
+        "parent": "position5"
        }
       }
      ],
@@ -607,9 +637,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "position6-title",
+        "parent": "position6"
        }
       }
      ],
@@ -688,9 +723,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "inherited-title",
+        "parent": "inherited"
        }
       }
      ],

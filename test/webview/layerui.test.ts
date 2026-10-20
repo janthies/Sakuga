@@ -98,7 +98,8 @@ test('layer and object deletion, opacity controls, add-at-centre editing, drop f
 	assert.equal(s.lastOp.ops[0].op, 'deleteNode');
 	assert.ok(button('Delete objects').disabled);
 	s.setDoc(doc);
-	s.click(button('+ Object'));
+	s.dblclick(75, 25);
+	s.click(s.button('Box', s.document.querySelector('.creation-wheel')));
 	assert.equal(s.lastOp.op, 'addNode');
 	assert.equal(s.lastOp.x, 75);
 	assert.equal(s.lastOp.y, 25);

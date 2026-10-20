@@ -84,8 +84,6 @@ export interface Store {
 	layerScrollFrame: number | null;
 	layerPointerY: number | null;
 	layerSignature: string;
-	tidyPreview: Op | null;
-	tidyHeld: boolean;
 	sent: string | null;
 	timer: ReturnType<typeof setTimeout> | null;
 	lastInspectorSelection: string;

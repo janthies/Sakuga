@@ -1,6 +1,5 @@
 import { store } from '../store/store';
 import { $, src } from '../platform/dom';
-import { iconPicker } from '../ui/iconpicker';
 import { vscode } from '../platform/host';
 import { appState } from './state';
 import { runCommand } from './registry';
@@ -24,14 +23,11 @@ export function showText(t: string) {
 export function initToolbar() {
 	const bind = (button: string, id: string) => $(button).addEventListener('click', () => runCommand(appState, id));
 	bind('fitw', 'view.fitWidth');
-	bind('addLabel', 'node.addLabel');
-	bind('addBox', 'node.addBox');
 	bind('copySrc', 'source.copy');
 	bind('exportSvg', 'figure.exportSvg');
 	bind('copyPre', 'source.copyPreamble');
 	bind('group', 'group.group');
 	bind('ungroup', 'group.ungroup');
-	$('addIcon').append(iconPicker('', (icon: string) => runCommand(appState, 'node.addIcon', { icon })));
 	src.addEventListener('input', () => {
 		if (store.timer !== null) clearTimeout(store.timer);
 		store.timer = setTimeout(() => {

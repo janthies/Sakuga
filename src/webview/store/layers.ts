@@ -16,10 +16,17 @@ export function completeOrder(ns: ViewNode[], gs: Group[]) {
 	return [...ns.map((n) => n.id).filter((id) => !front.includes(id)), ...front.reverse()];
 }
 export function selectedRoots() {
-	if (store.selG) {
-		return [store.selG, ...[...store.selN].filter((id) => !inGroup(byId(id)!, store.selG!))];
-	}
-	return [...store.selN];
+	const selected = new Set([...(store.selG ? [store.selG] : []), ...store.selN]);
+	return [...selected].filter((id) => {
+		let item = store.items.find((i) => i.id === id);
+		const seen = new Set<string>();
+		while (item && !seen.has(item.id)) {
+			seen.add(item.id);
+			if (selected.has(item.parent)) return false;
+			item = store.items.find((i) => i.id === item!.parent);
+		}
+		return true;
+	});
 }
 export function selectLayer(id: string, toggle = false) {
 	const group = groupById(id),
@@ -100,7 +107,7 @@ export function slug(name: string, except?: string) {
 	return key;
 }
 export function newId() {
-	const used = store.nodes.map((n) => +(/^n(\d+)$/.exec(n.id) || [0, 0])[1]);
+	const used = [...store.items, ...store.nodes].map((n) => +(/^n(\d+)$/.exec(n.id) || [0, 0])[1]);
 	return 'n' + (Math.max(0, ...used) + 1);
 }
 export function nextStyleName(kind: keyof typeof KIND_NAMES) {

@@ -2,32 +2,16 @@ import * as coreSketch from '../../core/layout/sketch';
 import { store } from '../store/store';
 import { byId, groupById, layout, members, post } from '../store/model';
 import { render } from '../render/scene';
+import { safeArrange } from './arrange-routes';
 import type { Op } from '../tools/types';
 
 function tidyPlan(): Op {
 	return coreSketch.tidy(store.nodes, store.groups, store.edges, [...store.selN], layout);
 }
-export function previewTidy() {
-	if (!store.tidyPreview) {
-		store.tidyPreview = tidyPlan();
-		render();
-	}
-}
-export function cancelTidy() {
-	store.tidyPreview = null;
-	store.tidyHeld = false;
-	render();
-}
 export function applyTidy() {
-	const batch = store.tidyPreview || tidyPlan();
-	store.tidyPreview = null;
-	store.tidyHeld = false;
-	if (batch.ops.length) post(batch);
+	const batch = tidyPlan();
+	if (batch.ops.length) post(safeArrange(batch));
 	render();
-}
-export function holdTidy() {
-	store.tidyHeld = true;
-	previewTidy();
 }
 // Align, distribute or equalise the selected boxes, about the reference box if one is set.
 export function arrange(command: string) {
@@ -46,12 +30,6 @@ export function arrange(command: string) {
 			? coreSketch.sameSize(store.nodes, ids, key, command === 'sameW' ? 'w' : 'h', layout)
 			: coreSketch.arrange(store.nodes, store.groups, ids, key, command, layout);
 	if (batch.ops.length) {
-		post(batch);
+		post(safeArrange(batch));
 	}
-}
-
-export function initTidy() {
-	window.addEventListener('blur', () => {
-		if (store.tidyPreview) cancelTidy();
-	});
 }

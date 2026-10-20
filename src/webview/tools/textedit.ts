@@ -41,6 +41,8 @@ export class TextEditTool implements Tool {
 				step.pendingSelect = [t.id];
 				step.commit = t.draft.batch;
 			}
+		} else if (t.kind === 'text') {
+			if (commit) step.commit = { op: 'text', id: t.id, text: c.tex(text) };
 		} else if (t.kind === 'edge') {
 			if (commit) step.commit = { op: 'arrow', index: t.index, label: c.tex(text) };
 		} else if (commit) {

@@ -1,3 +1,4 @@
+import { interact } from './interaction';
 import { store } from '../store/store';
 import { input, isTyping, svg } from '../platform/dom';
 import { vscode } from '../platform/host';
@@ -7,7 +8,7 @@ import { ROUTE_OPTS } from '../store/constants';
 import { render } from '../render/scene';
 import { fit } from '../tools/live/view';
 import { beginEdit, startEdit } from '../tools/live/dispatch';
-import { applyTidy, arrange, cancelTidy, holdTidy } from './tidy';
+import { applyTidy, arrange } from './tidy';
 import { makeDraft } from './draft';
 import { copyStyle, pasteStyle } from './styles';
 import { groupSelection, ungroupSelection } from './groups';
@@ -16,10 +17,20 @@ import type { AppState } from './registry';
 
 const ids = () => [...store.selN].filter(byId);
 const ix = () => [...store.selE].filter((i) => store.edges[i]);
-const one = () => (ids().length === 1 && ix().length === 0 ? byId(ids()[0]) : null);
+const one = (): any => {
+	if (store.selN.size !== 1 || ix().length) return null;
+	const id = [...store.selN][0],
+		n = byId(id);
+	if (n) return n;
+	const item = store.items.find((i) => i.id === id);
+	return item?.kind === 'Text'
+		? { id, kind: 'label', title: item.text, locked: item.locked, hidden: item.hidden }
+		: null;
+};
 
 // The application as the commands see it, over the live store.
 export const appState: AppState = {
+	interaction: interact,
 	get cats() {
 		return store.cats;
 	},
@@ -35,12 +46,6 @@ export const appState: AppState = {
 	get label() {
 		return store.selN.label;
 	},
-	get tidyPreview() {
-		return !!store.tidyPreview;
-	},
-	get tidyHeld() {
-		return store.tidyHeld;
-	},
 	get routes() {
 		return ROUTE_OPTS.map((o) => o[0]);
 	},
@@ -53,7 +58,7 @@ export const appState: AppState = {
 	busy: () => !!(store.editing || isTyping()),
 	post,
 	send: (m) => vscode.postMessage(m),
-	tidy: { hold: holdTidy, apply: applyTidy, cancel: cancelTidy },
+	tidy: { apply: applyTidy },
 	arrange,
 	moveSelectionToLayer(delta) {
 		const current = store.layers.findIndex((l) => l.id === (one()?.layer || store.activeLayer)),

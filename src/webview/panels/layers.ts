@@ -1,3 +1,4 @@
+import { itemSelected, revealSelection } from './layers-items';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { LayerCtx, renderLayers2, renderLayers3 } from './layers-rows';
@@ -34,10 +35,13 @@ function scrollLayers() {
 }
 const layerList = document.getElementById('layer-list')!;
 export function renderLayers() {
+	const reveal = revealSelection();
 	const ctx = {} as LayerCtx;
 	if (renderLayers1(ctx)) return;
 	renderLayers2(ctx);
 	renderLayers3(ctx);
+	if (reveal)
+		ctx.list.querySelector<HTMLElement>('.selected:not(.container-layer)')?.scrollIntoView?.({ block: 'nearest' });
 }
 function renderLayers1(ctx: LayerCtx): boolean {
 	ctx.list = document.getElementById('layer-list')!;
@@ -47,11 +51,10 @@ function renderLayers1(ctx: LayerCtx): boolean {
 	ctx.updateSelection = () => {
 		for (const row of ctx.list.children as HTMLCollectionOf<HTMLElement>) {
 			const id = row.dataset.id!;
+			const item = store.items.find((i) => i.id === id);
 			const selected = row.classList.contains('container-layer')
 				? store.selectedLayers.has(id)
-				: groupById(id)
-					? store.selG === id
-					: store.selN.has(id);
+				: !!item && itemSelected(item);
 			row.classList.toggle('selected', selected);
 			row.setAttribute('aria-selected', String(selected));
 			row.classList.remove('drop-group', 'drop-above', 'drop-below');
@@ -70,9 +73,6 @@ function renderLayers1(ctx: LayerCtx): boolean {
 			move.disabled = !store.selN.size && !store.selG;
 		}
 	};
-	if (store.selN.size || store.selE.size || store.selG) {
-		store.selectedLayers.clear();
-	}
 	const signature = JSON.stringify([
 		store.selN.size,
 		store.selE.size,
@@ -80,6 +80,7 @@ function renderLayers1(ctx: LayerCtx): boolean {
 		store.layers,
 		store.nodes.map((n) => [n.id, n.layer, n.group, n.title, n.cat, n.hidden, n.locked]),
 		store.groups,
+		store.items.map((i) => [i.id, i.parent, i.order, i.hidden, i.locked, i.kind === 'Text' ? i.text : '']),
 		store.cats,
 		store.palette,
 		store.activeLayer,
@@ -132,6 +133,7 @@ function renderLayers1(ctx: LayerCtx): boolean {
 				finish(ev.key === 'Enter');
 			}
 		};
+		field.onchange = () => finish(true);
 		field.onblur = () => finish(true);
 	};
 	ctx.makeRow = (id: string, depth: number) => {

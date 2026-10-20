@@ -28,9 +28,6 @@ export function page(env: PageEnv, settings: Pick<Settings, 'preamble'>): string
 <header id="bar">
 	<button id="drawerToggle" class="tbtn" aria-label="TikZ source and preamble" aria-pressed="false" aria-controls="drawer" title="TikZ source and preamble"><i class="ci ci-menu"></i></button>
 	<span class="vsep"></span>
-	<button id="addBox" class="tool" title="Place a box"><i class="ci ci-add"></i>Box</button>
-	<button id="addLabel" class="tool" title="Place a free text label"><i class="ci ci-add"></i>Label</button>
-	<span id="addIcon" class="tool" title="Place a free icon"><span class="lbl">Icon</span></span>
 	<span class="grow"></span>
 	<button id="help" class="tbtn" aria-label="Keyboard shortcuts" aria-controls="keys"><i class="ci ci-question"></i></button>
 	<table id="keys"></table>

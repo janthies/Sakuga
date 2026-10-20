@@ -155,8 +155,8 @@ test('selection, movement, styles and clipboard', () => {
 	assert.deepEqual([s.selection.nodes, s.selection.edges], [[], [0, 1]]);
 	s.key('Delete');
 	assert.deepEqual(JSON.parse(JSON.stringify(s.lastOp.ops)), [
-		{ op: 'deleteEdge', index: 1 },
-		{ op: 'deleteEdge', index: 0 },
+		{ op: 'deleteItem', id: 'connector' },
+		{ op: 'deleteItem', id: 'connector-2' },
 	]);
 	assert.equal(s.selection.edges.length, 0);
 });

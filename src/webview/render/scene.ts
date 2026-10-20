@@ -34,9 +34,6 @@ function sceneNow() {
 // Everything changed (or may have): rebuild the scene and patch the canvas. Returns the selected arrow, if any.
 export function drawCanvas() {
 	touch();
-	if (store.selN.size || store.selE.size || store.selG) {
-		store.selectedLayers.clear();
-	}
 	etools.style.display = 'none';
 	const scene = sceneNow();
 	const overlay = buildOverlay();
@@ -44,12 +41,9 @@ export function drawCanvas() {
 	return overlay.edge;
 }
 
-// The canvas, then the floating toolbar and the panels that follow the document and the selection.
+// The canvas and the panels that follow the document and selection.
 export function render() {
-	const edge = drawCanvas();
-	if (edge && !store.drag) {
-		calls.showToolbar(edge.i, edge.G);
-	}
+	drawCanvas();
 	calls.renderInspector();
 	calls.renderLayers();
 	calls.updateZoombar();
@@ -60,8 +54,5 @@ export function renderView() {
 	etools.style.display = 'none';
 	const overlay = buildOverlay();
 	renderer.setView(viewNow(), overlay.prims);
-	if (overlay.edge && !store.drag) {
-		calls.showToolbar(overlay.edge.i, overlay.edge.G);
-	}
 	calls.updateZoombar();
 }

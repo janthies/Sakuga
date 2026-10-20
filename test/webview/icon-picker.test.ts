@@ -17,8 +17,13 @@ const search = (s: Session, q: string) => {
 
 test('grouped previews, filtering, keyboard selection, clearing, dismissal and preview reuse', () => {
 	const s = new Session(figure([['p', 0, 0, { icon: 'board' }]]));
-	const toolbar = s.document.querySelector('#addIcon button.icon-picker');
-	s.click(toolbar);
+	const toolbar = {
+		open: () => {
+			s.dblclick(80, 50);
+			s.click(s.button('Icon', s.document.querySelector('.canvas-menu')));
+		},
+	};
+	toolbar.open();
 	assert.equal(panel(s).hidden, false);
 	assert.equal(entries(s).length, icons.length + 1);
 	assert.equal(entries(s)[0].textContent, 'No icon');
@@ -37,7 +42,7 @@ test('grouped previews, filtering, keyboard selection, clearing, dismissal and p
 	press('Enter');
 	assert.equal(s.lastOp.icon, 'board');
 	assert.equal(panel(s).hidden, true);
-	s.click(toolbar);
+	toolbar.open();
 	assert.equal(entry(s, 'board'), preview, 'Opening must reuse the rendered previews');
 	s.key('Escape');
 	assert.equal(panel(s).hidden, true);
@@ -47,7 +52,7 @@ test('grouped previews, filtering, keyboard selection, clearing, dismissal and p
 	s.click(s.row('Icon').querySelector('button.icon-picker'));
 	s.click(entries(s)[0]);
 	assert.equal(s.lastOp.icon, 'none');
-	s.click(toolbar);
+	toolbar.open();
 	search(s, 'unlikely-no-matches');
 	assert.equal(entries(s).filter((b) => !b.hidden).length, 1, 'No icon remains available for an empty result');
 	s.pointer('pointerdown', 0, 0, s.document.body);

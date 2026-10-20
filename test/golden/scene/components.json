@@ -111,7 +111,7 @@
         "stroke-linecap": "round",
         "stroke-dasharray": "0 1.5815691158156913",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       }
      ],
@@ -151,7 +151,7 @@
         "stroke-linecap": "butt",
         "stroke-dasharray": "3.1631382316313825 1.054379410543794",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       }
      ],
@@ -208,9 +208,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
        }
       }
      ],
@@ -260,9 +265,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "att-title",
+        "parent": "att"
        }
       },
       {
@@ -277,7 +287,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "att-title",
+        "parent": "att"
        }
       }
      ],
@@ -327,9 +342,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "seam-title",
+        "parent": "seam"
        }
       },
       {
@@ -344,7 +364,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "seam-title",
+        "parent": "seam"
        }
       }
      ],
@@ -394,9 +419,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "swbe-title",
+        "parent": "swbe"
        }
       },
       {
@@ -411,9 +441,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "swbe-title",
+        "parent": "swbe"
        }
       }
      ],
@@ -463,9 +498,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "teebe-title",
+        "parent": "teebe"
        }
       }
      ],
@@ -515,9 +555,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
        }
       },
       {
@@ -532,9 +577,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
        }
       }
      ],
@@ -584,9 +634,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "cysapi-title",
+        "parent": "cysapi"
        }
       },
       {
@@ -601,7 +656,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "cysapi-title",
+        "parent": "cysapi"
        }
       }
      ],
@@ -651,9 +711,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "entry-title",
+        "parent": "entry"
        }
       },
       {
@@ -668,7 +733,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "entry-title",
+        "parent": "entry"
        }
       }
      ],
@@ -718,9 +788,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "hdl-title",
+        "parent": "hdl"
        }
       },
       {
@@ -735,7 +810,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "hdl-title",
+        "parent": "hdl"
        }
       }
      ],
@@ -785,9 +865,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
        }
       },
       {
@@ -802,9 +887,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
        }
       }
      ],
@@ -854,9 +944,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
        }
       },
       {
@@ -871,9 +966,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
        }
       }
      ],
@@ -923,9 +1023,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "drv-title",
+        "parent": "drv"
        }
       }
      ],
@@ -975,9 +1080,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "hw-title",
+        "parent": "hw"
        }
       }
      ],

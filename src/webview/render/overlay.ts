@@ -1,5 +1,6 @@
 // The selection, handles, guides and previews drawn above the figure, as primitives in screen pixels.
-// Everything here comes from the store state (selection, hover, drag, tidy preview), never from the scene.
+// Everything here comes from the store state (selection, hover, drag), never from the scene.
+import { treeSelection } from './overlay-items';
 import { PT } from '../../core/text';
 import { prim } from '../../core/scene/style';
 import type { Prim } from '../../core/scene';
@@ -15,13 +16,14 @@ import { Out } from './out';
 import type { Attrs, PrimKind } from '../../core/scene';
 import type { ViewNode } from '../store/types';
 
-// The overlay, plus the single selected arrow (the floating toolbar needs it).
+// The overlay and the geometry of the single selected connector.
 export function buildOverlay(): { prims: Prim[]; edge: { i: number; G: any } | null } {
 	const o = new Out();
 	const edge = edgeHandles(o);
 	for (const n of paintOrder()) {
 		if (!n.hidden) nodeSelection(o, n);
 	}
+	treeSelection(o);
 	multiSelection(o);
 	attachments(o);
 	selectedLabel(o);
@@ -168,7 +170,11 @@ function nodeSelection(o: Out, n: ViewNode) {
 }
 
 function multiSelection(o: Out) {
-	if (!(store.selN.size > 1 && [...store.selN].every((id) => !byId(id)!.locked && !byId(id)!.hidden) && !store.editing))
+	if (!(
+		store.selN.size > 1 &&
+		[...store.selN].every((id) => byId(id) && !byId(id)!.locked && !byId(id)!.hidden) &&
+		!store.editing
+	))
 		return;
 	const b = selBox([...store.selN]),
 		m = 2.5,

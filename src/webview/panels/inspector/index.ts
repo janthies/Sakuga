@@ -13,7 +13,6 @@ import { subjectFor } from './subject';
 // The inspector: a Selection tab built from the SectionSpecs of whatever is selected, and a Figure tab.
 
 export function renderInspector() {
-	if (store.tidyPreview) return;
 	renderInspectorRaw();
 }
 

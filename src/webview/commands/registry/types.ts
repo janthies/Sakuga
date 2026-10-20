@@ -13,13 +13,12 @@ export interface KeyInfo {
 }
 
 export interface AppState {
+	interaction?(id: string, args?: any): Op | void;
 	readonly cats: { key: string }[];
 	readonly layers: { id: string }[];
 	readonly activeLayer: string;
 	readonly selG: string | null;
 	readonly label: any;
-	readonly tidyPreview: boolean;
-	readonly tidyHeld: boolean;
 	/** The routes an arrow cycles through, in order. */
 	readonly routes: string[];
 	/** Selected boxes that exist, selected arrows that exist, and the one selected box when it is alone. */
@@ -35,7 +34,7 @@ export interface AppState {
 	post(op: Op): void;
 	send(message: { type: string; [k: string]: any }): void;
 	// effects
-	tidy: { hold(): void; apply(): void; cancel(): void };
+	tidy: { apply(): void };
 	arrange(command: string): void;
 	moveSelectionToLayer(delta: number): void;
 	copyStyle(): void;

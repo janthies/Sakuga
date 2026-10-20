@@ -26,7 +26,26 @@ export class BandTool implements Tool {
 			y1 = Math.max(d.y0, d.y1);
 		const nodes = new Set<string>([
 			...d.baseN,
+			...(c.items ?? [])
+				.filter((i) => {
+					const r = c.itemRect?.(i.id);
+					return (
+						!i.hidden &&
+						!i.locked &&
+						r &&
+						r.x - r.w / 2 >= x0 &&
+						r.x + r.w / 2 <= x1 &&
+						r.y - r.h / 2 >= y0 &&
+						r.y + r.h / 2 <= y1
+					);
+				})
+				.map((i) => i.id),
 			...c.nodes.filter((n) => nodeInside(c, n, x0, x1, y0, y1)).map((n) => n.id),
+			...(c.lines ?? [])
+				.filter(
+					(l) => !l.hidden && !l.locked && [l.start, l.end].every(([x, y]) => x >= x0 && x <= x1 && y >= y0 && y <= y1),
+				)
+				.map((l) => l.id),
 		]);
 		const edges = new Set<number>([
 			...d.baseE,

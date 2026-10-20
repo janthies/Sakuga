@@ -228,36 +228,24 @@ test('canvas layout equals the serializer box for every shape and font size', ()
 	near(s.hook.layout(n).h, text.layout({ ...n, icon: 'board' }).h, 0.00001);
 });
 
-test('hover and hold previews change nothing, apply one batch, and cancel', () => {
-	const START = [
-		['a', 0, 0],
-		['b', 0, -20],
-		['c', 0, -60],
-	] as const;
-	const s = new Session(figure(START.map(([id, x, y]) => [id, x, y, { width: 26, minh: 0 }] as any)));
-	const reset = () => s.apply({ op: 'batch', ops: START.map(([id, x, y]) => ({ op: 'move', id, x, y })) });
-	const positions = () => JSON.stringify(s.hook.state().nodes.map((n: any) => [n.id, n.x, n.y]));
-	const json = positions();
+test('tidy applies immediately as one batch; holding and hovering never preview or apply', () => {
+	const s = new Session(
+		figure([
+			['a', 0, 0],
+			['b', 0, -20],
+			['c', 0, -60],
+		]),
+	);
 	s.key('t', { altKey: true });
-	assert.ok(s.hook.tidyPreview());
-	assert.equal(s.ops.length, 0);
-	assert.equal(positions(), json);
+	assert.equal(s.ops.length, 1);
+	assert.equal(s.lastOp.op, 'batch');
 	s.key('t', {}, 'keyup');
 	assert.equal(s.ops.length, 1);
-	assert.equal(s.ops[0].op, 'batch');
-	assert.ok(!s.hook.tidyPreview());
-	reset();
-	const sent = s.ops.length;
-	s.key('t', { altKey: true });
-	s.key('Escape');
-	assert.equal(s.ops.length, sent);
-	assert.ok(!s.hook.tidyPreview());
-	const fire = (el: any, type: string) => el.dispatchEvent(new s.window.Event(type));
-	fire(s.button('Tidy up figure', s.inspector), 'mouseenter');
-	assert.ok(s.hook.tidyPreview());
-	fire(s.button('Tidy up figure', s.inspector), 'mouseleave');
-	assert.ok(!s.hook.tidyPreview());
-	fire(s.button('Tidy up figure', s.inspector), 'mouseenter');
+	const b = s.button('Tidy up figure', s.inspector);
+	b.dispatchEvent(new s.window.Event('mouseenter'));
+	b.dispatchEvent(new s.window.Event('mouseleave'));
+	assert.equal(s.ops.length, 1);
+	s.apply({ op: 'move', id: 'c', x: 0, y: -80 });
 	s.click(s.button('Tidy up figure', s.inspector));
-	assert.equal(s.ops.length, sent + 1);
+	assert.equal(s.ops.length, 2);
 });

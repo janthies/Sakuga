@@ -10,7 +10,11 @@ export const STROKE = '#9e9e9e',
 	CODE = '#858585';
 
 // TeX to display text: \cmd{x} shows x, \_ is an underscore. (Not core/text's show, which prepares text for measuring.)
-export const display = (t: string): string => t.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1').replace(/\\([_&%#$])/g, '$1');
+export const display = (t: string): string =>
+	t
+		.replace(/(?<!\\)\$/g, '')
+		.replace(/\\[a-zA-Z]+\{([^}]*)\}/g, '$1')
+		.replace(/\\([_&%#$])/g, '$1');
 
 export const r4 = (v: number) => Math.round(v * 1e4) / 1e4 + 0;
 export const n4 = (v: number) => String(r4(v));

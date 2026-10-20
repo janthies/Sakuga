@@ -11,6 +11,8 @@ export type { LabelRef };
 /** What was under the pointer, as the renderer marked it. */
 export type HitRef =
 	| { k: 'none' }
+	| { k: 'line'; id: string }
+	| { k: 'text'; id: string; parent: string }
 	| { k: 'label'; ref: LabelRef }
 	| { k: 'locked' }
 	| { k: 'corner'; index: number; j: number }
@@ -54,6 +56,9 @@ export interface Selection {
 export type Op = OpLike;
 /** A change shown on screen before it is committed: node geometry, arrow fields, a label style. */
 export interface PreviewOp {
+	labels?: { ref: LabelRef; style: any; titlePosition?: string }[];
+	texts?: { id: string; placement: import('../../core/model/figure').LabelStyle }[];
+	lines?: { id: string; start: [number, number]; end: [number, number] }[];
 	nodes?: { id: string; x?: number; y?: number; width?: number; minh?: number; attachment?: any }[];
 	arrows?: { index: number; fields: Record<string, any> }[];
 	label?: { ref: LabelRef; style: any; titlePosition?: string };
@@ -62,10 +67,14 @@ export interface PreviewOp {
 }
 
 export type EditTarget =
-	{ kind: 'node'; id: string } | { kind: 'edge'; index: number } | { kind: 'draft'; id: string; draft: any };
+	| { kind: 'text'; id: string }
+	| { kind: 'node'; id: string }
+	| { kind: 'edge'; index: number }
+	| { kind: 'draft'; id: string; draft: any };
 export type EditView = { open: EditTarget; text?: string } | 'close';
 
 export interface Step {
+	wheel?: Point;
 	/** Applied to the model on screen only, never sent. */
 	preview?: PreviewOp;
 	/** Sent to the host. */
@@ -98,6 +107,9 @@ export interface Tool {
 
 /** The questions tools ask about the figure, answered by live/ctx.ts from the store, or by a fake in tests. */
 export interface ToolCtx {
+	itemRect?(id: string): { x: number; y: number; w: number; h: number } | undefined;
+	readonly items?: import('../../core/model/item').Item[];
+	readonly lines?: import('../../core/model/item').FigLine[];
 	nodes: any[];
 	edges: any[];
 	groups: any[];

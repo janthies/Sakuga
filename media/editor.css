@@ -1719,3 +1719,51 @@ select:focus {
 #inspector .width-control > .num {
 	flex: 1 0 70px;
 }
+
+/* The paper stays white in every editor theme. */
+#canvas,
+#desk {
+	background: #ffffff;
+}
+#etools {
+	display: none !important;
+}
+
+.canvas-menu-anchor {
+	position: fixed;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	border: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+.canvas-menu {
+	position: fixed;
+	z-index: 100;
+	min-width: 190px;
+	max-height: 80vh;
+	overflow: auto;
+	padding: 6px;
+}
+.canvas-menu button,
+.canvas-menu summary {
+	display: block;
+	width: 100%;
+	text-align: left;
+	padding: 6px 10px;
+	cursor: pointer;
+}
+.canvas-menu details button {
+	padding-left: 24px;
+}
+.canvas-menu.creation-wheel {
+	display: grid;
+	grid-template-columns: repeat(3, 70px);
+	gap: 5px;
+	border-radius: 40px;
+	padding: 20px;
+}
+.canvas-menu[hidden] {
+	display: none;
+}

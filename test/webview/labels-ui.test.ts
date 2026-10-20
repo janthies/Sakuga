@@ -62,6 +62,8 @@ test('anchor picker, grid drops, Alt drop, offsets, editing, parent previews, cl
 		before = { ...label.attachment },
 		start = { x: label.x, y: label.y };
 	s.down(start.x, start.y, s.node('label'));
+	s.up(start.x, start.y);
+	s.down(start.x, start.y, s.node('label'));
 	s.move(20, -15);
 	assert.equal(node(s, 'label').attachment.anchor, before.anchor);
 	s.up(20, -15);

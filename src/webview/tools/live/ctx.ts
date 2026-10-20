@@ -1,3 +1,5 @@
+import { geo } from '../../store/geometry';
+import { lineLabel } from '../../../core/geometry/line-geometry';
 import { store } from '../../store/store';
 import { attachmentFor, byId, catOf, descendant, layout, nodeAt, snap } from '../../store/model';
 import { newId, selectLayer } from '../../store/layers';
@@ -22,6 +24,25 @@ export function selection() {
 
 // The tool context over the live store. Lists are read through getters: the store replaces them with every state message.
 export const liveCtx: ToolCtx = {
+	itemRect(id) {
+		const item = store.items.find((i) => i.id === id);
+		if (item?.kind === 'Frame') return geo().frame(id) ?? undefined;
+		if (item?.kind !== 'Text' || item.node) return undefined;
+		const parent = store.items.find((i) => i.id === item.parent);
+		const g =
+			parent?.kind === 'Line'
+				? lineLabel(parent.line, item.text, item.placement, store.figureFont)
+				: parent?.kind === 'Connector'
+					? geo().label(parent.connector, item.placement, item.text)
+					: undefined;
+		return g ? { x: g.p[0], y: g.p[1], w: g.w, h: g.h } : undefined;
+	},
+	get items() {
+		return store.items;
+	},
+	get lines() {
+		return store.lines;
+	},
 	get nodes() {
 		return store.nodes;
 	},

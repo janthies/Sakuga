@@ -35,7 +35,7 @@
         "stroke-linecap": "butt",
         "stroke-dasharray": "none",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       },
       {
@@ -111,7 +111,7 @@
         "stroke-linecap": "butt",
         "stroke-dasharray": "3.1631382316313825 1.054379410543794",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       },
       {
@@ -187,7 +187,7 @@
         "stroke-linecap": "butt",
         "stroke-dasharray": "3.1631382316313825 1.054379410543794",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       },
       {
@@ -263,7 +263,7 @@
         "stroke-linecap": "butt",
         "stroke-dasharray": "3.1631382316313825 1.054379410543794",
         "class": "group-frame",
-        "pointer-events": "stroke"
+        "pointer-events": "all"
        }
       },
       {
@@ -356,9 +356,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
        }
       }
      ],
@@ -408,9 +413,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rtos-title",
+        "parent": "rtos"
        }
       }
      ],
@@ -460,9 +470,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "client-title",
+        "parent": "client"
        }
       },
       {
@@ -477,9 +492,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "client-title",
+        "parent": "client"
        }
       }
      ],
@@ -529,9 +549,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "store-title",
+        "parent": "store"
        }
       },
       {
@@ -546,9 +571,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "store-title",
+        "parent": "store"
        }
       }
      ],
@@ -598,9 +628,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "crypto-title",
+        "parent": "crypto"
        }
       },
       {
@@ -615,9 +650,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "crypto-title",
+        "parent": "crypto"
        }
       }
      ],
@@ -667,9 +707,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ias-title",
+        "parent": "ias"
        }
       },
       {
@@ -684,9 +729,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ias-title",
+        "parent": "ias"
        }
       }
      ],
@@ -736,9 +786,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "bl1-title",
+        "parent": "bl1"
        }
       },
       {
@@ -753,9 +808,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "bl1-title",
+        "parent": "bl1"
        }
       }
      ],
@@ -805,9 +865,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "otp-title",
+        "parent": "otp"
        }
       },
       {
@@ -822,9 +887,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "otp-title",
+        "parent": "otp"
        }
       }
      ],
@@ -874,9 +944,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rec-title",
+        "parent": "rec"
        }
       },
       {
@@ -891,9 +966,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rec-title",
+        "parent": "rec"
        }
       }
      ],
@@ -943,9 +1023,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
        }
       },
       {
@@ -960,9 +1045,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
        }
       },
       {
@@ -977,9 +1067,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
        }
       },
       {
@@ -994,9 +1089,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
        }
       }
      ],
@@ -1046,9 +1146,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "end-title",
+        "parent": "end"
        }
       },
       {
@@ -1063,9 +1168,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "end-title",
+        "parent": "end"
        }
       }
      ],
@@ -1115,9 +1225,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
        }
       },
       {
@@ -1132,9 +1247,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
        }
       }
      ],
@@ -1184,9 +1304,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
        }
       },
       {
@@ -1201,9 +1326,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
        }
       },
       {
@@ -1218,9 +1348,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
        }
       }
      ],
@@ -2142,7 +2277,7 @@
       {
        "key": "e:7:lm:t0",
        "kind": "text",
-       "text": "nonce $N$",
+       "text": "nonce N",
        "attrs": {
         "x": 106.6,
         "y": -1.6515,

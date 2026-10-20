@@ -108,6 +108,11 @@ function nodePrim(env: Env, n: FigNode): Prim {
 	}
 	if (!n.titleHidden && env.opts.editing !== n.id && n.kind !== 'icon')
 		kids.push(...titleLines(env, n, key, w, h, lines));
+	for (const p of kids)
+		if (p.kind === 'text' && !n.kind && !n.locked) {
+			p.hit = { k: 'text', id: n.titleId || n.id + '-title', parent: n.id };
+			p.attrs['pointer-events'] = 'auto';
+		}
 	return prim('g', key, { 'fill-opacity': alpha, 'stroke-opacity': alpha }, { ref, children: kids });
 }
 

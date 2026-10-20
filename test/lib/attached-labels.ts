@@ -43,6 +43,8 @@ export function sequence(s: Session) {
 		A = s.hook.baseEdgeGeom({ ...state(s).edges[0], labelStyle: {} });
 	const q = A.pts[0].map((v: number, k: number) => v + (A.pts[1][k] - v) * 0.25);
 	s.down(G.p[0], G.p[1], label(s, { index: 0 }));
+	s.up(G.p[0], G.p[1]);
+	s.down(G.p[0], G.p[1], label(s, { index: 0 }));
 	assert.equal(s.selection.edges.length, 0);
 	assert.equal(s.selection.label.index, 0);
 	s.move(q[0], q[1] + 8);
@@ -111,17 +113,20 @@ export function sequence(s: Session) {
 	const G2 = s.hook.arrowLabelGeom(state(s).edges[0]);
 	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
 	s.up(G2.p[0], G2.p[1]);
+	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
+	s.up(G2.p[0], G2.p[1]);
 	assert.equal(s.selection.label.index, 0);
 	s.key('c', { ctrlKey: true, altKey: true, code: 'KeyC' });
 	const T = s.hook.frameTitleGeom(state(s).groups[0]);
 	s.down(T.p[0], T.p[1], label(s, { group: 'world' }));
 	s.up(T.p[0], T.p[1]);
-	assert.equal(s.selection.label.group, 'world');
+	s.down(T.p[0], T.p[1], label(s, { group: 'world' }));
+	s.up(T.p[0], T.p[1]);
+	assert.equal(s.selection.group, 'world');
 	s.key('v', { ctrlKey: true, altKey: true, code: 'KeyV' });
 	const pasted = s.lastOp;
-	assert.equal(pasted.op, 'label');
-	assert.equal(pasted.group, 'world');
-	assert.ok(!Object.hasOwn(pasted.style, 'pos'));
+	assert.equal(pasted.op, 'groupProps');
+	assert.equal(pasted.id, 'world');
 	canonical();
 	// Legacy placement survives an own side/position, and reset still inherits the old preset.
 	apply({ op: 'style', indices: [0], style: { side: 'below', position: 'start' } });
@@ -130,6 +135,8 @@ export function sequence(s: Session) {
 	assert.equal(t.edges(saved)[0].style.side, 'below');
 	assert.equal(t.edges(saved)[0].style.position, 'start');
 	// An inspector edit and its document echo retain label selection.
+	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
+	s.up(G2.p[0], G2.p[1]);
 	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));
 	s.up(G2.p[0], G2.p[1]);
 	const field = s.row('Text').querySelector('input');

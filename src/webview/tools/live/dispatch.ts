@@ -1,3 +1,4 @@
+import { calls } from '../../store/calls';
 import { store } from '../../store/store';
 import { input, svg } from '../../platform/dom';
 import { byId, post, resolveAttached, toMm } from '../../store/model';
@@ -23,6 +24,7 @@ function setSelection(s: Selection) {
 }
 function apply(step: Step) {
 	if (step.select) setSelection(step.select);
+	if (step.wheel) calls.openWheel?.(step.wheel);
 	if (step.clearLayers) store.selectedLayers.clear();
 	if (step.lastCat !== undefined) store.lastCat = step.lastCat;
 	if (step.pendingEdit !== undefined) store.pendingEdit = step.pendingEdit;
@@ -63,6 +65,24 @@ export function beginEdit(target: EditTarget, text?: string) {
 }
 export function initDispatch() {
 	svg.addEventListener('pointerdown', (ev) => {
+		if (ev.button === 2) {
+			const e = canvasEvent(ev),
+				h = e.hit;
+			const selected =
+				h.k === 'node' || h.k === 'text' || h.k === 'line'
+					? store.selN.has(h.id)
+					: h.k === 'edge'
+						? store.selE.has(h.index)
+						: h.k === 'group'
+							? store.selG === h.id
+							: false;
+			if (h.k !== 'none' && !selected) {
+				const step = idle.down({ ...e, button: 0, mods: { ...e.mods, ctrl: false, shift: false } });
+				apply({ ...step, commit: undefined });
+				render();
+			}
+			return;
+		}
 		const e = canvasEvent(ev);
 		if (tool instanceof TextEditTool) {
 			// a click on the canvas ends the text edit and then counts as an ordinary click
@@ -144,6 +164,7 @@ export function initDispatch() {
 /** Open the text field on a box, as Enter or a double-click does. */
 export function startEdit(id: string, text?: string) {
 	if (byId(id)) beginEdit({ kind: 'node', id }, text);
+	else if (store.items.some((i) => i.id === id && i.kind === 'Text')) beginEdit({ kind: 'text', id }, text);
 }
 function endField(key: string) {
 	if (!(tool instanceof TextEditTool)) return;

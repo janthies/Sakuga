@@ -53,7 +53,7 @@ function framePrim(env: Env, g: Group, ids: string[], layers: { id: string; opac
 				'stroke-dasharray':
 					outline === 'dashed' ? `${9 * PT} ${3 * PT}` : outline === 'dotted' ? `0 ${4.5 * PT}` : 'none',
 				class: 'group-frame',
-				'pointer-events': g.frame === 'region' ? 'all' : 'stroke',
+				'pointer-events': 'all',
 			},
 			{ hit: { k: 'group', id: g.id }, ref: { k: 'group', id: g.id } },
 		),
@@ -121,5 +121,18 @@ function title(env: Env, g: Group, pos: string): Prim[] {
 			{ hit: { k: 'label', ref: { group: g.id } } },
 		),
 	);
+	const title = out.find((p) => p.kind === 'text');
+	if (title && g.name.includes('\\\\')) {
+		const lines = g.name.split('\\\\');
+		title.text = display(lines[0]);
+		lines.slice(1).forEach((line, j) =>
+			out.push({
+				...title,
+				key: title.key + ':' + (j + 1),
+				attrs: { ...title.attrs, y: Number(title.attrs.y) + (j + 1) * pt * PT * 1.25 },
+				text: display(line),
+			}),
+		);
+	}
 	return out;
 }

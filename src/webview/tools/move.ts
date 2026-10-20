@@ -10,7 +10,7 @@ export class MoveTool implements Tool {
 		e: CanvasEvent,
 		orig: Map<string, any>,
 	) {
-		this.overlay = { move: true, x: e.p.x, y: e.p.y, orig, dx: 0, dy: 0, copy: e.mods.alt };
+		this.overlay = { move: true, x: e.p.x, y: e.p.y, orig, dx: 0, dy: 0, copy: e.mods.alt, target: null };
 	}
 	down(): Step {
 		return {};
@@ -43,9 +43,14 @@ export class MoveTool implements Tool {
 		d.dx = dx;
 		d.dy = dy;
 		d.target = e.mods.alt || d.copy ? null : c.dropAnchor(p, [...d.orig.keys()]);
-		const nodes: any[] = [];
+		const nodes: any[] = [],
+			lines: any[] = [];
 		for (const [id, o] of d.orig as Map<string, any>) {
 			const n = c.byId(id);
+			if (o.line) {
+				lines.push({ id, start: [o.x + dx, o.y + dy], end: [o.line.end[0] + dx, o.line.end[1] + dy] });
+				continue;
+			}
 			if (!n) continue;
 			const item: any = { id, x: d.copy ? o.x : o.x + dx, y: d.copy ? o.y : o.y + dy };
 			if (o.attachment && !d.copy) {
@@ -58,7 +63,7 @@ export class MoveTool implements Tool {
 			}
 			nodes.push(item);
 		}
-		return { preview: { nodes, place: true } };
+		return { preview: { nodes, lines, place: true } };
 	}
 	up(e: CanvasEvent): Step {
 		const d = this.overlay,
@@ -69,9 +74,18 @@ export class MoveTool implements Tool {
 			const dup = c.duplicateOp(ids, d.dx, d.dy);
 			return { commit: dup.op, pendingSelect: dup.select };
 		}
-		const ops: Op[] = ids.map((id) => ({ op: 'move', id, x: c.byId(id).x, y: c.byId(id).y }));
+		const roots = ids.filter((id) => !ids.some((parent) => c.descendant(id, parent)));
+		const ops: Op[] = roots.map((id) => {
+			const n = c.byId(id);
+			return {
+				op: 'move',
+				id,
+				x: n?.x ?? c.lines!.find((l) => l.id === id)!.start[0],
+				y: n?.y ?? c.lines!.find((l) => l.id === id)!.start[1],
+			};
+		});
 		let target = d.target;
-		if (!e.mods.alt && d.orig.size === 1) {
+		if (!e.mods.alt && d.orig.size === 1 && c.byId(ids[0])) {
 			const id = ids[0],
 				drop = c.labelDrop(e.p, c.byId(id));
 			if (drop) {
@@ -81,7 +95,11 @@ export class MoveTool implements Tool {
 		}
 		if (target && !e.mods.alt) {
 			for (const id of ids) {
-				if (c.byId(id).attachment?.parent === target.parent.id || ids.some((parent) => c.descendant(id, parent))) {
+				if (
+					!c.byId(id) ||
+					c.byId(id).attachment?.parent === target.parent.id ||
+					ids.some((parent) => c.descendant(id, parent))
+				) {
 					continue;
 				}
 				ops.push({ op: 'attach', id, attachment: c.attachmentFor(c.byId(id), target.parent, target.anchor) });

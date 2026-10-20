@@ -1,9 +1,12 @@
+import { initTextEditing } from './ui/textediting';
+import { initCanvasMenus } from './ui/canvas-menu';
+import { appState } from './commands/state';
+import { runCommand } from './commands/registry';
 import { PROTOCOL } from '../bridge/protocol';
 import { vscode } from './platform/host';
 import { initPlatformHost } from './platform/host';
 import { initUiFloating } from './ui/floating';
 import { initDispatch } from './tools/live/dispatch';
-import { initTidy } from './commands/tidy';
 import { initKeyboard } from './commands/keyboard';
 import { initToolbar } from './commands/toolbar';
 import { initCommandsMessages } from './commands/messages';
@@ -15,7 +18,8 @@ import './panels/inspector';
 
 initPlatformHost();
 initUiFloating();
-initTidy();
+initTextEditing();
+initCanvasMenus((id, args) => runCommand(appState, id, args));
 initDispatch();
 initKeyboard();
 initToolbar();

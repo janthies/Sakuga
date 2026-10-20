@@ -7,7 +7,7 @@ export interface Action {
 	svg?: string;
 	disabled?: boolean;
 	run(button: HTMLButtonElement): void;
-	// Extra listeners (the tidy preview follows the pointer).
+	// Optional pointer feedback for action controls.
 	hover?: { enter(): void; leave(): void };
 }
 

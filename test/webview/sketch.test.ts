@@ -242,12 +242,11 @@ test('type-to-edit, Tab creation, cancellation, one-batch controls and constrain
 	s.click(bar.children[0]);
 	assert.equal(s.popOp().op, 'batch');
 	s.down(50, 0, s.node('second'), { shiftKey: true });
-	assert.equal(s.selection.key, 'second');
-	assert.equal(s.hook.drag().move, true);
+	assert.ok(!s.selection.nodes.includes('second'));
+	assert.ok(!s.hook.drag());
 	s.up(50, 0, { shiftKey: true });
 	s.down(50, 0, s.node('second'), { ctrlKey: true });
-	assert.equal(s.selection.key, null);
-	assert.ok(!s.selection.nodes.includes('second'));
+	assert.ok(s.selection.nodes.includes('second'));
 	s.up(50, 0, { ctrlKey: true });
 	// Every visible shortcut has an explicit scoped extension binding, avoiding workbench grabs.
 	[...bar.children].forEach((b: any, i: number) => {

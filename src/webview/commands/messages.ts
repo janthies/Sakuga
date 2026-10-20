@@ -38,8 +38,6 @@ export function initCommandsMessages() {
 			}
 			return;
 		}
-		store.tidyPreview = null;
-		store.tidyHeld = false;
 
 		store.figureFont = m.font || 'small';
 		showText(m.text);
@@ -61,7 +59,7 @@ export function initCommandsMessages() {
 		if (
 			store.selG === null ||
 			!groupById(store.selG) ||
-			members(store.selG).every((id) => byId(id)!.locked || byId(id)!.hidden)
+			(members(store.selG).length > 0 && members(store.selG).every((id) => byId(id)!.locked || byId(id)!.hidden))
 		) {
 			store.selG = null;
 		}
@@ -91,7 +89,12 @@ export function initCommandsMessages() {
 			store.fitted = true;
 		}
 		const selectedAttached = store.selN.label;
-		store.selN = new Set([...store.selN].filter((id) => byId(id) && !byId(id)!.locked && !byId(id)!.hidden));
+		store.selN = new Set(
+			[...store.selN].filter((id) => {
+				const item = store.items.find((i) => i.id === id);
+				return item && !item.locked && !item.hidden;
+			}),
+		);
 		if (selectedAttached) store.selN.label = selectedAttached;
 		if (store.selN.label && !labelTarget()) delete store.selN.label;
 		store.selE = new Set([...store.selE].filter((k) => store.edges[k]));

@@ -83,8 +83,8 @@ export const selectionCommands: Command[] = [
 		title: 'Delete',
 		keys: ['delete', 'backspace'],
 		help: { at: 34, keys: 'Del', text: 'delete' },
-		when: (s) => s.ids().length > 0 || s.ix().length > 0 || !!s.label,
-		run: (s) => s.deleteSelection(),
+		when: (s) => !!s.interaction || s.ids().length > 0 || s.ix().length > 0 || !!s.label || !!s.selG,
+		run: (s) => (s.interaction ? s.interaction('selection.deleteItems') : s.deleteSelection()),
 	},
 	{
 		id: 'selection.clear',
@@ -92,6 +92,6 @@ export const selectionCommands: Command[] = [
 		keys: ['escape'],
 		help: { at: 35, text: 'clear selection' },
 		when: () => true,
-		run: (s) => s.clearSelection(),
+		run: (s) => (s.interaction ? s.interaction('selection.parent') : s.clearSelection()),
 	},
 ];

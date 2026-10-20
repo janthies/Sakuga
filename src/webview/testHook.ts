@@ -57,7 +57,6 @@ export function initTestHook() {
 			}),
 			drag: () => store.drag,
 			editing: () => store.editing,
-			tidyPreview: () => store.tidyPreview,
 			view: () => store.view,
 		};
 	}

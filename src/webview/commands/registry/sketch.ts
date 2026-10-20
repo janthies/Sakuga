@@ -26,33 +26,18 @@ const align: Command[] = SKETCH_CONTROLS.map(([command, title, key], i) => ({
 	},
 }));
 
-// Tidy up: Alt+T held previews it, release applies it; Esc cancels. From VS Code `preview: false` applies at once.
+// Arrange commands execute immediately, with one document operation.
 export const sketchCommands: Command[] = [
 	{
 		id: 'sketch.tidy',
 		title: 'Tidy up',
 		keys: ['alt+-shift+t'],
 		vscode: 'sakuga.sketch.tidy',
-		help: { at: 23, keys: 'Alt+T', text: 'hold to preview Tidy up, release to apply; Esc cancels' },
+		help: { at: 23, keys: 'Alt+T', text: 'Tidy up' },
 		when: () => true,
-		run: (s, a) => {
-			if (s.blocked()) return;
-			if (a?.preview === false) s.tidy.apply();
-			else s.tidy.hold();
+		run: (s) => {
+			if (!s.blocked()) s.tidy.apply();
 		},
-	},
-	{
-		id: 'sketch.tidyApply',
-		title: 'Apply tidy up',
-		when: (s) => s.tidyHeld,
-		run: (s) => s.tidy.apply(),
-	},
-	{
-		id: 'sketch.tidyCancel',
-		title: 'Cancel tidy up',
-		keys: ['escape'],
-		when: (s) => s.tidyPreview,
-		run: (s) => s.tidy.cancel(),
 	},
 	...align,
 ];

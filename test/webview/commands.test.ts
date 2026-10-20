@@ -38,6 +38,7 @@ function app(over: Partial<{ ids: string[]; ix: number[]; tidyPreview: boolean; 
 			label: over.label ?? null,
 			tidyPreview: !!over.tidyPreview,
 			tidyHeld: false,
+			interaction: undefined,
 			routes: ['straight', 'manhattan', 'curved'],
 			ids: () => ids,
 			ix: () => ix,
@@ -113,8 +114,8 @@ test('D and R act on selected arrows', () => {
 	assert.equal(which(s, key('r')), 'arrow.route');
 });
 
-test('Escape cancels a tidy preview before it clears the selection', () => {
-	assert.equal(which(app({ tidyPreview: true }).s, key('Escape')), 'sketch.tidyCancel');
+test('Escape clears selection and tidy has no preview command', () => {
+	assert.equal(commandById('sketch.tidyCancel'), undefined);
 	assert.equal(which(app().s, key('Escape')), 'selection.clear');
 });
 

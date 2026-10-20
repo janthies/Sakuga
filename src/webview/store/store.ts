@@ -57,8 +57,6 @@ export const store: Store = {
 	layerScrollFrame: null,
 	layerPointerY: null,
 	layerSignature: '',
-	tidyPreview: null,
-	tidyHeld: false,
 	sent: null,
 	timer: null,
 	lastInspectorSelection: '',

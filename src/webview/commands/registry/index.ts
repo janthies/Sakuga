@@ -1,3 +1,4 @@
+import { interactionCommands } from './interaction';
 import { appCommands, clipboardCommands } from './app';
 import { editCommands } from './edit';
 import { layerCommands } from './layers';
@@ -11,6 +12,7 @@ export type { AppState, Command, KeyInfo, Op } from './types';
 export { SKETCH_CONTROLS } from './sketch';
 
 const all = [
+	...interactionCommands,
 	...sketchCommands,
 	...layerCommands,
 	...selectionCommands,

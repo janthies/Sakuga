@@ -1,6 +1,7 @@
 import { store } from '../../store/store';
 import { byId, fontPt, layout, px, py, textMm } from '../../store/model';
 import { CODE_PT, PT, TITLE_PT, show } from '../../store/constants';
+import { geo } from '../../store/geometry';
 import { edgeGeom } from '../../render/edges';
 import { etools, input, svg } from '../../platform/dom';
 import type { EditTarget } from '../types';
@@ -8,6 +9,33 @@ import type { EditTarget } from '../types';
 // The text field over the canvas: where it sits and what it shows. The tool decides what the text means.
 export function openField(target: EditTarget) {
 	const r = svg.getBoundingClientRect();
+	if (target.kind === 'text') {
+		const item = store.items.find((i) => i.id === target.id);
+		if (item?.kind !== 'Text') return;
+		const parent = store.items.find((i) => i.id === item.parent),
+			n = byId(item.parent);
+		const point = n
+			? [n.x, n.y]
+			: parent?.kind === 'Frame'
+				? geo().frameTitle(parent.frame)?.p
+				: parent?.kind === 'Connector'
+					? geo().label(parent.connector, item.placement, item.text)?.p
+					: parent?.kind === 'Line'
+						? parent.line.start
+						: [0, 0];
+		const p = point || [0, 0];
+		store.editing = target.id;
+		Object.assign(input.style, {
+			display: 'block',
+			left: `${r.left + px(p[0]) - 20 * store.view.s}px`,
+			top: `${r.top + py(p[1]) - 3 * store.view.s}px`,
+			width: `${40 * store.view.s}px`,
+			height: `${6 * store.view.s}px`,
+		});
+		input.value = show(item.text);
+		return;
+	}
+
 	if (target.kind === 'edge') {
 		const i = target.index,
 			G = edgeGeom(store.edges[i]),

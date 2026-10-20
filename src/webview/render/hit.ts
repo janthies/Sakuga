@@ -4,6 +4,10 @@ import type { HitRef } from '../../core/scene';
 export function hitAttrs(h: HitRef | undefined): Record<string, string> {
 	if (!h) return {};
 	switch (h.k) {
+		case 'line':
+			return { 'data-line': h.id };
+		case 'text':
+			return { 'data-text': h.id, 'data-parent': h.parent };
 		case 'node':
 			return { 'data-node': h.id };
 		case 'edge':
@@ -40,6 +44,8 @@ export function hitOf(target: EventTarget | null): HitRef | null {
 		const i = v.lastIndexOf(':');
 		return [v.slice(0, i), v.slice(i + 1)] as const;
 	};
+	if (d.line) return { k: 'line', id: d.line };
+	if (d.text) return { k: 'text', id: d.text, parent: d.parent! };
 	if (d.label) return { k: 'label', ref: JSON.parse(d.label) };
 	if (t.classList.contains('locked-node')) return { k: 'locked' };
 	if (d.segment !== undefined) {

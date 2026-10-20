@@ -1,4 +1,4 @@
-// Previews while the pointer is down or Tidy is held: guides, copies, the band, connect lines, anchors.
+// Previews while the pointer is down: guides, copies, the band, connect lines, anchors.
 import * as coreRoutes from '../../core/layout/route';
 import { PT } from '../../core/text';
 import { store } from '../store/store';
@@ -8,7 +8,6 @@ import { border, fillOf } from './svg';
 import { endpointObject, endpointTarget } from './anchors';
 import type { Out } from './out';
 import type { DragOverlay, ViewNode } from '../store/types';
-import type { Op } from '../tools/types';
 
 export function dragPrims(o: Out) {
 	const d = store.drag;
@@ -67,7 +66,6 @@ export function dragPrims(o: Out) {
 		});
 	}
 	if (d?.target && d.move) anchorGrid(o, d);
-	tidyPreview(o);
 }
 
 // The ports of the box under the pointer, while an arrow end is dragged.
@@ -163,56 +161,4 @@ function anchorGrid(o: Out, d: DragOverlay) {
 		const pt = anchorPoint(parent, a);
 		o.add('circle', { cx: px(pt.x), cy: py(pt.y), r: 3, fill: 'var(--sel)', 'pointer-events': 'none' });
 	});
-}
-
-// What Tidy up would do, drawn dashed over the figure.
-function tidyPreview(o: Out) {
-	if (!store.tidyPreview) return;
-	const ops: Op[] = store.tidyPreview.ops;
-	const ns = store.nodes.map((n) => ({
-			...n,
-			...ops.find((p) => p.op === 'node' && p.id === n.id),
-			...ops.find((p) => p.op === 'move' && p.id === n.id),
-		})),
-		es = store.edges.map((e, index) => ({ ...e, ...ops.find((p) => p.op === 'arrow' && p.index === index) }));
-	for (const group of store.groups) {
-		const b = coreRoutes.bounds(
-			group.id,
-			ns.map((n) => ({ ...n, ...layout(n) })),
-			store.groups,
-			new Set(),
-			es,
-		);
-		if (b && group.frame !== 'none')
-			o.add('rect', {
-				x: px(b.x - b.w / 2),
-				y: py(b.y + b.h / 2),
-				width: b.w * store.view.s,
-				height: b.h * store.view.s,
-				fill: 'none',
-				stroke: 'var(--sel)',
-				'stroke-dasharray': '5 3',
-				'pointer-events': 'none',
-				opacity: 0.55,
-			});
-	}
-	for (const n of store.nodes) {
-		const move = ops.find((p) => p.op === 'move' && p.id === n.id),
-			props = ops.find((p) => p.op === 'node' && p.id === n.id);
-		if (!move && !props) continue;
-		const q = { ...n, ...props, ...move },
-			s = layout(q);
-		o.add('rect', {
-			x: px(q.x - s.w / 2),
-			y: py(q.y + s.h / 2),
-			width: s.w * store.view.s,
-			height: s.h * store.view.s,
-			fill: 'var(--sel)',
-			'fill-opacity': 0.12,
-			stroke: 'var(--sel)',
-			'stroke-dasharray': '5 3',
-			'pointer-events': 'none',
-			opacity: 0.55,
-		});
-	}
 }

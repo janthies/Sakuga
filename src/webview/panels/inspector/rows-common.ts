@@ -2,7 +2,7 @@ import * as coreSketch from '../../../core/layout/sketch';
 import { ANCHORS } from '../../store/constants';
 import { SKETCH_CONTROLS, runCommand } from '../../commands/registry';
 import { appState } from '../../commands/state';
-import { applyTidy, cancelTidy, previewTidy } from '../../commands/tidy';
+import { applyTidy } from '../../commands/tidy';
 import { copyStyle, pasteStyle } from '../../commands/styles';
 import { byId, layout, post } from '../../store/model';
 import { moveToLayer, selectedRoots } from '../../store/layers';
@@ -130,15 +130,9 @@ export function tidyRow(): RowControls {
 		{
 			label: store.selN.size ? 'Tidy up' : 'Tidy up figure',
 			title: 'Tidy up (Alt+T)',
-			hover: {
-				enter: previewTidy,
-				leave: () => {
-					if (!store.tidyHeld) cancelTidy();
-				},
-			},
 			run: (b) => {
 				b.blur();
-				applyTidy();
+				runCommand(appState, 'sketch.tidy');
 			},
 		},
 	]);

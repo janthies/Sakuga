@@ -4,7 +4,12 @@ import { byId, groupById, post } from '../store/model';
 
 export function groupSelection() {
 	const roots = selectedRoots();
-	if (!roots.length || new Set([...store.selN].map((id) => byId(id)?.layer)).size > 1) {
+	if (
+		!roots.length ||
+		new Set(
+			[...store.selN].map((id) => byId(id)?.layer || store.lines.find((l) => l.id === id)?.layer || store.activeLayer),
+		).size > 1
+	) {
 		return;
 	}
 	const parents = roots.map((id) => groupById(id)?.parent ?? byId(id)?.group ?? '');
@@ -27,7 +32,7 @@ export function groupSelection() {
 		frame: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'solid' : 'dashed',
 		color: 'grey',
 		parent,
-		fill: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'none' : 'tint',
+		fill: 'none',
 		outline: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'solid' : 'dashed',
 	};
 	const ns = store.nodes.map((n) => ({ ...n, group: roots.includes(n.id) ? group.id : n.group }));

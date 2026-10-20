@@ -1,3 +1,6 @@
+import { renderLayerItems } from './layers-items';
+import { appState } from '../commands/state';
+import { runCommand } from '../commands/registry';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { byId, groupById, members, post, snap } from '../store/model';
@@ -10,15 +13,8 @@ import { svg } from '../platform/dom';
 import { deleteSelection } from '../commands/clipboard';
 import type { Layer } from '../store/types';
 
-// What renderLayers builds for the row functions: the list, its row factory and the shared handlers.
-export interface LayerCtx {
-	list: HTMLElement;
-	updateSelection(): void;
-	button(row: HTMLElement, key: Parameters<typeof icon>[0], title: string, action: () => void): HTMLButtonElement;
-	rename(name: HTMLElement, obj: { id: string; name: string }, op: string): void;
-	makeRow(id: string, depth: number): HTMLElement;
-	drop(row: HTMLElement, layer: Layer, target?: string | null): void;
-}
+import type { LayerCtx } from './layers-context';
+export type { LayerCtx } from './layers-context';
 
 export function renderLayers2(ctx: LayerCtx) {
 	for (const layer of [...store.layers].reverse()) {
@@ -58,33 +54,7 @@ export function renderLayers2(ctx: LayerCtx) {
 		count.textContent = String(ns.length);
 		row.appendChild(count);
 		row.onclick = (ev) => {
-			if (ev.shiftKey) {
-				const a = store.layers.findIndex((l) => l.id === store.activeLayer),
-					b = store.layers.indexOf(layer);
-				if (!(ev.ctrlKey || ev.metaKey)) {
-					store.selectedLayers.clear();
-				}
-				for (const l of store.layers.slice(Math.min(a, b), Math.max(a, b) + 1)) {
-					store.selectedLayers.add(l.id);
-				}
-			} else if (ev.ctrlKey || ev.metaKey) {
-				if (!store.selectedLayers.size) {
-					store.selectedLayers.add(store.activeLayer);
-				}
-				if (store.selectedLayers.has(layer.id)) {
-					store.selectedLayers.delete(layer.id);
-				} else {
-					store.selectedLayers.add(layer.id);
-				}
-			} else {
-				store.selectedLayers.clear();
-				store.selectedLayers.add(layer.id);
-			}
-			store.activeLayer = layer.id;
-			store.selN.clear();
-			store.selE.clear();
-			store.selG = null;
-			render();
+			runCommand(appState, 'layer.select', { id: layer.id, additive: ev.shiftKey || ev.ctrlKey || ev.metaKey });
 		};
 		name.ondblclick = () => ctx.rename(name, layer, 'layerProps');
 		row.ondragstart = (ev) => {
@@ -95,100 +65,7 @@ export function renderLayers2(ctx: LayerCtx) {
 		if (!store.expandedLayers.has(layer.id)) {
 			continue;
 		}
-		const gs = store.groups.filter((g) => members(g.id).some((id) => ns.some((n) => n.id === id)));
-		const visit = (items: ReturnType<typeof hierarchy>, depth: number) => {
-			for (const item of items) {
-				const g = groupById(item.id),
-					n = byId(item.id)!,
-					child = ctx.makeRow(item.id, depth);
-				child.style.paddingLeft = `${depth * 12}px`;
-				child.classList.toggle('selected', g ? store.selG === g.id : store.selN.has(n.id));
-				if (g) {
-					const d = ctx.button(child, 'triangle', 'Expand/collapse group', () => {
-						if (store.collapsed.has(g.id)) {
-							store.collapsed.delete(g.id);
-						} else {
-							store.collapsed.add(g.id);
-						}
-						calls.renderLayers();
-					});
-					d.classList.toggle('expanded', !store.collapsed.has(g.id));
-					const folder = document.createElement('span');
-					folder.innerHTML = icon('folder');
-					child.appendChild(folder);
-				} else {
-					const swatch = document.createElement('i');
-					swatch.className = 'layer-swatch';
-					swatch.style.background = fillOf(n.cat);
-					child.appendChild(swatch);
-				}
-				const label = document.createElement('span');
-				label.className = 'layer-name';
-				label.textContent = show(g ? g.name : n.title).replace(/\\/g, ' ');
-				child.appendChild(label);
-				child.onclick = (ev) => {
-					store.selectedLayers.clear();
-					store.activeLayer = layer.id;
-					if (ev.shiftKey && store.layerAnchor) {
-						const rows = ([...ctx.list.children] as HTMLElement[]).filter(
-							(r) => !r.classList.contains('container-layer'),
-						);
-						const a = rows.findIndex((r) => r.dataset.id === store.layerAnchor),
-							b = rows.indexOf(child);
-						if (a >= 0) {
-							if (!(ev.ctrlKey || ev.metaKey)) {
-								store.selN.clear();
-							}
-							for (const r of rows.slice(Math.min(a, b), Math.max(a, b) + 1)) {
-								const rowId = r.dataset.id!;
-								for (const id of groupById(rowId) ? members(rowId) : [rowId]) {
-									const node = byId(id);
-									if (node && !node.locked && !node.hidden) {
-										store.selN.add(id);
-									}
-								}
-							}
-							store.selG = null;
-							store.selE.clear();
-						} else {
-							selectLayer(item.id);
-						}
-					} else {
-						selectLayer(item.id, ev.ctrlKey || ev.metaKey);
-						store.layerAnchor = item.id;
-					}
-					store.keyObject =
-						(ev.shiftKey || ev.ctrlKey || ev.metaKey) && (store.selN.has(item.id) || store.selG === item.id)
-							? item.id
-							: null;
-					render();
-				};
-				label.ondblclick = () => {
-					if (g) {
-						ctx.rename(label, g, 'groupProps');
-					} else if (!n.locked && !n.hidden) {
-						startEdit(n.id);
-					}
-				};
-				child.ondragstart = (ev) => {
-					ev.stopPropagation();
-					if ((g ? members(g.id) : [n.id]).some((id) => byId(id)!.locked || byId(id)!.hidden)) {
-						ev.preventDefault();
-						return;
-					}
-					if (g ? store.selG !== g.id : !store.selN.has(item.id)) {
-						selectLayer(item.id);
-					}
-					store.layerDrag = selectedRoots();
-					ev.dataTransfer?.setData('text/plain', item.id);
-				};
-				ctx.drop(child, layer, item.id);
-				if (!store.collapsed.has(item.id)) {
-					visit(item.children, depth + 1);
-				}
-			}
-		};
-		visit(hierarchy(ns, gs), 1);
+		renderLayerItems(ctx, layer);
 	}
 }
 export function renderLayers3(ctx: LayerCtx) {
@@ -217,26 +94,6 @@ export function renderLayers3(ctx: LayerCtx) {
 		post({ op: 'addLayer', id: store.activeLayer, name: `Layer ${i}` });
 	};
 	controls.appendChild(add);
-	const addObject = document.createElement('button');
-	addObject.textContent = '+ Object';
-	addObject.className = 'lc lc-obj';
-	addObject.title = 'New box on the active layer';
-	addObject.onclick = () => {
-		const r = svg.getBoundingClientRect(),
-			id = newId();
-		store.pendingEdit = id;
-		store.pendingSelect = [id];
-		store.selectedLayers.clear();
-		post({
-			op: 'addNode',
-			id,
-			title: 'Box',
-			cat: store.lastCat,
-			x: snap((r.width / 2 - store.view.ox) / store.view.s),
-			y: snap((store.view.oy - r.height / 2) / store.view.s),
-		});
-	};
-	controls.appendChild(addObject);
 	const dup = document.createElement('button');
 	dup.textContent = 'Duplicate';
 	dup.className = 'lc lc-dup';

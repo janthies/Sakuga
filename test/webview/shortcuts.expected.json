@@ -1,158 +1,158 @@
 [
- [
-  "Double-click",
-  "new box, or edit title"
- ],
- [
-  "Drag the dot",
-  "arrow, or new connected box"
- ],
- [
-  "Drag on empty space",
-  "select with a rectangle"
- ],
- [
-  "Ctrl+click / Shift+click",
-  "toggle / add to selection; set alignment reference"
- ],
- [
-  "Ctrl+A",
-  "select all"
- ],
- [
-  "Shift+drag",
-  "move horizontally or vertically only"
- ],
- [
-  "Alt+drag",
-  "copy"
- ],
- [
-  "Ctrl+D",
-  "duplicate"
- ],
- [
-  "Ctrl+G",
-  "group selection"
- ],
- [
-  "Ctrl+[, Ctrl+]",
-  "move selection down or up a layer"
- ],
- [
-  "Ctrl+Shift+G",
-  "ungroup"
- ],
- [
-  "Ctrl+C, Ctrl+X, Ctrl+V",
-  "copy, cut, paste (as TikZ)"
- ],
- [
-  "Ctrl+Alt+C, Ctrl+Alt+V",
-  "copy and paste style"
- ],
- [
-  "Arrow keys",
-  "nudge 1 mm, with Shift 5 mm"
- ],
- [
-  "1–9",
-  "box style"
- ],
- [
-  "D",
-  "dashed arrow on or off"
- ],
- [
-  "R",
-  "next route of the arrow"
- ],
- [
-  "Shift+drag a corner",
-  "scale the selection evenly"
- ],
- [
-  "Ctrl after you start dragging",
-  "no grid, no guides"
- ],
- [
-  "Enter / F2",
-  "edit existing title"
- ],
- [
-  "Tab / Shift+Tab",
-  "next connected box / box below; type title"
- ],
- [
-  "Esc in a new empty box",
-  "cancel box and arrow"
- ],
- [
-  "Type a character",
-  "replace box/label title; D/R and existing shortcuts take priority"
- ],
- [
-  "Alt+T",
-  "hold to preview Tidy up, release to apply; Esc cancels"
- ],
- [
-  "Alt+A",
-  "Align left"
- ],
- [
-  "Alt+C",
-  "Align horizontal centre"
- ],
- [
-  "Alt+D",
-  "Align right"
- ],
- [
-  "Alt+W",
-  "Align top"
- ],
- [
-  "Alt+V",
-  "Align vertical centre"
- ],
- [
-  "Alt+S",
-  "Align bottom"
- ],
- [
-  "Alt+X",
-  "Distribute horizontal gaps"
- ],
- [
-  "Alt+Y",
-  "Distribute vertical gaps"
- ],
- [
-  "Alt+U",
-  "Same width"
- ],
- [
-  "Alt+B",
-  "Same height"
- ],
- [
-  "Del",
-  "delete"
- ],
- [
-  "Esc",
-  "clear selection"
- ],
- [
-  "Space+drag, middle mouse",
-  "pan"
- ],
- [
-  "Ctrl+wheel",
-  "zoom"
- ],
- [
-  "Shift+1",
-  "fit to view"
- ]
+	[
+		"Double-click empty canvas / Ctrl tap",
+		"creation wheel; double-click an item to edit"
+	],
+	[
+		"Drag the dot",
+		"arrow, or new connected box"
+	],
+	[
+		"Drag on empty space",
+		"select with a rectangle"
+	],
+	[
+		"Ctrl+click / Shift+click",
+		"toggle selection; set alignment reference"
+	],
+	[
+		"Ctrl+A",
+		"select all"
+	],
+	[
+		"Shift+drag",
+		"move horizontally or vertically only"
+	],
+	[
+		"Alt+drag",
+		"copy"
+	],
+	[
+		"Ctrl+D",
+		"duplicate"
+	],
+	[
+		"Ctrl+G",
+		"group selection"
+	],
+	[
+		"Ctrl+[, Ctrl+]",
+		"move selection down or up a layer"
+	],
+	[
+		"Ctrl+Shift+G",
+		"ungroup"
+	],
+	[
+		"Ctrl+C, Ctrl+X, Ctrl+V",
+		"copy, cut, paste (as TikZ)"
+	],
+	[
+		"Ctrl+Alt+C, Ctrl+Alt+V",
+		"copy and paste style"
+	],
+	[
+		"Arrow keys",
+		"nudge 1 mm, with Shift 5 mm"
+	],
+	[
+		"1–9",
+		"box style"
+	],
+	[
+		"D",
+		"dashed arrow on or off"
+	],
+	[
+		"R",
+		"next route of the arrow"
+	],
+	[
+		"Shift+drag a corner",
+		"scale the selection evenly"
+	],
+	[
+		"Ctrl after you start dragging",
+		"no grid, no guides"
+	],
+	[
+		"Enter / F2",
+		"edit existing title"
+	],
+	[
+		"Tab / Shift+Tab",
+		"next connected box / box below; type title"
+	],
+	[
+		"Esc in a new empty box",
+		"cancel box and arrow"
+	],
+	[
+		"Type a character",
+		"replace box/label title; D/R and existing shortcuts take priority"
+	],
+	[
+		"Alt+T",
+		"Tidy up"
+	],
+	[
+		"Alt+A",
+		"Align left"
+	],
+	[
+		"Alt+C",
+		"Align horizontal centre"
+	],
+	[
+		"Alt+D",
+		"Align right"
+	],
+	[
+		"Alt+W",
+		"Align top"
+	],
+	[
+		"Alt+V",
+		"Align vertical centre"
+	],
+	[
+		"Alt+S",
+		"Align bottom"
+	],
+	[
+		"Alt+X",
+		"Distribute horizontal gaps"
+	],
+	[
+		"Alt+Y",
+		"Distribute vertical gaps"
+	],
+	[
+		"Alt+U",
+		"Same width"
+	],
+	[
+		"Alt+B",
+		"Same height"
+	],
+	[
+		"Del",
+		"delete"
+	],
+	[
+		"Esc",
+		"clear selection"
+	],
+	[
+		"Space+drag, middle mouse",
+		"pan"
+	],
+	[
+		"Ctrl+wheel",
+		"zoom"
+	],
+	[
+		"Shift+1",
+		"fit to view"
+	]
 ]

@@ -10,6 +10,8 @@ export type Attrs = Record<string, string | number>;
 
 // What a pointer event landed on; the renderer writes it as data-* attributes and reads it back in hit().
 export type HitRef =
+	| { k: 'line'; id: string }
+	| { k: 'text'; id: string; parent: string }
 	| { k: 'node'; id: string }
 	| { k: 'locked' }
 	| { k: 'edge'; index: number }

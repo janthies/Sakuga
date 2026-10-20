@@ -51,9 +51,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title0-title",
+        "parent": "title0"
        }
       },
       {
@@ -68,7 +73,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title0-title",
+        "parent": "title0"
        }
       }
      ],
@@ -118,9 +128,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title1-title",
+        "parent": "title1"
        }
       },
       {
@@ -135,7 +150,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title1-title",
+        "parent": "title1"
        }
       }
      ],
@@ -185,9 +205,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title2-title",
+        "parent": "title2"
        }
       },
       {
@@ -202,7 +227,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title2-title",
+        "parent": "title2"
        }
       }
      ],
@@ -252,9 +282,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title3-title",
+        "parent": "title3"
        }
       },
       {
@@ -269,7 +304,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title3-title",
+        "parent": "title3"
        }
       }
      ],
@@ -319,9 +359,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title4-title",
+        "parent": "title4"
        }
       },
       {
@@ -336,7 +381,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title4-title",
+        "parent": "title4"
        }
       }
      ],
@@ -386,9 +436,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title5-title",
+        "parent": "title5"
        }
       },
       {
@@ -403,7 +458,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title5-title",
+        "parent": "title5"
        }
       }
      ],
@@ -453,9 +513,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title6-title",
+        "parent": "title6"
        }
       },
       {
@@ -470,7 +535,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title6-title",
+        "parent": "title6"
        }
       }
      ],
@@ -520,9 +590,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title7-title",
+        "parent": "title7"
        }
       },
       {
@@ -537,7 +612,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title7-title",
+        "parent": "title7"
        }
       }
      ],
@@ -587,9 +667,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title8-title",
+        "parent": "title8"
        }
       },
       {
@@ -604,7 +689,12 @@
         "font-size": 3.1631,
         "font-family": "Sakuga Mono",
         "fill": "#858585",
-        "pointer-events": "none"
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "title8-title",
+        "parent": "title8"
        }
       }
      ],
@@ -654,9 +744,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "labelParent-title",
+        "parent": "labelParent"
        }
       }
      ],
@@ -706,9 +801,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "parent-title",
+        "parent": "parent"
        }
       }
      ],
@@ -758,9 +858,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "outsideParent-title",
+        "parent": "outsideParent"
        }
       }
      ],
@@ -2718,9 +2823,14 @@
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
         "fill": "#000",
-        "pointer-events": "none",
+        "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "child-title",
+        "parent": "child"
        }
       }
      ],

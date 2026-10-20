@@ -229,7 +229,7 @@ test('a corner handle scales the selection about the opposite corner', () => {
 	assert.equal(s.commits[0].ops[0].op, 'node');
 });
 
-test('the dot connects to another box, or makes a new box in empty space', () => {
+test('the dot connects to another box, or opens the wheel in empty space', () => {
 	const s = two();
 	s.down(10, 0, { k: 'handle', id: 'a' });
 	s.move(55, 0);
@@ -322,14 +322,14 @@ test('hover is reported once per box, and a press on a locked box changes nothin
 	assert.equal(s.down(0, 0, { k: 'locked' }).render, false);
 });
 
-test('a double-click edits the box under it, or makes a new box in empty space', () => {
+test('a double-click edits the box under it, or opens the wheel in empty space', () => {
 	const s = two();
 	const open = s.apply(s.idle.dbl(s.event(0, 0, { k: 'node', id: 'a' })));
 	assert.deepEqual(open.edit, { open: { kind: 'node', id: 'a' }, text: undefined });
 	assert.ok(open.next instanceof TextEditTool);
 	const fresh = s.apply(s.idle.dbl(s.event(40.4, 30.6, { k: 'none' })));
-	assert.equal(fresh.pendingEdit, 'n9');
-	assert.deepEqual(s.commits[0], { op: 'addNode', id: 'n9', x: 40, y: 31, title: 'Box', cat: 'c' });
+	assert.deepEqual(fresh.wheel, s.event(40.4, 30.6, { k: 'none' }).screen);
+	assert.equal(s.commits.length, 0);
 });
 
 test('the text edit commits on Enter and blur, drops on Escape, and a click commits and then acts as a click', () => {

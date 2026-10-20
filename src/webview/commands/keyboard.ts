@@ -20,6 +20,10 @@ export function initKeyboard() {
 		}
 		const k = { key: ev.key, code: ev.code, ctrl: ev.ctrlKey || ev.metaKey, shift: ev.shiftKey, alt: ev.altKey };
 		const command = commandForKey(appState, k);
+		if (ev.repeat && command?.id.startsWith('sketch.')) {
+			ev.preventDefault();
+			return;
+		}
 		if (!command) {
 			return;
 		}
@@ -30,11 +34,6 @@ export function initKeyboard() {
 		ev.preventDefault();
 	});
 	document.addEventListener('keyup', (ev) => {
-		if (store.tidyHeld && (ev.key.toLowerCase() === 't' || ev.key === 'Alt')) {
-			ev.preventDefault();
-			runCommand(appState, 'sketch.tidyApply');
-			return;
-		}
 		if (ev.key === ' ') {
 			store.space = false;
 			svg.classList.remove('panning');

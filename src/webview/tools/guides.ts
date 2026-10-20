@@ -72,11 +72,14 @@ export function nodeInside(c: ToolCtx, n: any, x0: number, x1: number, y0: numbe
 // Smart guides: snap the moved boxes to the edges and centres of the other boxes, as PowerPoint does.
 export function guides(c: ToolCtx, orig: Map<string, any>, dx: number, dy: number, lockX: boolean, lockY: boolean) {
 	const tol = 6 / c.scale;
-	const boxes = [...orig.keys()].map((id) => {
-		const o = orig.get(id),
-			{ w, h } = c.layout(c.byId(id));
-		return { x0: o.x + dx - w / 2, x1: o.x + dx + w / 2, y0: o.y + dy - h / 2, y1: o.y + dy + h / 2 };
-	});
+	const boxes = [...orig.keys()]
+		.filter((id) => c.byId(id))
+		.map((id) => {
+			const o = orig.get(id),
+				{ w, h } = c.layout(c.byId(id));
+			return { x0: o.x + dx - w / 2, x1: o.x + dx + w / 2, y0: o.y + dy - h / 2, y1: o.y + dy + h / 2 };
+		});
+	if (!boxes.length) return { dx: 0, dy: 0, lines: [] };
 	const m = {
 		x0: Math.min(...boxes.map((b) => b.x0)),
 		x1: Math.max(...boxes.map((b) => b.x1)),

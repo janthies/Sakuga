@@ -150,10 +150,7 @@
 			{
 				"command": "sakuga.sketch.tidy",
 				"key": "alt+t",
-				"when": "activeCustomEditorId == sakuga.figure && webviewFocus",
-				"args": {
-					"preview": true
-				}
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
 			}
 		]
 	},
