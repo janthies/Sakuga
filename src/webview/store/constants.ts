@@ -9,14 +9,10 @@ export const PT = 25.4 / 72.27;
 export const TITLE_PT = 10,
 	CODE_PT = 8;
 // \small and \scriptsize in an 11 pt document
-export const XSEP = 3 * PT,
-	LINE = 0.45 * PT;
+export const XSEP = 3 * PT;
 const HEIGHTS = [0, 6.16, 9.55];
 // box height in mm for 1 and 2 lines of text
-export const STROKE = '#9e9e9e',
-	ARROW = '#808080',
-	ARROW_DASHED = '#a6a6a6',
-	CODE = '#858585';
+export { LINE, STROKE, ARROW, ARROW_DASHED, CODE } from '../../core/scene/style';
 export const PX_PER_MM = 96 / 25.4;
 export const sizes = { scriptsize: 8, footnotesize: 9, small: 10, normalsize: 10.95, large: 12 };
 export const smallerPt = (pt) => ({ 8: 6, 9: 8, 10: 9, 10.95: 10, 12: 10.95 })[pt] || 9;

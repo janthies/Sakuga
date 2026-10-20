@@ -1,0 +1,282 @@
+{
+ "prims": [
+  {
+   "key": "frames",
+   "kind": "g",
+   "children": [],
+   "attrs": {}
+  },
+  {
+   "key": "nodes",
+   "kind": "g",
+   "children": [
+    {
+     "key": "n:n0",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "n0"
+     },
+     "children": [
+      {
+       "key": "n:n0:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "n0"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 10.3663,
+        "y": -22.08,
+        "width": 19.2675,
+        "height": 6.16,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:n0:line0",
+       "kind": "text",
+       "text": "Box",
+       "attrs": {
+        "x": 20,
+        "y": -19,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:n1",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "n1"
+     },
+     "children": [
+      {
+       "key": "n:n1:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "n1"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 79.8663,
+        "y": -88.08,
+        "width": 20.2675,
+        "height": 6.16,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:n1:line0",
+       "kind": "text",
+       "text": "Box",
+       "attrs": {
+        "x": 90,
+        "y": -85,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:n2",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "n2"
+     },
+     "children": [
+      {
+       "key": "n:n2:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "n2"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 58.3663,
+        "y": -91.08,
+        "width": 33.2675,
+        "height": 6.16,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:n2:line0",
+       "kind": "text",
+       "text": "Box",
+       "attrs": {
+        "x": 75,
+        "y": -88,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:n3",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "n3"
+     },
+     "children": [
+      {
+       "key": "n:n3:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "n3"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -3.1337,
+        "y": -52.08,
+        "width": 24.2675,
+        "height": 6.16,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:n3:line0",
+       "kind": "text",
+       "text": "Box",
+       "attrs": {
+        "x": 9,
+        "y": -49,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    }
+   ],
+   "attrs": {}
+  },
+  {
+   "key": "edges",
+   "kind": "g",
+   "children": [
+    {
+     "key": "e:0",
+     "kind": "g",
+     "ref": {
+      "k": "edge",
+      "index": 0
+     },
+     "children": [
+      {
+       "key": "e:0:end",
+       "kind": "path",
+       "attrs": {
+        "d": "M 93.6337 -88.08 Q 93.8138 -89.055 94.2337 -89.58 L 93.0338 -89.58 Q 93.4537 -89.055 93.6337 -88.08 Z",
+        "fill": "#808080"
+       }
+      },
+      {
+       "key": "e:0:line",
+       "kind": "path",
+       "attrs": {
+        "d": "M 10.3663 -20.54 L -4.4308 -20.54 C -4.819 -20.54 -5.1337 -20.8547 -5.1337 -21.2429 L -5.1337 -92.3771 C -5.1337 -92.7653 -4.819 -93.08 -4.4308 -93.08 L 92.9308 -93.08 C 93.319 -93.08 93.6337 -92.7653 93.6337 -92.3771 L 93.6337 -89.28",
+        "fill": "none",
+        "stroke": "#808080",
+        "stroke-width": 0.1582,
+        "stroke-linejoin": "round",
+        "stroke-dasharray": "none"
+       }
+      },
+      {
+       "key": "e:0:hit",
+       "kind": "path",
+       "hit": {
+        "k": "edge",
+        "index": 0
+       },
+       "attrs": {
+        "d": "M 10.3663 -20.54 L -4.4308 -20.54 C -4.819 -20.54 -5.1337 -20.8547 -5.1337 -21.2429 L -5.1337 -92.3771 C -5.1337 -92.7653 -4.819 -93.08 -4.4308 -93.08 L 92.9308 -93.08 C 93.319 -93.08 93.6337 -92.7653 93.6337 -92.3771 L 93.6337 -88.08",
+        "fill": "none",
+        "stroke": "transparent",
+        "stroke-width": 10,
+        "vector-effect": "non-scaling-stroke",
+        "class": "hit"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    }
+   ],
+   "attrs": {}
+  }
+ ]
+}

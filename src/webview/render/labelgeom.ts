@@ -3,8 +3,7 @@ import { store } from '../store/store';
 import { labelPoint } from '../../core/geometry/label-geometry';
 import { baseEdgeGeom } from './geometry';
 import { geo } from '../store/geometry';
-import { fine, px, py } from '../store/model';
-import { el } from './svg';
+import { fine } from '../store/model';
 
 export function labelTarget(ref = store.selN.label) {
 	if (!ref) return null;
@@ -49,40 +48,4 @@ export function projectLabel(e, p, content = e.label, step = e.style?.step) {
 	if (Math.abs(st.dx) < 1) st.dx = 0;
 	if (Math.abs(st.dy) < 1) st.dy = 0;
 	return st;
-}
-export function labelSelection(g, ref, geom, w, h, align = 'middle') {
-	const key = JSON.stringify(ref),
-		selected = store.selN.label && JSON.stringify(store.selN.label) === key,
-		p = geom.p;
-	if (selected)
-		el(
-			'line',
-			{
-				x1: px(geom.anchor[0]),
-				y1: py(geom.anchor[1]),
-				x2: px(p[0]),
-				y2: py(p[1]),
-				stroke: 'var(--sel)',
-				'stroke-width': 1,
-				'stroke-dasharray': '3 3',
-				'pointer-events': 'none',
-			},
-			g,
-		);
-	el(
-		'rect',
-		{
-			x: px(p[0] - (align === 'middle' ? w / 2 : align === 'end' ? w : 0)),
-			y: py(p[1] + h / 2),
-			width: w * store.view.s,
-			height: h * store.view.s,
-			fill: 'transparent',
-			stroke: selected ? 'var(--sel)' : 'none',
-			'stroke-opacity': 0.5,
-			'stroke-width': 1,
-			'data-label': key,
-			class: 'attached-label',
-		},
-		g,
-	);
 }

@@ -1,0 +1,2876 @@
+{
+ "prims": [
+  {
+   "key": "frames",
+   "kind": "g",
+   "children": [],
+   "attrs": {}
+  },
+  {
+   "key": "nodes",
+   "kind": "g",
+   "children": [
+    {
+     "key": "n:title0",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title0"
+     },
+     "children": [
+      {
+       "key": "n:title0:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title0"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -16.1337,
+        "y": -11,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title0:line0",
+       "kind": "text",
+       "text": "Title 0",
+       "attrs": {
+        "x": -15,
+        "y": -8.0126,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title0:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": -15,
+        "y": -4.1465,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title1",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title1"
+     },
+     "children": [
+      {
+       "key": "n:title1:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title1"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 23.8663,
+        "y": -11,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title1:line0",
+       "kind": "text",
+       "text": "Title 1",
+       "attrs": {
+        "x": 40,
+        "y": -8.0126,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title1:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": 40,
+        "y": -4.1465,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title2",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title2"
+     },
+     "children": [
+      {
+       "key": "n:title2:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title2"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 63.8663,
+        "y": -11,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title2:line0",
+       "kind": "text",
+       "text": "Title 2",
+       "attrs": {
+        "x": 95,
+        "y": -8.0126,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title2:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": 95,
+        "y": -4.1465,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title3",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title3"
+     },
+     "children": [
+      {
+       "key": "n:title3:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title3"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -16.1337,
+        "y": 17,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title3:line0",
+       "kind": "text",
+       "text": "Title 3",
+       "attrs": {
+        "x": -15,
+        "y": 26.067,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title3:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": -15,
+        "y": 29.933,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title4",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title4"
+     },
+     "children": [
+      {
+       "key": "n:title4:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title4"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 23.8663,
+        "y": 17,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title4:line0",
+       "kind": "text",
+       "text": "Title 4",
+       "attrs": {
+        "x": 40,
+        "y": 26.067,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title4:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": 40,
+        "y": 29.933,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title5",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title5"
+     },
+     "children": [
+      {
+       "key": "n:title5:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title5"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 63.8663,
+        "y": 17,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title5:line0",
+       "kind": "text",
+       "text": "Title 5",
+       "attrs": {
+        "x": 95,
+        "y": 26.067,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title5:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": 95,
+        "y": 29.933,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title6",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title6"
+     },
+     "children": [
+      {
+       "key": "n:title6:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title6"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -16.1337,
+        "y": 45,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title6:line0",
+       "kind": "text",
+       "text": "Title 6",
+       "attrs": {
+        "x": -15,
+        "y": 60.1465,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title6:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": -15,
+        "y": 64.0126,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title7",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title7"
+     },
+     "children": [
+      {
+       "key": "n:title7:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title7"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 23.8663,
+        "y": 45,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title7:line0",
+       "kind": "text",
+       "text": "Title 7",
+       "attrs": {
+        "x": 40,
+        "y": 60.1465,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title7:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": 40,
+        "y": 64.0126,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:title8",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "title8"
+     },
+     "children": [
+      {
+       "key": "n:title8:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "title8"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 63.8663,
+        "y": 45,
+        "width": 32.2675,
+        "height": 22,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:title8:line0",
+       "kind": "text",
+       "text": "Title 8",
+       "attrs": {
+        "x": 95,
+        "y": 60.1465,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      },
+      {
+       "key": "n:title8:code",
+       "kind": "text",
+       "text": "code",
+       "attrs": {
+        "x": 95,
+        "y": 64.0126,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "none"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:labelParent",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "labelParent"
+     },
+     "children": [
+      {
+       "key": "n:labelParent:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "labelParent"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -8.1337,
+        "y": 88,
+        "width": 86.2675,
+        "height": 74,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:labelParent:line0",
+       "kind": "text",
+       "text": "",
+       "attrs": {
+        "x": 35,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:parent",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "parent"
+     },
+     "children": [
+      {
+       "key": "n:parent:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "parent"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -8.1337,
+        "y": 185,
+        "width": 86.2675,
+        "height": 40,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:parent:line0",
+       "kind": "text",
+       "text": "Parent",
+       "attrs": {
+        "x": 77,
+        "y": 222.0126,
+        "text-anchor": "end",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outsideParent",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outsideParent"
+     },
+     "children": [
+      {
+       "key": "n:outsideParent:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outsideParent"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 128.8663,
+        "y": 93,
+        "width": 72.2675,
+        "height": 64,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:outsideParent:line0",
+       "kind": "text",
+       "text": "",
+       "attrs": {
+        "x": 165,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:freeLabel",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "freeLabel"
+     },
+     "children": [
+      {
+       "key": "n:freeLabel:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "freeLabel"
+       },
+       "attrs": {
+        "x": 96.8663,
+        "y": -3.4179,
+        "width": 26.2675,
+        "height": 6.8359,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:freeLabel:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "freeLabel"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 96.8663,
+        "y": -3.4179,
+        "width": 26.2675,
+        "height": 6.8359,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:freeLabel:line0",
+       "kind": "text",
+       "text": "Free label",
+       "attrs": {
+        "x": 110,
+        "y": 0,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 4.2175,
+        "font-family": "Sakuga Sans",
+        "fill": "#2468AC",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside0",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside0"
+     },
+     "children": [
+      {
+       "key": "n:inside0:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside0"
+       },
+       "attrs": {
+        "x": -6.1337,
+        "y": 90,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside0:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside0"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -6.1337,
+        "y": 90,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside0:line0",
+       "kind": "text",
+       "text": "In 0",
+       "attrs": {
+        "x": 1,
+        "y": 93.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside0",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside0"
+     },
+     "children": [
+      {
+       "key": "n:outside0:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside0"
+       },
+       "attrs": {
+        "x": 112.5988,
+        "y": 84.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside0:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside0"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 112.5988,
+        "y": 84.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside0:line0",
+       "kind": "text",
+       "text": "Out 0",
+       "attrs": {
+        "x": 119.7325,
+        "y": 87.92,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon0",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon0"
+     },
+     "children": [
+      {
+       "key": "n:icon0:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon0:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon0:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(138.8663,103) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon0:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon0"
+       },
+       "attrs": {
+        "x": 138.8663,
+        "y": 103,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon0:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon0"
+       },
+       "attrs": {
+        "x": 145.8663,
+        "y": 107,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside1",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside1"
+     },
+     "children": [
+      {
+       "key": "n:inside1:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside1"
+       },
+       "attrs": {
+        "x": 27.8663,
+        "y": 90,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside1:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside1"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 27.8663,
+        "y": 90,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside1:line0",
+       "kind": "text",
+       "text": "In 1",
+       "attrs": {
+        "x": 35,
+        "y": 93.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside1",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside1"
+     },
+     "children": [
+      {
+       "key": "n:outside1:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside1"
+       },
+       "attrs": {
+        "x": 157.8663,
+        "y": 84.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside1:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside1"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 157.8663,
+        "y": 84.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside1:line0",
+       "kind": "text",
+       "text": "Out 1",
+       "attrs": {
+        "x": 165,
+        "y": 87.92,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon1",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon1"
+     },
+     "children": [
+      {
+       "key": "n:icon1:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon1:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon1:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(162,103) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon1:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon1"
+       },
+       "attrs": {
+        "x": 162,
+        "y": 103,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon1:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon1"
+       },
+       "attrs": {
+        "x": 169,
+        "y": 107,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside2",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside2"
+     },
+     "children": [
+      {
+       "key": "n:inside2:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside2"
+       },
+       "attrs": {
+        "x": 61.8662,
+        "y": 90,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside2:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside2"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 61.8662,
+        "y": 90,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside2:line0",
+       "kind": "text",
+       "text": "In 2",
+       "attrs": {
+        "x": 69,
+        "y": 93.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside2",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside2"
+     },
+     "children": [
+      {
+       "key": "n:outside2:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside2"
+       },
+       "attrs": {
+        "x": 203.1338,
+        "y": 84.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside2:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside2"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 203.1338,
+        "y": 84.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside2:line0",
+       "kind": "text",
+       "text": "Out 2",
+       "attrs": {
+        "x": 210.2675,
+        "y": 87.92,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon2",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon2"
+     },
+     "children": [
+      {
+       "key": "n:icon2:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon2:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon2:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(185.1338,103) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon2:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon2"
+       },
+       "attrs": {
+        "x": 185.1338,
+        "y": 103,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon2:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon2"
+       },
+       "attrs": {
+        "x": 192.1338,
+        "y": 107,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside3",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside3"
+     },
+     "children": [
+      {
+       "key": "n:inside3:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside3"
+       },
+       "attrs": {
+        "x": -6.1337,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside3:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside3"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -6.1337,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside3:line0",
+       "kind": "text",
+       "text": "In 3",
+       "attrs": {
+        "x": 1,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside3",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside3"
+     },
+     "children": [
+      {
+       "key": "n:outside3:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside3"
+       },
+       "attrs": {
+        "x": 112.5988,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside3:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside3"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 112.5988,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside3:line0",
+       "kind": "text",
+       "text": "Out 3",
+       "attrs": {
+        "x": 119.7325,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon3",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon3"
+     },
+     "children": [
+      {
+       "key": "n:icon3:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon3:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon3:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(138.8663,121) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon3:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon3"
+       },
+       "attrs": {
+        "x": 138.8663,
+        "y": 121,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon3:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon3"
+       },
+       "attrs": {
+        "x": 145.8663,
+        "y": 125,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside4",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside4"
+     },
+     "children": [
+      {
+       "key": "n:inside4:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside4"
+       },
+       "attrs": {
+        "x": 27.8663,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside4:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside4"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 27.8663,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside4:line0",
+       "kind": "text",
+       "text": "In 4",
+       "attrs": {
+        "x": 35,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon4",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon4"
+     },
+     "children": [
+      {
+       "key": "n:icon4:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon4:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon4:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(162,121) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon4:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon4"
+       },
+       "attrs": {
+        "x": 162,
+        "y": 121,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon4:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon4"
+       },
+       "attrs": {
+        "x": 169,
+        "y": 125,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside5",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside5"
+     },
+     "children": [
+      {
+       "key": "n:inside5:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside5"
+       },
+       "attrs": {
+        "x": 61.8662,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside5:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside5"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 61.8662,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside5:line0",
+       "kind": "text",
+       "text": "In 5",
+       "attrs": {
+        "x": 69,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside5",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside5"
+     },
+     "children": [
+      {
+       "key": "n:outside5:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside5"
+       },
+       "attrs": {
+        "x": 203.1338,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside5:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside5"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 203.1338,
+        "y": 121.92,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside5:line0",
+       "kind": "text",
+       "text": "Out 5",
+       "attrs": {
+        "x": 210.2675,
+        "y": 125,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon5",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon5"
+     },
+     "children": [
+      {
+       "key": "n:icon5:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon5:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon5:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(185.1338,121) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon5:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon5"
+       },
+       "attrs": {
+        "x": 185.1338,
+        "y": 121,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon5:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon5"
+       },
+       "attrs": {
+        "x": 192.1338,
+        "y": 125,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside6",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside6"
+     },
+     "children": [
+      {
+       "key": "n:inside6:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside6"
+       },
+       "attrs": {
+        "x": -6.1337,
+        "y": 153.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside6:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside6"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -6.1337,
+        "y": 153.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside6:line0",
+       "kind": "text",
+       "text": "In 6",
+       "attrs": {
+        "x": 1,
+        "y": 156.92,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside6",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside6"
+     },
+     "children": [
+      {
+       "key": "n:outside6:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside6"
+       },
+       "attrs": {
+        "x": 112.5988,
+        "y": 159,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside6:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside6"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 112.5988,
+        "y": 159,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside6:line0",
+       "kind": "text",
+       "text": "Out 6",
+       "attrs": {
+        "x": 119.7325,
+        "y": 162.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon6",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon6"
+     },
+     "children": [
+      {
+       "key": "n:icon6:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon6:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon6:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(138.8663,139) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon6:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon6"
+       },
+       "attrs": {
+        "x": 138.8663,
+        "y": 139,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon6:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon6"
+       },
+       "attrs": {
+        "x": 145.8663,
+        "y": 143,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside7",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside7"
+     },
+     "children": [
+      {
+       "key": "n:inside7:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside7"
+       },
+       "attrs": {
+        "x": 27.8663,
+        "y": 153.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside7:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside7"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 27.8663,
+        "y": 153.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside7:line0",
+       "kind": "text",
+       "text": "In 7",
+       "attrs": {
+        "x": 35,
+        "y": 156.92,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside7",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside7"
+     },
+     "children": [
+      {
+       "key": "n:outside7:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside7"
+       },
+       "attrs": {
+        "x": 157.8663,
+        "y": 159,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside7:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside7"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 157.8663,
+        "y": 159,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside7:line0",
+       "kind": "text",
+       "text": "Out 7",
+       "attrs": {
+        "x": 165,
+        "y": 162.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon7",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon7"
+     },
+     "children": [
+      {
+       "key": "n:icon7:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon7:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon7:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(162,139) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon7:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon7"
+       },
+       "attrs": {
+        "x": 162,
+        "y": 139,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon7:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon7"
+       },
+       "attrs": {
+        "x": 169,
+        "y": 143,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:inside8",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "inside8"
+     },
+     "children": [
+      {
+       "key": "n:inside8:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside8"
+       },
+       "attrs": {
+        "x": 61.8662,
+        "y": 153.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:inside8:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "inside8"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 61.8662,
+        "y": 153.84,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:inside8:line0",
+       "kind": "text",
+       "text": "In 8",
+       "attrs": {
+        "x": 69,
+        "y": 156.92,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 2.8117,
+        "font-family": "Sakuga Sans",
+        "fill": "rgb(204,102,119)",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:outside8",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "outside8"
+     },
+     "children": [
+      {
+       "key": "n:outside8:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside8"
+       },
+       "attrs": {
+        "x": 203.1338,
+        "y": 159,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:outside8:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "outside8"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 203.1338,
+        "y": 159,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:outside8:line0",
+       "kind": "text",
+       "text": "Out 8",
+       "attrs": {
+        "x": 210.2675,
+        "y": 162.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:icon8",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "icon8"
+     },
+     "children": [
+      {
+       "key": "n:icon8:icon",
+       "kind": "g",
+       "children": [
+        {
+         "key": "n:icon8:icon:0",
+         "kind": "path",
+         "attrs": {
+          "d": "M4 4h16v16H4z"
+         }
+        },
+        {
+         "key": "n:icon8:icon:1",
+         "kind": "path",
+         "attrs": {
+          "d": "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4"
+         }
+        }
+       ],
+       "attrs": {
+        "transform": "translate(185.1338,139) scale(0.25,0.3333)",
+        "fill": "none",
+        "stroke": "#666",
+        "stroke-width": 0.723,
+        "stroke-linecap": "round",
+        "stroke-linejoin": "round",
+        "pointer-events": "none"
+       }
+      },
+      {
+       "key": "n:icon8:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "icon8"
+       },
+       "attrs": {
+        "x": 185.1338,
+        "y": 139,
+        "width": 6,
+        "height": 8,
+        "fill": "transparent",
+        "class": "node"
+       }
+      },
+      {
+       "key": "n:icon8:title",
+       "kind": "text",
+       "text": "",
+       "hit": {
+        "k": "node",
+        "id": "icon8"
+       },
+       "attrs": {
+        "x": 192.1338,
+        "y": 143,
+        "text-anchor": "start",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "auto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:child",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "child"
+     },
+     "children": [
+      {
+       "key": "n:child:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "child"
+       },
+       "attrs": {
+        "fill": "#ffffff",
+        "stroke": "#9e9e9e",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -6.6337,
+        "y": 186.5,
+        "width": 22.2675,
+        "height": 12,
+        "rx": 0.492,
+        "ry": 0.492
+       }
+      },
+      {
+       "key": "n:child:line0",
+       "kind": "text",
+       "text": "Child",
+       "attrs": {
+        "x": 4.5,
+        "y": 192.5,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:grandchild",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "grandchild"
+     },
+     "children": [
+      {
+       "key": "n:grandchild:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "grandchild"
+       },
+       "attrs": {
+        "x": -2.6337,
+        "y": 199.5,
+        "width": 14.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:grandchild:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "grandchild"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -2.6337,
+        "y": 199.5,
+        "width": 14.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:grandchild:line0",
+       "kind": "text",
+       "text": "Nested",
+       "attrs": {
+        "x": 4.5,
+        "y": 202.58,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:visibleChild",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "visibleChild"
+     },
+     "children": [
+      {
+       "key": "n:visibleChild:area",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "visibleChild"
+       },
+       "attrs": {
+        "x": 79.8663,
+        "y": 194,
+        "width": 16.2675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:visibleChild:box",
+       "kind": "rect",
+       "hit": {
+        "k": "node",
+        "id": "visibleChild"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 79.8663,
+        "y": 194,
+        "width": 16.2675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:visibleChild:line0",
+       "kind": "text",
+       "text": "Visible",
+       "attrs": {
+        "x": 88,
+        "y": 197.08,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#000",
+        "pointer-events": "none",
+        "font-weight": "normal",
+        "font-style": "normal"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    }
+   ],
+   "attrs": {}
+  },
+  {
+   "key": "edges",
+   "kind": "g",
+   "children": [],
+   "attrs": {}
+  }
+ ]
+}

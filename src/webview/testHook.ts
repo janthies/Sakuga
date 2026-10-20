@@ -6,7 +6,7 @@ import { edgeGeom } from './render/edges';
 import { arrowLabelGeom, frameTitleGeom } from './render/labelgeom';
 import { frameRect } from './render/anchors';
 import { contentBox } from './render/boxes';
-import { render } from './render/scene';
+import { drawCanvas, render, renderer } from './render/scene';
 
 export function initTestHook() {
 	// Test hook (S0): inert unless a test sets window.__sakugaTestHook = true before this script loads.
@@ -36,6 +36,9 @@ export function initTestHook() {
 				store.moved = true;
 			},
 			render,
+			// the canvas alone, without the panels (the perf budget measures this)
+			drawCanvas,
+			hit: (target) => renderer.hit(target),
 			// Read-only accessors for the interaction tests (S2).
 			selection: () => ({
 				nodes: [...store.selN],

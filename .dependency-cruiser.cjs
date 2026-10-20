@@ -32,7 +32,8 @@ module.exports = {
 			from: { path: '^src/core/' },
 			to: { dependencyTypes: ['core'] },
 		},
-		...CORE_ORDER.map((name, i) => ({
+		// the last folder has nothing to its right: no rule (an empty path list would match every import)
+		...CORE_ORDER.slice(0, -1).map((name, i) => ({
 			name: `core-layers-${name}`,
 			severity: 'error',
 			comment: `core/${name} may import only ${CORE_ORDER.slice(0, i).join(', ') || 'nothing in core'} (leftwards only).`,

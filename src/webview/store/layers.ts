@@ -2,25 +2,10 @@
 import { store } from './store';
 import { byId, groupById, inGroup, members, post } from './model';
 import { KIND_NAMES, show } from './constants';
+import { hierarchy as coreHierarchy } from '../../core/scene';
 
 // Sort sibling subtrees by their frontmost node, then flatten each subtree as a block.
-export function hierarchy(ns = store.nodes, gs = store.groups) {
-	const rank = (item) =>
-		item.kind === 'node'
-			? ns.findIndex((n) => n.id === item.id)
-			: Math.max(-1, ...ns.map((n, i) => (inGroup(n, item.id, gs) ? i : -1)));
-	const walk = (parent, seen = new Set()) => {
-		const children = [
-			...ns.filter((n) => (n.group || '') === parent).map((n) => ({ kind: 'node', id: n.id })),
-			...gs.filter((g) => (g.parent || '') === parent && !seen.has(g.id)).map((g) => ({ kind: 'group', id: g.id })),
-		].sort((a, b) => rank(b) - rank(a));
-		return children.map((item) => ({
-			...item,
-			children: item.kind === 'group' ? walk(item.id, new Set([...seen, item.id])) : [],
-		}));
-	};
-	return walk('');
-}
+export const hierarchy = (ns = store.nodes, gs = store.groups) => coreHierarchy(ns, gs);
 export function completeOrder(ns, gs) {
 	const flatten = (items) => items.flatMap((item) => (item.kind === 'node' ? [item.id] : flatten(item.children)));
 	const front = flatten(hierarchy(ns, gs));

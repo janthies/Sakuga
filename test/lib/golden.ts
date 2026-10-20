@@ -20,5 +20,5 @@ export function expectGolden(name: string, actual: string): void {
 const r4 = (v: number) => Math.round(v * 1e4) / 1e4 + 0;
 export const json = (v: unknown) =>
 	JSON.stringify(v, (_k, x) => (typeof x === 'number' && Number.isFinite(x) ? r4(x) : x), 1) + '\n';
-export const roundSvg = (s: string) =>
-	s.replace(/-?\d+\.\d+(?:e[-+]?\d+)?|-?\d+e[-+]?\d+/g, (m) => String(r4(Number(m))));
+// Hex colours such as #9e9e9e are not numbers: the lookbehind keeps "9e9" from being read as 9e9.
+export const roundSvg = (s: string) => s.replace(/(?<![#\w])-?\d+\.\d+(?:e[-+]?\d+)?/g, (m) => String(r4(Number(m))));

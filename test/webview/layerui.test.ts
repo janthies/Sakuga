@@ -134,8 +134,9 @@ test('layer and object deletion, opacity controls, add-at-centre editing, drop f
 
 test('canvas stacking, opacity, hit paths and inner endpoints', () => {
 	const { s } = make();
-	const [, framesGroup, nodeGroup, arrowGroup] = [...s.svg.children] as any[];
-	const order = [...s.svg.children];
+	const [, view] = [...s.svg.children] as any[];
+	const [framesGroup, nodeGroup, arrowGroup] = [...view.children] as any[];
+	const order = [...view.children];
 	assert.ok(order.indexOf(framesGroup) < order.indexOf(nodeGroup));
 	assert.ok(order.indexOf(arrowGroup) > order.indexOf(nodeGroup), 'Arrows paint above boxes');
 	assert.equal(nodeGroup.children[1].getAttribute('fill-opacity'), '0.15');

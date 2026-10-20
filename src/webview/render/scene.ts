@@ -1,133 +1,67 @@
 // @ts-nocheck
+// The adapter between the store and the renderer: build the scene and the overlay from the store, draw them.
+import { buildScene } from '../../core/scene';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
-import { drawTidyPreview, renderBase3 } from './overlays';
-import { renderBase2 } from './nodes';
+import { geo, touch } from '../store/geometry';
 import { etools, svg } from '../platform/dom';
-import { el } from './svg';
-import { px, py } from '../store/model';
-import { touch } from '../store/geometry';
-import { drawGroups } from './boxes';
-import { drawEdge, edgeGeom } from './edges';
+import { createRenderer } from './renderer';
+import { buildOverlay } from './overlay';
 
-export function render() {
+export const renderer = createRenderer(svg);
+
+function viewNow() {
+	const r = svg.getBoundingClientRect();
+	return { ...store.view, width: r.width, height: r.height, grid: store.grid };
+}
+function sceneNow() {
+	return buildScene(
+		{
+			nodes: store.nodes,
+			edges: store.edges,
+			groups: store.groups,
+			categories: store.cats,
+			layers: store.layers,
+			legend: store.legend,
+			font: store.figureFont,
+			arrowStyle: store.arrowsStyle,
+		},
+		{ icons: store.icons, geometry: geo() },
+		{ editing: store.editing, haloEdges: [...store.selE] },
+	);
+}
+
+// Everything changed (or may have): rebuild the scene and patch the canvas. Returns the selected arrow, if any.
+export function drawCanvas() {
 	touch();
-	renderBase();
-	drawTidyPreview();
-	calls.updateZoombar();
-}
-function renderBase() {
-	const ctx = {};
-	renderBase1(ctx);
-	renderBase2(ctx);
-	renderBase3(ctx);
-}
-function renderBase1(ctx) {
 	if (store.selN.size || store.selE.size || store.selG) {
 		store.selectedLayers.clear();
 	}
-	svg.replaceChildren();
-	const gg = el('g', {}, svg);
-	const gf = el('g', {}, svg);
-	ctx.gn = el('g', {}, svg);
-	const ge = el('g', {}, svg);
-	ctx.go = el('g', {}, svg);
-	if (store.grid >= 2 && store.grid * store.view.s >= 10) {
-		const r = svg.getBoundingClientRect();
-		const x0 = Math.ceil(-store.view.ox / store.view.s / store.grid) * store.grid,
-			x1 = (r.width - store.view.ox) / store.view.s;
-		const y1 = Math.floor(store.view.oy / store.view.s / store.grid) * store.grid,
-			y0 = (store.view.oy - r.height) / store.view.s;
-		const dots = [];
-		for (let x = x0; x <= x1; x += store.grid) {
-			for (let y = y1; y >= y0; y -= store.grid) {
-				dots.push(`M ${px(x)} ${py(y)} h 0.01`);
-			}
-		}
-		el('path', { d: dots.join(' '), stroke: '#c8c8c8', 'stroke-width': 1.5, 'stroke-linecap': 'round' }, gg);
-	}
-	drawGroups(gf);
-	store.edges.forEach((e, i) => drawEdge(ge, e, i));
 	etools.style.display = 'none';
-	if (
-		store.selE.size === 1 &&
-		store.selN.size === 0 &&
-		!(store.drag && store.drag.mid !== undefined && store.drag.mid !== null && false)
-	) {
-		const i = [...store.selE][0],
-			G = store.edges[i] && edgeGeom(store.edges[i]);
-		if (G) {
-			el(
-				'circle',
-				{
-					cx: px(G.label[0]),
-					cy: py(G.label[1]),
-					r: 5,
-					fill: '#fff',
-					stroke: 'var(--sel)',
-					'stroke-width': 1.5,
-					'data-mid': i,
-					class: 'midhandle',
-				},
-				ge,
-			);
-			if (!G.curve) {
-				for (let j = 0; j < G.pts.length - 1; j++) {
-					const a = G.pts[j],
-						b = G.pts[j + 1];
-					el(
-						'rect',
-						{
-							x: px((a[0] + b[0]) / 2) - 4,
-							y: py((a[1] + b[1]) / 2) - 4,
-							width: 8,
-							height: 8,
-							fill: 'white',
-							stroke: 'var(--sel)',
-							'data-segment': i + ':' + j,
-							class: 'handle',
-						},
-						ge,
-					);
-				}
-				for (let j = 1; j < G.pts.length - 1; j++)
-					el(
-						'circle',
-						{
-							cx: px(G.pts[j][0]),
-							cy: py(G.pts[j][1]),
-							r: 3,
-							fill: 'white',
-							stroke: 'var(--sel)',
-							'data-corner': i + ':' + j,
-							class: 'handle',
-						},
-						ge,
-					);
-			}
-			const pts = G.curve || G.pts;
-			for (const [end, p] of [
-				['from', pts[0]],
-				['to', pts[pts.length - 1]],
-			])
-				el(
-					'circle',
-					{
-						cx: px(p[0]),
-						cy: py(p[1]),
-						r: 5,
-						fill: 'var(--handle)',
-						stroke: 'var(--sel)',
-						'stroke-width': 1.5,
-						'data-endpoint': i + ':' + end,
-						class: 'handle',
-					},
-					ge,
-				);
-			if (!store.drag) {
-				calls.showToolbar(i, G);
-			}
-		}
+	const scene = sceneNow();
+	const overlay = buildOverlay();
+	renderer.draw(scene, overlay.prims, viewNow());
+	return overlay.edge;
+}
+
+// The canvas, then the floating toolbar and the panels that follow the document and the selection.
+export function render() {
+	const edge = drawCanvas();
+	if (edge && !store.drag) {
+		calls.showToolbar(edge.i, edge.G);
 	}
-	ctx.svgNodes = ctx.gn;
+	calls.renderInspector();
+	calls.renderLayers();
+	calls.updateZoombar();
+}
+
+// Only the view changed (pan, zoom, resize): the scene stays, the view transform and the overlay move.
+export function renderView() {
+	etools.style.display = 'none';
+	const overlay = buildOverlay();
+	renderer.setView(viewNow(), overlay.prims);
+	if (overlay.edge && !store.drag) {
+		calls.showToolbar(overlay.edge.i, overlay.edge.G);
+	}
+	calls.updateZoombar();
 }

@@ -83,7 +83,11 @@ test('canvas patterns, marks and double borders', () => {
 			],
 		]),
 	);
-	assert.equal(s.svg.querySelector('#sg-pattern-test').getAttribute('width'), String(((3 * 25.4) / 72.27) * 4));
+	// the tile is 3 pt in millimetres; the view transform scales it
+	assert.equal(
+		s.svg.querySelector('#sg-pattern-test').getAttribute('width'),
+		String(Math.round(((3 * 25.4) / 72.27) * 1e4) / 1e4),
+	);
 	const clipped = s.svg.querySelector('g[clip-path="url(#sg-clip-test)"]');
 	assert.ok(clipped, 'Pattern and mark are clipped to the box outline');
 	assert.equal(clipped.children[0].tagName, 'path');

@@ -2,12 +2,11 @@
 import { store } from '../../store/store';
 import { input, svg } from '../../platform/dom';
 import { byId, post, resolveAttached, toMm } from '../../store/model';
-import { render } from '../../render/scene';
+import { render, renderView, renderer } from '../../render/scene';
 import { IdleTool } from '../idle';
 import { TextEditTool } from '../textedit';
 import { applyPreview } from '../preview';
 import { liveCtx } from './ctx';
-import { hitOf } from './hit';
 import { closeField, focusField, openField } from './editview';
 import { fit } from './view';
 import type { CanvasEvent, EditTarget, Selection, Step, Tool } from '../types';
@@ -49,7 +48,7 @@ function canvasEvent(ev: any): CanvasEvent {
 		screen: { x: ev.clientX, y: ev.clientY },
 		button: ev.button,
 		mods: { ctrl: ev.ctrlKey || ev.metaKey, shift: ev.shiftKey, alt: ev.altKey, space: store.space },
-		hit: hitOf(ev.target),
+		hit: renderer.hit(ev.target) ?? { k: 'none' },
 		text: input.value,
 	};
 }
@@ -82,7 +81,9 @@ export function initDispatch() {
 	svg.addEventListener('pointermove', (ev) => {
 		const step = (tool instanceof TextEditTool ? idle : tool).move(canvasEvent(ev));
 		apply(step);
-		if (step.render !== false) render();
+		// a pan or a hover changes the view or the overlay only: the scene stays
+		const viewOnly = (step.view || step.hover !== undefined) && !step.preview && !step.commit && !step.select;
+		if (step.render !== false) viewOnly ? renderView() : render();
 	});
 	svg.addEventListener('pointerup', (ev) => {
 		if (tool instanceof TextEditTool) {
@@ -127,7 +128,7 @@ export function initDispatch() {
 				store.view.ox -= ev.deltaX;
 				store.view.oy -= ev.deltaY;
 			}
-			render();
+			renderView();
 		},
 		{ passive: false },
 	);
@@ -138,7 +139,7 @@ export function initDispatch() {
 		if (!store.moved) {
 			fit();
 		}
-		render();
+		renderView();
 	}).observe(document.getElementById('desk'));
 }
 /** Open the text field on a box, as Enter or a double-click does. */
