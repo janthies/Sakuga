@@ -123,8 +123,8 @@ interface OptionCodec { owns: PropKey[]; kinds: Kind[]; emit(p: Props, c: EmitCt
 | S9 | Mechanical webview split: state → `store`, functions → modules | src/webview/** | No file over 400 lines; goldens identical | 1 R | done |
 | S10 | **Re-baseline:** one geometry; delete webview copies; clipboard via `serializeSubset`; advance-table metrics; revision memo | core/geometry, webview/render | drift.json empty; parity test enforced; tex/visual reviewed | 1.5 R | done |
 | S11 | Schema: PropDefs replace the six tables; option codecs replace styleOptions/readStyle/styleLine/groupOptions | core/schema, styles, codec | Goldens identical; read∘emit tests | 1.5 R | done |
-| S12 | Scene renderer: buildScene, keyed SVG patch, view transform | core/scene, webview/render | Pixel goldens equal; perf budget test | 1 R | open |
-| S13 | Tools and command registry; VS Code `sakuga.*` commands via `command` | webview/tools, commands | Tool tests without DOM; handlers under 150 lines | 1 R | open |
+| S12 | Scene renderer: buildScene, keyed SVG patch, view transform | core/scene, webview/render | Pixel goldens equal; perf budget test | 1 R | done |
+| S13 | Tools and command registry; VS Code `sakuga.*` commands via `command` | webview/tools, commands | Tool tests without DOM; handlers under 150 lines | 1 R | done |
 | S14 | Schema-driven inspector on the UI kit; remove the barrel and the last `@ts-nocheck` | panels, ui | All fitness rules on; Jan tries it | 1.5 R | open |
 
 Parallel waves in separate git worktrees: A after S0: S1 ∥ S2 ∥ S3. B after S4 and S5: S6 ∥ S7 ∥ S8. C after S9: S10 ∥ S11. D after S10: S12 ∥ S13.
