@@ -59,7 +59,7 @@ test('build-rats-architecture output', () => {
 	} finally { console.log = log; }
 	assert.deepEqual(Object.keys(writes).sort(), ['examples/rats-architecture.sakuga.tikz', 'work/feature-arch/sakuga-02-v3.tex']);
 	expectGolden('ops/build-rats-architecture.tikz', writes['examples/rats-architecture.sakuga.tikz']);
-	expectGolden('ops/build-rats-architecture-standalone.tex', writes['work/feature-arch/sakuga-02-v3.tex'].replace(ROOT, '<root>'));
+	expectGolden('ops/build-rats-architecture-standalone.tex', writes['work/feature-arch/sakuga-02-v3.tex'].split(ROOT).join('<root>'));
 });
 
 // One sequence over styles, labels, layers and paste, with the figure after every step.
