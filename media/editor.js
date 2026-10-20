@@ -113,7 +113,7 @@
  function arrowLabelGeom(e,st=e.labelStyle || {},content=e.label,step=e.style?.step) {
   const G=baseEdgeGeom(e);if(!G) return null;
   const anchor=labelPoint(G,{segment:st.segment ?? (e.style?.position==='start' ? 0 : e.style?.position==='end' ? G.pts.length-2 : undefined),pos:st.pos ?? (e.style?.position==='start' ? .25 : e.style?.position==='end' ? .75 : undefined)});
-  const pt=sizes[st.font || figureFont] || 10,lines=content.split('\\\\'),h=Math.max(lines.length*pt*PT*1.25,step ? 3.6 : 0),w=Math.max(...lines.map(l=>textMm(show(l),pt,'Sakuga Sans',{text:st.bold && st.italic ? 'bold-italic' : st.bold ? 'bold' : st.italic ? 'italic' : ''})))+2*PT+(step ? 4.4 : 0),side=st.side || e.style?.side;
+  const pt=sizes[st.font || figureFont] || 10,lines=content.split('\\\\'),h=Math.max(lines.length*pt*PT*1.25,step ? 3.6 : 0),w=Math.max(...lines.map(l=>textMm(show(l),pt,'Sakuga Sans',{text:st.bold && st.italic ? 'bold-italic' : st.bold ? 'bold' : st.italic ? 'italic' : ''})))+2*PT+(step ? 4.4 : 0),side=st.side || e.style?.side || (G.loop ? {north:'above',south:'below',east:'right',west:'left'}[G.side] : undefined);
   const p=[anchor[0]+(st.dx || 0),anchor[1]+(st.dy || 0)];
   if(side==='left'||side==='right') p[0]+=(side==='right' ? 1 : -1)*(w/2);else if(side) p[1]+=(side==='above' ? 1 : -1)*(h/2+PT);
   return {p,anchor,w,h,pt};
@@ -1134,7 +1134,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 			const [x2, y2] = target && target !== a ? border(target, a.x, a.y) : [drag.x, drag.y];
 			arrow(gn, x1, y1, x2, y2, 'arr', { opacity: 0.6 });
 		}
-  if (drag?.endpoint !== undefined) { el('circle',{cx:px(drag.x),cy:py(drag.y),r:6,fill:'none',stroke:drag.target ? '#43a047' : 'var(--sel)','stroke-width':2},svg); }
+  if (drag?.endpoint !== undefined) {const n=drag.target && endpointObject(drag.target.id),pt=n && !n.frame ? SakugaRoutes.port({...n,...layout(n)},drag.target.anchor,drag.target.offset) : [drag.x,drag.y]; el('circle',{cx:px(pt[0]),cy:py(pt[1]),r:6,fill:'none',stroke:drag.target ? '#43a047' : 'var(--sel)','stroke-width':2},svg); }
   if (drag?.target && drag.move) {
    const {parent,anchor}=drag.target, {w,h}=layout(parent);
    ANCHORS.forEach((a,i)=>{ el('rect',{x:px(parent.x-w/2+(i%3)*w/3),y:py(parent.y+h/2-Math.floor(i/3)*h/3),width:w/3*view.s,height:h/3*view.s,fill:a===anchor ? 'var(--sel)' : 'transparent','fill-opacity':0.16,stroke:'var(--sel)','stroke-width':0.8,'pointer-events':'none'},svg); const pt=anchorPoint(parent,a); el('circle',{cx:px(pt.x),cy:py(pt.y),r:3,fill:'var(--sel)','pointer-events':'none'},svg); });
@@ -1381,7 +1381,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 			section('Arrow');
 			const reset=document.createElement('button');reset.textContent='Reset to auto';reset.onclick=()=>resetToAuto([ei]);row('',reset);
    if(typeof edgeGeom==='function' && edgeGeom(e)?.blocked)row('',label('No route with at most 3 bends. Move a box or set a manual route.'));
-   if(e.from===e.to){row('Loop side',choice([['north','Above'],['east','Right'],['south','Below'],['west','Left']],e.loopSide || 'north',loopSide=>post({op:'arrow',index:ei,loopSide,loopOut:({north:90,east:0,south:270,west:180}[loopSide])+(/circle|ellipse/.test(byId(e.from)?.style?.shape)?22:0),loopIn:({north:90,east:0,south:270,west:180}[loopSide])-(/circle|ellipse/.test(byId(e.from)?.style?.shape)?22:0),fromAnchor:'',toAnchor:'',fromOffset:0,toOffset:0})));row('Loop size',numberControl(e.loopSize ?? 8,loopSize=>post({op:'arrow',index:ei,loopSize:loopSize ?? 8}),{min:1,step:1}),unit('mm'));}
+   if(e.from===e.to){row('Loop side',choice([['north','Above'],['east','Right'],['south','Below'],['west','Left']],e.loopSide || 'north',loopSide=>post({op:'arrow',index:ei,loopSide,loopOut:({north:90,east:0,south:270,west:180}[loopSide])+(/circle|ellipse/.test(byId(e.from)?.style?.shape)?22:0),loopIn:({north:90,east:0,south:270,west:180}[loopSide])-(/circle|ellipse/.test(byId(e.from)?.style?.shape)?22:0),fromAnchor:'',toAnchor:''})));row('Loop size',numberControl(e.loopSize ?? 8,loopSize=>post({op:'arrow',index:ei,loopSize:loopSize ?? 8}),{min:1,step:1}),unit('mm'));}
    row('From', label(e.from));
 			row('To', label(e.to));
    for(const [name,prop] of [['Start side','fromAnchor'],['End side','toAnchor']]) row(name,choice([['','Automatic'],...['north','east','south','west'].map(v=>[v,v])],e[prop] || '',v=>post({op:'arrow',index:ei,[prop]:v})));
@@ -1632,7 +1632,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 
 	function edgeLine(e) {
 		const o = [e.kind, ...(e.head !== 'end' ? [`head ${e.head}`] : [])];
-		if (['straight', 'manhattan', 'curved'].includes(e.route)) { o.push(`sg ${e.route}`); } else if (e.route !== 'auto') { o.push('sg fixed'); }
+		if(e.from===e.to)o.push('sg fixed');else if (['straight', 'manhattan', 'curved'].includes(e.route)) { o.push(`sg ${e.route}`); } else if (e.route !== 'auto') { o.push('sg fixed'); }
 		o.push(...(e.extra || []));
 		const a = byId(e.from), b = byId(e.to), r = resolveRoute(e, a, b), A = e.from, B = e.to;
 		const lbl = pos => e.label ? ` node[sg elabel${pos}] {${e.label}}` : '';
@@ -1686,7 +1686,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		for (const id of ids) { const n=byId(id), a=n.attachment; if (a) { ops.push({op:'attach',id:map.get(id),attachment:{...a,parent:map.get(a.parent)||a.parent,dx:a.dx+(map.has(a.parent) ? 0 : dx),dy:a.dy+(map.has(a.parent) ? 0 : dy)}}); } }
 		for (const e of edges) {
 			if (map.has(e.from) && map.has(e.to)) {
-				ops.push({ op: 'addEdge', from: map.get(e.from), to: map.get(e.to), kind: e.kind, route: e.route, mid: e.mid, bend: e.bend, head: e.head, label: e.label, labelStyle:e.labelStyle,labels:e.labels,style: e.style, extra: e.extra });
+				ops.push({ op: 'addEdge', fromAnchor:e.fromAnchor,toAnchor:e.toAnchor,fromOffset:e.fromOffset,toOffset:e.toOffset,loopSide:e.loopSide,loopSize:e.loopSize,loopOut:e.loopOut,loopIn:e.loopIn,looseness:e.looseness,loopMax:e.loopMax,...(e.route==='fixed'?{waypoints:edgeGeom(e).pts.slice(1,-1).map(p=>[p[0]+dx,p[1]+dy])}:{}), from: map.get(e.from), to: map.get(e.to), kind: e.kind, route: e.route, mid: e.mid, bend: e.bend, head: e.head, label: e.label, labelStyle:e.labelStyle,labels:e.labels,style: e.style, extra: e.extra });
 			}
 		}
 		pendingSelect = [...map.values()];
@@ -1957,6 +1957,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 		} else if (t.dataset.edge !== undefined) {
 			selG = null;
 			const i = +t.dataset.edge;
+   if(!ctrl){const G=edgeGeom(edges[i]);if(G && !G.curve && G.pts.every((p,j)=>!j || p[0]===G.pts[j-1][0] || p[1]===G.pts[j-1][1])){let best=Infinity,j=0;for(let k=0;k<G.pts.length-1;k++){const a=G.pts[k],b=G.pts[k+1],x=Math.max(Math.min(a[0],b[0]),Math.min(Math.max(a[0],b[0]),p.x)),y=Math.max(Math.min(a[1],b[1]),Math.min(Math.max(a[1],b[1]),p.y)),d=Math.hypot(p.x-x,p.y-y);if(d<best){best=d;j=k;}}drag={segment:i,j,pts:G.pts.map(p=>p.slice()),start:p,alt:ev.altKey};}}
 			if (ctrl) {
 				if (selE.has(i)) { selE.delete(i); } else { selE.add(i); }
 			} else {
@@ -2010,9 +2011,10 @@ const wasOpen = !!etools.querySelector('details[open]');
 			}
    resolveAttached();
 		} else if(drag.segment!==undefined){
-   const e=edges[drag.segment],pts=drag.pts.map(p=>p.slice()),j=drag.j,last=pts.length-2,h=Math.abs(pts[j][1]-pts[j+1][1])<.001;
+   if(!drag.changed && Math.hypot(p.x-drag.start.x,p.y-drag.start.y)<.4)return;
+   const e=edges[drag.segment],j=drag.j;let pts=drag.pts.map(p=>p.slice());const last=pts.length-2,h=Math.abs(pts[j][1]-pts[j+1][1])<.001;
    if(drag.alt){const a=pts[j],b=pts[j+1],axis=h?0:1,other=1-axis,c=a.map((v,k)=>v+(b[k]-v)/3),d=a.map((v,k)=>v+2*(b[k]-v)/3),cc=c.slice(),dd=d.slice();cc[other]=dd[other]=h?p.y:p.x;pts.splice(j+1,0,c,cc,dd,d);}
-   else if(j===0 || j===last){const end=j===0?'from':'to',n=endpointObject(e[end]),box={...n,...(n.frame?{}:layout(n))},side=e[end+'Anchor'] || (h?(j===0?(pts[1][0]>pts[0][0]?'east':'west'):(pts.at(-2)[0]>pts.at(-1)[0]?'east':'west')):(j===0?(pts[1][1]>pts[0][1]?'north':'south'):(pts.at(-2)[1]>pts.at(-1)[1]?'north':'south'))),off=SakugaRoutes.snapPort(box,side,p,ev.altKey).offset,point=SakugaRoutes.port(box,side,off),axis=h?1:0;pts[j===0?0:pts.length-1]=point;pts[j===0?1:pts.length-2][axis]=point[axis];}
+   else if(j===0 || j===last){const end=j===0?'from':'to',n=endpointObject(e[end]),box={...n,...(n.frame?{}:layout(n))},side=e[end+'Anchor'] || (h?(j===0?(pts[1][0]>pts[0][0]?'east':'west'):(pts.at(-2)[0]>pts.at(-1)[0]?'east':'west')):(j===0?(pts[1][1]>pts[0][1]?'north':'south'):(pts.at(-2)[1]>pts.at(-1)[1]?'north':'south'))),off=SakugaRoutes.snapPort(box,side,p,ev.altKey).offset,point=SakugaRoutes.port(box,side,off),axis=h?1:0;if(pts.length===2){const end=pts[1],mid=h?(point[0]+end[0])/2:(point[1]+end[1])/2;pts=h?[point,[mid,point[1]],[mid,end[1]],end]:[point,[point[0],mid],[end[0],mid],end];}else{pts[j===0?0:pts.length-1]=point;pts[j===0?1:pts.length-2][axis]=point[axis];}}
    else {const axis=h?1:0;pts[j][axis]=pts[j+1][axis]=fine(h?p.y:p.x);}
    Object.assign(e,fixedUpdate(e,pts));drag.changed=true;
   } else if (drag.endpoint !== undefined) {
@@ -2130,7 +2132,7 @@ const wasOpen = !!etools.querySelector('details[open]');
 	svg.addEventListener('dblclick', ev => {
 		const p = toMm(ev);
 		const t = ev.target;
-  if(t.dataset.corner!==undefined){const [index,j]=t.dataset.corner.split(':').map(Number),e=edges[index],pts=edgeGeom(e).pts.map(p=>p.slice());if(j>0 && j<pts.length-1){const a=pts[j-1],b=pts[j+1];pts.splice(j,1);if(a[0]!==b[0]&&a[1]!==b[1])pts.splice(j,0,[a[0],b[1]]);post({op:'arrow',index,...fixedUpdate(e,SakugaRoutes.tidy(pts))});}return;}
+  if(t.dataset.corner!==undefined){const [index,j]=t.dataset.corner.split(':').map(Number),e=edges[index],pts=SakugaRoutes.removeCorner(edgeGeom(e).pts,j);post({op:'arrow',index,...fixedUpdate(e,pts)});return;}
   if(t.dataset.label){selN.label=JSON.parse(t.dataset.label);render();return;}
 		if (t.dataset.group || t.classList.contains('locked-node')) { return; }
 		if (t.dataset.edge !== undefined || t.dataset.mid !== undefined) {

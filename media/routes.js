@@ -28,7 +28,7 @@
   if (!a || !b) return null;
   if(e.from===e.to)return loopGeometry(e,a);
   if(e.route==='fixed')return fixedGeometry(e,a,b,objects);
-  if(e.route==='auto' && style!=='curved' && style!=='straight' || e.route==='manhattan')return autoRoute(e,a,b,objects,prior);
+  if(e.route==='auto' || e.route==='manhattan'){const g=autoRoute(e,a,b,objects,prior),l=lane(e,edges);if(l && g.sa && g.sb && !e.fromAnchor && !e.toAnchor){const off=(n,s,p)=>{const h=/north|south/.test(s),limit=(h?n.w:n.h)/2-.5;return Math.max(-limit,Math.min(limit,p[h?0:1]-n[h?'x':'y']+l));};return autoRoute({...e,fromAnchor:g.sa,toAnchor:g.sb,fromOffset:off(a,g.sa,g.pts[0]),toOffset:off(b,g.sb,g.pts.at(-1))},a,b,objects,prior);}return g;}
   if (!a || !b) return null;
   const l=lane(e,edges);
   const sideA=e.fromAnchor || (e.route==='u' ? 'south' : undefined),sideB=e.toAnchor || (e.route==='u' ? 'south' : undefined);
@@ -38,7 +38,8 @@
   const forward=q[0]<p[0] || (q[0]===p[0] && q[1]<p[1]) ? -1 : 1;
   const dx=(q[0]-p[0])*forward,dy=(q[1]-p[1])*forward,len=Math.hypot(dx,dy)||1;
   const shift=[-dy/len*l,dx/len*l];
-  for (const [v,n,side] of [[p,a,sideA],[q,b,sideB]]) {
+  for (const [v,n,side,offset] of [[p,a,sideA,e.fromOffset],[q,b,sideB,e.toOffset]]) {
+   if(offset!==undefined)continue;
    // A lane slides along a chosen side, never off the rectangle.
    if (side?.includes('east') || side?.includes('west')) v[1]+=Math.max(-n.h/2+0.5,Math.min(n.h/2-0.5,shift[1]));
    else if (side?.includes('north') || side?.includes('south')) v[0]+=Math.max(-n.w/2+0.5,Math.min(n.w/2-0.5,shift[0]));
@@ -124,6 +125,7 @@
   if(candidates.length){candidates.sort((x,y)=>length(x.pts)-length(y.pts));const c=candidates[0];return finish(c.pts,c.s.s,c.t.s,'Z');}
   // 4: a single multi-source A*. Each state retains heading, bend budget and source side.
   const xs=new Set(),ys=new Set();for(const c of [...starts,...ends]){xs.add(c.p[0]);ys.add(c.p[1]);}for(const n of obstacles){xs.add(n.x-n.w/2-n.margin);xs.add(n.x+n.w/2+n.margin);ys.add(n.y-n.h/2-n.margin);ys.add(n.y+n.h/2+n.margin);}for(const f of frames){xs.add(f.x-f.w/2+1.2);xs.add(f.x+f.w/2-1.2);ys.add(f.y-f.h/2+1.2);ys.add(f.y+f.h/2-1.2);}
+  xs.add(Math.min(...xs)-4);xs.add(Math.max(...xs)+4);ys.add(Math.min(...ys)-4);ys.add(Math.max(...ys)+4);
   const grid=s=>{const a=[...s].sort((a,b)=>a-b),out=[...a];for(let i=1;i<a.length;i++)out.push((a[i-1]+a[i])/2);return [...new Set(out)].sort((a,b)=>a-b);},X=grid(xs),Y=grid(ys),ny=Y.length;
   const goals=new Map();for(const t of ends){const k=X.indexOf(t.p[0])*ny+Y.indexOf(t.p[1]);if(!goals.has(k))goals.set(k,[]);goals.get(k).push(t);}
   const dirs=[[1,0],[-1,0],[0,1],[0,-1]],dirSide=['east','west','north','south'];
@@ -140,20 +142,26 @@
   return result([point(a,e.fromAnchor,b),point(b,e.toAnchor,a)],{blocked:true,rule:'blocked'});
  }
  function loopGeometry(e,n){const side=e.loopSide || 'north',angle={north:90,east:0,south:270,west:180}[side],normal=normals[side],size=e.loopSize ?? 8;let p,q,out,inn;const round=/circle|ellipse/.test(n.style?.shape);if(round){out=e.loopOut ?? angle+22;inn=e.loopIn ?? angle-22;const ray=deg=>{const r=deg*Math.PI/180;const k=1/Math.hypot(Math.cos(r)/(n.w/2),Math.sin(r)/(n.h/2));return [n.x+k*Math.cos(r),n.y+k*Math.sin(r)];};p=ray(out);q=ray(inn);}else{out=e.loopOut ?? angle;inn=e.loopIn ?? angle;const len=/north|south/.test(side)?n.w:n.h;p=port(n,e.fromAnchor || side,e.fromOffset ?? -len/6);q=port(n,e.toAnchor || side,e.toOffset ?? len/6);}
-  const d=Math.max(size,Math.min(e.loopMax ?? 10000,.3915*(e.looseness ?? 1)*Math.hypot(q[0]-p[0],q[1]-p[1])*255/256)),c=(p,a)=>p.map((v,k)=>v+d*(k?Math.sin(a*Math.PI/180):Math.cos(a*Math.PI/180))),curve=[p,c(p,out),c(q,inn),q];return result([p,q],{curve,label:p.map((v,k)=>v/8+3*curve[1][k]/8+3*curve[2][k]/8+q[k]/8),loop:true,side,out,inn,d,sa:side,sb:side});
+  const d=Math.min(e.loopMax ?? 10000,Math.max(size,.3915*(e.looseness ?? 1)*Math.hypot(q[0]-p[0],q[1]-p[1])*255/256)),c=(p,a)=>p.map((v,k)=>v+d*(k?Math.sin(a*Math.PI/180):Math.cos(a*Math.PI/180))),curve=[p,c(p,out),c(q,inn),q];return result([p,q],{curve,label:p.map((v,k)=>v/8+3*curve[1][k]/8+3*curve[2][k]/8+q[k]/8),loop:true,side,out,inn,d,sa:side,sb:side});
  }
  const fmt=v=>String(+v.toFixed(4));
  function portText(n,s,p){const h=/north|south/.test(s),shift=p[h?0:1]-n[h?'x':'y'];return Math.abs(shift)<eps?`(${n.id}.${s})`:`([${h?'x':'y'}shift=${fmt(shift)}mm]${n.id}.${s})`;}
- function polyline(pts,S,T,label=''){const p=pts,k=p.length-1,v=Math.abs(p[0][0]-p[1][0])<eps,coord=p=>`(${p.map(fmt).join(',')})`;if(k===1)return `${S} --${label} ${T}`;if(k===2)return `${S} ${v?'|-':'-|'}${label} ${T}`;if(k===3)return v?`${S} -- (${S.slice(1,-1)} |- 0,${fmt(p[1][1])}) -|${label} ${T}`:`${S} -- (${S.slice(1,-1)} -| ${fmt(p[1][0])},0) |-${label} ${T}`;if(k===4)return `${S} ${v?'|-':'-|'}${label} ${coord(v?[p[2][0],p[1][1]]:[p[1][0],p[2][1]])} ${v?'|-':'-|'} ${T}`;return [S,...p.slice(1,-1).map(coord),T].join(' --'+label+' ');}
+ function polyline(pts,S,T,label='',projectStraight=false){if(projectStraight && pts.length===2 && (Math.abs(pts[0][0]-pts[1][0])<eps || Math.abs(pts[0][1]-pts[1][1])<eps)){const v=Math.abs(pts[0][0]-pts[1][0])<eps,target=T.replace(/^\(\[[^\]]*\]/,'(');return `${S} --${typeof label==='function'?label(0):label} (${S.slice(1,-1)} ${v?'|-':'-|'} ${target.slice(1,-1)})`;}if(label){const coords=pts.map((p,i)=>{if(!i)return S;if(i===pts.length-1)return T;const first=i===1,last=i===pts.length-2;if(first || last){const ref=first?S:T,adjacent=first?pts[0]:pts.at(-1),v=Math.abs(p[0]-adjacent[0])<eps;return `(${ref.slice(1,-1)} ${v?'|-':'-|'} ${v?'0,'+fmt(p[1]):fmt(p[0])+',0'})`;}return `(${p.map(fmt).join(',')})`;});return coords.map((c,i)=>i?` --${typeof label==='function'?label(i-1):(i-1===(pts.length===4?1:0)?label:'')} ${c}`:c).join('');}const p=pts,k=p.length-1,v=Math.abs(p[0][0]-p[1][0])<eps,coord=p=>`(${p.map(fmt).join(',')})`;if(k===1)return `${S} --${label} ${T}`;if(k===2)return `${S} ${v?'|-':'-|'}${label} ${T}`;if(k===3)return v?`${S} -- (${S.slice(1,-1)} |- 0,${fmt(p[1][1])}) -|${label} ${T}`:`${S} -- (${S.slice(1,-1)} -| ${fmt(p[1][0])},0) |-${label} ${T}`;if(k===4)return `${S} ${v?'|-':'-|'}${label} ${coord(v?[p[2][0],p[1][1]]:[p[1][0],p[2][1]])} ${v?'|-':'-|'} ${T}`;return [S,...p.slice(1,-1).map(coord),T].join(' --'+label+' ');}
  // Evaluate the calc-free coordinate/projection grammar used in fixed chains.
  function coordinate(text,objects){text=text.replace(/^\(|\)$/g,'').trim();const m=/^(.*?)\s+(\|-|-\|)\s+(.*)$/.exec(text);if(m){const a=coordinate(m[1],objects),b=coordinate(m[3],objects);return m[2]==='|-'?[a[0],b[1]]:[b[0],a[1]];}const xy=/^(-?[\d.]+),\s*(-?[\d.]+)$/.exec(text);if(xy)return [+xy[1],+xy[2]];const ref=/^(?:\[([^\]]+)\])?([\w-]+)(?:\.(.*))?$/.exec(text);if(!ref)return [0,0];const n=objects.find(n=>n.id===ref[2]);if(!n)return [0,0];const p=point(n,ref[3] || 'center',n);for(const sh of (ref[1]||'').matchAll(/([xy])shift=(-?[\d.]+)mm/g))p[sh[1]==='x'?0:1]+=+sh[2];return p;}
  function chainPoints(chain,objects){const pts=[coordinate(chain[0],objects)];for(let i=1;i<chain.length;i+=2){const p=pts.at(-1),q=coordinate(chain[i+1],objects),op=chain[i];if(op==='|-')pts.push([p[0],q[1]]);if(op==='-|')pts.push([q[0],p[1]]);pts.push(q);}return tidy(pts);}
- function fixedGeometry(e,a,b,objects){let pts=e.chain?chainPoints(e.chain,objects):[port(a,e.fromAnchor || 'east',e.fromOffset),...(e.waypoints || []).map(p=>p.slice()),port(b,e.toAnchor || 'west',e.toOffset)];if(!e.chain && pts.length>2){const first=/east|west/.test(e.fromAnchor || 'east');pts[1][first?1:0]=pts[0][first?1:0];const last=/east|west/.test(e.toAnchor || 'west');pts.at(-2)[last?1:0]=pts.at(-1)[last?1:0];}
-  // Keep interior levels, moving a level outside an endpoint only if the endpoint now covers it.
-  for(let i=1;i<pts.length-1;i++)for(const n of [a,b])if(inside(n,pts[i],-eps)){const axis=i===1?(/east|west/.test(e.fromAnchor || 'east')?0:1):(/east|west/.test(e.toAnchor || 'west')?0:1),sign=pts[i][axis]>=n[axis?'y':'x']?1:-1;pts[i][axis]=n[axis?'y':'x']+sign*(n[axis?'h':'w']/2+2);if(i>1 && Math.abs(pts[i-1][axis]-n[axis?'y':'x'])<n[axis?'h':'w']/2)pts[i-1][axis]=pts[i][axis];}
+ function fixedGeometry(e,a,b,objects){let pts=e.chain?chainPoints(e.chain,objects):[port(a,e.fromAnchor || 'east',e.fromOffset),...(e.waypoints || []).map(p=>p.slice()),port(b,e.toAnchor || 'west',e.toOffset)];if(pts.length>2){const first=/east|west/.test(e.fromAnchor || 'east');pts[1][first?1:0]=pts[0][first?1:0];const last=/east|west/.test(e.toAnchor || 'west');pts.at(-2)[last?1:0]=pts.at(-1)[last?1:0];}
+  if(e.chain && pts.length>1){if(/^\([\w-]+\)$/.test(e.chain[0]))pts[0]=point(a,undefined,{x:pts[1][0],y:pts[1][1]});if(/^\([\w-]+\)$/.test(e.chain.at(-1)))pts[pts.length-1]=point(b,undefined,{x:pts.at(-2)[0],y:pts.at(-2)[1]});}
+  // Only levels intersecting a moved endpoint are displaced. The remaining interior levels stay put.
+  if(pts.length>2)for(const [n,side,end,adj,next] of [[a,e.fromAnchor,0,1,2],[b,e.toAnchor,pts.length-1,pts.length-2,pts.length-3]]){
+   if(!normals[side])continue;const normal=normals[side],axis=normal[0]?0:1,sign=normal[axis];
+   if(sign*(pts[adj][axis]-pts[end][axis])<eps){const old=pts[adj][axis],value=pts[end][axis]+sign*2;pts[adj][axis]=value;if(next!==end && Math.abs(pts[next][axis]-old)<eps)pts[next][axis]=value;}
+  }
+  for(let pass=0;pass<3;pass++)for(let i=1;i<pts.length-2;i++)for(const n of [a,b])if(hits(n,pts[i],pts[i+1])){const axis=Math.abs(pts[i][0]-pts[i+1][0])<eps?0:1,c=n[axis?'y':'x'],half=n[axis?'h':'w']/2,sign=pts[i][axis]>=c?1:-1;pts[i][axis]=pts[i+1][axis]=c+sign*(half+2);}
   return result(pts,{fixed:true});}
 
- const api={bounds,lane,geometry,point,legacyGeometry,autoRoute,loopGeometry,snapPort,port,portText,polyline,chainPoints,fixedGeometry,tidy,hits};
+ function removeCorner(pts,j){pts=pts.map(p=>p.slice());if(j<1||j>=pts.length-1)return pts;const a=pts[j-1],b=pts[j+1];if(Math.abs(a[0]-b[0])<eps||Math.abs(a[1]-b[1])<eps)pts.splice(j,1);else if(j+2<pts.length){const c=pts[j+2];if(Math.abs(b[0]-c[0])<eps)b[0]=a[0];else b[1]=a[1];pts.splice(j,1);}else if(j>1){const c=pts[j-2];if(Math.abs(a[0]-c[0])<eps)a[0]=b[0];else a[1]=b[1];pts.splice(j,1);}return tidy(pts);}
+ const api={removeCorner,bounds,lane,geometry,point,legacyGeometry,autoRoute,loopGeometry,snapPort,port,portText,polyline,chainPoints,fixedGeometry,tidy,hits};
  if(typeof module!=='undefined') module.exports=api;
  else root.SakugaRoutes=api;
 })(typeof window==='undefined' ? globalThis : window);

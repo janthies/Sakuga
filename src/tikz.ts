@@ -40,10 +40,12 @@ export interface AttachedLabel { text: string; style?: LabelStyle }
 export interface Group { fill?: string; fillStrength?: number; outline?: string; labelStyle?: LabelStyle; padding?: number; titlePosition?: string; titleBold?: boolean; titleFont?: string; titleColor?: string; lineWidth?: number; frameColor?: string; id: string; name: string; frame: string; color: string; parent: string }
 const newDefaultGroups = new WeakSet<Group>();
 export const FRAMES = ['none', 'dashed', 'dotted', 'solid', 'region'] as const;
-// route: 'auto' follows the figure's arrow style; 'straight', 'manhattan' and 'curved' choose a style
+// route: 'auto' uses the ordered orthogonal router; 'straight', 'manhattan' and 'curved' choose a style
 // for this arrow; 'hvh' (across, down, across; mid = x of the vertical part), 'vhv' (down, across,
 // down; mid = y of the horizontal part) and 'bend' (bend in degrees, positive = left) are shapes set
 // by hand. mid = null puts the corner at the target. head: 'end', 'both' or 'none'.
+// Fixed chains use native coordinate/operator tokens; editable waypoints are absolute mm.
+// Side offsets and loop control distances use mm; loop angles use TikZ degrees.
 export interface FigEdge { fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; fromAnchor?: string; toAnchor?: string; lane?: number;
 	labelStyle?: LabelStyle; labels?: AttachedLabel[]; style?: ObjectStyle; from: string; to: string; kind: string; route: string; mid: number | null; bend: number;
 	head: string; label: string; extra: string[];
@@ -359,18 +361,20 @@ function parsePath(o: string[], path: string): FigEdge | null {
  const routeMeta = o.find(v => v.startsWith('sg route='));
  const offset=(c:string)=>{if(/xshift=.*yshift=/.test(c))return undefined;const m=/[xy]shift=(-?[\d.]+)mm/.exec(c);return m ? +m[1] : undefined;};
  e.fromOffset=offset(coords[0]);e.toOffset=offset(coords[coords.length-1]);
+ let parsedPath=false;
  const loop=/to\[([^\]]*(?:out=|loop )[^\]]*)\]/.exec(routePath);
  if(from===to && loop){
   const opts=loop[1],value=(name:string)=>{const m=new RegExp('(?:^|,\\s*)'+name+'=(-?[\\d.]+)(?:mm)?').exec(opts);return m ? +m[1] : undefined;};
   e.route='loop';e.loopOut=value('out');e.loopIn=value('in');e.loopSize=value('min distance') ?? 8;e.looseness=value('looseness');e.loopMax=value('max distance');
   const angle=e.loopOut ?? 90;e.loopSide=e.fromAnchor || (angle>=45&&angle<135?'north':angle>=135&&angle<225?'west':angle>=225&&angle<315?'south':'east');
-  return e;
+  parsedPath=true;
  }
- if(o.includes('sg fixed') && !routeMeta && !ops.some(op=>op.startsWith('to')) && !(coords.length===3 && ops[1]==='--' && /^\(-?[\d.]+,-?[\d.]+\)$/.test(coords[1]) && !e.fromAnchor && !e.toAnchor)){e.route='fixed';e.chain=tokens;return e;}
+ if(o.includes('sg fixed') && !routeMeta && !ops.some(op=>op.startsWith('to')) && !(coords.length===3 && ops[1]==='--' && /^\(-?[\d.]+,-?[\d.]+\)$/.test(coords[1]) && !e.fromAnchor && !e.toAnchor)){e.route='fixed';e.chain=tokens;parsedPath=true;}
 
  if(meta){const data=JSON.parse(Buffer.from(meta.slice(10),'hex').toString());if(data.legacySide)e.style={...e.style,side:data.legacySide};if(data.legacyPosition)e.style={...e.style,position:data.legacyPosition};}
  if (e.style?.step) { if(e.label.startsWith('\\sglabel{')) e.label=e.label.replace(/^\\sglabel\{[^}]*\}\{/, '').slice(0,-1); e.label=e.label.replace(/^\\sgstep\{[^}]*\}(?:\\ )?/, ''); if(e.label.startsWith('\\shortstack{') && e.label.endsWith('}')) e.label=e.label.slice(12,-1); }
- if (routeMeta) { if(o.includes('sg implicit from')) {delete e.fromAnchor;delete e.fromOffset;} if(o.includes('sg implicit to')) {delete e.toAnchor;delete e.toOffset;} e.route=routeMeta.slice(9); const mid=o.find(v=>v.startsWith('sg mid=')), bend=o.find(v=>v.startsWith('sg bend=')); if(mid) e.mid=+mid.slice(7); if(bend) e.bend=+bend.slice(8); return e; }
+ if(parsedPath)return e;
+ if (routeMeta) { for(const end of ['from','to'] as const){const key='sg implicit '+end,implicit=o.find(x=>x===key || x.startsWith(key+'='));if(implicit){if(implicit===key)delete e[end==='from'?'fromAnchor':'toAnchor'];else e[end==='from'?'fromAnchor':'toAnchor']=implicit.slice(key.length+1);delete e[end==='from'?'fromOffset':'toOffset'];}} e.route=routeMeta.slice(9); const mid=o.find(v=>v.startsWith('sg mid=')), bend=o.find(v=>v.startsWith('sg bend=')); if(mid) e.mid=+mid.slice(7); if(bend) e.bend=+bend.slice(8); return e; }
 
  const marker = o.find(x => MARKERS.includes(x));
 	if (marker && marker !== 'sg fixed') {
@@ -605,7 +609,8 @@ function edgeLine(fig: Figure, e: FigEdge): string {
 	if (e.head !== 'end') {
 		o.push(`head ${e.head}`);
 	}
-	if (e.route === 'straight' || e.route === 'manhattan' || e.route === 'curved') {
+	if(e.from===e.to){o.push('sg fixed');}
+ else if (e.route === 'straight' || e.route === 'manhattan' || e.route === 'curved') {
 		o.push(`sg ${e.route}`);
 	} else if (e.route !== 'auto') {
 		o.push('sg fixed');
@@ -627,15 +632,19 @@ function edgeLine(fig: Figure, e: FigEdge): string {
   if(G.loop){
    if(/circle|ellipse/.test(aa.style?.shape)){start=`(${A}.${num(G.out)})`;stop=`(${A}.${num(G.inn)})`;}
    const options=[`out=${G.out}`,`in=${G.inn}`,`min distance=${e.loopSize ?? 8}mm`,...(e.looseness!==undefined && e.looseness!==1?[`looseness=${e.looseness}`]:[]),...(e.loopMax!==undefined?[`max distance=${e.loopMax}mm`]:[])];
-   path=`${start} to[${options.join(',')}]${lbl(', '+(({north:'above',south:'below',east:'right',west:'left'} as Record<string,string>)[G.side] || 'above'))} ${stop}`;
+   path=`${start} to[${options.join(',')}]${lbl(e.style?.side || e.labelStyle?.side ? '' : ', '+(({north:'above',south:'below',east:'right',west:'left'} as Record<string,string>)[G.side] || 'above'))} ${stop}`;
   }else{
-   if(!G.fixed){o.push(`sg route=${e.route}`);if(!e.fromAnchor)o.push('sg implicit from');if(!e.toAnchor)o.push('sg implicit to');if(e.mid!==null)o.push(`sg mid=${e.mid}`);if(e.bend)o.push(`sg bend=${e.bend}`);}
-   path=routing.polyline(G.pts,start,stop,lbl(''));
+   if(!G.fixed){o.push(`sg route=${e.route}`);if(!e.fromAnchor)o.push('sg implicit from');else if(e.fromOffset===undefined)o.push('sg implicit from='+e.fromAnchor);if(!e.toAnchor)o.push('sg implicit to');else if(e.toOffset===undefined)o.push('sg implicit to='+e.toAnchor);if(e.mid!==null)o.push(`sg mid=${e.mid}`);if(e.bend)o.push(`sg bend=${e.bend}`);}
+   const segment=(st:LabelStyle | undefined)=>Math.max(0,Math.min(G.pts.length-2,st?.segment ?? (e.style?.position==='start'?0:e.style?.position==='end'?G.pts.length-2:G.pts.length===4?1:0)));
+   const labels=(i:number)=>(segment(e.labelStyle)===i?lbl('',false):'')+(e.labels || []).filter(l=>segment(l.style)===i).map(l=>` node[sg elabel${labelMetrics(l.text,l.style,fontSize(fig))}${labelOptions(l.style,{font:fontSize(fig),color:e.style?.color || '',side:e.style?.side})}] {${l.text}}`).join('');
+   path=routing.polyline(G.pts,start,stop,(content || e.labels?.length)?labels:'',!!G.rule && !e.toAnchor);
   }
  } else if (G) {
   o.push(`sg route=${e.route}`); if(!e.fromAnchor) o.push('sg implicit from'); if(!e.toAnchor) o.push('sg implicit to'); if(e.mid !== null) o.push(`sg mid=${e.mid}`); if(e.bend) o.push(`sg bend=${e.bend}`);
   const objects=routeObjects(fig), end=(id: string, anchor: string | undefined, p: number[]) => {
    const n=objects.find(n=>n.id===id), c=anchor ? routing.point(n,anchor,n) : [n.x,n.y];
+   const offset=id===e.from?e.fromOffset:e.toOffset;
+   if(offset!==undefined && /^(north|south|east|west)$/.test(anchor || '')){const text=routing.portText(n,anchor,p);return offset===0 && !text.includes('shift')?`([${/north|south/.test(anchor!)?'x':'y'}shift=0mm]${id}.${anchor})`:text;}
    return `([xshift=${p[0]-c[0]}mm,yshift=${p[1]-c[1]}mm]${id}${anchor ? '.'+anchor : '.center'})`;
   };
   const points=G.curve || G.pts, start=end(e.from,e.fromAnchor,points[0]), stop=end(e.to,e.toAnchor,points[points.length-1]);
@@ -884,7 +893,7 @@ export type Op =
 	| { op: 'addNode'; titlePosition?: string; attachment?: Attachment; style?: ObjectStyle; extra?: string[]; layer?: string; id: string; x: number; y: number; title: string; cat: string; icon?: string; iconPosition?: string; kind?: string; code?: string; width?: number; minh?: number; from?: string }
 	| { op: 'addEdge'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; labelStyle?: LabelStyle; labels?: AttachedLabel[]; fromAnchor?: string; toAnchor?: string; lane?: number; style?: ObjectStyle; extra?: string[]; from: string; to: string; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
 	| { op: 'node'; titlePosition?: string; id: string; title?: string; icon?: string; iconPosition?: string; kind?: string; code?: string; cat?: string; width?: number; minh?: number }
-	| { op: 'arrow'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[]; waypoints?: number[][]; resetAuto?: boolean; from?: string; to?: string; fromAnchor?: string; toAnchor?: string; lane?: number | null; index: number; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
+	| { op: 'arrow'; fromOffset?: number; toOffset?: number; loopSide?: string; loopSize?: number; loopOut?: number; loopIn?: number; looseness?: number; loopMax?: number; chain?: string[] | null; waypoints?: number[][]; resetAuto?: boolean; from?: string; to?: string; fromAnchor?: string; toAnchor?: string; lane?: number | null; index: number; kind?: string; route?: string; mid?: number | null; bend?: number; head?: string; label?: string }
 	| { op: 'arrows'; style: string }
 	| { op: 'sheet'; width: number }
 	| { op: 'addLayer'; id: string; name: string }
@@ -1056,10 +1065,11 @@ export function apply(fig: Figure, op: Op): void {
 		case 'arrow': {
 			const e = edges(fig)[op.index];
 			if (e) {
+    if(e.route==='fixed' && e.chain && ['from','to','fromAnchor','toAnchor','fromOffset','toOffset'].some(k=>(op as any)[k]!==undefined)){e.waypoints=specialGeometry(fig,e)?.pts.slice(1,-1);delete e.chain;}
 				for (const key of ['from','to','fromAnchor','toAnchor','lane'] as const) { if (op[key] !== undefined) { if (key==='lane' && op[key]===null) delete e.lane; else (e as any)[key]=op[key]; } }
 				if (op.kind !== undefined) { e.kind = op.kind; if (e.style) { delete e.style.border; } }
 				if (op.route !== undefined) { e.route = op.route; if(op.route!=='fixed'){delete e.chain;delete e.waypoints;} }
-    for(const key of ['fromOffset','toOffset','loopSide','loopSize','loopOut','loopIn','looseness','loopMax','chain','waypoints'] as const)if(op[key]!==undefined)(e as any)[key]=op[key];
+    for(const key of ['fromOffset','toOffset','loopSide','loopSize','loopOut','loopIn','looseness','loopMax','chain','waypoints'] as const)if(op[key]!==undefined){if(key==='chain' && op[key]===null)delete e.chain;else (e as any)[key]=op[key];}
     if(op.loopSide!==undefined){for(const k of ['fromAnchor','toAnchor','fromOffset','toOffset'])delete (e as any)[k];}
     if(op.resetAuto){e.route='auto';e.mid=null;e.bend=0;for(const k of ['fromAnchor','toAnchor','fromOffset','toOffset','chain','waypoints','loopSide','loopSize','loopOut','loopIn','looseness','loopMax','lane'])delete (e as any)[k];}
 				if (op.mid !== undefined) { e.mid = op.mid; }

@@ -119,3 +119,28 @@ run('selN.clear(); selE = new Set([0,1]); deleteSelection();');
 assert.deepEqual(JSON.parse(JSON.stringify(messages.at(-1).op.ops)), [{op:'deleteEdge',index:1}, {op:'deleteEdge',index:0}]);
 assert.equal(run('selE.size'), 0);
 console.log('Rectangle path intersection, Ctrl selection, movement, mixed styles, style copy/paste, clipboard paste and deletion passed.');
+// Exercise the actual shared-router canvas handlers, including segment drags and same-node drops.
+context.SakugaRoutes=require('../media/routes');
+load(' function fixedUpdate(', "\tsvg.addEventListener('pointerdown'");
+load(' function resetToAuto(', '\n\tfunction showToolbar');
+load('\tfunction nodeAt(', '\n\tfunction boxHalf');
+run(`
+ groups=[];selN.clear();selE=new Set([0]);
+ nodes=[{id:'a',x:0,y:0,width:14,minh:14,title:'A',extra:[]},{id:'b',x:70,y:20,width:14,minh:14,title:'B',extra:[]}];
+ edges=[{from:'a',to:'b',route:'fixed',fromAnchor:'east',toAnchor:'west',waypoints:[[35,0],[35,20]],kind:'arr',head:'end',extra:[],label:''}];
+`);
+handlers.pointerdown(event(35,10,false,{segment:'0:1'}));
+handlers.pointermove(event(45,10));handlers.pointerup(event(45,10));
+assert.equal(messages.at(-1).op.waypoints[0][0],45,'Interior segment moves its free level');
+assert.equal(messages.at(-1).op.waypoints[1][0],45);
+assert.equal(messages.at(-1).op.fromAnchor,'east');
+run("edges=[{from:'a',to:'b',route:'auto',kind:'arr',head:'end',extra:[],label:''}];nodes[1].y=0;");
+handlers.pointerdown({...event(35,0,false,{segment:'0:0'}),altKey:true});
+handlers.pointermove({...event(35,15),altKey:true});handlers.pointerup({...event(35,15),altKey:true});
+assert.equal(messages.at(-1).op.route,'fixed');assert(messages.at(-1).op.waypoints.length>=4,'Alt drag creates a jog');
+run('selE=new Set([0,1]); resetToAuto();');assert.equal(messages.at(-1).op.ops.length,2);assert(messages.at(-1).op.ops.every(o=>o.resetAuto));
+// A release on the originating node creates a loop on the release side.
+handlers.pointerdown(event(0,7,false,{handle:'a'}));handlers.pointermove(event(7,0));handlers.pointerup(event(7,0));
+assert.equal(messages.at(-1).op.route,'loop');assert.equal(messages.at(-1).op.from,'a');assert.equal(messages.at(-1).op.to,'a');assert.equal(messages.at(-1).op.loopSide,'east');
+handlers.pointerdown(event(63,0,false,{endpoint:'0:to'}));handlers.pointermove(event(70+7,3.5));handlers.pointerup(event(70+7,3.5));assert.equal(messages.at(-1).op.toOffset,3.5,'Endpoint drop snaps along the side');
+console.log('Canvas interior/Alt segment drags, multi-arrow reset, same-node loop creation and snapped endpoint drops passed.');

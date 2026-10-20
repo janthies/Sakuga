@@ -59,3 +59,25 @@ Generated TikZ uses native label `pos=`, side, `shift={(dx mm,dy mm)}`, `font`, 
 `\sglabel{step}{text}` centres a badge before a multiline label. Detached labels use `sg compact` to preserve tight label spacing instead of box padding; the existing free-label node dialect otherwise stays unchanged. Combined bold+italic typography now round-trips on free labels too.
 
 `node scripts/check-attached-labels.cjs` exercises actual pointer and clipboard handlers, document-echo selection, inheritance, additional nodes, badge detach/attach, all legacy frame presets and byte-identical saves. Native LuaLaTeX probes verify an offset arrow label and frame title against canvas coordinates within 0.035 mm. All new artifacts are under `work/`. A live VS Code interaction pass remains manual; no feature is intentionally deferred.
+
+## Routing, side ports and state machines
+
+Auto routing now tries an aligned line, an L, a Z, then one multi-source A* search with a three-bend limit. It inflates other boxes by 2 mm, accounts for earlier arrows, penalizes foreign frames, and stays inside common frames. If no such route exists, the canvas draws a red dashed hint over a straight fallback and the inspector explains it. Curves require an explicit curved/bend choice. The existing `sg implicit from` / `sg implicit to` keys also accept a side value (for example `sg implicit from=north`) to preserve a selected side with an automatically chosen port; a dragged port retains its native millimetre shift instead. Existing U routes and manual paths remain manual. **Reset to auto** in the arrow toolbar or inspector clears manual levels, endpoint constraints and lane overrides; the inspector also applies it to multiple arrows.
+
+Endpoint dragging slides along the nearest side. It snaps within 1.5 mm to 0, 1/4, 1/3, 1/2, 2/3, 3/4 and 1 of the side; Alt disables snapping. Dots show the available ports during dragging. Ports use native TikZ shifts, with no calc library:
+
+```tex
+\draw[arr] ([xshift=-4mm]a.north) -- ([xshift=4mm]b.south);
+```
+
+Dragging back onto the source creates a self-loop. The inspector selects its side and minimum control distance (default 8 mm); dragging the apex changes that distance. Rectangles use two ports at 1/3 and 2/3 of the side. Circle/ellipse loops use angle anchors at the side normal ±22 degrees. Both use native `to[out=...,in=...,min distance=...mm]` under `sg fixed`. Canvas controls use PGF's distance formula, including its 255/256 factor. Labels default to the apex on the outside of the loop.
+
+```tex
+\draw[arr, sg fixed] ([xshift=-4mm]a.north)
+  to[out=90,in=90,min distance=8mm] node[sg elabel,above] {tick}
+  ([xshift=4mm]a.north);
+```
+
+`sg fixed` also accepts arbitrary chains of `--`, `|-`, `-|` and native coordinate projections. The chain itself stores the route; no waypoint metadata or new routing keys are needed. The exporter uses compact orthogonal forms and endpoint-relative projections; labelled routes split into individual segments to preserve label positions. Segment grips (or dragging the segment itself) move a free level. The first/last segment slides its port; Alt-drag adds a jog. Double-clicking a bend collapses adjacent segments when possible. Moving a box adjusts the endpoint legs and retains interior levels, except where a level would cross that box. Clipboard paste translates the free levels with the copied nodes.
+
+`check-routing.cjs` checks rule order, blocked routes, side snapping, chains, moving endpoints, paste, loop sides and canonical round trips. Fresh LuaLaTeX PDF paths verify loop controls numerically; measurements and timings are written to `work/routing-check-results.json`. Canvas event checks cover segment drags, Alt jogs, reset on multiple arrows, same-node drops and port drops. `examples/state-machine.sakuga.tikz` demonstrates five circular states and two loops.
