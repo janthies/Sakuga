@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { helpRows } from '../commands/registry';
@@ -6,10 +5,10 @@ import { $ } from '../platform/dom';
 import { persist } from '../store/prefs';
 import { vscode } from '../platform/host';
 
-export function setTab(t, save = true) {
+export function setTab(t: string, save = true) {
 	store.tab = t;
 	$('sidebar').dataset.tab = t;
-	for (const b of document.querySelectorAll('#tabs [role=tab]')) {
+	for (const b of document.querySelectorAll<HTMLElement>('#tabs [role=tab]')) {
 		b.setAttribute('aria-selected', String(b.dataset.tab === t));
 		b.tabIndex = b.dataset.tab === t ? 0 : -1;
 	}
@@ -17,7 +16,7 @@ export function setTab(t, save = true) {
 		persist({ tab: t });
 	}
 }
-function setDrawer(open, save = true) {
+function setDrawer(open: boolean, save = true) {
 	$('drawer').classList.toggle('open', open);
 	$('drawerToggle').setAttribute('aria-pressed', String(open));
 	$('drawerToggle').setAttribute('aria-expanded', String(open));
@@ -32,15 +31,15 @@ const keys = document.getElementById('keys');
 calls.setTab = setTab;
 
 export function initPanelsChrome() {
-	for (const b of document.querySelectorAll('#tabs [role=tab]')) {
-		b.addEventListener('click', () => setTab(b.dataset.tab));
+	for (const b of document.querySelectorAll<HTMLElement>('#tabs [role=tab]')) {
+		b.addEventListener('click', () => setTab(b.dataset.tab!));
 		b.addEventListener('keydown', (ev) => {
 			if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(ev.key)) return;
 			ev.preventDefault();
 			const next =
 				ev.key === 'Home' ? 'figure' : ev.key === 'End' ? 'selection' : store.tab === 'figure' ? 'selection' : 'figure';
 			setTab(next);
-			document.querySelector('#tabs [data-tab=' + next + ']').focus();
+			document.querySelector<HTMLElement>('#tabs [data-tab=' + next + ']')!.focus();
 		});
 	}
 	setTab(store.tab, false);
@@ -57,7 +56,7 @@ export function initPanelsChrome() {
 			const y0 = ev.clientY,
 				hh = lay.offsetHeight,
 				max = $('sidebar').clientHeight - 34 - 160;
-			const mv = (e) => {
+			const mv = (e: PointerEvent) => {
 				lay.style.height = Math.max(96, Math.min(max, hh + y0 - e.clientY)) + 'px';
 			};
 			const up = () => {
@@ -94,6 +93,6 @@ export function initPanelsChrome() {
 		a.textContent = k;
 		b.textContent = v;
 		tr.append(a, b);
-		keys.appendChild(tr);
+		keys?.appendChild(tr);
 	}
 }

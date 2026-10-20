@@ -66,7 +66,8 @@ test('layer and object deletion, opacity controls, add-at-centre editing, drop f
 	const controls = () => s.document.getElementById('layer-controls');
 	const button = (label: string) => [...controls().children].find((e: any) => e.textContent === label) as any;
 	const row = (id: string) => list.querySelector(`[data-id="${id}"]`);
-	const opacityRow = () => s.document.querySelector('.opacity-row');
+	// The slider and the number field of the opacity row.
+	const opacity = (i: 0 | 1) => s.document.querySelectorAll('.opacity-row input')[i] as any;
 	const fire = (el: any, e: Event) => el.dispatchEvent(e);
 	for (const id of ['back', 'front']) {
 		s.click(s.button('Expand layer', row(id)));
@@ -74,22 +75,22 @@ test('layer and object deletion, opacity controls, add-at-centre editing, drop f
 	assert.ok(button('Delete objects').disabled, 'No selection disables Delete');
 	s.click(row('back'));
 	assert.ok(!button('Delete layer').disabled);
-	assert.equal(opacityRow().children[2].value, '50');
-	opacityRow().children[2].value = '60';
-	fire(opacityRow().children[2], ev(s, 'change'));
+	assert.equal(opacity(1).value, '50');
+	opacity(1).value = '60';
+	fire(opacity(1), ev(s, 'change'));
 	assert.equal(s.lastOp.ops[0].opacity, 0.6);
 	s.setDoc(doc);
 	s.click(row('inner'));
 	assert.ok(button('Delete object'));
-	assert.equal(opacityRow().children[2].value, '30');
-	opacityRow().children[1].value = '0';
-	fire(opacityRow().children[1], ev(s, 'input'));
+	assert.equal(opacity(1).value, '30');
+	opacity(0).value = '0';
+	fire(opacity(0), ev(s, 'input'));
 	assert.equal(
 		s.hook.state().nodes.find((n: any) => n.id === 'inner').style.opacity,
 		0,
 		'Slider previews opacity immediately',
 	);
-	fire(opacityRow().children[1], ev(s, 'change'));
+	fire(opacity(0), ev(s, 'change'));
 	assert.equal(s.lastOp.style.opacity, 0);
 	s.setDoc(doc);
 	s.click(row('inner'));
@@ -109,7 +110,7 @@ test('layer and object deletion, opacity controls, add-at-centre editing, drop f
 	s.down(0, 0, '[data-edge="0"]');
 	s.up(0, 0);
 	assert.ok(button('Delete object'));
-	assert.equal(opacityRow().children[2].value, '30');
+	assert.equal(opacity(1).value, '30');
 	s.click(button('Delete object'));
 	assert.equal(s.lastOp.ops[0].op, 'deleteEdge');
 	s.setDoc(doc);
@@ -167,22 +168,13 @@ test('inspector panes: ordered sections, multi-selection size batches, arrow and
 	const rows = () => [...pane('pane-selection').querySelectorAll('.row')];
 	s.down(0, 0, s.node('inner'));
 	s.up(0, 0);
-	assert.deepEqual(sectionNames('pane-selection'), [
-		'Style',
-		'Text',
-		'Fill',
-		'Outline',
-		'Route & tips',
-		'Shape & decoration',
-		'Arrange',
-	]);
+	assert.deepEqual(sectionNames('pane-selection'), ['Style', 'Text', 'Appearance', 'Shape & decoration', 'Arrange']);
 	assert.deepEqual(sectionNames('pane-figure'), ['Text', 'Arrows', 'Legend', 'Grid', 'Styles']);
 	assert.ok(pane('pane-selection').querySelector('.row'), 'Single node inspector builds controls');
 	s.down(70, 0, s.node('target'), { ctrlKey: true });
 	s.up(70, 0, { ctrlKey: true });
 	assert.deepEqual(s.selection.nodes, ['inner', 'target']);
-	const width = rows().find((r: any) => r.children[0].textContent === 'Width' && r.children[1].tagName === 'INPUT')
-		.children[1];
+	const width = s.row('Size').querySelector('input[aria-label="Width"]');
 	width.value = '32';
 	width.dispatchEvent(new s.window.Event('change', { bubbles: true }));
 	assert.equal(s.lastOp.ops.map((o: any) => o.id).join(','), 'inner,target');

@@ -1,10 +1,10 @@
-// @ts-nocheck
-import { store } from '../store/store';
-import { el, iconShape } from '../render/svg';
+import { ControlState, Field, Mixed, h, isMixed } from './control';
 import { PT } from '../store/constants';
+import { el, iconShape } from '../render/svg';
+import { store } from '../store/store';
 import { closeFloating, floatAt } from './floating';
 
-export function previewIcon(name) {
+export function previewIcon(name: string): SVGElement {
 	const preview = el('svg', {
 		viewBox: '0 0 24 24',
 		width: 20,
@@ -18,32 +18,28 @@ export function previewIcon(name) {
 	iconShape(preview, name);
 	return preview;
 }
+
+// Clears the search and marks the current icon; set whenever the palette is built.
+let resetPanel: (value: string) => void = () => {};
+
+// The floating palette with a search field and every icon of the catalogue, built once and reused by every picker.
 export function buildIconPanel() {
 	if (store.iconPanel) {
 		closeFloating(false);
 		store.iconPanel.remove();
 	}
-	store.iconPanel = document.createElement('div');
-	store.iconPanel.className = 'floating-picker icon-panel';
-	store.iconPanel.hidden = true;
-	store.iconPanel.setAttribute('role', 'dialog');
-	store.iconPanel.setAttribute('aria-label', 'Choose icon');
-	const search = document.createElement('input');
-	search.placeholder = 'Search icons';
-	search.setAttribute('aria-label', 'Search icons');
-	const body = document.createElement('div');
-	body.className = 'icon-results';
+	const panel = h('div', 'floating-picker icon-panel', { role: 'dialog', 'aria-label': 'Choose icon' });
+	panel.hidden = true;
+	const search = h('input', '', { placeholder: 'Search icons', 'aria-label': 'Search icons' });
+	const body = h('div', 'icon-results');
 	store.iconEntries = [];
 	store.iconGroups = [];
 	let active = 0;
-	const entry = (name, parent, category = '') => {
-		const b = document.createElement('button');
-		b.type = 'button';
-		b.title = name || 'No icon';
+	const entry = (name: string, parent: HTMLElement, category = '') => {
+		const b = h('button', '', { type: 'button', title: name || 'No icon', tabindex: -1 });
 		b.setAttribute('aria-label', b.title);
 		b.dataset.search = `${name} ${category} ${category.replace(/[-_]/g, ' ')}`.toLowerCase();
 		b.dataset.value = name;
-		b.tabIndex = -1;
 		if (name) {
 			b.append(previewIcon(name));
 		} else {
@@ -53,19 +49,17 @@ export function buildIconPanel() {
 		b.onclick = () => {
 			const pick = store.chooseIcon;
 			closeFloating();
-			pick(name);
+			pick?.(name);
 		};
 		parent.append(b);
 		store.iconEntries.push(b);
 	};
 	entry('', body);
 	for (const category of [...new Set(store.icons.map((i) => i.category))].sort()) {
-		const section = document.createElement('section'),
-			h = document.createElement('h4'),
-			grid = document.createElement('div');
-		h.textContent = category.replace(/[-_]/g, ' ');
-		grid.className = 'icon-grid';
-		section.append(h, grid);
+		const section = h('section'),
+			title = h('h4', '', {}, category.replace(/[-_]/g, ' ')),
+			grid = h('div', 'icon-grid');
+		section.append(title, grid);
 		body.append(section);
 		for (const i of store.icons.filter((i) => i.category === category).sort((a, b) => a.name.localeCompare(b.name))) {
 			entry(i.name, grid, category);
@@ -73,7 +67,7 @@ export function buildIconPanel() {
 		store.iconGroups.push(section);
 	}
 	const visible = () => store.iconEntries.filter((b) => !b.hidden);
-	const mark = (index) => {
+	const mark = (index: number) => {
 		const entries = visible();
 		active = Math.max(0, Math.min(entries.length - 1, index));
 		store.iconEntries.forEach((b) => b.classList.remove('active'));
@@ -85,14 +79,14 @@ export function buildIconPanel() {
 	search.oninput = () => {
 		const q = search.value.trim().toLowerCase();
 		for (const b of store.iconEntries) {
-			b.hidden = !!b.dataset.value && !b.dataset.search.includes(q);
+			b.hidden = !!b.dataset.value && !(b.dataset.search || '').includes(q);
 		}
 		for (const group of store.iconGroups) {
 			group.hidden = ![...group.querySelectorAll('button')].some((b) => !b.hidden);
 		}
 		mark(0);
 	};
-	store.iconPanel.onkeydown = (e) => {
+	panel.onkeydown = (e) => {
 		if (e.key.startsWith('Arrow')) {
 			const entries = visible(),
 				current = entries[active];
@@ -122,36 +116,54 @@ export function buildIconPanel() {
 			visible()[active]?.click();
 		}
 	};
-	store.iconPanel.append(search, body);
-	document.body.append(store.iconPanel);
-	store.iconPanel.reset = (value) => {
+	panel.append(search, body);
+	document.body.append(panel);
+	store.iconPanel = panel;
+	resetPanel = (value: string) => {
 		search.value = '';
-		search.oninput();
+		search.oninput?.(new Event('input'));
 		const i = visible().findIndex((b) => b.dataset.value === value);
 		mark(Math.max(0, i));
 		search.focus();
 	};
 }
-export function iconPicker(value, onChange) {
-	const b = document.createElement('button');
-	b.type = 'button';
-	b.className = 'icon-picker';
-	b.title = value || 'Choose icon';
-	b.setAttribute('aria-label', 'Choose icon');
-	b.setAttribute('aria-haspopup', 'dialog');
-	b.setAttribute('aria-expanded', 'false');
-	if (value) {
-		b.append(previewIcon(value));
-	} else {
-		b.textContent = '+';
+
+// A button showing the chosen icon; it opens the palette and reports the pick ('' = no icon).
+export class IconPicker extends Field<string> {
+	readonly el: HTMLButtonElement;
+	private value = '';
+
+	constructor() {
+		super();
+		this.el = h('button', 'icon-picker', {
+			type: 'button',
+			title: 'Choose icon',
+			'aria-label': 'Choose icon',
+			'aria-haspopup': 'dialog',
+			'aria-expanded': 'false',
+		});
+		this.el.onclick = () => {
+			if (!store.iconPanel) buildIconPanel();
+			store.chooseIcon = (name) => this.commit(name);
+			floatAt(store.iconPanel!, this.el);
+			resetPanel(this.value);
+		};
 	}
-	b.onclick = () => {
-		if (!store.iconPanel) {
-			buildIconPanel();
-		}
-		store.chooseIcon = onChange;
-		floatAt(store.iconPanel, b);
-		store.iconPanel.reset(value);
-	};
-	return b;
+
+	set(value: string | Mixed, state?: ControlState): void {
+		this.value = isMixed(value) ? '' : value;
+		this.el.title = this.value || 'Choose icon';
+		this.el.replaceChildren();
+		if (this.value) this.el.append(previewIcon(this.value));
+		else this.el.textContent = isMixed(value) ? '…' : '+';
+		this.mark(state);
+	}
+}
+
+// The picker as a plain function, for the toolbar.
+export function iconPicker(value: string, onChange: (icon: string) => void): HTMLButtonElement {
+	const picker = new IconPicker();
+	picker.set(value);
+	picker.onCommit((v) => onChange(v ?? ''));
+	return picker.el;
 }

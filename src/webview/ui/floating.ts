@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 
 export function closeFloating(restore = true) {
@@ -13,7 +12,7 @@ export function closeFloating(restore = true) {
 		anchor.focus();
 	}
 }
-export function floatAt(panel, anchor) {
+export function floatAt(panel: HTMLElement, anchor: HTMLElement) {
 	closeFloating(false);
 	panel.hidden = false;
 	anchor.setAttribute('aria-expanded', 'true');
@@ -24,9 +23,14 @@ export function floatAt(panel, anchor) {
 	panel.style.top = `${Math.max(4, Math.min(r.bottom + 4, innerHeight - b.height - 4))}px`;
 }
 
+const outside = (target: EventTarget | null) =>
+	!!store.floating &&
+	!store.floating.panel.contains(target as Node | null) &&
+	!store.floating.anchor.contains(target as Node | null);
+
 export function initUiFloating() {
 	document.addEventListener('pointerdown', (e) => {
-		if (store.floating && !store.floating.panel.contains(e.target) && !store.floating.anchor.contains(e.target)) {
+		if (outside(e.target)) {
 			closeFloating(false);
 		}
 	});
@@ -42,7 +46,7 @@ export function initUiFloating() {
 		true,
 	);
 	document.addEventListener('focusin', (e) => {
-		if (store.floating && !store.floating.panel.contains(e.target) && !store.floating.anchor.contains(e.target)) {
+		if (outside(e.target)) {
 			closeFloating(false);
 		}
 	});

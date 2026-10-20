@@ -54,7 +54,7 @@ for (const file of walk('src/webview')) {
 }
 // No @ts-nocheck in src/. Report-only (a warning) until both halves of S14 are merged: src/webview/panels and src/webview/ui still have it.
 // When they are typed, set NOCHECK_ENFORCED to true so the rule fails the build.
-const NOCHECK_ENFORCED = false;
+const NOCHECK_ENFORCED = true;
 for (const file of walk('src')) {
 	if (/^\s*\/\/\s*@ts-nocheck/m.test(fs.readFileSync(path.join(ROOT, file), 'utf8'))) {
 		if (NOCHECK_ENFORCED) {

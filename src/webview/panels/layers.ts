@@ -1,7 +1,8 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { calls } from '../store/calls';
-import { renderLayers2, renderLayers3 } from './layers-rows';
+import { LayerCtx, renderLayers2, renderLayers3 } from './layers-rows';
+import type { Layer } from '../store/types';
+import type { Op } from '../store/types';
 import { byId, groupById, inGroup, members, post } from '../store/model';
 import { icon } from '../store/constants';
 import { render } from '../render/scene';
@@ -15,7 +16,7 @@ function stopLayerScroll() {
 	store.layerPointerY = null;
 }
 function scrollLayers() {
-	const list = document.getElementById('layer-list'),
+	const list = document.getElementById('layer-list')!,
 		rect = list.getBoundingClientRect(),
 		margin = 32;
 	if (!store.layerDrag || store.layerPointerY === null) {
@@ -31,39 +32,40 @@ function scrollLayers() {
 	list.scrollTop += speed;
 	store.layerScrollFrame = requestAnimationFrame(scrollLayers);
 }
-const layerList = document.getElementById('layer-list');
+const layerList = document.getElementById('layer-list')!;
 export function renderLayers() {
-	const ctx = {};
+	const ctx = {} as LayerCtx;
 	if (renderLayers1(ctx)) return;
-	if (renderLayers2(ctx)) return;
-	if (renderLayers3(ctx)) return;
+	renderLayers2(ctx);
+	renderLayers3(ctx);
 }
-function renderLayers1(ctx) {
-	ctx.list = document.getElementById('layer-list');
+function renderLayers1(ctx: LayerCtx): boolean {
+	ctx.list = document.getElementById('layer-list')!;
 	if (ctx.list.querySelector('input')) {
 		return true;
 	}
 	ctx.updateSelection = () => {
-		for (const row of ctx.list.children) {
+		for (const row of ctx.list.children as HTMLCollectionOf<HTMLElement>) {
+			const id = row.dataset.id!;
 			const selected = row.classList.contains('container-layer')
-				? store.selectedLayers.has(row.dataset.id)
-				: groupById(row.dataset.id)
-					? store.selG === row.dataset.id
-					: store.selN.has(row.dataset.id);
+				? store.selectedLayers.has(id)
+				: groupById(id)
+					? store.selG === id
+					: store.selN.has(id);
 			row.classList.toggle('selected', selected);
 			row.setAttribute('aria-selected', String(selected));
 			row.classList.remove('drop-group', 'drop-above', 'drop-below');
 		}
-		document.getElementById('group').disabled = !store.selN.size && !store.selG;
-		document.getElementById('ungroup').disabled = !store.selG;
-		const del = document.getElementById('delete-selection');
+		(document.getElementById('group') as HTMLButtonElement).disabled = !store.selN.size && !store.selG;
+		(document.getElementById('ungroup') as HTMLButtonElement).disabled = !store.selG;
+		const del = document.getElementById('delete-selection') as HTMLButtonElement | null;
 		if (del) {
 			const count = store.selN.size + store.selE.size;
 			del.textContent = store.selectedLayers.size ? 'Delete layer' : count === 1 ? 'Delete object' : 'Delete objects';
 			del.disabled = store.selectedLayers.size ? store.layers.length < 2 : !count;
 			del.title = del.textContent;
 		}
-		const move = document.querySelector('#layer-controls select');
+		const move = document.querySelector<HTMLSelectElement>('#layer-controls select');
 		if (move) {
 			move.disabled = !store.selN.size && !store.selG;
 		}
@@ -91,7 +93,7 @@ function renderLayers1(ctx) {
 	}
 	store.layerSignature = signature;
 	ctx.list.replaceChildren();
-	ctx.button = (row, key, title, action) => {
+	ctx.button = (row: HTMLElement, key: Parameters<typeof icon>[0], title: string, action: () => void) => {
 		const b = document.createElement('button');
 		b.innerHTML = icon(key);
 		b.title = title;
@@ -104,14 +106,14 @@ function renderLayers1(ctx) {
 		row.appendChild(b);
 		return b;
 	};
-	ctx.rename = (name, obj, op) => {
+	ctx.rename = (name: HTMLElement, obj: { id: string; name: string }, op: string) => {
 		const field = document.createElement('input');
 		field.value = obj.name;
 		name.replaceChildren(field);
 		field.focus();
 		field.select();
 		let done = false;
-		const finish = (commit) => {
+		const finish = (commit: boolean) => {
 			if (done) {
 				return;
 			}
@@ -132,26 +134,27 @@ function renderLayers1(ctx) {
 		};
 		field.onblur = () => finish(true);
 	};
-	ctx.makeRow = (id, depth) => {
+	ctx.makeRow = (id: string, depth: number) => {
 		const row = document.createElement('div');
 		row.className = 'layer-row';
 		row.dataset.id = id;
 		row.draggable = true;
 		row.setAttribute('role', 'treeitem');
-		row.setAttribute('aria-level', depth + 1);
+		row.setAttribute('aria-level', String(depth + 1));
 		ctx.list.appendChild(row);
 		return row;
 	};
-	ctx.drop = (row, layer, target = null) => {
+	ctx.drop = (row: HTMLElement, layer: Layer, target: string | null = null) => {
 		row.ondragover = (ev) => {
-			if (!store.layerDrag) {
+			const drag = store.layerDrag;
+			if (!drag) {
 				return;
 			}
 			ev.preventDefault();
 			const fraction = (ev.clientY - row.getBoundingClientRect().top) / row.offsetHeight;
 			row.classList.remove('drop-group', 'drop-above', 'drop-below');
 			row.classList.add(
-				!store.layerDrag.layer && (!target || (groupById(target) && fraction > 0.25 && fraction < 0.75))
+				Array.isArray(drag) && (!target || (groupById(target) && fraction > 0.25 && fraction < 0.75))
 					? 'drop-group'
 					: fraction < 0.5
 						? 'drop-above'
@@ -162,18 +165,19 @@ function renderLayers1(ctx) {
 		row.ondrop = (ev) => {
 			ev.preventDefault();
 			ev.stopPropagation();
-			if (!store.layerDrag) {
+			const drag = store.layerDrag;
+			if (!drag) {
 				return;
 			}
-			if (store.layerDrag.layer) {
-				const order = store.layers.map((l) => l.id).filter((id) => id !== store.layerDrag.layer);
+			if (!Array.isArray(drag)) {
+				const order = store.layers.map((l) => l.id).filter((id) => id !== drag.layer);
 				const above = ev.clientY < row.getBoundingClientRect().top + row.offsetHeight / 2;
-				order.splice(order.indexOf(layer.id) + (above ? 1 : 0), 0, store.layerDrag.layer);
-				if (layer.id !== store.layerDrag.layer) {
+				order.splice(order.indexOf(layer.id) + (above ? 1 : 0), 0, drag.layer);
+				if (layer.id !== drag.layer) {
 					post({ op: 'reorderLayers', order });
 				}
 			} else {
-				const ids = store.layerDrag;
+				const ids = drag;
 				if (!ids.length) {
 					store.layerDrag = null;
 					return;
@@ -186,21 +190,21 @@ function renderLayers1(ctx) {
 				}
 				const same = [...moving].every((id) => byId(id)?.layer === layer.id);
 				const fraction = (ev.clientY - row.getBoundingClientRect().top) / row.offsetHeight;
-				const into = groupById(target) && fraction > 0.25 && fraction < 0.75;
+				const into = !!groupById(target) && fraction > 0.25 && fraction < 0.75;
 				if (target && same) {
 					dropLayers(target, fraction < 0.5, into);
 				} else {
-					const ops = [{ op: 'setLayer', ids, layer: layer.id }];
+					const ops: Op[] = [{ op: 'setLayer', ids, layer: layer.id }];
 					if (target) {
 						const parent = groupById(target)
 							? into
 								? target
-								: groupById(target).parent || ''
+								: groupById(target)?.parent || ''
 							: byId(target)?.group || '';
 						ops.push({ op: 'setGroup', ids, group: parent });
 						const order = store.nodes.filter((n) => !moving.has(n.id)).map((n) => n.id);
 						const positions = groupById(target)
-							? order.flatMap((id, i) => (inGroup(byId(id), target) ? [i] : []))
+							? order.flatMap((id, i) => (inGroup(byId(id)!, target) ? [i] : []))
 							: [order.indexOf(target)];
 						const at = positions.length
 							? into || fraction < 0.5
@@ -222,6 +226,7 @@ function renderLayers1(ctx) {
 			render();
 		};
 	};
+	return false;
 }
 
 calls.renderLayers = renderLayers;
@@ -237,7 +242,7 @@ export function initPanelsLayers() {
 		}
 	});
 	layerList.addEventListener('dragleave', (ev) => {
-		if (!layerList.contains(ev.relatedTarget)) {
+		if (!layerList.contains(ev.relatedTarget as Node | null)) {
 			stopLayerScroll();
 		}
 	});

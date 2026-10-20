@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { byId, groupById, members, post, snap } from '../store/model';
@@ -9,8 +8,19 @@ import { hierarchy, moveToLayer, newId, selectLayer, selectedRoots } from '../st
 import { startEdit } from '../tools/live/dispatch';
 import { svg } from '../platform/dom';
 import { deleteSelection } from '../commands/clipboard';
+import type { Layer } from '../store/types';
 
-export function renderLayers2(ctx) {
+// What renderLayers builds for the row functions: the list, its row factory and the shared handlers.
+export interface LayerCtx {
+	list: HTMLElement;
+	updateSelection(): void;
+	button(row: HTMLElement, key: Parameters<typeof icon>[0], title: string, action: () => void): HTMLButtonElement;
+	rename(name: HTMLElement, obj: { id: string; name: string }, op: string): void;
+	makeRow(id: string, depth: number): HTMLElement;
+	drop(row: HTMLElement, layer: Layer, target?: string | null): void;
+}
+
+export function renderLayers2(ctx: LayerCtx) {
 	for (const layer of [...store.layers].reverse()) {
 		const ns = store.nodes.filter((n) => n.layer === layer.id),
 			row = ctx.makeRow(layer.id, 0);
@@ -19,7 +29,7 @@ export function renderLayers2(ctx) {
 		for (const [prop, on, off] of [
 			['hidden', 'eyeClosed', 'eye'],
 			['locked', 'lock', 'unlock'],
-		]) {
+		] as const) {
 			ctx.button(row, layer[prop] ? on : off, `${layer[prop] ? 'Disable' : 'Enable'} ${prop}`, () =>
 				post({ op: 'layerProps', id: layer.id, [prop]: !layer[prop] }),
 			);
@@ -45,7 +55,7 @@ export function renderLayers2(ctx) {
 		row.appendChild(name);
 		const count = document.createElement('span');
 		count.className = 'layer-count';
-		count.textContent = ns.length;
+		count.textContent = String(ns.length);
 		row.appendChild(count);
 		row.onclick = (ev) => {
 			if (ev.shiftKey) {
@@ -79,17 +89,17 @@ export function renderLayers2(ctx) {
 		name.ondblclick = () => ctx.rename(name, layer, 'layerProps');
 		row.ondragstart = (ev) => {
 			store.layerDrag = { layer: layer.id };
-			ev.dataTransfer.setData('text/plain', layer.id);
+			ev.dataTransfer?.setData('text/plain', layer.id);
 		};
 		ctx.drop(row, layer);
 		if (!store.expandedLayers.has(layer.id)) {
 			continue;
 		}
 		const gs = store.groups.filter((g) => members(g.id).some((id) => ns.some((n) => n.id === id)));
-		const visit = (items, depth) => {
+		const visit = (items: ReturnType<typeof hierarchy>, depth: number) => {
 			for (const item of items) {
 				const g = groupById(item.id),
-					n = byId(item.id),
+					n = byId(item.id)!,
 					child = ctx.makeRow(item.id, depth);
 				child.style.paddingLeft = `${depth * 12}px`;
 				child.classList.toggle('selected', g ? store.selG === g.id : store.selN.has(n.id));
@@ -120,7 +130,9 @@ export function renderLayers2(ctx) {
 					store.selectedLayers.clear();
 					store.activeLayer = layer.id;
 					if (ev.shiftKey && store.layerAnchor) {
-						const rows = [...ctx.list.children].filter((r) => !r.classList.contains('container-layer'));
+						const rows = ([...ctx.list.children] as HTMLElement[]).filter(
+							(r) => !r.classList.contains('container-layer'),
+						);
 						const a = rows.findIndex((r) => r.dataset.id === store.layerAnchor),
 							b = rows.indexOf(child);
 						if (a >= 0) {
@@ -128,8 +140,10 @@ export function renderLayers2(ctx) {
 								store.selN.clear();
 							}
 							for (const r of rows.slice(Math.min(a, b), Math.max(a, b) + 1)) {
-								for (const id of groupById(r.dataset.id) ? members(r.dataset.id) : [r.dataset.id]) {
-									if (byId(id) && !byId(id).locked && !byId(id).hidden) {
+								const rowId = r.dataset.id!;
+								for (const id of groupById(rowId) ? members(rowId) : [rowId]) {
+									const node = byId(id);
+									if (node && !node.locked && !node.hidden) {
 										store.selN.add(id);
 									}
 								}
@@ -158,7 +172,7 @@ export function renderLayers2(ctx) {
 				};
 				child.ondragstart = (ev) => {
 					ev.stopPropagation();
-					if ((g ? members(g.id) : [n.id]).some((id) => byId(id).locked || byId(id).hidden)) {
+					if ((g ? members(g.id) : [n.id]).some((id) => byId(id)!.locked || byId(id)!.hidden)) {
 						ev.preventDefault();
 						return;
 					}
@@ -166,7 +180,7 @@ export function renderLayers2(ctx) {
 						selectLayer(item.id);
 					}
 					store.layerDrag = selectedRoots();
-					ev.dataTransfer.setData('text/plain', item.id);
+					ev.dataTransfer?.setData('text/plain', item.id);
 				};
 				ctx.drop(child, layer, item.id);
 				if (!store.collapsed.has(item.id)) {
@@ -177,12 +191,12 @@ export function renderLayers2(ctx) {
 		visit(hierarchy(ns, gs), 1);
 	}
 }
-export function renderLayers3(ctx) {
+export function renderLayers3(ctx: LayerCtx) {
 	let controls = document.getElementById('layer-controls');
 	if (!controls) {
 		controls = document.createElement('div');
 		controls.id = 'layer-controls';
-		document.getElementById('layer-tools').prepend(controls);
+		document.getElementById('layer-tools')!.prepend(controls);
 	}
 	controls.replaceChildren();
 	const add = document.createElement('button');
@@ -292,6 +306,6 @@ export function renderLayers3(ctx) {
 	};
 	controls.appendChild(move);
 	ctx.updateSelection();
-	document.getElementById('group').disabled = !store.selN.size && !store.selG;
-	document.getElementById('ungroup').disabled = !store.selG;
+	(document.getElementById('group') as HTMLButtonElement).disabled = !store.selN.size && !store.selG;
+	(document.getElementById('ungroup') as HTMLButtonElement).disabled = !store.selG;
 }

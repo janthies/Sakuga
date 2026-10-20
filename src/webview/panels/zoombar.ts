@@ -1,19 +1,20 @@
-// @ts-nocheck
 import { store } from '../store/store';
 import { calls } from '../store/calls';
-import { copyStyle, nextStep, pasteStyle, resetToAuto, sourceColour } from '../commands/styles';
+import { resetToAuto } from '../commands/styles';
 import { etools, svg } from '../platform/dom';
 import { ICON, PX_PER_MM } from '../store/constants';
 import { post, px, py } from '../store/model';
-import { styleFields, styleSelect } from '../ui/stylecontrols';
-import { numberControl } from '../ui/controls';
+import { buildRow } from './inspector/build';
+import { ARROW_MORE } from './inspector/specs';
+import type { Selection } from './inspector/selection';
+import { ObjectSubject } from './inspector/subject';
 import { contentBox } from '../render/boxes';
 
-export function showToolbar(i, G) {
+export function showToolbar(i: number, G: { label: number[] }) {
 	const e = store.edges[i];
 	const r = svg.getBoundingClientRect();
 	const route = ['hvh', 'vhv', 'bend'].includes(e.route) ? 'fixed' : e.route;
-	const buttons = [
+	const buttons: ([string, string, string, string] | null)[] = [
 		['route', 'auto', '↶', 'Reset to auto'],
 		['route', 'straight', ICON.straight, 'Straight'],
 		['route', 'manhattan', ICON.manhattan, 'Manhattan'],
@@ -41,7 +42,7 @@ export function showToolbar(i, G) {
 		btn.innerHTML = icon.startsWith('<')
 			? `<svg viewBox="0 0 16 16" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.4">${icon}</svg>`
 			: icon;
-		const active = prop === 'route' ? route === value : e[prop] === value;
+		const active = prop === 'route' ? route === value : e[prop as 'kind' | 'head'] === value;
 		if (active) {
 			btn.classList.add('on');
 		}
@@ -63,31 +64,20 @@ export function showToolbar(i, G) {
 	more.appendChild(summary);
 	const panel = document.createElement('div');
 	panel.className = 'arrow-more';
-	for (const [name, prop, values] of styleFields(true)) {
-		const label = document.createElement('label');
-		label.textContent = name;
-		label.appendChild(styleSelect(prop, values, [e], (style) => post({ op: 'style', indices: [i], style })));
-		panel.appendChild(label);
+	const sel: Selection = {
+		mode: 'arrow',
+		nodes: [],
+		edges: [{ e, i }],
+		layers: [],
+		attached: null,
+		count: 1,
+		edge: { e, i },
+	};
+	const ctx = { sel, subject: ObjectSubject.of(sel), refresh: () => {} };
+	for (const spec of ARROW_MORE) {
+		const row = buildRow(ctx, spec);
+		if (row) panel.appendChild(row.el);
 	}
-	const stepLabel = document.createElement('label');
-	stepLabel.textContent = 'Step';
-	stepLabel.appendChild(
-		numberControl(e.style?.step, (v) => post({ op: 'style', indices: [i], style: { step: v || 0 } }), {
-			step: 1,
-			min: 1,
-			placeholder: String(nextStep()),
-		}),
-	);
-	panel.appendChild(stepLabel);
-	const addStep = document.createElement('button');
-	addStep.textContent = 'Set next step';
-	addStep.onclick = () => post({ op: 'style', indices: [i], style: { step: nextStep() } });
-	panel.appendChild(addStep);
-	const colour = document.createElement('button');
-	colour.textContent = 'Colour from source';
-	colour.onclick = () => sourceColour([i]);
-	panel.appendChild(colour);
-	styleButtons(panel);
 	more.appendChild(panel);
 	etools.appendChild(more);
 	etools.style.display = 'flex';
@@ -102,26 +92,10 @@ export function updateZoombar() {
 		return;
 	}
 	const C = contentBox();
-	document.getElementById('zi-size').textContent = store.nodes.length
+	document.getElementById('zi-size')!.textContent = store.nodes.length
 		? `Figure ${Math.round(C.x1 - C.x0)} \u00d7 ${Math.round(C.y1 - C.y0)} mm`
 		: 'Empty figure';
-	document.getElementById('zi-zoom').textContent = `${Math.round((store.view.s / PX_PER_MM) * 100)} %`;
+	document.getElementById('zi-zoom')!.textContent = `${Math.round((store.view.s / PX_PER_MM) * 100)} %`;
 }
-function styleButtons(parent) {
-	const wrap = document.createElement('div');
-	wrap.className = 'buttons';
-	for (const [name, fn] of [
-		['Copy style', copyStyle],
-		['Paste style', pasteStyle],
-	]) {
-		const b = document.createElement('button');
-		b.textContent = name;
-		b.disabled = name === 'Paste style' && !store.styleClip;
-		b.addEventListener('click', fn);
-		wrap.appendChild(b);
-	}
-	parent.appendChild(wrap);
-}
-
 calls.updateZoombar = updateZoombar;
 calls.showToolbar = showToolbar;

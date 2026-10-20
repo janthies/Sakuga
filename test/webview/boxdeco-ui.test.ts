@@ -15,8 +15,6 @@ const change = (s: Session, el: any, value: string) => {
 	el.value = value;
 	el.dispatchEvent(new s.window.Event('change', { bubbles: true }));
 };
-const colourRow = (s: Session, index = 0) =>
-	s.all('#inspector .row').filter((r) => r.children[0].textContent === 'Colour')[index];
 
 test('mixed values, custom hex colours, recent colours and swatches', () => {
 	const s = new Session(
@@ -27,7 +25,7 @@ test('mixed values, custom hex colours, recent colours and swatches', () => {
 		{ palette: PALETTE, saved: { grid: 2, other: 'preserved' } },
 	);
 	select(s, 'p', 'q');
-	const fill = () => colourRow(s);
+	const fill = () => s.row('Fill');
 	assert.equal(fill().querySelector('.colour-swatches').value, '*');
 	assert.equal(s.row('Line').querySelector('.segments').value, '*');
 	const ops = s.ops.length;
@@ -43,7 +41,7 @@ test('mixed values, custom hex colours, recent colours and swatches', () => {
 	change(s, text(), '2468ac');
 	assert.equal(s.lastOp.ops[0].style.fill, '#2468AC');
 	// A second colour control offers the recent colours and applies a swatch.
-	const outline = colourRow(s, 1);
+	const outline = s.row('Outline');
 	assert.ok(outline.querySelector('button[aria-label="#ABCDEF"]'), 'Recent colour offered as a swatch');
 	s.click(outline.querySelector('button[aria-label="blue"]'));
 	assert.equal(s.lastOp.ops[0].style.color, 'blue');
@@ -59,7 +57,7 @@ test('mixed values, custom hex colours, recent colours and swatches', () => {
 	assert.equal(s.lastOp.ops[0].style.shape, 'rectangle');
 	s.apply({ op: 'style', ids: ['p'], style: { shape: 'ellipse' } });
 	assert.equal(s.row('Shape').querySelector('button[aria-label="ellipse"]').getAttribute('aria-pressed'), 'true');
-	s.click(s.row('Text').querySelector('button[aria-label="italic"]'));
+	s.click(s.row('Font').querySelector('button[aria-label="italic"]'));
 	assert.equal(s.lastOp.ops[0].style.text, 'bold-italic');
 	// The custom hex field starts collapsed and opens focused.
 	assert.equal(text().hidden, true, 'Custom hex field starts collapsed');
