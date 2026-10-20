@@ -16,7 +16,7 @@ Figure
 | Kind | What it is | Its rectangle |
 |---|---|---|
 | Shape | a box or node: rectangle, rounded, pill, circle, ellipse, diamond, cylinder | set by the user (width) and by its content (height, minimum width) |
-| Frame | a container: trust boundary, region, group. It has no fill: it draws its outline and its label only | always fitted around its members plus padding, never sized by hand |
+| Frame | a group: pure structure, it draws nothing (no outline, no fill, no label). Its members are selected, moved, hidden and locked together | the union of its members; never drawn |
 | Text | a piece of text (free, or the label of something) | from its content |
 | Icon | a symbol from the icon set | fixed size |
 | Line | a free straight line, e.g. the NSW / SW boundary | two end points |
@@ -24,14 +24,14 @@ Figure
 
 **Names in the UI.** The UI uses the words Jan uses, everywhere (inspector header, wheel, layers tree, menus): Shape = **Box**, Frame = **Group**, Text = **Label**, Connector = **Arrow**, Line = **Line**, Icon = **Icon**. The text of a box, a group, an arrow or a line is its **Label**; the word "title" does not appear in the UI. Code keeps the kind names of this document.
 
-**Coloured backgrounds.** A coloured area behind other things is an ordinary Box with outline none, placed beneath everything (Send to back). A Group never paints an area. When a figure is opened, a group that has a fill today is migrated to such a box with the group's current rectangle, at the bottom of the group's layer, and the group loses its fill.
+**Groups draw nothing.** Grouping only says "these belong together". Jan: "Just because I group objects they should not get an outline, a tint and a title. If I want that, I put a box behind them as background and set a label relative to that box." A trust boundary or a coloured region is therefore an ordinary Box behind the members (outline dashed or none, fill or none), sent to the back, with its Label attached at an anchor (for example top left inside). Put the box into the group as well if it should move with the members. When a figure is opened, every frame that draws something today (outline, fill or title) is migrated to: a group without any look, containing a new background Box with the frame's outline, fill and current rectangle at the bottom of the group, the frame's title as that box's Label at the same position, and the old members. The figure looks the same afterwards.
 
 **Who may be a child of whom**
 
 | Parent | Allowed children | Meaning of the relation |
 |---|---|---|
 | Layer | every kind | membership and drawing order |
-| Frame | Shape, Frame, Text, Icon, Line, Connector | member: the frame grows around it; moving the frame moves its members |
+| Frame | Shape, Frame, Text, Icon, Line, Connector | member: moving, hiding or locking the group does it to all members |
 | Shape | Text, Icon, Shape | attached: placed by an anchor (3×3 inside, or above/below/left/right outside) plus an offset |
 | Connector | Text | label along the path: position 0–1, side, offset |
 | Line | Text | label at one side or end of the line |
@@ -39,10 +39,10 @@ Figure
 
 Rules:
 1. Every item has exactly one parent. Children move with their parent and are deleted with it; "Ungroup" on a frame is the one exception (members move up one level).
-2. A Shape's own text is its first Text child, its **label**. It may carry a monospace **code line**. Further texts are ordinary children (notes, captions). A Frame's label is likewise its first Text child.
+2. A Shape's own text is its first Text child, its **label**. It may carry a monospace **code line**. Further texts are ordinary children (notes, captions). A Frame has a name for the layers tree only; it shows nothing on the canvas.
 3. A Connector references its two end items (Shape, Frame or Line) by id plus a **port** (side and position 0–1 along it, or the centre for "auto"). It is not a child of either end; it lives in the deepest Frame that contains both ends, otherwise in the layer of its source. This placement is automatic.
 4. An item's layer is the layer of its top-level ancestor. Children cannot sit in another layer.
-5. Hidden or locked state applies to an item and its whole subtree.
+5. Hidden or locked state applies to an item and its whole subtree. Every item can be hidden, groups and single objects alike: a hidden item is not drawn on the canvas and not in the pasted TikZ (its line stays in the source, commented as `% sakuga hidden`), and arrows to it are hidden too.
 
 ## 2 Look model: Theme → Category → Item
 
@@ -60,7 +60,7 @@ Every visual property of an item is resolved in this order, later wins:
    | Kind | What the category sets |
    |---|---|
    | Shape | fill and outline (and the icon, for an icon marker) |
-   | Frame | outline and label colour (the outline colour); never a fill |
+   | Frame | nothing; a group has no category |
    | Connector, Line | the stroke, in the outline colour |
    | Text, Icon | the colour, in the outline colour |
 
@@ -77,7 +77,7 @@ Consequences:
 
 - Theme: base styles `sg shape`, `sg frame`, `sg conn`, `sg text`, `sg line`, plus `\definecolor` for the palette, in the generated theme block. Only differences from the house theme are written into the header as `% sakuga theme <kind>.<prop>=<value>`.
 - Category: one style per used kind, e.g. `cat-tee-shape` and `cat-tee-conn`, plus a header line `% sakuga category tee {TEE} color=green|icon=<name> [fill=…] [outline=…] [legend]`.
-- Item: `\node[sg shape, cat-tee-shape, <overrides>, sg in=<frame>, sg layer=<layer>] (id) at (x,y) {Label\\[-1pt]\sgcode{code}};`. Parenthood uses `sg in=<frame>` for frame members and today's attachment form for children of shapes. Connectors are `\draw[sg conn, …] (a.<port>) … (b.<port>) node[sg label, pos=…] {…};`, and lines are `\draw[sg line, …] (x1,y1) -- (x2,y2) node[…] {NSW} node[…] {SW};`.
+- Item: `\node[sg shape, cat-tee-shape, <overrides>, sg in=<frame>, sg layer=<layer>] (id) at (x,y) {Label\\[-1pt]\sgcode{code}};`. Parenthood uses `sg in=<frame>` for group members and today's attachment form for children of shapes. A group writes no drawing, only the comment line the codec needs to restore it. Connectors are `\draw[sg conn, …] (a.<port>) … (b.<port>) node[sg label, pos=…] {…};`, and lines are `\draw[sg line, …] (x1,y1) -- (x2,y2) node[…] {NSW} node[…] {SW};`.
 - The key order in each line expresses the cascade: theme style, then category style, then overrides.
 - Figure environment: `% sakuga figure place=t label=fig:… caption={…}` (section 4, Drawer).
 
@@ -93,12 +93,12 @@ Consequences:
 | Top bar | ☰, help (?), Preview, Export SVG. Nothing else. |
 
 **Creating**
-- A double click on empty canvas, or a tap of Ctrl alone, opens the wheel at the mouse. It offers Box (last used category), Label, Group (around the selection), Line and Icon.
+- A double click on empty canvas, or a tap of Ctrl alone, opens the wheel at the mouse. It offers Box (last used category), Label, Line and Icon. Grouping is Ctrl+G or the context menu, since a group is not something one draws.
 - Tab adds a connected box to the right, Shift+Tab one below.
 - Hovering a box shows small handles on its sides; dragging from a handle draws an arrow.
 
 **Selecting**
-- **Click:** selects the deepest item under the mouse, children included: an attached label, an icon on a box, a box attached to a box, a box inside a group. Dragging it moves only that item: an attached child changes its offset to its parent, a group member moves and the group refits. The one exception is a box's own label inside the box: it is part of the box, so a click there selects the box (a double click edits the text). A click on a group's border, label or empty inside selects the group.
+- **Click:** selects the deepest item under the mouse, children included: an attached label, an icon on a box, a box attached to a box, a box inside a group. Dragging it moves only that item: an attached child changes its offset to its parent, a group member moves alone. The one exception is a box's own label inside the box: it is part of the box, so a click there selects the box (a double click edits the text). A group has no area of its own on the canvas: it is selected by Escape from a member or by its row in the layers tree.
 - **Parent and child together:** select both, with a band or Shift click, or select the parent (children always move with their parent). A child whose parent is also selected moves once, with the parent.
 - **Escape** selects the parent of the selected item; a second Escape clears the selection.
 - **Selection stays:** pressing on an item that is already selected keeps the whole selection, so dragging moves all of it. A click without dragging narrows the selection to that item.
@@ -113,11 +113,11 @@ Consequences:
    - Shape: label, code line.
    - Text: text.
    - Connector: label, step number.
-   - Frame: label.
+   - Frame: its name (layers tree only).
    - Line: the label on each side.
 4. Look, at most four rows per kind:
    - Shape: fill, outline, shape.
-   - Frame: outline.
+   - Frame: none.
    - Connector: route, line, tips.
    - Text: size, colour, bold/italic.
    - Line: line, width.
@@ -137,7 +137,7 @@ A value inherited from the theme or the category is shown in grey; hovering it s
 - Dragging a row reorders it, or reparents it into a group, onto a box or into another layer. The drop target is highlighted.
 - At the foot: + Layer, Duplicate, Merge down, Delete (it deletes whatever is selected).
 
-**Context menu**: Add label, Add icon, Group selection (Ctrl+G), Ungroup, Detach from parent, Reset look, Apply look to category, Align ▸, Distribute ▸, Tidy up, Move to layer ▸, Bring forward, Send backward, Send to back, Delete.
+**Context menu**: Add label, Add icon, Group selection (Ctrl+G), Ungroup, Hide, Detach from parent, Reset look, Apply look to category, Align ▸, Distribute ▸, Tidy up, Move to layer ▸, Bring forward, Send backward, Send to back, Delete.
 
 **Arrange commands** (align, distribute, same size, tidy up):
 - They act only on an explicit command: menu, inspector row or key.
@@ -155,7 +155,7 @@ A value inherited from the theme or the category is shown in grey; hovering it s
 - the floating arrow toolbar and its "More" popover (the inspector has everything);
 - the hover and hold previews of Tidy up;
 - the empty style lists, and the per-item "in legend" switch;
-- the group fill ("tint");
+- every look of groups: outline, fill ("tint") and title;
 - section headers around single rows.
 
 ## 4a Figure size and preview
@@ -169,7 +169,7 @@ A value inherited from the theme or the category is shown in grey; hovering it s
 1. **Model** (core): the tree of section 1, including the new Line kind and automatic connector placement; the ops reparent, detach and ungroup; codec and migration. Done.
 2. **Look** (core): the cascade of section 2, with source information for every resolved value; migration of named styles; the legend marker rule. Done.
 3. **Interaction** (webview): the selection rules, the wheel, the context menu, connector handles, Tab, and Shift+Enter in every text editor; arrange commands without preview and without crossings; the white canvas; the floating toolbar removed.
-3b. **Look corrections** (core): category marker colour XOR icon, Fill and Outline as separate category settings, no text settings in categories, legend only through categories, frames without fill plus the background-box migration, category delete op; the figure header line (place, label, caption).
+3b. **Look corrections** (core): category marker colour XOR icon, Fill and Outline as separate category settings, no text settings in categories, legend only through categories, groups that draw nothing plus the background-box migration, hiding any item, category delete op; the figure header line (place, label, caption).
 4. **Panels** (webview): the inspector of section 4 with sources and overrides, the Figure inspector with its one Figure settings disclosure and the category rows, the layers tree with its row layout, the drawer with its three parts, the UI names.
 5. **Figure size** (core + host + webview): the export target of section 4a.
 6. **Preview** (host + webview): the venue page of section 4a.
