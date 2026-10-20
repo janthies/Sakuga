@@ -14,12 +14,16 @@ import { num } from '../util/num';
 export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometryOf(fig)): string {
 	const edef = styleOf(fig, e);
 	const eown: ObjectStyle | undefined = edef ? overrideOf('arrow', e.style || {}, edef.props) : e.style;
-	const o = [e.styleKey ? `sg style/${e.styleKey}` : e.kind];
+	const o = [
+		'sg conn',
+		...(e.styleKey ? [`sg style/${e.styleKey}`] : e.kind === 'arr-dashed' ? ['arr-dashed'] : []),
+		`sg id=${e.id}`,
+	];
 	const labelData = {
 		...(Object.keys(cleanLabel(e.labelStyle)).length ? { style: cleanLabel(e.labelStyle) } : {}),
 		...(e.labels?.length ? { labels: e.labels.map((l) => ({ ...l, style: cleanLabel(l.style) })) } : {}),
 	};
-	if (e.labels?.length) (labelData as any).text = e.label;
+	if (e.label || e.labels?.length) (labelData as any).text = e.label;
 	if (e.labelStyle || e.labels?.length) {
 		if (e.style?.side) (labelData as any).legacySide = e.style.side;
 		if (e.style?.position) (labelData as any).legacyPosition = e.style.position;
@@ -50,11 +54,11 @@ export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometry
 				: e.label;
 	const lbl = (pos: string, extras = true) =>
 		content
-			? ` node[sg elabel${e.labelStyle ? '' : e.label && e.style?.position ? ', near ' + e.style.position : pos}${e.label && e.style?.side && !e.labelStyle?.side ? ', ' + e.style.side : ''}${labelMetrics(e.label, e.labelStyle, fontSize(fig), e.style?.step)}${labelOptions(e.labelStyle, { font: fontSize(fig), color: e.style?.color || '', pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${content}}${(extras ? e.labels || [] : []).map((l) => ` node[sg elabel${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`).join('')}`
+			? ` node[sg label${e.labelStyle ? '' : e.label && e.style?.position ? ', near ' + e.style.position : pos}${e.label && e.style?.side && !e.labelStyle?.side ? ', ' + e.style.side : ''}${labelMetrics(e.label, e.labelStyle, fontSize(fig), e.style?.step)}${labelOptions(e.labelStyle, { font: fontSize(fig), color: e.style?.color || '', pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${content}}${(extras ? e.labels || [] : []).map((l) => ` node[sg label${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`).join('')}`
 			: (e.labels || [])
 					.map(
 						(l) =>
-							` node[sg elabel${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`,
+							` node[sg label${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`,
 					)
 					.join('');
 	const A = a?.kind === 'icon' ? e.from + '-center' : e.from,
@@ -125,7 +129,7 @@ export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometry
 					.filter((l) => segment(l.style) === i)
 					.map(
 						(l) =>
-							` node[sg elabel${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side })}] {${l.text}}`,
+							` node[sg label${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side })}] {${l.text}}`,
 					)
 					.join('');
 			path = routing.polyline(G.pts, start, stop, content || e.labels?.length ? labels : '', !!G.rule && !e.toAnchor);
@@ -173,7 +177,7 @@ export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometry
 				.filter((l) => segment(l.style) === i)
 				.map(
 					(l) =>
-						` node[sg elabel${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`,
+						` node[sg label${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`,
 				)
 				.join('');
 			return primary + extras;

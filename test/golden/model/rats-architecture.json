@@ -92,7 +92,12 @@
     "titleBold": true,
     "titleFont": "small",
     "lineWidth": 1,
-    "frameColor": "#30343B"
+    "frameColor": "#30343B",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "att-title",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -109,7 +114,12 @@
     "frameColor": "#2D70A6",
     "fill": "tint",
     "fillStrength": 18,
-    "outline": "dashed"
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 2,
+    "titleId": "nw-title",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -126,7 +136,12 @@
     "frameColor": "#CF3C50",
     "fill": "tint",
     "fillStrength": 18,
-    "outline": "dashed"
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 4,
+    "titleId": "sw-title",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -143,8 +158,16 @@
     "frameColor": "#6B7280",
     "fill": "tint",
     "fillStrength": 18,
-    "outline": "dashed"
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 6,
+    "titleId": "hw-title",
+    "hidden": false,
+    "locked": false
    }
+  },
+  {
+   "t": "tree"
   },
   {
    "t": "raw",
@@ -172,7 +195,10 @@
      "fill": "white",
      "color": "#2D70A6"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "nw",
+    "order": 8,
+    "titleId": "app-title"
    }
   },
   {
@@ -194,7 +220,10 @@
      "fill": "white",
      "color": "#2D70A6"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "nw",
+    "order": 10,
+    "titleId": "rtos-title"
    }
   },
   {
@@ -217,7 +246,10 @@
      "color": "#2D70A6",
      "weight": "thick"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "nw",
+    "order": 12,
+    "titleId": "client-title"
    }
   },
   {
@@ -239,7 +271,10 @@
      "fill": "white",
      "color": "#CF3C50"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "sw",
+    "order": 14,
+    "titleId": "store-title"
    }
   },
   {
@@ -261,7 +296,10 @@
      "fill": "white",
      "color": "#CF3C50"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "sw",
+    "order": 16,
+    "titleId": "crypto-title"
    }
   },
   {
@@ -284,7 +322,10 @@
      "color": "#CF3C50",
      "weight": "thick"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "sw",
+    "order": 18,
+    "titleId": "ias-title"
    }
   },
   {
@@ -306,7 +347,10 @@
      "fill": "white",
      "color": "#6B7280"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "hw",
+    "order": 20,
+    "titleId": "bl1-title"
    }
   },
   {
@@ -328,7 +372,10 @@
      "fill": "white",
      "color": "#6B7280"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "hw",
+    "order": 22,
+    "titleId": "otp-title"
    }
   },
   {
@@ -350,7 +397,10 @@
      "fill": "white",
      "color": "#6B7280"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "hw",
+    "order": 24,
+    "titleId": "rec-title"
    }
   },
   {
@@ -371,7 +421,10 @@
     "style": {
      "fill": "green"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 26,
+    "titleId": "ver-title"
    }
   },
   {
@@ -392,7 +445,10 @@
     "style": {
      "fill": "grey"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 28,
+    "titleId": "end-title"
    }
   },
   {
@@ -413,7 +469,10 @@
     "style": {
      "fill": "grey"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "rvp-title"
    }
   },
   {
@@ -434,7 +493,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "rp-title"
    }
   },
   {
@@ -457,7 +519,9 @@
      "textColor": "#777777",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34
    }
   },
   {
@@ -480,7 +544,9 @@
      "textColor": "#666666",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 35
    }
   },
   {
@@ -489,6 +555,7 @@
   {
    "t": "edge",
    "e": {
+    "id": "connector",
     "from": "client",
     "to": "ias",
     "kind": "arr",
@@ -501,12 +568,26 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "treeParent": "att",
+    "order": 36,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-2",
     "from": "ias",
     "to": "crypto",
     "kind": "arr",
@@ -523,12 +604,26 @@
      "dy": 1.5,
      "color": "#804050",
      "bold": true
-    }
+    },
+    "treeParent": "sw",
+    "order": 38,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-2-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-3",
     "from": "otp",
     "to": "crypto",
     "kind": "arr",
@@ -541,12 +636,26 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "treeParent": "att",
+    "order": 40,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-3-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-4",
     "from": "rec",
     "to": "ias",
     "kind": "arr",
@@ -559,12 +668,26 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "treeParent": "att",
+    "order": 42,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-5",
     "from": "bl1",
     "to": "rec",
     "fromAnchor": "south",
@@ -579,12 +702,28 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "fromOffset": 0,
+    "toOffset": 0,
+    "treeParent": "hw",
+    "order": 44,
+    "fromPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "labelId": "connector-5-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-6",
     "from": "end",
     "to": "ver",
     "kind": "arr",
@@ -599,12 +738,26 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "treeParent": "layer1",
+    "order": 46,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-6-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-7",
     "from": "rvp",
     "to": "ver",
     "kind": "arr",
@@ -619,12 +772,26 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "treeParent": "layer1",
+    "order": 48,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-8",
     "from": "ver",
     "to": "att",
     "fromAnchor": "west",
@@ -642,12 +809,28 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "fromOffset": 3.5,
+    "toOffset": 35.067,
+    "treeParent": "layer1",
+    "order": 50,
+    "fromPort": {
+     "side": "west",
+     "position": 0.625
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.8456
+    },
+    "labelId": "connector-8-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-9",
     "from": "att",
     "to": "ver",
     "fromAnchor": "east",
@@ -667,12 +850,28 @@
      "font": "scriptsize",
      "dx": 2,
      "dy": -1.5
-    }
+    },
+    "fromOffset": 28.067,
+    "toOffset": -3.5,
+    "treeParent": "layer1",
+    "order": 52,
+    "fromPort": {
+     "side": "east",
+     "position": 0.7766
+    },
+    "toPort": {
+     "side": "west",
+     "position": 0.375
+    },
+    "labelId": "connector-9-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-10",
     "from": "ver",
     "to": "rp",
     "kind": "arr",
@@ -688,12 +887,26 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "treeParent": "layer1",
+    "order": 54,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-10-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-11",
     "from": "rp",
     "to": "att",
     "fromAnchor": "west",
@@ -711,7 +924,22 @@
     "extra": [],
     "labelStyle": {
      "font": "scriptsize"
-    }
+    },
+    "fromOffset": 0,
+    "toOffset": -32.433,
+    "treeParent": "layer1",
+    "order": 56,
+    "fromPort": {
+     "side": "west",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.1804
+    },
+    "labelId": "connector-11-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -721,6 +949,1540 @@
   {
    "t": "raw",
    "text": ""
+  }
+ ],
+ "items": [
+  {
+   "id": "att",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "att",
+    "name": "Attester (constrained device)",
+    "frame": "solid",
+    "color": "grey",
+    "parent": "",
+    "titlePosition": "above-center",
+    "titleBold": true,
+    "titleFont": "small",
+    "lineWidth": 1,
+    "frameColor": "#30343B",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "att-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "att-title",
+   "parent": "att",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attester (constrained device)",
+   "code": "",
+   "role": "title",
+   "treeParent": "att"
+  },
+  {
+   "id": "nw",
+   "parent": "att",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "nw",
+    "name": "Normal world (untrusted)",
+    "frame": "dashed",
+    "color": "blue",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#2D70A6",
+    "frameColor": "#2D70A6",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 2,
+    "titleId": "nw-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "nw-title",
+   "parent": "nw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Normal world (untrusted)",
+   "code": "",
+   "role": "title",
+   "treeParent": "nw"
+  },
+  {
+   "id": "sw",
+   "parent": "att",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "sw",
+    "name": "Secure world (SPE, TF-M)",
+    "frame": "dashed",
+    "color": "red",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#CF3C50",
+    "frameColor": "#CF3C50",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 4,
+    "titleId": "sw-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "sw-title",
+   "parent": "sw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Secure world (SPE, TF-M)",
+   "code": "",
+   "role": "title",
+   "treeParent": "sw"
+  },
+  {
+   "id": "hw",
+   "parent": "att",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "hw",
+    "name": "Hardware root of trust",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#6B7280",
+    "frameColor": "#6B7280",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 6,
+    "titleId": "hw-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "hw-title",
+   "parent": "hw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Hardware root of trust",
+   "code": "",
+   "role": "title",
+   "treeParent": "hw"
+  },
+  {
+   "id": "app",
+   "parent": "nw",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "app",
+    "cat": "normal",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6"
+    },
+    "extra": [],
+    "treeParent": "nw",
+    "order": 8,
+    "titleId": "app-title"
+   }
+  },
+  {
+   "id": "app-title",
+   "parent": "app",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Application",
+   "code": "",
+   "role": "title",
+   "treeParent": "app"
+  },
+  {
+   "id": "rtos",
+   "parent": "nw",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rtos",
+    "cat": "normal",
+    "x": 34,
+    "y": 0,
+    "title": "RTOS / TCP/IP",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6"
+    },
+    "extra": [],
+    "treeParent": "nw",
+    "order": 10,
+    "titleId": "rtos-title"
+   }
+  },
+  {
+   "id": "rtos-title",
+   "parent": "rtos",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "RTOS / TCP/IP",
+   "code": "",
+   "role": "title",
+   "treeParent": "rtos"
+  },
+  {
+   "id": "client",
+   "parent": "nw",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "client",
+    "cat": "normal",
+    "x": 68,
+    "y": 0,
+    "title": "Attestation\\\\client",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6",
+     "weight": "thick"
+    },
+    "extra": [],
+    "treeParent": "nw",
+    "order": 12,
+    "titleId": "client-title"
+   }
+  },
+  {
+   "id": "client-title",
+   "parent": "client",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attestation\\\\client",
+   "code": "",
+   "role": "title",
+   "treeParent": "client"
+  },
+  {
+   "id": "store",
+   "parent": "sw",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "store",
+    "cat": "secure",
+    "x": 0,
+    "y": -34,
+    "title": "Protected\\\\storage",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50"
+    },
+    "extra": [],
+    "treeParent": "sw",
+    "order": 14,
+    "titleId": "store-title"
+   }
+  },
+  {
+   "id": "store-title",
+   "parent": "store",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Protected\\\\storage",
+   "code": "",
+   "role": "title",
+   "treeParent": "store"
+  },
+  {
+   "id": "crypto",
+   "parent": "sw",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "crypto",
+    "cat": "secure",
+    "x": 34,
+    "y": -34,
+    "title": "Crypto\\\\service",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50"
+    },
+    "extra": [],
+    "treeParent": "sw",
+    "order": 16,
+    "titleId": "crypto-title"
+   }
+  },
+  {
+   "id": "crypto-title",
+   "parent": "crypto",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Crypto\\\\service",
+   "code": "",
+   "role": "title",
+   "treeParent": "crypto"
+  },
+  {
+   "id": "ias",
+   "parent": "sw",
+   "order": 18,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "ias",
+    "cat": "secure",
+    "x": 68,
+    "y": -34,
+    "title": "Initial attest.\\\\service $^\\dagger$",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50",
+     "weight": "thick"
+    },
+    "extra": [],
+    "treeParent": "sw",
+    "order": 18,
+    "titleId": "ias-title"
+   }
+  },
+  {
+   "id": "ias-title",
+   "parent": "ias",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Initial attest.\\\\service $^\\dagger$",
+   "code": "",
+   "role": "title",
+   "treeParent": "ias"
+  },
+  {
+   "id": "bl1",
+   "parent": "hw",
+   "order": 20,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "bl1",
+    "cat": "hw",
+    "x": 0,
+    "y": -68,
+    "title": "Boot ROM\\\\(BL1)",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "order": 20,
+    "titleId": "bl1-title"
+   }
+  },
+  {
+   "id": "bl1-title",
+   "parent": "bl1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Boot ROM\\\\(BL1)",
+   "code": "",
+   "role": "title",
+   "treeParent": "bl1"
+  },
+  {
+   "id": "otp",
+   "parent": "hw",
+   "order": 22,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "otp",
+    "cat": "hw",
+    "x": 34,
+    "y": -68,
+    "title": "OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "order": 22,
+    "titleId": "otp-title"
+   }
+  },
+  {
+   "id": "otp-title",
+   "parent": "otp",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$",
+   "code": "",
+   "role": "title",
+   "treeParent": "otp"
+  },
+  {
+   "id": "rec",
+   "parent": "hw",
+   "order": 24,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rec",
+    "cat": "hw",
+    "x": 68,
+    "y": -68,
+    "title": "Boot record\\\\{\\scriptsize measurements}",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "order": 24,
+    "titleId": "rec-title"
+   }
+  },
+  {
+   "id": "rec-title",
+   "parent": "rec",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Boot record\\\\{\\scriptsize measurements}",
+   "code": "",
+   "role": "title",
+   "treeParent": "rec"
+  },
+  {
+   "id": "ver",
+   "parent": "layer1",
+   "order": 26,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "ver",
+    "cat": "ok",
+    "x": 140,
+    "y": -4,
+    "title": "\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}",
+    "code": "",
+    "width": 36,
+    "minh": 28,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 26,
+    "titleId": "ver-title"
+   }
+  },
+  {
+   "id": "ver-title",
+   "parent": "ver",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}",
+   "code": "",
+   "role": "title",
+   "treeParent": "ver"
+  },
+  {
+   "id": "end",
+   "parent": "layer1",
+   "order": 28,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "end",
+    "cat": "hw",
+    "x": 128,
+    "y": 30,
+    "title": "\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$",
+    "code": "",
+    "width": 18,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 28,
+    "titleId": "end-title"
+   }
+  },
+  {
+   "id": "end-title",
+   "parent": "end",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$",
+   "code": "",
+   "role": "title",
+   "treeParent": "end"
+  },
+  {
+   "id": "rvp",
+   "parent": "layer1",
+   "order": 30,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rvp",
+    "cat": "hw",
+    "x": 152,
+    "y": 30,
+    "title": "\\textbf{Ref.\\ value}\\\\\\textbf{provider}",
+    "code": "",
+    "width": 18,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "rvp-title"
+   }
+  },
+  {
+   "id": "rvp-title",
+   "parent": "rvp",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Ref.\\ value}\\\\\\textbf{provider}",
+   "code": "",
+   "role": "title",
+   "treeParent": "rvp"
+  },
+  {
+   "id": "rp",
+   "parent": "layer1",
+   "order": 32,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rp",
+    "cat": "rp",
+    "x": 140,
+    "y": -68,
+    "title": "\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}",
+    "code": "",
+    "width": 36,
+    "minh": 17,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "rp-title"
+   }
+  },
+  {
+   "id": "rp-title",
+   "parent": "rp",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}",
+   "code": "",
+   "role": "title",
+   "treeParent": "rp"
+  },
+  {
+   "id": "note",
+   "parent": "layer1",
+   "order": 34,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "adversary controls\\\\network + NW",
+   "code": "",
+   "node": {
+    "id": "note",
+    "kind": "label",
+    "cat": "",
+    "x": 105,
+    "y": -43,
+    "title": "adversary controls\\\\network + NW",
+    "code": "",
+    "width": 28,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#777777",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34
+   }
+  },
+  {
+   "id": "foot",
+   "parent": "layer1",
+   "order": 35,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.",
+   "code": "",
+   "node": {
+    "id": "foot",
+    "kind": "label",
+    "cat": "",
+    "x": 65,
+    "y": -96,
+    "title": "$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.",
+    "code": "",
+    "width": 165,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#666666",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 35
+   }
+  },
+  {
+   "id": "connector",
+   "parent": "att",
+   "order": 36,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector",
+    "from": "client",
+    "to": "ias",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "NSC call\\\\\\texttt{get\\_token(N)}",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "att",
+    "order": 36,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "client",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ias",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-label-0",
+   "parent": "connector",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "NSC call\\\\\\texttt{get\\_token(N)}",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector"
+  },
+  {
+   "id": "connector-2",
+   "parent": "sw",
+   "order": 38,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-2",
+    "from": "ias",
+    "to": "crypto",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "sign",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize",
+     "side": "above",
+     "dy": 1.5,
+     "color": "#804050",
+     "bold": true
+    },
+    "treeParent": "sw",
+    "order": 38,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-2-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ias",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "crypto",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-2-label-0",
+   "parent": "connector-2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "sign",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize",
+    "side": "above",
+    "dy": 1.5,
+    "color": "#804050",
+    "bold": true
+   },
+   "treeParent": "connector-2"
+  },
+  {
+   "id": "connector-3",
+   "parent": "att",
+   "order": 40,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-3",
+    "from": "otp",
+    "to": "crypto",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "key",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "att",
+    "order": 40,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-3-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "otp",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "crypto",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-3-label-0",
+   "parent": "connector-3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "key",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-3"
+  },
+  {
+   "id": "connector-4",
+   "parent": "att",
+   "order": 42,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-4",
+    "from": "rec",
+    "to": "ias",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "claims",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "att",
+    "order": 42,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "rec",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ias",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-4-label-0",
+   "parent": "connector-4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "claims",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-4"
+  },
+  {
+   "id": "connector-5",
+   "parent": "hw",
+   "order": 44,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-5",
+    "from": "bl1",
+    "to": "rec",
+    "fromAnchor": "south",
+    "toAnchor": "south",
+    "kind": "arr-dashed",
+    "route": "u",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "measures BL2 + images",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "fromOffset": 0,
+    "toOffset": 0,
+    "treeParent": "hw",
+    "order": 44,
+    "fromPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "labelId": "connector-5-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "bl1",
+    "port": {
+     "side": "south",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "rec",
+    "port": {
+     "side": "south",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-5-label-0",
+   "parent": "connector-5",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "measures BL2 + images",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-5"
+  },
+  {
+   "id": "connector-6",
+   "parent": "layer1",
+   "order": 46,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-6",
+    "from": "end",
+    "to": "ver",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "endorsements",
+    "style": {
+     "side": "left"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "layer1",
+    "order": 46,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-6-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "end",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ver",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-6-label-0",
+   "parent": "connector-6",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "endorsements",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-6"
+  },
+  {
+   "id": "connector-7",
+   "parent": "layer1",
+   "order": 48,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-7",
+    "from": "rvp",
+    "to": "ver",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "golden hashes",
+    "style": {
+     "side": "right"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "layer1",
+    "order": 48,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "rvp",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ver",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-7-label-0",
+   "parent": "connector-7",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "golden hashes",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-7"
+  },
+  {
+   "id": "connector-8",
+   "parent": "layer1",
+   "order": 50,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-8",
+    "from": "ver",
+    "to": "att",
+    "fromAnchor": "west",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "nonce $N$",
+    "style": {
+     "step": 1,
+     "side": "above"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "fromOffset": 3.5,
+    "toOffset": 35.067,
+    "treeParent": "layer1",
+    "order": 50,
+    "fromPort": {
+     "side": "west",
+     "position": 0.625
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.8456
+    },
+    "labelId": "connector-8-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ver",
+    "port": {
+     "side": "west",
+     "position": 0.625
+    }
+   },
+   "target": {
+    "id": "att",
+    "port": {
+     "side": "east",
+     "position": 0.8456
+    }
+   }
+  },
+  {
+   "id": "connector-8-label-0",
+   "parent": "connector-8",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "nonce $N$",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-8"
+  },
+  {
+   "id": "connector-9",
+   "parent": "layer1",
+   "order": 52,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-9",
+    "from": "att",
+    "to": "ver",
+    "fromAnchor": "east",
+    "toAnchor": "west",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "evidence\\\\(EAT / COSE)",
+    "style": {
+     "step": 2,
+     "side": "below"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize",
+     "dx": 2,
+     "dy": -1.5
+    },
+    "fromOffset": 28.067,
+    "toOffset": -3.5,
+    "treeParent": "layer1",
+    "order": 52,
+    "fromPort": {
+     "side": "east",
+     "position": 0.7766
+    },
+    "toPort": {
+     "side": "west",
+     "position": 0.375
+    },
+    "labelId": "connector-9-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "att",
+    "port": {
+     "side": "east",
+     "position": 0.7766
+    }
+   },
+   "target": {
+    "id": "ver",
+    "port": {
+     "side": "west",
+     "position": 0.375
+    }
+   }
+  },
+  {
+   "id": "connector-9-label-0",
+   "parent": "connector-9",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "evidence\\\\(EAT / COSE)",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize",
+    "dx": 2,
+    "dy": -1.5
+   },
+   "treeParent": "connector-9"
+  },
+  {
+   "id": "connector-10",
+   "parent": "layer1",
+   "order": 54,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-10",
+    "from": "ver",
+    "to": "rp",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "attestation\\\\result",
+    "style": {
+     "step": 3,
+     "side": "right"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "layer1",
+    "order": 54,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-10-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ver",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "rp",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-10-label-0",
+   "parent": "connector-10",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "attestation\\\\result",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-10"
+  },
+  {
+   "id": "connector-11",
+   "parent": "layer1",
+   "order": 56,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-11",
+    "from": "rp",
+    "to": "att",
+    "fromAnchor": "west",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "grant /\\\\quarantine",
+    "style": {
+     "step": 4,
+     "side": "above"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "fromOffset": 0,
+    "toOffset": -32.433,
+    "treeParent": "layer1",
+    "order": 56,
+    "fromPort": {
+     "side": "west",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.1804
+    },
+    "labelId": "connector-11-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "rp",
+    "port": {
+     "side": "west",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "att",
+    "port": {
+     "side": "east",
+     "position": 0.1804
+    }
+   }
+  },
+  {
+   "id": "connector-11-label-0",
+   "parent": "connector-11",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "grant /\\\\quarantine",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-11"
   }
  ]
 }

@@ -10,6 +10,7 @@ export function geo() {
 		!k ||
 		k.rev !== store.rev ||
 		k.nodes !== store.nodes ||
+		k.lines !== store.lines ||
 		k.edges !== store.edges ||
 		k.groups !== store.groups ||
 		k.cats !== store.cats ||
@@ -20,6 +21,7 @@ export function geo() {
 			key: {
 				rev: store.rev,
 				nodes: store.nodes,
+				lines: store.lines,
 				edges: store.edges,
 				groups: store.groups,
 				cats: store.cats,
@@ -28,6 +30,7 @@ export function geo() {
 			},
 			geometry: new FigureGeometry({
 				nodes: store.nodes,
+				lines: store.lines,
 				edges: store.edges,
 				groups: store.groups,
 				categories: store.cats,

@@ -1,5 +1,6 @@
 // What the canvas draws, as plain data: keyed primitives in millimetres, y pointing down (SVG orientation).
 // Paint order is array order. No DOM, no view: pan and zoom are the renderer's business.
+import type { FigLine } from '../model/item';
 import type { FigureGeometry } from '../geometry/figure-geometry';
 import type { Category, FigEdge, FigNode, Group, Icon } from '../model/figure';
 import type { ObjectRef } from '../model/refs';
@@ -42,6 +43,7 @@ export interface Scene {
 
 // The figure as the canvas needs it: the derived snapshot of core/view, without the text.
 export interface SceneInput {
+	lines?: FigLine[];
 	nodes: FigNode[]; // hidden and locked already include the layer
 	edges: FigEdge[];
 	groups: Group[];

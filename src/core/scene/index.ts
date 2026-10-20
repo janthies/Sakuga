@@ -1,4 +1,5 @@
 // buildScene: the figure as keyed primitives in mm. Pure: the same input gives the same JSON.
+import { linePrims } from './lines';
 import { makeEnv } from './env';
 import { edgePrims } from './edges';
 import { framePrims } from './frames';
@@ -13,7 +14,7 @@ export function buildScene(fig: SceneInput, ctx: SceneCtx, opts: SceneOpts = {})
 		prims: [
 			prim('g', 'frames', {}, { children: framePrims(env) }),
 			prim('g', 'nodes', {}, { children: [...nodePrims(env), ...stepBadges(env), ...legendPrims(env)] }),
-			prim('g', 'edges', {}, { children: edgePrims(env) }),
+			prim('g', 'edges', {}, { children: [...linePrims(env), ...edgePrims(env)] }),
 		],
 	};
 }

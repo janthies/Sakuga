@@ -21,6 +21,9 @@
    "on": false
   },
   {
+   "t": "tree"
+  },
+  {
    "t": "raw",
    "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
   },
@@ -46,7 +49,10 @@
      "shape": "circle",
      "fill": "blue"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "idle-title"
    }
   },
   {
@@ -68,7 +74,10 @@
      "shape": "circle",
      "fill": "green"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "ready-title"
    }
   },
   {
@@ -90,7 +99,10 @@
      "shape": "circle",
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "active-title"
    }
   },
   {
@@ -112,7 +124,10 @@
      "shape": "circle",
      "fill": "green"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "done-title"
    }
   },
   {
@@ -134,12 +149,16 @@
      "shape": "circle",
      "fill": "red"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "error-title"
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector",
     "from": "idle",
     "to": "idle",
     "kind": "arr",
@@ -155,12 +174,26 @@
     "loopOut": 112,
     "loopIn": 68,
     "loopSize": 8,
-    "loopSide": "north"
+    "loopSide": "north",
+    "treeParent": "layer1",
+    "order": 10,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-2",
     "from": "active",
     "to": "active",
     "kind": "arr",
@@ -176,12 +209,26 @@
     "loopOut": 22,
     "loopIn": -22,
     "loopSize": 8,
-    "loopSide": "east"
+    "loopSide": "east",
+    "treeParent": "layer1",
+    "order": 12,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-2-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-3",
     "from": "idle",
     "to": "ready",
     "kind": "arr",
@@ -193,12 +240,26 @@
     "style": {
      "side": "above"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-3-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-4",
     "from": "ready",
     "to": "active",
     "kind": "arr",
@@ -210,12 +271,26 @@
     "style": {
      "side": "above"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-5",
     "from": "active",
     "to": "done",
     "kind": "arr",
@@ -227,12 +302,26 @@
     "style": {
      "side": "right"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-5-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-6",
     "from": "active",
     "to": "error",
     "kind": "arr",
@@ -244,12 +333,26 @@
     "style": {
      "side": "above"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-6-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-7",
     "from": "error",
     "to": "ready",
     "kind": "arr",
@@ -261,12 +364,26 @@
     "style": {
      "side": "left"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 22,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-8",
     "from": "done",
     "to": "idle",
     "fromAnchor": "south",
@@ -284,17 +401,32 @@
     "labelStyle": {
      "segment": 1
     },
+    "fromOffset": 0,
+    "toOffset": 0,
     "chain": [
-     "(done.south)",
+     "([xshift=0mm]done.south)",
      "--",
-     "(done.south |- 0,-65)",
+     "([xshift=0mm]done.south |- 0,-65)",
      "--",
      "(-25,-65)",
      "--",
-     "(idle.west -| -25,0)",
+     "([yshift=0mm]idle.west -| -25,0)",
      "--",
-     "(idle.west)"
-    ]
+     "([yshift=0mm]idle.west)"
+    ],
+    "treeParent": "layer1",
+    "order": 24,
+    "fromPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "west",
+     "position": 0.5
+    },
+    "labelId": "connector-8-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -304,6 +436,743 @@
   {
    "t": "raw",
    "text": ""
+  }
+ ],
+ "items": [
+  {
+   "id": "idle",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "idle",
+    "cat": "",
+    "x": 0,
+    "y": 0,
+    "title": "Idle",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "blue"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "idle-title"
+   }
+  },
+  {
+   "id": "idle-title",
+   "parent": "idle",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Idle",
+   "code": "",
+   "role": "title",
+   "treeParent": "idle"
+  },
+  {
+   "id": "ready",
+   "parent": "layer1",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "ready",
+    "cat": "",
+    "x": 45,
+    "y": 0,
+    "title": "Ready",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "green"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "ready-title"
+   }
+  },
+  {
+   "id": "ready-title",
+   "parent": "ready",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Ready",
+   "code": "",
+   "role": "title",
+   "treeParent": "ready"
+  },
+  {
+   "id": "active",
+   "parent": "layer1",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "active",
+    "cat": "",
+    "x": 90,
+    "y": 0,
+    "title": "Active",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "active-title"
+   }
+  },
+  {
+   "id": "active-title",
+   "parent": "active",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Active",
+   "code": "",
+   "role": "title",
+   "treeParent": "active"
+  },
+  {
+   "id": "done",
+   "parent": "layer1",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "done",
+    "cat": "",
+    "x": 90,
+    "y": -43,
+    "title": "Done",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "green"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "done-title"
+   }
+  },
+  {
+   "id": "done-title",
+   "parent": "done",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Done",
+   "code": "",
+   "role": "title",
+   "treeParent": "done"
+  },
+  {
+   "id": "error",
+   "parent": "layer1",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "error",
+    "cat": "",
+    "x": 45,
+    "y": -43,
+    "title": "Error",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "shape": "circle",
+     "fill": "red"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "error-title"
+   }
+  },
+  {
+   "id": "error-title",
+   "parent": "error",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Error",
+   "code": "",
+   "role": "title",
+   "treeParent": "error"
+  },
+  {
+   "id": "connector",
+   "parent": "layer1",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector",
+    "from": "idle",
+    "to": "idle",
+    "kind": "arr",
+    "route": "loop",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "wait",
+    "style": {
+     "side": "above"
+    },
+    "extra": [],
+    "loopOut": 112,
+    "loopIn": 68,
+    "loopSize": 8,
+    "loopSide": "north",
+    "treeParent": "layer1",
+    "order": 10,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "idle",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "idle",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-label-0",
+   "parent": "connector",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "wait",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector"
+  },
+  {
+   "id": "connector-2",
+   "parent": "layer1",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-2",
+    "from": "active",
+    "to": "active",
+    "kind": "arr",
+    "route": "loop",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "tick",
+    "style": {
+     "side": "right"
+    },
+    "extra": [],
+    "loopOut": 22,
+    "loopIn": -22,
+    "loopSize": 8,
+    "loopSide": "east",
+    "treeParent": "layer1",
+    "order": 12,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-2-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "active",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "active",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-2-label-0",
+   "parent": "connector-2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "tick",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-2"
+  },
+  {
+   "id": "connector-3",
+   "parent": "layer1",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-3",
+    "from": "idle",
+    "to": "ready",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "start",
+    "style": {
+     "side": "above"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-3-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "idle",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ready",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-3-label-0",
+   "parent": "connector-3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "start",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-3"
+  },
+  {
+   "id": "connector-4",
+   "parent": "layer1",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-4",
+    "from": "ready",
+    "to": "active",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "accept",
+    "style": {
+     "side": "above"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ready",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "active",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-4-label-0",
+   "parent": "connector-4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "accept",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-4"
+  },
+  {
+   "id": "connector-5",
+   "parent": "layer1",
+   "order": 18,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-5",
+    "from": "active",
+    "to": "done",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "finish",
+    "style": {
+     "side": "right"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-5-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "active",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "done",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-5-label-0",
+   "parent": "connector-5",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "finish",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-5"
+  },
+  {
+   "id": "connector-6",
+   "parent": "layer1",
+   "order": 20,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-6",
+    "from": "active",
+    "to": "error",
+    "kind": "arr",
+    "route": "bend",
+    "mid": null,
+    "bend": 14,
+    "head": "end",
+    "label": "fail",
+    "style": {
+     "side": "above"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-6-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "active",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "error",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-6-label-0",
+   "parent": "connector-6",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "fail",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-6"
+  },
+  {
+   "id": "connector-7",
+   "parent": "layer1",
+   "order": 22,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-7",
+    "from": "error",
+    "to": "ready",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "retry",
+    "style": {
+     "side": "left"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 22,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "error",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ready",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-7-label-0",
+   "parent": "connector-7",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "retry",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-7"
+  },
+  {
+   "id": "connector-8",
+   "parent": "layer1",
+   "order": 24,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-8",
+    "from": "done",
+    "to": "idle",
+    "fromAnchor": "south",
+    "toAnchor": "west",
+    "kind": "arr",
+    "route": "fixed",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "reset",
+    "style": {
+     "side": "below"
+    },
+    "extra": [],
+    "labelStyle": {
+     "segment": 1
+    },
+    "fromOffset": 0,
+    "toOffset": 0,
+    "chain": [
+     "([xshift=0mm]done.south)",
+     "--",
+     "([xshift=0mm]done.south |- 0,-65)",
+     "--",
+     "(-25,-65)",
+     "--",
+     "([yshift=0mm]idle.west -| -25,0)",
+     "--",
+     "([yshift=0mm]idle.west)"
+    ],
+    "treeParent": "layer1",
+    "order": 24,
+    "fromPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "west",
+     "position": 0.5
+    },
+    "labelId": "connector-8-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "done",
+    "port": {
+     "side": "south",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "idle",
+    "port": {
+     "side": "west",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-8-label-0",
+   "parent": "connector-8",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "reset",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "segment": 1
+   },
+   "treeParent": "connector-8"
   }
  ]
 }

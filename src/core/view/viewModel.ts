@@ -1,3 +1,5 @@
+import { items, subtreeState } from '../model/tree-queries';
+import { lineItems } from '../model/tree';
 import { PALETTE } from '../model/colour';
 import { DEFAULT_WIDTH } from '../model/constants';
 import {
@@ -24,6 +26,12 @@ export function viewModel(text: string) {
 	return {
 		type: 'state' as const,
 		text,
+		items: items(fig),
+		lines: lineItems(fig).map((l) => ({
+			...l,
+			hidden: subtreeState(fig, l.id, 'hidden'),
+			locked: subtreeState(fig, l.id, 'locked'),
+		})),
 		nodes: layers(fig)
 			.flatMap((l) => nodes(fig).filter((n) => nodeLayer(fig, n).id === l.id))
 			.map((n) => ({
@@ -33,11 +41,20 @@ export function viewModel(text: string) {
 				locked: isLocked(fig, n),
 				overrides: overrideKeys(fig, n),
 			})),
-		edges: edges(fig).map((x) => ({ ...x, overrides: overrideKeys(fig, x) })),
+		edges: edges(fig).map((x) => ({
+			...x,
+			hidden: subtreeState(fig, x.id!, 'hidden') || [x.from, x.to].some((id) => subtreeState(fig, id, 'hidden')),
+			locked: subtreeState(fig, x.id!, 'locked'),
+			overrides: overrideKeys(fig, x),
+		})),
 		categories: categories(fig),
 		styles: styleDefs(fig).map((s) => ({ ...s, line: styleLine(s) })),
 		shared: sharedOverrides(fig),
-		groups: groups(fig),
+		groups: groups(fig).map((g) => ({
+			...g,
+			hidden: subtreeState(fig, g.id, 'hidden'),
+			locked: subtreeState(fig, g.id, 'locked'),
+		})),
 		layers: layers(fig),
 		font: fontSize(fig),
 		legend: legendOn(fig),

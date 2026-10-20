@@ -13,9 +13,9 @@ export function framePrims(env: Env): Prim[] {
 	const draw = (items: ReturnType<typeof hierarchy>) => {
 		for (const item of items) {
 			const g = groups.find((g) => g.id === item.id);
-			if (!g) continue;
+			if (!g || g.hidden) continue;
 			const ids = members(nodes, groups, g.id).filter((id) => !env.byId(id)!.hidden);
-			if (g.frame !== 'none' && ids.length) out.push(framePrim(env, g, ids, layers));
+			if (g.frame !== 'none' && (ids.length || env.geo.frame(g.id))) out.push(framePrim(env, g, ids, layers));
 			draw(item.children);
 		}
 	};
@@ -24,7 +24,8 @@ export function framePrims(env: Env): Prim[] {
 }
 
 function framePrim(env: Env, g: Group, ids: string[], layers: { id: string; opacity?: number }[]): Prim {
-	const alpha = layers.find((l) => l.id === env.byId(ids[0])!.layer)?.opacity ?? 1;
+	const layer = env.byId(ids[0])?.layer || env.fig.lines?.find((l) => l.group === g.id)?.layer;
+	const alpha = layers.find((l) => l.id === layer)?.opacity ?? 1;
 	const rect = env.geo.frame(g.id)!;
 	const x0 = rect.x - rect.w / 2,
 		y1 = rect.y + rect.h / 2;
@@ -58,7 +59,7 @@ function framePrim(env: Env, g: Group, ids: string[], layers: { id: string; opac
 		),
 	];
 	const pos = g.titlePosition || 'legacy';
-	if (g.name && (pos !== 'legacy' || g.frame === 'region')) kids.push(...title(env, g, pos));
+	if (g.name && !g.labelStyle?.hidden && (pos !== 'legacy' || g.frame === 'region')) kids.push(...title(env, g, pos));
 	return prim(
 		'g',
 		`g:${g.id}`,

@@ -1,4 +1,6 @@
 // The generated blocks: icons, theme, frames and legend.
+import { lineItems } from '../model/tree';
+import { subtreeState } from '../model/tree-queries';
 import { context } from '../context';
 import { labelOptions } from './label';
 import { styleDefOptions } from './style-line';
@@ -111,12 +113,14 @@ export function themeBlock(fig: Figure): string[] {
 		'\\tikzset{',
 		`  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,`,
 		`    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=${DEFAULT_WIDTH}mm, fill=white},`,
+		'  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},',
 		'  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},',
 		'  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},',
 		...styleDefs(fig).map((d) => `  sg style/${d.key}/.style={${styleDefOptions(d).join(', ')}},`),
 		'  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},',
 		'  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},',
 		'  head none/.style={-},',
+		'  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\\sffamily\\scriptsize,fill=white,inner sep=1pt},',
 		'  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},',
 		'  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},',
 		'  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},',
@@ -138,12 +142,19 @@ export function themeBlock(fig: Figure): string[] {
 // Frames and regions of the groups, behind everything else; inner groups first, so that an outer
 // frame can fit around an inner one.
 export function groupsBlock(fig: Figure): string[] {
-	const gs = groups(fig).filter((g) => g.frame !== 'none' || edges(fig).some((e) => e.from === g.id || e.to === g.id));
+	const gs = groups(fig).filter(
+		(g) =>
+			!subtreeState(fig, g.id, 'hidden') &&
+			(g.frame !== 'none' || edges(fig).some((e) => e.from === g.id || e.to === g.id)),
+	);
 	if (!gs.length) {
 		return [];
 	}
 	const visible = nodes(fig).filter((n) => !isHidden(fig, n));
 	const members = (gid: string): string[] => [
+		...lineItems(fig)
+			.filter((l) => l.group === gid && !subtreeState(fig, l.id, 'hidden'))
+			.map((l) => `(${l.start.join(',')}) (${l.end.join(',')})`),
 		...visible
 			.filter((n) => n.group === gid)
 			.map((n) => (n.kind === 'icon' ? `(${n.id}-center) (${n.id}-label)` : `(${n.id})`)),
@@ -160,7 +171,7 @@ export function groupsBlock(fig: Figure): string[] {
 	for (const g of sized) {
 		const b = objects.find((n) => n.id === g.id);
 		out.push(
-			`\\node[inner sep=0pt, outer sep=0pt, fit={(${b.x - b.w / 2},${b.y - b.h / 2}) (${b.x + b.w / 2},${b.y + b.h / 2})}] (${g.id}) {};`,
+			`\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(${b.x - b.w / 2},${b.y - b.h / 2}) (${b.x + b.w / 2},${b.y + b.h / 2})}] (${g.id}) {};`,
 		);
 	}
 	for (const g of [...sized].reverse()) {
@@ -175,7 +186,7 @@ export function groupsBlock(fig: Figure): string[] {
 			`\\path[sg frame ${base}${fillKey}, draw=${look.outline === 'none' ? 'none' : fill(look.color)}, ${look.outline === 'dashed' ? 'dash pattern=on 9pt off 3pt' : look.outline === 'dotted' ? 'dash pattern=on 0pt off 4.5pt' : 'solid'}, line cap=${look.outline === 'dotted' ? 'round' : 'butt'}, line width=${look.width}pt${alphaKey}] (${g.id}.south west) rectangle (${g.id}.north east);`,
 		);
 		const position = g.titlePosition || 'legacy';
-		if (g.name && (position !== 'legacy' || g.frame === 'region')) {
+		if (g.name && !g.labelStyle?.hidden && (position !== 'legacy' || g.frame === 'region')) {
 			const [corner, anchor] = (
 				{
 					'above-left': ['north west', 'south west'],

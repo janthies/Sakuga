@@ -44,7 +44,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "n0-title"
    }
   },
   {
@@ -63,7 +66,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "n1-title"
    }
   },
   {
@@ -82,7 +88,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "n2-title"
    }
   },
   {
@@ -101,12 +110,16 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "n3-title"
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector",
     "from": "n0",
     "to": "n1",
     "fromAnchor": "south",
@@ -120,7 +133,17 @@
     "style": {},
     "extra": [],
     "fromOffset": 13.6337,
-    "toOffset": 1.54
+    "toOffset": 1.54,
+    "treeParent": "layer1",
+    "order": 8,
+    "fromPort": {
+     "side": "south",
+     "position": 0.9225
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.75
+    }
    }
   },
   {
@@ -130,6 +153,213 @@
   {
    "t": "raw",
    "text": ""
+  }
+ ],
+ "items": [
+  {
+   "id": "n0",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "n0",
+    "cat": "",
+    "x": 30,
+    "y": 50,
+    "title": "Box",
+    "code": "",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "n0-title"
+   }
+  },
+  {
+   "id": "n0-title",
+   "parent": "n0",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "role": "title",
+   "treeParent": "n0"
+  },
+  {
+   "id": "n1",
+   "parent": "layer1",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "n1",
+    "cat": "",
+    "x": 96,
+    "y": 20,
+    "title": "Box",
+    "code": "",
+    "width": 27,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "n1-title"
+   }
+  },
+  {
+   "id": "n1-title",
+   "parent": "n1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "role": "title",
+   "treeParent": "n1"
+  },
+  {
+   "id": "n2",
+   "parent": "layer1",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "n2",
+    "cat": "",
+    "x": 68,
+    "y": 8,
+    "title": "Box",
+    "code": "",
+    "width": 27,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "n2-title"
+   }
+  },
+  {
+   "id": "n2-title",
+   "parent": "n2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "role": "title",
+   "treeParent": "n2"
+  },
+  {
+   "id": "n3",
+   "parent": "layer1",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "n3",
+    "cat": "",
+    "x": 91,
+    "y": 1,
+    "title": "Box",
+    "code": "",
+    "width": 19,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "n3-title"
+   }
+  },
+  {
+   "id": "n3-title",
+   "parent": "n3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "role": "title",
+   "treeParent": "n3"
+  },
+  {
+   "id": "connector",
+   "parent": "layer1",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector",
+    "from": "n0",
+    "to": "n1",
+    "fromAnchor": "south",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "fromOffset": 13.6337,
+    "toOffset": 1.54,
+    "treeParent": "layer1",
+    "order": 8,
+    "fromPort": {
+     "side": "south",
+     "position": 0.9225
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.75
+    }
+   },
+   "source": {
+    "id": "n0",
+    "port": {
+     "side": "south",
+     "position": 0.9225
+    }
+   },
+   "target": {
+    "id": "n1",
+    "port": {
+     "side": "east",
+     "position": 0.75
+    }
+   }
   }
  ]
 }

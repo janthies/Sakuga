@@ -1,4 +1,5 @@
 // Queries on a figure: its objects, layers, styles, font and opacity.
+import { itemById, layerOf, subtreeState, descendants, orderedSiblings } from './tree-queries';
 import { Category, FigEdge, FigNode, Figure, Layer, StyleKind } from './figure';
 
 export const fontSize = (fig: Figure) =>
@@ -42,24 +43,31 @@ export const categories = (fig: Figure): Category[] =>
 export const nodeStyleKind = (n: FigNode): StyleKind | null =>
 	n.kind === 'icon' ? null : n.kind === 'label' ? 'label' : 'box';
 
-export const nodes = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'node' ? [l.n] : []));
+export const nodes = (fig: Figure) => orderedSiblings(fig.lines.flatMap((l) => (l.t === 'node' ? [l.n] : [])));
 
 export const edges = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'edge' ? [l.e] : []));
 
-export const groups = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'group' ? [l.g] : []));
+export const groups = (fig: Figure) => orderedSiblings(fig.lines.flatMap((l) => (l.t === 'group' ? [l.g] : [])));
 
 export const layers = (fig: Figure): Layer[] => {
 	const ls = fig.lines.flatMap((l) => (l.t === 'layer' ? [l.layer] : []));
 	return ls.length ? ls : [{ id: 'layer1', name: 'Layer 1', hidden: false, locked: false }];
 };
 
-export const nodeLayer = (fig: Figure, n: FigNode) => layers(fig).find((l) => l.id === n.layer) ?? layers(fig)[0];
+export const nodeLayer = (fig: Figure, n: FigNode) =>
+	layers(fig).find((l) => l.id === (itemById(fig, n.id) ? layerOf(fig, n.id) : n.layer)) ?? layers(fig)[0];
 
-export const isHidden = (fig: Figure, n: FigNode) => n.hidden || nodeLayer(fig, n).hidden;
+export const isHidden = (fig: Figure, n: FigNode) =>
+	itemById(fig, n.id) ? subtreeState(fig, n.id, 'hidden') : n.hidden || nodeLayer(fig, n).hidden;
 
-export const isLocked = (fig: Figure, n: FigNode) => n.locked || nodeLayer(fig, n).locked;
+export const isLocked = (fig: Figure, n: FigNode) =>
+	itemById(fig, n.id) ? subtreeState(fig, n.id, 'locked') : n.locked || nodeLayer(fig, n).locked;
 
 export function groupMembers(fig: Figure, id: string): FigNode[] {
+	if (fig.items) {
+		const ids = new Set(descendants(fig, id).map((i) => i.id));
+		return nodes(fig).filter((n) => ids.has(n.id));
+	}
 	return nodes(fig).filter((n) => {
 		let parent = n.group;
 		const seen = new Set<string>();

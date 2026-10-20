@@ -1,4 +1,5 @@
 // Operations on boxes and the arrows between them.
+import { itemById } from '../model/tree-queries';
 import { ANCHORS, DEFAULT_WIDTH } from '../model/constants';
 import { Figure } from '../model/figure';
 import { insert } from '../model/lines';
@@ -95,9 +96,16 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 			}
 			break;
 		case 'addEdge':
+			for (const id of [op.source?.id || op.from, op.target?.id || op.to]) {
+				const i = itemById(fig, id);
+				if (!i || !['Shape', 'Frame', 'Line'].includes(i.kind)) throw new Error('Invalid connector endpoint: ' + id);
+			}
 			insert(fig, {
 				t: 'edge',
 				e: {
+					id: op.id,
+					fromPort: op.source?.port,
+					toPort: op.target?.port,
 					...(op.styleKey ? { styleKey: op.styleKey } : {}),
 					labelStyle: op.labelStyle && { ...op.labelStyle },
 					labels: op.labels?.map((l) => ({ ...l, style: { ...l.style } })),
@@ -121,8 +129,10 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 					toAnchor: op.toAnchor,
 					lane: op.lane,
 					style: op.style,
-					from: op.from,
-					to: op.to,
+					from: op.source?.id || op.from,
+					to: op.target?.id || op.to,
+					...(op.source ? { fromAnchor: op.source.port.side === 'auto' ? undefined : op.source.port.side } : {}),
+					...(op.target ? { toAnchor: op.target.port.side === 'auto' ? undefined : op.target.port.side } : {}),
 					kind: op.kind ?? 'arr',
 					route: op.route ?? 'auto',
 					mid: op.mid ?? null,
@@ -176,16 +186,6 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 			}
 			break;
 		}
-		case 'deleteNode':
-			for (const child of nodes(fig)) {
-				if (child.attachment?.parent === op.id) {
-					delete child.attachment;
-				}
-			}
-			fig.lines = fig.lines.filter(
-				(l) => !(l.t === 'node' && l.n.id === op.id) && !(l.t === 'edge' && (l.e.from === op.id || l.e.to === op.id)),
-			);
-			break;
 		case 'deleteEdge': {
 			const e = edges(fig)[op.index];
 			fig.lines = fig.lines.filter((l) => !(l.t === 'edge' && l.e === e));
@@ -202,7 +202,9 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 					.filter((id) => !op.order.includes(id)),
 			];
 			at.forEach((i, k) => {
-				fig.lines[i] = { t: 'node', n: byId.get(order[k])! };
+				const n = byId.get(order[k])!;
+				n.order = k;
+				fig.lines[i] = { t: 'node', n };
 			});
 			break;
 		}

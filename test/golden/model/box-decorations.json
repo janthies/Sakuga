@@ -1,6 +1,9 @@
 {
  "lines": [
   {
+   "t": "tree"
+  },
+  {
    "t": "raw",
    "text": "\\begin{tikzpicture}[x=1mm,y=1mm, font=\\sffamily\\small]"
   },
@@ -32,7 +35,10 @@
      "border": "double",
      "patternColor": "#2468AC"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "box0-title"
    }
   },
   {
@@ -57,7 +63,10 @@
      "patternColor": "#2468AC",
      "pattern": "hatched"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "box1-title"
    }
   },
   {
@@ -82,7 +91,10 @@
      "patternColor": "#2468AC",
      "pattern": "crosshatch"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "box2-title"
    }
   },
   {
@@ -107,7 +119,10 @@
      "patternColor": "#2468AC",
      "pattern": "dots"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "box3-title"
    }
   },
   {
@@ -132,7 +147,10 @@
      "patternColor": "#2468AC",
      "pattern": "horizontal"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "box4-title"
    }
   },
   {
@@ -157,7 +175,10 @@
      "patternColor": "#2468AC",
      "pattern": "vertical"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 10,
+    "titleId": "box5-title"
    }
   },
   {
@@ -181,7 +202,10 @@
      "mark": "triangle",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 12,
+    "titleId": "box6-title"
    }
   },
   {
@@ -206,7 +230,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "titleId": "box7-title"
    }
   },
   {
@@ -231,7 +258,10 @@
      "markCorner": "nw",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "titleId": "box8-title"
    }
   },
   {
@@ -257,7 +287,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "titleId": "box9-title"
    }
   },
   {
@@ -282,7 +315,10 @@
      "markCorner": "se",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "titleId": "box10-title"
    }
   },
   {
@@ -308,7 +344,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 22,
+    "titleId": "box11-title"
    }
   },
   {
@@ -333,7 +372,10 @@
      "markCorner": "sw",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 24,
+    "titleId": "box12-title"
    }
   },
   {
@@ -359,7 +401,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 26,
+    "titleId": "box13-title"
    }
   },
   {
@@ -383,7 +428,10 @@
      "mark": "circle",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 28,
+    "titleId": "box14-title"
    }
   },
   {
@@ -408,7 +456,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "box15-title"
    }
   },
   {
@@ -433,7 +484,10 @@
      "markCorner": "nw",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "box16-title"
    }
   },
   {
@@ -459,7 +513,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34,
+    "titleId": "box17-title"
    }
   },
   {
@@ -484,7 +541,10 @@
      "markCorner": "se",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 36,
+    "titleId": "box18-title"
    }
   },
   {
@@ -510,7 +570,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 38,
+    "titleId": "box19-title"
    }
   },
   {
@@ -535,7 +598,10 @@
      "markCorner": "sw",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 40,
+    "titleId": "box20-title"
    }
   },
   {
@@ -561,7 +627,10 @@
      "markSize": "medium",
      "markColor": "#E04080"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 42,
+    "titleId": "box21-title"
    }
   },
   {
@@ -585,7 +654,10 @@
      "pattern": "hatched",
      "mark": "triangle"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 44,
+    "titleId": "box22-title"
    }
   },
   {
@@ -609,12 +681,1098 @@
      "pattern": "dots",
      "mark": "circle"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 46,
+    "titleId": "box23-title"
    }
   },
   {
    "t": "raw",
    "text": "\\end{tikzpicture}"
+  }
+ ],
+ "items": [
+  {
+   "id": "box0",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box0",
+    "cat": "",
+    "x": 0,
+    "y": 0,
+    "title": "Box 0",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "box0-title"
+   }
+  },
+  {
+   "id": "box0-title",
+   "parent": "box0",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 0",
+   "code": "",
+   "role": "title",
+   "treeParent": "box0"
+  },
+  {
+   "id": "box1",
+   "parent": "layer1",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box1",
+    "cat": "",
+    "x": 40,
+    "y": 0,
+    "title": "Box 1",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "hatched"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "box1-title"
+   }
+  },
+  {
+   "id": "box1-title",
+   "parent": "box1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 1",
+   "code": "",
+   "role": "title",
+   "treeParent": "box1"
+  },
+  {
+   "id": "box2",
+   "parent": "layer1",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box2",
+    "cat": "",
+    "x": 80,
+    "y": 0,
+    "title": "Box 2",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "crosshatch"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "box2-title"
+   }
+  },
+  {
+   "id": "box2-title",
+   "parent": "box2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 2",
+   "code": "",
+   "role": "title",
+   "treeParent": "box2"
+  },
+  {
+   "id": "box3",
+   "parent": "layer1",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box3",
+    "cat": "",
+    "x": 120,
+    "y": 0,
+    "title": "Box 3",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "dots"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "box3-title"
+   }
+  },
+  {
+   "id": "box3-title",
+   "parent": "box3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 3",
+   "code": "",
+   "role": "title",
+   "treeParent": "box3"
+  },
+  {
+   "id": "box4",
+   "parent": "layer1",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box4",
+    "cat": "",
+    "x": 0,
+    "y": -18,
+    "title": "Box 4",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "horizontal"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "box4-title"
+   }
+  },
+  {
+   "id": "box4-title",
+   "parent": "box4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 4",
+   "code": "",
+   "role": "title",
+   "treeParent": "box4"
+  },
+  {
+   "id": "box5",
+   "parent": "layer1",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box5",
+    "cat": "",
+    "x": 40,
+    "y": -18,
+    "title": "Box 5",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "#F1E4C2",
+     "color": "#654321",
+     "border": "double",
+     "patternColor": "#2468AC",
+     "pattern": "vertical"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 10,
+    "titleId": "box5-title"
+   }
+  },
+  {
+   "id": "box5-title",
+   "parent": "box5",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 5",
+   "code": "",
+   "role": "title",
+   "treeParent": "box5"
+  },
+  {
+   "id": "box6",
+   "parent": "layer1",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box6",
+    "cat": "",
+    "x": 80,
+    "y": -18,
+    "title": "Box 6",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 12,
+    "titleId": "box6-title"
+   }
+  },
+  {
+   "id": "box6-title",
+   "parent": "box6",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 6",
+   "code": "",
+   "role": "title",
+   "treeParent": "box6"
+  },
+  {
+   "id": "box7",
+   "parent": "layer1",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box7",
+    "cat": "",
+    "x": 120,
+    "y": -18,
+    "title": "Box 7",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "titleId": "box7-title"
+   }
+  },
+  {
+   "id": "box7-title",
+   "parent": "box7",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 7",
+   "code": "",
+   "role": "title",
+   "treeParent": "box7"
+  },
+  {
+   "id": "box8",
+   "parent": "layer1",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box8",
+    "cat": "",
+    "x": 0,
+    "y": -36,
+    "title": "Box 8",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "nw",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "titleId": "box8-title"
+   }
+  },
+  {
+   "id": "box8-title",
+   "parent": "box8",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 8",
+   "code": "",
+   "role": "title",
+   "treeParent": "box8"
+  },
+  {
+   "id": "box9",
+   "parent": "layer1",
+   "order": 18,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box9",
+    "cat": "",
+    "x": 40,
+    "y": -36,
+    "title": "Box 9",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "nw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "titleId": "box9-title"
+   }
+  },
+  {
+   "id": "box9-title",
+   "parent": "box9",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 9",
+   "code": "",
+   "role": "title",
+   "treeParent": "box9"
+  },
+  {
+   "id": "box10",
+   "parent": "layer1",
+   "order": 20,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box10",
+    "cat": "",
+    "x": 80,
+    "y": -36,
+    "title": "Box 10",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "se",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "titleId": "box10-title"
+   }
+  },
+  {
+   "id": "box10-title",
+   "parent": "box10",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 10",
+   "code": "",
+   "role": "title",
+   "treeParent": "box10"
+  },
+  {
+   "id": "box11",
+   "parent": "layer1",
+   "order": 22,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box11",
+    "cat": "",
+    "x": 120,
+    "y": -36,
+    "title": "Box 11",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "se",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 22,
+    "titleId": "box11-title"
+   }
+  },
+  {
+   "id": "box11-title",
+   "parent": "box11",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 11",
+   "code": "",
+   "role": "title",
+   "treeParent": "box11"
+  },
+  {
+   "id": "box12",
+   "parent": "layer1",
+   "order": 24,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box12",
+    "cat": "",
+    "x": 0,
+    "y": -54,
+    "title": "Box 12",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "sw",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 24,
+    "titleId": "box12-title"
+   }
+  },
+  {
+   "id": "box12-title",
+   "parent": "box12",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 12",
+   "code": "",
+   "role": "title",
+   "treeParent": "box12"
+  },
+  {
+   "id": "box13",
+   "parent": "layer1",
+   "order": 26,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box13",
+    "cat": "",
+    "x": 40,
+    "y": -54,
+    "title": "Box 13",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "triangle",
+     "markCorner": "sw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 26,
+    "titleId": "box13-title"
+   }
+  },
+  {
+   "id": "box13-title",
+   "parent": "box13",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 13",
+   "code": "",
+   "role": "title",
+   "treeParent": "box13"
+  },
+  {
+   "id": "box14",
+   "parent": "layer1",
+   "order": 28,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box14",
+    "cat": "",
+    "x": 80,
+    "y": -54,
+    "title": "Box 14",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 28,
+    "titleId": "box14-title"
+   }
+  },
+  {
+   "id": "box14-title",
+   "parent": "box14",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 14",
+   "code": "",
+   "role": "title",
+   "treeParent": "box14"
+  },
+  {
+   "id": "box15",
+   "parent": "layer1",
+   "order": 30,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box15",
+    "cat": "",
+    "x": 120,
+    "y": -54,
+    "title": "Box 15",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "box15-title"
+   }
+  },
+  {
+   "id": "box15-title",
+   "parent": "box15",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 15",
+   "code": "",
+   "role": "title",
+   "treeParent": "box15"
+  },
+  {
+   "id": "box16",
+   "parent": "layer1",
+   "order": 32,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box16",
+    "cat": "",
+    "x": 0,
+    "y": -72,
+    "title": "Box 16",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "nw",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "box16-title"
+   }
+  },
+  {
+   "id": "box16-title",
+   "parent": "box16",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 16",
+   "code": "",
+   "role": "title",
+   "treeParent": "box16"
+  },
+  {
+   "id": "box17",
+   "parent": "layer1",
+   "order": 34,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box17",
+    "cat": "",
+    "x": 40,
+    "y": -72,
+    "title": "Box 17",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "nw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34,
+    "titleId": "box17-title"
+   }
+  },
+  {
+   "id": "box17-title",
+   "parent": "box17",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 17",
+   "code": "",
+   "role": "title",
+   "treeParent": "box17"
+  },
+  {
+   "id": "box18",
+   "parent": "layer1",
+   "order": 36,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box18",
+    "cat": "",
+    "x": 80,
+    "y": -72,
+    "title": "Box 18",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "se",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 36,
+    "titleId": "box18-title"
+   }
+  },
+  {
+   "id": "box18-title",
+   "parent": "box18",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 18",
+   "code": "",
+   "role": "title",
+   "treeParent": "box18"
+  },
+  {
+   "id": "box19",
+   "parent": "layer1",
+   "order": 38,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box19",
+    "cat": "",
+    "x": 120,
+    "y": -72,
+    "title": "Box 19",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "se",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 38,
+    "titleId": "box19-title"
+   }
+  },
+  {
+   "id": "box19-title",
+   "parent": "box19",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 19",
+   "code": "",
+   "role": "title",
+   "treeParent": "box19"
+  },
+  {
+   "id": "box20",
+   "parent": "layer1",
+   "order": 40,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box20",
+    "cat": "",
+    "x": 0,
+    "y": -90,
+    "title": "Box 20",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "sw",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 40,
+    "titleId": "box20-title"
+   }
+  },
+  {
+   "id": "box20-title",
+   "parent": "box20",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 20",
+   "code": "",
+   "role": "title",
+   "treeParent": "box20"
+  },
+  {
+   "id": "box21",
+   "parent": "layer1",
+   "order": 42,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box21",
+    "cat": "",
+    "x": 40,
+    "y": -90,
+    "title": "Box 21",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue",
+     "border": "dotted",
+     "mark": "circle",
+     "markCorner": "sw",
+     "markSize": "medium",
+     "markColor": "#E04080"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 42,
+    "titleId": "box21-title"
+   }
+  },
+  {
+   "id": "box21-title",
+   "parent": "box21",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 21",
+   "code": "",
+   "role": "title",
+   "treeParent": "box21"
+  },
+  {
+   "id": "box22",
+   "parent": "layer1",
+   "order": 44,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box22",
+    "cat": "",
+    "x": 80,
+    "y": -90,
+    "title": "Box 22",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "pattern": "hatched",
+     "mark": "triangle"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 44,
+    "titleId": "box22-title"
+   }
+  },
+  {
+   "id": "box22-title",
+   "parent": "box22",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 22",
+   "code": "",
+   "role": "title",
+   "treeParent": "box22"
+  },
+  {
+   "id": "box23",
+   "parent": "layer1",
+   "order": 46,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "box23",
+    "cat": "",
+    "x": 120,
+    "y": -90,
+    "title": "Box 23",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green",
+     "border": "dashed",
+     "pattern": "dots",
+     "mark": "circle"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 46,
+    "titleId": "box23-title"
+   }
+  },
+  {
+   "id": "box23-title",
+   "parent": "box23",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box 23",
+   "code": "",
+   "role": "title",
+   "treeParent": "box23"
   }
  ]
 }

@@ -15,6 +15,7 @@ export function labelMetrics(text: string, st: LabelStyle | undefined, font: str
 export function labelOptions(st: LabelStyle = {}, defaults: LabelStyle = {}): string {
 	const v = { ...defaults, ...cleanLabel(st) };
 	return [
+		v.hidden ? 'opacity=0' : '',
 		v.pos !== undefined ? `pos=${v.pos}` : '',
 		v.side || '',
 		v.dx || v.dy ? `shift={(${v.dx || 0}mm,${v.dy || 0}mm)}` : '',

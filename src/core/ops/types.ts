@@ -1,7 +1,44 @@
 // The operations the editor sends.
+import type { FigLine, Endpoint } from '../model/item';
 import { AttachedLabel, Attachment, Figure, LabelStyle, ObjectStyle, StyleKind } from '../model/figure';
 
+export type TreeOp =
+	| {
+			op: 'addText';
+			id: string;
+			text: string;
+			code?: string;
+			parent: string;
+			index?: number;
+			x?: number;
+			y?: number;
+			placement?: LabelStyle;
+	  }
+	| { op: 'reparent'; id: string; newParent: string; index?: number }
+	| { op: 'detach' | 'ungroup' | 'deleteItem'; id: string }
+	| {
+			op: 'addLine';
+			id: string;
+			start: [number, number];
+			end: [number, number];
+			parent?: string;
+			layer?: string;
+			style?: ObjectStyle;
+			labels?: FigLine['labels'];
+	  }
+	| {
+			op: 'line';
+			id: string;
+			start?: [number, number];
+			end?: [number, number];
+			style?: ObjectStyle;
+			labels?: FigLine['labels'];
+	  }
+	| { op: 'text'; id: string; text?: string; code?: string; placement?: LabelStyle }
+	| { op: 'endpoint'; id: string; end: 'source' | 'target'; endpoint: Endpoint };
+
 export type Op =
+	| TreeOp
 	| { op: 'label'; index?: number; group?: string; slot?: number; text?: string; style?: LabelStyle }
 	| {
 			op: 'detachLabel';
@@ -44,6 +81,9 @@ export type Op =
 	  }
 	| {
 			op: 'addEdge';
+			id?: string;
+			source?: Endpoint;
+			target?: Endpoint;
 			styleKey?: string;
 			fromOffset?: number;
 			toOffset?: number;

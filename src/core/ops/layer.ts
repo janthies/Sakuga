@@ -1,4 +1,8 @@
 // Operations on layers.
+import { itemById, itemsOfLayer, childrenOf } from '../model/tree-queries';
+import { reparent } from './tree';
+import { lineItems } from '../model/tree';
+import { payload } from '../model/tree';
 import { Figure } from '../model/figure';
 import { insert, materializeLayers } from '../model/lines';
 import { edges, groupMembers, groups, layers, nodeLayer, nodes, opacity } from '../model/queries';
@@ -9,11 +13,8 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 	switch (op.op) {
 		case 'mergeLayers':
 			if (layers(fig).some((l) => l.id === op.target)) {
-				for (const n of nodes(fig)) {
-					if (op.ids.includes(nodeLayer(fig, n).id)) {
-						n.layer = op.target;
-					}
-				}
+				for (const layer of op.ids)
+					for (const i of childrenOf(fig, layer)) if (i.kind !== 'Connector') reparent(fig, i.id, op.target);
 				fig.lines = fig.lines.filter(
 					(l) => !(l.t === 'layer' && op.ids.includes(l.layer.id) && l.layer.id !== op.target),
 				);
@@ -25,6 +26,7 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 			if (!source || layers(fig).some((l) => l.id === op.newId)) {
 				break;
 			}
+			const ls = lineItems(fig).filter((l) => itemsOfLayer(fig, op.id).some((i) => i.id === l.id));
 			const ns = nodes(fig).filter((n) => n.layer === op.id),
 				map = new Map<string, string>();
 			const used = [...nodes(fig).map((n) => n.id), ...groups(fig).map((g) => g.id)];
@@ -34,18 +36,32 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 				map.set(id, key);
 				return key;
 			};
-			const gs = groups(fig).filter((g) => ns.some((n) => groupMembers(fig, g.id).includes(n)));
+			const gs = groups(fig).filter((g) => itemsOfLayer(fig, op.id).some((i) => i.id === g.id));
 			gs.forEach((g) => fresh(g.id));
 			ns.forEach((n) => fresh(n.id));
+			ls.forEach((l) => fresh(l.id));
 			const es = edges(fig).filter((e) => map.has(e.from) && map.has(e.to));
 			const at = fig.lines.findIndex((l) => l.t === 'layer' && l.layer.id === op.id);
 			fig.lines.splice(at + 1, 0, { t: 'layer', layer: { ...source, id: op.newId, name: source.name + ' copy' } });
-			gs.forEach((g) => insert(fig, { t: 'group', g: { ...g, id: map.get(g.id)!, parent: map.get(g.parent) || '' } }));
+			gs.forEach((g) =>
+				insert(fig, {
+					t: 'group',
+					g: {
+						...g,
+						titleId: undefined,
+						treeParent: map.get(g.treeParent || '') || op.newId,
+						id: map.get(g.id)!,
+						parent: map.get(g.parent) || '',
+					},
+				}),
+			);
 			ns.forEach((n) =>
 				insert(fig, {
 					t: 'node',
 					n: {
 						...n,
+						titleId: undefined,
+						treeParent: map.get(n.treeParent || '') || op.newId,
 						attachment: n.attachment
 							? { ...n.attachment, parent: map.get(n.attachment.parent) || n.attachment.parent }
 							: undefined,
@@ -57,13 +73,29 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 					},
 				}),
 			);
+			ls.forEach((l) =>
+				insert(fig, {
+					t: 'line',
+					line: {
+						...l,
+						id: map.get(l.id)!,
+						treeParent: map.get(l.treeParent || '') || op.newId,
+						start: [...l.start],
+						end: [...l.end],
+						labels: l.labels?.map((v) => ({ ...v, id: undefined, style: { ...v.style } })),
+					},
+				}),
+			);
 			es.forEach((e) =>
 				insert(fig, {
 					t: 'edge',
 					e: {
 						...e,
+						id: undefined,
+						labelId: undefined,
+						treeParent: undefined,
 						labelStyle: e.labelStyle && { ...e.labelStyle },
-						labels: e.labels?.map((l) => ({ ...l, style: { ...l.style } })),
+						labels: e.labels?.map((l) => ({ ...l, id: undefined, style: { ...l.style } })),
 						from: map.get(e.from)!,
 						to: map.get(e.to)!,
 						style: { ...e.style },
@@ -108,11 +140,8 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 			if (i < 0 || ls.length === 1) {
 				break;
 			}
-			for (const n of nodes(fig)) {
-				if (n.layer === op.id) {
-					n.layer = ls[i > 0 ? i - 1 : 1].id;
-				}
-			}
+			for (const item of childrenOf(fig, op.id))
+				if (item.kind !== 'Connector') reparent(fig, item.id, ls[i > 0 ? i - 1 : 1].id);
 			fig.lines = fig.lines.filter((l) => !(l.t === 'layer' && l.layer.id === op.id));
 			break;
 		}
@@ -153,6 +182,13 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 			break;
 		}
 		case 'hide':
+			for (const id of op.ids) {
+				const i = itemById(fig, id);
+				if (i) {
+					i.hidden = op.hidden;
+					payload(i).hidden = op.hidden;
+				}
+			}
 			for (const n of nodes(fig)) {
 				if (op.ids.includes(n.id)) {
 					n.hidden = op.hidden;
@@ -160,6 +196,13 @@ export function applyLayer(fig: Figure, op: LayerOp, run: Run): void {
 			}
 			break;
 		case 'lock':
+			for (const id of op.ids) {
+				const i = itemById(fig, id);
+				if (i) {
+					i.locked = op.locked;
+					payload(i).locked = op.locked;
+				}
+			}
 			for (const n of nodes(fig)) {
 				if (op.ids.includes(n.id)) {
 					n.locked = op.locked;

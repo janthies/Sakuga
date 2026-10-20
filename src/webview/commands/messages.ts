@@ -52,6 +52,8 @@ export function initCommandsMessages() {
 		if (!store.layers.some((l) => l.id === store.activeLayer)) {
 			store.activeLayer = store.layers[0].id;
 		}
+		store.items = m.items || [];
+		store.lines = m.lines || [];
 		store.nodes = m.nodes;
 		store.groups = m.groups || [];
 		const labelGroup = store.selN.label?.group;

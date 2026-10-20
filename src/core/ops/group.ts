@@ -57,25 +57,6 @@ export function applyGroup(fig: Figure, op: GroupOp, run: Run): void {
 			}
 			break;
 		}
-		case 'deleteGroup': {
-			const g = groups(fig).find((x) => x.id === op.id);
-			if (g) {
-				for (const n of nodes(fig)) {
-					if (n.group === g.id) {
-						n.group = g.parent;
-					}
-				}
-				for (const c of groups(fig)) {
-					if (c.parent === g.id) {
-						c.parent = g.parent;
-					}
-				}
-				fig.lines = fig.lines.filter(
-					(l) => !(l.t === 'group' && l.g === g) && !(l.t === 'edge' && (l.e.from === g.id || l.e.to === g.id)),
-				);
-			}
-			break;
-		}
 		case 'setGroup':
 			for (const n of nodes(fig)) {
 				if (op.ids.includes(n.id)) {

@@ -46,6 +46,6 @@ export function ungroupSelection() {
 	if (!store.selG) {
 		return;
 	}
-	post({ op: 'deleteGroup', id: store.selG });
+	post({ op: 'ungroup', id: store.selG });
 	store.selG = null;
 }

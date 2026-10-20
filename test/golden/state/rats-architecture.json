@@ -1,6 +1,1541 @@
 {
  "type": "state",
- "text": "% Sakuga figure\n% sakuga style box work {this work} peach legend\n% sakuga style box normal {Normal world} blue legend\n% sakuga style box secure {Secure world} red legend\n% sakuga style box hw {Hardware} grey legend\n% sakuga style box ok {Verifier side} green legend\n% sakuga style box rp {Relying party} peach legend\n% sakuga legend off\n% sakuga group att {Attester (constrained device)} solid grey titlePosition=above-center titleBold=true titleFont=small lineWidth=1 frameColor=#30343B\n% sakuga group nw {Normal world (untrusted)} dashed blue in=att titlePosition=above-left titleBold=true titleColor=#2D70A6 frameColor=#2D70A6 fill=tint fillStrength=18 outline=dashed\n% sakuga group sw {Secure world (SPE, TF-M)} dashed red in=att titlePosition=above-left titleBold=true titleColor=#CF3C50 frameColor=#CF3C50 fill=tint fillStrength=18 outline=dashed\n% sakuga group hw {Hardware root of trust} dashed grey in=att titlePosition=above-left titleBold=true titleColor=#6B7280 frameColor=#6B7280 fill=tint fillStrength=18 outline=dashed\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\definecolor{sgc1B4364}{HTML}{1B4364}\n\\definecolor{sgc1D1F23}{HTML}{1D1F23}\n\\definecolor{sgc2D70A6}{HTML}{2D70A6}\n\\definecolor{sgc30343B}{HTML}{30343B}\n\\definecolor{sgc40444D}{HTML}{40444D}\n\\definecolor{sgc666666}{HTML}{666666}\n\\definecolor{sgc6B7280}{HTML}{6B7280}\n\\definecolor{sgc707A8F}{HTML}{707A8F}\n\\definecolor{sgc777777}{HTML}{777777}\n\\definecolor{sgc7C2430}{HTML}{7C2430}\n\\definecolor{sgc804050}{HTML}{804050}\n\\definecolor{sgc858585}{HTML}{858585}\n\\definecolor{sgc997A7A}{HTML}{997A7A}\n\\definecolor{sgcCF3C50}{HTML}{CF3C50}\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  sg style/work/.style={sg box, fill=sgPeach},\n  sg style/normal/.style={sg box, fill=sgBlue!85},\n  sg style/secure/.style={sg box, fill=sgRed},\n  sg style/hw/.style={sg box, fill=sgGrey!70},\n  sg style/ok/.style={sg box, fill=sgGreen!85},\n  sg style/rp/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6] (app) at (0,0) {Application};\n\\node[sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6] (rtos) at (34,0) {RTOS / TCP/IP};\n\\node[sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6, line width=1.2pt] (client) at (68,0) {Attestation\\\\client};\n\\node[sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50] (store) at (0,-34) {Protected\\\\storage};\n\\node[sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50] (crypto) at (34,-34) {Crypto\\\\service};\n\\node[sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50, line width=1.2pt] (ias) at (68,-34) {Initial attest.\\\\service $^\\dagger$};\n\\node[sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (bl1) at (0,-68) {Boot ROM\\\\(BL1)};\n\\node[sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (otp) at (34,-68) {OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$};\n\\node[sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (rec) at (68,-68) {Boot record\\\\{\\scriptsize measurements}};\n\\node[sg style/ok, text width=36mm, minimum height=28mm, sg layer=layer1] (ver) at (140,-4) {\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}};\n\\node[sg style/hw, text width=18mm, minimum height=12mm, sg layer=layer1] (end) at (128,30) {\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$};\n\\node[sg style/hw, text width=18mm, minimum height=12mm, sg layer=layer1] (rvp) at (152,30) {\\textbf{Ref.\\ value}\\\\\\textbf{provider}};\n\\node[sg style/rp, text width=36mm, minimum height=17mm, sg layer=layer1] (rp) at (140,-68) {\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}};\n\\node[sg label, sg label height=8.76892209768922, text width=28mm, sg layer=layer1, text=sgc777777, font=\\sffamily\\scriptsize] (note) at (105,-43) {adversary controls\\\\network + NW};\n\\node[sg label, sg label height=6.16, text width=165mm, sg layer=layer1, text=sgc666666, font=\\sffamily\\scriptsize] (foot) at (65,-96) {$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.};\n% sakuga groups begin (generated from the group lines)\n\\begin{scope}[on background layer]\n\\node[inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-8.3) (84.93374999999999,8.3)}] (nw) {};\n\\node[inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-42.3) (84.93374999999999,-25.700000000000003)}] (sw) {};\n\\node[inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-83.3) (84.93374999999999,-59.7)}] (hw) {};\n\\node[inner sep=0pt, outer sep=0pt, fit={(-19.933750000000003,-86.3) (87.93374999999999,15.166057838660578)}] (att) {};\n\\path[sg frame solid, fill=none, draw=sgc30343B, solid, line cap=butt, line width=1pt] (att.south west) rectangle (att.north east);\n\\node[sg glabel, anchor=south, outer sep=0pt, text height=7.5pt, text depth=2.5pt, font=\\sffamily\\small\\bfseries, text=sgc1D1F23, text=sgc1D1F23, font=\\sffamily\\small\\bfseries] at (att.north) {Attester (constrained device)};\n\\path[sg frame dashed, fill=sgGrey!18, draw=sgc6B7280, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (hw.south west) rectangle (hw.north east);\n\\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\\sffamily\\scriptsize\\bfseries, text=sgc6B7280, text=sgc6B7280, font=\\sffamily\\scriptsize\\bfseries] at (hw.north west) {Hardware root of trust};\n\\path[sg frame dashed, fill=sgRed!18, draw=sgcCF3C50, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (sw.south west) rectangle (sw.north east);\n\\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\\sffamily\\scriptsize\\bfseries, text=sgcCF3C50, text=sgcCF3C50, font=\\sffamily\\scriptsize\\bfseries] at (sw.north west) {Secure world (SPE, TF-M)};\n\\path[sg frame dashed, fill=sgBlue!18, draw=sgc2D70A6, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (nw.south west) rectangle (nw.north east);\n\\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\\sffamily\\scriptsize\\bfseries, text=sgc2D70A6, text=sgc2D70A6, font=\\sffamily\\scriptsize\\bfseries] at (nw.north west) {Normal world (untrusted)};\n\\end{scope}\n% sakuga groups end\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg route=auto, sg implicit from, sg implicit to] (client.south) -- node[sg elabel, outer sep=0pt, text height=12pt, text depth=8pt, font=\\sffamily\\scriptsize] {NSC call\\\\\\texttt{get\\_token(N)}} (client.south |- ias.north);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65222c2273696465223a2261626f7665222c226479223a312e352c22636f6c6f72223a2223383034303530222c22626f6c64223a747275657d7d, sg route=auto, sg implicit from, sg implicit to] (ias.west) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, above, shift={(0mm,1.5mm)}, text=sgc804050, font=\\sffamily\\scriptsize\\bfseries] {sign} (ias.west -| crypto.east);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg route=auto, sg implicit from, sg implicit to] (otp.north) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {key} (otp.north |- crypto.south);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg route=auto, sg implicit from, sg implicit to] (rec.north) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {claims} (rec.north |- ias.south);\n\\draw[arr-dashed, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d7d, sg fixed, sg route=u] ([xshift=0mm,yshift=0mm]bl1.south) -- (0,-80.5) -- node[sg elabel, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {measures BL2 + images} (68,-80.5) -- ([xshift=0mm,yshift=0mm]rec.south);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a226c656674227d, sg route=auto, sg implicit from, sg implicit to] ([xshift=1.5mm]end.south) -- node[sg elabel, left, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {endorsements} ([xshift=1.5mm]end.south |- ver.north);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a227269676874227d, sg route=auto, sg implicit from, sg implicit to] ([xshift=-1.5mm]rvp.south) -- node[sg elabel, right, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {golden hashes} ([xshift=-1.5mm]rvp.south |- ver.north);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a2261626f7665227d, sg straight, sg route=straight, sg step=1] ([xshift=0mm,yshift=3.5mm]ver.west) -- node[sg elabel, above, outer sep=0pt, text height=6.145795275590551pt, text depth=4.097196850393701pt, font=\\sffamily\\scriptsize] {\\sglabel{1}{nonce $N$}} ([xshift=0mm,yshift=35.06697108066971mm]att.east);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65222c226478223a322c226479223a2d312e357d2c226c656761637953696465223a2262656c6f77227d, sg straight, sg route=straight, sg step=2] ([xshift=0mm,yshift=28.06697108066971mm]att.east) -- node[sg elabel, below, outer sep=0pt, text height=12pt, text depth=8pt, shift={(2mm,-1.5mm)}, font=\\sffamily\\scriptsize] {\\sglabel{2}{evidence\\\\(EAT / COSE)}} ([xshift=0mm,yshift=-3.5mm]ver.west);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a227269676874227d, sg route=auto, sg implicit from, sg implicit to, sg step=3] (ver.south) -- node[sg elabel, right, outer sep=0pt, text height=12pt, text depth=8pt, font=\\sffamily\\scriptsize] {\\sglabel{3}{attestation\\\\result}} (ver.south |- rp.north);\n\\draw[arr, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c226c656761637953696465223a2261626f7665227d, sg straight, sg route=straight, sg step=4] ([xshift=0mm,yshift=0mm]rp.west) -- node[sg elabel, above, outer sep=0pt, text height=12pt, text depth=8pt, font=\\sffamily\\scriptsize] {\\sglabel{4}{grant /\\\\quarantine}} ([xshift=0mm,yshift=-32.43302891933029mm]att.east);\n\\end{tikzpicture}\n",
+ "text": "% Sakuga figure\n% sakuga style box work {this work} peach legend\n% sakuga style box normal {Normal world} blue legend\n% sakuga style box secure {Secure world} red legend\n% sakuga style box hw {Hardware} grey legend\n% sakuga style box ok {Verifier side} green legend\n% sakuga style box rp {Relying party} peach legend\n% sakuga legend off\n% sakuga group att {Attester (constrained device)} solid grey titlePosition=above-center titleBold=true titleFont=small lineWidth=1 frameColor=#30343B\n% sakuga group nw {Normal world (untrusted)} dashed blue in=att titlePosition=above-left titleBold=true titleColor=#2D70A6 frameColor=#2D70A6 fill=tint fillStrength=18 outline=dashed\n% sakuga group sw {Secure world (SPE, TF-M)} dashed red in=att titlePosition=above-left titleBold=true titleColor=#CF3C50 frameColor=#CF3C50 fill=tint fillStrength=18 outline=dashed\n% sakuga group hw {Hardware root of trust} dashed grey in=att titlePosition=above-left titleBold=true titleColor=#6B7280 frameColor=#6B7280 fill=tint fillStrength=18 outline=dashed\n% sakuga tree 5b7b226964223a22617070222c226b696e64223a225368617065222c22706172656e74223a226e77222c226f72646572223a382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226170702d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22617070222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22617474222c226b696e64223a224672616d65222c22706172656e74223a226c6179657231222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226174742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22617474222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22626c31222c226b696e64223a225368617065222c22706172656e74223a226877222c226f72646572223a32302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22626c312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22626c31222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636c69656e74222c226b696e64223a225368617065222c22706172656e74223a226e77222c226f72646572223a31322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636c69656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22636c69656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f72222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a22617474222c226f72646572223a33362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22636c69656e74222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a22696173222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d3130222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a35342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22766572222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a227270222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d31302d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d3130222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d3131222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a35362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a227270222c22706f7274223a7b2273696465223a2277657374222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a22617474222c22706f7274223a7b2273696465223a2265617374222c22706f736974696f6e223a302e313830333535383738353035363832337d7d7d2c7b226964223a22636f6e6e6563746f722d31312d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d3131222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d32222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a227377222c226f72646572223a33382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22696173222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a2263727970746f222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d322d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d32222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d33222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a22617474222c226f72646572223a34302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a226f7470222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a2263727970746f222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d332d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d33222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d34222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a22617474222c226f72646572223a34322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22726563222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a22696173222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d342d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d34222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d35222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226877222c226f72646572223a34342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22626c31222c22706f7274223a7b2273696465223a22736f757468222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a22726563222c22706f7274223a7b2273696465223a22736f757468222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d352d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d35222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d36222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a34362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22656e64222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a22766572222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d362d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d36222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d37222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a34382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22727670222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a22766572222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d7d2c7b226964223a22636f6e6e6563746f722d372d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d37222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d38222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a35302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22766572222c22706f7274223a7b2273696465223a2277657374222c22706f736974696f6e223a302e3632357d7d2c22746172676574223a7b226964223a22617474222c22706f7274223a7b2273696465223a2265617374222c22706f736974696f6e223a302e383435363032393731333534353130357d7d7d2c7b226964223a22636f6e6e6563746f722d382d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d38222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d39222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a35322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a22617474222c22706f7274223a7b2273696465223a2265617374222c22706f736974696f6e223a302e373736363134333833393437393635337d7d2c22746172676574223a7b226964223a22766572222c22706f7274223a7b2273696465223a2277657374222c22706f736974696f6e223a302e3337357d7d7d2c7b226964223a22636f6e6e6563746f722d392d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f722d39222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22636f6e6e6563746f722d6c6162656c2d30222c226b696e64223a2254657874222c22706172656e74223a22636f6e6e6563746f72222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2263727970746f222c226b696e64223a225368617065222c22706172656e74223a227377222c226f72646572223a31362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2263727970746f2d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2263727970746f222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22656e64222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a32382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22656e642d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22656e64222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22666f6f74222c226b696e64223a2254657874222c22706172656e74223a226c6179657231222c226f72646572223a33352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226877222c226b696e64223a224672616d65222c22706172656e74223a22617474222c226f72646572223a362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2268772d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226877222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696173222c226b696e64223a225368617065222c22706172656e74223a227377222c226f72646572223a31382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226961732d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22696173222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e6f7465222c226b696e64223a2254657874222c22706172656e74223a226c6179657231222c226f72646572223a33342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e77222c226b696e64223a224672616d65222c22706172656e74223a22617474222c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e772d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e77222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f7470222c226b696e64223a225368617065222c22706172656e74223a226877222c226f72646572223a32322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f74702d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226f7470222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22726563222c226b696e64223a225368617065222c22706172656e74223a226877222c226f72646572223a32342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227265632d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22726563222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227270222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a33322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2272702d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227270222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2272746f73222c226b696e64223a225368617065222c22706172656e74223a226e77222c226f72646572223a31302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2272746f732d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2272746f73222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22727670222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a33302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227276702d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22727670222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2273746f7265222c226b696e64223a225368617065222c22706172656e74223a227377222c226f72646572223a31342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2273746f72652d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2273746f7265222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227377222c226b696e64223a224672616d65222c22706172656e74223a22617474222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2273772d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227377222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22766572222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a32362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227665722d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22766572222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d5d\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\definecolor{sgc1B4364}{HTML}{1B4364}\n\\definecolor{sgc1D1F23}{HTML}{1D1F23}\n\\definecolor{sgc2D70A6}{HTML}{2D70A6}\n\\definecolor{sgc30343B}{HTML}{30343B}\n\\definecolor{sgc40444D}{HTML}{40444D}\n\\definecolor{sgc666666}{HTML}{666666}\n\\definecolor{sgc6B7280}{HTML}{6B7280}\n\\definecolor{sgc707A8F}{HTML}{707A8F}\n\\definecolor{sgc777777}{HTML}{777777}\n\\definecolor{sgc7C2430}{HTML}{7C2430}\n\\definecolor{sgc804050}{HTML}{804050}\n\\definecolor{sgc858585}{HTML}{858585}\n\\definecolor{sgc997A7A}{HTML}{997A7A}\n\\definecolor{sgcCF3C50}{HTML}{CF3C50}\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  sg style/work/.style={sg box, fill=sgPeach},\n  sg style/normal/.style={sg box, fill=sgBlue!85},\n  sg style/secure/.style={sg box, fill=sgRed},\n  sg style/hw/.style={sg box, fill=sgGrey!70},\n  sg style/ok/.style={sg box, fill=sgGreen!85},\n  sg style/rp/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\\sffamily\\scriptsize,fill=white,inner sep=1pt},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg shape, sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6] (app) at (0,0) {Application};\n\\node[sg shape, sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6] (rtos) at (34,0) {RTOS / TCP/IP};\n\\node[sg shape, sg style/normal, minimum height=11mm, sg layer=layer1, sg in=nw, fill=white, draw=sgc2D70A6, line width=1.2pt] (client) at (68,0) {Attestation\\\\client};\n\\node[sg shape, sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50] (store) at (0,-34) {Protected\\\\storage};\n\\node[sg shape, sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50] (crypto) at (34,-34) {Crypto\\\\service};\n\\node[sg shape, sg style/secure, minimum height=11mm, sg layer=layer1, sg in=sw, fill=white, draw=sgcCF3C50, line width=1.2pt] (ias) at (68,-34) {Initial attest.\\\\service $^\\dagger$};\n\\node[sg shape, sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (bl1) at (0,-68) {Boot ROM\\\\(BL1)};\n\\node[sg shape, sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (otp) at (34,-68) {OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$};\n\\node[sg shape, sg style/hw, minimum height=11mm, sg layer=layer1, sg in=hw, fill=white, draw=sgc6B7280] (rec) at (68,-68) {Boot record\\\\{\\scriptsize measurements}};\n\\node[sg shape, sg style/ok, text width=36mm, minimum height=28mm, sg layer=layer1] (ver) at (140,-4) {\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}};\n\\node[sg shape, sg style/hw, text width=18mm, minimum height=12mm, sg layer=layer1] (end) at (128,30) {\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$};\n\\node[sg shape, sg style/hw, text width=18mm, minimum height=12mm, sg layer=layer1] (rvp) at (152,30) {\\textbf{Ref.\\ value}\\\\\\textbf{provider}};\n\\node[sg shape, sg style/rp, text width=36mm, minimum height=17mm, sg layer=layer1] (rp) at (140,-68) {\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}};\n\\node[sg text, sg label height=8.76892209768922, text width=28mm, sg layer=layer1, text=sgc777777, font=\\sffamily\\scriptsize] (note) at (105,-43) {adversary controls\\\\network + NW};\n\\node[sg text, sg label height=6.16, text width=165mm, sg layer=layer1, text=sgc666666, font=\\sffamily\\scriptsize] (foot) at (65,-96) {$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.};\n% sakuga groups begin (generated from the group lines)\n\\begin{scope}[on background layer]\n\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-8.3) (84.93374999999999,8.3)}] (nw) {};\n\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-42.3) (84.93374999999999,-25.700000000000003)}] (sw) {};\n\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(-16.933750000000003,-83.3) (84.93374999999999,-59.7)}] (hw) {};\n\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(-19.933750000000003,-86.3) (87.93374999999999,15.166057838660578)}] (att) {};\n\\path[sg frame solid, fill=none, draw=sgc30343B, solid, line cap=butt, line width=1pt] (att.south west) rectangle (att.north east);\n\\node[sg glabel, anchor=south, outer sep=0pt, text height=7.5pt, text depth=2.5pt, font=\\sffamily\\small\\bfseries, text=sgc1D1F23, text=sgc1D1F23, font=\\sffamily\\small\\bfseries] at (att.north) {Attester (constrained device)};\n\\path[sg frame dashed, fill=sgGrey!18, draw=sgc6B7280, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (hw.south west) rectangle (hw.north east);\n\\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\\sffamily\\scriptsize\\bfseries, text=sgc6B7280, text=sgc6B7280, font=\\sffamily\\scriptsize\\bfseries] at (hw.north west) {Hardware root of trust};\n\\path[sg frame dashed, fill=sgRed!18, draw=sgcCF3C50, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (sw.south west) rectangle (sw.north east);\n\\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\\sffamily\\scriptsize\\bfseries, text=sgcCF3C50, text=sgcCF3C50, font=\\sffamily\\scriptsize\\bfseries] at (sw.north west) {Secure world (SPE, TF-M)};\n\\path[sg frame dashed, fill=sgBlue!18, draw=sgc2D70A6, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (nw.south west) rectangle (nw.north east);\n\\node[sg glabel, anchor=south west, outer sep=0pt, text height=6pt, text depth=2pt, font=\\sffamily\\scriptsize\\bfseries, text=sgc2D70A6, text=sgc2D70A6, font=\\sffamily\\scriptsize\\bfseries] at (nw.north west) {Normal world (untrusted)};\n\\end{scope}\n% sakuga groups end\n\\draw[sg conn, sg id=connector, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a224e53432063616c6c5c5c5c5c5c5c7465787474747b6765745c5c5f746f6b656e284e297d227d, sg route=auto, sg implicit from, sg implicit to] (client.south) -- node[sg label, outer sep=0pt, text height=12pt, text depth=8pt, font=\\sffamily\\scriptsize] {NSC call\\\\\\texttt{get\\_token(N)}} (client.south |- ias.north);\n\\draw[sg conn, sg id=connector-2, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65222c2273696465223a2261626f7665222c226479223a312e352c22636f6c6f72223a2223383034303530222c22626f6c64223a747275657d2c2274657874223a227369676e227d, sg route=auto, sg implicit from, sg implicit to] (ias.west) -- node[sg label, outer sep=0pt, text height=6pt, text depth=4pt, above, shift={(0mm,1.5mm)}, text=sgc804050, font=\\sffamily\\scriptsize\\bfseries] {sign} (ias.west -| crypto.east);\n\\draw[sg conn, sg id=connector-3, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a226b6579227d, sg route=auto, sg implicit from, sg implicit to] (otp.north) -- node[sg label, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {key} (otp.north |- crypto.south);\n\\draw[sg conn, sg id=connector-4, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a22636c61696d73227d, sg route=auto, sg implicit from, sg implicit to] (rec.north) -- node[sg label, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {claims} (rec.north |- ias.south);\n\\draw[sg conn, arr-dashed, sg id=connector-5, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a226d6561737572657320424c32202b20696d61676573227d, sg fixed, sg route=u] ([xshift=0mm]bl1.south) -- (0,-80.5) -- node[sg label, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {measures BL2 + images} (68,-80.5) -- ([xshift=0mm]rec.south);\n\\draw[sg conn, sg id=connector-6, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a22656e646f7273656d656e7473222c226c656761637953696465223a226c656674227d, sg route=auto, sg implicit from, sg implicit to] ([xshift=1.5mm]end.south) -- node[sg label, left, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {endorsements} ([xshift=1.5mm]end.south |- ver.north);\n\\draw[sg conn, sg id=connector-7, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a22676f6c64656e20686173686573222c226c656761637953696465223a227269676874227d, sg route=auto, sg implicit from, sg implicit to] ([xshift=-1.5mm]rvp.south) -- node[sg label, right, outer sep=0pt, text height=6pt, text depth=4pt, font=\\sffamily\\scriptsize] {golden hashes} ([xshift=-1.5mm]rvp.south |- ver.north);\n\\draw[sg conn, sg id=connector-8, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a226e6f6e636520244e24222c226c656761637953696465223a2261626f7665227d, sg straight, sg route=straight, sg step=1] ([yshift=3.5mm]ver.west) -- node[sg label, above, outer sep=0pt, text height=6.145795275590551pt, text depth=4.097196850393701pt, font=\\sffamily\\scriptsize] {\\sglabel{1}{nonce $N$}} ([yshift=35.067mm]att.east);\n\\draw[sg conn, sg id=connector-9, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65222c226478223a322c226479223a2d312e357d2c2274657874223a2265766964656e63655c5c5c5c28454154202f20434f534529222c226c656761637953696465223a2262656c6f77227d, sg straight, sg route=straight, sg step=2] ([yshift=28.067mm]att.east) -- node[sg label, below, outer sep=0pt, text height=12pt, text depth=8pt, shift={(2mm,-1.5mm)}, font=\\sffamily\\scriptsize] {\\sglabel{2}{evidence\\\\(EAT / COSE)}} ([yshift=-3.5mm]ver.west);\n\\draw[sg conn, sg id=connector-10, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a226174746573746174696f6e5c5c5c5c726573756c74222c226c656761637953696465223a227269676874227d, sg route=auto, sg implicit from, sg implicit to, sg step=3] (ver.south) -- node[sg label, right, outer sep=0pt, text height=12pt, text depth=8pt, font=\\sffamily\\scriptsize] {\\sglabel{3}{attestation\\\\result}} (ver.south |- rp.north);\n\\draw[sg conn, sg id=connector-11, sg labels=7b227374796c65223a7b22666f6e74223a2273637269707473697a65227d2c2274657874223a226772616e74202f5c5c5c5c71756172616e74696e65222c226c656761637953696465223a2261626f7665227d, sg straight, sg route=straight, sg step=4] ([yshift=0mm]rp.west) -- node[sg label, above, outer sep=0pt, text height=12pt, text depth=8pt, font=\\sffamily\\scriptsize] {\\sglabel{4}{grant /\\\\quarantine}} ([yshift=-32.433mm]att.east);\n\\end{tikzpicture}\n",
+ "items": [
+  {
+   "id": "att",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "att",
+    "name": "Attester (constrained device)",
+    "frame": "solid",
+    "color": "grey",
+    "parent": "",
+    "titlePosition": "above-center",
+    "titleBold": true,
+    "titleFont": "small",
+    "lineWidth": 1,
+    "frameColor": "#30343B",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "att-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "att-title",
+   "parent": "att",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attester (constrained device)",
+   "code": "",
+   "role": "title",
+   "treeParent": "att"
+  },
+  {
+   "id": "nw",
+   "parent": "att",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "nw",
+    "name": "Normal world (untrusted)",
+    "frame": "dashed",
+    "color": "blue",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#2D70A6",
+    "frameColor": "#2D70A6",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 2,
+    "titleId": "nw-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "nw-title",
+   "parent": "nw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Normal world (untrusted)",
+   "code": "",
+   "role": "title",
+   "treeParent": "nw"
+  },
+  {
+   "id": "sw",
+   "parent": "att",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "sw",
+    "name": "Secure world (SPE, TF-M)",
+    "frame": "dashed",
+    "color": "red",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#CF3C50",
+    "frameColor": "#CF3C50",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 4,
+    "titleId": "sw-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "sw-title",
+   "parent": "sw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Secure world (SPE, TF-M)",
+   "code": "",
+   "role": "title",
+   "treeParent": "sw"
+  },
+  {
+   "id": "hw",
+   "parent": "att",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "hw",
+    "name": "Hardware root of trust",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": "att",
+    "titlePosition": "above-left",
+    "titleBold": true,
+    "titleColor": "#6B7280",
+    "frameColor": "#6B7280",
+    "fill": "tint",
+    "fillStrength": 18,
+    "outline": "dashed",
+    "treeParent": "att",
+    "order": 6,
+    "titleId": "hw-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "hw-title",
+   "parent": "hw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Hardware root of trust",
+   "code": "",
+   "role": "title",
+   "treeParent": "hw"
+  },
+  {
+   "id": "app",
+   "parent": "nw",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "app",
+    "cat": "normal",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6"
+    },
+    "extra": [],
+    "treeParent": "nw",
+    "order": 8,
+    "titleId": "app-title"
+   }
+  },
+  {
+   "id": "app-title",
+   "parent": "app",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Application",
+   "code": "",
+   "role": "title",
+   "treeParent": "app"
+  },
+  {
+   "id": "rtos",
+   "parent": "nw",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rtos",
+    "cat": "normal",
+    "x": 34,
+    "y": 0,
+    "title": "RTOS / TCP/IP",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6"
+    },
+    "extra": [],
+    "treeParent": "nw",
+    "order": 10,
+    "titleId": "rtos-title"
+   }
+  },
+  {
+   "id": "rtos-title",
+   "parent": "rtos",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "RTOS / TCP/IP",
+   "code": "",
+   "role": "title",
+   "treeParent": "rtos"
+  },
+  {
+   "id": "client",
+   "parent": "nw",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "client",
+    "cat": "normal",
+    "x": 68,
+    "y": 0,
+    "title": "Attestation\\\\client",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "nw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#2D70A6",
+     "weight": "thick"
+    },
+    "extra": [],
+    "treeParent": "nw",
+    "order": 12,
+    "titleId": "client-title"
+   }
+  },
+  {
+   "id": "client-title",
+   "parent": "client",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attestation\\\\client",
+   "code": "",
+   "role": "title",
+   "treeParent": "client"
+  },
+  {
+   "id": "store",
+   "parent": "sw",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "store",
+    "cat": "secure",
+    "x": 0,
+    "y": -34,
+    "title": "Protected\\\\storage",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50"
+    },
+    "extra": [],
+    "treeParent": "sw",
+    "order": 14,
+    "titleId": "store-title"
+   }
+  },
+  {
+   "id": "store-title",
+   "parent": "store",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Protected\\\\storage",
+   "code": "",
+   "role": "title",
+   "treeParent": "store"
+  },
+  {
+   "id": "crypto",
+   "parent": "sw",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "crypto",
+    "cat": "secure",
+    "x": 34,
+    "y": -34,
+    "title": "Crypto\\\\service",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50"
+    },
+    "extra": [],
+    "treeParent": "sw",
+    "order": 16,
+    "titleId": "crypto-title"
+   }
+  },
+  {
+   "id": "crypto-title",
+   "parent": "crypto",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Crypto\\\\service",
+   "code": "",
+   "role": "title",
+   "treeParent": "crypto"
+  },
+  {
+   "id": "ias",
+   "parent": "sw",
+   "order": 18,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "ias",
+    "cat": "secure",
+    "x": 68,
+    "y": -34,
+    "title": "Initial attest.\\\\service $^\\dagger$",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "sw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#CF3C50",
+     "weight": "thick"
+    },
+    "extra": [],
+    "treeParent": "sw",
+    "order": 18,
+    "titleId": "ias-title"
+   }
+  },
+  {
+   "id": "ias-title",
+   "parent": "ias",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Initial attest.\\\\service $^\\dagger$",
+   "code": "",
+   "role": "title",
+   "treeParent": "ias"
+  },
+  {
+   "id": "bl1",
+   "parent": "hw",
+   "order": 20,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "bl1",
+    "cat": "hw",
+    "x": 0,
+    "y": -68,
+    "title": "Boot ROM\\\\(BL1)",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "order": 20,
+    "titleId": "bl1-title"
+   }
+  },
+  {
+   "id": "bl1-title",
+   "parent": "bl1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Boot ROM\\\\(BL1)",
+   "code": "",
+   "role": "title",
+   "treeParent": "bl1"
+  },
+  {
+   "id": "otp",
+   "parent": "hw",
+   "order": 22,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "otp",
+    "cat": "hw",
+    "x": 34,
+    "y": -68,
+    "title": "OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "order": 22,
+    "titleId": "otp-title"
+   }
+  },
+  {
+   "id": "otp-title",
+   "parent": "otp",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "OTP / eFuse\\\\\\textbf{IAK}$_{\\mathrm{priv}}$",
+   "code": "",
+   "role": "title",
+   "treeParent": "otp"
+  },
+  {
+   "id": "rec",
+   "parent": "hw",
+   "order": 24,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rec",
+    "cat": "hw",
+    "x": 68,
+    "y": -68,
+    "title": "Boot record\\\\{\\scriptsize measurements}",
+    "code": "",
+    "width": 26,
+    "minh": 11,
+    "layer": "layer1",
+    "group": "hw",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "white",
+     "color": "#6B7280"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "order": 24,
+    "titleId": "rec-title"
+   }
+  },
+  {
+   "id": "rec-title",
+   "parent": "rec",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Boot record\\\\{\\scriptsize measurements}",
+   "code": "",
+   "role": "title",
+   "treeParent": "rec"
+  },
+  {
+   "id": "ver",
+   "parent": "layer1",
+   "order": 26,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "ver",
+    "cat": "ok",
+    "x": 140,
+    "y": -4,
+    "title": "\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}",
+    "code": "",
+    "width": 36,
+    "minh": 28,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 26,
+    "titleId": "ver-title"
+   }
+  },
+  {
+   "id": "ver-title",
+   "parent": "ver",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Verifier}\\\\[2pt]{\\scriptsize appraisal policy}\\\\{\\scriptsize freshness check (N)}\\\\{\\scriptsize $\\mathrm{Vrfy}(\\mathrm{IAK_{pub}},\\sigma)$}",
+   "code": "",
+   "role": "title",
+   "treeParent": "ver"
+  },
+  {
+   "id": "end",
+   "parent": "layer1",
+   "order": 28,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "end",
+    "cat": "hw",
+    "x": 128,
+    "y": 30,
+    "title": "\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$",
+    "code": "",
+    "width": 18,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 28,
+    "titleId": "end-title"
+   }
+  },
+  {
+   "id": "end-title",
+   "parent": "end",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Endorser}\\\\IAK$_{\\mathrm{pub}}$",
+   "code": "",
+   "role": "title",
+   "treeParent": "end"
+  },
+  {
+   "id": "rvp",
+   "parent": "layer1",
+   "order": 30,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rvp",
+    "cat": "hw",
+    "x": 152,
+    "y": 30,
+    "title": "\\textbf{Ref.\\ value}\\\\\\textbf{provider}",
+    "code": "",
+    "width": 18,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "rvp-title"
+   }
+  },
+  {
+   "id": "rvp-title",
+   "parent": "rvp",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Ref.\\ value}\\\\\\textbf{provider}",
+   "code": "",
+   "role": "title",
+   "treeParent": "rvp"
+  },
+  {
+   "id": "rp",
+   "parent": "layer1",
+   "order": 32,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "rp",
+    "cat": "rp",
+    "x": 140,
+    "y": -68,
+    "title": "\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}",
+    "code": "",
+    "width": 36,
+    "minh": 17,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "rp-title"
+   }
+  },
+  {
+   "id": "rp-title",
+   "parent": "rp",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "\\textbf{Relying party}\\\\{\\scriptsize fleet backend / gateway}",
+   "code": "",
+   "role": "title",
+   "treeParent": "rp"
+  },
+  {
+   "id": "note",
+   "parent": "layer1",
+   "order": 34,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "adversary controls\\\\network + NW",
+   "code": "",
+   "node": {
+    "id": "note",
+    "kind": "label",
+    "cat": "",
+    "x": 105,
+    "y": -43,
+    "title": "adversary controls\\\\network + NW",
+    "code": "",
+    "width": 28,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#777777",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34
+   }
+  },
+  {
+   "id": "foot",
+   "parent": "layer1",
+   "order": 35,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.",
+   "code": "",
+   "node": {
+    "id": "foot",
+    "kind": "label",
+    "cat": "",
+    "x": 65,
+    "y": -96,
+    "title": "$^\\dagger$ attested component \\quad Roles after RATS (RFC 9334); token format per PSA/EAT.",
+    "code": "",
+    "width": 165,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#666666",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 35
+   }
+  },
+  {
+   "id": "connector",
+   "parent": "att",
+   "order": 36,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector",
+    "from": "client",
+    "to": "ias",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "NSC call\\\\\\texttt{get\\_token(N)}",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "att",
+    "order": 36,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "client",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ias",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-label-0",
+   "parent": "connector",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "NSC call\\\\\\texttt{get\\_token(N)}",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector"
+  },
+  {
+   "id": "connector-2",
+   "parent": "sw",
+   "order": 38,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-2",
+    "from": "ias",
+    "to": "crypto",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "sign",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize",
+     "side": "above",
+     "dy": 1.5,
+     "color": "#804050",
+     "bold": true
+    },
+    "treeParent": "sw",
+    "order": 38,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-2-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ias",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "crypto",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-2-label-0",
+   "parent": "connector-2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "sign",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize",
+    "side": "above",
+    "dy": 1.5,
+    "color": "#804050",
+    "bold": true
+   },
+   "treeParent": "connector-2"
+  },
+  {
+   "id": "connector-3",
+   "parent": "att",
+   "order": 40,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-3",
+    "from": "otp",
+    "to": "crypto",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "key",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "att",
+    "order": 40,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-3-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "otp",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "crypto",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-3-label-0",
+   "parent": "connector-3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "key",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-3"
+  },
+  {
+   "id": "connector-4",
+   "parent": "att",
+   "order": 42,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-4",
+    "from": "rec",
+    "to": "ias",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "claims",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "att",
+    "order": 42,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "rec",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ias",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-4-label-0",
+   "parent": "connector-4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "claims",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-4"
+  },
+  {
+   "id": "connector-5",
+   "parent": "hw",
+   "order": 44,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-5",
+    "from": "bl1",
+    "to": "rec",
+    "fromAnchor": "south",
+    "toAnchor": "south",
+    "kind": "arr-dashed",
+    "route": "u",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "measures BL2 + images",
+    "style": {},
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "fromOffset": 0,
+    "toOffset": 0,
+    "treeParent": "hw",
+    "order": 44,
+    "fromPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "south",
+     "position": 0.5
+    },
+    "labelId": "connector-5-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "bl1",
+    "port": {
+     "side": "south",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "rec",
+    "port": {
+     "side": "south",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-5-label-0",
+   "parent": "connector-5",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "measures BL2 + images",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-5"
+  },
+  {
+   "id": "connector-6",
+   "parent": "layer1",
+   "order": 46,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-6",
+    "from": "end",
+    "to": "ver",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "endorsements",
+    "style": {
+     "side": "left"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "layer1",
+    "order": 46,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-6-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "end",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ver",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-6-label-0",
+   "parent": "connector-6",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "endorsements",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-6"
+  },
+  {
+   "id": "connector-7",
+   "parent": "layer1",
+   "order": 48,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-7",
+    "from": "rvp",
+    "to": "ver",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "golden hashes",
+    "style": {
+     "side": "right"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "layer1",
+    "order": 48,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "rvp",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ver",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-7-label-0",
+   "parent": "connector-7",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "golden hashes",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-7"
+  },
+  {
+   "id": "connector-8",
+   "parent": "layer1",
+   "order": 50,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-8",
+    "from": "ver",
+    "to": "att",
+    "fromAnchor": "west",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "nonce $N$",
+    "style": {
+     "step": 1,
+     "side": "above"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "fromOffset": 3.5,
+    "toOffset": 35.067,
+    "treeParent": "layer1",
+    "order": 50,
+    "fromPort": {
+     "side": "west",
+     "position": 0.625
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.8456
+    },
+    "labelId": "connector-8-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ver",
+    "port": {
+     "side": "west",
+     "position": 0.625
+    }
+   },
+   "target": {
+    "id": "att",
+    "port": {
+     "side": "east",
+     "position": 0.8456
+    }
+   }
+  },
+  {
+   "id": "connector-8-label-0",
+   "parent": "connector-8",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "nonce $N$",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-8"
+  },
+  {
+   "id": "connector-9",
+   "parent": "layer1",
+   "order": 52,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-9",
+    "from": "att",
+    "to": "ver",
+    "fromAnchor": "east",
+    "toAnchor": "west",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "evidence\\\\(EAT / COSE)",
+    "style": {
+     "step": 2,
+     "side": "below"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize",
+     "dx": 2,
+     "dy": -1.5
+    },
+    "fromOffset": 28.067,
+    "toOffset": -3.5,
+    "treeParent": "layer1",
+    "order": 52,
+    "fromPort": {
+     "side": "east",
+     "position": 0.7766
+    },
+    "toPort": {
+     "side": "west",
+     "position": 0.375
+    },
+    "labelId": "connector-9-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "att",
+    "port": {
+     "side": "east",
+     "position": 0.7766
+    }
+   },
+   "target": {
+    "id": "ver",
+    "port": {
+     "side": "west",
+     "position": 0.375
+    }
+   }
+  },
+  {
+   "id": "connector-9-label-0",
+   "parent": "connector-9",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "evidence\\\\(EAT / COSE)",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize",
+    "dx": 2,
+    "dy": -1.5
+   },
+   "treeParent": "connector-9"
+  },
+  {
+   "id": "connector-10",
+   "parent": "layer1",
+   "order": 54,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-10",
+    "from": "ver",
+    "to": "rp",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "attestation\\\\result",
+    "style": {
+     "step": 3,
+     "side": "right"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "treeParent": "layer1",
+    "order": 54,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-10-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ver",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "rp",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-10-label-0",
+   "parent": "connector-10",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "attestation\\\\result",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-10"
+  },
+  {
+   "id": "connector-11",
+   "parent": "layer1",
+   "order": 56,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-11",
+    "from": "rp",
+    "to": "att",
+    "fromAnchor": "west",
+    "toAnchor": "east",
+    "kind": "arr",
+    "route": "straight",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "grant /\\\\quarantine",
+    "style": {
+     "step": 4,
+     "side": "above"
+    },
+    "extra": [],
+    "labelStyle": {
+     "font": "scriptsize"
+    },
+    "fromOffset": 0,
+    "toOffset": -32.433,
+    "treeParent": "layer1",
+    "order": 56,
+    "fromPort": {
+     "side": "west",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "east",
+     "position": 0.1804
+    },
+    "labelId": "connector-11-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "rp",
+    "port": {
+     "side": "west",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "att",
+    "port": {
+     "side": "east",
+     "position": 0.1804
+    }
+   }
+  },
+  {
+   "id": "connector-11-label-0",
+   "parent": "connector-11",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "grant /\\\\quarantine",
+   "code": "",
+   "role": "label",
+   "placement": {
+    "font": "scriptsize"
+   },
+   "treeParent": "connector-11"
+  }
+ ],
+ "lines": [],
  "nodes": [
   {
    "id": "app",
@@ -20,6 +1555,9 @@
     "color": "#2D70A6"
    },
    "extra": [],
+   "treeParent": "nw",
+   "order": 8,
+   "titleId": "app-title",
    "overrides": [
     "fill",
     "color"
@@ -43,6 +1581,9 @@
     "color": "#2D70A6"
    },
    "extra": [],
+   "treeParent": "nw",
+   "order": 10,
+   "titleId": "rtos-title",
    "overrides": [
     "fill",
     "color"
@@ -67,6 +1608,9 @@
     "weight": "thick"
    },
    "extra": [],
+   "treeParent": "nw",
+   "order": 12,
+   "titleId": "client-title",
    "overrides": [
     "fill",
     "color",
@@ -92,6 +1636,9 @@
     "color": "#CF3C50"
    },
    "extra": [],
+   "treeParent": "sw",
+   "order": 14,
+   "titleId": "store-title",
    "overrides": [
     "fill",
     "color"
@@ -115,6 +1662,9 @@
     "color": "#CF3C50"
    },
    "extra": [],
+   "treeParent": "sw",
+   "order": 16,
+   "titleId": "crypto-title",
    "overrides": [
     "fill",
     "color"
@@ -139,6 +1689,9 @@
     "weight": "thick"
    },
    "extra": [],
+   "treeParent": "sw",
+   "order": 18,
+   "titleId": "ias-title",
    "overrides": [
     "fill",
     "color",
@@ -164,6 +1717,9 @@
     "color": "#6B7280"
    },
    "extra": [],
+   "treeParent": "hw",
+   "order": 20,
+   "titleId": "bl1-title",
    "overrides": [
     "fill",
     "color"
@@ -187,6 +1743,9 @@
     "color": "#6B7280"
    },
    "extra": [],
+   "treeParent": "hw",
+   "order": 22,
+   "titleId": "otp-title",
    "overrides": [
     "fill",
     "color"
@@ -210,6 +1769,9 @@
     "color": "#6B7280"
    },
    "extra": [],
+   "treeParent": "hw",
+   "order": 24,
+   "titleId": "rec-title",
    "overrides": [
     "fill",
     "color"
@@ -232,6 +1794,9 @@
     "fill": "green"
    },
    "extra": [],
+   "treeParent": "layer1",
+   "order": 26,
+   "titleId": "ver-title",
    "overrides": []
   },
   {
@@ -251,6 +1816,9 @@
     "fill": "grey"
    },
    "extra": [],
+   "treeParent": "layer1",
+   "order": 28,
+   "titleId": "end-title",
    "overrides": []
   },
   {
@@ -270,6 +1838,9 @@
     "fill": "grey"
    },
    "extra": [],
+   "treeParent": "layer1",
+   "order": 30,
+   "titleId": "rvp-title",
    "overrides": []
   },
   {
@@ -289,6 +1860,9 @@
     "fill": "peach"
    },
    "extra": [],
+   "treeParent": "layer1",
+   "order": 32,
+   "titleId": "rp-title",
    "overrides": []
   },
   {
@@ -310,6 +1884,8 @@
     "font": "scriptsize"
    },
    "extra": [],
+   "treeParent": "layer1",
+   "order": 34,
    "overrides": []
   },
   {
@@ -331,11 +1907,14 @@
     "font": "scriptsize"
    },
    "extra": [],
+   "treeParent": "layer1",
+   "order": 35,
    "overrides": []
   }
  ],
  "edges": [
   {
+   "id": "connector",
    "from": "client",
    "to": "ias",
    "kind": "arr",
@@ -349,9 +1928,23 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "treeParent": "att",
+   "order": 36,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-2",
    "from": "ias",
    "to": "crypto",
    "kind": "arr",
@@ -369,9 +1962,23 @@
     "color": "#804050",
     "bold": true
    },
+   "treeParent": "sw",
+   "order": 38,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-2-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-3",
    "from": "otp",
    "to": "crypto",
    "kind": "arr",
@@ -385,9 +1992,23 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "treeParent": "att",
+   "order": 40,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-3-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-4",
    "from": "rec",
    "to": "ias",
    "kind": "arr",
@@ -401,9 +2022,23 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "treeParent": "att",
+   "order": 42,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-4-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-5",
    "from": "bl1",
    "to": "rec",
    "fromAnchor": "south",
@@ -419,9 +2054,25 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "fromOffset": 0,
+   "toOffset": 0,
+   "treeParent": "hw",
+   "order": 44,
+   "fromPort": {
+    "side": "south",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "south",
+    "position": 0.5
+   },
+   "labelId": "connector-5-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-6",
    "from": "end",
    "to": "ver",
    "kind": "arr",
@@ -437,9 +2088,23 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "treeParent": "layer1",
+   "order": 46,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-6-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-7",
    "from": "rvp",
    "to": "ver",
    "kind": "arr",
@@ -455,9 +2120,23 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "treeParent": "layer1",
+   "order": 48,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-7-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-8",
    "from": "ver",
    "to": "att",
    "fromAnchor": "west",
@@ -476,9 +2155,25 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "fromOffset": 3.5,
+   "toOffset": 35.067,
+   "treeParent": "layer1",
+   "order": 50,
+   "fromPort": {
+    "side": "west",
+    "position": 0.625
+   },
+   "toPort": {
+    "side": "east",
+    "position": 0.8456
+   },
+   "labelId": "connector-8-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-9",
    "from": "att",
    "to": "ver",
    "fromAnchor": "east",
@@ -499,9 +2194,25 @@
     "dx": 2,
     "dy": -1.5
    },
+   "fromOffset": 28.067,
+   "toOffset": -3.5,
+   "treeParent": "layer1",
+   "order": 52,
+   "fromPort": {
+    "side": "east",
+    "position": 0.7766
+   },
+   "toPort": {
+    "side": "west",
+    "position": 0.375
+   },
+   "labelId": "connector-9-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-10",
    "from": "ver",
    "to": "rp",
    "kind": "arr",
@@ -518,9 +2229,23 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "treeParent": "layer1",
+   "order": 54,
+   "fromPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "auto",
+    "position": 0.5
+   },
+   "labelId": "connector-10-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   },
   {
+   "id": "connector-11",
    "from": "rp",
    "to": "att",
    "fromAnchor": "west",
@@ -539,6 +2264,21 @@
    "labelStyle": {
     "font": "scriptsize"
    },
+   "fromOffset": 0,
+   "toOffset": -32.433,
+   "treeParent": "layer1",
+   "order": 56,
+   "fromPort": {
+    "side": "west",
+    "position": 0.5
+   },
+   "toPort": {
+    "side": "east",
+    "position": 0.1804
+   },
+   "labelId": "connector-11-label-0",
+   "hidden": false,
+   "locked": false,
    "overrides": []
   }
  ],
@@ -689,7 +2429,12 @@
    "titleBold": true,
    "titleFont": "small",
    "lineWidth": 1,
-   "frameColor": "#30343B"
+   "frameColor": "#30343B",
+   "treeParent": "layer1",
+   "order": 0,
+   "titleId": "att-title",
+   "hidden": false,
+   "locked": false
   },
   {
    "id": "nw",
@@ -703,7 +2448,12 @@
    "frameColor": "#2D70A6",
    "fill": "tint",
    "fillStrength": 18,
-   "outline": "dashed"
+   "outline": "dashed",
+   "treeParent": "att",
+   "order": 2,
+   "titleId": "nw-title",
+   "hidden": false,
+   "locked": false
   },
   {
    "id": "sw",
@@ -717,7 +2467,12 @@
    "frameColor": "#CF3C50",
    "fill": "tint",
    "fillStrength": 18,
-   "outline": "dashed"
+   "outline": "dashed",
+   "treeParent": "att",
+   "order": 4,
+   "titleId": "sw-title",
+   "hidden": false,
+   "locked": false
   },
   {
    "id": "hw",
@@ -731,7 +2486,12 @@
    "frameColor": "#6B7280",
    "fill": "tint",
    "fillStrength": 18,
-   "outline": "dashed"
+   "outline": "dashed",
+   "treeParent": "att",
+   "order": 6,
+   "titleId": "hw-title",
+   "hidden": false,
+   "locked": false
   }
  ],
  "layers": [

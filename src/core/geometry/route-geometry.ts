@@ -45,8 +45,8 @@ export function geometry(
 	const l = lane(e, edges);
 	const sideA = e.fromAnchor || (e.route === 'u' ? 'south' : undefined),
 		sideB = e.toAnchor || (e.route === 'u' ? 'south' : undefined);
-	const p = point(a, sideA, b),
-		q = point(b, sideB, a);
+	const p = point(a, sideA, e.fromOffset !== undefined ? a : b),
+		q = point(b, sideB, e.toOffset !== undefined ? b : a);
 	if (e.fromOffset !== undefined) p[/north|south/.test(sideA) ? 0 : 1] += e.fromOffset;
 	if (e.toOffset !== undefined) q[/north|south/.test(sideB) ? 0 : 1] += e.toOffset;
 	const forward = q[0] < p[0] || (q[0] === p[0] && q[1] < p[1]) ? -1 : 1;

@@ -6,7 +6,7 @@ export const PIC =
 export const NODE =
 	/^\s*\\node\[((?:[^\[\]]|\[[^\]]*\])*)\]\s*\(([\w-]+)\)\s*at\s*\(\s*(-?[\d.]+)\s*,\s*(-?[\d.]+)\s*\)\s*\{(.*)\};\s*$/;
 
-export const EDGE = /^\s*\\draw\[((?:[^\[\]]|\[[^\]]*\])*)\]\s*(\(.*\));\s*$/;
+export const EDGE = /^\s*\\draw\[((?:[^\[\]]|\[[^\]]*\])*)\]\s*(\(.*);\s*$/;
 
 export const ARROWSFLAG = /^%\s*sakuga arrows\s+(straight|manhattan|curved)\s*$/;
 

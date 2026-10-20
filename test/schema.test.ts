@@ -277,7 +277,7 @@ test('seeded property round trip: serialize, parse, serialize is the identity fo
 		const { fig, expect } = build(seed);
 		// Arrows between consecutive boxes with random arrow styles.
 		const random = rng(seed * 7919);
-		const nodeIds = expect.map((_, i) => `n${i}`);
+		const nodeIds = expect.flatMap((entry, i) => (entry.kind === 'box' ? [`n${i}`] : []));
 		const arrows: Record<string, any>[] = [];
 		for (let i = 0; i + 1 < nodeIds.length; i++) {
 			const st = style('arrow', random);

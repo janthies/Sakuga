@@ -1,6 +1,10 @@
 // The one geometry of a figure: box sizes, frames, and the path and label position of every arrow.
 // The serializer, the canvas and the clipboard all ask this object, so what the canvas draws is what TikZ gets.
 // An instance answers for one revision of the figure and routes each arrow at most once.
+import { lineLabel } from './line-geometry';
+import type { FigLine } from '../model/item';
+import { subtreeState } from '../model/tree-queries';
+import { lineItems } from '../model/tree';
 import * as routing from './route';
 import { attachedLabel, frameTitle, pathLabel, sideOffset } from './label-geometry';
 import { resolveRoute } from './resolve';
@@ -11,6 +15,7 @@ import { arrowStyle, categories, edges, fontSize, groups, isHidden, nodes } from
 import { layout } from '../text';
 
 export interface GeometryInput {
+	lines?: FigLine[];
 	nodes: FigNode[]; // hidden already includes the layer
 	edges: FigEdge[];
 	groups: Group[];
@@ -70,10 +75,34 @@ export class FigureGeometry {
 	// Every box with its size, then every frame the router must avoid.
 	objects(): any[] {
 		if (!this.objs) {
-			const ns = this.input.nodes.map((n) => {
-				const { w, h } = this.size(n);
-				return { ...n, w, h, hidden: n.hidden };
-			});
+			const ns = [
+				...this.input.nodes.map((n) => {
+					const { w, h } = this.size(n);
+					return { ...n, w, h, hidden: n.hidden };
+				}),
+				...(this.input.lines || []).map((l) => ({
+					...l,
+					x: (l.start[0] + l.end[0]) / 2,
+					y: (l.start[1] + l.end[1]) / 2,
+					w: Math.abs(l.end[0] - l.start[0]),
+					h: Math.abs(l.end[1] - l.start[1]),
+					kind: 'line',
+				})),
+			];
+			for (const l of this.input.lines || [])
+				for (const [j, label] of (l.labels || []).entries()) {
+					const { p, w, h } = lineLabel(l, label.text, label.style, this.font);
+					ns.push({
+						...l,
+						id: label.id || l.id + '-label-' + j,
+						kind: 'label',
+						x: p[0],
+						y: p[1],
+						w,
+						h,
+						hidden: !!l.hidden || !!label.style?.hidden,
+					} as any);
+				}
 			const { edges, groups } = this.input;
 			this.objs = [
 				...ns,
@@ -227,6 +256,7 @@ export class FigureGeometry {
 
 export function inputOf(fig: Figure): GeometryInput {
 	return {
+		lines: lineItems(fig).map((l) => ({ ...l, hidden: subtreeState(fig, l.id, 'hidden') })),
 		nodes: nodes(fig).map((n) => ({ ...n, hidden: isHidden(fig, n) })),
 		edges: edges(fig),
 		groups: groups(fig),
@@ -240,6 +270,7 @@ export function inputOf(fig: Figure): GeometryInput {
 function revision(fig: Figure): string {
 	return JSON.stringify([
 		nodes(fig).map((n) => [n, isHidden(fig, n)]),
+		lineItems(fig),
 		edges(fig),
 		groups(fig),
 		categories(fig),

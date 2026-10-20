@@ -1,4 +1,10 @@
 // Writing a figure back to TikZ.
+import { resolvePorts } from '../geometry/ports';
+import { subtreeState } from '../model/tree-queries';
+import { lineReference } from './line-reference';
+import { lineSource } from './line';
+import { treeState } from './tree-state';
+import { syncTree, lineItems } from '../model/tree';
 import { groupsBlock, legendBlock, pictureFont, themeBlock } from './blocks';
 import { edgeLine } from './edge-line';
 import { groupOptions } from './group';
@@ -27,8 +33,10 @@ export function nodeSource(fig: Figure, n: FigNode): string {
 }
 
 export function serialize(fig: Figure): string {
+	syncTree(fig);
 	settle(fig);
 	resolveAttachments(fig);
+	resolvePorts(fig);
 	const ordered: FigNode[] = [],
 		visited = new Set<string>();
 	const visit = (n: FigNode) => {
@@ -48,11 +56,19 @@ export function serialize(fig: Figure): string {
 			.forEach(visit),
 	);
 	// Reuse node slots so unrecognised TikZ and comments keep their positions.
-	let nextNode = 0;
+	let nextNode = 0,
+		nextLine = 0;
+	const freeLines = lineItems(fig);
 	const lines: Line[] = fig.lines
 		.filter((l) => l.t !== 'edge' && l.t !== 'groups' && l.t !== 'icons')
-		.map((l) => (l.t === 'node' ? { t: 'node', n: ordered[nextNode++] } : l));
-	let afterNodes = lines.map((l) => l.t).lastIndexOf('node') + 1;
+		.map((l) =>
+			l.t === 'node'
+				? { t: 'node', n: ordered[nextNode++] }
+				: l.t === 'line'
+					? { t: 'line', line: freeLines[nextLine++] }
+					: l,
+		);
+	let afterNodes = Math.max(lines.map((l) => l.t).lastIndexOf('node'), lines.map((l) => l.t).lastIndexOf('line')) + 1;
 	if (!afterNodes) {
 		afterNodes = lines.findIndex((l) => l.t === 'legend' || (l.t === 'raw' && l.text.includes('\\end{tikzpicture}')));
 		if (afterNodes < 0) {
@@ -69,17 +85,25 @@ export function serialize(fig: Figure): string {
 		!lines.some((l) => l.t === 'groups') &&
 		groups(fig).some((g) => g.frame !== 'none' || edges(fig).some((e) => e.from === g.id || e.to === g.id))
 	) {
-		const at = lines.map((l) => l.t).lastIndexOf('node');
+		const at = Math.max(lines.map((l) => l.t).lastIndexOf('node'), lines.map((l) => l.t).lastIndexOf('line'));
 		lines.splice(at + 1, 0, { t: 'groups' });
 	}
 	if (!lines.some((l) => l.t === 'legend')) {
 		const at = lines.findIndex((l) => l.t === 'raw' && l.text.includes('\\end{tikzpicture}'));
 		lines.splice(at < 0 ? lines.length : at, 0, { t: 'legend' });
 	}
+	if (!lines.some((l) => l.t === 'tree')) {
+		const at = lines.findIndex((l) => l.t === 'raw' && l.text.includes('\\begin{tikzpicture}'));
+		lines.splice(at < 0 ? 0 : at, 0, { t: 'tree' });
+	}
 	const geo = geometryOf(fig);
 	return lines
 		.flatMap((l) => {
 			switch (l.t) {
+				case 'tree':
+					return [treeState(fig)];
+				case 'line':
+					return [lineSource(fig, l.line), ...lineReference(fig, l.line)];
 				case 'node':
 					return [
 						nodeSource(fig, l.n),
@@ -90,7 +114,11 @@ export function serialize(fig: Figure): string {
 					const hiddenGroup = groups(fig).some(
 						(g) => (g.id === l.e.from || g.id === l.e.to) && groupMembers(fig, g.id).every((n) => isHidden(fig, n)),
 					);
-					const hid = hiddenGroup || nodes(fig).some((n) => isHidden(fig, n) && (n.id === l.e.from || n.id === l.e.to));
+					const hid =
+						subtreeState(fig, l.e.id!, 'hidden') ||
+						hiddenGroup ||
+						[l.e.from, l.e.to].some((id) => subtreeState(fig, id, 'hidden')) ||
+						nodes(fig).some((n) => isHidden(fig, n) && (n.id === l.e.from || n.id === l.e.to));
 					return [hid ? `% sakuga hidden ${edgeLine(fig, l.e, geo)}` : edgeLine(fig, l.e, geo)];
 				}
 				case 'layer':

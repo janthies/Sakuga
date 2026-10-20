@@ -1,4 +1,5 @@
 // Pasting a TikZ snippet as operations.
+import { lineItems } from '../model/tree';
 import { parse } from '../codec/parse';
 import { specialGeometry } from '../geometry/figure-geometry';
 import { Figure } from '../model/figure';
@@ -26,7 +27,11 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 			have.add(d.key);
 		}
 	}
-	const used = new Set([...nodes(fig).map((n) => n.id), ...groups(fig).map((g) => g.id)]);
+	const used = new Set([
+		...nodes(fig).map((n) => n.id),
+		...groups(fig).map((g) => g.id),
+		...lineItems(fig).map((l) => l.id),
+	]);
 	let next = 1;
 	const fresh = () => {
 		while (used.has(`n${next}`)) {
@@ -69,6 +74,19 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 			minh: n.minh,
 		});
 	}
+	for (const l of lineItems(src)) {
+		const id = fresh();
+		map.set(l.id, id);
+		ops.push({
+			op: 'addLine',
+			id,
+			start: [l.start[0] + dx, l.start[1] + dy],
+			end: [l.end[0] + dx, l.end[1] + dy],
+			parent: map.get(l.treeParent || ''),
+			style: l.style,
+			labels: l.labels?.map((v) => ({ ...v, id: undefined })),
+		});
+	}
 	for (const n of nodes(src)) {
 		if (map.has(n.group)) ops.push({ op: 'setGroup', ids: [map.get(n.id)!], group: map.get(n.group)! });
 	}
@@ -107,7 +125,7 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 				lane: e.lane,
 				styleKey: e.styleKey && have.has(e.styleKey) ? e.styleKey : undefined,
 				labelStyle: e.labelStyle,
-				labels: e.labels,
+				labels: e.labels?.map((v) => ({ ...v, id: undefined })),
 				style: e.style,
 				extra: e.extra,
 				from: a,

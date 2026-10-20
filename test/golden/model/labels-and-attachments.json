@@ -39,6 +39,9 @@
    }
   },
   {
+   "t": "tree"
+  },
+  {
    "t": "raw",
    "text": "\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]"
   },
@@ -62,7 +65,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "title0-title"
    }
   },
   {
@@ -82,7 +88,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "title1-title"
    }
   },
   {
@@ -102,7 +111,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "title2-title"
    }
   },
   {
@@ -122,7 +134,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "title3-title"
    }
   },
   {
@@ -141,7 +156,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "title4-title"
    }
   },
   {
@@ -161,7 +179,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 10,
+    "titleId": "title5-title"
    }
   },
   {
@@ -181,7 +202,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 12,
+    "titleId": "title6-title"
    }
   },
   {
@@ -201,7 +225,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "titleId": "title7-title"
    }
   },
   {
@@ -221,7 +248,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "titleId": "title8-title"
    }
   },
   {
@@ -240,7 +270,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "titleId": "labelParent-title"
    }
   },
   {
@@ -260,7 +293,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "titleId": "parent-title"
    }
   },
   {
@@ -279,7 +315,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 22,
+    "titleId": "outsideParent-title"
    }
   },
   {
@@ -303,7 +342,9 @@
      "border": "solid",
      "font": "large"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 24
    }
   },
   {
@@ -333,7 +374,9 @@
      "textColor": "accent",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 25
    }
   },
   {
@@ -360,7 +403,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 26
    }
   },
   {
@@ -388,7 +433,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 27
    }
   },
   {
@@ -419,7 +466,9 @@
      "border": "solid",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 28
    }
   },
   {
@@ -446,7 +495,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 29
    }
   },
   {
@@ -474,7 +525,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 30
    }
   },
   {
@@ -504,7 +557,9 @@
      "textColor": "accent",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 31
    }
   },
   {
@@ -531,7 +586,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 32
    }
   },
   {
@@ -559,7 +616,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 33
    }
   },
   {
@@ -590,7 +649,9 @@
      "border": "solid",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 34
    }
   },
   {
@@ -617,7 +678,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 35
    }
   },
   {
@@ -645,7 +708,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 36
    }
   },
   {
@@ -675,7 +740,9 @@
      "textColor": "accent",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 37
    }
   },
   {
@@ -703,7 +770,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 38
    }
   },
   {
@@ -734,7 +803,9 @@
      "border": "solid",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 39
    }
   },
   {
@@ -761,7 +832,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 40
    }
   },
   {
@@ -789,7 +862,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 41
    }
   },
   {
@@ -819,7 +894,9 @@
      "textColor": "accent",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 42
    }
   },
   {
@@ -846,7 +923,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 43
    }
   },
   {
@@ -874,7 +953,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 44
    }
   },
   {
@@ -905,7 +986,9 @@
      "border": "solid",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 45
    }
   },
   {
@@ -932,7 +1015,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 46
    }
   },
   {
@@ -960,7 +1045,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 47
    }
   },
   {
@@ -990,7 +1077,9 @@
      "textColor": "accent",
      "font": "scriptsize"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 48
    }
   },
   {
@@ -1017,7 +1106,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 49
    }
   },
   {
@@ -1045,7 +1136,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 50
    }
   },
   {
@@ -1071,7 +1164,10 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "parent",
+    "order": 51,
+    "titleId": "child-title"
    }
   },
   {
@@ -1098,7 +1194,31 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "child",
+    "order": 53
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "visibleChild",
+    "kind": "label",
+    "cat": "",
+    "x": 88,
+    "y": -197.08,
+    "title": "Visible",
+    "code": "",
+    "width": 14,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 56
    }
   },
   {
@@ -1117,23 +1237,1709 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "hidden",
+    "order": 54,
+    "titleId": "hiddenParent-title"
    }
   },
   {
-   "t": "icons"
+   "t": "raw",
+   "text": "\\end{tikzpicture}"
   },
   {
-   "t": "node",
-   "n": {
-    "id": "visibleChild",
+   "t": "raw",
+   "text": ""
+  }
+ ],
+ "items": [
+  {
+   "id": "title0",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title0",
+    "titlePosition": "north west",
+    "cat": "",
+    "x": 0,
+    "y": 0,
+    "title": "Title 0",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "title0-title"
+   }
+  },
+  {
+   "id": "title0-title",
+   "parent": "title0",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 0",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title0"
+  },
+  {
+   "id": "title1",
+   "parent": "layer1",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title1",
+    "titlePosition": "north",
+    "cat": "",
+    "x": 40,
+    "y": 0,
+    "title": "Title 1",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "title1-title"
+   }
+  },
+  {
+   "id": "title1-title",
+   "parent": "title1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 1",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title1"
+  },
+  {
+   "id": "title2",
+   "parent": "layer1",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title2",
+    "titlePosition": "north east",
+    "cat": "",
+    "x": 80,
+    "y": 0,
+    "title": "Title 2",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "title2-title"
+   }
+  },
+  {
+   "id": "title2-title",
+   "parent": "title2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 2",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title2"
+  },
+  {
+   "id": "title3",
+   "parent": "layer1",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title3",
+    "titlePosition": "west",
+    "cat": "",
+    "x": 0,
+    "y": -28,
+    "title": "Title 3",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "title3-title"
+   }
+  },
+  {
+   "id": "title3-title",
+   "parent": "title3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 3",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title3"
+  },
+  {
+   "id": "title4",
+   "parent": "layer1",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title4",
+    "cat": "",
+    "x": 40,
+    "y": -28,
+    "title": "Title 4",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "title4-title"
+   }
+  },
+  {
+   "id": "title4-title",
+   "parent": "title4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 4",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title4"
+  },
+  {
+   "id": "title5",
+   "parent": "layer1",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title5",
+    "titlePosition": "east",
+    "cat": "",
+    "x": 80,
+    "y": -28,
+    "title": "Title 5",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 10,
+    "titleId": "title5-title"
+   }
+  },
+  {
+   "id": "title5-title",
+   "parent": "title5",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 5",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title5"
+  },
+  {
+   "id": "title6",
+   "parent": "layer1",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title6",
+    "titlePosition": "south west",
+    "cat": "",
+    "x": 0,
+    "y": -56,
+    "title": "Title 6",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 12,
+    "titleId": "title6-title"
+   }
+  },
+  {
+   "id": "title6-title",
+   "parent": "title6",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 6",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title6"
+  },
+  {
+   "id": "title7",
+   "parent": "layer1",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title7",
+    "titlePosition": "south",
+    "cat": "",
+    "x": 40,
+    "y": -56,
+    "title": "Title 7",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "titleId": "title7-title"
+   }
+  },
+  {
+   "id": "title7-title",
+   "parent": "title7",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 7",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title7"
+  },
+  {
+   "id": "title8",
+   "parent": "layer1",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "title8",
+    "titlePosition": "south east",
+    "cat": "",
+    "x": 80,
+    "y": -56,
+    "title": "Title 8",
+    "code": "code",
+    "width": 30,
+    "minh": 22,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "titleId": "title8-title"
+   }
+  },
+  {
+   "id": "title8-title",
+   "parent": "title8",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 8",
+   "code": "code",
+   "role": "title",
+   "treeParent": "title8"
+  },
+  {
+   "id": "labelParent",
+   "parent": "layer1",
+   "order": 18,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "labelParent",
+    "cat": "",
+    "x": 35,
+    "y": -125,
+    "title": "",
+    "code": "",
+    "width": 84,
+    "minh": 74,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "titleId": "labelParent-title"
+   }
+  },
+  {
+   "id": "labelParent-title",
+   "parent": "labelParent",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "",
+   "code": "",
+   "role": "title",
+   "treeParent": "labelParent"
+  },
+  {
+   "id": "parent",
+   "parent": "layer1",
+   "order": 20,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "parent",
+    "titlePosition": "south east",
+    "cat": "",
+    "x": 35,
+    "y": -205,
+    "title": "Parent",
+    "code": "",
+    "width": 84,
+    "minh": 40,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "titleId": "parent-title"
+   }
+  },
+  {
+   "id": "parent-title",
+   "parent": "parent",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Parent",
+   "code": "",
+   "role": "title",
+   "treeParent": "parent"
+  },
+  {
+   "id": "outsideParent",
+   "parent": "layer1",
+   "order": 22,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "outsideParent",
+    "cat": "",
+    "x": 165,
+    "y": -125,
+    "title": "",
+    "code": "",
+    "width": 70,
+    "minh": 64,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 22,
+    "titleId": "outsideParent-title"
+   }
+  },
+  {
+   "id": "outsideParent-title",
+   "parent": "outsideParent",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "",
+   "code": "",
+   "role": "title",
+   "treeParent": "outsideParent"
+  },
+  {
+   "id": "freeLabel",
+   "parent": "layer1",
+   "order": 24,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Free label",
+   "code": "",
+   "node": {
+    "id": "freeLabel",
+    "kind": "label",
+    "cat": "",
+    "x": 110,
+    "y": 0,
+    "title": "Free label",
+    "code": "",
+    "width": 24,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "#2468AC",
+     "border": "solid",
+     "font": "large"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 24
+   }
+  },
+  {
+   "id": "inside0",
+   "parent": "labelParent",
+   "order": 25,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 0",
+   "code": "",
+   "node": {
+    "id": "inside0",
     "attachment": {
-     "parent": "hiddenParent",
+     "parent": "labelParent",
      "anchor": "north west",
      "ownAnchor": "north west",
      "dx": 2,
      "dy": -2
     },
+    "kind": "label",
+    "cat": "",
+    "x": 1,
+    "y": -93.08,
+    "title": "In 0",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 25
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "north west",
+    "ownAnchor": "north west",
+    "dx": 2,
+    "dy": -2
+   }
+  },
+  {
+   "id": "outside0",
+   "parent": "outsideParent",
+   "order": 26,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 0",
+   "code": "",
+   "node": {
+    "id": "outside0",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north west",
+     "ownAnchor": "south east",
+     "dx": -2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 119.7325,
+    "y": -87.92,
+    "title": "Out 0",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 26
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "north west",
+    "ownAnchor": "south east",
+    "dx": -2,
+    "dy": 2
+   }
+  },
+  {
+   "id": "icon0",
+   "parent": "outsideParent",
+   "order": 27,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon0",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north west",
+     "ownAnchor": "north west",
+     "dx": 10,
+     "dy": -10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 141.8663,
+    "y": -107,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 27
+   }
+  },
+  {
+   "id": "inside1",
+   "parent": "labelParent",
+   "order": 28,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 1",
+   "code": "",
+   "node": {
+    "id": "inside1",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "north",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -93.08,
+    "title": "In 1",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 28
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "north",
+    "ownAnchor": "north",
+    "dx": 0,
+    "dy": -2
+   }
+  },
+  {
+   "id": "outside1",
+   "parent": "outsideParent",
+   "order": 29,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 1",
+   "code": "",
+   "node": {
+    "id": "outside1",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north",
+     "ownAnchor": "south",
+     "dx": 0,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 165,
+    "y": -87.92,
+    "title": "Out 1",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 29
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "north",
+    "ownAnchor": "south",
+    "dx": 0,
+    "dy": 2
+   }
+  },
+  {
+   "id": "icon1",
+   "parent": "outsideParent",
+   "order": 30,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon1",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 165,
+    "y": -107,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 30
+   }
+  },
+  {
+   "id": "inside2",
+   "parent": "labelParent",
+   "order": 31,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 2",
+   "code": "",
+   "node": {
+    "id": "inside2",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "north east",
+     "ownAnchor": "north east",
+     "dx": -2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 69,
+    "y": -93.08,
+    "title": "In 2",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 31
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "north east",
+    "ownAnchor": "north east",
+    "dx": -2,
+    "dy": -2
+   }
+  },
+  {
+   "id": "outside2",
+   "parent": "outsideParent",
+   "order": 32,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 2",
+   "code": "",
+   "node": {
+    "id": "outside2",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north east",
+     "ownAnchor": "south west",
+     "dx": 2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 210.2675,
+    "y": -87.92,
+    "title": "Out 2",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 32
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "north east",
+    "ownAnchor": "south west",
+    "dx": 2,
+    "dy": 2
+   }
+  },
+  {
+   "id": "icon2",
+   "parent": "outsideParent",
+   "order": 33,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon2",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "north east",
+     "ownAnchor": "north east",
+     "dx": -10,
+     "dy": -10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 188.1338,
+    "y": -107,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 33
+   }
+  },
+  {
+   "id": "inside3",
+   "parent": "labelParent",
+   "order": 34,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 3",
+   "code": "",
+   "node": {
+    "id": "inside3",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "west",
+     "ownAnchor": "west",
+     "dx": 2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 1,
+    "y": -125,
+    "title": "In 3",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 34
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "west",
+    "ownAnchor": "west",
+    "dx": 2,
+    "dy": 0
+   }
+  },
+  {
+   "id": "outside3",
+   "parent": "outsideParent",
+   "order": 35,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 3",
+   "code": "",
+   "node": {
+    "id": "outside3",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "west",
+     "ownAnchor": "east",
+     "dx": -2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 119.7325,
+    "y": -125,
+    "title": "Out 3",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 35
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "west",
+    "ownAnchor": "east",
+    "dx": -2,
+    "dy": 0
+   }
+  },
+  {
+   "id": "icon3",
+   "parent": "outsideParent",
+   "order": 36,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon3",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "west",
+     "ownAnchor": "west",
+     "dx": 10,
+     "dy": 0
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 141.8663,
+    "y": -125,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 36
+   }
+  },
+  {
+   "id": "inside4",
+   "parent": "labelParent",
+   "order": 37,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 4",
+   "code": "",
+   "node": {
+    "id": "inside4",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "center",
+     "ownAnchor": "center",
+     "dx": 0,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -125,
+    "title": "In 4",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 37
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "center",
+    "ownAnchor": "center",
+    "dx": 0,
+    "dy": 0
+   }
+  },
+  {
+   "id": "icon4",
+   "parent": "outsideParent",
+   "order": 38,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon4",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "center",
+     "ownAnchor": "center",
+     "dx": 0,
+     "dy": 0
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 165,
+    "y": -125,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 38
+   }
+  },
+  {
+   "id": "inside5",
+   "parent": "labelParent",
+   "order": 39,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 5",
+   "code": "",
+   "node": {
+    "id": "inside5",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "east",
+     "ownAnchor": "east",
+     "dx": -2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 69,
+    "y": -125,
+    "title": "In 5",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 39
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "east",
+    "ownAnchor": "east",
+    "dx": -2,
+    "dy": 0
+   }
+  },
+  {
+   "id": "outside5",
+   "parent": "outsideParent",
+   "order": 40,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 5",
+   "code": "",
+   "node": {
+    "id": "outside5",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "east",
+     "ownAnchor": "west",
+     "dx": 2,
+     "dy": 0
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 210.2675,
+    "y": -125,
+    "title": "Out 5",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 40
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "east",
+    "ownAnchor": "west",
+    "dx": 2,
+    "dy": 0
+   }
+  },
+  {
+   "id": "icon5",
+   "parent": "outsideParent",
+   "order": 41,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon5",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "east",
+     "ownAnchor": "east",
+     "dx": -10,
+     "dy": 0
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 188.1338,
+    "y": -125,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 41
+   }
+  },
+  {
+   "id": "inside6",
+   "parent": "labelParent",
+   "order": 42,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 6",
+   "code": "",
+   "node": {
+    "id": "inside6",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "south west",
+     "ownAnchor": "south west",
+     "dx": 2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 1,
+    "y": -156.92,
+    "title": "In 6",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 42
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "south west",
+    "ownAnchor": "south west",
+    "dx": 2,
+    "dy": 2
+   }
+  },
+  {
+   "id": "outside6",
+   "parent": "outsideParent",
+   "order": 43,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 6",
+   "code": "",
+   "node": {
+    "id": "outside6",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south west",
+     "ownAnchor": "north east",
+     "dx": -2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 119.7325,
+    "y": -162.08,
+    "title": "Out 6",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 43
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "south west",
+    "ownAnchor": "north east",
+    "dx": -2,
+    "dy": -2
+   }
+  },
+  {
+   "id": "icon6",
+   "parent": "outsideParent",
+   "order": 44,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon6",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south west",
+     "ownAnchor": "south west",
+     "dx": 10,
+     "dy": 10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 141.8663,
+    "y": -143,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 44
+   }
+  },
+  {
+   "id": "inside7",
+   "parent": "labelParent",
+   "order": 45,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 7",
+   "code": "",
+   "node": {
+    "id": "inside7",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "south",
+     "ownAnchor": "south",
+     "dx": 0,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -156.92,
+    "title": "In 7",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "border": "solid",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 45
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "south",
+    "ownAnchor": "south",
+    "dx": 0,
+    "dy": 2
+   }
+  },
+  {
+   "id": "outside7",
+   "parent": "outsideParent",
+   "order": 46,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 7",
+   "code": "",
+   "node": {
+    "id": "outside7",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 165,
+    "y": -162.08,
+    "title": "Out 7",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 46
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "south",
+    "ownAnchor": "north",
+    "dx": 0,
+    "dy": -2
+   }
+  },
+  {
+   "id": "icon7",
+   "parent": "outsideParent",
+   "order": 47,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon7",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south",
+     "ownAnchor": "south",
+     "dx": 0,
+     "dy": 10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 165,
+    "y": -143,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 47
+   }
+  },
+  {
+   "id": "inside8",
+   "parent": "labelParent",
+   "order": 48,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "In 8",
+   "code": "",
+   "node": {
+    "id": "inside8",
+    "attachment": {
+     "parent": "labelParent",
+     "anchor": "south east",
+     "ownAnchor": "south east",
+     "dx": -2,
+     "dy": 2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 69,
+    "y": -156.92,
+    "title": "In 8",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "textColor": "accent",
+     "font": "scriptsize"
+    },
+    "extra": [],
+    "treeParent": "labelParent",
+    "order": 48
+   },
+   "attachment": {
+    "parent": "labelParent",
+    "anchor": "south east",
+    "ownAnchor": "south east",
+    "dx": -2,
+    "dy": 2
+   }
+  },
+  {
+   "id": "outside8",
+   "parent": "outsideParent",
+   "order": 49,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Out 8",
+   "code": "",
+   "node": {
+    "id": "outside8",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south east",
+     "ownAnchor": "north west",
+     "dx": 2,
+     "dy": -2
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 210.2675,
+    "y": -162.08,
+    "title": "Out 8",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 49
+   },
+   "attachment": {
+    "parent": "outsideParent",
+    "anchor": "south east",
+    "ownAnchor": "north west",
+    "dx": 2,
+    "dy": -2
+   }
+  },
+  {
+   "id": "icon8",
+   "parent": "outsideParent",
+   "order": 50,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "icon8",
+    "attachment": {
+     "parent": "outsideParent",
+     "anchor": "south east",
+     "ownAnchor": "south east",
+     "dx": -10,
+     "dy": 10
+    },
+    "kind": "icon",
+    "icon": "board",
+    "x": 188.1338,
+    "y": -143,
+    "width": 6,
+    "minh": 8,
+    "title": "",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "outsideParent",
+    "order": 50
+   }
+  },
+  {
+   "id": "child",
+   "parent": "parent",
+   "order": 51,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "child",
+    "attachment": {
+     "parent": "parent",
+     "anchor": "north west",
+     "ownAnchor": "north west",
+     "dx": 1.5,
+     "dy": -1.5
+    },
+    "cat": "",
+    "x": 4.5,
+    "y": -192.5,
+    "title": "Child",
+    "code": "",
+    "width": 20,
+    "minh": 12,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "parent",
+    "order": 51,
+    "titleId": "child-title"
+   }
+  },
+  {
+   "id": "child-title",
+   "parent": "child",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Child",
+   "code": "",
+   "role": "title",
+   "treeParent": "child"
+  },
+  {
+   "id": "grandchild",
+   "parent": "child",
+   "order": 53,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Nested",
+   "code": "",
+   "node": {
+    "id": "grandchild",
+    "attachment": {
+     "parent": "child",
+     "anchor": "south",
+     "ownAnchor": "north",
+     "dx": 0,
+     "dy": -1
+    },
+    "kind": "label",
+    "cat": "",
+    "x": 4.5,
+    "y": -202.58,
+    "title": "Nested",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "child",
+    "order": 53
+   },
+   "attachment": {
+    "parent": "child",
+    "anchor": "south",
+    "ownAnchor": "north",
+    "dx": 0,
+    "dy": -1
+   }
+  },
+  {
+   "id": "visibleChild",
+   "parent": "layer1",
+   "order": 56,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Visible",
+   "code": "",
+   "node": {
+    "id": "visibleChild",
     "kind": "label",
     "cat": "",
     "x": 88,
@@ -1147,16 +2953,49 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 56
    }
   },
   {
-   "t": "raw",
-   "text": "\\end{tikzpicture}"
+   "id": "hiddenParent",
+   "parent": "hidden",
+   "order": 54,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "hiddenParent",
+    "cat": "",
+    "x": 100,
+    "y": -200,
+    "title": "hiddenParent",
+    "code": "",
+    "width": 42,
+    "minh": 16,
+    "layer": "hidden",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "hidden",
+    "order": 54,
+    "titleId": "hiddenParent-title"
+   }
   },
   {
-   "t": "raw",
-   "text": ""
+   "id": "hiddenParent-title",
+   "parent": "hiddenParent",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "hiddenParent",
+   "code": "",
+   "role": "title",
+   "treeParent": "hiddenParent"
   }
  ]
 }

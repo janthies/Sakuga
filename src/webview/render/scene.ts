@@ -17,6 +17,7 @@ function sceneNow() {
 	return buildScene(
 		{
 			nodes: store.nodes,
+			lines: store.lines,
 			edges: store.edges,
 			groups: store.groups,
 			categories: store.cats,

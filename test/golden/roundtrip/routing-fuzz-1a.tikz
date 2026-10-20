@@ -1,6 +1,7 @@
 % Sakuga figure
 % sakuga style box work {this work} peach legend
 % sakuga legend on
+% sakuga tree 5b7b226964223a22636f6e6e6563746f72222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a226e30222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a226e31222c22706f7274223a7b2273696465223a22736f757468222c22706f736974696f6e223a302e383431363931383936373035323533387d7d7d2c7b226964223a226e30222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e30222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e31222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e31222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e32222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e32222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e33222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e33222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d5d
 \begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
 % sakuga theme begin (generated from the style lines above)
 \definecolor{sgBlue}{HTML}{BBCCEE}
@@ -20,12 +21,14 @@
 \tikzset{
   sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
     inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},
   sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},
   sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},
   sg style/work/.style={sg box, fill=sgPeach},
   arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
   head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
   head none/.style={-},
+  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\sffamily\scriptsize,fill=white,inner sep=1pt},
   sg elabel/.style={align=center, text=black!65, font=\sffamily\scriptsize, fill=white, inner sep=1pt},
   sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},
   sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
@@ -41,9 +44,9 @@
     minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
 }
 % sakuga theme end
-\node[sg box, text width=33mm, sg layer=layer1] (n0) at (68,23) {Box};
-\node[sg box, text width=23mm, sg layer=layer1] (n1) at (60,58) {Box};
-\node[sg box, text width=28mm, sg layer=layer1] (n2) at (90,62) {Box};
-\node[sg box, text width=29mm, sg layer=layer1] (n3) at (51,24) {Box};
-\draw[arr, sg route=auto, sg implicit from] ([xshift=0.6337mm]n0.north) -- ([xshift=0.6337mm]n0.north |- 0,40.5) -| ([xshift=8.6337mm]n1.south);
+\node[sg shape, text width=33mm, sg layer=layer1] (n0) at (68,23) {Box};
+\node[sg shape, text width=23mm, sg layer=layer1] (n1) at (60,58) {Box};
+\node[sg shape, text width=28mm, sg layer=layer1] (n2) at (90,62) {Box};
+\node[sg shape, text width=29mm, sg layer=layer1] (n3) at (51,24) {Box};
+\draw[sg conn, sg id=connector, sg route=auto, sg implicit from] ([xshift=0.6337mm]n0.north) -- ([xshift=0.6337mm]n0.north |- 0,40.5) -| ([xshift=8.6337mm]n1.south);
 \end{tikzpicture}

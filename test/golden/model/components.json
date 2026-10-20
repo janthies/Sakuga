@@ -63,7 +63,12 @@
     "name": "attestation module",
     "frame": "dashed",
     "color": "grey",
-    "parent": ""
+    "parent": "",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "g1-title",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -73,7 +78,12 @@
     "name": "secure world",
     "frame": "region",
     "color": "green",
-    "parent": ""
+    "parent": "",
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "g2-title",
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -83,8 +93,16 @@
     "name": "operation",
     "frame": "dotted",
     "color": "grey",
-    "parent": "g2"
+    "parent": "g2",
+    "treeParent": "g2",
+    "order": 4,
+    "titleId": "g3-title",
+    "hidden": false,
+    "locked": false
    }
+  },
+  {
+   "t": "tree"
   },
   {
    "t": "raw",
@@ -104,14 +122,17 @@
     "code": "",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "grey"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "app-title"
    }
   },
   {
@@ -125,14 +146,17 @@
     "code": "psa\\_initial\\_attest\\_get\\_token",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g1",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 8,
+    "titleId": "att-title"
    }
   },
   {
@@ -146,14 +170,17 @@
     "code": "attest\\_backend\\_get\\_token",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g1",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 10,
+    "titleId": "seam-title"
    }
   },
   {
@@ -167,14 +194,17 @@
     "code": "",
     "width": 26,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g1",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 12,
+    "titleId": "swbe-title"
    }
   },
   {
@@ -188,14 +218,17 @@
     "code": "",
     "width": 26,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g1",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 14,
+    "titleId": "teebe-title"
    }
   },
   {
@@ -209,14 +242,17 @@
     "code": "",
     "width": 26,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g1",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 16,
+    "titleId": "nsenc-title"
    }
   },
   {
@@ -230,14 +266,17 @@
     "code": "",
     "width": 26,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "",
     "hidden": true,
     "locked": false,
     "style": {
      "fill": "grey"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "titleId": "psac-title"
    }
   },
   {
@@ -251,14 +290,17 @@
     "code": "CYS\\_attest\\_get\\_token",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "blue"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "titleId": "cysapi-title"
    }
   },
   {
@@ -272,14 +314,17 @@
     "code": "tee\\_secure\\_entry",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g2",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "green"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g2",
+    "order": 22,
+    "titleId": "entry-title"
    }
   },
   {
@@ -294,14 +339,17 @@
     "wantWidth": 26,
     "width": 37.96,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g3",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g3",
+    "order": 24,
+    "titleId": "hdl-title"
    }
   },
   {
@@ -315,14 +363,17 @@
     "code": "",
     "width": 26,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g3",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g3",
+    "order": 26,
+    "titleId": "senc-title"
    }
   },
   {
@@ -336,14 +387,17 @@
     "code": "",
     "width": 26,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "g2",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "green"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "g2",
+    "order": 28,
+    "titleId": "ops-title"
    }
   },
   {
@@ -357,14 +411,17 @@
     "code": "",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "grey"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "drv-title"
    }
   },
   {
@@ -378,14 +435,17 @@
     "code": "",
     "width": 58,
     "minh": 0,
-    "layer": "",
+    "layer": "layer1",
     "group": "",
     "hidden": false,
     "locked": false,
     "style": {
      "fill": "grey"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "hw-title"
    }
   },
   {
@@ -394,6 +454,7 @@
   {
    "t": "edge",
    "e": {
+    "id": "connector",
     "from": "app",
     "to": "att",
     "kind": "arr",
@@ -403,12 +464,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-2",
     "from": "att",
     "to": "seam",
     "kind": "arr",
@@ -418,12 +492,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 35,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-3",
     "from": "seam",
     "to": "swbe",
     "kind": "arr",
@@ -433,12 +520,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 36,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-4",
     "from": "seam",
     "to": "teebe",
     "kind": "arr",
@@ -448,12 +548,26 @@
     "head": "end",
     "label": "calls",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 37,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-5",
     "from": "swbe",
     "to": "nsenc",
     "kind": "arr",
@@ -463,12 +577,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g1",
+    "order": 39,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-6",
     "from": "nsenc",
     "to": "psac",
     "kind": "arr",
@@ -478,12 +605,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 40,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-7",
     "from": "psac",
     "to": "cysapi",
     "kind": "arr",
@@ -493,12 +633,26 @@
     "head": "end",
     "label": "PSA",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 41,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-8",
     "from": "teebe",
     "to": "cysapi",
     "kind": "arr",
@@ -508,12 +662,25 @@
     "head": "both",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 43,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-9",
     "from": "cysapi",
     "to": "entry",
     "kind": "arr",
@@ -523,12 +690,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 44,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-10",
     "from": "entry",
     "to": "hdl",
     "kind": "arr",
@@ -538,12 +718,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g2",
+    "order": 45,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-11",
     "from": "entry",
     "to": "ops",
     "kind": "arr",
@@ -553,12 +746,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g2",
+    "order": 46,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-12",
     "from": "hdl",
     "to": "senc",
     "kind": "arr",
@@ -568,12 +774,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "g3",
+    "order": 47,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-13",
     "from": "senc",
     "to": "drv",
     "kind": "arr",
@@ -583,12 +802,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 48,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-14",
     "from": "ops",
     "to": "drv",
     "kind": "arr",
@@ -598,12 +830,25 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 49,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
    "t": "edge",
    "e": {
+    "id": "connector-15",
     "from": "drv",
     "to": "hw",
     "kind": "arr",
@@ -613,7 +858,19 @@
     "head": "end",
     "label": "",
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 50,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
    }
   },
   {
@@ -626,6 +883,1410 @@
   {
    "t": "raw",
    "text": ""
+  }
+ ],
+ "items": [
+  {
+   "id": "g1",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "g1",
+    "name": "attestation module",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": "",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "g1-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "g1-title",
+   "parent": "g1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "attestation module",
+   "code": "",
+   "role": "title",
+   "treeParent": "g1"
+  },
+  {
+   "id": "g2",
+   "parent": "layer1",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "g2",
+    "name": "secure world",
+    "frame": "region",
+    "color": "green",
+    "parent": "",
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "g2-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "g2-title",
+   "parent": "g2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "secure world",
+   "code": "",
+   "role": "title",
+   "treeParent": "g2"
+  },
+  {
+   "id": "g3",
+   "parent": "g2",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "g3",
+    "name": "operation",
+    "frame": "dotted",
+    "color": "grey",
+    "parent": "g2",
+    "treeParent": "g2",
+    "order": 4,
+    "titleId": "g3-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "g3-title",
+   "parent": "g3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "operation",
+   "code": "",
+   "role": "title",
+   "treeParent": "g3"
+  },
+  {
+   "id": "app",
+   "parent": "layer1",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "app",
+    "cat": "riot",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "app-title"
+   }
+  },
+  {
+   "id": "app-title",
+   "parent": "app",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Application",
+   "code": "",
+   "role": "title",
+   "treeParent": "app"
+  },
+  {
+   "id": "att",
+   "parent": "g1",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "att",
+    "cat": "work",
+    "x": 0,
+    "y": -12,
+    "title": "PSA Attestation API",
+    "code": "psa\\_initial\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g1",
+    "order": 8,
+    "titleId": "att-title"
+   }
+  },
+  {
+   "id": "att-title",
+   "parent": "att",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "PSA Attestation API",
+   "code": "psa\\_initial\\_attest\\_get\\_token",
+   "role": "title",
+   "treeParent": "att"
+  },
+  {
+   "id": "seam",
+   "parent": "g1",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "seam",
+    "cat": "work",
+    "x": 0,
+    "y": -24,
+    "title": "Backend interface",
+    "code": "attest\\_backend\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g1",
+    "order": 10,
+    "titleId": "seam-title"
+   }
+  },
+  {
+   "id": "seam-title",
+   "parent": "seam",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Backend interface",
+   "code": "attest\\_backend\\_get\\_token",
+   "role": "title",
+   "treeParent": "seam"
+  },
+  {
+   "id": "swbe",
+   "parent": "g1",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "swbe",
+    "cat": "work",
+    "x": -15,
+    "y": -35,
+    "title": "Software backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g1",
+    "order": 12,
+    "titleId": "swbe-title"
+   }
+  },
+  {
+   "id": "swbe-title",
+   "parent": "swbe",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Software backend",
+   "code": "",
+   "role": "title",
+   "treeParent": "swbe"
+  },
+  {
+   "id": "teebe",
+   "parent": "g1",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "teebe",
+    "cat": "work",
+    "x": 15,
+    "y": -35,
+    "title": "TEE backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g1",
+    "order": 14,
+    "titleId": "teebe-title"
+   }
+  },
+  {
+   "id": "teebe-title",
+   "parent": "teebe",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "TEE backend",
+   "code": "",
+   "role": "title",
+   "treeParent": "teebe"
+  },
+  {
+   "id": "nsenc",
+   "parent": "g1",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "nsenc",
+    "cat": "work",
+    "x": -15,
+    "y": -46,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g1",
+    "order": 16,
+    "titleId": "nsenc-title"
+   }
+  },
+  {
+   "id": "nsenc-title",
+   "parent": "nsenc",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Providers and token encoder",
+   "code": "",
+   "role": "title",
+   "treeParent": "nsenc"
+  },
+  {
+   "id": "psac",
+   "parent": "layer1",
+   "order": 18,
+   "hidden": true,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "psac",
+    "cat": "riot",
+    "x": -15,
+    "y": -60,
+    "title": "PSA Crypto",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": true,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 18,
+    "titleId": "psac-title"
+   }
+  },
+  {
+   "id": "psac-title",
+   "parent": "psac",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "PSA Crypto",
+   "code": "",
+   "role": "title",
+   "treeParent": "psac"
+  },
+  {
+   "id": "cysapi",
+   "parent": "layer1",
+   "order": 20,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "cysapi",
+    "cat": "cryptoservice",
+    "x": 0,
+    "y": -74,
+    "title": "CryptoService API",
+    "code": "CYS\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "blue"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 20,
+    "titleId": "cysapi-title"
+   }
+  },
+  {
+   "id": "cysapi-title",
+   "parent": "cysapi",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "CryptoService API",
+   "code": "CYS\\_attest\\_get\\_token",
+   "role": "title",
+   "treeParent": "cysapi"
+  },
+  {
+   "id": "entry",
+   "parent": "g2",
+   "order": 22,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "entry",
+    "cat": "tee",
+    "x": 0,
+    "y": -89,
+    "title": "Secure entry and dispatch table",
+    "code": "tee\\_secure\\_entry",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": [],
+    "treeParent": "g2",
+    "order": 22,
+    "titleId": "entry-title"
+   }
+  },
+  {
+   "id": "entry-title",
+   "parent": "entry",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Secure entry and dispatch table",
+   "code": "tee\\_secure\\_entry",
+   "role": "title",
+   "treeParent": "entry"
+  },
+  {
+   "id": "hdl",
+   "parent": "g3",
+   "order": 24,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "hdl",
+    "cat": "work",
+    "x": -15,
+    "y": -104,
+    "title": "Attestation handler",
+    "code": "tee\\_attest\\_get\\_token",
+    "wantWidth": 26,
+    "width": 37.96,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g3",
+    "order": 24,
+    "titleId": "hdl-title"
+   }
+  },
+  {
+   "id": "hdl-title",
+   "parent": "hdl",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attestation handler",
+   "code": "tee\\_attest\\_get\\_token",
+   "role": "title",
+   "treeParent": "hdl"
+  },
+  {
+   "id": "senc",
+   "parent": "g3",
+   "order": 26,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "senc",
+    "cat": "work",
+    "x": -15,
+    "y": -117,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "g3",
+    "order": 26,
+    "titleId": "senc-title"
+   }
+  },
+  {
+   "id": "senc-title",
+   "parent": "senc",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Providers and token encoder",
+   "code": "",
+   "role": "title",
+   "treeParent": "senc"
+  },
+  {
+   "id": "ops",
+   "parent": "g2",
+   "order": 28,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "ops",
+    "cat": "tee",
+    "x": 15,
+    "y": -110,
+    "title": "Crypto and RoT operations",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "green"
+    },
+    "extra": [],
+    "treeParent": "g2",
+    "order": 28,
+    "titleId": "ops-title"
+   }
+  },
+  {
+   "id": "ops-title",
+   "parent": "ops",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Crypto and RoT operations",
+   "code": "",
+   "role": "title",
+   "treeParent": "ops"
+  },
+  {
+   "id": "drv",
+   "parent": "layer1",
+   "order": 30,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "drv",
+    "cat": "riot",
+    "x": 0,
+    "y": -131,
+    "title": "CC310 driver",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 30,
+    "titleId": "drv-title"
+   }
+  },
+  {
+   "id": "drv-title",
+   "parent": "drv",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "CC310 driver",
+   "code": "",
+   "role": "title",
+   "treeParent": "drv"
+  },
+  {
+   "id": "hw",
+   "parent": "layer1",
+   "order": 32,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "hw",
+    "cat": "riot",
+    "x": 0,
+    "y": -141,
+    "title": "CC310",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "grey"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 32,
+    "titleId": "hw-title"
+   }
+  },
+  {
+   "id": "hw-title",
+   "parent": "hw",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "CC310",
+   "code": "",
+   "role": "title",
+   "treeParent": "hw"
+  },
+  {
+   "id": "connector",
+   "parent": "layer1",
+   "order": 34,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector",
+    "from": "app",
+    "to": "att",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 34,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "app",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "att",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-2",
+   "parent": "g1",
+   "order": 35,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-2",
+    "from": "att",
+    "to": "seam",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "g1",
+    "order": 35,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "att",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "seam",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-3",
+   "parent": "g1",
+   "order": 36,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-3",
+    "from": "seam",
+    "to": "swbe",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "g1",
+    "order": 36,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "seam",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "swbe",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-4",
+   "parent": "g1",
+   "order": 37,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-4",
+    "from": "seam",
+    "to": "teebe",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "calls",
+    "style": {},
+    "extra": [],
+    "treeParent": "g1",
+    "order": 37,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-4-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "seam",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "teebe",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-4-label-0",
+   "parent": "connector-4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "calls",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-4"
+  },
+  {
+   "id": "connector-5",
+   "parent": "g1",
+   "order": 39,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-5",
+    "from": "swbe",
+    "to": "nsenc",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "g1",
+    "order": 39,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "swbe",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "nsenc",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-6",
+   "parent": "layer1",
+   "order": 40,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-6",
+    "from": "nsenc",
+    "to": "psac",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 40,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "nsenc",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "psac",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-7",
+   "parent": "layer1",
+   "order": 41,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-7",
+    "from": "psac",
+    "to": "cysapi",
+    "kind": "arr",
+    "route": "hvh",
+    "mid": -30,
+    "bend": 0,
+    "head": "end",
+    "label": "PSA",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 41,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "labelId": "connector-7-label-0",
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "psac",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "cysapi",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-7-label-0",
+   "parent": "connector-7",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "PSA",
+   "code": "",
+   "role": "label",
+   "treeParent": "connector-7"
+  },
+  {
+   "id": "connector-8",
+   "parent": "layer1",
+   "order": 43,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-8",
+    "from": "teebe",
+    "to": "cysapi",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "both",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 43,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "teebe",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "cysapi",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-9",
+   "parent": "layer1",
+   "order": 44,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-9",
+    "from": "cysapi",
+    "to": "entry",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 44,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "cysapi",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "entry",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-10",
+   "parent": "g2",
+   "order": 45,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-10",
+    "from": "entry",
+    "to": "hdl",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "g2",
+    "order": 45,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "entry",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "hdl",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-11",
+   "parent": "g2",
+   "order": 46,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-11",
+    "from": "entry",
+    "to": "ops",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "g2",
+    "order": 46,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "entry",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "ops",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-12",
+   "parent": "g3",
+   "order": 47,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-12",
+    "from": "hdl",
+    "to": "senc",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "g3",
+    "order": 47,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "hdl",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "senc",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-13",
+   "parent": "layer1",
+   "order": 48,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-13",
+    "from": "senc",
+    "to": "drv",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 48,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "senc",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "drv",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-14",
+   "parent": "layer1",
+   "order": 49,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-14",
+    "from": "ops",
+    "to": "drv",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 49,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "ops",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "drv",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "connector-15",
+   "parent": "layer1",
+   "order": 50,
+   "hidden": false,
+   "locked": false,
+   "kind": "Connector",
+   "connector": {
+    "id": "connector-15",
+    "from": "drv",
+    "to": "hw",
+    "kind": "arr",
+    "route": "auto",
+    "mid": null,
+    "bend": 0,
+    "head": "end",
+    "label": "",
+    "style": {},
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 50,
+    "fromPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "toPort": {
+     "side": "auto",
+     "position": 0.5
+    },
+    "hidden": false,
+    "locked": false
+   },
+   "source": {
+    "id": "drv",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   },
+   "target": {
+    "id": "hw",
+    "port": {
+     "side": "auto",
+     "position": 0.5
+    }
+   }
   }
  ]
 }

@@ -1,4 +1,5 @@
 // The shapes the webview keeps: the core figure types plus what the host's 'state' snapshot adds (core/view/viewModel.ts).
+import type { Item, FigLine } from '../../core/model/item';
 import type { Category, Group, Icon, Layer } from '../../core/model/figure';
 import type { StateMessage, ViewEdge, ViewNode, ViewStyle } from '../../bridge/protocol';
 import type { LabelRef } from '../../core/model/refs';
@@ -29,6 +30,8 @@ export interface StyleClip {
 }
 
 export interface Store {
+	items: Item[];
+	lines: FigLine[];
 	rev: number;
 	figureFont: string;
 	selectedLayers: Set<string>;

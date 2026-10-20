@@ -1,4 +1,19 @@
 // Entry for the built out/core.js that scripts/*.cjs and tests require: re-exports the core API.
+export type { Item, ItemKind, TextItem, FigLine, Port, Endpoint } from './model/item';
+export { CHILD_RULES } from './model/item';
+export {
+	items,
+	itemById,
+	childrenOf,
+	ancestors,
+	descendants,
+	layerOf,
+	itemsOfLayer,
+	titleOf,
+	subtreeState,
+} from './model/tree-queries';
+export { syncTree, lineItems } from './model/tree';
+export { reparent, detach, ungroup } from './ops/tree';
 export { PALETTE, darkerColor } from './model/colour';
 export { FONT_SIZES, ARROWS, DEFAULT_WIDTH, STYLE_KINDS, ANCHORS, FRAMES, STYLES } from './model/constants';
 export {

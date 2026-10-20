@@ -1,4 +1,9 @@
 // Reading a figure file into the model.
+import { migratePorts } from '../geometry/migrate-ports';
+import { resolvePorts } from '../geometry/ports';
+import { readTreeState } from './tree-state';
+import { readLine } from './line';
+import { syncTree } from '../model/tree';
 import { readGroup } from './group';
 import { ARROWSFLAG, CAT, CODE, EDGE, GROUP, HIDDEN, LAYER, LEGENDFLAG, NODE, PIC, STYLE, opts } from './lexer';
 import { parsePath } from './parse-path';
@@ -12,6 +17,7 @@ import { settle } from '../styles/resolve';
 
 export function parse(text: string): Figure {
 	const lines: Line[] = [];
+	let tree = '';
 	const individuallyHidden = new Set<string>();
 	const labelKeys = new Set(Array.from(text.matchAll(/^%\s*sakuga style label\s+([\w-]+)/gm), (m) => m[1]));
 	let block: 'theme' | 'legend' | 'groups' | 'icons' | null = null;
@@ -35,6 +41,11 @@ export function parse(text: string): Figure {
 						? 'groups'
 						: 'legend';
 			lines.push({ t: block });
+			continue;
+		}
+		if (line.startsWith('% sakuga tree ')) {
+			tree = line.slice(14);
+			lines.push({ t: 'tree' });
 			continue;
 		}
 		const relative =
@@ -140,7 +151,7 @@ export function parse(text: string): Figure {
 			}
 			const styleOpt = o.find((x) => x.startsWith('sg style/') || x.startsWith('cat-'));
 			const cat = styleOpt ? styleOpt.slice(styleOpt.startsWith('cat-') ? 4 : 9) : '';
-			const isLabel = o.includes('sg label') || labelKeys.has(cat);
+			const isLabel = o.includes('sg text') || o.includes('sg label') || labelKeys.has(cat);
 			const w = o.find((x) => /^text width\s*=/.test(x));
 			const h = o.find((x) => /^minimum height\s*=/.test(x));
 			const layer = o.find((x) => /^sg layer\s*=/.test(x));
@@ -157,6 +168,7 @@ export function parse(text: string): Figure {
 				titlePosition = [vertical, horizontal].filter(Boolean).join(' ') || 'center';
 				content = positioned[4];
 			}
+			if (content.startsWith('\\phantom{') && content.endsWith('}')) content = content.slice(9, -1);
 			const code = CODE.exec(content);
 			const title = code ? content.slice(0, code.index) : content;
 			const icon = /^\\sgicon\{([\w-]+)\}\\ /.exec(title);
@@ -191,6 +203,8 @@ export function parse(text: string): Figure {
 								!x.startsWith('sg code font=') &&
 								!x.startsWith('sg icon') &&
 								x !== styleOpt &&
+								x !== 'sg shape' &&
+								x !== 'sg text' &&
 								x !== 'sg box' &&
 								x !== 'sg label' &&
 								!x.startsWith('sg label height=') &&
@@ -225,6 +239,13 @@ export function parse(text: string): Figure {
 			continue;
 		}
 		m = EDGE.exec(line);
+		const freeLine = m && readLine(opts(m[1]), m[2]);
+		if (freeLine) {
+			freeLine.hidden ||= !!hidden;
+			freeLine.id ||= 'line-' + (lines.filter((l) => l.t === 'line').length + 1);
+			lines.push({ t: 'line', line: freeLine });
+			continue;
+		}
 		const e = m && parsePath(opts(m[1]), m[2]);
 		if (e) {
 			lines.push({ t: 'edge', e });
@@ -245,6 +266,18 @@ export function parse(text: string): Figure {
 	}
 	for (const n of nodes(fig)) normalizeWidth(fig, n);
 	resolveAttachments(fig);
+	// Legacy attachments could cross layers. Preserve their appearance by freeing
+	// the child at its resolved position when its explicit layer differs.
+	if (!tree)
+		for (const n of nodes(fig)) {
+			const parent = n.attachment && nodes(fig).find((p) => p.id === n.attachment!.parent);
+			if (parent && n.layer && nodeLayer(fig, n).id !== nodeLayer(fig, parent).id) delete n.attachment;
+		}
 	settle(fig);
+	syncTree(fig);
+	if (tree) {
+		readTreeState(fig, tree);
+		resolvePorts(fig);
+	} else migratePorts(fig);
 	return fig;
 }

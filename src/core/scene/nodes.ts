@@ -104,7 +104,8 @@ function nodePrim(env: Env, n: FigNode): Prim {
 		);
 		kids.push(box, ...decorations(`${key}:box`, n, w, h, box));
 	}
-	if (env.opts.editing !== n.id && n.kind !== 'icon') kids.push(...titleLines(env, n, key, w, h, lines));
+	if (!n.titleHidden && env.opts.editing !== n.id && n.kind !== 'icon')
+		kids.push(...titleLines(env, n, key, w, h, lines));
 	return prim('g', key, { 'fill-opacity': alpha, 'stroke-opacity': alpha }, { ref, children: kids });
 }
 

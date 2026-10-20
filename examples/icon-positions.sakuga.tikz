@@ -2,6 +2,7 @@
 % sakuga style box work {this work} peach icon=board legend
 % sakuga legend on
 % sakuga group iconGroup {} dashed grey
+% sakuga tree 5b7b226964223a2266726565222c226b696e64223a2249636f6e222c22706172656e74223a2269636f6e47726f7570222c226f72646572223a31382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e47726f7570222c226b696e64223a224672616d65222c22706172656e74223a226c6179657231222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e47726f75702d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2269636f6e47726f7570222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e68657269746564222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e686572697465642d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22696e68657269746564222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e30222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e30222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e31222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e31222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e32222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e32222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e33222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e33222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e34222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e342d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e34222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e35222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e352d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e35222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e36222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e362d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e36222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d5d
 \begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
 % sakuga theme begin (generated from the style lines above)
 \tikzset{sg icon stroke/.style={draw=black!60,line width=0.6pt,line cap=round,line join=round}}
@@ -28,12 +29,14 @@
 \tikzset{
   sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
     inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},
   sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},
   sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},
   sg style/work/.style={sg box, fill=sgPeach},
   arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
   head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
   head none/.style={-},
+  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\sffamily\scriptsize,fill=white,inner sep=1pt},
   sg elabel/.style={align=center, text=black!65, font=\sffamily\scriptsize, fill=white, inner sep=1pt},
   sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},
   sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
@@ -49,42 +52,42 @@
     minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
 }
 % sakuga theme end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=6, sg icon position=left] (position0) at (0,0) {\sgcontent{left}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=6, sg icon position=left] (position0) at (0,0) {\sgcontent{left}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=1mm,yshift=1.5mm]position0.west) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=above] (position1) at (40,0) {\sgcontent{above}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=above] (position1) at (40,0) {\sgcontent{above}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=-1.5mm,yshift=-1mm]position1.north) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=6, sg icon position=right] (position2) at (80,0) {\sgcontent{right}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=6, sg icon position=right] (position2) at (80,0) {\sgcontent{right}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=-4mm,yshift=1.5mm]position2.east) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=nw] (position3) at (0,-22) {\sgcontent{nw}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=nw] (position3) at (0,-22) {\sgcontent{nw}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=1mm,yshift=-1mm]position3.north west) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=ne] (position4) at (40,-22) {\sgcontent{ne}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=ne] (position4) at (40,-22) {\sgcontent{ne}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=-4mm,yshift=-1mm]position4.north east) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=sw] (position5) at (80,-22) {\sgcontent{sw}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=sw] (position5) at (80,-22) {\sgcontent{sw}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=1mm,yshift=4mm]position5.south west) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=se] (position6) at (0,-44) {\sgcontent{se}{26}{Title}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=se] (position6) at (0,-44) {\sgcontent{se}{26}{Title}};
 % sakuga icons begin (generated)
 \pic at ([xshift=-4mm,yshift=4mm]position6.south east) {sg icon/board};
 % sakuga icons end
-\node[sg style/work, sg layer=layer1, sg icon=category, sg icon height=10, sg icon position=above] (inherited) at (40,-44) {\sgcontent{above}{26}{Category}};
+\node[sg shape, sg style/work, sg layer=layer1, sg icon=category, sg icon height=10, sg icon position=above] (inherited) at (40,-44) {\sgcontent{above}{26}{Category}};
 % sakuga icons begin (generated)
 \pic at ([xshift=-1.5mm,yshift=-1mm]inherited.north) {sg icon/board};
 % sakuga icons end
 \pic[pic text={Free icon}, sg layer=layer1, sg in=iconGroup] (free) at (80,-44) {sg object={board}{8}{10}};
 % sakuga groups begin (generated from the group lines)
 \begin{scope}[on background layer]
-\node[inner sep=0pt, outer sep=0pt, fit={(73.2,-51.8) (86.8,-36.2)}] (iconGroup) {};
+\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(73.2,-51.8) (86.8,-36.2)}] (iconGroup) {};
 \path[sg frame dashed, fill=none, draw=sgc737373, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (iconGroup.south west) rectangle (iconGroup.north east);
 \end{scope}
 % sakuga groups end

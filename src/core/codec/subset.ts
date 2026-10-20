@@ -1,4 +1,7 @@
 // The part of a figure a copy puts on the clipboard: the selected boxes, arrows and groups, with what they need to paste.
+import { lineSource } from './line';
+import { descendants } from '../model/tree-queries';
+import { lineItems } from '../model/tree';
 import { edgeLine } from './edge-line';
 import { groupOptions } from './group';
 import { nodeSource } from './serialize';
@@ -19,6 +22,8 @@ export function serializeSubset(fig: Figure, refs: ObjectRef[]): string {
 			const n = node(r.id);
 			if (n && !isLocked(fig, n) && !isHidden(fig, n)) ids.add(n.id);
 		}
+	for (const id of [...ids])
+		for (const child of descendants(fig, id)) if ('node' in child && child.node) ids.add(child.id);
 	const picked = new Set(refs.flatMap((r) => (r.k === 'edge' ? [r.index] : [])));
 	const list = edges(fig);
 	const selected = list.filter((e, i) => picked.has(i) || (ids.has(e.from) && ids.has(e.to)));
@@ -58,6 +63,9 @@ export function serializeSubset(fig: Figure, refs: ObjectRef[]): string {
 					`% sakuga group ${g.id} {${g.name}} ${g.frame} ${g.color}${g.parent ? ` in=${g.parent}` : ''}${groupOptions(g)}`,
 			),
 		...all.filter((n) => ids.has(n.id)).map((n) => nodeSource(fig, n)),
+		...lineItems(fig)
+			.filter((l) => ids.has(l.id) || copied.has(l.group || ''))
+			.map((l) => lineSource(fig, l)),
 		...selected
 			.filter((e) => (ids.has(e.from) || copied.has(e.from)) && (ids.has(e.to) || copied.has(e.to)))
 			.map((e) => edgeLine(fig, e, geo)),

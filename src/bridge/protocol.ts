@@ -3,6 +3,7 @@
 // TODO(S10 and later): replace the derived 'state' snapshot by { t: 'doc'; text; version } and the webview parsing the text
 // itself (docs/architecture.md section 2, ADR-2). Until then these types must describe today's traffic and nothing more.
 
+import type { Item, FigLine } from '../core/model/item';
 import type { Category, FigEdge, FigNode, Group, Layer, StyleDef } from '../core/model/figure';
 
 /** Bumped whenever a message changes shape. The webview announces it in 'ready'. */
@@ -17,6 +18,8 @@ export type ViewStyle = StyleDef & { line?: string };
 /** The derived snapshot of the document (see core/view/viewModel.ts). */
 export interface StateMessage {
 	type: 'state';
+	items?: Item[];
+	lines?: FigLine[];
 	text: string;
 	nodes: ViewNode[];
 	edges: ViewEdge[];

@@ -1,4 +1,5 @@
 // The path of an arrow: coordinates in parentheses, operators between them, at most one label node.
+import { pathLabels } from './path-labels';
 import { fromHex } from '../util/hex';
 import { MARKERS } from './keys';
 import { readOptions } from './options';
@@ -59,6 +60,7 @@ export function parsePath(o: string[], path: string): FigEdge | null {
 	const head = o.includes('head both') ? 'both' : o.includes('head none') ? 'none' : 'end';
 	const e: FigEdge = {
 		...(styleOpt ? { styleKey: styleOpt.slice(9) } : {}),
+		id: o.find((x) => x.startsWith('sg id='))?.slice(6),
 		from,
 		to,
 		fromAnchor: endpointAnchor(coords[0]),
@@ -72,6 +74,8 @@ export function parsePath(o: string[], path: string): FigEdge | null {
 		...readOptions(
 			o.filter(
 				(x) =>
+					x !== 'sg conn' &&
+					!x.startsWith('sg id=') &&
 					x !== kind &&
 					x !== styleOpt &&
 					x !== 'head both' &&
@@ -91,6 +95,14 @@ export function parsePath(o: string[], path: string): FigEdge | null {
 		e.labelStyle = data.style;
 		e.labels = data.labels;
 		if (data.text !== undefined) e.label = data.text;
+	}
+	if (!meta) {
+		const labels = pathLabels(path);
+		if (labels.length && (labels.length > 1 || !path.includes('node[sg elabel'))) {
+			e.label = labels[0].text;
+			e.labelStyle = labels[0].style;
+			e.labels = labels.slice(1);
+		}
 	}
 	if (label) {
 		e.style = {

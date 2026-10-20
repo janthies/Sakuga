@@ -102,7 +102,7 @@ function labels(env: Env, e: FigEdge, i: number, key: string, _color: string): P
 		...(e.labels || []).map((l, j) => [j, l.text, l.style || {}, 0] as [number, string, any, number]),
 	];
 	for (const [slot, content, st, badge] of all) {
-		if (!content && !badge) continue;
+		if (st.hidden || (!content && !badge)) continue;
 		const geom = env.labelGeom(e, st, content, slot === undefined ? e.style?.step : 0),
 			{
 				p: [x, y],

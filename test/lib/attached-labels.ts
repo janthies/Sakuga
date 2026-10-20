@@ -89,7 +89,7 @@ export function sequence(s: Session) {
 	});
 	apply({ op: 'attachLabel', id: 'extra', index: 0, style: { pos: 0.25, side: 'below', dx: 1, dy: -3 } });
 	assert.equal(edges()[0].labels.length, 1);
-	assert.equal((drawLine(s).match(/node\[sg elabel/g) || []).length, 2);
+	assert.equal((drawLine(s).match(/node\[sg label/g) || []).length, 2);
 	apply({ op: 'label', index: 0, slot: 0, text: 'Edited', style: { bold: true, background: true } });
 	canonical();
 	apply({ op: 'detachLabel', index: 0, slot: 0, id: 'extra2', x: 20, y: -10 });

@@ -25,6 +25,7 @@ export function makeEnv(fig: SceneInput, ctx: SceneCtx, opts: SceneOpts): Env {
 		ctx.geometry ??
 		new FigureGeometry({
 			nodes: fig.nodes,
+			lines: fig.lines,
 			edges: fig.edges,
 			groups: fig.groups,
 			categories: fig.categories,
@@ -32,7 +33,14 @@ export function makeEnv(fig: SceneInput, ctx: SceneCtx, opts: SceneOpts): Env {
 			arrowStyle: fig.arrowStyle,
 		});
 	const index = new Map(fig.nodes.map((n) => [n.id, n]));
-	const hiddenEnd = (e: FigEdge) => !!(index.get(e.from)?.hidden || index.get(e.to)?.hidden);
+	const hiddenEnd = (e: FigEdge) =>
+		!!(
+			e.hidden ||
+			index.get(e.from)?.hidden ||
+			index.get(e.to)?.hidden ||
+			fig.lines?.some((l) => (l.id === e.from || l.id === e.to) && l.hidden) ||
+			fig.groups.some((g) => (g.id === e.from || g.id === e.to) && g.hidden)
+		);
 	return {
 		fig,
 		ctx,

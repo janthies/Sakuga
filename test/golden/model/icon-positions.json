@@ -28,8 +28,16 @@
     "name": "",
     "frame": "dashed",
     "color": "grey",
-    "parent": ""
+    "parent": "",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "iconGroup-title",
+    "hidden": false,
+    "locked": false
    }
+  },
+  {
+   "t": "tree"
   },
   {
    "t": "raw",
@@ -58,7 +66,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "position0-title"
    }
   },
   {
@@ -84,7 +95,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "position1-title"
    }
   },
   {
@@ -110,7 +124,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "position2-title"
    }
   },
   {
@@ -136,7 +153,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "position3-title"
    }
   },
   {
@@ -162,7 +182,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 10,
+    "titleId": "position4-title"
    }
   },
   {
@@ -188,7 +211,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 12,
+    "titleId": "position5-title"
    }
   },
   {
@@ -214,7 +240,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "titleId": "position6-title"
    }
   },
   {
@@ -240,7 +269,10 @@
     "style": {
      "fill": "peach"
     },
-    "extra": []
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "titleId": "inherited-title"
    }
   },
   {
@@ -264,7 +296,9 @@
     "hidden": false,
     "locked": false,
     "style": {},
-    "extra": []
+    "extra": [],
+    "treeParent": "iconGroup",
+    "order": 18
    }
   },
   {
@@ -280,6 +314,412 @@
   {
    "t": "raw",
    "text": ""
+  }
+ ],
+ "items": [
+  {
+   "id": "iconGroup",
+   "parent": "layer1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Frame",
+   "frame": {
+    "id": "iconGroup",
+    "name": "",
+    "frame": "dashed",
+    "color": "grey",
+    "parent": "",
+    "treeParent": "layer1",
+    "order": 0,
+    "titleId": "iconGroup-title",
+    "hidden": false,
+    "locked": false
+   }
+  },
+  {
+   "id": "iconGroup-title",
+   "parent": "iconGroup",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "",
+   "code": "",
+   "role": "title",
+   "treeParent": "iconGroup"
+  },
+  {
+   "id": "position0",
+   "parent": "layer1",
+   "order": 2,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position0",
+    "cat": "work",
+    "x": 0,
+    "y": 0,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "left",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 2,
+    "titleId": "position0-title"
+   }
+  },
+  {
+   "id": "position0-title",
+   "parent": "position0",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position0"
+  },
+  {
+   "id": "position1",
+   "parent": "layer1",
+   "order": 4,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position1",
+    "cat": "work",
+    "x": 40,
+    "y": 0,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "above",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 4,
+    "titleId": "position1-title"
+   }
+  },
+  {
+   "id": "position1-title",
+   "parent": "position1",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position1"
+  },
+  {
+   "id": "position2",
+   "parent": "layer1",
+   "order": 6,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position2",
+    "cat": "work",
+    "x": 80,
+    "y": 0,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "right",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 6,
+    "titleId": "position2-title"
+   }
+  },
+  {
+   "id": "position2-title",
+   "parent": "position2",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position2"
+  },
+  {
+   "id": "position3",
+   "parent": "layer1",
+   "order": 8,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position3",
+    "cat": "work",
+    "x": 0,
+    "y": -22,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "nw",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 8,
+    "titleId": "position3-title"
+   }
+  },
+  {
+   "id": "position3-title",
+   "parent": "position3",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position3"
+  },
+  {
+   "id": "position4",
+   "parent": "layer1",
+   "order": 10,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position4",
+    "cat": "work",
+    "x": 40,
+    "y": -22,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "ne",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 10,
+    "titleId": "position4-title"
+   }
+  },
+  {
+   "id": "position4-title",
+   "parent": "position4",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position4"
+  },
+  {
+   "id": "position5",
+   "parent": "layer1",
+   "order": 12,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position5",
+    "cat": "work",
+    "x": 80,
+    "y": -22,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "sw",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 12,
+    "titleId": "position5-title"
+   }
+  },
+  {
+   "id": "position5-title",
+   "parent": "position5",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position5"
+  },
+  {
+   "id": "position6",
+   "parent": "layer1",
+   "order": 14,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "position6",
+    "cat": "work",
+    "x": 0,
+    "y": -44,
+    "title": "Title",
+    "icon": "board",
+    "iconPosition": "se",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 14,
+    "titleId": "position6-title"
+   }
+  },
+  {
+   "id": "position6-title",
+   "parent": "position6",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title",
+   "code": "",
+   "role": "title",
+   "treeParent": "position6"
+  },
+  {
+   "id": "inherited",
+   "parent": "layer1",
+   "order": 16,
+   "hidden": false,
+   "locked": false,
+   "kind": "Shape",
+   "node": {
+    "id": "inherited",
+    "cat": "work",
+    "x": 40,
+    "y": -44,
+    "title": "Category",
+    "icon": "category",
+    "iconPosition": "above",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach"
+    },
+    "extra": [],
+    "treeParent": "layer1",
+    "order": 16,
+    "titleId": "inherited-title"
+   }
+  },
+  {
+   "id": "inherited-title",
+   "parent": "inherited",
+   "order": 0,
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Category",
+   "code": "",
+   "role": "title",
+   "treeParent": "inherited"
+  },
+  {
+   "id": "free",
+   "parent": "iconGroup",
+   "order": 18,
+   "hidden": false,
+   "locked": false,
+   "kind": "Icon",
+   "node": {
+    "id": "free",
+    "kind": "icon",
+    "icon": "board",
+    "x": 80,
+    "y": -44,
+    "width": 8,
+    "minh": 10,
+    "title": "Free icon",
+    "code": "",
+    "cat": "",
+    "layer": "layer1",
+    "group": "iconGroup",
+    "hidden": false,
+    "locked": false,
+    "style": {},
+    "extra": [],
+    "treeParent": "iconGroup",
+    "order": 18
+   }
   }
  ]
 }
