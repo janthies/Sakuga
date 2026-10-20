@@ -1,45 +1,14 @@
 // @ts-nocheck
 import { store } from '../store/store';
-import { baseEdgeGeom, edgePath } from './geometry';
-import { ARROW, ARROW_DASHED, CODE_PT, PT, show } from '../store/constants';
-import { byId, px, py, textMm } from '../store/model';
+import { edgePath, hiddenEnd } from './geometry';
+import { geo } from '../store/geometry';
+import { ARROW, ARROW_DASHED, PT, show } from '../store/constants';
+import { byId, px, py } from '../store/model';
 import { arrowLabelGeom, labelSelection } from './labelgeom';
 import { dash, el, styleColor, text, tip, weight } from './svg';
 
 export function edgeGeom(e) {
-	const G = baseEdgeGeom(e);
-	if (!G) {
-		return G;
-	}
-	const t = e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : 0.5;
-	if (e.label && e.style?.position) {
-		if (G.curve) {
-			G.label = [0, 1].map(
-				(k) =>
-					(1 - t) ** 3 * G.curve[0][k] +
-					3 * (1 - t) ** 2 * t * G.curve[1][k] +
-					3 * (1 - t) * t * t * G.curve[2][k] +
-					t ** 3 * G.curve[3][k],
-			);
-		} else {
-			const bent = G.pts.length > 2,
-				i = bent ? (e.style.position === 'start' ? 0 : G.special ? G.pts.length - 2 : 1) : 0,
-				a = G.pts[i],
-				b = G.pts[i + 1],
-				u = G.special ? t : bent ? 0.5 : t;
-			G.label = [a[0] + (b[0] - a[0]) * u, a[1] + (b[1] - a[1]) * u];
-		}
-	}
-	if (e.label && e.style?.side) {
-		const side = e.style.side,
-			lines = e.label.split('\\\\'),
-			h = lines.length * CODE_PT * PT * 1.25,
-			w = Math.max(...lines.map((l) => textMm(show(l), CODE_PT, 'Sakuga Sans'))) + (e.style.step ? 4 : 0);
-		if (side === 'left' || side === 'right') G.label[0] += (side === 'right' ? 1 : -1) * (w / 2);
-		else G.label[1] += (side === 'above' ? 1 : -1) * (h / 2 + PT);
-	}
-	if (e.labelStyle) G.label = arrowLabelGeom(e).p;
-	return G;
+	return hiddenEnd(e) ? null : geo().edge(e);
 }
 export function drawEdge(g, e, i) {
 	const G = edgeGeom(e);

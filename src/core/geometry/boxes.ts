@@ -32,30 +32,42 @@ export function anchorPoint(n: FigNode, anchor: string): [number, number] {
 	];
 }
 
-export function resolveAttachments(fig: Figure) {
+// Place every attached box from its parent. half gives the half width and half height of a box as it is drawn.
+export function placeAttached(list: FigNode[], half: (n: FigNode) => [number, number]) {
 	const done = new Set<string>(),
 		visiting = new Set<string>();
+	const at = (n: FigNode, anchor: string): [number, number] => {
+		const [w, h] = half(n);
+		return [
+			n.x + (anchor.includes('west') ? -w : anchor.includes('east') ? w : 0),
+			n.y + (anchor.includes('north') ? h : anchor.includes('south') ? -h : 0),
+		];
+	};
 	const visit = (n: FigNode) => {
 		if (done.has(n.id) || visiting.has(n.id)) {
 			return;
 		}
 		visiting.add(n.id);
 		const a = n.attachment,
-			parent = a && nodes(fig).find((p) => p.id === a.parent && !p.kind);
+			parent = a && list.find((p) => p.id === a.parent && !p.kind);
 		if (a && parent && !visiting.has(parent.id)) {
 			visit(parent);
-			const sized = (o: FigNode) => ({
-				...o,
-				icon: nodeIcon(fig, o),
-				style: { ...o.style, font: o.style?.font || fontSize(fig) },
-			});
-			const [px, py] = anchorPoint(sized(parent), a.anchor),
-				[ox, oy] = anchorPoint({ ...sized(n), x: 0, y: 0 }, a.ownAnchor);
+			const [px, py] = at(parent, a.anchor),
+				[ox, oy] = at({ ...n, x: 0, y: 0 }, a.ownAnchor);
 			n.x = px + a.dx - ox;
 			n.y = py + a.dy - oy;
 		}
 		visiting.delete(n.id);
 		done.add(n.id);
 	};
-	nodes(fig).forEach(visit);
+	list.forEach(visit);
+}
+
+export function resolveAttachments(fig: Figure) {
+	const sized = (o: FigNode) => ({
+		...o,
+		icon: nodeIcon(fig, o),
+		style: { ...o.style, font: o.style?.font || fontSize(fig) },
+	});
+	placeAttached(nodes(fig), (n) => boxHalf(sized(n)));
 }

@@ -1,163 +1,126 @@
 import { loadIcons } from './env';
+import { geometryOf } from '../../src/core/geometry/figure-geometry';
 
-const t = loadIcons();
+loadIcons();
+const { parse } = require('../../src/core/codec/parse');
 
-// Geometry as the serializer side sees it: node boxes, frames, and the path of every arrow.
-export function serializerDump(text: string) {
-	const fig = t.parse(text);
-	const objects = t.routeObjects(fig);
-	const cats = t.categories(fig);
-	const font = t.fontSize(fig);
-	const sized = (n: any) => {
-		const c = cats.find((c: any) => c.key === n.cat);
-		const icon = n.icon === 'none' ? undefined : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon;
-		return { ...n, icon, style: { ...n.style, font: n.style?.font || font } };
-	};
-	const byId = new Map(t.nodes(fig).map((n: any) => [n.id, n]));
+// What both sides must agree on: box sizes, frames, and for every arrow its route choice, path, label anchor and label boxes.
+// A side is given as the questions the code asks of its geometry (the serializer asks core directly, the canvas through its
+// webview entry points), and the objects it asks about.
+interface Questions {
+	nodes: any[];
+	edges: any[];
+	groups: any[];
+	size(n: any): { w: number; h: number; lines: any[] };
+	half(n: any): number[];
+	frame(id: string): any;
+	frameTitle(g: any): any;
+	route(e: any): any;
+	base(e: any): any;
+	edge(e: any): any;
+	label(e: any, st: any, content: string, step?: number): any;
+	drawn(e: any): boolean;
+}
+
+export function describe(q: Questions) {
+	const rect = (o: any) => o && { id: o.id, x: o.x, y: o.y, w: o.w, h: o.h };
+	const byId = (a: any, b: any) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
 	return {
-		nodes: objects
-			.filter((o: any) => !o.frame)
-			.map((o: any) => ({ id: o.id, x: o.x, y: o.y, w: o.w, h: o.h, boxHalf: t.boxHalf(sized(byId.get(o.id))) })),
-		frames: objects.filter((o: any) => o.frame).map((o: any) => ({ id: o.id, x: o.x, y: o.y, w: o.w, h: o.h })),
-		edges: t.edges(fig).map((e: any, index: number) => {
-			const a: any = byId.get(e.from),
-				b: any = byId.get(e.to);
-			return {
-				index,
-				from: e.from,
-				to: e.to,
-				route: a && b ? t.resolveRoute(e, sized(a), sized(b), t.arrowStyle(fig)) : null,
-				geometry: t.specialGeometry(fig, e),
-			};
-		}),
+		nodes: q.nodes
+			.map((n) => {
+				const s = q.size(n);
+				return { id: n.id, x: n.x, y: n.y, w: s.w, h: s.h, lines: s.lines.length, half: q.half(n) };
+			})
+			.sort(byId),
+		frames: q.groups
+			.filter((g) => g.frame !== 'none')
+			.map((g) => rect(q.frame(g.id)))
+			.filter(Boolean)
+			.sort(byId),
+		frameTitles: q.groups.map((g) => ({ id: g.id, title: q.frameTitle(g) })).sort(byId),
+		edges: q.edges.map((e, index) => ({
+			index,
+			from: e.from,
+			to: e.to,
+			route: q.route(e),
+			drawn: q.drawn(e),
+			base: q.base(e),
+			geometry: q.edge(e),
+			labels: [
+				...(e.labelStyle || e.label ? [{ slot: null, g: q.label(e, e.labelStyle || {}, e.label, e.style?.step) }] : []),
+				...(e.labels || []).map((l: any, slot: number) => ({ slot, g: q.label(e, l.style || {}, l.text, 0) })),
+			],
+		})),
 	};
 }
 
-// Geometry as the canvas (media/editor.js) computes it, read through the test hook.
+// Geometry as the serializer side sees it: core, asked about the figure parsed from the file.
+export function serializerDump(text: string) {
+	const fig = parse(text);
+	const geo = geometryOf(fig);
+	const { nodes, edges, groups } = geo.input;
+	const hidden = (id: string) => nodes.find((n) => n.id === id)?.hidden;
+	return describe({
+		nodes,
+		edges,
+		groups,
+		size: (n) => geo.size(n),
+		half: (n) => geo.half(n),
+		frame: (id) => geo.frame(id),
+		frameTitle: (g) => geo.frameTitle(g),
+		route: (e) => geo.route(e),
+		base: (e) => geo.base(e),
+		edge: (e) => geo.edge(e),
+		label: (e, st, content, step) => geo.label(e, st, content, step),
+		drawn: (e) => !hidden(e.from) && !hidden(e.to),
+	});
+}
+
+// Geometry as the canvas computes it: the webview's entry points, asked about the store it built from the state message.
 export function canvasDump(hook: any) {
 	const s = hook.state();
-	const byId = new Map(s.nodes.map((n: any) => [n.id, n]));
-	return {
-		nodes: s.nodes.map((n: any) => {
-			const l = hook.layout(n);
-			return { id: n.id, x: n.x, y: n.y, w: l.w, h: l.h, lines: l.lines.length, boxHalf: hook.boxHalf(n) };
-		}),
-		frames: s.groups
-			.filter((g: any) => g.frame !== 'none')
-			.map((g: any) => hook.frameRect(g.id))
-			.filter(Boolean)
-			.map((o: any) => ({ id: o.id, x: o.x, y: o.y, w: o.w, h: o.h })),
-		frameTitles: s.groups.map((g: any) => ({ id: g.id, title: hook.frameTitleGeom(g) })),
-		edges: s.edges.map((e: any, index: number) => {
-			const a: any = byId.get(e.from),
-				b: any = byId.get(e.to);
-			return {
-				index,
-				from: e.from,
-				to: e.to,
-				route: a && b ? hook.resolveRoute(e, a, b) : null,
-				base: hook.baseEdgeGeom(e),
-				geometry: hook.edgeGeom(e),
-				labels: [
-					...(e.labelStyle || e.label ? [{ slot: null, g: hook.arrowLabelGeom(e) }] : []),
-					...(e.labels || []).map((l: any, slot: number) => ({
-						slot,
-						g: hook.arrowLabelGeom(e, l.style || {}, l.text, 0),
-					})),
-				],
-			};
-		}),
-		contentBox: hook.contentBox(),
-	};
+	return describe({
+		nodes: s.nodes,
+		edges: s.edges,
+		groups: s.groups,
+		size: (n) => hook.layout(n),
+		half: (n) => hook.boxHalf(n),
+		frame: (id) => hook.frameRect(id),
+		frameTitle: (g) => hook.frameTitleGeom(g),
+		route: (e) => hook.resolveRoute(e),
+		base: (e) => hook.baseEdgeGeom(e),
+		edge: (e) => hook.rawEdge(e),
+		label: (e, st, content, step) => hook.rawLabel(e, st, content, step),
+		drawn: (e) => hook.edgeGeom(e) !== null,
+	});
 }
 
 export interface Drift {
 	object: string;
 	what: string;
-	mm: number;
+	mm: number | 'structural';
 	detail?: unknown;
 }
-const r3 = (v: number) => Math.round(v * 1000) / 1000;
-const num = (v: number | undefined, w: number | undefined) =>
-	v === undefined || w === undefined ? Infinity : Math.abs(v - w);
 
-// Differences between the two sides, in mm. Equal values (to 0.0005 mm) are not listed.
-export function drift(S: ReturnType<typeof serializerDump>, C: ReturnType<typeof canvasDump>): Drift[] {
+// Every difference between the two dumps, found by walking both: numbers that differ by more than 0.0005 mm, and anything
+// that exists on one side only or has another shape.
+export function drift(S: unknown, C: unknown): Drift[] {
 	const out: Drift[] = [];
-	const add = (object: string, what: string, mm: number, detail?: unknown) => {
-		if (r3(mm) > 0) {
-			out.push({ object, what, mm: r3(mm), detail });
-		}
+	const walk = (a: any, b: any, path: string) => {
+		if (typeof a === 'number' && typeof b === 'number') {
+			if (Math.abs(a - b) > 0.0005)
+				out.push({ object: path, what: 'value', mm: Math.round(Math.abs(a - b) * 1000) / 1000 });
+		} else if (Array.isArray(a) && Array.isArray(b)) {
+			if (a.length !== b.length)
+				out.push({ object: path, what: 'length', mm: 'structural', detail: [a.length, b.length] });
+			else a.forEach((v, i) => walk(v, b[i], `${path}[${i}]`));
+		} else if (a && b && typeof a === 'object' && typeof b === 'object') {
+			for (const k of new Set([...Object.keys(a), ...Object.keys(b)])) {
+				if (a[k] === undefined && b[k] === undefined) continue;
+				walk(a[k], b[k], `${path}.${k}`);
+			}
+		} else if (a !== b) out.push({ object: path, what: 'different', mm: 'structural', detail: [a, b] });
 	};
-	for (const sn of S.nodes) {
-		const cn = C.nodes.find((n) => n.id === sn.id);
-		if (!cn) {
-			continue;
-		}
-		add(`node:${sn.id}`, 'size (routeObjects vs layout)', Math.max(num(sn.w, cn.w), num(sn.h, cn.h)), {
-			tikz: [sn.w, sn.h],
-			canvas: [cn.w, cn.h],
-		});
-		// The canvas keeps its own boxHalf for the legacy route choice (editor.js 382); the serializer uses the text layout.
-		add(
-			`node:${sn.id}`,
-			'boxHalf (tikz.ts vs editor.js copy)',
-			Math.max(num(sn.boxHalf[0], cn.boxHalf[0]), num(sn.boxHalf[1], cn.boxHalf[1])),
-			{ tikz: sn.boxHalf, canvas: cn.boxHalf },
-		);
-	}
-	for (const sf of S.frames) {
-		const cf = C.frames.find((f) => f.id === sf.id);
-		if (!cf) {
-			add(`frame:${sf.id}`, 'frame only on the serializer side', Infinity);
-			continue;
-		}
-		add(`frame:${sf.id}`, 'bounds', Math.max(num(sf.x, cf.x), num(sf.y, cf.y), num(sf.w, cf.w), num(sf.h, cf.h)), {
-			tikz: [sf.x, sf.y, sf.w, sf.h],
-			canvas: [cf.x, cf.y, cf.w, cf.h],
-		});
-	}
-	for (const se of S.edges) {
-		const ce = C.edges[se.index],
-			name = `edge:${se.index} ${se.from}->${se.to}`;
-		const sg = se.geometry,
-			cg = ce.base;
-		if (sg && cg) {
-			const sp = sg.curve || sg.pts,
-				cp = cg.curve || cg.pts;
-			if (!!sg.curve !== !!cg.curve || sp.length !== cp.length) {
-				add(name, 'path shape (points)', Infinity, { tikz: sp.length, canvas: cp.length });
-			} else {
-				add(
-					name,
-					'path points',
-					Math.max(0, ...sp.flatMap((p: number[], i: number) => p.map((v, k) => num(v, cp[i][k])))),
-					{ tikz: sp, canvas: cp },
-				);
-			}
-			if (sg.label && cg.label) {
-				add(
-					name,
-					'label anchor (before side and offsets)',
-					Math.max(num(sg.label[0], cg.label[0]), num(sg.label[1], cg.label[1])),
-					{ tikz: sg.label, canvas: cg.label },
-				);
-			}
-		} else if (!sg) {
-			// Plain legacy route: the serializer chooses it with resolveRoute and TikZ draws it; the canvas draws it from its own copy.
-			const a = se.route,
-				b = ce.route;
-			if (JSON.stringify(a) !== JSON.stringify(b)) {
-				add(
-					name,
-					'route choice (resolveRoute)',
-					a?.type === b?.type ? Math.abs((a?.mid ?? 0) - (b?.mid ?? 0)) : Infinity,
-					{ tikz: a, canvas: b },
-				);
-			}
-		} else {
-			add(name, 'arrow missing on the canvas (serializer routes it)', Infinity);
-		}
-	}
+	walk(S, C, '');
 	return out;
 }

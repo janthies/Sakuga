@@ -14,6 +14,7 @@ export function polyline(
 	label: string | ((i: number) => string) = '',
 	projectStraight = false,
 ): string {
+	if (pts.length === 1) pts = [pts[0], pts[0]];
 	if (
 		projectStraight &&
 		pts.length === 2 &&

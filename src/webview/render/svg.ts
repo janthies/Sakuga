@@ -1,4 +1,6 @@
 // @ts-nocheck
+import { borderPoint } from '../../core/geometry/route';
+import { cssFill, darkerColor } from '../../core/model/colour';
 import { store } from '../store/store';
 import { byId, catOf, fontPt, layout, px, py, textMm } from '../store/model';
 import { ARROW, ARROW_DASHED, LINE, NS, PT, show } from '../store/constants';
@@ -33,23 +35,7 @@ export function text(parent, x, y, s, pt, family, fill, anchor = 'middle') {
 }
 // Point on the border of n in the direction of (tx, ty), as TikZ does for (a) -- (b).
 export function border(n, tx, ty) {
-	const { w, h } = layout(n);
-	const dx = tx - n.x,
-		dy = ty - n.y;
-	if (!dx && !dy) {
-		return [n.x, n.y];
-	}
-	const shape = n.style?.shape;
-	if (shape === 'ellipse' || shape === 'circle') {
-		const t = 1 / Math.hypot(dx / (w / 2), dy / (h / 2));
-		return [n.x + dx * t, n.y + dy * t];
-	}
-	if (shape === 'diamond') {
-		const t = 1 / (Math.abs(dx) / (w / 2) + Math.abs(dy) / (h / 2));
-		return [n.x + dx * t, n.y + dy * t];
-	}
-	const t = Math.min(dx ? w / 2 / Math.abs(dx) : Infinity, dy ? h / 2 / Math.abs(dy) : Infinity);
-	return [n.x + dx * t, n.y + dy * t];
+	return borderPoint({ ...n, ...layout(n) }, [tx, ty]);
 }
 export function bbox() {
 	const b = store.nodes.filter((n) => !n.hidden).map((n) => ({ n, ...layout(n) }));
@@ -205,31 +191,8 @@ export function selBox(ids) {
 		y1: Math.max(...b.map((o) => o.n.y + o.h / 2)),
 	};
 }
-export function darkerColor(color) {
-	const hex = /^#[0-9a-f]{6}$/i.test(color || '') ? color.slice(1) : (store.palette[color] || store.palette.grey).hex;
-	return (
-		'#' +
-		[0, 2, 4]
-			.map((i) =>
-				Math.round(parseInt(hex.slice(i, i + 2), 16) * 0.6)
-					.toString(16)
-					.padStart(2, '0'),
-			)
-			.join('')
-			.toUpperCase()
-	);
-}
-export function fillOf(key) {
-	const c = catOf(key);
-	if (c && /^#[0-9a-f]{6}$/i.test(c.color)) return c.color;
-	const p = c && store.palette[c.color];
-	if (!p) {
-		return '#ffffff';
-	}
-	const k = p.mix / 100;
-	const ch = (i) => Math.round(parseInt(p.hex.slice(i, i + 2), 16) * k + 255 * (1 - k));
-	return `rgb(${ch(0)},${ch(2)},${ch(4)})`;
-}
+export { darkerColor };
+export const fillOf = (key) => cssFill(catOf(key)?.color);
 export const styleColor = (key, fallback) => {
 	if (key === 'none') {
 		return 'none';

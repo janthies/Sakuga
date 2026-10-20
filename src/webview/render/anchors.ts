@@ -1,17 +1,10 @@
 // @ts-nocheck
 import * as coreRoutes from '../../core/layout/route';
 import { store } from '../store/store';
+import { geo } from '../store/geometry';
 import { byId, layout, nodeAt } from '../store/model';
 
-export function frameRect(id) {
-	return coreRoutes.bounds(
-		id,
-		store.nodes.map((n) => ({ ...n, ...layout(n) })),
-		store.groups,
-		new Set(),
-		store.edges,
-	);
-}
+export const frameRect = (id) => geo().frame(id);
 export function endpointObject(id) {
 	return byId(id) || frameRect(id);
 }

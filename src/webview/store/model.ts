@@ -1,9 +1,10 @@
 // @ts-nocheck
-import * as coreText from '../../core/text';
+import { mm } from '../../core/text';
 import { store } from './store';
+import { geo, touch } from './geometry';
 import { sizes } from './constants';
 import { vscode } from '../platform/host';
-import { measure, svg } from '../platform/dom';
+import { svg } from '../platform/dom';
 
 export const byId = (id) => store.nodes.find((n) => n.id === id);
 export const catOf = (key) => store.cats.find((c) => c.key === key);
@@ -18,11 +19,8 @@ export const post = (op) => {
 };
 export const isBox = (n) => n && !n.kind;
 export function anchorPoint(n, a) {
-	const { w, h } = layout(n);
-	return {
-		x: n.x + (a.includes('west') ? -w / 2 : a.includes('east') ? w / 2 : 0),
-		y: n.y + (a.includes('north') ? h / 2 : a.includes('south') ? -h / 2 : 0),
-	};
+	const [x, y] = geo().anchor(n, a);
+	return { x, y };
 }
 export function descendant(id, parent) {
 	const seen = new Set();
@@ -42,26 +40,8 @@ export function attachmentFor(n, parent, anchor, ownAnchor = anchor) {
 	return { parent: parent.id, anchor, ownAnchor, dx: fine(o.x - p.x), dy: fine(o.y - p.y) };
 }
 export function resolveAttached() {
-	const done = new Set(),
-		visiting = new Set();
-	const visit = (n) => {
-		if (done.has(n.id) || visiting.has(n.id)) {
-			return;
-		}
-		visiting.add(n.id);
-		const a = n.attachment,
-			p = a && byId(a.parent);
-		if (p && !visiting.has(p.id)) {
-			visit(p);
-			const pt = anchorPoint(p, a.anchor),
-				own = anchorPoint({ ...n, x: 0, y: 0 }, a.ownAnchor);
-			n.x = pt.x + a.dx - own.x;
-			n.y = pt.y + a.dy - own.y;
-		}
-		visiting.delete(n.id);
-		done.add(n.id);
-	};
-	store.nodes.forEach(visit);
+	geo().place(store.nodes);
+	touch();
 }
 export const fontPt = (n) => sizes[n?.style?.font || store.figureFont] || 10;
 export const groupById = (id) => store.groups.find((g) => g.id === id);
@@ -78,16 +58,8 @@ export function inGroup(n, id, gs = store.groups) {
 	return false;
 }
 export const members = (id) => store.nodes.filter((n) => inGroup(n, id)).map((n) => n.id);
-function titleLines(n) {
-	return coreText.lines({ ...n, icon: effectiveIcon(n) }, store.figureFont);
-}
-export function layout(n) {
-	return coreText.layout({ ...n, icon: effectiveIcon(n) }, store.figureFont);
-}
-export const effectiveIcon = (n) => {
-	const c = catOf(n.cat);
-	return n.icon === 'none' ? '' : n.icon === 'category' || (!n.icon && c?.boxes) ? c?.icon : n.icon;
-};
+export const layout = (n) => geo().size(n);
+export const effectiveIcon = (n) => geo().icon(n) ?? '';
 export function nodeAt(p, margin = 0) {
 	return paintOrder()
 		.reverse()
@@ -106,10 +78,8 @@ export function toMm(ev) {
 		y: (store.view.oy - (ev.clientY - r.top)) / store.view.s,
 	};
 }
-export function textMm(t, pt, family, style = {}) {
-	measure.font = `${`${style.text?.startsWith('bold') ? 'bold ' : ''}${style.text?.includes('italic') ? 'italic ' : ''}`}${(pt * 96) / 72.27}px '${family}'`;
-	return (measure.measureText(t).width * 25.4) / 96;
-}
+// Text width in mm from the advance tables, so the canvas measures what TeX sets.
+export const textMm = (t, pt, family = 'Sakuga Sans') => mm(t, pt, family === 'Sakuga Mono' ? 'mono' : 'sans');
 export const styleDef = (key) => store.styles.find((s) => s.key === key);
 export const nodeStyleKind = (n) => (n.kind === 'label' ? 'label' : n.kind ? '' : 'box');
 export const styleUsers = (def) =>

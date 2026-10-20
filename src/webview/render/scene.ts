@@ -6,10 +6,12 @@ import { renderBase2 } from './nodes';
 import { etools, svg } from '../platform/dom';
 import { el } from './svg';
 import { px, py } from '../store/model';
+import { touch } from '../store/geometry';
 import { drawGroups } from './boxes';
 import { drawEdge, edgeGeom } from './edges';
 
 export function render() {
+	touch();
 	renderBase();
 	drawTidyPreview();
 	calls.updateZoombar();

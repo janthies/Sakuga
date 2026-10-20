@@ -4,15 +4,14 @@ import { toHex } from '../util/hex';
 import { labelMetrics, labelOptions } from './label';
 import { emitOptions } from './options';
 import { opacityOptions } from './opt-stroke';
-import { nodeIcon } from '../geometry/boxes';
-import { resolveRoute, routeObjects, specialGeometry } from '../geometry/resolve';
+import { FigureGeometry, geometryOf } from '../geometry/figure-geometry';
 import { FigEdge, Figure, LabelStyle, ObjectStyle } from '../model/figure';
-import { arrowStyle, edgeLayerOpacity, fontSize, nodes } from '../model/queries';
+import { edgeLayerOpacity, fontSize, nodes } from '../model/queries';
 import { cleanLabel } from '../styles/appearance';
 import { overrideOf, styleOf } from '../styles/resolve';
 import { num } from '../util/num';
 
-export function edgeLine(fig: Figure, e: FigEdge): string {
+export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometryOf(fig)): string {
 	const edef = styleOf(fig, e);
 	const eown: ObjectStyle | undefined = edef ? overrideOf('arrow', e.style || {}, edef.props) : e.style;
 	const o = [e.styleKey ? `sg style/${e.styleKey}` : e.kind];
@@ -42,15 +41,7 @@ export function edgeLine(fig: Figure, e: FigEdge): string {
 	}
 	const a = nodes(fig).find((n) => n.id === e.from),
 		b = nodes(fig).find((n) => n.id === e.to);
-	const r =
-		a && b
-			? resolveRoute(
-					e,
-					{ ...a, icon: nodeIcon(fig, a), style: { ...a.style, font: a.style?.font || fontSize(fig) } },
-					{ ...b, icon: nodeIcon(fig, b), style: { ...b.style, font: b.style?.font || fontSize(fig) } },
-					arrowStyle(fig),
-				)
-			: { type: 'line' };
+	const r = geo.route(e);
 	const content =
 		e.style?.step && e.label
 			? `\\sglabel{${e.style.step}}{${e.label}}`
@@ -69,10 +60,10 @@ export function edgeLine(fig: Figure, e: FigEdge): string {
 	const A = a?.kind === 'icon' ? e.from + '-center' : e.from,
 		B = b?.kind === 'icon' ? e.to + '-center' : e.to;
 	let path: string;
-	const G = specialGeometry(fig, e);
+	const G = geo.special(e);
 	if (e.lane !== undefined) o.push(`sg lane=${e.lane}`);
 	if (G && (G.rule || G.loop || G.fixed)) {
-		const objects = routeObjects(fig),
+		const objects = geo.objects(),
 			aa = objects.find((n) => n.id === e.from),
 			bb = objects.find((n) => n.id === e.to);
 		const inferred = (n: any, p: number[], other: any) =>
@@ -145,7 +136,7 @@ export function edgeLine(fig: Figure, e: FigEdge): string {
 		if (!e.toAnchor) o.push('sg implicit to');
 		if (e.mid !== null) o.push(`sg mid=${e.mid}`);
 		if (e.bend) o.push(`sg bend=${e.bend}`);
-		const objects = routeObjects(fig),
+		const objects = geo.objects(),
 			end = (id: string, anchor: string | undefined, p: number[]) => {
 				const n = objects.find((n) => n.id === id),
 					c = anchor ? routing.point(n, anchor, n) : [n.x, n.y];

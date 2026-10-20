@@ -1,7 +1,7 @@
 // Arrow geometry for an edge between two measured boxes: anchored, bent, U-shaped, or the legacy unanchored path.
 import type { EdgeLike, Obj, Point } from '../model/node';
 import { autoRoute } from './route-auto';
-import { lane, point } from './route-base';
+import { borderPoint, lane, point } from './route-base';
 import { fixedGeometry, loopGeometry } from './route-fixed';
 
 export function geometry(
@@ -120,19 +120,7 @@ export function geometry(
 // Preserve the existing unanchored path when only its label is edited.
 export function legacyGeometry(e: EdgeLike, a: Obj, b: Obj, style: string): any {
 	if (!a || !b) return null;
-	const border = (n: any, t: any) => {
-		const dx = t[0] - n.x,
-			dy = t[1] - n.y,
-			shape = n.style?.shape;
-		if (!dx && !dy) return [n.x, n.y];
-		const k =
-			shape === 'ellipse' || shape === 'circle'
-				? 1 / Math.hypot(dx / (n.w / 2), dy / (n.h / 2))
-				: shape === 'diamond'
-					? 1 / (Math.abs(dx) / (n.w / 2) + Math.abs(dy) / (n.h / 2))
-					: Math.min(dx ? n.w / 2 / Math.abs(dx) : Infinity, dy ? n.h / 2 / Math.abs(dy) : Infinity);
-		return [n.x + dx * k, n.y + dy * k];
-	};
+	const border = borderPoint;
 	let type = e.route === 'auto' ? style : e.route,
 		mid = e.mid,
 		at,

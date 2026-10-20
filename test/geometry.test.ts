@@ -1,4 +1,5 @@
 import { test } from 'node:test';
+import * as assert from 'node:assert/strict';
 import { expectGolden, json, roundSvg } from './lib/golden';
 import { inputs, loadIcons, read } from './lib/env';
 import { boot } from './lib/webview';
@@ -15,16 +16,18 @@ for (const { name, text } of inputs()) {
 		const c = boot(statePayload(text), icons);
 		const S = serializerDump(text),
 			C = canvasDump(c.hook);
+		// The parity invariant: what the canvas asks of core equals what the serializer asks of core.
+		const items = drift(S, C);
+		assert.deepEqual(items, [], `canvas and serializer geometry differ for ${name}`);
 		expectGolden(`geometry/serializer/${name}.json`, json(S));
 		expectGolden(`geometry/canvas/${name}.json`, json(C));
 		expectGolden(`canvas/${name}.svg`, roundSvg(c.svg) + '\n');
-		const items = drift(S, C);
-		const finite = items.filter((i) => Number.isFinite(i.mm));
+		const finite = items.filter((i) => typeof i.mm === 'number');
 		summary[name] = {
 			differing: items.length,
-			maxMm: Math.max(0, ...finite.map((i) => i.mm)),
+			maxMm: Math.max(0, ...finite.map((i) => i.mm as number)),
 			structural: items.length - finite.length,
-			items: items.map((i) => ({ ...i, mm: Number.isFinite(i.mm) ? i.mm : 'structural' })),
+			items,
 		};
 	});
 }
@@ -36,5 +39,6 @@ test('drift between serializer and canvas geometry', () => {
 		structural: all.reduce((a, v) => a + v.structural, 0),
 		maxMm: Math.max(0, ...all.map((v) => v.maxMm)),
 	};
+	assert.equal(total.objectsDiffering, 0, 'no object may differ between canvas and serializer');
 	expectGolden('drift.json', json({ total, ...summary }));
 });

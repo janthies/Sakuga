@@ -87,6 +87,8 @@ export function snapPort(
 }
 export function result(pts: Point[], more: Record<string, any> = {}): any {
 	pts = tidy(pts);
+	// Two boxes on the same spot collapse the path to one point; an arrow still has a start and an end.
+	if (pts.length === 1) pts = [pts[0], pts[0].slice()];
 	let total = 0;
 	for (let i = 1; i < pts.length; i++) total += Math.hypot(pts[i][0] - pts[i - 1][0], pts[i][1] - pts[i - 1][1]);
 	let left = total / 2,
@@ -108,5 +110,19 @@ export function result(pts: Point[], more: Record<string, any> = {}): any {
 		special: true,
 		...more,
 	};
+}
+// Where a line from the centre of n towards t leaves the box, as TikZ computes it for (a) -- (b).
+export function borderPoint(n: Obj, t: Point): Point {
+	const dx = t[0] - n.x,
+		dy = t[1] - n.y,
+		shape = n.style?.shape;
+	if (!dx && !dy) return [n.x, n.y];
+	const k =
+		shape === 'ellipse' || shape === 'circle'
+			? 1 / Math.hypot(dx / (n.w / 2), dy / (n.h / 2))
+			: shape === 'diamond'
+				? 1 / (Math.abs(dx) / (n.w / 2) + Math.abs(dy) / (n.h / 2))
+				: Math.min(dx ? n.w / 2 / Math.abs(dx) : Infinity, dy ? n.h / 2 / Math.abs(dy) : Infinity);
+	return [n.x + dx * k, n.y + dy * k];
 }
 export const fmt = (v: number): string => String(+v.toFixed(4));

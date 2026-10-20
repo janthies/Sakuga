@@ -6,7 +6,8 @@
    "y": 19,
    "w": 19.2675,
    "h": 6.16,
-   "boxHalf": [
+   "lines": 1,
+   "half": [
     9.6337,
     3.08
    ]
@@ -17,7 +18,8 @@
    "y": 85,
    "w": 20.2675,
    "h": 6.16,
-   "boxHalf": [
+   "lines": 1,
+   "half": [
     10.1337,
     3.08
    ]
@@ -28,7 +30,8 @@
    "y": 88,
    "w": 33.2675,
    "h": 6.16,
-   "boxHalf": [
+   "lines": 1,
+   "half": [
     16.6338,
     3.08
    ]
@@ -39,13 +42,15 @@
    "y": 49,
    "w": 24.2675,
    "h": 6.16,
-   "boxHalf": [
+   "lines": 1,
+   "half": [
     12.1337,
     3.08
    ]
   }
  ],
  "frames": [],
+ "frameTitles": [],
  "edges": [
   {
    "index": 0,
@@ -54,6 +59,29 @@
    "route": {
     "type": "hvh",
     "mid": 55
+   },
+   "drawn": true,
+   "base": {
+    "pts": [
+     [
+      10.3663,
+      19
+     ],
+     [
+      90,
+      88.08
+     ]
+    ],
+    "label": [
+     50.1831,
+     53.54
+    ],
+    "r": {
+     "type": "line"
+    },
+    "special": true,
+    "blocked": true,
+    "rule": "blocked"
    },
    "geometry": {
     "pts": [
@@ -76,7 +104,8 @@
     "special": true,
     "blocked": true,
     "rule": "blocked"
-   }
+   },
+   "labels": []
   }
  ]
 }

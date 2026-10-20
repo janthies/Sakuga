@@ -3,6 +3,7 @@ import { vscode } from '../platform/host';
 
 // The one store: everything the old closure kept in `let` variables.
 export const store = {
+	rev: 0,
 	figureFont: 'small',
 	selectedLayers: new Set(),
 	layers: [],

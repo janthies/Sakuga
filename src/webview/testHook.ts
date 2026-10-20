@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { store } from './store/store';
 import { layout } from './store/model';
-import { baseEdgeGeom, boxHalf, resolveRoute } from './render/geometry';
+import { geo } from './store/geometry';
 import { edgeGeom } from './render/edges';
 import { arrowLabelGeom, frameTitleGeom } from './render/labelgeom';
 import { frameRect } from './render/anchors';
@@ -13,9 +13,12 @@ export function initTestHook() {
 	if (window.__sakugaTestHook === true) {
 		window.__sakugaTest = {
 			layout,
-			boxHalf,
-			resolveRoute,
-			baseEdgeGeom,
+			boxHalf: (n) => geo().half(n),
+			resolveRoute: (e) => geo().route(e),
+			baseEdgeGeom: (e) => geo().base(e),
+			// the core answers before the canvas decides what to draw
+			rawEdge: (e) => geo().edge(e),
+			rawLabel: (e, st, content, step) => geo().label(e, st, content, step),
 			edgeGeom,
 			arrowLabelGeom,
 			frameRect,

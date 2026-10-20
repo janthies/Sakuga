@@ -1,9 +1,9 @@
 // @ts-nocheck
 import { store } from '../store/store';
+import { labelPoint } from '../../core/geometry/label-geometry';
 import { baseEdgeGeom } from './geometry';
-import { PT, show, sizes } from '../store/constants';
-import { fine, px, py, textMm } from '../store/model';
-import { frameRect } from './anchors';
+import { geo } from '../store/geometry';
+import { fine, px, py } from '../store/model';
 import { el } from './svg';
 
 export function labelTarget(ref = store.selN.label) {
@@ -18,72 +18,13 @@ export function labelTarget(ref = store.selN.label) {
 			? { text: l ? l.text : e.label, style: (l ? l.style : e.labelStyle) || {}, e, step: l ? 0 : e.style?.step }
 			: null;
 }
-export function labelPoint(G, st = {}) {
-	if (!G) return null;
-	const t = st.pos ?? 0.5;
-	if (G.curve)
-		return [0, 1].map(
-			(k) =>
-				(1 - t) ** 3 * G.curve[0][k] +
-				3 * (1 - t) ** 2 * t * G.curve[1][k] +
-				3 * (1 - t) * t * t * G.curve[2][k] +
-				t ** 3 * G.curve[3][k],
-		);
-	const i = Math.max(0, Math.min(G.pts.length - 2, st.segment ?? (G.pts.length === 4 ? 1 : 0))),
-		a = G.pts[i],
-		b = G.pts[i + 1];
-	return a.map((v, k) => v + (b[k] - v) * t);
-}
+export { labelPoint };
+// Box and position of an attached label; null when the arrow is not drawn.
 export function arrowLabelGeom(e, st = e.labelStyle || {}, content = e.label, step = e.style?.step) {
-	const G = baseEdgeGeom(e);
-	if (!G) return null;
-	const anchor = labelPoint(G, {
-		segment:
-			st.segment ?? (e.style?.position === 'start' ? 0 : e.style?.position === 'end' ? G.pts.length - 2 : undefined),
-		pos: st.pos ?? (e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined),
-	});
-	const pt = sizes[st.font || store.figureFont] || 10,
-		lines = content.split('\\\\'),
-		h = Math.max(lines.length * pt * PT * 1.25, step ? 3.6 : 0),
-		w =
-			Math.max(
-				...lines.map((l) =>
-					textMm(show(l), pt, 'Sakuga Sans', {
-						text: st.bold && st.italic ? 'bold-italic' : st.bold ? 'bold' : st.italic ? 'italic' : '',
-					}),
-				),
-			) +
-			2 * PT +
-			(step ? 4.4 : 0),
-		side =
-			st.side ||
-			e.style?.side ||
-			(G.loop ? { north: 'above', south: 'below', east: 'right', west: 'left' }[G.side] : undefined);
-	const p = [anchor[0] + (st.dx || 0), anchor[1] + (st.dy || 0)];
-	if (side === 'left' || side === 'right') p[0] += (side === 'right' ? 1 : -1) * (w / 2);
-	else if (side) p[1] += (side === 'above' ? 1 : -1) * (h / 2 + PT);
-	return { p, anchor, w, h, pt };
+	return baseEdgeGeom(e) ? geo().label(e, st, content, step) : null;
 }
 export function frameTitleGeom(g) {
-	const b = frameRect(g.id);
-	if (!b) return null;
-	const st = g.labelStyle || {},
-		pos = g.titlePosition || 'legacy',
-		pt = sizes[st.font || g.titleFont || 'scriptsize'],
-		inside = pos.startsWith('inside') || pos === 'legacy',
-		right = pos === 'inside-top-right',
-		center = pos === 'above-center',
-		below = pos === 'below-left';
-	const anchor = [center ? b.x : right ? b.x + b.w / 2 : b.x - b.w / 2, below ? b.y - b.h / 2 : b.y + b.h / 2];
-	return {
-		p: [
-			anchor[0] + (center ? 0 : right ? -1.5 * PT : 1.5 * PT) + (st.dx || 0),
-			anchor[1] + (below ? -1 : inside ? -1 : 1) * (1.5 * PT + (pt * PT) / 2) + (st.dy || 0),
-		],
-		anchor,
-		pt,
-		align: center ? 'middle' : right ? 'end' : 'start',
-	};
+	return geo().frameTitle(g);
 }
 export function projectLabel(e, p, content = e.label, step = e.style?.step) {
 	const G = baseEdgeGeom({ ...e, labelStyle: e.labelStyle || {} });

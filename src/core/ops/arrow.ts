@@ -1,5 +1,5 @@
 // The arrow operation.
-import { specialGeometry } from '../geometry/resolve';
+import { specialGeometry } from '../geometry/figure-geometry';
 import { Figure } from '../model/figure';
 import { edges, nodes } from '../model/queries';
 import { styleable } from '../schema';

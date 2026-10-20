@@ -50,8 +50,11 @@ export {
 } from './core/styles/resolve';
 export { parse } from './core/codec/parse';
 export { boxHalf, anchorPoint, resolveAttachments } from './core/geometry/boxes';
-export { resolveRoute, routeObjects, specialGeometry } from './core/geometry/resolve';
+export { resolveRoute } from './core/geometry/resolve';
+export { routeObjects, specialGeometry } from './core/geometry/figure-geometry';
 export { serialize } from './core/codec/serialize';
+export { serializeSubset } from './core/codec/subset';
+export type { ObjectRef } from './core/model/refs';
 export type { Op } from './core/ops/types';
 export { slugKey } from './core/ops/style-helpers';
 export { apply } from './core/ops/apply';

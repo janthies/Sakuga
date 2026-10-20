@@ -2,7 +2,6 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { JSDOM } from 'jsdom';
 import { ROOT, read } from './env';
-import { mm } from '../../src/core/text';
 
 // The body of page() in src/extension.ts (copied; the CSP, fonts and stylesheets do not matter here).
 const BODY = `<header id="bar"><button id="drawerToggle" class="tbtn"></button><button id="addBox" class="tool"></button><button id="addLabel" class="tool"></button><span id="addIcon" class="tool"><span class="lbl">Icon</span></span><button id="help"></button><table id="keys"></table><button id="exportSvg"></button></header>
@@ -26,13 +25,6 @@ export interface Canvas {
 	saved: () => any;
 }
 
-// Deterministic stand-in for canvas measureText: the advance tables of src/core/text, so widths do not depend on a font.
-function measureWidth(text: any, font: string): number {
-	const m = /([\d.]+)px '([^']+)'/.exec(font)!;
-	const pt = (parseFloat(m[1]) * 72.27) / 96;
-	return (mm(text, pt, m[2] === 'Sakuga Mono' ? 'mono' : 'sans') * 96) / 25.4;
-}
-
 // Boot the real media scripts in jsdom, post the icons and state messages the host would send, and return the canvas.
 // onPost sees every message the webview sends to the host (the interactive tests answer ops with a new state).
 export function boot(
@@ -45,6 +37,9 @@ export function boot(
 	const w: any = dom.window;
 	const sent: any[] = [];
 	w.__sakugaTestHook = true;
+	// jsdom's window has no TextEncoder; a browser does (the codec's hex helpers use it).
+	w.TextEncoder = TextEncoder;
+	w.TextDecoder = TextDecoder;
 	let saved: any = initialSaved;
 	const frames = new Map<number, () => void>();
 	let frame = 0;
@@ -78,13 +73,6 @@ export function boot(
 	w.Element.prototype.getBoundingClientRect = function () {
 		return this.id === 'canvas' || this.id === 'desk' ? rect : none;
 	};
-	const context = {
-		font: '',
-		measureText(t: string) {
-			return { width: measureWidth(t, this.font) };
-		},
-	};
-	w.HTMLCanvasElement.prototype.getContext = () => context;
 	for (const f of SCRIPTS) {
 		w.eval(read(`media/${f}`));
 	}

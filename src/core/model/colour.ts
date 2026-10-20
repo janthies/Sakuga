@@ -32,6 +32,16 @@ export function darkerColor(color: string): string {
 	);
 }
 
+// The colour a box style shows on screen: a hex colour as it is, a palette colour mixed with white.
+export function cssFill(color: string | undefined): string {
+	if (color && /^#[0-9a-f]{6}$/i.test(color)) return color;
+	const p = color ? PALETTE[color] : undefined;
+	if (!p) return '#ffffff';
+	const k = p.mix / 100;
+	const ch = (i: number) => Math.round(parseInt(p.hex.slice(i, i + 2), 16) * k + 255 * (1 - k));
+	return `rgb(${ch(0)},${ch(2)},${ch(4)})`;
+}
+
 export function fill(color: string): string {
 	if (/^#[0-9a-f]{6}$/i.test(color)) {
 		return 'sgc' + color.slice(1).toUpperCase();

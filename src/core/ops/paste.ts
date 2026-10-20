@@ -1,6 +1,6 @@
 // Pasting a TikZ snippet as operations.
 import { parse } from '../codec/parse';
-import { specialGeometry } from '../geometry/resolve';
+import { specialGeometry } from '../geometry/figure-geometry';
 import { Figure } from '../model/figure';
 import { edges, groups, nodes, styleDefs } from '../model/queries';
 import { Op } from './types';

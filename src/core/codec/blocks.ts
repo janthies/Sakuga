@@ -4,7 +4,7 @@ import { labelOptions } from './label';
 import { styleDefOptions } from './style-line';
 import { emitOptions } from './options';
 import { nodeIcon } from '../geometry/boxes';
-import { routeObjects } from '../geometry/resolve';
+import { routeObjects } from '../geometry/figure-geometry';
 import { PALETTE, darkerColor, fill } from '../model/colour';
 import { DEFAULT_WIDTH } from '../model/constants';
 import { Figure, Group } from '../model/figure';
@@ -156,8 +156,9 @@ export function groupsBlock(fig: Figure): string[] {
 	const out = ['% sakuga groups begin (generated from the group lines)', '\\begin{scope}[on background layer]'];
 	// first the size of every frame, inner ones first; then the drawing, outer ones first
 	const sized = [...gs].sort((a, b) => depth(b) - depth(a)).filter((g) => members(g.id).length);
+	const objects = routeObjects(fig);
 	for (const g of sized) {
-		const b = routeObjects(fig).find((n) => n.id === g.id);
+		const b = objects.find((n) => n.id === g.id);
 		out.push(
 			`\\node[inner sep=0pt, outer sep=0pt, fit={(${b.x - b.w / 2},${b.y - b.h / 2}) (${b.x + b.w / 2},${b.y + b.h / 2})}] (${g.id}) {};`,
 		);

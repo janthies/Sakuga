@@ -5,9 +5,26 @@ import { groupOptions } from './group';
 import { attachedIcons, hiddenReference, nodeLine } from './node-line';
 import { styleLine } from './style-line';
 import { nodeIcon, resolveAttachments } from '../geometry/boxes';
+import { geometryOf } from '../geometry/figure-geometry';
 import { FigNode, Figure, Line } from '../model/figure';
 import { edges, fontSize, groupMembers, groups, isHidden, layers, nodeLayer, nodes, opacity } from '../model/queries';
 import { settle } from '../styles/resolve';
+
+// The \node line of a box.
+export function nodeSource(fig: Figure, n: FigNode): string {
+	return nodeLine(
+		{
+			...n,
+			style: n.style,
+			hidden: isHidden(fig, n),
+			extra: [...n.extra, ...(n.hidden && nodeLayer(fig, n).hidden ? ['sg hidden'] : [])],
+		},
+		fontSize(fig),
+		!!nodeIcon(fig, n),
+		opacity(nodeLayer(fig, n).opacity),
+		fig,
+	);
+}
 
 export function serialize(fig: Figure): string {
 	settle(fig);
@@ -59,23 +76,13 @@ export function serialize(fig: Figure): string {
 		const at = lines.findIndex((l) => l.t === 'raw' && l.text.includes('\\end{tikzpicture}'));
 		lines.splice(at < 0 ? lines.length : at, 0, { t: 'legend' });
 	}
+	const geo = geometryOf(fig);
 	return lines
 		.flatMap((l) => {
 			switch (l.t) {
 				case 'node':
 					return [
-						nodeLine(
-							{
-								...l.n,
-								style: l.n.style,
-								hidden: isHidden(fig, l.n),
-								extra: [...l.n.extra, ...(l.n.hidden && nodeLayer(fig, l.n).hidden ? ['sg hidden'] : [])],
-							},
-							fontSize(fig),
-							!!nodeIcon(fig, l.n),
-							opacity(nodeLayer(fig, l.n).opacity),
-							fig,
-						),
+						nodeSource(fig, l.n),
 						...hiddenReference(fig, l.n),
 						...(nodeIcon(fig, l.n) && l.n.kind !== 'icon' && !isHidden(fig, l.n) ? attachedIcons(fig, [l.n]) : []),
 					];
@@ -84,7 +91,7 @@ export function serialize(fig: Figure): string {
 						(g) => (g.id === l.e.from || g.id === l.e.to) && groupMembers(fig, g.id).every((n) => isHidden(fig, n)),
 					);
 					const hid = hiddenGroup || nodes(fig).some((n) => isHidden(fig, n) && (n.id === l.e.from || n.id === l.e.to));
-					return [hid ? `% sakuga hidden ${edgeLine(fig, l.e)}` : edgeLine(fig, l.e)];
+					return [hid ? `% sakuga hidden ${edgeLine(fig, l.e, geo)}` : edgeLine(fig, l.e, geo)];
 				}
 				case 'layer':
 					return [
