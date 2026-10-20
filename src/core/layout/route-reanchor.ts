@@ -1,7 +1,7 @@
 // Re-anchoring arrows after boxes moved, and removing a corner from a drawn path.
 import type { EdgeLike, Obj, OpLike, Point } from '../model/node';
-import { eps, tidy } from './route-base';
-import { fixedGeometry } from './route-fixed';
+import { eps, tidy } from '../geometry/route-base';
+import { fixedGeometry } from '../geometry/route-fixed';
 
 export function removeCorner(pts: Point[], j: number): Point[] | null {
 	pts = pts.map((p) => p.slice());

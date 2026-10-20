@@ -2,7 +2,7 @@
 // grows the surrounding frames, pushes neighbours away and re-anchors arrows.
 import type { EdgeLike, GroupLike, Layout, NodeLike, OpLike } from '../model/node';
 import { reanchor } from './route-reanchor';
-import { bounds as frameBounds } from './route-bounds';
+import { bounds as frameBounds } from '../geometry/route-bounds';
 import { planTidy } from './sketch-plan';
 
 export function tidy(

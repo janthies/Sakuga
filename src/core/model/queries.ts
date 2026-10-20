@@ -1,0 +1,82 @@
+// Queries on a figure: its objects, layers, styles, font and opacity.
+import { Category, FigEdge, FigNode, Figure, Layer, StyleKind } from './figure';
+
+export const fontSize = (fig: Figure) =>
+	fig.lines.flatMap((l) => (l.t === 'raw' && /^% sakuga font /.test(l.text) ? [l.text.slice(14)] : []))[0] || 'small';
+
+export const smallerFont = (size: string) =>
+	({ scriptsize: 'tiny', footnotesize: 'scriptsize', small: 'footnotesize', normalsize: 'small', large: 'normalsize' })[
+		size
+	] || 'footnotesize';
+
+// Opacity on the command is the rendered product. sg opacity retains the editable
+// object value when a layer contributes, so repeated saves never multiply twice.
+export const opacity = (value: number | undefined) =>
+	value === undefined || !Number.isFinite(value) ? 1 : Math.max(0, Math.min(1, value));
+
+export const nodeOpacity = (fig: Figure, n: FigNode) => opacity(n.style?.opacity) * opacity(nodeLayer(fig, n).opacity);
+
+export const edgeLayerOpacity = (fig: Figure, e: FigEdge) => {
+	const source = nodes(fig).find((n) => n.id === e.from);
+	return source ? opacity(nodeLayer(fig, source).opacity) : 1;
+};
+
+export const styleDefs = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'style' ? [l.s] : []));
+
+export const findStyle = (fig: Figure, key: string | undefined, kind?: StyleKind) =>
+	key ? styleDefs(fig).find((s) => s.key === key && (!kind || s.kind === kind)) : undefined;
+
+// The box styles as the old category list: colour, icon, "icon in boxes", legend flag.
+export const categories = (fig: Figure): Category[] =>
+	styleDefs(fig)
+		.filter((s) => s.kind === 'box')
+		.map((s) => ({
+			key: s.key,
+			name: s.name,
+			color: s.props.fill || 'white',
+			icon: s.icon,
+			boxes: s.boxes,
+			legend: !!s.legend,
+		}));
+
+export const nodeStyleKind = (n: FigNode): StyleKind | null =>
+	n.kind === 'icon' ? null : n.kind === 'label' ? 'label' : 'box';
+
+export const nodes = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'node' ? [l.n] : []));
+
+export const edges = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'edge' ? [l.e] : []));
+
+export const groups = (fig: Figure) => fig.lines.flatMap((l) => (l.t === 'group' ? [l.g] : []));
+
+export const layers = (fig: Figure): Layer[] => {
+	const ls = fig.lines.flatMap((l) => (l.t === 'layer' ? [l.layer] : []));
+	return ls.length ? ls : [{ id: 'layer1', name: 'Layer 1', hidden: false, locked: false }];
+};
+
+export const nodeLayer = (fig: Figure, n: FigNode) => layers(fig).find((l) => l.id === n.layer) ?? layers(fig)[0];
+
+export const isHidden = (fig: Figure, n: FigNode) => n.hidden || nodeLayer(fig, n).hidden;
+
+export const isLocked = (fig: Figure, n: FigNode) => n.locked || nodeLayer(fig, n).locked;
+
+export function groupMembers(fig: Figure, id: string): FigNode[] {
+	return nodes(fig).filter((n) => {
+		let parent = n.group;
+		const seen = new Set<string>();
+		while (parent && !seen.has(parent)) {
+			if (parent === id) {
+				return true;
+			}
+			seen.add(parent);
+			parent = groups(fig).find((g) => g.id === parent)?.parent ?? '';
+		}
+		return false;
+	});
+}
+
+export const legendOn = (fig: Figure) => fig.lines.every((l) => l.t !== 'legendflag' || l.on);
+
+export const arrowStyle = (fig: Figure) => {
+	const f = fig.lines.find((l) => l.t === 'arrowsflag');
+	return f && f.t === 'arrowsflag' ? f.style : 'manhattan';
+};

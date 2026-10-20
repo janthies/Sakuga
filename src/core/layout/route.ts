@@ -1,9 +1,3 @@
 // Arrow routing (the former media/routes.js): the API shared by the serializer and the canvas.
-export { reanchor } from './route-reanchor';
-export { removeCorner } from './route-reanchor';
-export { bounds } from './route-bounds';
-export { geometry, legacyGeometry } from './route-geometry';
-export { lane, point, port, snapPort, tidy, hits } from './route-base';
-export { autoRoute } from './route-auto';
-export { loopGeometry, fixedGeometry, chainPoints } from './route-fixed';
-export { portText, polyline } from './route-path';
+export { reanchor, removeCorner } from './route-reanchor';
+export * from '../geometry/route';
