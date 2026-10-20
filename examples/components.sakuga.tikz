@@ -1,0 +1,92 @@
+% Sakuga figure. Needs \usetikzlibrary{arrows.meta} in the preamble.
+% sakuga category work {this work} peach
+% sakuga category cryptoservice {CryptoService} blue
+% sakuga category tee {TEE} green
+% sakuga category riot {RIOT} grey
+% sakuga legend on
+% sakuga group g1 {attestation module} dashed grey
+% sakuga group g2 {secure world} region green
+% sakuga group g3 {operation} dotted grey in=g2
+\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
+% sakuga theme begin (generated from the category lines above)
+\definecolor{sgPeach}{HTML}{FFDDCC}
+\definecolor{sgBlue}{HTML}{BBCCEE}
+\definecolor{sgGreen}{HTML}{CCDDAA}
+\definecolor{sgGrey}{HTML}{DDDDDD}
+\def\sgcode#1{{\scriptsize\ttfamily\textcolor{black!48}{#1}}}
+\tikzset{
+  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
+    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+  cat-work/.style={sg box, fill=sgPeach},
+  cat-cryptoservice/.style={sg box, fill=sgBlue!85},
+  cat-tee/.style={sg box, fill=sgGreen!85},
+  cat-riot/.style={sg box, fill=sgGrey!70},
+  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
+  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
+  head none/.style={-},
+  sg elabel/.style={font=\sffamily\scriptsize, fill=white, inner sep=1pt},
+  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
+  sg in/.style={}, sg locked/.style={},
+  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},
+  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},
+  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},
+  sg frame none/.style={inner sep=0pt},
+  sg glabel/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1.5pt},
+  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},
+  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,
+    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
+}
+% sakuga theme end
+\node[cat-riot, text width=58mm] (app) at (0,0) {Application};
+\node[cat-work, text width=58mm, sg in=g1] (att) at (0,-12) {PSA Attestation API\\[-1pt]\sgcode{psa\_initial\_attest\_get\_token}};
+\node[cat-work, text width=58mm, sg in=g1] (seam) at (0,-24) {Backend interface\\[-1pt]\sgcode{attest\_backend\_get\_token}};
+\node[cat-work, sg in=g1] (swbe) at (-15,-35) {Software backend};
+\node[cat-work, sg in=g1] (teebe) at (15,-35) {TEE backend};
+\node[cat-work, sg in=g1] (nsenc) at (-15,-46) {Providers and token encoder};
+% sakuga hidden \node[cat-riot] (psac) at (-15,-60) {PSA Crypto};
+\node[cat-cryptoservice, text width=58mm] (cysapi) at (0,-74) {CryptoService API\\[-1pt]\sgcode{CYS\_attest\_get\_token}};
+\node[cat-tee, text width=58mm, sg in=g2] (entry) at (0,-89) {Secure entry and dispatch table\\[-1pt]\sgcode{tee\_secure\_entry}};
+\node[cat-work, sg in=g3] (hdl) at (-15,-104) {Attestation handler\\[-1pt]\sgcode{tee\_attest\_get\_token}};
+\node[cat-work, sg in=g3] (senc) at (-15,-117) {Providers and token encoder};
+\node[cat-tee, sg in=g2] (ops) at (15,-110) {Crypto and RoT operations};
+\node[cat-riot, text width=58mm] (drv) at (0,-131) {CC310 driver};
+\node[cat-riot, text width=58mm] (hw) at (0,-141) {CC310};
+% sakuga groups begin (generated from the group lines)
+\begin{scope}[on background layer]
+\node[sg frame dotted, draw=none, fill=none, fit=(hdl) (senc)] (g3) {};
+\node[sg frame dashed, draw=none, fill=none, fit=(att) (seam) (swbe) (teebe) (nsenc)] (g1) {};
+\node[sg frame region, draw=none, fill=none, fit=(entry) (ops) (g3)] (g2) {};
+\path[sg frame region, fill=sgGreen!30] (g2.south west) rectangle (g2.north east);
+\node[sg glabel, anchor=north west] at (g2.north west) {secure world};
+\path[sg frame dashed] (g1.south west) rectangle (g1.north east);
+\path[sg frame dotted] (g3.south west) rectangle (g3.north east);
+\end{scope}
+% sakuga groups end
+\draw[arr] (app) -- (att);
+\draw[arr] (att) -- (seam);
+\draw[arr] (seam.south -| swbe) -- (swbe);
+\draw[arr] (seam.south -| teebe) -- node[sg elabel] {calls} (teebe);
+\draw[arr] (swbe) -- (nsenc);
+% sakuga hidden \draw[arr] (nsenc) -- (psac);
+% sakuga hidden \draw[arr, sg fixed] (psac) -| node[sg elabel, pos=0.75] {PSA} (-30,-74) -- (cysapi);
+\draw[arr, head both, sg fixed] (teebe) to[bend right=25] (cysapi);
+\draw[arr] (cysapi) -- (entry);
+\draw[arr] (entry.south -| hdl) -- (hdl);
+\draw[arr] (entry.south -| ops) -- (ops);
+\draw[arr] (hdl) -- (senc);
+\draw[arr] (senc) -- (senc |- drv.north);
+\draw[arr] (ops) -- (ops |- drv.north);
+\draw[arr] (drv) -- (hw);
+% sakuga legend begin (generated)
+\begin{scope}[shift={(current bounding box.south west)}]
+\node[sg swatch, fill=sgPeach, anchor=north west] at (0,-7) {};
+\node[anchor=west, inner sep=0pt, font=\sffamily\scriptsize] at (4.6,-8.8) {this work};
+\node[sg swatch, fill=sgBlue!85, anchor=north west] at (0,-13) {};
+\node[anchor=west, inner sep=0pt, font=\sffamily\scriptsize] at (4.6,-14.8) {CryptoService};
+\node[sg swatch, fill=sgGreen!85, anchor=north west] at (0,-19) {};
+\node[anchor=west, inner sep=0pt, font=\sffamily\scriptsize] at (4.6,-20.8) {TEE};
+\node[sg swatch, fill=sgGrey!70, anchor=north west] at (34,-7) {};
+\node[anchor=west, inner sep=0pt, font=\sffamily\scriptsize] at (38.6,-8.8) {RIOT};
+\end{scope}
+% sakuga legend end
+\end{tikzpicture}

@@ -1,0 +1,63 @@
+\begin{tikzpicture}[x=1mm,y=1mm, font=\sffamily\small]
+% sakuga theme begin (generated from the category lines above)
+\definecolor{sgc2468AC}{HTML}{2468AC}
+\definecolor{sgc33333A}{HTML}{33333A}
+\definecolor{sgc654321}{HTML}{654321}
+\definecolor{sgcE04080}{HTML}{E04080}
+\definecolor{sgcF1E4C2}{HTML}{F1E4C2}
+\definecolor{sgBlue}{HTML}{BBCCEE}
+\definecolor{sgGreen}{HTML}{CCDDAA}
+\definecolor{sgPeach}{HTML}{FFDDCC}
+\definecolor{sgGrey}{HTML}{DDDDDD}
+\definecolor{sgYellow}{HTML}{EEEEBB}
+\definecolor{sgCyan}{HTML}{CCEEFF}
+\definecolor{sgRed}{HTML}{FFCCCC}
+\definecolor{palRose}{HTML}{CC6677}
+\definecolor{black}{HTML}{000000}
+\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2mm][r]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2mm][l]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\ifx\sgpos\sgse\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\parbox{#2mm}{\vspace*{4mm}\centering#3}\fi\fi\fi\fi}
+\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\ttfamily\textcolor{black!48}{#1}}}
+\tikzset{
+  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
+    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
+  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
+  head none/.style={-},
+  sg elabel/.style={font=\sffamily\scriptsize, fill=white, inner sep=1pt},
+  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
+  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={},
+  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},
+  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},
+  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},
+  sg frame none/.style={inner sep=0pt},
+  sg glabel/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1.5pt},
+  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},
+  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,
+    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
+}
+% sakuga theme end
+% sakuga legend off
+\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC] (box0) at (0,0) {Box 0};
+\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=north east lines,pattern color=sgc2468AC}] (box1) at (40,0) {Box 1};
+\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=crosshatch,pattern color=sgc2468AC}] (box2) at (80,0) {Box 2};
+\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=dots,pattern color=sgc2468AC}] (box3) at (120,0) {Box 3};
+\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=horizontal lines,pattern color=sgc2468AC}] (box4) at (0,-18) {Box 4};
+\node[sg box, sg layer=layer1, fill=sgcF1E4C2, draw=sgc654321, double, double distance=0.8pt, pattern color=sgc2468AC, postaction={pattern=vertical lines,pattern color=sgc2468AC}] (box5) at (40,-18) {Box 5};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north east) -- ([xshift=-2.4mm]path picture bounding box.north east) -- ([yshift=-2.4mm]path picture bounding box.north east) -- cycle;}] (box6) at (80,-18) {Box 6};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north east) -- ([xshift=-5mm]path picture bounding box.north east) -- ([yshift=-5mm]path picture bounding box.north east) -- cycle;}] (box7) at (120,-18) {Box 7};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north west) -- ([xshift=2.4mm]path picture bounding box.north west) -- ([yshift=-2.4mm]path picture bounding box.north west) -- cycle;}] (box8) at (0,-36) {Box 8};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.north west) -- ([xshift=5mm]path picture bounding box.north west) -- ([yshift=-5mm]path picture bounding box.north west) -- cycle;}] (box9) at (40,-36) {Box 9};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south east) -- ([xshift=-2.4mm]path picture bounding box.south east) -- ([yshift=2.4mm]path picture bounding box.south east) -- cycle;}] (box10) at (80,-36) {Box 10};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south east) -- ([xshift=-5mm]path picture bounding box.south east) -- ([yshift=5mm]path picture bounding box.south east) -- cycle;}] (box11) at (120,-36) {Box 11};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south west) -- ([xshift=2.4mm]path picture bounding box.south west) -- ([yshift=2.4mm]path picture bounding box.south west) -- cycle;}] (box12) at (0,-54) {Box 12};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] (path picture bounding box.south west) -- ([xshift=5mm]path picture bounding box.south west) -- ([yshift=5mm]path picture bounding box.south west) -- cycle;}] (box13) at (40,-54) {Box 13};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-1.2mm,yshift=-1.2mm]path picture bounding box.north east) circle[radius=1.2mm];}] (box14) at (80,-54) {Box 14};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-2.5mm,yshift=-2.5mm]path picture bounding box.north east) circle[radius=2.5mm];}] (box15) at (120,-54) {Box 15};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=1.2mm,yshift=-1.2mm]path picture bounding box.north west) circle[radius=1.2mm];}] (box16) at (0,-72) {Box 16};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=2.5mm,yshift=-2.5mm]path picture bounding box.north west) circle[radius=2.5mm];}] (box17) at (40,-72) {Box 17};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-1.2mm,yshift=1.2mm]path picture bounding box.south east) circle[radius=1.2mm];}] (box18) at (80,-72) {Box 18};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=-2.5mm,yshift=2.5mm]path picture bounding box.south east) circle[radius=2.5mm];}] (box19) at (120,-72) {Box 19};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=1.2mm,yshift=1.2mm]path picture bounding box.south west) circle[radius=1.2mm];}] (box20) at (0,-90) {Box 20};
+\node[sg box, sg layer=layer1, fill=sgBlue!85, dotted, path picture={\path[fill=sgcE04080,draw=none,sharp corners] ([xshift=2.5mm,yshift=2.5mm]path picture bounding box.south west) circle[radius=2.5mm];}] (box21) at (40,-90) {Box 21};
+\node[sg box, sg layer=layer1, fill=none, draw=none, postaction={pattern=north east lines,pattern color=black!25}, path picture={\path[fill=sgc33333A,draw=none,sharp corners] (path picture bounding box.north east) -- ([xshift=-2.4mm]path picture bounding box.north east) -- ([yshift=-2.4mm]path picture bounding box.north east) -- cycle;}] (box22) at (80,-90) {Box 22};
+\node[sg box, sg layer=layer1, fill=sgGreen!85, dashed, postaction={pattern=dots,pattern color=black!25}, path picture={\path[fill=sgc33333A,draw=none,sharp corners] ([xshift=-1.2mm,yshift=-1.2mm]path picture bounding box.north east) circle[radius=1.2mm];}] (box23) at (120,-90) {Box 23};
+\end{tikzpicture}
