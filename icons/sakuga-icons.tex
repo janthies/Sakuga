@@ -1,0 +1,937 @@
+% Tabler Icons 3.49, MIT License; Copyright (c) 2020-2026 Paweł Kuna
+% Lucide 1.59.0, ISC; Copyright (c) 2026 Lucide Icons and Contributors
+% Iconoir 7.12.1, MIT; Copyright (c) 2021 Luca Burgio
+% Keep LICENSE-tabler.txt, LICENSE-lucide.txt, and LICENSE-iconoir.txt with copies.
+% Original Sakuga drawings and generated integration: MIT (see README.md).
+% Requires TikZ and \usetikzlibrary{svg.path}. Coordinates are in points.
+\tikzset{sg icon stroke/.style={draw=black!60,line width=0.6pt,line cap=round,line join=round}}
+\tikzset{sg icon/board/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 4h16v16H4z";
+\draw svg "M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4";
+\end{scope}}}
+\tikzset{sg icon/bus/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 9h18M3 15h18M6 4v5m6 6v5m6 -16v5";
+\end{scope}}}
+\tikzset{sg icon/cache/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1H6a1 1 0 0 1 -1 -1V6a1 1 0 0 1 1 -1z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M15 9h-4v6h4";
+\end{scope}}}
+\tikzset{sg icon/clock/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0";
+\draw svg "M12 7v5l3 3";
+\end{scope}}}
+\tikzset{sg icon/cloud/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6.657 18c-2.572 0 -4.657 -2.007 -4.657 -4.483c0 -2.475 2.085 -4.482 4.657 -4.482c.393 -1.762 1.794 -3.2 3.675 -3.773c1.88 -.572 3.956 -.193 5.444 1c1.488 1.19 2.162 3.007 1.77 4.769h.99c1.913 0 3.464 1.56 3.464 3.486c0 1.927 -1.551 3.487 -3.465 3.487h-11.878";
+\end{scope}}}
+\tikzset{sg icon/cpu/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 6a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -12";
+\draw svg "M9 9h6v6h-6l0 -6";
+\draw svg "M3 10h2";
+\draw svg "M3 14h2";
+\draw svg "M10 3v2";
+\draw svg "M14 3v2";
+\draw svg "M21 10h-2";
+\draw svg "M21 14h-2";
+\draw svg "M14 21v-2";
+\draw svg "M10 21v-2";
+\end{scope}}}
+\tikzset{sg icon/debug-probe/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 4h10v11H7z M10 8h4 M12 15v4 M6 21v-2h12v2";
+\end{scope}}}
+\tikzset{sg icon/dma/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 21v-6";
+\draw svg "M20 6l-3 -3l-3 3";
+\draw svg "M10 18l-3 3l-3 -3";
+\draw svg "M7 3v2";
+\draw svg "M7 9v2";
+\draw svg "M17 3v6";
+\draw svg "M17 21v-2";
+\draw svg "M17 15v-2";
+\end{scope}}}
+\tikzset{sg icon/flash/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 21h10a2 2 0 0 0 2 -2v-14a2 2 0 0 0 -2 -2h-6.172a2 2 0 0 0 -1.414 .586l-3.828 3.828a2 2 0 0 0 -.586 1.414v10.172a2 2 0 0 0 2 2";
+\draw svg "M13 6v2";
+\draw svg "M16 6v2";
+\draw svg "M10 7v1";
+\end{scope}}}
+\tikzset{sg icon/fuses/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M5 12h5l4 -3m0 3h5";
+\end{scope}}}
+\tikzset{sg icon/interrupt/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M13 3l0 7l6 0l-8 11l0 -7l-6 0l8 -11";
+\end{scope}}}
+\tikzset{sg icon/iot-device/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 12l0 .01";
+\draw svg "M14.828 9.172a4 4 0 0 1 0 5.656";
+\draw svg "M17.657 6.343a8 8 0 0 1 0 11.314";
+\draw svg "M9.168 14.828a4 4 0 0 1 0 -5.656";
+\draw svg "M6.337 17.657a8 8 0 0 1 0 -11.314";
+\end{scope}}}
+\tikzset{sg icon/laptop/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 19l18 0";
+\draw svg "M5 7a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v8a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -8";
+\end{scope}}}
+\tikzset{sg icon/microcontroller/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 6a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -12";
+\draw svg "M8 10v-2h2m6 6v2h-2m-4 0h-2v-2m8 -4v-2h-2";
+\draw svg "M3 10h2";
+\draw svg "M3 14h2";
+\draw svg "M10 3v2";
+\draw svg "M14 3v2";
+\draw svg "M21 10h-2";
+\draw svg "M21 14h-2";
+\draw svg "M14 21v-2";
+\draw svg "M10 21v-2";
+\end{scope}}}
+\tikzset{sg icon/network/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0";
+\draw svg "M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6";
+\draw svg "M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6";
+\draw svg "M6 9h12";
+\draw svg "M3 20h7";
+\draw svg "M14 20h7";
+\draw svg "M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0";
+\draw svg "M12 15v3";
+\end{scope}}}
+\tikzset{sg icon/peripheral/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5";
+\draw svg "M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5";
+\draw svg "M3 21l2.5 -2.5";
+\draw svg "M18.5 5.5l2.5 -2.5";
+\draw svg "M10 11l-2 2";
+\draw svg "M13 14l-2 2";
+\end{scope}}}
+\tikzset{sg icon/phone/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-8a2 2 0 0 1 -2 -2v-14";
+\draw svg "M11 4h2";
+\draw svg "M12 17v.01";
+\end{scope}}}
+\tikzset{sg icon/power/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 6a7.75 7.75 0 1 0 10 0";
+\draw svg "M12 4l0 8";
+\end{scope}}}
+\tikzset{sg icon/radio/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M20 4v8";
+\draw svg "M16 4.5v7";
+\draw svg "M12 5v16";
+\draw svg "M8 5.5v5";
+\draw svg "M4 6v4";
+\draw svg "M20 8h-16";
+\end{scope}}}
+\tikzset{sg icon/ram/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M6 10v4m4 -4v4m4 -4v4m4 -4v4 M6 17v3m4 -3v3m4 -3v3m4 -3v3";
+\end{scope}}}
+\tikzset{sg icon/register/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M9 7v10m6 -10v10";
+\end{scope}}}
+\tikzset{sg icon/reset/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4";
+\draw svg "M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4";
+\end{scope}}}
+\tikzset{sg icon/rom-otp/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1H6a1 1 0 0 1 -1 -1V6a1 1 0 0 1 1 -1z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M9 11h6v6H9z M10 11V9a2 2 0 0 1 4 0v2";
+\end{scope}}}
+\tikzset{sg icon/router/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 15a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -4";
+\draw svg "M17 17l0 .01";
+\draw svg "M13 17l0 .01";
+\draw svg "M15 13l0 -2";
+\draw svg "M11.75 8.75a4 4 0 0 1 6.5 0";
+\draw svg "M8.5 6.5a8 8 0 0 1 13 0";
+\end{scope}}}
+\tikzset{sg icon/sensor/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M21 12h-8a1 1 0 1 0 -1 1v8a9 9 0 0 0 9 -9";
+\draw svg "M16 9a5 5 0 1 0 -7 7";
+\draw svg "M20.486 9a9 9 0 1 0 -11.482 11.495";
+\end{scope}}}
+\tikzset{sg icon/server/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3v-2";
+\draw svg "M3 15a3 3 0 0 1 3 -3h12a3 3 0 0 1 3 3v2a3 3 0 0 1 -3 3h-12a3 3 0 0 1 -3 -3l0 -2";
+\draw svg "M7 8l0 .01";
+\draw svg "M7 16l0 .01";
+\end{scope}}}
+\tikzset{sg icon/soc/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1H6a1 1 0 0 1 -1 -1V6a1 1 0 0 1 1 -1z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 8h4v4H8z M15 8v4 M8 15h8";
+\end{scope}}}
+\tikzset{sg icon/usb/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M10 19a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M12 17v-11.5";
+\draw svg "M7 10v3l5 3";
+\draw svg "M12 14.5l5 -2v-2.5";
+\draw svg "M16 10h2v-2h-2l0 2";
+\draw svg "M6 9a1 1 0 1 0 2 0a1 1 0 1 0 -2 0";
+\draw svg "M10 5.5h4l-2 -2.5l-2 2.5";
+\end{scope}}}
+\tikzset{sg icon/api/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 13h5";
+\draw svg "M12 16v-8h3a2 2 0 0 1 2 2v1a2 2 0 0 1 -2 2h-3";
+\draw svg "M20 8v8";
+\draw svg "M9 16v-5.5a2.5 2.5 0 0 0 -5 0v5.5";
+\end{scope}}}
+\tikzset{sg icon/binary/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M11 10v-5h-1m8 14v-5h-1";
+\draw svg "M15 5.5a.5 .5 0 0 1 .5 -.5h2a.5 .5 0 0 1 .5 .5v4a.5 .5 0 0 1 -.5 .5h-2a.5 .5 0 0 1 -.5 -.5l0 -4";
+\draw svg "M10 14.5a.5 .5 0 0 1 .5 -.5h2a.5 .5 0 0 1 .5 .5v4a.5 .5 0 0 1 -.5 .5h-2a.5 .5 0 0 1 -.5 -.5l0 -4";
+\draw svg "M6 10h.01m-.01 9h.01";
+\end{scope}}}
+\tikzset{sg icon/bootloader/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M14 3v4a1 1 0 0 0 1 1h4";
+\draw svg "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2";
+\draw svg "M12 11l-2 3h4l-2 3";
+\end{scope}}}
+\tikzset{sg icon/bug/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M9 9v-1a3 3 0 0 1 6 0v1";
+\draw svg "M8 9h8a6 6 0 0 1 1 3v3a5 5 0 0 1 -10 0v-3a6 6 0 0 1 1 -3";
+\draw svg "M3 13l4 0";
+\draw svg "M17 13l4 0";
+\draw svg "M12 20l0 -6";
+\draw svg "M4 19l3.35 -2";
+\draw svg "M20 19l-3.35 -2";
+\draw svg "M4 7l3.75 2.4";
+\draw svg "M20 7l-3.75 2.4";
+\end{scope}}}
+\tikzset{sg icon/code/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 8l-4 4l4 4";
+\draw svg "M17 8l4 4l-4 4";
+\draw svg "M14 4l-4 16";
+\end{scope}}}
+\tikzset{sg icon/configuration/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065";
+\draw svg "M9 12a3 3 0 1 0 6 0a3 3 0 0 0 -6 0";
+\end{scope}}}
+\tikzset{sg icon/download/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2";
+\draw svg "M7 11l5 5l5 -5";
+\draw svg "M12 4l0 12";
+\end{scope}}}
+\tikzset{sg icon/file/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M14 3v4a1 1 0 0 0 1 1h4";
+\draw svg "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2";
+\end{scope}}}
+\tikzset{sg icon/firmware-image/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M14 3v4a1 1 0 0 0 1 1h4";
+\draw svg "M9 13a1 1 0 0 1 1 -1h1a1 1 0 0 1 1 1v3a1 1 0 0 1 -1 1h-1a1 1 0 0 1 -1 -1l0 -3";
+\draw svg "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2";
+\draw svg "M15 12v5";
+\end{scope}}}
+\tikzset{sg icon/function/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 6.667a2.667 2.667 0 0 1 2.667 -2.667h10.666a2.667 2.667 0 0 1 2.667 2.667v10.666a2.667 2.667 0 0 1 -2.667 2.667h-10.666a2.667 2.667 0 0 1 -2.667 -2.667l0 -10.666";
+\draw svg "M9 15.5v.25c0 .69 .56 1.25 1.25 1.25c.71 0 1.304 -.538 1.374 -1.244l.752 -7.512a1.381 1.381 0 0 1 1.374 -1.244c.69 0 1.25 .56 1.25 1.25v.25";
+\draw svg "M9 12h6";
+\end{scope}}}
+\tikzset{sg icon/git-branch/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M7 8l0 8";
+\draw svg "M9 18h6a2 2 0 0 0 2 -2v-5";
+\draw svg "M14 14l3 -3l3 3";
+\end{scope}}}
+\tikzset{sg icon/library/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 3l8 4.5l0 9l-8 4.5l-8 -4.5l0 -9l8 -4.5";
+\draw svg "M12 12l8 -4.5";
+\draw svg "M12 12l0 9";
+\draw svg "M12 12l-8 -4.5";
+\draw svg "M16 5.25l-8 4.5";
+\end{scope}}}
+\tikzset{sg icon/log/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M14 3v4a1 1 0 0 0 1 1h4";
+\draw svg "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2";
+\draw svg "M9 9l1 0";
+\draw svg "M9 13l6 0";
+\draw svg "M9 17l6 0";
+\end{scope}}}
+\tikzset{sg icon/os-kernel/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M8 8h8v8H8z M12 3v5m0 8v5M3 12h5m8 0h5 M5 5l3 3m8 8l3 3M19 5l-3 3M8 16l-3 3";
+\end{scope}}}
+\tikzset{sg icon/process/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M8 9l3 3l-3 3";
+\draw svg "M13 15l3 0";
+\draw svg "M3 6a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2l0 -12";
+\end{scope}}}
+\tikzset{sg icon/thread/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M10 18a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M5 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M15 6a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M7 8v2a2 2 0 0 0 2 2h6a2 2 0 0 0 2 -2v-2";
+\draw svg "M12 12l0 4";
+\end{scope}}}
+\tikzset{sg icon/update/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4";
+\draw svg "M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4";
+\draw svg "M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0";
+\end{scope}}}
+\tikzset{sg icon/attacker/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 11h18";
+\draw svg "M5 11v-4a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v4";
+\draw svg "M4 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0";
+\draw svg "M14 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0";
+\draw svg "M10 17h4";
+\end{scope}}}
+\tikzset{sg icon/authenticated-user/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0";
+\draw svg "M6 21v-2a4 4 0 0 1 4 -4h4";
+\draw svg "M15 19l2 2l4 -4";
+\end{scope}}}
+\tikzset{sg icon/certificate/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 15a3 3 0 1 0 6 0a3 3 0 1 0 -6 0";
+\draw svg "M13 17.5v4.5l2 -1.5l2 1.5v-4.5";
+\draw svg "M10 19h-5a2 2 0 0 1 -2 -2v-10c0 -1.1 .9 -2 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -1 1.73";
+\draw svg "M6 9l12 0";
+\draw svg "M6 12l3 0";
+\draw svg "M6 15l2 0";
+\end{scope}}}
+\tikzset{sg icon/decryption/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12.5 21h-5.5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 1.74 1.015";
+\draw svg "M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0";
+\draw svg "M8 11v-4a4 4 0 1 1 8 0v4";
+\draw svg "M19 16v6";
+\draw svg "M22 19l-3 3l-3 -3";
+\end{scope}}}
+\tikzset{sg icon/encryption/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12.5 21h-5.5a2 2 0 0 1 -2 -2v-6a2 2 0 0 1 2 -2h10a2 2 0 0 1 1.739 1.01";
+\draw svg "M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0";
+\draw svg "M8 11v-4a4 4 0 1 1 8 0v4";
+\draw svg "M19 22v-6";
+\draw svg "M22 19l-3 -3l-3 3";
+\end{scope}}}
+\tikzset{sg icon/eye/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0";
+\draw svg "M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6";
+\end{scope}}}
+\tikzset{sg icon/eye-off/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M10.585 10.587a2 2 0 0 0 2.829 2.828";
+\draw svg "M16.681 16.673a8.717 8.717 0 0 1 -4.681 1.327c-3.6 0 -6.6 -2 -9 -6c1.272 -2.12 2.712 -3.678 4.32 -4.674m2.86 -1.146a9.055 9.055 0 0 1 1.82 -.18c3.6 0 6.6 2 9 6c-.666 1.11 -1.379 2.067 -2.138 2.87";
+\draw svg "M3 3l18 18";
+\end{scope}}}
+\tikzset{sg icon/failed/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M18 6l-12 12";
+\draw svg "M6 6l12 12";
+\end{scope}}}
+\tikzset{sg icon/fingerprint/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M18.9 7a8 8 0 0 1 1.1 5v1a6 6 0 0 0 .8 3";
+\draw svg "M8 11a4 4 0 0 1 8 0v1a10 10 0 0 0 2 6";
+\draw svg "M12 11v2a14 14 0 0 0 2.5 8";
+\draw svg "M8 15a18 18 0 0 0 1.8 6";
+\draw svg "M4.9 19a22 22 0 0 1 -.9 -7v-1a8 8 0 0 1 12 -6.95";
+\end{scope}}}
+\tikzset{sg icon/forbidden/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 12a9 9 0 1 0 18 0a9 9 0 1 0 -18 0";
+\draw svg "M9 9l6 6";
+\end{scope}}}
+\tikzset{sg icon/hash/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 9l14 0";
+\draw svg "M5 15l14 0";
+\draw svg "M11 4l-4 16";
+\draw svg "M17 4l-4 16";
+\end{scope}}}
+\tikzset{sg icon/integrity/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M14 3v4a1 1 0 0 0 1 1h4";
+\draw svg "M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2";
+\draw svg "M9 15l2 2l4 -4";
+\end{scope}}}
+\tikzset{sg icon/key/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0";
+\draw svg "M15 9h.01";
+\end{scope}}}
+\tikzset{sg icon/key-pair/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M9 7h11m-3 0v3m3 -3v2 M15 17a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M4 17h11M4 17v3m3 -3v2";
+\end{scope}}}
+\tikzset{sg icon/lock/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-6";
+\draw svg "M11 16a1 1 0 1 0 2 0a1 1 0 0 0 -2 0";
+\draw svg "M8 11v-4a4 4 0 1 1 8 0v4";
+\end{scope}}}
+\tikzset{sg icon/malware/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M9.884 5.873a3 3 0 0 1 5.116 2.127v1";
+\draw svg "M13 9h3a6 6 0 0 1 1 3v1m-.298 3.705a5 5 0 0 1 -9.702 -1.705v-3a6 6 0 0 1 1 -3h1";
+\draw svg "M3 13h4";
+\draw svg "M17 13h4";
+\draw svg "M12 20v-6";
+\draw svg "M4 19l3.35 -2";
+\draw svg "M4 7l3.75 2.4";
+\draw svg "M20 7l-3.75 2.4";
+\draw svg "M3 3l18 18";
+\end{scope}}}
+\tikzset{sg icon/nonce/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 5a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v14a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-14";
+\draw svg "M8 8.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0";
+\draw svg "M15 8.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0";
+\draw svg "M15 15.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0";
+\draw svg "M8 15.5a.5 .5 0 1 0 1 0a.5 .5 0 1 0 -1 0";
+\end{scope}}}
+\tikzset{sg icon/password/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 10v4";
+\draw svg "M10 13l4 -2";
+\draw svg "M10 11l4 2";
+\draw svg "M5 10v4";
+\draw svg "M3 13l4 -2";
+\draw svg "M3 11l4 2";
+\draw svg "M19 10v4";
+\draw svg "M17 13l4 -2";
+\draw svg "M17 11l4 2";
+\end{scope}}}
+\tikzset{sg icon/private-key/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2l0 -6";
+\draw svg "M8 11v-4a4 4 0 1 1 8 0v4";
+\draw svg "M15 16h.01";
+\draw svg "M12.01 16h.01";
+\draw svg "M9.02 16h.01";
+\end{scope}}}
+\tikzset{sg icon/public-key/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M16.555 3.843l3.602 3.602a2.877 2.877 0 0 1 0 4.069l-2.643 2.643a2.877 2.877 0 0 1 -4.069 0l-.301 -.301l-6.558 6.558a2 2 0 0 1 -1.239 .578l-.175 .008h-1.172a1 1 0 0 1 -.993 -.883l-.007 -.117v-1.172a2 2 0 0 1 .467 -1.284l.119 -.13l.414 -.414h2v-2h2v-2l2.144 -2.144l-.301 -.301a2.877 2.877 0 0 1 0 -4.069l2.643 -2.643a2.877 2.877 0 0 1 4.069 0";
+\draw svg "M15 9h.01";
+\end{scope}}}
+\tikzset{sg icon/shield/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3";
+\end{scope}}}
+\tikzset{sg icon/shield-check/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M11.46 20.846a12 12 0 0 1 -7.96 -14.846a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 -.09 7.06";
+\draw svg "M15 19l2 2l4 -4";
+\end{scope}}}
+\tikzset{sg icon/signature/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 17c3.333 -3.333 5 -6 5 -8c0 -3 -1 -3 -2 -3s-2.032 1.085 -2 3c.034 2.048 1.658 4.877 2.5 6c1.5 2 2.5 2.5 3.5 1l2 -3c.333 2.667 1.333 4 3 4c.53 0 2.639 -2 3 -2c.517 0 1.517 .667 3 2";
+\end{scope}}}
+\tikzset{sg icon/unlocked/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 13a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v6a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2l0 -6";
+\draw svg "M11 16a1 1 0 1 0 2 0a1 1 0 1 0 -2 0";
+\draw svg "M8 11v-5a4 4 0 0 1 8 0";
+\end{scope}}}
+\tikzset{sg icon/user/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0";
+\draw svg "M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2";
+\end{scope}}}
+\tikzset{sg icon/verified/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 12l5 5l10 -10";
+\end{scope}}}
+\tikzset{sg icon/warning/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 9v4";
+\draw svg "M10.363 3.591l-8.106 13.534a1.914 1.914 0 0 0 1.636 2.871h16.214a1.914 1.914 0 0 0 1.636 -2.87l-8.106 -13.536a1.914 1.914 0 0 0 -3.274 0";
+\draw svg "M12 16h.01";
+\end{scope}}}
+\tikzset{sg icon/attestation-evidence/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M14 3v4a1 1 0 0 0 1 1h4";
+\draw svg "M5 8v-3a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2h-5";
+\draw svg "M3 14a3 3 0 1 0 6 0a3 3 0 1 0 -6 0";
+\draw svg "M4.5 17l-1.5 5l3 -1.5l3 1.5l-1.5 -5";
+\end{scope}}}
+\tikzset{sg icon/attester/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 16h-8a1 1 0 0 1 -1 -1v-10a1 1 0 0 1 1 -1h16a1 1 0 0 1 1 1v8";
+\draw svg "M15 19l2 2l4 -4";
+\draw svg "M7 20h4";
+\draw svg "M9 16v4";
+\end{scope}}}
+\tikzset{sg icon/chain-of-trust/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M9 15l6 -6";
+\draw svg "M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464";
+\draw svg "M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463";
+\end{scope}}}
+\tikzset{sg icon/enclave/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3h18v18H3z M7 7h10v10H7z";
+\end{scope}}}
+\tikzset{sg icon/isolation/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 4h7v16H3z M14 4h7v16h-7z";
+\end{scope}}}
+\tikzset{sg icon/measured-boot/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 3h9l4 4v14H6z M15 3v5h4 M9 12h7M9 16h7M11 12v2m3 2v2";
+\end{scope}}}
+\tikzset{sg icon/measurement/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M19.875 12c.621 0 1.125 .512 1.125 1.143v5.714c0 .631 -.504 1.143 -1.125 1.143h-15.875a1 1 0 0 1 -1 -1v-5.857c0 -.631 .504 -1.143 1.125 -1.143h15.75";
+\draw svg "M9 12v2";
+\draw svg "M6 12v3";
+\draw svg "M12 12v3";
+\draw svg "M18 12v3";
+\draw svg "M15 12v2";
+\draw svg "M3 3v4";
+\draw svg "M3 5h18";
+\draw svg "M21 3v4";
+\end{scope}}}
+\tikzset{sg icon/mpu-region/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3h18v18H3z M3 10h18M10 10v11 M14 14h4v4h-4z";
+\end{scope}}}
+\tikzset{sg icon/normal-world/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 4h16v16H4z";
+\draw svg "M8 9h8M8 13h8M8 17h4";
+\end{scope}}}
+\tikzset{sg icon/pcr/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 6h18v12H3z M8 6v12m8 -12v12 M5 21h14 M11 10h2m-2 4h2";
+\end{scope}}}
+\tikzset{sg icon/privilege-level/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M22 6h-5v5h-5v5h-5v5h-5";
+\draw svg "M6 10v-7";
+\draw svg "M3 6l3 -3l3 3";
+\end{scope}}}
+\tikzset{sg icon/relying-party/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 21v-2a4 4 0 0 1 4 -4h2";
+\draw svg "M22 16c0 4 -2.5 6 -3.5 6s-3.5 -2 -3.5 -6c1 0 2.5 -.5 3.5 -1.5c1 1 2.5 1.5 3.5 1.5";
+\draw svg "M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0";
+\end{scope}}}
+\tikzset{sg icon/root-of-trust/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 3l7 3v5c0 3 -4 5 -7 7c-3 -2 -7 -4 -7 -7V6z M8 11l3 3l5 -6 M12 18v3M7 21h10";
+\end{scope}}}
+\tikzset{sg icon/sau-region/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3h18v18H3z M12 3v18 M15 10h4v7h-4z M16 10V8a1 1 0 0 1 2 0v2";
+\end{scope}}}
+\tikzset{sg icon/sealed-storage/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 6c0 -4 16 -4 16 0c0 4 -16 4 -16 0z M4 6v12c0 4 16 4 16 0V6";
+\draw svg "M9 11h6v6H9z M10 11V9a2 2 0 0 1 4 0v2";
+\end{scope}}}
+\tikzset{sg icon/secure-boot/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M13.342 20.566c-.436 .17 -.884 .315 -1.342 .434a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3a12 12 0 0 1 .117 6.34";
+\draw svg "M19 16l-2 3h4l-2 3";
+\end{scope}}}
+\tikzset{sg icon/secure-call/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 3v6m0 6v6M3 12h18m-4 -4l4 4l-4 4 M9 7V3h6v4 M9 17v4h6v-4";
+\end{scope}}}
+\tikzset{sg icon/secure-world/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 3l8 3v6c0 4 -4 7 -8 9c-4 -2 -8 -5 -8 -9V6z";
+\draw svg "M9 11h6v5H9z M10 11V9a2 2 0 0 1 4 0v2";
+\end{scope}}}
+\tikzset{sg icon/tee/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 4h16v16H4z";
+\draw svg "M9 11h6v6H9z M10 11V9a2 2 0 0 1 4 0v2";
+\end{scope}}}
+\tikzset{sg icon/tpm/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1H6a1 1 0 0 1 -1 -1V6a1 1 0 0 1 1 -1z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 10a2 2 0 1 0 4 0a2 2 0 1 0 -4 0 M12 10h4v3m-2 -3v2";
+\end{scope}}}
+\tikzset{sg icon/verifier/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M12 21a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3a12 12 0 0 0 8.5 3c.539 1.832 .627 3.747 .283 5.588";
+\draw svg "M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0";
+\draw svg "M20.2 20.2l1.8 1.8";
+\end{scope}}}
+\tikzset{sg icon/arch-register/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M9 7v10m6 -10v10";
+\end{scope}}}
+\tikzset{sg icon/arch-register-file/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 3h16v18H4z M4 9h16M4 15h16M10 3v18";
+\end{scope}}}
+\tikzset{sg icon/arch-alu/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 4h6l3 4l3 -4h6l-4 16H7z M9 13h6M12 10v6";
+\end{scope}}}
+\tikzset{sg icon/arch-adder/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M8 12h8M12 8v8 M2 8h3m-3 8h3M19 12h3";
+\end{scope}}}
+\tikzset{sg icon/arch-multiplier/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 9l6 6m0 -6l-6 6 M2 8h3m-3 8h3M19 12h3";
+\end{scope}}}
+\tikzset{sg icon/arch-multiplexer/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 3l10 4v10l-10 4z M2 7h5m-5 10h5M17 12h5M12 19v3";
+\end{scope}}}
+\tikzset{sg icon/arch-demultiplexer/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M17 3L7 7v10l10 4z M2 12h5M17 7h5m-5 10h5M12 19v3";
+\end{scope}}}
+\tikzset{sg icon/arch-decoder/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M2 9h3m-3 6h3M19 7h3m-3 5h3m-3 5h3 M9 8l6 4l-6 4";
+\end{scope}}}
+\tikzset{sg icon/arch-encoder/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M2 7h3m-3 5h3m-3 5h3M19 9h3m-3 6h3 M15 8l-6 4l6 4";
+\end{scope}}}
+\tikzset{sg icon/arch-comparator/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M2 8h3m-3 8h3M19 12h3 M9 9h6m-6 6h6";
+\end{scope}}}
+\tikzset{sg icon/arch-and/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5h5a7 7 0 0 1 0 14H6z M2 8h4M2 16h4";
+\draw svg "M18 12h4";
+\end{scope}}}
+\tikzset{sg icon/arch-or/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5Q10 12 5 19Q15 19 19 12Q15 5 5 5z M2 8h4.5M2 16h4.5";
+\draw svg "M19 12h3";
+\end{scope}}}
+\tikzset{sg icon/arch-not/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5l12 7l-12 7z M2 12h4";
+\draw svg "M18 12a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0";
+\draw svg "M21 12h1";
+\end{scope}}}
+\tikzset{sg icon/arch-nand/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5h5a7 7 0 0 1 0 14H6z M2 8h4M2 16h4";
+\draw svg "M18 12a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0";
+\draw svg "M21 12h1";
+\end{scope}}}
+\tikzset{sg icon/arch-nor/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5Q10 12 5 19Q15 19 18 12Q15 5 5 5z M2 8h4.5M2 16h4.5";
+\draw svg "M18 12a1.5 1.5 0 1 0 3 0a1.5 1.5 0 1 0 -3 0";
+\draw svg "M21 12h1";
+\end{scope}}}
+\tikzset{sg icon/arch-xor/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5Q10 12 5 19Q15 19 19 12Q15 5 5 5z M1 8h2.5M1 16h2.5";
+\draw svg "M2 5Q7 12 2 19 M19 12h3";
+\end{scope}}}
+\tikzset{sg icon/arch-buffer-gate/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 5l12 7l-12 7z M2 12h4M18 12h4";
+\end{scope}}}
+\tikzset{sg icon/arch-flip-flop/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M2 8h3M19 8h3M2 16h3l3 -3l-3 -3";
+\end{scope}}}
+\tikzset{sg icon/arch-latch/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M2 8h3M19 8h3M2 16h3 M9 14v3";
+\end{scope}}}
+\tikzset{sg icon/arch-counter/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M9 7v10m6 -10v10";
+\draw svg "M6 5c0 -4 12 -4 12 0m-2 -2l2 2l2 -2";
+\end{scope}}}
+\tikzset{sg icon/arch-shift-register/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M9 7v10m6 -10v10";
+\draw svg "M3 3h18m-3 -2l3 2l-3 2";
+\end{scope}}}
+\tikzset{sg icon/arch-fifo/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M9 7v10m6 -10v10";
+\draw svg "M1 12h2M21 12h2 M5 21h14m-3 -2l3 2l-3 2";
+\end{scope}}}
+\tikzset{sg icon/arch-stack/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M6 7v14h12V7 M6 16h12M6 11h12 M9 3v5m-2 -2l2 2l2 -2 M15 8V3m-2 2l2 -2l2 2";
+\end{scope}}}
+\tikzset{sg icon/arch-buffer/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 7h14v10H5z M2 12h3M19 12h3 M9 7v10";
+\end{scope}}}
+\tikzset{sg icon/arch-finite-state-machine/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 6a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M15 18a3 3 0 1 0 6 0a3 3 0 1 0 -6 0 M9 6h9v9m-2 -2l2 2l2 -2 M15 18H6V9m-2 2l2 -2l2 2";
+\end{scope}}}
+\tikzset{sg icon/arch-pipeline/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 7h4v10H2z M10 7h4v10h-4z M18 7h4v10h-4z M6 12h4m4 0h4";
+\end{scope}}}
+\tikzset{sg icon/arch-instruction/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 6h18v12H3z M9 6v12 M12 10h6m-6 4h3";
+\end{scope}}}
+\tikzset{sg icon/arch-program-counter/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h14v10H3z M9 7v10 M17 12h5m-3 -3l3 3l-3 3";
+\end{scope}}}
+\tikzset{sg icon/arch-branch/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M21 17h-8l-3.5 -5h-6.5";
+\draw svg "M21 7h-8l-3.495 5";
+\draw svg "M18 10l3 -3l-3 -3";
+\draw svg "M18 20l3 -3l-3 -3";
+\end{scope}}}
+\tikzset{sg icon/arch-core/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 6a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1l0 -12";
+\draw svg "M9 9h6v6h-6l0 -6";
+\draw svg "M3 10h2";
+\draw svg "M3 14h2";
+\draw svg "M10 3v2";
+\draw svg "M14 3v2";
+\draw svg "M21 10h-2";
+\draw svg "M21 14h-2";
+\draw svg "M14 21v-2";
+\draw svg "M10 21v-2";
+\end{scope}}}
+\tikzset{sg icon/arch-multicore/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 8h3v3H8z M13 8h3v3h-3z M8 13h3v3H8z M13 13h3v3h-3z";
+\end{scope}}}
+\tikzset{sg icon/arch-cache/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 5h16v14H4z M4 10h16 M8 14h8";
+\end{scope}}}
+\tikzset{sg icon/arch-cache-line/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 7h20v10H2z M7 7v10 M12 7v10m5 -10v10 M2 21h20";
+\end{scope}}}
+\tikzset{sg icon/arch-tlb/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M8 8v8M16 8v8 M10 12h4m-2 -2l2 2l-2 2";
+\end{scope}}}
+\tikzset{sg icon/arch-mmu/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 4h7v6H2z M15 14h7v6h-7z M5 10v7h10m-3 -3l3 3l-3 3 M15 4h7v6h-7z";
+\end{scope}}}
+\tikzset{sg icon/arch-mpu/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3h18v18H3z M3 9h18M10 9v12 M14 12l4 1v3l-2 2l-2 -2z";
+\end{scope}}}
+\tikzset{sg icon/arch-memory-hierarchy/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M9 3h6v4H9z M6 10h12v4H6z M3 17h18v4H3z M12 7v3m0 4v3";
+\end{scope}}}
+\tikzset{sg icon/arch-sram/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 9h8v6H8z M12 9v6";
+\end{scope}}}
+\tikzset{sg icon/arch-dram/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 11h8m-8 3h8 M12 8v3m0 3v2";
+\end{scope}}}
+\tikzset{sg icon/arch-flash/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M13 7l-5 6h4l-1 4l5 -6h-4z";
+\end{scope}}}
+\tikzset{sg icon/arch-rom/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 10h8M8 14h8 M10 8v8";
+\end{scope}}}
+\tikzset{sg icon/arch-memory-mapped-io/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3h12v18H3z M3 9h12M3 15h12 M15 12h7m-3 -3l3 3l-3 3";
+\end{scope}}}
+\tikzset{sg icon/arch-address/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 5h18v14H3z M3 10h18 M9 13l3 3l3 -3";
+\end{scope}}}
+\tikzset{sg icon/arch-data-word/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18v10H3z M9 7v10m6 -10v10";
+\draw svg "M3 3h18M3 2v2m18 -2v2";
+\end{scope}}}
+\tikzset{sg icon/arch-bit/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 5h10v14H7z M12 9v6";
+\end{scope}}}
+\tikzset{sg icon/arch-byte/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 6h20v12H2z M7 6v12m5 -12v12m5 -12v12 M2 12h20";
+\end{scope}}}
+\tikzset{sg icon/arch-bus/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 8h20M2 16h20 M6 3v5m6 8v5m6 -18v5 M9 6l6 12";
+\end{scope}}}
+\tikzset{sg icon/arch-crossbar/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 7h18M3 17h18 M7 3v18M17 3v18 M6 6h2v2H6z M16 16h2v2h-2z";
+\end{scope}}}
+\tikzset{sg icon/arch-bridge/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 6h6v12H2z M16 6h6v12h-6z M8 10h8M8 14h8";
+\end{scope}}}
+\tikzset{sg icon/arch-dma/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 4h6v6H2z M16 14h6v6h-6z M9 6h10v6m-3 -3l3 3l3 -3 M15 18H5v-6m-3 3l3 -3l3 3";
+\end{scope}}}
+\tikzset{sg icon/arch-nvic/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M8 4h11v16H8z M2 6h6M2 12h6M2 18h6 M11 8h5m-5 4h3 M19 12h3";
+\end{scope}}}
+\tikzset{sg icon/arch-exception/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 5h16v14H4z M12 8v5m0 3v.1 M2 12h2M20 12h2";
+\end{scope}}}
+\tikzset{sg icon/arch-clock/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 16h5V8h5v8h5V8h5";
+\end{scope}}}
+\tikzset{sg icon/arch-clock-domain/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3h18v18H3z M6 15h4V9h4v6h4";
+\end{scope}}}
+\tikzset{sg icon/arch-power-domain/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z";
+\draw svg "M12 8v5 M9 10a4 4 0 1 0 6 0";
+\end{scope}}}
+\tikzset{sg icon/arch-reset/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3.06 13a9 9 0 1 0 .49 -4.087";
+\draw svg "M3 4.001v5h5";
+\draw svg "M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0";
+\end{scope}}}
+\tikzset{sg icon/arch-gpio/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 4h14v16H5z M2 8h3m-3 8h3M19 8h3m-3 8h3 M9 9l-2 3l2 3m6 -6l2 3l-2 3";
+\end{scope}}}
+\tikzset{sg icon/arch-uart/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 4v16M21 4v16 M3 8h14m-3 -3l3 3l-3 3 M21 16H7m3 -3l-3 3l3 3";
+\end{scope}}}
+\tikzset{sg icon/arch-spi/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 3v18M21 3v18 M3 6h18M3 12h18M3 18h18 M9 4l2 2l-2 2 M15 10l-2 2l2 2";
+\end{scope}}}
+\tikzset{sg icon/arch-i2c/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M3 6h18M3 12h18 M6 3v9M18 3v9 M9 12v9h6v-9";
+\end{scope}}}
+\tikzset{sg icon/arch-adc/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 7h6l8 10h6 M2 17q3 -10 6 0 M16 7h3V3h3";
+\end{scope}}}
+\tikzset{sg icon/arch-dac/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 17h6L16 7h6 M2 7h3V3h3 M16 17q3 -10 6 0";
+\end{scope}}}
+\tikzset{sg icon/arch-timer/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M10 2L14 2";
+\draw svg "M12 14L15 11";
+\draw svg "M4 14a8 8 0 1 0 16 0a8 8 0 1 0 -16 0";
+\end{scope}}}
+\tikzset{sg icon/arch-watchdog/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M4 6h16v14H4z M8 3h8 M8 13h3l2 -4l2 8l2 -4h3";
+\end{scope}}}
+\tikzset{sg icon/arch-accelerator/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 8l4 4l-4 4 M12 8l4 4l-4 4";
+\end{scope}}}
+\tikzset{sg icon/arch-crypto-engine/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 11h8v6H8z M10 11V9a2 2 0 0 1 4 0v2";
+\end{scope}}}
+\tikzset{sg icon/arch-gpu/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M2 17h18a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2H2";
+\draw svg "M2 21V3";
+\draw svg "M7 17v3a1 1 0 0 0 1 1h5a1 1 0 0 0 1-1v-3";
+\draw svg "M14 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\draw svg "M6 11a2 2 0 1 0 4 0a2 2 0 1 0 -4 0";
+\end{scope}}}
+\tikzset{sg icon/arch-fpga/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 8h8v8H8z M12 8v8M8 12h8";
+\end{scope}}}
+\tikzset{sg icon/arch-asic/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M7 19.4V4.6C7 4.26863 7.26863 4 7.6 4H16.4C16.7314 4 17 4.26863 17 4.6V19.4C17 19.7314 16.7314 20 16.4 20H7.6C7.26863 20 7 19.7314 7 19.4Z";
+\draw svg "M14 20V22.5";
+\draw svg "M10 20V22.5";
+\draw svg "M14 4V1.5";
+\draw svg "M10 4V1.5";
+\draw svg "M7 12H4.5";
+\draw svg "M19.5 12H17";
+\draw svg "M7 6.5H4.5";
+\draw svg "M19.5 6.5H17";
+\draw svg "M7 17.5H4.5";
+\draw svg "M19.5 17.5H17";
+\end{scope}}}
+\tikzset{sg icon/arch-soc/.pic={%
+\begin{scope}[x=1pt,y=1pt,scale=0.356,yscale=-1,sg icon stroke]
+\draw svg "M5 5h14v14H5z M9 3v2m6 -2v2M9 19v2m6 -2v2M3 9h2m-2 6h2M19 9h2m-2 6h2";
+\draw svg "M8 8h4v4H8z M15 8v4 M8 15h8";
+\end{scope}}}
+\providecommand{\sgicon}[1]{\tikz[baseline=-0.3pt]{\path[use as bounding box] (0,0) rectangle (8.544pt,8.544pt);\pic at (0,8.544pt) {sg icon/#1};}}
