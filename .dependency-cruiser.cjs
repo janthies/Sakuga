@@ -64,6 +64,20 @@ module.exports = {
 			to: { path: '^src/webview/' },
 		},
 		{
+			name: 'host-logic-behind-ports',
+			severity: 'error',
+			comment:
+				'The host logic in src/host/*.ts reaches vscode and Node only through ports; adapters live in host/vscode and host/node.',
+			from: { path: '^src/host/[^/]+\\.ts$' },
+			to: { path: ['^vscode$', 'node_modules/@types/vscode', '^src/host/(vscode|node)/'] },
+		},
+		{
+			name: 'host-logic-no-node-builtins',
+			severity: 'error',
+			from: { path: '^src/host/[^/]+\\.ts$' },
+			to: { dependencyTypes: ['core'] },
+		},
+		{
 			name: 'webview-no-host',
 			severity: 'error',
 			comment: 'Webview code never imports host code, vscode or Node builtins.',

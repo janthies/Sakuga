@@ -5,7 +5,7 @@ import { boot } from './lib/webview';
 import { serializerDump, canvasDump, drift } from './lib/dump';
 
 loadIcons();
-const { statePayload } = require('../src/state');
+const { viewModel: statePayload } = require('../src/core/view/viewModel');
 const icons = JSON.parse(read('icons/icons.json'));
 const summary: Record<string, unknown> = {};
 

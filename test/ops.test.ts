@@ -6,7 +6,7 @@ import { expectGolden } from './lib/golden';
 import { ROOT, read, loadIcons } from './lib/env';
 
 const t = loadIcons();
-const { statePayload } = require('../src/state');
+const { viewModel: statePayload } = require('../src/core/view/viewModel');
 const sketch = require('../src/shared').sketch;
 const text = require('../src/shared').text;
 

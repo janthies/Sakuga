@@ -2,6 +2,7 @@
 import * as coreText from '../core/text';
 import * as coreRoutes from '../core/layout/route';
 import * as coreSketch from '../core/layout/sketch';
+import { PROTOCOL } from '../bridge/protocol';
 
 // Sakuga canvas. Draws the boxes and arrows of the TikZ file in the look they get in the PDF and
 // sends edits as operations; the extension writes them into the file and sends the new state back.
@@ -6811,6 +6812,6 @@ import * as coreSketch from '../core/layout/sketch';
 	}
 
 	Promise.all([document.fonts.load(`12px 'Sakuga Sans'`), document.fonts.load(`12px 'Sakuga Mono'`)]).finally(() =>
-		vscode.postMessage({ type: 'ready' }),
+		vscode.postMessage({ type: 'ready', protocol: PROTOCOL }),
 	);
 })();

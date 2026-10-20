@@ -4,7 +4,7 @@ import { Session } from '../lib/session';
 import { figure } from '../lib/figure';
 import { loadIcons } from '../lib/env';
 
-const { statePayload } = require('../../src/state');
+const { viewModel: statePayload } = require('../../src/core/view/viewModel');
 
 // The canvas pointer, key and clipboard handlers for attached labels, icons and boxes (ported from scripts/check-labels-ui.cjs).
 const t = loadIcons();

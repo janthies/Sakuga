@@ -4,7 +4,7 @@ import { expectGolden, json } from './lib/golden';
 import { inputs, loadIcons } from './lib/env';
 
 const t = loadIcons();
-const { statePayload } = require('../src/state');
+const { viewModel: statePayload } = require('../src/core/view/viewModel');
 
 // serialize(parse(text)), the model, and the host 'state' payload for every example and fixture.
 const identity: Record<string, boolean> = {};

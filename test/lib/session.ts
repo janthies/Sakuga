@@ -3,7 +3,7 @@ import { boot, VIEW, Canvas } from './webview';
 import { loadIcons, read } from './env';
 
 const t = loadIcons();
-const { statePayload } = require('../../src/state');
+const { viewModel: statePayload } = require('../../src/core/view/viewModel');
 const ICONS = JSON.parse(read('icons/icons.json'));
 
 export type Mods = { ctrlKey?: boolean; shiftKey?: boolean; altKey?: boolean; metaKey?: boolean };

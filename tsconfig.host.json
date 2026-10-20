@@ -6,6 +6,6 @@
 		"outDir": ".tsbuild/host",
 		"tsBuildInfoFile": ".tsbuild/host.tsbuildinfo"
 	},
-	"include": ["src/*.ts"],
+	"include": ["src/*.ts", "src/bridge/**/*", "src/host/**/*"],
 	"references": [{ "path": "./tsconfig.core.json" }]
 }

@@ -1,29 +1,28 @@
+import { PALETTE } from '../model/colour';
+import { DEFAULT_WIDTH } from '../model/constants';
 import {
-	fontSize,
 	arrowStyle,
 	categories,
-	overrideKeys,
-	sharedOverrides,
-	styleDefs,
-	styleLine,
-	DEFAULT_WIDTH,
 	edges,
+	fontSize,
 	groups,
-	layers,
 	isHidden,
 	isLocked,
-	nodeLayer,
+	layers,
 	legendOn,
+	nodeLayer,
 	nodes,
-	PALETTE,
-	parse,
-} from './tikz';
+	styleDefs,
+} from '../model/queries';
+import { styleLine } from '../codec/style-line';
+import { overrideKeys, sharedOverrides } from '../styles/resolve';
+import { parse } from '../codec/parse';
 
-// The derived snapshot the host sends to the webview (the 'state' message), moved out of extension.ts unchanged so tests can reach it.
-export function statePayload(text: string) {
+// The derived snapshot the host sends to the webview (the 'state' message): pure, text in, plain data out.
+export function viewModel(text: string) {
 	const fig = parse(text);
 	return {
-		type: 'state',
+		type: 'state' as const,
 		text,
 		nodes: layers(fig)
 			.flatMap((l) => nodes(fig).filter((n) => nodeLayer(fig, n).id === l.id))
