@@ -121,8 +121,8 @@ interface OptionCodec { owns: PropKey[]; kinds: Kind[]; emit(p: Props, c: EmitCt
 | S7 | Host ports, bridge, `viewModel()` into core | extension.ts, export.ts, host/, bridge/ | extension.ts under 80 lines; fake-port tests | 1 R | done |
 | S8 | Webview to TS (`@ts-nocheck`), imports core, shim removed | editor.js, page() scripts | SVG goldens identical; VS Code smoke test (CSP, fonts) | 0.5 R | done |
 | S9 | Mechanical webview split: state → `store`, functions → modules | src/webview/** | No file over 400 lines; goldens identical | 1 R | done |
-| S10 | **Re-baseline:** one geometry; delete webview copies; clipboard via `serializeSubset`; advance-table metrics; revision memo | core/geometry, webview/render | drift.json empty; parity test enforced; tex/visual reviewed | 1.5 R | open |
-| S11 | Schema: PropDefs replace the six tables; option codecs replace styleOptions/readStyle/styleLine/groupOptions | core/schema, styles, codec | Goldens identical; read∘emit tests | 1.5 R | open |
+| S10 | **Re-baseline:** one geometry; delete webview copies; clipboard via `serializeSubset`; advance-table metrics; revision memo | core/geometry, webview/render | drift.json empty; parity test enforced; tex/visual reviewed | 1.5 R | done |
+| S11 | Schema: PropDefs replace the six tables; option codecs replace styleOptions/readStyle/styleLine/groupOptions | core/schema, styles, codec | Goldens identical; read∘emit tests | 1.5 R | done |
 | S12 | Scene renderer: buildScene, keyed SVG patch, view transform | core/scene, webview/render | Pixel goldens equal; perf budget test | 1 R | open |
 | S13 | Tools and command registry; VS Code `sakuga.*` commands via `command` | webview/tools, commands | Tool tests without DOM; handlers under 150 lines | 1 R | open |
 | S14 | Schema-driven inspector on the UI kit; remove the barrel and the last `@ts-nocheck` | panels, ui | All fitness rules on; Jan tries it | 1.5 R | open |
