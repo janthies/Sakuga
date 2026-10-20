@@ -1,0 +1,155 @@
+{
+	"name": "sakuga",
+	"displayName": "Sakuga",
+	"description": "Draw TikZ figures in your house style: the file is TikZ, the canvas edits it",
+	"publisher": "jan",
+	"version": "0.1.0",
+	"private": true,
+	"license": "MIT",
+	"engines": {
+		"vscode": "^1.100.0"
+	},
+	"main": "./out/extension.js",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "sakuga.figure",
+				"displayName": "Sakuga",
+				"selector": [
+					{
+						"filenamePattern": "*.sakuga.tikz"
+					}
+				],
+				"priority": "default"
+			}
+		],
+		"commands": [
+			{
+				"command": "sakuga.newFigure",
+				"title": "New figure",
+				"category": "Sakuga"
+			},
+			{
+				"command": "sakuga.sketch.left",
+				"title": "Align left",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.centerX",
+				"title": "Align horizontal centre",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.right",
+				"title": "Align right",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.top",
+				"title": "Align top",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.centerY",
+				"title": "Align vertical centre",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.bottom",
+				"title": "Align bottom",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.distributeX",
+				"title": "Distribute horizontal gaps",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.distributeY",
+				"title": "Distribute vertical gaps",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.sameW",
+				"title": "Same width",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			},
+			{
+				"command": "sakuga.sketch.sameH",
+				"title": "Same height",
+				"category": "Sakuga",
+				"enablement": "activeCustomEditorId == sakuga.figure"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "sakuga.sketch.left",
+				"key": "alt+a",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.centerX",
+				"key": "alt+c",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.right",
+				"key": "alt+d",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.top",
+				"key": "alt+w",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.centerY",
+				"key": "alt+v",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.bottom",
+				"key": "alt+s",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.distributeX",
+				"key": "alt+x",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.distributeY",
+				"key": "alt+y",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.sameW",
+				"key": "alt+u",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			},
+			{
+				"command": "sakuga.sketch.sameH",
+				"key": "alt+b",
+				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
+			}
+		]
+	},
+	"scripts": {
+		"compile": "rm -rf out && tsc -p ."
+	},
+	"devDependencies": {
+		"@types/node": "^20.0.0",
+		"@types/vscode": "1.100.0",
+		"@vscode/vsce": "2.32.0",
+		"typescript": "5.9.3"
+	}
+}

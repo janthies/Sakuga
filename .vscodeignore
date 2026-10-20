@@ -1,0 +1,10 @@
+src/**
+tsconfig.json
+**/*.map
+docs/**
+icons/**
+examples/**
+
+!icons/icons.json
+
+work/**
