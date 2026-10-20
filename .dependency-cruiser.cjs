@@ -119,6 +119,22 @@ module.exports = {
 			to: { path: '^src/webview/(?!platform/)' },
 		},
 		{
+			name: 'tools-pure',
+			severity: 'error',
+			comment:
+				'Tools never read the DOM or the store: they see the figure through ToolCtx. Only tools/live (the dispatcher and its adapters) reaches the rest of the webview.',
+			from: { path: '^src/webview/tools/(?!live/)' },
+			to: { path: '^src/webview/(?!tools/)' },
+		},
+		{
+			name: 'command-registry-pure',
+			severity: 'error',
+			comment:
+				'The command registry sees the application through AppState: no DOM, no store. Its adapters (state, keyboard, toolbar) live beside it in commands/.',
+			from: { path: '^src/webview/commands/registry/' },
+			to: { path: '^src/webview/(?!commands/registry/|tools/help)' },
+		},
+		{
 			name: 'webview-store-below-views',
 			severity: 'error',
 			comment: 'store imports only platform: no render, ui, tools, commands, panels.',

@@ -1,23 +1,21 @@
 // @ts-nocheck
 import { store } from '../store/store';
 import { calls } from '../store/calls';
-import { isTyping } from '../platform/dom';
-import { applyTidy, sketchCommand } from '../tools/tidy';
 import { buildIconPanel } from '../ui/iconpicker';
 import { render } from '../render/scene';
 import { byId, groupById, members } from '../store/model';
 import { showText } from './toolbar';
-import { fit } from '../tools/canvas';
+import { fit } from '../tools/live/view';
 import { labelTarget } from '../render/labelgeom';
-import { startEdit } from '../tools/edit';
+import { startEdit } from '../tools/live/dispatch';
+import { appState } from './state';
+import { runCommand } from './registry';
 
 export function initCommandsMessages() {
 	window.addEventListener('message', (ev) => {
 		const m = ev.data;
 		if (m.type === 'sketch') {
-			if (m.command === 'tidy' && !m.preview) {
-				if (!store.floating && !store.editing && !isTyping()) applyTidy();
-			} else sketchCommand(m.command);
+			runCommand(appState, `sketch.${m.command}`, { preview: m.preview });
 			return;
 		}
 		if (m.type === 'icons') {

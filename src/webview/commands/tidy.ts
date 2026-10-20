@@ -3,7 +3,6 @@ import * as coreSketch from '../../core/layout/sketch';
 import { store } from '../store/store';
 import { byId, groupById, layout, members, post } from '../store/model';
 import { render } from '../render/scene';
-import { isTyping } from '../platform/dom';
 
 function tidyPlan() {
 	return coreSketch.tidy(store.nodes, store.groups, store.edges, [...store.selN], layout);
@@ -26,17 +25,12 @@ export function applyTidy() {
 	if (batch.ops.length) post(batch);
 	render();
 }
-export function sketchCommand(command) {
-	if (command === 'tidy') {
-		if (!store.floating && !store.editing && !isTyping()) {
-			store.tidyHeld = true;
-			previewTidy();
-		}
-		return;
-	}
-	if (store.floating || store.editing || isTyping()) {
-		return;
-	}
+export function holdTidy() {
+	store.tidyHeld = true;
+	previewTidy();
+}
+// Align, distribute or equalise the selected boxes, about the reference box if one is set.
+export function arrange(command) {
 	const ids = [...store.selN].filter((id) => byId(id) && !byId(id).locked && !byId(id).hidden);
 	if (ids.length < 2) {
 		return;
@@ -55,7 +49,7 @@ export function sketchCommand(command) {
 	}
 }
 
-export function initToolsTidy() {
+export function initTidy() {
 	window.addEventListener('blur', () => {
 		if (store.tidyPreview) cancelTidy();
 	});

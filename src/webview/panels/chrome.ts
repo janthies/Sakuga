@@ -1,7 +1,7 @@
 // @ts-nocheck
 import { store } from '../store/store';
 import { calls } from '../store/calls';
-import { SHORTCUTS } from '../store/constants';
+import { helpRows } from '../commands/registry';
 import { $ } from '../platform/dom';
 import { persist } from '../store/prefs';
 import { vscode } from '../platform/host';
@@ -87,7 +87,7 @@ export function initPanelsChrome() {
 			persist({ layersH: 0 });
 		});
 	}
-	for (const [k, v] of SHORTCUTS) {
+	for (const [k, v] of helpRows()) {
 		const tr = document.createElement('tr');
 		const a = document.createElement('td');
 		const b = document.createElement('td');

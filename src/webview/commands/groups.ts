@@ -50,8 +50,3 @@ export function ungroupSelection() {
 	post({ op: 'deleteGroup', id: store.selG });
 	store.selG = null;
 }
-
-export function initCommandsGroups() {
-	document.getElementById('group').addEventListener('click', groupSelection);
-	document.getElementById('ungroup').addEventListener('click', ungroupSelection);
-}

@@ -16,7 +16,8 @@ export function clip() {
 	];
 	return serializeSubset(parse(src.value), refs);
 }
-export function duplicate(ids, dx, dy) {
+// The batch op that copies the boxes `ids` (and the arrows between them) by (dx, dy), and the ids of the copies.
+export function duplicateOps(ids, dx, dy) {
 	let next = Math.max(0, ...store.nodes.map((n) => +(/^n(\d+)$/.exec(n.id) || [0, 0])[1])) + 1;
 	const map = new Map(ids.map((id) => [id, `n${next++}`]));
 	const ops = ids.map((id) => {
@@ -94,8 +95,12 @@ export function duplicate(ids, dx, dy) {
 			});
 		}
 	}
-	store.pendingSelect = [...map.values()];
-	post({ op: 'batch', ops });
+	return { op: { op: 'batch', ops }, select: [...map.values()] };
+}
+export function duplicate(ids, dx, dy) {
+	const { op, select } = duplicateOps(ids, dx, dy);
+	store.pendingSelect = select;
+	post(op);
 }
 export function deleteSelection() {
 	if (store.selN.label) {

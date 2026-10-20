@@ -5,11 +5,13 @@ import { copyStyle, labelChange, nextStep, pasteStyle, resetToAuto, sourceColour
 import { edgeGeom } from '../render/edges';
 import { emphasisToggle, label, numberControl, unit } from '../ui/controls';
 import { byId, layout, post, textMm } from '../store/model';
-import { HEAD_OPTS, PT, SKETCH_CONTROLS, routeOpts, show, sizes, tex } from '../store/constants';
+import { HEAD_OPTS, PT, routeOpts, show, sizes, tex } from '../store/constants';
+import { SKETCH_CONTROLS, runCommand } from '../commands/registry';
+import { appState } from '../commands/state';
 import { styleColour } from '../ui/stylecontrols';
 import { arrowLabelGeom, frameTitleGeom } from '../render/labelgeom';
 import { newId } from '../store/layers';
-import { applyTidy, cancelTidy, previewTidy, sketchCommand } from '../tools/tidy';
+import { applyTidy, cancelTidy, previewTidy } from '../commands/tidy';
 import { inspector } from '../platform/dom';
 
 export function inspArrow(ctx) {
@@ -226,7 +228,7 @@ export function sketchControls(parent = inspector) {
 			coreSketch.units(store.nodes, store.groups, [...store.selN], layout).length < 3;
 		b.onclick = () => {
 			b.blur();
-			sketchCommand(command);
+			runCommand(appState, `sketch.${command}`);
 		};
 		bar.appendChild(b);
 	}

@@ -11,7 +11,9 @@
 		"strictNullChecks": false
 	},
 	"include": [
-		"test/**/*.ts"
+		"test/**/*.ts",
+		"src/webview/tools/*.ts",
+		"src/webview/commands/registry/*.ts"
 	],
 	"references": [
 		{

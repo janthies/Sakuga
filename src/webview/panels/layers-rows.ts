@@ -6,7 +6,7 @@ import { render } from '../render/scene';
 import { icon, show } from '../store/constants';
 import { fillOf } from '../render/svg';
 import { hierarchy, moveToLayer, newId, selectLayer, selectedRoots } from '../store/layers';
-import { startEdit } from '../tools/edit';
+import { startEdit } from '../tools/live/dispatch';
 import { svg } from '../platform/dom';
 import { deleteSelection } from '../commands/clipboard';
 
