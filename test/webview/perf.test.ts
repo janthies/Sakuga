@@ -88,24 +88,30 @@ const timed = (f: () => void) => {
 	return median(t);
 };
 
-test('perf: a full render of every example stays inside its time budget', () => {
-	const rows = inputs().map(({ name, text }) => {
-		const count = (ps: any[]): number => ps.reduce((n, p) => n + 1 + count(p.children || []), 0);
-		const s = new Session(text);
-		return {
-			name,
-			prims: count(sceneOf(text).prims),
-			build: timed(() => sceneOf(text)),
-			render: timed(() => s.hook.drawCanvas()),
-		};
-	});
-	rows.sort((a, b) => b.prims - a.prims);
-	for (const r of rows.slice(0, 3))
-		console.log(
-			`${r.name}: ${r.prims} primitives, buildScene ${r.build.toFixed(1)} ms, drawCanvas() ${r.render.toFixed(1)} ms`,
-		);
-	for (const r of rows) {
-		assert.ok(r.build < BUDGET_MS.build, `${r.name}: buildScene ${r.build} ms`);
-		assert.ok(r.render < BUDGET_MS.render, `${r.name}: render ${r.render} ms`);
-	}
-});
+// Wall-clock budgets depend on machine load, so they gate only `npm run check:perf` (SAKUGA_PERF=1); the
+// mutation-count tests above are deterministic and always gate.
+test(
+	'perf: a full render of every example stays inside its time budget',
+	{ skip: !process.env.SAKUGA_PERF && 'set SAKUGA_PERF=1 (npm run check:perf)' },
+	() => {
+		const rows = inputs().map(({ name, text }) => {
+			const count = (ps: any[]): number => ps.reduce((n, p) => n + 1 + count(p.children || []), 0);
+			const s = new Session(text);
+			return {
+				name,
+				prims: count(sceneOf(text).prims),
+				build: timed(() => sceneOf(text)),
+				render: timed(() => s.hook.drawCanvas()),
+			};
+		});
+		rows.sort((a, b) => b.prims - a.prims);
+		for (const r of rows.slice(0, 3))
+			console.log(
+				`${r.name}: ${r.prims} primitives, buildScene ${r.build.toFixed(1)} ms, drawCanvas() ${r.render.toFixed(1)} ms`,
+			);
+		for (const r of rows) {
+			assert.ok(r.build < BUDGET_MS.build, `${r.name}: buildScene ${r.build} ms`);
+			assert.ok(r.render < BUDGET_MS.render, `${r.name}: render ${r.render} ms`);
+		}
+	},
+);
