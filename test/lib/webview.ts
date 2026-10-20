@@ -16,7 +16,7 @@ const SCRIPTS = ['routes.js', 'text.js', 'sketch.js', 'editor.js'];
 export const VIEWPORT = { width: 1200, height: 800 };
 export const VIEW = { s: 4, ox: 100, oy: 400 };
 
-export interface Canvas { window: any; hook: any; svg: string; sent: any[] }
+export interface Canvas { window: any; hook: any; svg: string; sent: any[]; frames: Map<number, () => void>; saved: () => any }
 
 // Deterministic stand-in for canvas measureText: the advance tables of media/text.js, so widths do not depend on a font.
 function measureWidth(text: any, font: string, SakugaText: any): number {
@@ -26,13 +26,21 @@ function measureWidth(text: any, font: string, SakugaText: any): number {
 }
 
 // Boot the real media scripts in jsdom, post the icons and state messages the host would send, and return the canvas.
-export function boot(state: any, icons: unknown[]): Canvas {
+// onPost sees every message the webview sends to the host (the interactive tests answer ops with a new state).
+export function boot(state: any, icons: unknown[], onPost?: (m: any, canvas: Canvas) => void, initialSaved?: unknown): Canvas {
 	const dom = new JSDOM(`<!DOCTYPE html><html><body>${BODY}</body></html>`, { runScripts: 'outside-only' });
 	const w: any = dom.window;
 	const sent: any[] = [];
 	w.__sakugaTestHook = true;
-	let saved: any;
-	w.acquireVsCodeApi = () => ({ postMessage: (m: any) => sent.push(m), getState: () => saved, setState: (s: any) => { saved = s; } });
+	let saved: any = initialSaved;
+	const frames = new Map<number, () => void>();
+	let frame = 0;
+	w.requestAnimationFrame = (fn: () => void) => { frames.set(++frame, fn); return frame; };
+	w.cancelAnimationFrame = (id: number) => { frames.delete(id); };
+	w.Element.prototype.setPointerCapture = () => {};
+	w.Element.prototype.scrollIntoView = () => {};
+	let canvas: Canvas;
+	w.acquireVsCodeApi = () => ({ postMessage: (m: any) => { sent.push(m); onPost?.(m, canvas); }, getState: () => saved, setState: (s: any) => { saved = s; } });
 	w.document.fonts = { load: () => Promise.resolve([]) };
 	w.ResizeObserver = class { observe() {} disconnect() {} };
 	const rect = { x: 0, y: 0, left: 0, top: 0, right: VIEWPORT.width, bottom: VIEWPORT.height, ...VIEWPORT };
@@ -47,5 +55,6 @@ export function boot(state: any, icons: unknown[]): Canvas {
 	const hook = w.__sakugaTest;
 	hook.setView(VIEW);
 	hook.render();
-	return { window: w, hook, svg: w.document.getElementById('canvas').outerHTML, sent };
+	canvas = { window: w, hook, svg: w.document.getElementById('canvas').outerHTML, sent, frames, saved: () => saved };
+	return canvas;
 }

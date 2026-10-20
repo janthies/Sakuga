@@ -1,6 +1,16 @@
-// Measured layout fixtures, persistence, neighbour growth and actual editor preview handlers.
-const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm');
-const t=require('../out/tikz'),sketch=require('../media/sketch'),text=require('../media/text'),routes=require('../media/routes');
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
+import { Session } from '../lib/session';
+import { figure } from '../lib/figure';
+import { loadIcons } from '../lib/env';
+
+// Tidy up: measured layout, persistence, neighbour growth and the canvas preview handlers (ported from scripts/check-tidy.cjs).
+const t = loadIcons();
+const sketch = require('../../media/sketch'), text = require('../../media/text'), routes = require('../../media/routes');
+const near = (a: number, b: number, tol = .03) => assert(Math.abs(a - b) < tol, `${a} != ${b}`);
+test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, content width, code sizes, wrapped frames, fixed/U routes and round trips', () => {
 const near=(a,b,tol=.03)=>assert(Math.abs(a-b)<tol,`${a} != ${b}`);
 const layout=n=>text.layout(n);
 const rect=n=>{const {w,h}=layout(n);return {x0:n.x-w/2,x1:n.x+w/2,y0:n.y-h/2,y1:n.y+h/2};};
@@ -43,7 +53,7 @@ const oldObjects=t.routeObjects(f);t.apply(f,{op:'move',id:'a',x:5,y:-10});const
 t.apply(f,{op:'arrow',index:0,route:'u',fromAnchor:'south',toAnchor:'south',mid:-45});const old=t.routeObjects(f);t.apply(f,{op:'move',id:'b',x:60,y:-50});t.apply(f,{op:'batch',ops:routes.reanchor(t.edges(f),old,t.routeObjects(f))});assert(t.edges(f)[0].mid<-45);round(f);
 // Real prototype fixtures: whole components and the nine Attester boxes.
 for(const name of ['components','rats-architecture']){
- f=t.parse(fs.readFileSync(path.join(__dirname,'../examples/'+name+'.sakuga.tikz'),'utf8'));
+ f=t.parse(fs.readFileSync(path.join(__dirname,'../../examples/'+name+'.sakuga.tikz'),'utf8'));
  const ids=name==='components'?[]:['app','rtos','client','store','crypto','ias','bl1','otp','rec'];const order=t.nodes(f).map(n=>n.id);
  t.apply(f,plan(f,ids));assert.deepEqual(t.nodes(f).map(n=>n.id),order);round(f);
  if(name==='components'){
@@ -54,44 +64,41 @@ for(const name of ['components','rats-architecture']){
  // A second run is stable within the prototype's 0.1 mm rounding tolerance.
  const again=plan(f,ids);for(const o of again.ops)if(o.op==='move'){const n=t.nodes(f).find(n=>n.id===o.id);near(n.x,o.x,.11);near(n.y,o.y,.11);}
 }
-// Exercise the actual canvas geometry functions, including inherited icons/fonts.
-const editorSource=fs.readFileSync(path.join(__dirname,'../media/editor.js'),'utf8');
-const geo=vm.createContext({SakugaText:text,catOf:()=>({boxes:true,icon:'test'}),figureFont:'small'});
-vm.runInContext(editorSource.slice(editorSource.indexOf(' const effectiveIcon'),editorSource.indexOf('\tfunction nodeAt')),geo);
-for(const shape of ['','circle','ellipse','diamond','cylinder'])for(const font of t.FONT_SIZES){
- const n={title:'Wrapped words in a narrow box',code:'code',width:20,minh:0,icon:'none',style:{shape,font}};geo.n=n;
- const canvas=vm.runInContext('layout(n)',geo),[w,h]=t.boxHalf(n);near(canvas.w,w*2,.00001);near(canvas.h,h*2,.00001);
-}
-geo.n={title:'Category icon title',code:'',width:20,minh:0,iconPosition:'above'};
-near(vm.runInContext('layout(n).h',geo),text.layout({...geo.n,icon:'test'}).h,.00001);
-// The actual hover/hold handlers preview without mutation, apply one batch and cancel.
-const source=fs.readFileSync(path.join(__dirname,'../media/editor.js'),'utf8'),events={},sent=[];
-const state=[{id:'a',title:'A',code:'',width:26,minh:0,x:0,y:0},{id:'b',title:'B',code:'',width:26,minh:0,x:0,y:-20},{id:'c',title:'C',code:'',width:26,minh:0,x:0,y:-60}];
-const ctx=vm.createContext({SakugaSketch:sketch,Set,Map,Math,window:{addEventListener(){}},document:{createElement:()=>({blur(){}}),addEventListener:(name,fn)=>events[name]=fn},post:op=>sent.push(op),render(){},layout,isTyping:()=>false,state});
-const run=s=>vm.runInContext(s,ctx);run("let nodes=state.map(n=>({...n,group:''})),groups=[],edges=[],selN=new Set(),selE=new Set(),selG=null,editing=null,floating=null,space=false;const byId=id=>nodes.find(n=>n.id===id),SKETCH_CONTROLS=[];");
-run(source.slice(source.indexOf(' let tidyPreview'),source.indexOf(' function sketchCommand')));
-run(source.slice(source.indexOf("\tdocument.addEventListener('keydown', ev => {\n\t\tif (floating"),source.indexOf("\tdocument.addEventListener('keyup'")));
-run(source.slice(source.indexOf("\tdocument.addEventListener('keyup'"),source.indexOf('\n\t// Ctrl+C')));
-const json=JSON.stringify(state);events.keydown({key:'t',altKey:true,preventDefault(){}});assert(run('!!tidyPreview'));assert.equal(sent.length,0);assert.equal(JSON.stringify(state),json);
-events.keyup({key:'t',preventDefault(){}});assert.equal(sent.length,1);assert.equal(sent[0].op,'batch');assert(!run('tidyPreview'));
-run('previewTidy();cancelTidy()');assert.equal(sent.length,1);
-const parent={append(b){this.button=b;}};ctx.parent=parent;run('tidyControl(parent)');parent.button.onmouseenter();assert(run('!!tidyPreview'));parent.button.onmouseleave();assert(!run('tidyPreview'));parent.button.onmouseenter();parent.button.onclick();assert.equal(sent.length,2);
-console.log('Tidy: prototype fixtures, gaps, justification, neighbours/footnotes, content width growth/shrink, code sizes, wrapped frames, fixed/U routes, round trips and hover/hold one-batch preview passed.');
-// Probe LuaLaTeX itself: the widened line fits and a wrapped box retains frame padding.
-{
- const {execFileSync}=require('node:child_process'),dir=path.resolve(__dirname,'../work/tidy/check-tex'),media=path.resolve(__dirname,'../media');fs.mkdirSync(dir,{recursive:true});
- const f=fresh();add(f,'wrapped',0,0,{title:'Several words wrap into many lines',width:16});add(f,'code',70,0,{title:'Code',code:'tee\\_attest\\_get\\_token',codeFont:'tiny'});
- t.apply(f,{op:'addGroup',id:'frame',name:'',frame:'dashed',padding:3});t.apply(f,{op:'setGroup',ids:['wrapped'],group:'frame'});
- const probe=String.raw`\path (wrapped.north) \pgfextra{\pgfgetlastxy{\x}{\y}\typeout{SGNORTH=\y}};
-\path (wrapped.south) \pgfextra{\pgfgetlastxy{\x}{\y}\typeout{SGSOUTH=\y}};
-`;
- const body=t.serialize(f).replace(String.raw`\sgcode{tee\_attest\_get\_token}`,String.raw`\sgcode{\typeout{SGCODEFONT=\csname f@size\endcsname}tee\_attest\_get\_token}`).replace('\\end{tikzpicture}',probe+'\n\\end{tikzpicture}')+String.raw`\newsavebox{\sgmeasure}\sbox{\sgmeasure}{\tiny\ttfamily tee\_attest\_get\_token}\typeout{SGCODE=\the\wd\sgmeasure}`;
- fs.writeFileSync(dir+'/fig.tex',[String.raw`\documentclass[11pt,border=1mm]{standalone}\usepackage{fontspec}`,`\\setsansfont{OpenSans-Regular.ttf}[Path=${media}/,AutoFakeBold=2,AutoFakeSlant=0.2]`,`\\setmonofont{texgyrecursor-regular.otf}[Path=${media}/]`,String.raw`\usepackage{tikz}\usetikzlibrary{arrows.meta,fit,backgrounds,svg.path,shapes.geometric,patterns}\begin{document}`,body,'\\end{document}'].join('\n'));
- const cache=path.join(dir,'cache');fs.mkdirSync(cache,{recursive:true});
- execFileSync('nice',['-n','19','lualatex','-interaction=batchmode','-halt-on-error','fig.tex'],{cwd:dir,env:{...process.env,TEXMFVAR:cache,TEXMFCACHE:cache},stdio:'inherit',timeout:120000});
- const log=fs.readFileSync(dir+'/fig.log','utf8'),value=key=>+new RegExp(key+'=(-?[\\d.]+)pt').exec(log)[1]*25.4/72.27;
- const b=t.routeObjects(f).find(n=>n.id==='frame');assert(b.y+b.h/2-value('SGNORTH')>2.9);assert(value('SGSOUTH')-(b.y-b.h/2)>2.9);
- assert(/SGCODEFONT=6(?:\.0)?\s/.test(log),'Per-box code size reaches TeX');
- near(value('SGCODE'),text.mm('tee_attest_get_token',6,'mono'),.01);assert(value('SGCODE')<=t.nodes(f).find(n=>n.id==='code').width);
- console.log('LuaLaTeX: tiny code advance agrees within 0.01 mm; wrapped box keeps frame padding.');
-}
+});
+
+test('canvas layout equals the serializer box for every shape and font size', () => {
+	const s = new Session(figure([], [], [{ op: 'styleEdit', key: 'work', icon: 'board', boxes: true }]));
+	for (const shape of ['', 'circle', 'ellipse', 'diamond', 'cylinder']) for (const font of t.FONT_SIZES) {
+		const n = { title: 'Wrapped words in a narrow box', code: 'code', width: 20, minh: 0, icon: 'none', style: { shape, font } };
+		const canvas = s.hook.layout(n), [w, h] = t.boxHalf(n);
+		near(canvas.w, w * 2, .00001); near(canvas.h, h * 2, .00001);
+	}
+	// A box inherits the icon of its style, and the icon makes room.
+	const n = { title: 'Category icon title', code: '', width: 20, minh: 0, cat: 'work', iconPosition: 'above' };
+	near(s.hook.layout(n).h, text.layout({ ...n, icon: 'board' }).h, .00001);
+});
+
+test('hover and hold previews change nothing, apply one batch, and cancel', () => {
+	const START = [['a', 0, 0], ['b', 0, -20], ['c', 0, -60]] as const;
+	const s = new Session(figure(START.map(([id, x, y]) => [id, x, y, { width: 26, minh: 0 }] as any)));
+	const reset = () => s.apply({ op: 'batch', ops: START.map(([id, x, y]) => ({ op: 'move', id, x, y })) });
+	const positions = () => JSON.stringify(s.hook.state().nodes.map((n: any) => [n.id, n.x, n.y]));
+	const json = positions();
+	s.key('t', { altKey: true });
+	assert.ok(s.hook.tidyPreview()); assert.equal(s.ops.length, 0); assert.equal(positions(), json);
+	s.key('t', {}, 'keyup');
+	assert.equal(s.ops.length, 1); assert.equal(s.ops[0].op, 'batch'); assert.ok(!s.hook.tidyPreview());
+	reset();
+	const sent = s.ops.length;
+	s.key('t', { altKey: true }); s.key('Escape');
+	assert.equal(s.ops.length, sent);
+	assert.ok(!s.hook.tidyPreview());
+	const fire = (el: any, type: string) => el.dispatchEvent(new s.window.Event(type));
+	fire(s.button('Tidy up figure', s.inspector), 'mouseenter');
+	assert.ok(s.hook.tidyPreview());
+	fire(s.button('Tidy up figure', s.inspector), 'mouseleave');
+	assert.ok(!s.hook.tidyPreview());
+	fire(s.button('Tidy up figure', s.inspector), 'mouseenter');
+	s.click(s.button('Tidy up figure', s.inspector));
+	assert.equal(s.ops.length, sent + 1);
+});
