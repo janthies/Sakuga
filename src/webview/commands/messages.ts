@@ -39,6 +39,7 @@ export function initCommandsMessages() {
 			return;
 		}
 
+		store.figure = m.figure || { place: 't', label: '', caption: '' };
 		store.figureFont = m.font || 'small';
 		store.outerGap = m.outerGap ?? 1;
 		showText(m.text);
@@ -105,6 +106,7 @@ export function initCommandsMessages() {
 			store.selE = new Set();
 			store.pendingSelect = null;
 		}
+		calls.renderDrawer?.(m.sourceFile);
 		render();
 		if (
 			store.pendingEdit &&

@@ -35,7 +35,7 @@ export class MoveTool implements Tool {
 			}
 		}
 		d.guides = [];
-		if (!free) {
+		if (!free && c.snapping !== false) {
 			const g = guides(c, d.orig, dx, dy, lockX, lockY);
 			dx += g.dx;
 			dy += g.dy;

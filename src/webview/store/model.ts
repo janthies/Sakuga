@@ -11,7 +11,7 @@ type At = { x: number; y: number };
 
 export const byId = (id: string) => store.nodes.find((n) => n.id === id);
 export const catOf = (key: string) => store.cats.find((c) => c.key === key);
-export const snap = (v: number) => Math.round(v / store.grid) * store.grid;
+export const snap = (v: number) => (store.grid > 0 ? Math.round(v / store.grid) * store.grid : v);
 export const fine = (v: number) => Math.round(v * 10) / 10;
 export const px = (x: number) => store.view.ox + x * store.view.s;
 export const py = (y: number) => store.view.oy - y * store.view.s;

@@ -48,6 +48,9 @@ export class FakeSettings {
 }
 
 export class FakeUi {
+	confirmations: string[] = [];
+	confirmed = true;
+	confirm = async (message: string) => (this.confirmations.push(message), this.confirmed);
 	statuses: string[] = [];
 	errors: string[] = [];
 	logs: string[] = [];

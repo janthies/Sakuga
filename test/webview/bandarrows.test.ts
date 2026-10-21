@@ -113,9 +113,9 @@ test('selection, movement, styles and clipboard', () => {
 	s.up(160, 0, { ctrlKey: true });
 	assert.deepEqual(s.selection.edges, [0, 1]);
 	const row = (name: string) => s.row(name);
-	assert.equal(row('Colour').querySelector('.colour-swatches').value, '*', 'Mixed arrow style');
+	assert.equal(row('Line').querySelector('.colour-swatches').value, '*', 'Mixed arrow style');
 	assert.equal(row('Line').querySelector('.segments').value, '*', 'Mixed solid/dashed arrow kinds');
-	s.click(row('Colour').querySelector('button[aria-label="blue"]'));
+	s.click(row('Line').querySelector('button[aria-label="blue"]'));
 	assert.deepEqual(JSON.parse(JSON.stringify(s.lastOp)), {
 		op: 'batch',
 		ops: [{ op: 'style', indices: [0, 1], style: { color: 'blue' } }],

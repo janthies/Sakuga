@@ -45,6 +45,8 @@ export const settingsPort: SettingsPort = {
 
 export function uiPort(log: vscode.OutputChannel): UiPort {
 	return {
+		confirm: async (message) =>
+			(await vscode.window.showWarningMessage(message, { modal: true }, 'Delete')) === 'Delete',
 		status: (message, ms) =>
 			void (ms === undefined
 				? vscode.window.setStatusBarMessage(message)

@@ -87,8 +87,7 @@ test('frame endpoint drops, numeric controls, next step, style transfer and fram
 	assert.equal(s.selection.group, 'g');
 	assert.equal(s.svg.querySelector('[data-group="g"]'), null);
 	selectEdge(0);
-	s.click(s.button('Colour from source', s.inspector));
-	assert.equal(s.lastOp.ops[0].style.color, t.darkerColor('peach'));
+	assert.ok(s.row('Category'), 'Arrows have category controls');
 
 	// Copying an arrow cannot pull in either endpoint or their ancestors.
 	selectEdge(0);

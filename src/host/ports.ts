@@ -37,6 +37,7 @@ export interface SettingsPort {
 }
 
 export interface UiPort {
+	confirm(message: string): Promise<boolean>;
 	status(message: string, ms?: number): void;
 	error(message: string): void;
 	log(line: string): void;

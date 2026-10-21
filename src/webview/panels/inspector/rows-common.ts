@@ -42,11 +42,15 @@ export const ANCHOR_GRID: AnchorLayout<string> = {
 
 export function opacityRow(c: PanelCtx): RowControls {
 	const layers = c.sel.mode === 'layer' ? c.sel.layers : [];
-	const objects = layers.length ? [] : [...c.sel.nodes, ...c.sel.edges.map((e) => e.e)];
+	const objects = layers.length
+		? []
+		: [...c.sel.nodes, ...c.sel.edges.map((e) => e.e), ...store.lines.filter((l) => store.selN.has(l.id))];
 	if (!layers.length && !objects.length) return null;
 	const values = layers.length ? layers.map((l) => l.opacity ?? 1) : objects.map((o) => o.style?.opacity ?? 1);
 	const control = new RangeControl('Opacity (%)');
-	control.set(sameOr(values) === MIXED ? MIXED : Math.round(values[0] * 100));
+	control.set(sameOr(values) === MIXED ? MIXED : Math.round(values[0] * 100), {
+		inherited: !!c.subject.def('opacity') && c.subject.read(c.subject.def('opacity')!).inherited,
+	});
 	control.onPreview((percent) => {
 		for (const l of layers) l.opacity = percent / 100;
 		for (const o of objects) o.style = { ...o.style, opacity: percent / 100 };
@@ -54,6 +58,10 @@ export function opacityRow(c: PanelCtx): RowControls {
 	});
 	control.onCommit((percent) => {
 		if (percent === null) return;
+		if (!layers.length && store.lines.some((l) => store.selN.has(l.id))) {
+			c.subject.write({ opacity: percent / 100 });
+			return;
+		}
 		post(
 			layers.length
 				? { op: 'batch', ops: layers.map((l) => ({ op: 'layerProps', id: l.id, opacity: percent / 100 })) }

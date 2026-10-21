@@ -14,6 +14,7 @@ export interface PanelCtx {
 export type RowControls = Control<any> | Control<any>[] | null;
 
 interface RowBase {
+	target?: 'label';
 	// Only for these selections (default: always; rows of properties the objects lack are dropped anyway).
 	when?(c: PanelCtx): boolean;
 }
@@ -31,12 +32,3 @@ export interface SectionSpec {
 	collapsed?: boolean;
 	rows: RowSpec[];
 }
-
-// Every object kind has the same skeleton, in this order. A section without rows stays hidden.
-export const SKELETON = [
-	{ id: 'style', title: 'Style' },
-	{ id: 'text', title: 'Text' },
-	{ id: 'appearance', title: 'Appearance' },
-	{ id: 'decoration', title: 'Shape & decoration' },
-	{ id: 'arrange', title: 'Arrange' },
-] as const;

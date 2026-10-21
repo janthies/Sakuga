@@ -14,7 +14,18 @@ import type { PanelCtx, RowControls } from './spec';
 
 // Rows of an attached label: an arrow's label or a frame's title. Its style values may be unset, which means inherited.
 
-const style = (c: PanelCtx) => c.sel.attached?.style ?? {};
+const pathText = () => store.items.find((i) => i.id === [...store.selN][0] && i.kind === 'Text');
+const style = (c: PanelCtx) =>
+	c.sel.attached?.style ??
+	(pathText()?.kind === 'Text' ? (pathText() as import('../../../core/model/item').TextItem).placement : undefined) ??
+	{};
+function changePlacement(c: PanelCtx, patch: Record<string, any>) {
+	const item = pathText();
+	if (item?.kind === 'Text') post({ op: 'text', id: item.id, placement: { ...item.placement, ...patch } });
+	else labelChange(patch);
+}
+const onArrow = (c: PanelCtx) =>
+	!!c.sel.attached?.e || store.items.some((i) => i.id === pathText()?.parent && i.kind === 'Connector');
 
 export function labelTextRow(c: PanelCtx): RowControls {
 	const a = c.sel.attached;
@@ -61,21 +72,21 @@ export function labelColourRow(c: PanelCtx): RowControls {
 
 export function labelPositionRow(c: PanelCtx): RowControls {
 	const a = c.sel.attached;
-	if (!a?.e) return null;
+	if (!onArrow(c)) return null;
 	const pos = new NumberControl({ step: 0.05, ariaLabel: 'Position' });
 	pos.set(style(c).pos ?? 0.5);
-	pos.onCommit((v) => labelChange({ pos: Math.max(0, Math.min(1, v ?? 0.5)) }));
+	pos.onCommit((v) => changePlacement(c, { pos: Math.max(0, Math.min(1, v ?? 0.5)) }));
 	return pos;
 }
 
 export function labelSideRow(c: PanelCtx): RowControls {
-	if (!c.sel.attached?.e) return null;
+	if (!onArrow(c)) return null;
 	const side = new SelectControl(
 		['', 'above', 'below', 'left', 'right'].map((v) => ({ value: v, label: v || 'Inherit' })),
 		'Side',
 	);
 	side.set(style(c).side || '');
-	side.onCommit((v) => labelChange({ side: v ?? '' }));
+	side.onCommit((v) => changePlacement(c, { side: v ?? '' }));
 	return side;
 }
 
@@ -87,7 +98,7 @@ export function frameTitleAtRow(c: PanelCtx): RowControls {
 			value: v,
 			label: v,
 		})),
-		'Title at',
+		'Label at',
 	);
 	select.set(g.titlePosition || 'above-left');
 	select.onCommit((titlePosition) => post({ op: 'groupProps', id: g.id, titlePosition: titlePosition! }));

@@ -1,5 +1,5 @@
 import { PropDef, PropKey } from '../../../core/schema';
-import { Control, MIXED } from '../../ui/control';
+import { Control, MIXED, h } from '../../ui/control';
 import { ColourControl } from '../../ui/colour';
 import { Emphasis, EmphasisValue } from '../../ui/emphasis';
 import { hasGlyph } from '../../ui/glyph';
@@ -95,7 +95,7 @@ export function newColour(key: string, none: boolean | undefined, defaultSwatch 
 function colour(ctx: PanelCtx, def: PropDef, current: string, mixed: boolean) {
 	const first = ctx.sel.nodes[0];
 	const control = newColour(def.key, def.none, def.key === 'fill' && first ? fillOf(first.cat) : '#9e9e9e');
-	control.set(mixed ? MIXED : current);
+	control.set(mixed ? MIXED : current, { inherited: ctx.subject.read(def).inherited });
 	control.onCommit((v) => patchOf(ctx, def.key)(v ?? ''));
 	return control;
 }
@@ -107,7 +107,7 @@ export function bindProp(ctx: PanelCtx, key: PropKey): Bound | null {
 	const read = ctx.subject.read(def);
 	const state = { inherited: read.inherited };
 	const value = read.mixed ? MIXED : read.value;
-	const label = def.ui?.label || key;
+	const label = def.ui?.label || key.replace(/([a-z])([A-Z])/g, '$1 $2').replace(/^./, (v) => v.toUpperCase());
 
 	if (key === 'weight') {
 		const c = new WeightControl();
@@ -211,6 +211,14 @@ export function propRow(ctx: PanelCtx, spec: Extract<RowSpec, { prop: PropKey } 
 		bound.map((b) => b!.control),
 	);
 	const reset = bound.flatMap((b) => b!.keys);
-	if (ctx.subject.overridden(reset)) row.override(() => ctx.subject.reset(reset));
+	for (const b of bound) b!.control.el.title = ctx.subject.read(ctx.subject.def(b!.keys[0])!).source || '';
+	if (ctx.subject.overridden(reset)) {
+		row.override(() => ctx.subject.reset(reset));
+		if (ctx.subject.apply) {
+			const apply = h('button', 'apply-prop', { type: 'button' }, ctx.subject.applyLabel || 'Apply to theme');
+			apply.onclick = () => ctx.subject.apply!(reset);
+			row.el.append(apply);
+		}
+	}
 	return row;
 }

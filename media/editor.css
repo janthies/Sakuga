@@ -1767,3 +1767,142 @@ select:focus {
 .canvas-menu[hidden] {
 	display: none;
 }
+
+/* Round 4 panel grid. */
+#inspector .row,
+#inspector .row.opacity-row {
+	grid-template-columns: 72px minmax(0, 1fr) auto;
+	min-height: 28px;
+	gap: 8px;
+	margin: 0 0 8px;
+	padding: 0;
+	border: 0;
+	background: none;
+}
+#inspector .section-body {
+	padding: 8px 0 0;
+}
+#inspector .inspector-section {
+	border: 0;
+}
+#inspector .row.overridden {
+	border: 0;
+}
+#inspector .apply-prop {
+	grid-column: 2 / -1;
+	justify-self: start;
+	font-size: 10px;
+}
+#inspector .slot-picker {
+	display: grid;
+	gap: 2px;
+	width: max-content;
+}
+#inspector .box-slots {
+	grid-template-columns: repeat(5, 18px);
+}
+#inspector .line-slots {
+	grid-template-columns: repeat(3, 24px);
+}
+#inspector .slot-picker button {
+	width: 18px;
+	height: 18px;
+	padding: 0;
+	border: 0;
+	background: var(--hover);
+}
+#inspector
+	.box-slots
+	button:is(
+		:nth-child(7),
+		:nth-child(8),
+		:nth-child(9),
+		:nth-child(12),
+		:nth-child(13),
+		:nth-child(14),
+		:nth-child(17),
+		:nth-child(18),
+		:nth-child(19)
+	) {
+	background: var(--vscode-input-background);
+	outline: 1px solid var(--muted);
+}
+#inspector .slot-picker button[aria-pressed='true'] {
+	background: var(--vscode-focusBorder);
+	color: white;
+}
+#inspector .category-line {
+	display: grid;
+	grid-template-columns: 20px minmax(0, 1fr) 24px 16px 24px;
+	gap: 8px;
+	min-height: 28px;
+	align-items: center;
+}
+#inspector .category-line button {
+	border: 0;
+	background: none;
+	padding: 0;
+}
+#inspector .category-name {
+	text-align: left;
+}
+#inspector .category-edit {
+	padding: 8px 0;
+	border: 0;
+}
+#inspector .category-heading {
+	margin: 12px 0 8px;
+}
+#inspector .category-marker svg {
+	width: 18px;
+	height: 18px;
+}
+#inspector .palette-swatches {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+#inspector .palette-swatches input {
+	width: 24px;
+	height: 24px;
+	padding: 0;
+	cursor: pointer;
+}
+#drawer .drawer-in {
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+#drawer #pre {
+	height: 72px;
+	overflow: auto;
+	padding: 8px 12px;
+	flex: none;
+}
+#drawer #figure-env {
+	flex: none;
+	padding: 8px 12px;
+	font: 11px/1.6 var(--vscode-editor-font-family, monospace);
+}
+#drawer .figure-source-line {
+	display: flex;
+	align-items: baseline;
+}
+#drawer .figure-source-line input {
+	flex: 1;
+	height: 24px;
+	min-width: 24px;
+	font: inherit;
+}
+#drawer #src {
+	flex: 1;
+	min-height: 80px;
+}
+#sidebar #inspector {
+	padding-top: 8px;
+}
+
+#inspector .inherited,
+#inspector .inherited button {
+	color: var(--muted);
+}

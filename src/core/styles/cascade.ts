@@ -1,5 +1,5 @@
 // The authoritative cascade. `style` and frame fields are projections for existing geometry/UI clients.
-import type { Figure, Category } from '../model/figure';
+import type { Figure, Category, LabelStyle } from '../model/figure';
 import type { Item, ItemKind, TreeState } from '../model/item';
 import type { ResolvedValue } from '../model/look';
 import { payload } from '../model/tree';
@@ -83,12 +83,45 @@ export function resolveLook(fig: Figure, item: Item | string): Record<string, Re
 		};
 	return out;
 }
+// Inline path labels keep their geometry in LabelStyle; project edited look values there too.
+function projectPathLabel(fig: Figure, i: Item, resolved: Record<string, any>, previous: Record<string, any>) {
+	if (i.kind !== 'Text' || i.node) return;
+	const owner = itemById(fig, i.parent);
+	if (!owner || !['Line', 'Connector'].includes(owner.kind)) return;
+	const st: LabelStyle = { ...i.placement };
+	const own = i.look?.own || {};
+	let changed = false;
+	for (const key of ['font', 'textColor', 'text']) {
+		const active =
+			key in own ||
+			key in (fig.theme?.kinds?.Text || {}) ||
+			(key === 'textColor' && !!categoryKey(fig, i)) ||
+			(previous[key] !== undefined && previous[key] !== resolved[key]);
+		if (!active) continue;
+		changed = true;
+		if (key === 'font') st.font = resolved.font;
+		if (key === 'textColor') st.color = resolved.textColor;
+		if (key === 'text') {
+			st.bold = (resolved.text || '').includes('bold');
+			st.italic = (resolved.text || '').includes('italic');
+		}
+	}
+	if (!changed) return;
+	i.placement = st;
+	if (owner.kind === 'Line' && owner.line.labels?.[i.order]) owner.line.labels[i.order].style = st;
+	if (owner.kind === 'Connector') {
+		if (i.order === 0) owner.connector.labelStyle = st;
+		else if (owner.connector.labels?.[i.order - 1]) owner.connector.labels[i.order - 1].style = st;
+	}
+}
 export function projectLook(fig: Figure): void {
 	for (const i of fig.items || []) {
 		const p = payload(i),
 			own = ownValues(i);
 		const resolved = Object.fromEntries(Object.entries(resolveLook(fig, i)).map(([k, v]) => [k, v.value]));
+		const previous = p.look?.resolved || {};
 		p.look = { own, resolved };
+		projectPathLabel(fig, i, resolved, previous);
 		if (i.kind === 'Frame') Object.assign(i.frame, resolved);
 		else if (i.kind !== 'Text' || i.node) (p as any).style = { ...resolved };
 	}

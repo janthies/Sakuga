@@ -63,7 +63,7 @@ export function createRenderer(svg: SVGElement): Renderer {
 
 // Dots every `grid` mm, as one pattern anchored at the origin of the drawing.
 function gridPrims(v: View): Prim[] {
-	if (!(v.grid >= 2 && v.grid * v.s >= 10)) return [];
+	if (!(v.grid > 0 && v.grid * v.s >= 10)) return [];
 	const t = v.grid * v.s;
 	return [
 		{

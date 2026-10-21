@@ -6,6 +6,7 @@ const saved = (): { grid?: number; recentColors?: string[]; tab?: string } => vs
 // The one store: everything the old closure kept in `let` variables.
 export const store: Store = {
 	outerGap: 1,
+	figure: { place: 't', label: '', caption: '' },
 	rev: 0,
 	items: [],
 	lines: [],
@@ -47,7 +48,7 @@ export const store: Store = {
 	styleClip: null,
 	lastPaste: '',
 	pasteCount: 0,
-	grid: saved().grid || 1,
+	grid: saved().grid ?? 1,
 	recentColors: saved().recentColors || [],
 	arrowsStyle: 'manhattan',
 	floating: null,

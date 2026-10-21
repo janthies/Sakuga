@@ -29,7 +29,12 @@ export class Row {
 	// The row differs from the style: show it, and let the reset button bring the style back.
 	override(reset: () => void): void {
 		this.el.classList.add('overridden');
-		const b = h('button', 'reset-prop', { type: 'button', title: 'Back to the style' }, 'reset');
+		const b = h(
+			'button',
+			'reset-prop',
+			{ type: 'button', title: 'Reset to inherited value', 'aria-label': 'Reset ' + this.label },
+			'×',
+		);
 		b.onclick = reset;
 		this.el.append(b);
 	}

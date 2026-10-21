@@ -1,64 +1,74 @@
-import { STYLE_OPTS, SIZE_LABEL, sizes } from '../../store/constants';
+import { SIZE_LABEL, sizes } from '../../store/constants';
 import { post } from '../../store/model';
 import { saveState } from '../../store/prefs';
 import { render } from '../../render/scene';
 import { store } from '../../store/store';
 import { NumberControl } from '../../ui/number';
-import { Segmented } from '../../ui/segmented';
-import { Toggle } from '../../ui/toggle';
+import { SelectControl } from '../../ui/select';
+import { Block } from '../../ui/block';
+import { h } from '../../ui/control';
+import { tidyRow } from './rows-common';
 import { styleList } from './figure-styles';
 import type { RowControls, SectionSpec } from './spec';
 
-// The Figure tab: settings of the whole figure and the list of named styles.
-
 function fontRow(): RowControls {
-	const seg = new Segmented<string>(
-		Object.keys(sizes).map((value) => ({
-			value,
-			label: value,
-			tip: `${value} (${(SIZE_LABEL as Record<string, string>)[value]} pt)`,
-			text: (SIZE_LABEL as Record<string, string>)[value],
-		})),
+	const control = new SelectControl(
+		Object.keys(sizes)
+			.filter(
+				(v) =>
+					Number(SIZE_LABEL[v as keyof typeof SIZE_LABEL]) >= 8 &&
+					Number(SIZE_LABEL[v as keyof typeof SIZE_LABEL]) <= 12,
+			)
+			.map((value) => ({ value, label: `${SIZE_LABEL[value as keyof typeof SIZE_LABEL]} pt` })),
 		'Font size',
 	);
-	seg.set(store.figureFont);
-	seg.onCommit((size) => post({ op: 'font', size: size! }));
-	return seg;
+	control.set(store.figureFont);
+	control.onCommit((fontSize) => post({ op: 'themeEdit', fontSize: fontSize! }));
+	return control;
 }
-
 function arrowsRow(): RowControls {
-	const seg = new Segmented<string>(
-		STYLE_OPTS.map(([value, label]) => ({ value, label })),
-		'Arrows',
+	const select = new SelectControl(
+		['straight', 'manhattan', 'curved'].map((value) => ({ value, label: value === 'auto' ? 'Automatic' : value })),
+		'Default arrow route',
 	);
-	seg.set(store.arrowsStyle);
-	seg.onCommit((style) => post({ op: 'arrows', style: style! }));
-	return seg;
+	select.set(store.arrowsStyle);
+	select.onCommit((route) => post({ op: 'arrows', style: route! }));
+	return select;
 }
-
-function legendRow(): RowControls {
-	const toggle = new Toggle({ label: 'Legend' });
-	toggle.set(store.legend);
-	toggle.onCommit((on) => post({ op: 'legend', on: !!on }));
-	return toggle;
-}
-
 function gridRow(): RowControls {
-	const grid = new NumberControl({ step: 0.5, unit: 'mm', ariaLabel: 'Grid' });
+	const grid = new NumberControl({ step: 0.5, min: 0, unit: 'mm', ariaLabel: 'Grid' });
 	grid.set(store.grid);
 	grid.onCommit((v) => {
 		if (v === null) return;
-		store.grid = Math.max(0.5, v || 1);
+		store.grid = v;
 		saveState();
 		render();
 	});
 	return grid;
 }
-
+function paletteRow(): RowControls {
+	const list = h('div', 'palette-swatches');
+	for (const [key, colour] of Object.entries(store.palette)) {
+		const input = h('input', '', { type: 'color', title: key, 'aria-label': key });
+		input.value = '#' + colour.hex.replace(/^#/, '');
+		input.onchange = () => post({ op: 'themeEdit', palette: { [key]: input.value } });
+		list.append(input);
+	}
+	return new Block(list);
+}
 export const FIGURE: SectionSpec[] = [
-	{ id: 'text', title: 'Text', rows: [{ label: 'Font size', custom: fontRow }] },
-	{ id: 'arrows', title: 'Arrows', rows: [{ label: 'Arrows', custom: arrowsRow }] },
-	{ id: 'legend', title: 'Legend', rows: [{ label: 'Legend', custom: legendRow }] },
-	{ id: 'grid', title: 'Grid', rows: [{ label: 'Grid', custom: gridRow }] },
-	{ id: 'styles', title: 'Styles', rows: [{ label: '', custom: () => styleList() }] },
+	{
+		id: 'settings',
+		title: 'Figure settings',
+		collapsed: true,
+		rows: [
+			{ label: 'Export target', custom: () => new Block(h('span', 'empty', {}, '—')) },
+			{ label: 'Font size', custom: fontRow },
+			{ label: 'Arrow route', custom: arrowsRow },
+			{ label: 'Palette', custom: paletteRow },
+			{ label: 'Grid', custom: gridRow },
+			{ label: '', custom: tidyRow },
+		],
+	},
+	{ id: 'categories', title: '', rows: [{ label: '', custom: styleList }] },
 ];

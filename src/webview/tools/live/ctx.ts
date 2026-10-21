@@ -24,6 +24,9 @@ export function selection() {
 
 // The tool context over the live store. Lists are read through getters: the store replaces them with every state message.
 export const liveCtx: ToolCtx = {
+	get snapping() {
+		return store.grid > 0;
+	},
 	itemRect(id) {
 		const item = store.items.find((i) => i.id === id);
 		if (item?.kind === 'Frame') return geo().frame(id) ?? undefined;

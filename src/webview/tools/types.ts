@@ -108,6 +108,7 @@ export interface Tool {
 
 /** The questions tools ask about the figure, answered by live/ctx.ts from the store, or by a fake in tests. */
 export interface ToolCtx {
+	readonly snapping?: boolean;
 	itemRect?(id: string): { x: number; y: number; w: number; h: number } | undefined;
 	readonly items?: import('../../core/model/item').Item[];
 	readonly lines?: import('../../core/model/item').FigLine[];

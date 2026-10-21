@@ -16,6 +16,7 @@ export interface NumberOptions {
 export class NumberControl extends Field<number | null> {
 	readonly el: HTMLElement;
 	readonly input: HTMLInputElement;
+	private accepted = '';
 	private prefixEl?: HTMLElement;
 	private readonly step: number;
 	private readonly min: number;
@@ -33,6 +34,13 @@ export class NumberControl extends Field<number | null> {
 		if (Number.isFinite(this.max)) this.input.max = String(this.max);
 		this.input.placeholder = this.placeholder;
 		this.input.addEventListener('change', () => this.accept());
+		this.input.addEventListener('blur', () => this.accept());
+		this.input.addEventListener('keydown', (e) => {
+			if (e.key === 'Enter') {
+				e.preventDefault();
+				this.accept();
+			}
+		});
 		this.el = h('span', 'num');
 		if (o.prefix) {
 			this.prefixEl = h('span', 'num-prefix', {}, o.prefix);
@@ -47,16 +55,19 @@ export class NumberControl extends Field<number | null> {
 		const mixed = isMixed(value);
 		this.input.value = mixed || value === null || value === undefined ? '' : String(value);
 		this.input.placeholder = mixed ? 'Mixed' : this.placeholder;
+		this.accepted = this.input.value;
 		this.mark(state);
 	}
 
 	// Validate what was typed (or scrubbed) and report it.
 	private accept(): void {
+		if (this.input.value === this.accepted) return;
 		const v = this.input.value === '' ? null : +this.input.value;
 		if (
 			v === null ||
 			(Number.isFinite(v) && v >= this.min && v <= this.max && (this.step !== 1 || Number.isInteger(v)))
 		) {
+			this.accepted = this.input.value;
 			this.commit(v);
 		}
 	}

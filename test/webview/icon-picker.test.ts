@@ -65,7 +65,7 @@ test('visual category choice shows its icon marker and picks by keyboard', () =>
 	});
 	s.down(0, 0, s.node('p'));
 	s.up(0, 0);
-	const choice = s.row('Style').querySelector('button.visual-choice');
+	const choice = s.row('Category').querySelector('button.visual-choice');
 	s.click(choice);
 	assert.equal(choice.querySelector('.swatch'), null);
 	assert.equal(choice.children[0].tagName.toLowerCase(), 'svg');
@@ -73,7 +73,7 @@ test('visual category choice shows its icon marker and picks by keyboard', () =>
 	s.document.activeElement.dispatchEvent(
 		new s.window.KeyboardEvent('keydown', { key: 'ArrowDown', bubbles: true, cancelable: true }),
 	);
-	assert.equal(s.document.activeElement.textContent, 'Plain');
+	assert.equal(s.document.activeElement.textContent, 'None');
 	assert.ok(panelEl.contains(s.document.activeElement));
 	s.click(s.document.activeElement);
 	assert.equal(s.lastOp.ops[0].category, '');

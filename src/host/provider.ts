@@ -24,7 +24,7 @@ export interface SessionDeps extends ExportDeps {
 export function openFigure(deps: SessionDeps): Disposable {
 	const { doc, view, clipboard, ui } = deps;
 	const send = (message: ToWebview<Icon>) => view.post(message);
-	const sendState = () => send(viewModel(doc.text()));
+	const sendState = () => send({ ...viewModel(doc.text()), sourceFile: doc.path.split('/').pop() });
 	const edit = (change: (fig: ReturnType<typeof parse>) => void) => {
 		const fig = parse(doc.text());
 		change(fig);
@@ -43,6 +43,16 @@ export function openFigure(deps: SessionDeps): Disposable {
 				send({ type: 'icons', icons: deps.icons });
 				sendState();
 				break;
+			case 'deleteCategory': {
+				const fig = parse(doc.text());
+				const category = fig.lines.find((l) => l.t === 'style' && l.s.key === msg.key);
+				if (
+					category?.t === 'style' &&
+					(await ui.confirm(`Delete category “${category.s.name}”? Its items will keep their look.`))
+				)
+					await edit((fig) => apply(fig, { op: 'categoryDelete', key: msg.key }));
+				break;
+			}
 			case 'op':
 				await edit((fig) => apply(fig, msg.op));
 				break;

@@ -169,8 +169,8 @@ test('inspector panes: ordered sections, multi-selection size batches, arrow and
 	const rows = () => [...pane('pane-selection').querySelectorAll('.row')];
 	s.down(0, 0, s.node('inner'));
 	s.up(0, 0);
-	assert.deepEqual(sectionNames('pane-selection'), ['Style', 'Text', 'Appearance', 'Shape & decoration', 'Arrange']);
-	assert.deepEqual(sectionNames('pane-figure'), ['Text', 'Arrows', 'Legend', 'Grid', 'Styles']);
+	assert.deepEqual(sectionNames('pane-selection'), ['More']);
+	assert.equal(pane('pane-figure'), null);
 	assert.ok(pane('pane-selection').querySelector('.row'), 'Single node inspector builds controls');
 	s.down(70, 0, s.node('target'), { ctrlKey: true });
 	s.up(70, 0, { ctrlKey: true });

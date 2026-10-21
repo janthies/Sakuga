@@ -20,7 +20,7 @@ const titleOf = (t: string) => show(t.split('\\\\').join(' / '));
 export function titleRow(c: PanelCtx): RowControls {
 	const nodes = c.sel.nodes;
 	if (!nodes.length) return null;
-	const field = new TextControl({ ariaLabel: 'Title' });
+	const field = new TextControl({ ariaLabel: 'Label' });
 	field.set(
 		sameOr(
 			nodes.map((n) =>
@@ -52,7 +52,7 @@ export function codeRow(c: PanelCtx): RowControls {
 	return field;
 }
 
-// The code line is set one size below the title unless told otherwise.
+// The code line is set one size below the label unless told otherwise.
 export function codeSizeRow(c: PanelCtx): RowControls {
 	const nodes = c.sel.nodes;
 	if (!nodes.length || !nodes.every(isBox)) return null;
@@ -61,7 +61,7 @@ export function codeSizeRow(c: PanelCtx): RowControls {
 		(v) => (coreText.sizes as Record<string, number>)[v] <= limit,
 	);
 	const select = new SelectControl(
-		[{ value: '', label: 'One step below title' }, ...sizeNames.map((v) => ({ value: v, label: v }))],
+		[{ value: '', label: 'One step below label' }, ...sizeNames.map((v) => ({ value: v, label: v }))],
 		'Code size',
 	);
 	select.set(sameOr(nodes.map((n) => n.codeFont || '')));
@@ -110,9 +110,9 @@ export function iconRow(c: PanelCtx): RowControls {
 }
 
 const ICON_POSITIONS = [
-	['left', 'Left of title'],
-	['above', 'Above title'],
-	['right', 'Right of title'],
+	['left', 'Left of label'],
+	['above', 'Above label'],
+	['right', 'Right of label'],
 	['nw', 'Top left'],
 	['ne', 'Top right'],
 	['sw', 'Bottom left'],

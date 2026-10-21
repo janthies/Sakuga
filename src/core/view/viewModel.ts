@@ -26,6 +26,7 @@ export function viewModel(text: string) {
 	const fig = parse(text);
 	return {
 		type: 'state' as const,
+		figure: fig.figure,
 		outerGap: fig.theme?.kinds?.Shape?.outerGap ?? 1,
 		text,
 		items: items(fig),
@@ -62,7 +63,17 @@ export function viewModel(text: string) {
 		font: fontSize(fig),
 		legend: legendOn(fig),
 		arrows: arrowStyle(fig),
-		palette: PALETTE,
+		palette: Object.fromEntries(
+			Object.entries({
+				...PALETTE,
+				...Object.fromEntries(
+					Object.entries(fig.theme?.palette || {}).map(([key, hex]) => [
+						key,
+						{ name: key, hex, mix: PALETTE[key]?.mix ?? 15 },
+					]),
+				),
+			}),
+		),
 		defaultWidth: DEFAULT_WIDTH,
 	};
 }

@@ -47,7 +47,7 @@ export const icon = (key: keyof typeof ICON) =>
 	`<svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.2" aria-hidden="true">${ICON[key]}</svg>`;
 // ---- Named styles: a style acts on its objects; an object only keeps what differs from it ----
 export const SIZE_LABEL = { tiny: '6', scriptsize: '8', footnotesize: '9', small: '10', normalsize: '11', large: '12' };
-export const KIND_NAMES = { box: 'Box', arrow: 'Arrow', frame: 'Frame', label: 'Label' };
+export const KIND_NAMES = { box: 'Box', arrow: 'Arrow', frame: 'Group', label: 'Label' };
 export const STYLE_KEYS = styleable('box');
 export const ROW_OF = rowOf();
 export const ROUTE_OPTS: string[][] = [

@@ -77,11 +77,11 @@
 	],
 	[
 		"Enter / F2",
-		"edit existing title"
+		"edit existing label"
 	],
 	[
 		"Tab / Shift+Tab",
-		"next connected box / box below; type title"
+		"next connected box / box below; type label"
 	],
 	[
 		"Esc in a new empty box",
@@ -89,7 +89,7 @@
 	],
 	[
 		"Type a character",
-		"replace box/label title; D/R and existing shortcuts take priority"
+		"replace box/label text; D/R and existing shortcuts take priority"
 	],
 	[
 		"Alt+T",

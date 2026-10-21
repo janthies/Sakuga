@@ -18,6 +18,8 @@ export type ViewStyle = StyleDef & { line?: string };
 /** The derived snapshot of the document (see core/view/viewModel.ts). */
 export interface StateMessage {
 	outerGap?: number;
+	sourceFile?: string;
+	figure?: { place: string; label: string; caption: string };
 	type: 'state';
 	items?: Item[];
 	lines?: FigLine[];
@@ -51,6 +53,7 @@ export type ToHost<O = unknown> =
 	| { type: 'paste'; text: string; dx: number; dy: number; layer: string }
 	| { type: 'copy' }
 	| { type: 'copyText'; text: string }
+	| { type: 'deleteCategory'; key: string }
 	| { type: 'exportSvg' }
 	| { type: 'error'; text: string };
 

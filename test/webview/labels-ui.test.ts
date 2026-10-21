@@ -43,17 +43,16 @@ test('drag a child through all 25 zones; each drop commits a slot, never detache
 	s.up(300, 300);
 	assert.equal(itemById(s.fig(), 'label')?.parent, 'parent');
 });
-test('slot dropdown, detach, subtree clipboard and parent previews', () => {
+test('slot picker, detach, subtree clipboard and parent previews', () => {
 	const s = new Session(source()),
 		label = () => s.hook.state().nodes.find((n) => n.id === 'label');
 	let n = label();
 	s.down(n.x, n.y, s.node('label'));
 	s.up(n.x, n.y);
-	const select = s.inspector.querySelector('select[aria-label="Place"]');
-	assert.ok(select);
-	assert.equal(select.options.length, 25);
-	select.value = 'below-right';
-	select.dispatchEvent(new s.window.Event('change', { bubbles: true }));
+	const picker = s.inspector.querySelector('.box-slots');
+	assert.ok(picker);
+	assert.equal(picker.querySelectorAll('button').length, 25);
+	s.click(picker.querySelector('button[aria-label="below right"]'));
 	assert.equal(itemById(s.fig(), 'label')?.slot, 'below-right');
 	const clip = parse(s.clipboard('copy').text);
 	assert.deepEqual(

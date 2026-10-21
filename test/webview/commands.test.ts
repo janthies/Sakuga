@@ -163,7 +163,9 @@ test('toolbar commands are called by id', () => {
 	assert.deepEqual(log.at(-1), ['arrange', 'centerX']);
 });
 
-test('the help table is the old table, generated', () => {
+test('the help table is generated from the registry', () => {
+	if (process.env.UPDATE_GOLDEN)
+		fs.writeFileSync(path.join(__dirname, 'shortcuts.expected.json'), JSON.stringify(helpRows(), null, '\t') + '\n');
 	const old = fs.readFileSync(path.join(__dirname, 'shortcuts.expected.json'), 'utf8').trim();
 	assert.deepEqual(helpRows(), JSON.parse(old));
 });

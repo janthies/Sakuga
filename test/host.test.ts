@@ -111,3 +111,30 @@ test('buildTex has the thesis fonts, the preamble and the figure between the doc
 	assert.match(tex, /\\usetikzlibrary\{fit\}\n\\begin\{document\}\n\\begin\{tikzpicture\}/);
 	assert.ok(tex.endsWith('\\end{document}\n'));
 });
+
+test('category deletion requires host confirmation and preserves item looks', async () => {
+	const s = setup(example);
+	const fig = t.parse(s.doc.text());
+	const category = t.categories(fig)[0];
+	const users = t.items(fig).filter((i: any) => i.kind !== 'Frame' && t.categoryKey(fig, i) === category.key);
+	const appearance = (fig: any, id: string) => {
+		const values: Record<string, any> = Object.fromEntries(
+			Object.entries(t.resolveLook(fig, id)).map(([k, v]: any) => [k, v.value]),
+		);
+		values.lineWidth ??= ({ thin: 0.45, medium: 0.8, thick: 1.2 } as Record<string, number>)[values.weight] || 0.45;
+		return values;
+	};
+	const before = users.map((i: any) => appearance(fig, i.id));
+	s.ui.confirmed = false;
+	await s.view.send({ type: 'deleteCategory', key: category.key });
+	assert.equal(s.doc.text(), example);
+	s.ui.confirmed = true;
+	await s.view.send({ type: 'deleteCategory', key: category.key });
+	const back = t.parse(s.doc.text());
+	assert.equal(
+		t.categories(back).some((c: any) => c.key === category.key),
+		false,
+	);
+	assert.equal(s.ui.confirmations.length, 2);
+	users.forEach((i: any, n: number) => assert.deepEqual(appearance(back, i.id), before[n]));
+});

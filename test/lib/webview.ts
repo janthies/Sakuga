@@ -1,14 +1,13 @@
+import { page } from '../../src/host/page';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 import { JSDOM } from 'jsdom';
 import { ROOT, read } from './env';
 
-// The body of page() in src/extension.ts (copied; the CSP, fonts and stylesheets do not matter here).
-const BODY = `<header id="bar"><button id="drawerToggle" class="tbtn"></button><button id="help"></button><table id="keys"></table><button id="exportSvg"></button></header>
-<div id="main"><aside id="drawer"><div class="drawer-in"><textarea id="src"></textarea><details id="preamble"><summary></summary><div class="pre-body"><pre id="pre"></pre><button id="copyPre"></button></div></details><button id="copySrc"></button></div></aside>
-<div id="desk"><svg id="canvas"></svg><div id="zoombar"><span id="zi-size"></span><span id="zi-zoom"></span><button id="fitw"></button></div></div>
-<aside id="sidebar" data-tab="figure"><nav id="tabs"><button data-tab="figure" role="tab">Figure</button><button data-tab="selection" role="tab">Selection<span id="tab-count"></span></button></nav><div id="inspector"></div><div id="splitter"></div><section id="layers"><header class="lhead"><div id="layer-tools"><button id="group"></button><button id="ungroup"></button></div></header><div id="layer-list"></div></section></aside></div>
-<input id="edit" type="text"><div id="etools"></div>`;
+const BODY = page({ cspSource: '', nonce: 'test', uri: (f) => f }, { preamble: '' })
+	.split('<body>')[1]
+	.split('<script')[0]
+	.replace(' aria-label="Figure canvas"', '');
 
 // Scripts in the order page() loads them.
 const SCRIPTS = ['dist/webview.js'];

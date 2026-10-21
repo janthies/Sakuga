@@ -7,7 +7,7 @@ import type { Group, Layer, ViewEdge, ViewNode } from '../../store/types';
 export type LabelTarget = NonNullable<ReturnType<typeof labelTarget>>;
 
 // What the inspector is showing, decided from the store's selection. The first match wins, in this order.
-export type Mode = 'none' | 'box' | 'label' | 'icon' | 'arrow' | 'frame' | 'attached' | 'layer' | 'multi';
+export type Mode = 'line' | 'none' | 'box' | 'label' | 'icon' | 'arrow' | 'frame' | 'attached' | 'layer' | 'multi';
 
 export interface Selection {
 	mode: Mode;
@@ -32,23 +32,29 @@ export function currentSelection(): Selection {
 	const group = groupById(store.selG);
 	const layers = store.selectedLayers.size ? store.layers.filter((l) => store.selectedLayers.has(l.id)) : [];
 	const attached = store.selN.label ? labelTarget() : null;
-	const mode: Mode = attached
-		? 'attached'
-		: layers.length
-			? 'layer'
-			: group
-				? 'frame'
-				: node
-					? node.kind === 'icon'
-						? 'icon'
-						: node.kind === 'label'
-							? 'label'
-							: 'box'
-					: edge
-						? 'arrow'
-						: count > 1
-							? 'multi'
-							: 'none';
+	const line = count === 1 && store.items.find((i) => i.id === [...store.selN][0] && i.kind === 'Line');
+	const text = count === 1 && store.items.find((i) => i.id === [...store.selN][0] && i.kind === 'Text');
+	const mode: Mode = line
+		? 'line'
+		: text && !node
+			? 'label'
+			: attached
+				? 'attached'
+				: layers.length
+					? 'layer'
+					: group
+						? 'frame'
+						: node
+							? node.kind === 'icon'
+								? 'icon'
+								: node.kind === 'label'
+									? 'label'
+									: 'box'
+							: edge
+								? 'arrow'
+								: count > 1
+									? 'multi'
+									: 'none';
 	return { mode, nodes, edges, group, layers, attached, count, node, edge };
 }
 
@@ -58,33 +64,31 @@ const flat = (t: string) => show(t).replace(/\\\\/g, ' / ');
 // The header line: the kind and the name, e.g. "Box · Application" or "3 boxes".
 export function header(sel: Selection): { kind: string; name: string } | null {
 	switch (sel.mode) {
-		case 'box':
-			return { kind: 'Box', name: flat(sel.node!.title) };
-		case 'label':
-			return { kind: 'Label', name: flat(sel.node!.title) };
+		case 'box': {
+			const label = store.items.find((i) => i.parent === sel.node!.id && i.slot === 'centre' && i.kind === 'Text');
+			return { kind: 'Box', name: flat(label?.kind === 'Text' ? label.text : sel.node!.title) };
+		}
+		case 'label': {
+			const label = store.items.find((i) => i.id === [...store.selN][0] && i.kind === 'Text');
+			return { kind: 'Label', name: flat(sel.node?.title || (label?.kind === 'Text' ? label.text : '')) };
+		}
 		case 'icon':
 			return { kind: 'Icon', name: flat(sel.node!.title) || sel.node!.icon || '' };
 		case 'arrow':
 			return { kind: 'Arrow', name: `${sel.edge!.e.from} → ${sel.edge!.e.to}` };
+		case 'line':
+			return { kind: 'Line', name: [...store.selN][0] };
 		case 'frame':
-			return { kind: 'Frame', name: flat(sel.group!.name) };
+			return { kind: 'Group', name: flat(sel.group!.name) };
 		case 'attached':
-			return { kind: sel.attached!.g ? 'Frame title' : 'Arrow label', name: flat(sel.attached!.text) };
+			return { kind: 'Label', name: flat(sel.attached!.text) };
 		case 'layer':
 			return {
 				kind: 'Layer',
 				name: sel.layers.length > 1 ? plural(sel.layers.length, 'layer', 'layers') : sel.layers[0].name,
 			};
-		case 'multi': {
-			const of = (kind: string) => sel.nodes.filter((n) => (n.kind || 'box') === kind).length;
-			const parts = [
-				plural(of('box'), 'box', 'boxes'),
-				plural(of('label'), 'label', 'labels'),
-				plural(of('icon'), 'icon', 'icons'),
-				plural(sel.edges.length, 'arrow', 'arrows'),
-			].filter((p) => !p.startsWith('0 '));
-			return { kind: parts.join(', '), name: '' };
-		}
+		case 'multi':
+			return { kind: `${sel.count} items`, name: '' };
 		default:
 			return null;
 	}

@@ -1,3 +1,4 @@
+import { initDrawer } from './drawer';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { helpRows } from '../commands/registry';
@@ -31,6 +32,7 @@ const keys = document.getElementById('keys');
 calls.setTab = setTab;
 
 export function initPanelsChrome() {
+	initDrawer();
 	for (const b of document.querySelectorAll<HTMLElement>('#tabs [role=tab]')) {
 		b.addEventListener('click', () => setTab(b.dataset.tab!));
 		b.addEventListener('keydown', (ev) => {

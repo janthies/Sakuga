@@ -31,6 +31,7 @@ export interface StyleClip {
 
 export interface Store {
 	outerGap: number;
+	figure: { place: string; label: string; caption: string };
 	items: Item[];
 	lines: FigLine[];
 	rev: number;

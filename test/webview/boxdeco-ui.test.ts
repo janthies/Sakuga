@@ -27,7 +27,7 @@ test('mixed values, custom hex colours, recent colours and swatches', () => {
 	select(s, 'p', 'q');
 	const fill = () => s.row('Fill');
 	assert.equal(fill().querySelector('.colour-swatches').value, '*');
-	assert.equal(s.row('Line').querySelector('.segments').value, '*');
+	assert.equal(s.row('Outline').querySelector('.segments').value, '*');
 	const ops = s.ops.length;
 	const hex = () => fill().querySelector('input[type="color"]'),
 		text = () => fill().querySelector('input[type="text"]');
@@ -57,7 +57,7 @@ test('mixed values, custom hex colours, recent colours and swatches', () => {
 	assert.equal(s.lastOp.ops[0].style.shape, 'rectangle');
 	s.apply({ op: 'style', ids: ['p'], style: { shape: 'ellipse' } });
 	assert.equal(s.row('Shape').querySelector('button[aria-label="ellipse"]').getAttribute('aria-pressed'), 'true');
-	s.click(s.row('Font').querySelector('button[aria-label="italic"]'));
+	s.click(s.row('Weight').querySelector('button[aria-label="italic"]'));
 	assert.equal(s.lastOp.ops[0].style.text, 'bold-italic');
 	// The custom hex field starts collapsed and opens focused.
 	assert.equal(text().hidden, true, 'Custom hex field starts collapsed');
