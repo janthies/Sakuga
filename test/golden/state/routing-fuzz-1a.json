@@ -1,5 +1,6 @@
 {
  "type": "state",
+ "outerGap": 1,
  "text": "% Sakuga figure\n% sakuga category work {this work} peach\n% sakuga legend on\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the category lines above)\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  cat-work/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg box, text width=33mm, sg layer=layer1] (n0) at (68,23) {Box};\n\\node[sg box, text width=23mm, sg layer=layer1] (n1) at (60,58) {Box};\n\\node[sg box, text width=28mm, sg layer=layer1] (n2) at (90,62) {Box};\n\\node[sg box, text width=29mm, sg layer=layer1] (n3) at (51,24) {Box};\n\\draw[arr, sg route=auto, sg implicit from] ([xshift=0.6337mm]n0.north) -- ([xshift=8.6337mm]n1.south);\n\\end{tikzpicture}\n",
  "items": [
   {
@@ -14,7 +15,7 @@
     "cat": "",
     "x": 68,
     "y": 23,
-    "title": "Box",
+    "title": "",
     "code": "",
     "width": 33,
     "minh": 0,
@@ -35,12 +36,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "n0-title",
     "look": {
      "own": {},
      "resolved": {
@@ -56,43 +58,17 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "n0-title",
-   "parent": "n0",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Box",
-   "code": "",
-   "role": "title",
-   "treeParent": "n0"
-  },
-  {
    "id": "n1",
    "parent": "layer1",
-   "order": 2,
+   "order": 1,
    "hidden": false,
    "locked": false,
    "kind": "Shape",
@@ -101,7 +77,7 @@
     "cat": "",
     "x": 60,
     "y": 58,
-    "title": "Box",
+    "title": "",
     "code": "",
     "width": 23,
     "minh": 0,
@@ -122,12 +98,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
-    "order": 2,
-    "titleId": "n1-title",
+    "order": 1,
     "look": {
      "own": {},
      "resolved": {
@@ -143,43 +120,17 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "n1-title",
-   "parent": "n1",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Box",
-   "code": "",
-   "role": "title",
-   "treeParent": "n1"
-  },
-  {
    "id": "n2",
    "parent": "layer1",
-   "order": 4,
+   "order": 2,
    "hidden": false,
    "locked": false,
    "kind": "Shape",
@@ -188,7 +139,7 @@
     "cat": "",
     "x": 90,
     "y": 62,
-    "title": "Box",
+    "title": "",
     "code": "",
     "width": 28,
     "minh": 0,
@@ -209,12 +160,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
-    "order": 4,
-    "titleId": "n2-title",
+    "order": 2,
     "look": {
      "own": {},
      "resolved": {
@@ -230,43 +182,17 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "n2-title",
-   "parent": "n2",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Box",
-   "code": "",
-   "role": "title",
-   "treeParent": "n2"
-  },
-  {
    "id": "n3",
    "parent": "layer1",
-   "order": 6,
+   "order": 3,
    "hidden": false,
    "locked": false,
    "kind": "Shape",
@@ -275,7 +201,7 @@
     "cat": "",
     "x": 51,
     "y": 24,
-    "title": "Box",
+    "title": "",
     "code": "",
     "width": 29,
     "minh": 0,
@@ -296,12 +222,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
-    "order": 6,
-    "titleId": "n3-title",
+    "order": 3,
     "look": {
      "own": {},
      "resolved": {
@@ -317,43 +244,17 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "n3-title",
-   "parent": "n3",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Box",
-   "code": "",
-   "role": "title",
-   "treeParent": "n3"
-  },
-  {
    "id": "connector",
    "parent": "layer1",
-   "order": 8,
+   "order": 4,
    "hidden": false,
    "locked": false,
    "kind": "Connector",
@@ -383,7 +284,7 @@
     "toOffset": 8.6337,
     "hidden": false,
     "treeParent": "layer1",
-    "order": 8,
+    "order": 4,
     "fromPort": {
      "side": "auto",
      "position": 0.5
@@ -421,6 +322,250 @@
      "position": 0.8417
     }
    }
+  },
+  {
+   "id": "n0-title",
+   "parent": "n0",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "node": {
+    "id": "n0-title",
+    "kind": "label",
+    "cat": "",
+    "x": 68,
+    "y": 23,
+    "title": "Box",
+    "code": "",
+    "width": 33,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "n0",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "n1-title",
+   "parent": "n1",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "node": {
+    "id": "n1-title",
+    "kind": "label",
+    "cat": "",
+    "x": 60,
+    "y": 58,
+    "title": "Box",
+    "code": "",
+    "width": 23,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "n1",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "n2-title",
+   "parent": "n2",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "node": {
+    "id": "n2-title",
+    "kind": "label",
+    "cat": "",
+    "x": 90,
+    "y": 62,
+    "title": "Box",
+    "code": "",
+    "width": 28,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "n2",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "n3-title",
+   "parent": "n3",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Box",
+   "code": "",
+   "node": {
+    "id": "n3-title",
+    "kind": "label",
+    "cat": "",
+    "x": 51,
+    "y": 24,
+    "title": "Box",
+    "code": "",
+    "width": 29,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "n3",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ],
  "lines": [],
@@ -430,7 +575,7 @@
    "cat": "",
    "x": 68,
    "y": 23,
-   "title": "Box",
+   "title": "",
    "code": "",
    "width": 33,
    "minh": 0,
@@ -451,12 +596,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 0,
-   "titleId": "n0-title",
    "look": {
     "own": {},
     "resolved": {
@@ -472,8 +618,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 68,
+    "y": 23,
+    "w": 35.2675,
+    "h": 10.56,
+    "lines": [
+     ""
+    ],
+    "textWidth": 33
    },
    "overrides": []
   },
@@ -482,7 +640,7 @@
    "cat": "",
    "x": 60,
    "y": 58,
-   "title": "Box",
+   "title": "",
    "code": "",
    "width": 23,
    "minh": 0,
@@ -503,12 +661,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
-   "order": 2,
-   "titleId": "n1-title",
+   "order": 1,
    "look": {
     "own": {},
     "resolved": {
@@ -524,8 +683,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 60,
+    "y": 58,
+    "w": 25.2675,
+    "h": 10.56,
+    "lines": [
+     ""
+    ],
+    "textWidth": 23
    },
    "overrides": []
   },
@@ -534,7 +705,7 @@
    "cat": "",
    "x": 90,
    "y": 62,
-   "title": "Box",
+   "title": "",
    "code": "",
    "width": 28,
    "minh": 0,
@@ -555,12 +726,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
-   "order": 4,
-   "titleId": "n2-title",
+   "order": 2,
    "look": {
     "own": {},
     "resolved": {
@@ -576,8 +748,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 90,
+    "y": 62,
+    "w": 30.2675,
+    "h": 10.56,
+    "lines": [
+     ""
+    ],
+    "textWidth": 28
    },
    "overrides": []
   },
@@ -586,7 +770,7 @@
    "cat": "",
    "x": 51,
    "y": 24,
-   "title": "Box",
+   "title": "",
    "code": "",
    "width": 29,
    "minh": 0,
@@ -607,12 +791,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
-   "order": 6,
-   "titleId": "n3-title",
+   "order": 3,
    "look": {
     "own": {},
     "resolved": {
@@ -628,10 +813,274 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
+    }
+   },
+   "derivedRect": {
+    "x": 51,
+    "y": 24,
+    "w": 31.2675,
+    "h": 10.56,
+    "lines": [
+     ""
+    ],
+    "textWidth": 29
+   },
+   "overrides": []
+  },
+  {
+   "id": "n0-title",
+   "kind": "label",
+   "cat": "",
+   "x": 68,
+   "y": 23,
+   "title": "Box",
+   "code": "",
+   "width": 33,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "n0",
+   "slot": "centre",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
      "markColor": "#33333A"
     }
    },
-   "overrides": []
+   "derivedRect": {
+    "x": 68,
+    "y": 23,
+    "w": 32.8675,
+    "h": 6.16,
+    "lines": [
+     "Box"
+    ],
+    "textWidth": 30.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "n1-title",
+   "kind": "label",
+   "cat": "",
+   "x": 60,
+   "y": 58,
+   "title": "Box",
+   "code": "",
+   "width": 23,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "n1",
+   "slot": "centre",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 60,
+    "y": 58,
+    "w": 22.8675,
+    "h": 6.16,
+    "lines": [
+     "Box"
+    ],
+    "textWidth": 20.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "n2-title",
+   "kind": "label",
+   "cat": "",
+   "x": 90,
+   "y": 62,
+   "title": "Box",
+   "code": "",
+   "width": 28,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "n2",
+   "slot": "centre",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 90,
+    "y": 62,
+    "w": 27.8675,
+    "h": 6.16,
+    "lines": [
+     "Box"
+    ],
+    "textWidth": 25.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "n3-title",
+   "kind": "label",
+   "cat": "",
+   "x": 51,
+   "y": 24,
+   "title": "Box",
+   "code": "",
+   "width": 29,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "n3",
+   "slot": "centre",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 51,
+    "y": 24,
+    "w": 28.8675,
+    "h": 6.16,
+    "lines": [
+     "Box"
+    ],
+    "textWidth": 26.6
+   },
+   "overrides": [
+    "font"
+   ]
   }
  ],
  "edges": [
@@ -661,7 +1110,7 @@
    "toOffset": 8.6337,
    "hidden": false,
    "treeParent": "layer1",
-   "order": 8,
+   "order": 4,
    "fromPort": {
     "side": "auto",
     "position": 0.5

@@ -65,7 +65,7 @@ export function openFigure(deps: SessionDeps): Disposable {
 				break;
 			case 'paste': {
 				const fig = parse(doc.text());
-				const { ops, ids } = pasteOps(fig, msg.text, msg.dx, msg.dy);
+				const { ops, ids } = pasteOps(fig, msg.text, msg.dx, msg.dy, msg.layer);
 				if (ids.length) {
 					apply(fig, { op: 'batch', ops: ops.map((op) => (op.op === 'addNode' ? { ...op, layer: msg.layer } : op)) });
 					await writeDocument(doc, serialize(fig));

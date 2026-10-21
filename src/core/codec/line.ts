@@ -48,7 +48,7 @@ export function lineSource(fig: Figure, l: FigLine): string {
 	const labels = (l.labels || [])
 		.map(
 			(v) =>
-				` node[sg label${labelMetrics(v.text, v.style, fontSize(fig))}${labelOptions(v.style, { font: fontSize(fig) })}] {${v.text}}`,
+				` node[sg label${labelMetrics(v.text, v.style, fontSize(fig))}${labelOptions(v.style, { font: fontSize(fig) }, fig.theme?.kinds?.Shape?.outerGap ?? 1)}] {${v.text}}`,
 		)
 		.join('');
 	const result = `\\draw[${o.join(', ')}] (${num(l.start[0])},${num(l.start[1])}) -- (${num(l.end[0])},${num(l.end[1])})${labels};`;

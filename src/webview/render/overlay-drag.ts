@@ -1,3 +1,4 @@
+import { BOX_SLOTS, slotCell } from '../../core/model/slots';
 // Previews while the pointer is down: guides, copies, the band, connect lines, anchors.
 import * as coreRoutes from '../../core/layout/route';
 import { PT } from '../../core/text';
@@ -11,6 +12,47 @@ import type { DragOverlay, ViewNode } from '../store/types';
 
 export function dragPrims(o: Out) {
 	const d = store.drag;
+	if (d?.slots) {
+		const { parent: b, slot, line } = d.slots;
+		if (b && !line) {
+			const cw = b.w / 3,
+				ch = b.h / 3;
+			for (const name of BOX_SLOTS) {
+				const [c, r] = slotCell(name);
+				o.add('rect', {
+					x: px(b.x - b.w / 2 + (c - 1) * cw),
+					y: py(b.y + b.h / 2 - (r - 1) * ch),
+					width: cw * store.view.s,
+					height: ch * store.view.s,
+					fill: name === slot ? 'var(--sel)' : 'white',
+					'fill-opacity': name === slot ? 0.3 : 0.08,
+					stroke: 'var(--sel)',
+					'stroke-width': 0.8,
+					'pointer-events': 'none',
+				});
+			}
+		} else if (b) {
+			const dx = b.end[0] - b.start[0],
+				dy = b.end[1] - b.start[1],
+				len = Math.hypot(dx, dy) || 1;
+			for (let j = 0; j < 6; j++) {
+				const t = ((j % 3) + 0.5) / 3,
+					sign = j < 3 ? 1 : -1;
+				const x = b.start[0] + dx * t - ((sign * dy) / len) * 4,
+					y = b.start[1] + dy * t + ((sign * dx) / len) * 4;
+				const name = ['start-above', 'middle-above', 'end-above', 'start-below', 'middle-below', 'end-below'][j];
+				o.add('circle', {
+					cx: px(x),
+					cy: py(y),
+					r: 3 * store.view.s,
+					fill: name === slot ? 'var(--sel)' : 'white',
+					'fill-opacity': 0.3,
+					stroke: 'var(--sel)',
+					'pointer-events': 'none',
+				});
+			}
+		}
+	}
 	for (const gd of (d && d.guides) || []) {
 		o.add(
 			'line',

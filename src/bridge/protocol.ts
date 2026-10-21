@@ -17,6 +17,7 @@ export type ViewStyle = StyleDef & { line?: string };
 
 /** The derived snapshot of the document (see core/view/viewModel.ts). */
 export interface StateMessage {
+	outerGap?: number;
 	type: 'state';
 	items?: Item[];
 	lines?: FigLine[];

@@ -1,3 +1,4 @@
+import { slotRect } from '../geometry/slot-layout';
 import { items, subtreeState } from '../model/tree-queries';
 import { lineItems } from '../model/tree';
 import { PALETTE } from '../model/colour';
@@ -25,6 +26,7 @@ export function viewModel(text: string) {
 	const fig = parse(text);
 	return {
 		type: 'state' as const,
+		outerGap: fig.theme?.kinds?.Shape?.outerGap ?? 1,
 		text,
 		items: items(fig),
 		lines: lineItems(fig).map((l) => ({
@@ -36,6 +38,7 @@ export function viewModel(text: string) {
 			.flatMap((l) => nodes(fig).filter((n) => nodeLayer(fig, n).id === l.id))
 			.map((n) => ({
 				...n,
+				derivedRect: slotRect(n),
 				layer: nodeLayer(fig, n).id,
 				hidden: isHidden(fig, n),
 				locked: isLocked(fig, n),

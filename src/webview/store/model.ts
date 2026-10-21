@@ -31,23 +31,15 @@ export function anchorPoint(n: ViewNode, a: string) {
 }
 export function descendant(id: string, parent: string) {
 	const seen = new Set<string>();
-	let n = byId(id);
-	while (n?.attachment && !seen.has(n.id)) {
-		seen.add(n.id);
-		if (n.attachment.parent === parent) {
-			return true;
-		}
-		n = byId(n.attachment.parent);
+	let item = store.items.find((i) => i.id === id);
+	while (item && !seen.has(item.id)) {
+		seen.add(item.id);
+		if (item.parent === parent) return true;
+		item = store.items.find((i) => i.id === item!.parent);
 	}
 	return false;
 }
-export function attachmentFor(n: ViewNode, parent: ViewNode, anchor: string, ownAnchor = anchor) {
-	const p = anchorPoint(parent, anchor),
-		o = anchorPoint(n, ownAnchor);
-	return { parent: parent.id, anchor, ownAnchor, dx: fine(o.x - p.x), dy: fine(o.y - p.y) };
-}
 export function resolveAttached() {
-	geo().place(store.nodes);
 	touch();
 }
 export const fontPt = (n?: ViewNode) => sizes[(n?.style?.font || store.figureFont) as keyof typeof sizes] || 10;

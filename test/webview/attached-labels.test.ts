@@ -36,8 +36,9 @@ test('label edits retain unanchored routing geometry', () => {
 		),
 	);
 	const old = s.hook.baseEdgeGeom(s.hook.state().edges[0]);
-	s.apply({ op: 'label', index: 0, style: { dx: 2 } });
-	assert.ok(s.hook.state().edges[0].labelStyle.dx === 2);
+	s.apply({ op: 'label', index: 0, style: { pos: 0.25, side: 'above' } });
+	assert.equal(s.hook.state().edges[0].labelStyle.pos, 0.25);
+	assert.equal(s.hook.state().edges[0].labelStyle.dx, undefined);
 	const edited = s.hook.baseEdgeGeom(s.hook.state().edges[0]);
 	assert.equal(JSON.stringify(edited.pts), JSON.stringify(old.pts));
 });

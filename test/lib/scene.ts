@@ -11,6 +11,7 @@ export function sceneInput(text: string): SceneInput {
 	const m = viewModel(text);
 	const input: SceneInput = {
 		nodes: m.nodes,
+		outerGap: m.outerGap,
 		edges: m.edges,
 		groups: m.groups,
 		categories: m.categories,
@@ -19,7 +20,6 @@ export function sceneInput(text: string): SceneInput {
 		font: m.font,
 		arrowStyle: m.arrows,
 	};
-	new FigureGeometry({ ...input }).place(input.nodes);
 	return input;
 }
 

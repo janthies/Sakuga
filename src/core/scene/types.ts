@@ -45,6 +45,7 @@ export interface Scene {
 
 // The figure as the canvas needs it: the derived snapshot of core/view, without the text.
 export interface SceneInput {
+	outerGap?: number;
 	lines?: FigLine[];
 	nodes: FigNode[]; // hidden and locked already include the layer
 	edges: FigEdge[];

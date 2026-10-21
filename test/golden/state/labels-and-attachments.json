@@ -1,5 +1,6 @@
 {
  "type": "state",
+ "outerGap": 1,
  "text": "% Sakuga figure\n% sakuga style box work {this work} peach legend\n% sakuga legend off\n% sakuga layer layer1 {Layer 1}\n% sakuga layer hidden {Hidden} hidden\n% sakuga tree 5b7b226964223a226368696c64222c226b696e64223a225368617065222c22706172656e74223a22706172656e74222c226f72646572223a35312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226368696c642d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226368696c64222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22667265654c6162656c222c226b696e64223a2254657874222c22706172656e74223a226c6179657231222c226f72646572223a32342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226772616e646368696c64222c226b696e64223a2254657874222c22706172656e74223a226368696c64222c226f72646572223a35332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2268696464656e506172656e74222c226b696e64223a225368617065222c22706172656e74223a2268696464656e222c226f72646572223a35342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2268696464656e506172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2268696464656e506172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e30222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a32372c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e31222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e32222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e33222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e34222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e35222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e36222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e37222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34372c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e38222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a35302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646530222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a32352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646531222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a32382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646532222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646533222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646534222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33372c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646535222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33392c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646536222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a34322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646537222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a34352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646538222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a34382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226c6162656c506172656e74222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226c6162656c506172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646530222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a32362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646531222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a32392c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646532222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646533222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646535222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646536222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646537222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646538222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34392c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f757473696465506172656e74222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a32322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f757473696465506172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706172656e74222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a32302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6530222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6530222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6531222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6531222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6532222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6532222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6533222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6533222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6534222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65342d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6534222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6535222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65352d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6535222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6536222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65362d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6536222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6537222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65372d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6537222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6538222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65382d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6538222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2276697369626c654368696c64222c226b696e64223a2254657874222c22706172656e74223a226c6179657231222c226f72646572223a35362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d5d\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\tikzset{sg icon stroke/.style={draw=black!60,line width=0.6pt,line cap=round,line join=round}}\n\\tikzset{pics/sg object/.style n args={3}{code={\\path (-#2/2,-#3/2) rectangle (#2/2,#3/2);\\node[anchor=center,inner sep=0pt,outer sep=0pt,minimum width=#2mm,minimum height=#3mm] (-center) at (0,0) {};\\if\\relax\\detokenize{#1}\\relax\\else\\pic[xscale=#2/3,yscale=#3/3] at (-#2/2,#3/2) {sg icon/#1};\\fi\\node[anchor=west,inner sep=0pt,align=left] (-label) at (#2/2+1,0) {\\tikzpictext};}}}\n\\def\\sgicon#1{\\tikz[baseline=-0.3pt]{\\path[use as bounding box] (0,0) rectangle (8.544pt,8.544pt);\\pic at (0,8.544pt) {sg icon/#1};}}\n\\tikzset{sg icon/board/.pic={\\begin{scope}[x=1pt,y=1pt,scale=0.355659449,yscale=-1,sg icon stroke]\\draw svg \"M4 4h16v16H4z\";\\draw svg \"M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4\";\\end{scope}}}\n\\definecolor{sgc2468AC}{HTML}{2468AC}\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  sg style/work/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\\sffamily\\scriptsize,fill=white,inner sep=1pt},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title0) at (0,0) {\\parbox[c][19.38mm][t]{30mm}{\\raggedright Title 0\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title1) at (40,0) {\\parbox[c][19.38mm][t]{30mm}{\\centering Title 1\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title2) at (80,0) {\\parbox[c][19.38mm][t]{30mm}{\\raggedleft Title 2\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title3) at (0,-28) {\\parbox[c][19.38mm][c]{30mm}{\\raggedright Title 3\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title4) at (40,-28) {Title 4\\\\[-1pt]\\sgcode{code}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title5) at (80,-28) {\\parbox[c][19.38mm][c]{30mm}{\\raggedleft Title 5\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title6) at (0,-56) {\\parbox[c][19.38mm][b]{30mm}{\\raggedright Title 6\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title7) at (40,-56) {\\parbox[c][19.38mm][b]{30mm}{\\centering Title 7\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title8) at (80,-56) {\\parbox[c][19.38mm][b]{30mm}{\\raggedleft Title 8\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=84mm, minimum height=74mm, sg layer=layer1] (labelParent) at (35,-125) {};\n\\node[sg shape, text width=84mm, minimum height=40mm, sg layer=layer1] (parent) at (35,-205) {\\parbox[c][37.38mm][b]{84mm}{\\raggedleft Parent}};\n\\node[sg shape, text width=70mm, minimum height=64mm, sg layer=layer1] (outsideParent) at (165,-125) {};\n\\node[sg text, sg label height=6.835893178358932, draw=black!38, text width=24mm, sg layer=layer1, text=sgc2468AC, solid, font=\\sffamily\\large] (freeLabel) at (110,0) {Free label};\n\\node[sg text, sg label height=6.16, anchor=north west, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside0) at ([shift={(2mm,-2mm)}]labelParent.north west) {In 0};\n\\node[sg text, sg label height=6.16, anchor=south east, text width=12mm, sg layer=layer1] (outside0) at ([shift={(-2mm,2mm)}]outsideParent.north west) {Out 0};\n\\pic[pic text={}, anchor=north west, sg layer=layer1] (icon0) at ([shift={(13mm,-14mm)}]outsideParent.north west) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=north, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside1) at ([shift={(0mm,-2mm)}]labelParent.north) {In 1};\n\\node[sg text, sg label height=6.16, anchor=south, text width=12mm, sg layer=layer1] (outside1) at ([shift={(0mm,2mm)}]outsideParent.north) {Out 1};\n\\pic[pic text={}, anchor=north, sg layer=layer1] (icon1) at ([shift={(0mm,-14mm)}]outsideParent.north) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=north east, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside2) at ([shift={(-2mm,-2mm)}]labelParent.north east) {In 2};\n\\node[sg text, sg label height=6.16, anchor=south west, text width=12mm, sg layer=layer1] (outside2) at ([shift={(2mm,2mm)}]outsideParent.north east) {Out 2};\n\\pic[pic text={}, anchor=north east, sg layer=layer1] (icon2) at ([shift={(-13mm,-14mm)}]outsideParent.north east) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=west, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside3) at ([shift={(2mm,0mm)}]labelParent.west) {In 3};\n\\node[sg text, sg label height=6.16, anchor=east, text width=12mm, sg layer=layer1] (outside3) at ([shift={(-2mm,0mm)}]outsideParent.west) {Out 3};\n\\pic[pic text={}, anchor=west, sg layer=layer1] (icon3) at ([shift={(13mm,0mm)}]outsideParent.west) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=center, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside4) at ([shift={(0mm,0mm)}]labelParent.center) {In 4};\n\\pic[pic text={}, anchor=center, sg layer=layer1] (icon4) at ([shift={(0mm,0mm)}]outsideParent.center) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=east, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside5) at ([shift={(-2mm,0mm)}]labelParent.east) {In 5};\n\\node[sg text, sg label height=6.16, anchor=west, text width=12mm, sg layer=layer1] (outside5) at ([shift={(2mm,0mm)}]outsideParent.east) {Out 5};\n\\pic[pic text={}, anchor=east, sg layer=layer1] (icon5) at ([shift={(-13mm,0mm)}]outsideParent.east) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=south west, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside6) at ([shift={(2mm,2mm)}]labelParent.south west) {In 6};\n\\node[sg text, sg label height=6.16, anchor=north east, text width=12mm, sg layer=layer1] (outside6) at ([shift={(-2mm,-2mm)}]outsideParent.south west) {Out 6};\n\\pic[pic text={}, anchor=south west, sg layer=layer1] (icon6) at ([shift={(13mm,14mm)}]outsideParent.south west) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=south, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside7) at ([shift={(0mm,2mm)}]labelParent.south) {In 7};\n\\node[sg text, sg label height=6.16, anchor=north, text width=12mm, sg layer=layer1] (outside7) at ([shift={(0mm,-2mm)}]outsideParent.south) {Out 7};\n\\pic[pic text={}, anchor=south, sg layer=layer1] (icon7) at ([shift={(0mm,14mm)}]outsideParent.south) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=south east, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside8) at ([shift={(-2mm,2mm)}]labelParent.south east) {In 8};\n\\node[sg text, sg label height=6.16, anchor=north west, text width=12mm, sg layer=layer1] (outside8) at ([shift={(2mm,-2mm)}]outsideParent.south east) {Out 8};\n\\pic[pic text={}, anchor=south east, sg layer=layer1] (icon8) at ([shift={(-13mm,14mm)}]outsideParent.south east) {sg object={board}{6}{8}};\n\\node[sg shape, anchor=north west, text width=20mm, minimum height=12mm, sg layer=layer1] (child) at ([shift={(1.5mm,-1.5mm)}]parent.north west) {Child};\n\\node[sg text, sg label height=6.16, anchor=north, text width=12mm, sg layer=layer1] (grandchild) at ([shift={(0mm,-1mm)}]child.south) {Nested};\n\\node[sg text, sg label height=6.16, text width=14mm, sg layer=layer1] (visibleChild) at (88,-197.08) {Visible};\n% sakuga hidden \\node[sg shape, text width=42mm, minimum height=16mm, sg layer=hidden] (hiddenParent) at (100,-200) {hiddenParent};\n\\end{tikzpicture}\n",
  "items": [
   {
@@ -11,12 +12,11 @@
    "kind": "Shape",
    "node": {
     "id": "title0",
-    "titlePosition": "north west",
     "cat": "",
     "x": 0,
     "y": 0,
-    "title": "Title 0",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -36,12 +36,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "title0-title",
     "look": {
      "own": {},
      "resolved": {
@@ -57,38 +58,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title0-title",
-   "parent": "title0",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 0",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title0"
   },
   {
    "id": "title1",
@@ -99,12 +74,11 @@
    "kind": "Shape",
    "node": {
     "id": "title1",
-    "titlePosition": "north",
     "cat": "",
     "x": 40,
     "y": 0,
-    "title": "Title 1",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -124,12 +98,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 2,
-    "titleId": "title1-title",
     "look": {
      "own": {},
      "resolved": {
@@ -145,38 +120,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title1-title",
-   "parent": "title1",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 1",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title1"
   },
   {
    "id": "title2",
@@ -187,12 +136,11 @@
    "kind": "Shape",
    "node": {
     "id": "title2",
-    "titlePosition": "north east",
     "cat": "",
     "x": 80,
     "y": 0,
-    "title": "Title 2",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -212,12 +160,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 4,
-    "titleId": "title2-title",
     "look": {
      "own": {},
      "resolved": {
@@ -233,38 +182,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title2-title",
-   "parent": "title2",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 2",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title2"
   },
   {
    "id": "title3",
@@ -275,12 +198,11 @@
    "kind": "Shape",
    "node": {
     "id": "title3",
-    "titlePosition": "west",
     "cat": "",
     "x": 0,
     "y": -28,
-    "title": "Title 3",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -300,12 +222,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "title3-title",
     "look": {
      "own": {},
      "resolved": {
@@ -321,38 +244,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title3-title",
-   "parent": "title3",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 3",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title3"
   },
   {
    "id": "title4",
@@ -366,8 +263,8 @@
     "cat": "",
     "x": 40,
     "y": -28,
-    "title": "Title 4",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -387,12 +284,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 8,
-    "titleId": "title4-title",
     "look": {
      "own": {},
      "resolved": {
@@ -408,38 +306,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title4-title",
-   "parent": "title4",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 4",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title4"
   },
   {
    "id": "title5",
@@ -450,12 +322,11 @@
    "kind": "Shape",
    "node": {
     "id": "title5",
-    "titlePosition": "east",
     "cat": "",
     "x": 80,
     "y": -28,
-    "title": "Title 5",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -475,12 +346,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 10,
-    "titleId": "title5-title",
     "look": {
      "own": {},
      "resolved": {
@@ -496,38 +368,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title5-title",
-   "parent": "title5",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 5",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title5"
   },
   {
    "id": "title6",
@@ -538,12 +384,11 @@
    "kind": "Shape",
    "node": {
     "id": "title6",
-    "titlePosition": "south west",
     "cat": "",
     "x": 0,
     "y": -56,
-    "title": "Title 6",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -563,12 +408,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 12,
-    "titleId": "title6-title",
     "look": {
      "own": {},
      "resolved": {
@@ -584,38 +430,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title6-title",
-   "parent": "title6",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 6",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title6"
   },
   {
    "id": "title7",
@@ -626,12 +446,11 @@
    "kind": "Shape",
    "node": {
     "id": "title7",
-    "titlePosition": "south",
     "cat": "",
     "x": 40,
     "y": -56,
-    "title": "Title 7",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -651,12 +470,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 14,
-    "titleId": "title7-title",
     "look": {
      "own": {},
      "resolved": {
@@ -672,38 +492,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title7-title",
-   "parent": "title7",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 7",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title7"
   },
   {
    "id": "title8",
@@ -714,12 +508,11 @@
    "kind": "Shape",
    "node": {
     "id": "title8",
-    "titlePosition": "south east",
     "cat": "",
     "x": 80,
     "y": -56,
-    "title": "Title 8",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -739,12 +532,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 16,
-    "titleId": "title8-title",
     "look": {
      "own": {},
      "resolved": {
@@ -760,38 +554,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title8-title",
-   "parent": "title8",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 8",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title8"
   },
   {
    "id": "labelParent",
@@ -826,12 +594,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 18,
-    "titleId": "labelParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -847,38 +616,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "labelParent-title",
-   "parent": "labelParent",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "labelParent"
   },
   {
    "id": "parent",
@@ -889,11 +632,10 @@
    "kind": "Shape",
    "node": {
     "id": "parent",
-    "titlePosition": "south east",
     "cat": "",
     "x": 35,
     "y": -205,
-    "title": "Parent",
+    "title": "",
     "code": "",
     "width": 84,
     "minh": 40,
@@ -914,12 +656,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 20,
-    "titleId": "parent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -935,38 +678,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "parent-title",
-   "parent": "parent",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Parent",
-   "code": "",
-   "role": "title",
-   "treeParent": "parent"
   },
   {
    "id": "outsideParent",
@@ -1001,12 +718,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 22,
-    "titleId": "outsideParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -1022,38 +740,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "outsideParent-title",
-   "parent": "outsideParent",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "outsideParent"
   },
   {
    "id": "freeLabel",
@@ -1120,6 +812,7 @@
    "id": "inside0",
    "parent": "labelParent",
    "order": 25,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1127,17 +820,10 @@
    "code": "",
    "node": {
     "id": "inside0",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
-    "y": -93.08,
+    "x": 5.1992,
+    "y": -92.28,
     "title": "In 0",
     "code": "",
     "width": 12,
@@ -1161,6 +847,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top-left",
     "order": 25,
     "look": {
      "own": {
@@ -1181,19 +868,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north west",
-    "ownAnchor": "north west",
-    "dx": 2,
-    "dy": -2
    }
   },
   {
    "id": "outside0",
    "parent": "outsideParent",
    "order": 26,
+   "slot": "outside-top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1201,17 +882,10 @@
    "code": "",
    "node": {
     "id": "outside0",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north west",
-     "ownAnchor": "south east",
-     "dx": -2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
-    "y": -87.92,
+    "x": 120.7325,
+    "y": -88.92,
     "title": "Out 0",
     "code": "",
     "width": 12,
@@ -1235,6 +909,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-top-left",
     "order": 26,
     "look": {
      "own": {},
@@ -1252,35 +927,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north west",
-    "ownAnchor": "south east",
-    "dx": -2,
-    "dy": 2
    }
   },
   {
    "id": "icon0",
    "parent": "outsideParent",
    "order": 27,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon0",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 10,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
-    "y": -107,
+    "x": 133.0663,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -1305,6 +967,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top-left",
     "order": 27,
     "look": {
      "own": {},
@@ -1328,6 +991,7 @@
    "id": "inside1",
    "parent": "labelParent",
    "order": 28,
+   "slot": "top",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1335,17 +999,10 @@
    "code": "",
    "node": {
     "id": "inside1",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
     "x": 35,
-    "y": -93.08,
+    "y": -92.28,
     "title": "In 1",
     "code": "",
     "width": 12,
@@ -1369,6 +1026,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top",
     "order": 28,
     "look": {
      "own": {
@@ -1390,19 +1048,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -2
    }
   },
   {
    "id": "outside1",
    "parent": "outsideParent",
    "order": 29,
+   "slot": "above",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1410,17 +1062,10 @@
    "code": "",
    "node": {
     "id": "outside1",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
     "x": 165,
-    "y": -87.92,
+    "y": -88.92,
     "title": "Out 1",
     "code": "",
     "width": 12,
@@ -1444,6 +1089,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "above",
     "order": 29,
     "look": {
      "own": {},
@@ -1461,35 +1107,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 2
    }
   },
   {
    "id": "icon1",
    "parent": "outsideParent",
    "order": 30,
+   "slot": "top",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon1",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
-    "y": -107,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -1514,6 +1147,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top",
     "order": 30,
     "look": {
      "own": {},
@@ -1537,6 +1171,7 @@
    "id": "inside2",
    "parent": "labelParent",
    "order": 31,
+   "slot": "top-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1544,17 +1179,10 @@
    "code": "",
    "node": {
     "id": "inside2",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north east",
-     "ownAnchor": "north east",
-     "dx": -2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
-    "y": -93.08,
+    "x": 64.8008,
+    "y": -92.28,
     "title": "In 2",
     "code": "",
     "width": 12,
@@ -1578,6 +1206,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top-right",
     "order": 31,
     "look": {
      "own": {
@@ -1598,19 +1227,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north east",
-    "ownAnchor": "north east",
-    "dx": -2,
-    "dy": -2
    }
   },
   {
    "id": "outside2",
    "parent": "outsideParent",
    "order": 32,
+   "slot": "outside-top-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1618,17 +1241,10 @@
    "code": "",
    "node": {
     "id": "outside2",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north east",
-     "ownAnchor": "south west",
-     "dx": 2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
-    "y": -87.92,
+    "x": 209.2675,
+    "y": -88.92,
     "title": "Out 2",
     "code": "",
     "width": 12,
@@ -1652,6 +1268,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-top-right",
     "order": 32,
     "look": {
      "own": {},
@@ -1669,35 +1286,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north east",
-    "ownAnchor": "south west",
-    "dx": 2,
-    "dy": 2
    }
   },
   {
    "id": "icon2",
    "parent": "outsideParent",
    "order": 33,
+   "slot": "top-right",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon2",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north east",
-     "ownAnchor": "north east",
-     "dx": -10,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
-    "y": -107,
+    "x": 196.9338,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -1722,6 +1326,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top-right",
     "order": 33,
     "look": {
      "own": {},
@@ -1745,6 +1350,7 @@
    "id": "inside3",
    "parent": "labelParent",
    "order": 34,
+   "slot": "left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1752,16 +1358,9 @@
    "code": "",
    "node": {
     "id": "inside3",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "west",
-     "ownAnchor": "west",
-     "dx": 2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
+    "x": 5.1992,
     "y": -125,
     "title": "In 3",
     "code": "",
@@ -1786,6 +1385,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "left",
     "order": 34,
     "look": {
      "own": {
@@ -1807,19 +1407,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "west",
-    "ownAnchor": "west",
-    "dx": 2,
-    "dy": 0
    }
   },
   {
    "id": "outside3",
    "parent": "outsideParent",
    "order": 35,
+   "slot": "outside-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1827,16 +1421,9 @@
    "code": "",
    "node": {
     "id": "outside3",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "west",
-     "ownAnchor": "east",
-     "dx": -2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
+    "x": 120.7325,
     "y": -125,
     "title": "Out 3",
     "code": "",
@@ -1861,6 +1448,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-left",
     "order": 35,
     "look": {
      "own": {},
@@ -1878,34 +1466,21 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "west",
-    "ownAnchor": "east",
-    "dx": -2,
-    "dy": 0
    }
   },
   {
    "id": "icon3",
    "parent": "outsideParent",
    "order": 36,
+   "slot": "left",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon3",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "west",
-     "ownAnchor": "west",
-     "dx": 10,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
+    "x": 133.0663,
     "y": -125,
     "width": 6,
     "minh": 8,
@@ -1931,6 +1506,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "left",
     "order": 36,
     "look": {
      "own": {},
@@ -1954,6 +1530,7 @@
    "id": "inside4",
    "parent": "labelParent",
    "order": 37,
+   "slot": "centre",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -1961,15 +1538,7 @@
    "code": "",
    "node": {
     "id": "inside4",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "center",
-     "ownAnchor": "center",
-     "dx": 0,
-     "dy": 0
-    },
     "kind": "label",
-    "cat": "",
     "x": 35,
     "y": -125,
     "title": "In 4",
@@ -1995,6 +1564,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "centre",
     "order": 37,
     "look": {
      "own": {
@@ -2015,31 +1585,18 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "center",
-    "ownAnchor": "center",
-    "dx": 0,
-    "dy": 0
    }
   },
   {
    "id": "icon4",
    "parent": "outsideParent",
    "order": 38,
+   "slot": "centre",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon4",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "center",
-     "ownAnchor": "center",
-     "dx": 0,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
@@ -2068,6 +1625,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "centre",
     "order": 38,
     "look": {
      "own": {},
@@ -2091,6 +1649,7 @@
    "id": "inside5",
    "parent": "labelParent",
    "order": 39,
+   "slot": "right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2098,16 +1657,9 @@
    "code": "",
    "node": {
     "id": "inside5",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "east",
-     "ownAnchor": "east",
-     "dx": -2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
+    "x": 64.8008,
     "y": -125,
     "title": "In 5",
     "code": "",
@@ -2132,6 +1684,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "right",
     "order": 39,
     "look": {
      "own": {
@@ -2153,19 +1706,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "east",
-    "ownAnchor": "east",
-    "dx": -2,
-    "dy": 0
    }
   },
   {
    "id": "outside5",
    "parent": "outsideParent",
    "order": 40,
+   "slot": "outside-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2173,16 +1720,9 @@
    "code": "",
    "node": {
     "id": "outside5",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "east",
-     "ownAnchor": "west",
-     "dx": 2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
+    "x": 209.2675,
     "y": -125,
     "title": "Out 5",
     "code": "",
@@ -2207,6 +1747,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-right",
     "order": 40,
     "look": {
      "own": {},
@@ -2224,34 +1765,21 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "east",
-    "ownAnchor": "west",
-    "dx": 2,
-    "dy": 0
    }
   },
   {
    "id": "icon5",
    "parent": "outsideParent",
    "order": 41,
+   "slot": "right",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon5",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "east",
-     "ownAnchor": "east",
-     "dx": -10,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
+    "x": 196.9338,
     "y": -125,
     "width": 6,
     "minh": 8,
@@ -2277,6 +1805,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "right",
     "order": 41,
     "look": {
      "own": {},
@@ -2300,6 +1829,7 @@
    "id": "inside6",
    "parent": "labelParent",
    "order": 42,
+   "slot": "bottom-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2307,17 +1837,10 @@
    "code": "",
    "node": {
     "id": "inside6",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south west",
-     "ownAnchor": "south west",
-     "dx": 2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
-    "y": -156.92,
+    "x": 5.1992,
+    "y": -157.72,
     "title": "In 6",
     "code": "",
     "width": 12,
@@ -2341,6 +1864,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom-left",
     "order": 42,
     "look": {
      "own": {
@@ -2361,19 +1885,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south west",
-    "ownAnchor": "south west",
-    "dx": 2,
-    "dy": 2
    }
   },
   {
    "id": "outside6",
    "parent": "outsideParent",
    "order": 43,
+   "slot": "outside-bottom-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2381,17 +1899,10 @@
    "code": "",
    "node": {
     "id": "outside6",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south west",
-     "ownAnchor": "north east",
-     "dx": -2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
-    "y": -162.08,
+    "x": 120.7325,
+    "y": -161.08,
     "title": "Out 6",
     "code": "",
     "width": 12,
@@ -2415,6 +1926,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-bottom-left",
     "order": 43,
     "look": {
      "own": {},
@@ -2432,35 +1944,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south west",
-    "ownAnchor": "north east",
-    "dx": -2,
-    "dy": -2
    }
   },
   {
    "id": "icon6",
    "parent": "outsideParent",
    "order": 44,
+   "slot": "bottom-left",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon6",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south west",
-     "ownAnchor": "south west",
-     "dx": 10,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
-    "y": -143,
+    "x": 133.0663,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -2485,6 +1984,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom-left",
     "order": 44,
     "look": {
      "own": {},
@@ -2508,6 +2008,7 @@
    "id": "inside7",
    "parent": "labelParent",
    "order": 45,
+   "slot": "bottom",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2515,17 +2016,10 @@
    "code": "",
    "node": {
     "id": "inside7",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
     "x": 35,
-    "y": -156.92,
+    "y": -157.72,
     "title": "In 7",
     "code": "",
     "width": 12,
@@ -2549,6 +2043,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom",
     "order": 45,
     "look": {
      "own": {
@@ -2570,19 +2065,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 2
    }
   },
   {
    "id": "outside7",
    "parent": "outsideParent",
    "order": 46,
+   "slot": "below",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2590,17 +2079,10 @@
    "code": "",
    "node": {
     "id": "outside7",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
     "x": 165,
-    "y": -162.08,
+    "y": -161.08,
     "title": "Out 7",
     "code": "",
     "width": 12,
@@ -2624,6 +2106,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "below",
     "order": 46,
     "look": {
      "own": {},
@@ -2641,35 +2124,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -2
    }
   },
   {
    "id": "icon7",
    "parent": "outsideParent",
    "order": 47,
+   "slot": "bottom",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon7",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
-    "y": -143,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -2694,6 +2164,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom",
     "order": 47,
     "look": {
      "own": {},
@@ -2717,6 +2188,7 @@
    "id": "inside8",
    "parent": "labelParent",
    "order": 48,
+   "slot": "bottom-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2724,17 +2196,10 @@
    "code": "",
    "node": {
     "id": "inside8",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south east",
-     "ownAnchor": "south east",
-     "dx": -2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
-    "y": -156.92,
+    "x": 64.8008,
+    "y": -157.72,
     "title": "In 8",
     "code": "",
     "width": 12,
@@ -2758,6 +2223,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom-right",
     "order": 48,
     "look": {
      "own": {
@@ -2778,19 +2244,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south east",
-    "ownAnchor": "south east",
-    "dx": -2,
-    "dy": 2
    }
   },
   {
    "id": "outside8",
    "parent": "outsideParent",
    "order": 49,
+   "slot": "outside-bottom-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2798,17 +2258,10 @@
    "code": "",
    "node": {
     "id": "outside8",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south east",
-     "ownAnchor": "north west",
-     "dx": 2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
-    "y": -162.08,
+    "x": 209.2675,
+    "y": -161.08,
     "title": "Out 8",
     "code": "",
     "width": 12,
@@ -2832,6 +2285,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-bottom-right",
     "order": 49,
     "look": {
      "own": {},
@@ -2849,35 +2303,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south east",
-    "ownAnchor": "north west",
-    "dx": 2,
-    "dy": -2
    }
   },
   {
    "id": "icon8",
    "parent": "outsideParent",
    "order": 50,
+   "slot": "bottom-right",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon8",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south east",
-     "ownAnchor": "south east",
-     "dx": -10,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
-    "y": -143,
+    "x": 196.9338,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -2902,6 +2343,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom-right",
     "order": 50,
     "look": {
      "own": {},
@@ -2925,22 +2367,16 @@
    "id": "child",
    "parent": "parent",
    "order": 51,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Shape",
    "node": {
     "id": "child",
-    "attachment": {
-     "parent": "parent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 1.5,
-     "dy": -1.5
-    },
     "cat": "",
-    "x": 4.5,
-    "y": -192.5,
-    "title": "Child",
+    "x": 4.2,
+    "y": -192.2,
+    "title": "",
     "code": "",
     "width": 20,
     "minh": 12,
@@ -2961,12 +2397,14 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "parent",
+    "slot": "top-left",
     "order": 51,
-    "titleId": "child-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2982,43 +2420,18 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "child-title",
-   "parent": "child",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Child",
-   "code": "",
-   "role": "title",
-   "treeParent": "child"
-  },
-  {
    "id": "grandchild",
    "parent": "child",
    "order": 53,
+   "slot": "below",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -3026,17 +2439,10 @@
    "code": "",
    "node": {
     "id": "grandchild",
-    "attachment": {
-     "parent": "child",
-     "anchor": "south",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -1
-    },
     "kind": "label",
     "cat": "",
-    "x": 4.5,
-    "y": -202.58,
+    "x": 4.2,
+    "y": -202.28,
     "title": "Nested",
     "code": "",
     "width": 12,
@@ -3060,6 +2466,7 @@
     },
     "extra": [],
     "treeParent": "child",
+    "slot": "below",
     "order": 53,
     "look": {
      "own": {},
@@ -3077,13 +2484,6 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "child",
-    "anchor": "south",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -1
    }
   },
   {
@@ -3155,7 +2555,7 @@
     "cat": "",
     "x": 100,
     "y": -200,
-    "title": "hiddenParent",
+    "title": "",
     "code": "",
     "width": 42,
     "minh": 16,
@@ -3176,12 +2576,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "hidden",
     "order": 54,
-    "titleId": "hiddenParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3197,21 +2598,38 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "hiddenParent-title",
-   "parent": "hiddenParent",
+   "id": "title0-title",
+   "parent": "title0",
    "order": 0,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
+   "text": "Title 0",
+   "code": "code",
+   "node": {
+    "id": "title0-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": 4.8005,
+    "title": "Title 0",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
      "fill": "none",
      "border": "none",
      "weight": "thin",
@@ -3223,24 +2641,709 @@
      "markCorner": "ne",
      "markSize": "small",
      "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title0",
+    "slot": "top-left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
     }
-   },
+   }
+  },
+  {
+   "id": "title1-title",
+   "parent": "title1",
+   "order": 0,
+   "slot": "top",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 1",
+   "code": "code",
+   "node": {
+    "id": "title1-title",
+    "kind": "label",
+    "cat": "",
+    "x": 40,
+    "y": 4.8005,
+    "title": "Title 1",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title1",
+    "slot": "top",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title2-title",
+   "parent": "title2",
+   "order": 0,
+   "slot": "top-right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 2",
+   "code": "code",
+   "node": {
+    "id": "title2-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": 4.8005,
+    "title": "Title 2",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title2",
+    "slot": "top-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title3-title",
+   "parent": "title3",
+   "order": 0,
+   "slot": "left",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 3",
+   "code": "code",
+   "node": {
+    "id": "title3-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": -28,
+    "title": "Title 3",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title3",
+    "slot": "left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title4-title",
+   "parent": "title4",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 4",
+   "code": "code",
+   "node": {
+    "id": "title4-title",
+    "kind": "label",
+    "x": 40,
+    "y": -28,
+    "title": "Title 4",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title4",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title5-title",
+   "parent": "title5",
+   "order": 0,
+   "slot": "right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 5",
+   "code": "code",
+   "node": {
+    "id": "title5-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": -28,
+    "title": "Title 5",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title5",
+    "slot": "right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title6-title",
+   "parent": "title6",
+   "order": 0,
+   "slot": "bottom-left",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 6",
+   "code": "code",
+   "node": {
+    "id": "title6-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": -60.8005,
+    "title": "Title 6",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title6",
+    "slot": "bottom-left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title7-title",
+   "parent": "title7",
+   "order": 0,
+   "slot": "bottom",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 7",
+   "code": "code",
+   "node": {
+    "id": "title7-title",
+    "kind": "label",
+    "cat": "",
+    "x": 40,
+    "y": -60.8005,
+    "title": "Title 7",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title7",
+    "slot": "bottom",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title8-title",
+   "parent": "title8",
+   "order": 0,
+   "slot": "bottom-right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 8",
+   "code": "code",
+   "node": {
+    "id": "title8-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": -60.8005,
+    "title": "Title 8",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title8",
+    "slot": "bottom-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "parent-title",
+   "parent": "parent",
+   "order": 0,
+   "slot": "bottom-right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Parent",
+   "code": "",
+   "node": {
+    "id": "parent-title",
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -220.72,
+    "title": "Parent",
+    "code": "",
+    "width": 84,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "parent",
+    "slot": "bottom-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "child-title",
+   "parent": "child",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Child",
+   "code": "",
+   "node": {
+    "id": "child-title",
+    "kind": "label",
+    "x": 4.2,
+    "y": -192.2,
+    "title": "Child",
+    "code": "",
+    "width": 20,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "child",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "hiddenParent-title",
+   "parent": "hiddenParent",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
    "text": "hiddenParent",
    "code": "",
-   "role": "title",
-   "treeParent": "hiddenParent"
+   "node": {
+    "id": "hiddenParent-title",
+    "kind": "label",
+    "x": 100,
+    "y": -200,
+    "title": "hiddenParent",
+    "code": "",
+    "width": 42,
+    "minh": 0,
+    "layer": "hidden",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hiddenParent",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ],
  "lines": [],
  "nodes": [
   {
    "id": "title0",
-   "titlePosition": "north west",
    "cat": "",
    "x": 0,
    "y": 0,
-   "title": "Title 0",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3260,12 +3363,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 0,
-   "titleId": "title0-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3281,19 +3385,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 0,
+    "y": 0,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title1",
-   "titlePosition": "north",
    "cat": "",
    "x": 40,
    "y": 0,
-   "title": "Title 1",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3313,12 +3428,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 2,
-   "titleId": "title1-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3334,19 +3450,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 40,
+    "y": 0,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title2",
-   "titlePosition": "north east",
    "cat": "",
    "x": 80,
    "y": 0,
-   "title": "Title 2",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3366,12 +3493,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 4,
-   "titleId": "title2-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3387,19 +3515,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 80,
+    "y": 0,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title3",
-   "titlePosition": "west",
    "cat": "",
    "x": 0,
    "y": -28,
-   "title": "Title 3",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3419,12 +3558,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 6,
-   "titleId": "title3-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3440,8 +3580,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 0,
+    "y": -28,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
@@ -3450,8 +3602,8 @@
    "cat": "",
    "x": 40,
    "y": -28,
-   "title": "Title 4",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3471,12 +3623,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 8,
-   "titleId": "title4-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3492,19 +3645,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 40,
+    "y": -28,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title5",
-   "titlePosition": "east",
    "cat": "",
    "x": 80,
    "y": -28,
-   "title": "Title 5",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3524,12 +3688,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 10,
-   "titleId": "title5-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3545,19 +3710,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 80,
+    "y": -28,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title6",
-   "titlePosition": "south west",
    "cat": "",
    "x": 0,
    "y": -56,
-   "title": "Title 6",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3577,12 +3753,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 12,
-   "titleId": "title6-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3598,19 +3775,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 0,
+    "y": -56,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title7",
-   "titlePosition": "south",
    "cat": "",
    "x": 40,
    "y": -56,
-   "title": "Title 7",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3630,12 +3818,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 14,
-   "titleId": "title7-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3651,19 +3840,30 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 40,
+    "y": -56,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
   {
    "id": "title8",
-   "titlePosition": "south east",
    "cat": "",
    "x": 80,
    "y": -56,
-   "title": "Title 8",
-   "code": "code",
+   "title": "",
+   "code": "",
    "width": 30,
    "minh": 22,
    "layer": "layer1",
@@ -3683,12 +3883,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 16,
-   "titleId": "title8-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3704,8 +3905,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 80,
+    "y": -56,
+    "w": 32.2675,
+    "h": 22,
+    "lines": [
+     ""
+    ],
+    "textWidth": 30
    },
    "overrides": []
   },
@@ -3735,12 +3948,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 18,
-   "titleId": "labelParent-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3756,18 +3970,29 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 35,
+    "y": -125,
+    "w": 90.8025,
+    "h": 74,
+    "lines": [
+     ""
+    ],
+    "textWidth": 84
    },
    "overrides": []
   },
   {
    "id": "parent",
-   "titlePosition": "south east",
    "cat": "",
    "x": 35,
    "y": -205,
-   "title": "Parent",
+   "title": "",
    "code": "",
    "width": 84,
    "minh": 40,
@@ -3788,12 +4013,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 20,
-   "titleId": "parent-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3809,8 +4035,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 35,
+    "y": -205,
+    "w": 86.2675,
+    "h": 40,
+    "lines": [
+     ""
+    ],
+    "textWidth": 84
    },
    "overrides": []
   },
@@ -3840,12 +4078,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "layer1",
    "order": 22,
-   "titleId": "outsideParent-title",
    "look": {
     "own": {},
     "resolved": {
@@ -3861,8 +4100,20 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     }
+   },
+   "derivedRect": {
+    "x": 165,
+    "y": -125,
+    "w": 72.2675,
+    "h": 64,
+    "lines": [
+     ""
+    ],
+    "textWidth": 70
    },
    "overrides": []
   },
@@ -3924,17 +4175,10 @@
   },
   {
    "id": "inside0",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north west",
-    "ownAnchor": "north west",
-    "dx": 2,
-    "dy": -2
-   },
    "kind": "label",
    "cat": "",
-   "x": 1,
-   "y": -93.08,
+   "x": 5.1992,
+   "y": -92.28,
    "title": "In 0",
    "code": "",
    "width": 12,
@@ -3958,6 +4202,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "top-left",
    "order": 25,
    "look": {
     "own": {
@@ -3978,6 +4223,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 5.1992,
+    "y": -92.28,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 0"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "font"
@@ -3985,17 +4240,10 @@
   },
   {
    "id": "outside0",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north west",
-    "ownAnchor": "south east",
-    "dx": -2,
-    "dy": 2
-   },
    "kind": "label",
    "cat": "",
-   "x": 119.7325,
-   "y": -87.92,
+   "x": 120.7325,
+   "y": -88.92,
    "title": "Out 0",
    "code": "",
    "width": 12,
@@ -4019,6 +4267,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "outside-top-left",
    "order": 26,
    "look": {
     "own": {},
@@ -4036,21 +4285,24 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 120.7325,
+    "y": -88.92,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 0"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon0",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north west",
-    "ownAnchor": "north west",
-    "dx": 10,
-    "dy": -10
-   },
    "kind": "icon",
    "icon": "board",
-   "x": 141.8663,
-   "y": -107,
+   "x": 133.0663,
+   "y": -98.2,
    "width": 6,
    "minh": 8,
    "title": "",
@@ -4075,6 +4327,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "top-left",
    "order": 27,
    "look": {
     "own": {},
@@ -4092,21 +4345,22 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 133.0663,
+    "y": -98.2,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside1",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -2
-   },
    "kind": "label",
    "cat": "",
    "x": 35,
-   "y": -93.08,
+   "y": -92.28,
    "title": "In 1",
    "code": "",
    "width": 12,
@@ -4130,6 +4384,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "top",
    "order": 28,
    "look": {
     "own": {
@@ -4151,6 +4406,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 35,
+    "y": -92.28,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 1"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "border",
@@ -4159,17 +4424,10 @@
   },
   {
    "id": "outside1",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 2
-   },
    "kind": "label",
    "cat": "",
    "x": 165,
-   "y": -87.92,
+   "y": -88.92,
    "title": "Out 1",
    "code": "",
    "width": 12,
@@ -4193,6 +4451,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "above",
    "order": 29,
    "look": {
     "own": {},
@@ -4210,21 +4469,24 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 165,
+    "y": -88.92,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 1"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon1",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -10
-   },
    "kind": "icon",
    "icon": "board",
    "x": 165,
-   "y": -107,
+   "y": -98.2,
    "width": 6,
    "minh": 8,
    "title": "",
@@ -4249,6 +4511,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "top",
    "order": 30,
    "look": {
     "own": {},
@@ -4266,21 +4529,22 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 165,
+    "y": -98.2,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside2",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north east",
-    "ownAnchor": "north east",
-    "dx": -2,
-    "dy": -2
-   },
    "kind": "label",
    "cat": "",
-   "x": 69,
-   "y": -93.08,
+   "x": 64.8008,
+   "y": -92.28,
    "title": "In 2",
    "code": "",
    "width": 12,
@@ -4304,6 +4568,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "top-right",
    "order": 31,
    "look": {
     "own": {
@@ -4324,6 +4589,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 64.8008,
+    "y": -92.28,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 2"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "font"
@@ -4331,17 +4606,10 @@
   },
   {
    "id": "outside2",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north east",
-    "ownAnchor": "south west",
-    "dx": 2,
-    "dy": 2
-   },
    "kind": "label",
    "cat": "",
-   "x": 210.2675,
-   "y": -87.92,
+   "x": 209.2675,
+   "y": -88.92,
    "title": "Out 2",
    "code": "",
    "width": 12,
@@ -4365,6 +4633,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "outside-top-right",
    "order": 32,
    "look": {
     "own": {},
@@ -4382,21 +4651,24 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 209.2675,
+    "y": -88.92,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 2"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon2",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north east",
-    "ownAnchor": "north east",
-    "dx": -10,
-    "dy": -10
-   },
    "kind": "icon",
    "icon": "board",
-   "x": 188.1338,
-   "y": -107,
+   "x": 196.9338,
+   "y": -98.2,
    "width": 6,
    "minh": 8,
    "title": "",
@@ -4421,6 +4693,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "top-right",
    "order": 33,
    "look": {
     "own": {},
@@ -4438,20 +4711,21 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 196.9338,
+    "y": -98.2,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside3",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "west",
-    "ownAnchor": "west",
-    "dx": 2,
-    "dy": 0
-   },
    "kind": "label",
    "cat": "",
-   "x": 1,
+   "x": 5.1992,
    "y": -125,
    "title": "In 3",
    "code": "",
@@ -4476,6 +4750,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "left",
    "order": 34,
    "look": {
     "own": {
@@ -4497,6 +4772,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 5.1992,
+    "y": -125,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 3"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "border",
@@ -4505,16 +4790,9 @@
   },
   {
    "id": "outside3",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "west",
-    "ownAnchor": "east",
-    "dx": -2,
-    "dy": 0
-   },
    "kind": "label",
    "cat": "",
-   "x": 119.7325,
+   "x": 120.7325,
    "y": -125,
    "title": "Out 3",
    "code": "",
@@ -4539,6 +4817,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "outside-left",
    "order": 35,
    "look": {
     "own": {},
@@ -4556,20 +4835,23 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 120.7325,
+    "y": -125,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 3"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon3",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "west",
-    "ownAnchor": "west",
-    "dx": 10,
-    "dy": 0
-   },
    "kind": "icon",
    "icon": "board",
-   "x": 141.8663,
+   "x": 133.0663,
    "y": -125,
    "width": 6,
    "minh": 8,
@@ -4595,6 +4877,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "left",
    "order": 36,
    "look": {
     "own": {},
@@ -4612,19 +4895,19 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 133.0663,
+    "y": -125,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside4",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "center",
-    "ownAnchor": "center",
-    "dx": 0,
-    "dy": 0
-   },
    "kind": "label",
-   "cat": "",
    "x": 35,
    "y": -125,
    "title": "In 4",
@@ -4650,6 +4933,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "centre",
    "order": 37,
    "look": {
     "own": {
@@ -4670,6 +4954,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 35,
+    "y": -125,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 4"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "font"
@@ -4677,13 +4971,6 @@
   },
   {
    "id": "icon4",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "center",
-    "ownAnchor": "center",
-    "dx": 0,
-    "dy": 0
-   },
    "kind": "icon",
    "icon": "board",
    "x": 165,
@@ -4712,6 +4999,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "centre",
    "order": 38,
    "look": {
     "own": {},
@@ -4729,20 +5017,21 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 165,
+    "y": -125,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside5",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "east",
-    "ownAnchor": "east",
-    "dx": -2,
-    "dy": 0
-   },
    "kind": "label",
    "cat": "",
-   "x": 69,
+   "x": 64.8008,
    "y": -125,
    "title": "In 5",
    "code": "",
@@ -4767,6 +5056,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "right",
    "order": 39,
    "look": {
     "own": {
@@ -4788,6 +5078,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 64.8008,
+    "y": -125,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 5"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "border",
@@ -4796,16 +5096,9 @@
   },
   {
    "id": "outside5",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "east",
-    "ownAnchor": "west",
-    "dx": 2,
-    "dy": 0
-   },
    "kind": "label",
    "cat": "",
-   "x": 210.2675,
+   "x": 209.2675,
    "y": -125,
    "title": "Out 5",
    "code": "",
@@ -4830,6 +5123,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "outside-right",
    "order": 40,
    "look": {
     "own": {},
@@ -4847,20 +5141,23 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 209.2675,
+    "y": -125,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 5"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon5",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "east",
-    "ownAnchor": "east",
-    "dx": -10,
-    "dy": 0
-   },
    "kind": "icon",
    "icon": "board",
-   "x": 188.1338,
+   "x": 196.9338,
    "y": -125,
    "width": 6,
    "minh": 8,
@@ -4886,6 +5183,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "right",
    "order": 41,
    "look": {
     "own": {},
@@ -4903,21 +5201,22 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 196.9338,
+    "y": -125,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside6",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south west",
-    "ownAnchor": "south west",
-    "dx": 2,
-    "dy": 2
-   },
    "kind": "label",
    "cat": "",
-   "x": 1,
-   "y": -156.92,
+   "x": 5.1992,
+   "y": -157.72,
    "title": "In 6",
    "code": "",
    "width": 12,
@@ -4941,6 +5240,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "bottom-left",
    "order": 42,
    "look": {
     "own": {
@@ -4961,6 +5261,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 5.1992,
+    "y": -157.72,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 6"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "font"
@@ -4968,17 +5278,10 @@
   },
   {
    "id": "outside6",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south west",
-    "ownAnchor": "north east",
-    "dx": -2,
-    "dy": -2
-   },
    "kind": "label",
    "cat": "",
-   "x": 119.7325,
-   "y": -162.08,
+   "x": 120.7325,
+   "y": -161.08,
    "title": "Out 6",
    "code": "",
    "width": 12,
@@ -5002,6 +5305,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "outside-bottom-left",
    "order": 43,
    "look": {
     "own": {},
@@ -5019,21 +5323,24 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 120.7325,
+    "y": -161.08,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 6"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon6",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south west",
-    "ownAnchor": "south west",
-    "dx": 10,
-    "dy": 10
-   },
    "kind": "icon",
    "icon": "board",
-   "x": 141.8663,
-   "y": -143,
+   "x": 133.0663,
+   "y": -151.8,
    "width": 6,
    "minh": 8,
    "title": "",
@@ -5058,6 +5365,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "bottom-left",
    "order": 44,
    "look": {
     "own": {},
@@ -5075,21 +5383,22 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 133.0663,
+    "y": -151.8,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside7",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 2
-   },
    "kind": "label",
    "cat": "",
    "x": 35,
-   "y": -156.92,
+   "y": -157.72,
    "title": "In 7",
    "code": "",
    "width": 12,
@@ -5113,6 +5422,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "bottom",
    "order": 45,
    "look": {
     "own": {
@@ -5134,6 +5444,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 35,
+    "y": -157.72,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 7"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "border",
@@ -5142,17 +5462,10 @@
   },
   {
    "id": "outside7",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -2
-   },
    "kind": "label",
    "cat": "",
    "x": 165,
-   "y": -162.08,
+   "y": -161.08,
    "title": "Out 7",
    "code": "",
    "width": 12,
@@ -5176,6 +5489,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "below",
    "order": 46,
    "look": {
     "own": {},
@@ -5193,21 +5507,24 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 165,
+    "y": -161.08,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 7"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon7",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 10
-   },
    "kind": "icon",
    "icon": "board",
    "x": 165,
-   "y": -143,
+   "y": -151.8,
    "width": 6,
    "minh": 8,
    "title": "",
@@ -5232,6 +5549,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "bottom",
    "order": 47,
    "look": {
     "own": {},
@@ -5249,21 +5567,22 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 165,
+    "y": -151.8,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
    "id": "inside8",
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south east",
-    "ownAnchor": "south east",
-    "dx": -2,
-    "dy": 2
-   },
    "kind": "label",
    "cat": "",
-   "x": 69,
-   "y": -156.92,
+   "x": 64.8008,
+   "y": -157.72,
    "title": "In 8",
    "code": "",
    "width": 12,
@@ -5287,6 +5606,7 @@
    },
    "extra": [],
    "treeParent": "labelParent",
+   "slot": "bottom-right",
    "order": 48,
    "look": {
     "own": {
@@ -5307,6 +5627,16 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 64.8008,
+    "y": -157.72,
+    "w": 28.8008,
+    "h": 6.16,
+    "lines": [
+     "In 8"
+    ],
+    "textWidth": 26.5333
+   },
    "overrides": [
     "textColor",
     "font"
@@ -5314,17 +5644,10 @@
   },
   {
    "id": "outside8",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south east",
-    "ownAnchor": "north west",
-    "dx": 2,
-    "dy": -2
-   },
    "kind": "label",
    "cat": "",
-   "x": 210.2675,
-   "y": -162.08,
+   "x": 209.2675,
+   "y": -161.08,
    "title": "Out 8",
    "code": "",
    "width": 12,
@@ -5348,6 +5671,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "outside-bottom-right",
    "order": 49,
    "look": {
     "own": {},
@@ -5365,21 +5689,24 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 209.2675,
+    "y": -161.08,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Out 8"
+    ],
+    "textWidth": 12
+   },
    "overrides": []
   },
   {
    "id": "icon8",
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south east",
-    "ownAnchor": "south east",
-    "dx": -10,
-    "dy": 10
-   },
    "kind": "icon",
    "icon": "board",
-   "x": 188.1338,
-   "y": -143,
+   "x": 196.9338,
+   "y": -151.8,
    "width": 6,
    "minh": 8,
    "title": "",
@@ -5404,6 +5731,7 @@
    },
    "extra": [],
    "treeParent": "outsideParent",
+   "slot": "bottom-right",
    "order": 50,
    "look": {
     "own": {},
@@ -5421,36 +5749,36 @@
      "markColor": "#33333A"
     }
    },
+   "derivedRect": {
+    "x": 196.9338,
+    "y": -151.8,
+    "w": 6,
+    "h": 8,
+    "lines": [],
+    "textWidth": 6
+   },
    "overrides": []
   },
   {
-   "id": "child",
-   "attachment": {
-    "parent": "parent",
-    "anchor": "north west",
-    "ownAnchor": "north west",
-    "dx": 1.5,
-    "dy": -1.5
-   },
+   "id": "parent-title",
+   "kind": "label",
    "cat": "",
-   "x": 4.5,
-   "y": -192.5,
-   "title": "Child",
+   "x": 35,
+   "y": -220.72,
+   "title": "Parent",
    "code": "",
-   "width": 20,
-   "minh": 12,
+   "width": 84,
+   "minh": 0,
    "layer": "layer1",
    "group": "",
    "hidden": false,
    "locked": false,
    "style": {
-    "fill": "white",
-    "color": "#9E9E9E",
-    "border": "solid",
+    "fill": "none",
+    "border": "none",
     "weight": "thin",
-    "lineWidth": 0.45,
-    "shape": "rounded",
     "font": "small",
+    "textColor": "#595959",
     "compact": false,
     "opacity": 1,
     "mark": "none",
@@ -5460,18 +5788,18 @@
    },
    "extra": [],
    "treeParent": "parent",
-   "order": 51,
-   "titleId": "child-title",
+   "slot": "bottom-right",
+   "order": 0,
    "look": {
-    "own": {},
+    "own": {
+     "font": "small"
+    },
     "resolved": {
-     "fill": "white",
-     "color": "#9E9E9E",
-     "border": "solid",
+     "fill": "none",
+     "border": "none",
      "weight": "thin",
-     "lineWidth": 0.45,
-     "shape": "rounded",
      "font": "small",
+     "textColor": "#595959",
      "compact": false,
      "opacity": 1,
      "mark": "none",
@@ -5480,24 +5808,28 @@
      "markColor": "#33333A"
     }
    },
-   "overrides": []
+   "derivedRect": {
+    "x": 35,
+    "y": -220.72,
+    "w": 83.8675,
+    "h": 6.16,
+    "lines": [
+     "Parent"
+    ],
+    "textWidth": 81.6
+   },
+   "overrides": [
+    "font"
+   ]
   },
   {
-   "id": "grandchild",
-   "attachment": {
-    "parent": "child",
-    "anchor": "south",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -1
-   },
+   "id": "child-title",
    "kind": "label",
-   "cat": "",
-   "x": 4.5,
-   "y": -202.58,
-   "title": "Nested",
+   "x": 4.2,
+   "y": -192.2,
+   "title": "Child",
    "code": "",
-   "width": 12,
+   "width": 20,
    "minh": 0,
    "layer": "layer1",
    "group": "",
@@ -5518,9 +5850,12 @@
    },
    "extra": [],
    "treeParent": "child",
-   "order": 53,
+   "slot": "centre",
+   "order": 0,
    "look": {
-    "own": {},
+    "own": {
+     "font": "small"
+    },
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -5535,7 +5870,19 @@
      "markColor": "#33333A"
     }
    },
-   "overrides": []
+   "derivedRect": {
+    "x": 4.2,
+    "y": -192.2,
+    "w": 19.8675,
+    "h": 6.16,
+    "lines": [
+     "Child"
+    ],
+    "textWidth": 17.6
+   },
+   "overrides": [
+    "font"
+   ]
   },
   {
    "id": "visibleChild",
@@ -5586,11 +5933,702 @@
    "overrides": []
   },
   {
+   "id": "title0-title",
+   "kind": "label",
+   "cat": "",
+   "x": 0,
+   "y": 4.8005,
+   "title": "Title 0",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title0",
+   "slot": "top-left",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 0,
+    "y": 4.8005,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 0"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title1-title",
+   "kind": "label",
+   "cat": "",
+   "x": 40,
+   "y": 4.8005,
+   "title": "Title 1",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title1",
+   "slot": "top",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 40,
+    "y": 4.8005,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 1"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title2-title",
+   "kind": "label",
+   "cat": "",
+   "x": 80,
+   "y": 4.8005,
+   "title": "Title 2",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title2",
+   "slot": "top-right",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 80,
+    "y": 4.8005,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 2"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title3-title",
+   "kind": "label",
+   "cat": "",
+   "x": 0,
+   "y": -28,
+   "title": "Title 3",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title3",
+   "slot": "left",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 0,
+    "y": -28,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 3"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title4-title",
+   "kind": "label",
+   "x": 40,
+   "y": -28,
+   "title": "Title 4",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title4",
+   "slot": "centre",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 40,
+    "y": -28,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 4"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title5-title",
+   "kind": "label",
+   "cat": "",
+   "x": 80,
+   "y": -28,
+   "title": "Title 5",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title5",
+   "slot": "right",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 80,
+    "y": -28,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 5"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title6-title",
+   "kind": "label",
+   "cat": "",
+   "x": 0,
+   "y": -60.8005,
+   "title": "Title 6",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title6",
+   "slot": "bottom-left",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 0,
+    "y": -60.8005,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 6"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title7-title",
+   "kind": "label",
+   "cat": "",
+   "x": 40,
+   "y": -60.8005,
+   "title": "Title 7",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title7",
+   "slot": "bottom",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 40,
+    "y": -60.8005,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 7"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "title8-title",
+   "kind": "label",
+   "cat": "",
+   "x": 80,
+   "y": -60.8005,
+   "title": "Title 8",
+   "code": "code",
+   "width": 30,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "title8",
+   "slot": "bottom-right",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 80,
+    "y": -60.8005,
+    "w": 29.8675,
+    "h": 9.999,
+    "lines": [
+     "Title 8"
+    ],
+    "textWidth": 27.6
+   },
+   "overrides": [
+    "font"
+   ]
+  },
+  {
+   "id": "child",
+   "cat": "",
+   "x": 4.2,
+   "y": -192.2,
+   "title": "",
+   "code": "",
+   "width": 20,
+   "minh": 12,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "white",
+    "color": "#9E9E9E",
+    "border": "solid",
+    "weight": "thin",
+    "lineWidth": 0.45,
+    "shape": "rounded",
+    "font": "small",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
+   },
+   "extra": [],
+   "treeParent": "parent",
+   "slot": "top-left",
+   "order": 51,
+   "look": {
+    "own": {},
+    "resolved": {
+     "fill": "white",
+     "color": "#9E9E9E",
+     "border": "solid",
+     "weight": "thin",
+     "lineWidth": 0.45,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
+    }
+   },
+   "derivedRect": {
+    "x": 4.2,
+    "y": -192.2,
+    "w": 22.2675,
+    "h": 12,
+    "lines": [
+     ""
+    ],
+    "textWidth": 20
+   },
+   "overrides": []
+  },
+  {
+   "id": "grandchild",
+   "kind": "label",
+   "cat": "",
+   "x": 4.2,
+   "y": -202.28,
+   "title": "Nested",
+   "code": "",
+   "width": 12,
+   "minh": 0,
+   "layer": "layer1",
+   "group": "",
+   "hidden": false,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "child",
+   "slot": "below",
+   "order": 53,
+   "look": {
+    "own": {},
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    }
+   },
+   "derivedRect": {
+    "x": 4.2,
+    "y": -202.28,
+    "w": 14.2675,
+    "h": 6.16,
+    "lines": [
+     "Nested"
+    ],
+    "textWidth": 12
+   },
+   "overrides": []
+  },
+  {
    "id": "hiddenParent",
    "cat": "",
    "x": 100,
    "y": -200,
-   "title": "hiddenParent",
+   "title": "",
    "code": "",
    "width": 42,
    "minh": 16,
@@ -5611,12 +6649,13 @@
     "mark": "none",
     "markCorner": "ne",
     "markSize": "small",
-    "markColor": "#33333A"
+    "markColor": "#33333A",
+    "innerPadding": 1.2,
+    "outerGap": 1
    },
    "extra": [],
    "treeParent": "hidden",
    "order": 54,
-   "titleId": "hiddenParent-title",
    "look": {
     "own": {},
     "resolved": {
@@ -5632,10 +6671,84 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
+    }
+   },
+   "derivedRect": {
+    "x": 100,
+    "y": -200,
+    "w": 44.2675,
+    "h": 16,
+    "lines": [
+     ""
+    ],
+    "textWidth": 42
+   },
+   "overrides": []
+  },
+  {
+   "id": "hiddenParent-title",
+   "kind": "label",
+   "x": 100,
+   "y": -200,
+   "title": "hiddenParent",
+   "code": "",
+   "width": 42,
+   "minh": 0,
+   "layer": "hidden",
+   "group": "",
+   "hidden": true,
+   "locked": false,
+   "style": {
+    "fill": "none",
+    "border": "none",
+    "weight": "thin",
+    "font": "small",
+    "textColor": "#595959",
+    "compact": false,
+    "opacity": 1,
+    "mark": "none",
+    "markCorner": "ne",
+    "markSize": "small",
+    "markColor": "#33333A"
+   },
+   "extra": [],
+   "treeParent": "hiddenParent",
+   "slot": "centre",
+   "order": 0,
+   "look": {
+    "own": {
+     "font": "small"
+    },
+    "resolved": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
      "markColor": "#33333A"
     }
    },
-   "overrides": []
+   "derivedRect": {
+    "x": 100,
+    "y": -200,
+    "w": 41.8675,
+    "h": 6.16,
+    "lines": [
+     "hiddenParent"
+    ],
+    "textWidth": 39.6
+   },
+   "overrides": [
+    "font"
+   ]
   }
  ],
  "edges": [],
@@ -5683,8 +6796,8 @@
     "labelParent",
     "parent",
     "outsideParent",
-    "child",
-    "hiddenParent"
+    "hiddenParent",
+    "child"
    ]
   }
  ],

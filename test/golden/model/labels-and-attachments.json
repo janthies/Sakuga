@@ -47,12 +47,11 @@
    "t": "node",
    "n": {
     "id": "title0",
-    "titlePosition": "north west",
     "cat": "",
     "x": 0,
     "y": 0,
-    "title": "Title 0",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -72,12 +71,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "title0-title",
     "look": {
      "own": {},
      "resolved": {
@@ -93,7 +93,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -102,12 +104,11 @@
    "t": "node",
    "n": {
     "id": "title1",
-    "titlePosition": "north",
     "cat": "",
     "x": 40,
     "y": 0,
-    "title": "Title 1",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -127,12 +128,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 2,
-    "titleId": "title1-title",
     "look": {
      "own": {},
      "resolved": {
@@ -148,7 +150,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -157,12 +161,11 @@
    "t": "node",
    "n": {
     "id": "title2",
-    "titlePosition": "north east",
     "cat": "",
     "x": 80,
     "y": 0,
-    "title": "Title 2",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -182,12 +185,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 4,
-    "titleId": "title2-title",
     "look": {
      "own": {},
      "resolved": {
@@ -203,7 +207,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -212,12 +218,11 @@
    "t": "node",
    "n": {
     "id": "title3",
-    "titlePosition": "west",
     "cat": "",
     "x": 0,
     "y": -28,
-    "title": "Title 3",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -237,12 +242,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "title3-title",
     "look": {
      "own": {},
      "resolved": {
@@ -258,7 +264,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -270,8 +278,8 @@
     "cat": "",
     "x": 40,
     "y": -28,
-    "title": "Title 4",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -291,12 +299,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 8,
-    "titleId": "title4-title",
     "look": {
      "own": {},
      "resolved": {
@@ -312,7 +321,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -321,12 +332,11 @@
    "t": "node",
    "n": {
     "id": "title5",
-    "titlePosition": "east",
     "cat": "",
     "x": 80,
     "y": -28,
-    "title": "Title 5",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -346,12 +356,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 10,
-    "titleId": "title5-title",
     "look": {
      "own": {},
      "resolved": {
@@ -367,7 +378,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -376,12 +389,11 @@
    "t": "node",
    "n": {
     "id": "title6",
-    "titlePosition": "south west",
     "cat": "",
     "x": 0,
     "y": -56,
-    "title": "Title 6",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -401,12 +413,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 12,
-    "titleId": "title6-title",
     "look": {
      "own": {},
      "resolved": {
@@ -422,7 +435,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -431,12 +446,11 @@
    "t": "node",
    "n": {
     "id": "title7",
-    "titlePosition": "south",
     "cat": "",
     "x": 40,
     "y": -56,
-    "title": "Title 7",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -456,12 +470,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 14,
-    "titleId": "title7-title",
     "look": {
      "own": {},
      "resolved": {
@@ -477,7 +492,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -486,12 +503,11 @@
    "t": "node",
    "n": {
     "id": "title8",
-    "titlePosition": "south east",
     "cat": "",
     "x": 80,
     "y": -56,
-    "title": "Title 8",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -511,12 +527,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 16,
-    "titleId": "title8-title",
     "look": {
      "own": {},
      "resolved": {
@@ -532,7 +549,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -565,12 +584,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 18,
-    "titleId": "labelParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -586,7 +606,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -595,11 +617,10 @@
    "t": "node",
    "n": {
     "id": "parent",
-    "titlePosition": "south east",
     "cat": "",
     "x": 35,
     "y": -205,
-    "title": "Parent",
+    "title": "",
     "code": "",
     "width": 84,
     "minh": 40,
@@ -620,12 +641,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 20,
-    "titleId": "parent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -641,7 +663,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -674,12 +698,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 22,
-    "titleId": "outsideParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -695,7 +720,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -758,17 +785,10 @@
    "t": "node",
    "n": {
     "id": "inside0",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
-    "y": -93.08,
+    "x": 5.1992,
+    "y": -92.28,
     "title": "In 0",
     "code": "",
     "width": 12,
@@ -792,6 +812,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top-left",
     "order": 25,
     "look": {
      "own": {
@@ -818,17 +839,10 @@
    "t": "node",
    "n": {
     "id": "outside0",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north west",
-     "ownAnchor": "south east",
-     "dx": -2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
-    "y": -87.92,
+    "x": 120.7325,
+    "y": -88.92,
     "title": "Out 0",
     "code": "",
     "width": 12,
@@ -852,6 +866,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-top-left",
     "order": 26,
     "look": {
      "own": {},
@@ -875,17 +890,10 @@
    "t": "node",
    "n": {
     "id": "icon0",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 10,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
-    "y": -107,
+    "x": 133.0663,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -910,6 +918,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top-left",
     "order": 27,
     "look": {
      "own": {},
@@ -933,17 +942,10 @@
    "t": "node",
    "n": {
     "id": "inside1",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
     "x": 35,
-    "y": -93.08,
+    "y": -92.28,
     "title": "In 1",
     "code": "",
     "width": 12,
@@ -967,6 +969,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top",
     "order": 28,
     "look": {
      "own": {
@@ -994,17 +997,10 @@
    "t": "node",
    "n": {
     "id": "outside1",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
     "x": 165,
-    "y": -87.92,
+    "y": -88.92,
     "title": "Out 1",
     "code": "",
     "width": 12,
@@ -1028,6 +1024,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "above",
     "order": 29,
     "look": {
      "own": {},
@@ -1051,17 +1048,10 @@
    "t": "node",
    "n": {
     "id": "icon1",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
-    "y": -107,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -1086,6 +1076,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top",
     "order": 30,
     "look": {
      "own": {},
@@ -1109,17 +1100,10 @@
    "t": "node",
    "n": {
     "id": "inside2",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north east",
-     "ownAnchor": "north east",
-     "dx": -2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
-    "y": -93.08,
+    "x": 64.8008,
+    "y": -92.28,
     "title": "In 2",
     "code": "",
     "width": 12,
@@ -1143,6 +1127,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top-right",
     "order": 31,
     "look": {
      "own": {
@@ -1169,17 +1154,10 @@
    "t": "node",
    "n": {
     "id": "outside2",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north east",
-     "ownAnchor": "south west",
-     "dx": 2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
-    "y": -87.92,
+    "x": 209.2675,
+    "y": -88.92,
     "title": "Out 2",
     "code": "",
     "width": 12,
@@ -1203,6 +1181,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-top-right",
     "order": 32,
     "look": {
      "own": {},
@@ -1226,17 +1205,10 @@
    "t": "node",
    "n": {
     "id": "icon2",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north east",
-     "ownAnchor": "north east",
-     "dx": -10,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
-    "y": -107,
+    "x": 196.9338,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -1261,6 +1233,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top-right",
     "order": 33,
     "look": {
      "own": {},
@@ -1284,16 +1257,9 @@
    "t": "node",
    "n": {
     "id": "inside3",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "west",
-     "ownAnchor": "west",
-     "dx": 2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
+    "x": 5.1992,
     "y": -125,
     "title": "In 3",
     "code": "",
@@ -1318,6 +1284,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "left",
     "order": 34,
     "look": {
      "own": {
@@ -1345,16 +1312,9 @@
    "t": "node",
    "n": {
     "id": "outside3",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "west",
-     "ownAnchor": "east",
-     "dx": -2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
+    "x": 120.7325,
     "y": -125,
     "title": "Out 3",
     "code": "",
@@ -1379,6 +1339,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-left",
     "order": 35,
     "look": {
      "own": {},
@@ -1402,16 +1363,9 @@
    "t": "node",
    "n": {
     "id": "icon3",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "west",
-     "ownAnchor": "west",
-     "dx": 10,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
+    "x": 133.0663,
     "y": -125,
     "width": 6,
     "minh": 8,
@@ -1437,6 +1391,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "left",
     "order": 36,
     "look": {
      "own": {},
@@ -1460,15 +1415,7 @@
    "t": "node",
    "n": {
     "id": "inside4",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "center",
-     "ownAnchor": "center",
-     "dx": 0,
-     "dy": 0
-    },
     "kind": "label",
-    "cat": "",
     "x": 35,
     "y": -125,
     "title": "In 4",
@@ -1494,6 +1441,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "centre",
     "order": 37,
     "look": {
      "own": {
@@ -1520,13 +1468,6 @@
    "t": "node",
    "n": {
     "id": "icon4",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "center",
-     "ownAnchor": "center",
-     "dx": 0,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
@@ -1555,6 +1496,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "centre",
     "order": 38,
     "look": {
      "own": {},
@@ -1578,16 +1520,9 @@
    "t": "node",
    "n": {
     "id": "inside5",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "east",
-     "ownAnchor": "east",
-     "dx": -2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
+    "x": 64.8008,
     "y": -125,
     "title": "In 5",
     "code": "",
@@ -1612,6 +1547,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "right",
     "order": 39,
     "look": {
      "own": {
@@ -1639,16 +1575,9 @@
    "t": "node",
    "n": {
     "id": "outside5",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "east",
-     "ownAnchor": "west",
-     "dx": 2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
+    "x": 209.2675,
     "y": -125,
     "title": "Out 5",
     "code": "",
@@ -1673,6 +1602,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-right",
     "order": 40,
     "look": {
      "own": {},
@@ -1696,16 +1626,9 @@
    "t": "node",
    "n": {
     "id": "icon5",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "east",
-     "ownAnchor": "east",
-     "dx": -10,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
+    "x": 196.9338,
     "y": -125,
     "width": 6,
     "minh": 8,
@@ -1731,6 +1654,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "right",
     "order": 41,
     "look": {
      "own": {},
@@ -1754,17 +1678,10 @@
    "t": "node",
    "n": {
     "id": "inside6",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south west",
-     "ownAnchor": "south west",
-     "dx": 2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
-    "y": -156.92,
+    "x": 5.1992,
+    "y": -157.72,
     "title": "In 6",
     "code": "",
     "width": 12,
@@ -1788,6 +1705,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom-left",
     "order": 42,
     "look": {
      "own": {
@@ -1814,17 +1732,10 @@
    "t": "node",
    "n": {
     "id": "outside6",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south west",
-     "ownAnchor": "north east",
-     "dx": -2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
-    "y": -162.08,
+    "x": 120.7325,
+    "y": -161.08,
     "title": "Out 6",
     "code": "",
     "width": 12,
@@ -1848,6 +1759,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-bottom-left",
     "order": 43,
     "look": {
      "own": {},
@@ -1871,17 +1783,10 @@
    "t": "node",
    "n": {
     "id": "icon6",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south west",
-     "ownAnchor": "south west",
-     "dx": 10,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
-    "y": -143,
+    "x": 133.0663,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -1906,6 +1811,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom-left",
     "order": 44,
     "look": {
      "own": {},
@@ -1929,17 +1835,10 @@
    "t": "node",
    "n": {
     "id": "inside7",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
     "x": 35,
-    "y": -156.92,
+    "y": -157.72,
     "title": "In 7",
     "code": "",
     "width": 12,
@@ -1963,6 +1862,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom",
     "order": 45,
     "look": {
      "own": {
@@ -1990,17 +1890,10 @@
    "t": "node",
    "n": {
     "id": "outside7",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
     "x": 165,
-    "y": -162.08,
+    "y": -161.08,
     "title": "Out 7",
     "code": "",
     "width": 12,
@@ -2024,6 +1917,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "below",
     "order": 46,
     "look": {
      "own": {},
@@ -2047,17 +1941,10 @@
    "t": "node",
    "n": {
     "id": "icon7",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
-    "y": -143,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -2082,6 +1969,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom",
     "order": 47,
     "look": {
      "own": {},
@@ -2105,17 +1993,10 @@
    "t": "node",
    "n": {
     "id": "inside8",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south east",
-     "ownAnchor": "south east",
-     "dx": -2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
-    "y": -156.92,
+    "x": 64.8008,
+    "y": -157.72,
     "title": "In 8",
     "code": "",
     "width": 12,
@@ -2139,6 +2020,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom-right",
     "order": 48,
     "look": {
      "own": {
@@ -2165,17 +2047,10 @@
    "t": "node",
    "n": {
     "id": "outside8",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south east",
-     "ownAnchor": "north west",
-     "dx": 2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
-    "y": -162.08,
+    "x": 209.2675,
+    "y": -161.08,
     "title": "Out 8",
     "code": "",
     "width": 12,
@@ -2199,6 +2074,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-bottom-right",
     "order": 49,
     "look": {
      "own": {},
@@ -2222,17 +2098,10 @@
    "t": "node",
    "n": {
     "id": "icon8",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south east",
-     "ownAnchor": "south east",
-     "dx": -10,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
-    "y": -143,
+    "x": 196.9338,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -2257,6 +2126,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom-right",
     "order": 50,
     "look": {
      "own": {},
@@ -2280,17 +2150,10 @@
    "t": "node",
    "n": {
     "id": "child",
-    "attachment": {
-     "parent": "parent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 1.5,
-     "dy": -1.5
-    },
     "cat": "",
-    "x": 4.5,
-    "y": -192.5,
-    "title": "Child",
+    "x": 4.2,
+    "y": -192.2,
+    "title": "",
     "code": "",
     "width": 20,
     "minh": 12,
@@ -2311,12 +2174,14 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "parent",
+    "slot": "top-left",
     "order": 51,
-    "titleId": "child-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2332,7 +2197,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -2341,17 +2208,10 @@
    "t": "node",
    "n": {
     "id": "grandchild",
-    "attachment": {
-     "parent": "child",
-     "anchor": "south",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -1
-    },
     "kind": "label",
     "cat": "",
-    "x": 4.5,
-    "y": -202.58,
+    "x": 4.2,
+    "y": -202.28,
     "title": "Nested",
     "code": "",
     "width": 12,
@@ -2375,6 +2235,7 @@
     },
     "extra": [],
     "treeParent": "child",
+    "slot": "below",
     "order": 53,
     "look": {
      "own": {},
@@ -2451,7 +2312,7 @@
     "cat": "",
     "x": 100,
     "y": -200,
-    "title": "hiddenParent",
+    "title": "",
     "code": "",
     "width": 42,
     "minh": 16,
@@ -2472,12 +2333,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "hidden",
     "order": 54,
-    "titleId": "hiddenParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2493,7 +2355,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -2505,6 +2369,639 @@
   {
    "t": "raw",
    "text": ""
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title0-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": 4.8005,
+    "title": "Title 0",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title0",
+    "slot": "top-left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title1-title",
+    "kind": "label",
+    "cat": "",
+    "x": 40,
+    "y": 4.8005,
+    "title": "Title 1",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title1",
+    "slot": "top",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title2-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": 4.8005,
+    "title": "Title 2",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title2",
+    "slot": "top-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title3-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": -28,
+    "title": "Title 3",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title3",
+    "slot": "left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title4-title",
+    "kind": "label",
+    "x": 40,
+    "y": -28,
+    "title": "Title 4",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title4",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title5-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": -28,
+    "title": "Title 5",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title5",
+    "slot": "right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title6-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": -60.8005,
+    "title": "Title 6",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title6",
+    "slot": "bottom-left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title7-title",
+    "kind": "label",
+    "cat": "",
+    "x": 40,
+    "y": -60.8005,
+    "title": "Title 7",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title7",
+    "slot": "bottom",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "title8-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": -60.8005,
+    "title": "Title 8",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title8",
+    "slot": "bottom-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "parent-title",
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -220.72,
+    "title": "Parent",
+    "code": "",
+    "width": 84,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "parent",
+    "slot": "bottom-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "child-title",
+    "kind": "label",
+    "x": 4.2,
+    "y": -192.2,
+    "title": "Child",
+    "code": "",
+    "width": 20,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "child",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "hiddenParent-title",
+    "kind": "label",
+    "x": 100,
+    "y": -200,
+    "title": "hiddenParent",
+    "code": "",
+    "width": 42,
+    "minh": 0,
+    "layer": "hidden",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hiddenParent",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ],
  "items": [
@@ -2517,12 +3014,11 @@
    "kind": "Shape",
    "node": {
     "id": "title0",
-    "titlePosition": "north west",
     "cat": "",
     "x": 0,
     "y": 0,
-    "title": "Title 0",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -2542,12 +3038,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "title0-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2563,38 +3060,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title0-title",
-   "parent": "title0",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 0",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title0"
   },
   {
    "id": "title1",
@@ -2605,12 +3076,11 @@
    "kind": "Shape",
    "node": {
     "id": "title1",
-    "titlePosition": "north",
     "cat": "",
     "x": 40,
     "y": 0,
-    "title": "Title 1",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -2630,12 +3100,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 2,
-    "titleId": "title1-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2651,38 +3122,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title1-title",
-   "parent": "title1",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 1",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title1"
   },
   {
    "id": "title2",
@@ -2693,12 +3138,11 @@
    "kind": "Shape",
    "node": {
     "id": "title2",
-    "titlePosition": "north east",
     "cat": "",
     "x": 80,
     "y": 0,
-    "title": "Title 2",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -2718,12 +3162,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 4,
-    "titleId": "title2-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2739,38 +3184,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title2-title",
-   "parent": "title2",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 2",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title2"
   },
   {
    "id": "title3",
@@ -2781,12 +3200,11 @@
    "kind": "Shape",
    "node": {
     "id": "title3",
-    "titlePosition": "west",
     "cat": "",
     "x": 0,
     "y": -28,
-    "title": "Title 3",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -2806,12 +3224,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "title3-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2827,38 +3246,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title3-title",
-   "parent": "title3",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 3",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title3"
   },
   {
    "id": "title4",
@@ -2872,8 +3265,8 @@
     "cat": "",
     "x": 40,
     "y": -28,
-    "title": "Title 4",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -2893,12 +3286,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 8,
-    "titleId": "title4-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2914,38 +3308,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title4-title",
-   "parent": "title4",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 4",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title4"
   },
   {
    "id": "title5",
@@ -2956,12 +3324,11 @@
    "kind": "Shape",
    "node": {
     "id": "title5",
-    "titlePosition": "east",
     "cat": "",
     "x": 80,
     "y": -28,
-    "title": "Title 5",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -2981,12 +3348,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 10,
-    "titleId": "title5-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3002,38 +3370,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title5-title",
-   "parent": "title5",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 5",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title5"
   },
   {
    "id": "title6",
@@ -3044,12 +3386,11 @@
    "kind": "Shape",
    "node": {
     "id": "title6",
-    "titlePosition": "south west",
     "cat": "",
     "x": 0,
     "y": -56,
-    "title": "Title 6",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -3069,12 +3410,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 12,
-    "titleId": "title6-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3090,38 +3432,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title6-title",
-   "parent": "title6",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 6",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title6"
   },
   {
    "id": "title7",
@@ -3132,12 +3448,11 @@
    "kind": "Shape",
    "node": {
     "id": "title7",
-    "titlePosition": "south",
     "cat": "",
     "x": 40,
     "y": -56,
-    "title": "Title 7",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -3157,12 +3472,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 14,
-    "titleId": "title7-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3178,38 +3494,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title7-title",
-   "parent": "title7",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 7",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title7"
   },
   {
    "id": "title8",
@@ -3220,12 +3510,11 @@
    "kind": "Shape",
    "node": {
     "id": "title8",
-    "titlePosition": "south east",
     "cat": "",
     "x": 80,
     "y": -56,
-    "title": "Title 8",
-    "code": "code",
+    "title": "",
+    "code": "",
     "width": 30,
     "minh": 22,
     "layer": "layer1",
@@ -3245,12 +3534,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 16,
-    "titleId": "title8-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3266,38 +3556,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "title8-title",
-   "parent": "title8",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Title 8",
-   "code": "code",
-   "role": "title",
-   "treeParent": "title8"
   },
   {
    "id": "labelParent",
@@ -3332,12 +3596,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 18,
-    "titleId": "labelParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3353,38 +3618,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "labelParent-title",
-   "parent": "labelParent",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "labelParent"
   },
   {
    "id": "parent",
@@ -3395,11 +3634,10 @@
    "kind": "Shape",
    "node": {
     "id": "parent",
-    "titlePosition": "south east",
     "cat": "",
     "x": 35,
     "y": -205,
-    "title": "Parent",
+    "title": "",
     "code": "",
     "width": 84,
     "minh": 40,
@@ -3420,12 +3658,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 20,
-    "titleId": "parent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3441,38 +3680,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "parent-title",
-   "parent": "parent",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Parent",
-   "code": "",
-   "role": "title",
-   "treeParent": "parent"
   },
   {
    "id": "outsideParent",
@@ -3507,12 +3720,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 22,
-    "titleId": "outsideParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3528,38 +3742,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "outsideParent-title",
-   "parent": "outsideParent",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "outsideParent"
   },
   {
    "id": "freeLabel",
@@ -3626,6 +3814,7 @@
    "id": "inside0",
    "parent": "labelParent",
    "order": 25,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -3633,17 +3822,10 @@
    "code": "",
    "node": {
     "id": "inside0",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
-    "y": -93.08,
+    "x": 5.1992,
+    "y": -92.28,
     "title": "In 0",
     "code": "",
     "width": 12,
@@ -3667,6 +3849,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top-left",
     "order": 25,
     "look": {
      "own": {
@@ -3687,19 +3870,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north west",
-    "ownAnchor": "north west",
-    "dx": 2,
-    "dy": -2
    }
   },
   {
    "id": "outside0",
    "parent": "outsideParent",
    "order": 26,
+   "slot": "outside-top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -3707,17 +3884,10 @@
    "code": "",
    "node": {
     "id": "outside0",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north west",
-     "ownAnchor": "south east",
-     "dx": -2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
-    "y": -87.92,
+    "x": 120.7325,
+    "y": -88.92,
     "title": "Out 0",
     "code": "",
     "width": 12,
@@ -3741,6 +3911,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-top-left",
     "order": 26,
     "look": {
      "own": {},
@@ -3758,35 +3929,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north west",
-    "ownAnchor": "south east",
-    "dx": -2,
-    "dy": 2
    }
   },
   {
    "id": "icon0",
    "parent": "outsideParent",
    "order": 27,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon0",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 10,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
-    "y": -107,
+    "x": 133.0663,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -3811,6 +3969,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top-left",
     "order": 27,
     "look": {
      "own": {},
@@ -3834,6 +3993,7 @@
    "id": "inside1",
    "parent": "labelParent",
    "order": 28,
+   "slot": "top",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -3841,17 +4001,10 @@
    "code": "",
    "node": {
     "id": "inside1",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
     "x": 35,
-    "y": -93.08,
+    "y": -92.28,
     "title": "In 1",
     "code": "",
     "width": 12,
@@ -3875,6 +4028,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top",
     "order": 28,
     "look": {
      "own": {
@@ -3896,19 +4050,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -2
    }
   },
   {
    "id": "outside1",
    "parent": "outsideParent",
    "order": 29,
+   "slot": "above",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -3916,17 +4064,10 @@
    "code": "",
    "node": {
     "id": "outside1",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
     "x": 165,
-    "y": -87.92,
+    "y": -88.92,
     "title": "Out 1",
     "code": "",
     "width": 12,
@@ -3950,6 +4091,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "above",
     "order": 29,
     "look": {
      "own": {},
@@ -3967,35 +4109,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 2
    }
   },
   {
    "id": "icon1",
    "parent": "outsideParent",
    "order": 30,
+   "slot": "top",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon1",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
-    "y": -107,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -4020,6 +4149,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top",
     "order": 30,
     "look": {
      "own": {},
@@ -4043,6 +4173,7 @@
    "id": "inside2",
    "parent": "labelParent",
    "order": 31,
+   "slot": "top-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4050,17 +4181,10 @@
    "code": "",
    "node": {
     "id": "inside2",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "north east",
-     "ownAnchor": "north east",
-     "dx": -2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
-    "y": -93.08,
+    "x": 64.8008,
+    "y": -92.28,
     "title": "In 2",
     "code": "",
     "width": 12,
@@ -4084,6 +4208,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "top-right",
     "order": 31,
     "look": {
      "own": {
@@ -4104,19 +4229,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "north east",
-    "ownAnchor": "north east",
-    "dx": -2,
-    "dy": -2
    }
   },
   {
    "id": "outside2",
    "parent": "outsideParent",
    "order": 32,
+   "slot": "outside-top-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4124,17 +4243,10 @@
    "code": "",
    "node": {
     "id": "outside2",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north east",
-     "ownAnchor": "south west",
-     "dx": 2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
-    "y": -87.92,
+    "x": 209.2675,
+    "y": -88.92,
     "title": "Out 2",
     "code": "",
     "width": 12,
@@ -4158,6 +4270,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-top-right",
     "order": 32,
     "look": {
      "own": {},
@@ -4175,35 +4288,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "north east",
-    "ownAnchor": "south west",
-    "dx": 2,
-    "dy": 2
    }
   },
   {
    "id": "icon2",
    "parent": "outsideParent",
    "order": 33,
+   "slot": "top-right",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon2",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "north east",
-     "ownAnchor": "north east",
-     "dx": -10,
-     "dy": -10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
-    "y": -107,
+    "x": 196.9338,
+    "y": -98.2,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -4228,6 +4328,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "top-right",
     "order": 33,
     "look": {
      "own": {},
@@ -4251,6 +4352,7 @@
    "id": "inside3",
    "parent": "labelParent",
    "order": 34,
+   "slot": "left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4258,16 +4360,9 @@
    "code": "",
    "node": {
     "id": "inside3",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "west",
-     "ownAnchor": "west",
-     "dx": 2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
+    "x": 5.1992,
     "y": -125,
     "title": "In 3",
     "code": "",
@@ -4292,6 +4387,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "left",
     "order": 34,
     "look": {
      "own": {
@@ -4313,19 +4409,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "west",
-    "ownAnchor": "west",
-    "dx": 2,
-    "dy": 0
    }
   },
   {
    "id": "outside3",
    "parent": "outsideParent",
    "order": 35,
+   "slot": "outside-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4333,16 +4423,9 @@
    "code": "",
    "node": {
     "id": "outside3",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "west",
-     "ownAnchor": "east",
-     "dx": -2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
+    "x": 120.7325,
     "y": -125,
     "title": "Out 3",
     "code": "",
@@ -4367,6 +4450,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-left",
     "order": 35,
     "look": {
      "own": {},
@@ -4384,34 +4468,21 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "west",
-    "ownAnchor": "east",
-    "dx": -2,
-    "dy": 0
    }
   },
   {
    "id": "icon3",
    "parent": "outsideParent",
    "order": 36,
+   "slot": "left",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon3",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "west",
-     "ownAnchor": "west",
-     "dx": 10,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
+    "x": 133.0663,
     "y": -125,
     "width": 6,
     "minh": 8,
@@ -4437,6 +4508,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "left",
     "order": 36,
     "look": {
      "own": {},
@@ -4460,6 +4532,7 @@
    "id": "inside4",
    "parent": "labelParent",
    "order": 37,
+   "slot": "centre",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4467,15 +4540,7 @@
    "code": "",
    "node": {
     "id": "inside4",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "center",
-     "ownAnchor": "center",
-     "dx": 0,
-     "dy": 0
-    },
     "kind": "label",
-    "cat": "",
     "x": 35,
     "y": -125,
     "title": "In 4",
@@ -4501,6 +4566,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "centre",
     "order": 37,
     "look": {
      "own": {
@@ -4521,31 +4587,18 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "center",
-    "ownAnchor": "center",
-    "dx": 0,
-    "dy": 0
    }
   },
   {
    "id": "icon4",
    "parent": "outsideParent",
    "order": 38,
+   "slot": "centre",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon4",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "center",
-     "ownAnchor": "center",
-     "dx": 0,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
@@ -4574,6 +4627,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "centre",
     "order": 38,
     "look": {
      "own": {},
@@ -4597,6 +4651,7 @@
    "id": "inside5",
    "parent": "labelParent",
    "order": 39,
+   "slot": "right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4604,16 +4659,9 @@
    "code": "",
    "node": {
     "id": "inside5",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "east",
-     "ownAnchor": "east",
-     "dx": -2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
+    "x": 64.8008,
     "y": -125,
     "title": "In 5",
     "code": "",
@@ -4638,6 +4686,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "right",
     "order": 39,
     "look": {
      "own": {
@@ -4659,19 +4708,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "east",
-    "ownAnchor": "east",
-    "dx": -2,
-    "dy": 0
    }
   },
   {
    "id": "outside5",
    "parent": "outsideParent",
    "order": 40,
+   "slot": "outside-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4679,16 +4722,9 @@
    "code": "",
    "node": {
     "id": "outside5",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "east",
-     "ownAnchor": "west",
-     "dx": 2,
-     "dy": 0
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
+    "x": 209.2675,
     "y": -125,
     "title": "Out 5",
     "code": "",
@@ -4713,6 +4749,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-right",
     "order": 40,
     "look": {
      "own": {},
@@ -4730,34 +4767,21 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "east",
-    "ownAnchor": "west",
-    "dx": 2,
-    "dy": 0
    }
   },
   {
    "id": "icon5",
    "parent": "outsideParent",
    "order": 41,
+   "slot": "right",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon5",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "east",
-     "ownAnchor": "east",
-     "dx": -10,
-     "dy": 0
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
+    "x": 196.9338,
     "y": -125,
     "width": 6,
     "minh": 8,
@@ -4783,6 +4807,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "right",
     "order": 41,
     "look": {
      "own": {},
@@ -4806,6 +4831,7 @@
    "id": "inside6",
    "parent": "labelParent",
    "order": 42,
+   "slot": "bottom-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4813,17 +4839,10 @@
    "code": "",
    "node": {
     "id": "inside6",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south west",
-     "ownAnchor": "south west",
-     "dx": 2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 1,
-    "y": -156.92,
+    "x": 5.1992,
+    "y": -157.72,
     "title": "In 6",
     "code": "",
     "width": 12,
@@ -4847,6 +4866,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom-left",
     "order": 42,
     "look": {
      "own": {
@@ -4867,19 +4887,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south west",
-    "ownAnchor": "south west",
-    "dx": 2,
-    "dy": 2
    }
   },
   {
    "id": "outside6",
    "parent": "outsideParent",
    "order": 43,
+   "slot": "outside-bottom-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -4887,17 +4901,10 @@
    "code": "",
    "node": {
     "id": "outside6",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south west",
-     "ownAnchor": "north east",
-     "dx": -2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 119.7325,
-    "y": -162.08,
+    "x": 120.7325,
+    "y": -161.08,
     "title": "Out 6",
     "code": "",
     "width": 12,
@@ -4921,6 +4928,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-bottom-left",
     "order": 43,
     "look": {
      "own": {},
@@ -4938,35 +4946,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south west",
-    "ownAnchor": "north east",
-    "dx": -2,
-    "dy": -2
    }
   },
   {
    "id": "icon6",
    "parent": "outsideParent",
    "order": 44,
+   "slot": "bottom-left",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon6",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south west",
-     "ownAnchor": "south west",
-     "dx": 10,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 141.8663,
-    "y": -143,
+    "x": 133.0663,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -4991,6 +4986,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom-left",
     "order": 44,
     "look": {
      "own": {},
@@ -5014,6 +5010,7 @@
    "id": "inside7",
    "parent": "labelParent",
    "order": 45,
+   "slot": "bottom",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -5021,17 +5018,10 @@
    "code": "",
    "node": {
     "id": "inside7",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
     "x": 35,
-    "y": -156.92,
+    "y": -157.72,
     "title": "In 7",
     "code": "",
     "width": 12,
@@ -5055,6 +5045,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom",
     "order": 45,
     "look": {
      "own": {
@@ -5076,19 +5067,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south",
-    "ownAnchor": "south",
-    "dx": 0,
-    "dy": 2
    }
   },
   {
    "id": "outside7",
    "parent": "outsideParent",
    "order": 46,
+   "slot": "below",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -5096,17 +5081,10 @@
    "code": "",
    "node": {
     "id": "outside7",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
     "x": 165,
-    "y": -162.08,
+    "y": -161.08,
     "title": "Out 7",
     "code": "",
     "width": 12,
@@ -5130,6 +5108,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "below",
     "order": 46,
     "look": {
      "own": {},
@@ -5147,35 +5126,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -2
    }
   },
   {
    "id": "icon7",
    "parent": "outsideParent",
    "order": 47,
+   "slot": "bottom",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon7",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south",
-     "ownAnchor": "south",
-     "dx": 0,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
     "x": 165,
-    "y": -143,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -5200,6 +5166,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom",
     "order": 47,
     "look": {
      "own": {},
@@ -5223,6 +5190,7 @@
    "id": "inside8",
    "parent": "labelParent",
    "order": 48,
+   "slot": "bottom-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -5230,17 +5198,10 @@
    "code": "",
    "node": {
     "id": "inside8",
-    "attachment": {
-     "parent": "labelParent",
-     "anchor": "south east",
-     "ownAnchor": "south east",
-     "dx": -2,
-     "dy": 2
-    },
     "kind": "label",
     "cat": "",
-    "x": 69,
-    "y": -156.92,
+    "x": 64.8008,
+    "y": -157.72,
     "title": "In 8",
     "code": "",
     "width": 12,
@@ -5264,6 +5225,7 @@
     },
     "extra": [],
     "treeParent": "labelParent",
+    "slot": "bottom-right",
     "order": 48,
     "look": {
      "own": {
@@ -5284,19 +5246,13 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "labelParent",
-    "anchor": "south east",
-    "ownAnchor": "south east",
-    "dx": -2,
-    "dy": 2
    }
   },
   {
    "id": "outside8",
    "parent": "outsideParent",
    "order": 49,
+   "slot": "outside-bottom-right",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -5304,17 +5260,10 @@
    "code": "",
    "node": {
     "id": "outside8",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south east",
-     "ownAnchor": "north west",
-     "dx": 2,
-     "dy": -2
-    },
     "kind": "label",
     "cat": "",
-    "x": 210.2675,
-    "y": -162.08,
+    "x": 209.2675,
+    "y": -161.08,
     "title": "Out 8",
     "code": "",
     "width": 12,
@@ -5338,6 +5287,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "outside-bottom-right",
     "order": 49,
     "look": {
      "own": {},
@@ -5355,35 +5305,22 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "outsideParent",
-    "anchor": "south east",
-    "ownAnchor": "north west",
-    "dx": 2,
-    "dy": -2
    }
   },
   {
    "id": "icon8",
    "parent": "outsideParent",
    "order": 50,
+   "slot": "bottom-right",
    "hidden": false,
    "locked": false,
    "kind": "Icon",
    "node": {
     "id": "icon8",
-    "attachment": {
-     "parent": "outsideParent",
-     "anchor": "south east",
-     "ownAnchor": "south east",
-     "dx": -10,
-     "dy": 10
-    },
     "kind": "icon",
     "icon": "board",
-    "x": 188.1338,
-    "y": -143,
+    "x": 196.9338,
+    "y": -151.8,
     "width": 6,
     "minh": 8,
     "title": "",
@@ -5408,6 +5345,7 @@
     },
     "extra": [],
     "treeParent": "outsideParent",
+    "slot": "bottom-right",
     "order": 50,
     "look": {
      "own": {},
@@ -5431,22 +5369,16 @@
    "id": "child",
    "parent": "parent",
    "order": 51,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Shape",
    "node": {
     "id": "child",
-    "attachment": {
-     "parent": "parent",
-     "anchor": "north west",
-     "ownAnchor": "north west",
-     "dx": 1.5,
-     "dy": -1.5
-    },
     "cat": "",
-    "x": 4.5,
-    "y": -192.5,
-    "title": "Child",
+    "x": 4.2,
+    "y": -192.2,
+    "title": "",
     "code": "",
     "width": 20,
     "minh": 12,
@@ -5467,12 +5399,14 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "parent",
+    "slot": "top-left",
     "order": 51,
-    "titleId": "child-title",
     "look": {
      "own": {},
      "resolved": {
@@ -5488,43 +5422,18 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "child-title",
-   "parent": "child",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Child",
-   "code": "",
-   "role": "title",
-   "treeParent": "child"
-  },
-  {
    "id": "grandchild",
    "parent": "child",
    "order": 53,
+   "slot": "below",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -5532,17 +5441,10 @@
    "code": "",
    "node": {
     "id": "grandchild",
-    "attachment": {
-     "parent": "child",
-     "anchor": "south",
-     "ownAnchor": "north",
-     "dx": 0,
-     "dy": -1
-    },
     "kind": "label",
     "cat": "",
-    "x": 4.5,
-    "y": -202.58,
+    "x": 4.2,
+    "y": -202.28,
     "title": "Nested",
     "code": "",
     "width": 12,
@@ -5566,6 +5468,7 @@
     },
     "extra": [],
     "treeParent": "child",
+    "slot": "below",
     "order": 53,
     "look": {
      "own": {},
@@ -5583,13 +5486,6 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "child",
-    "anchor": "south",
-    "ownAnchor": "north",
-    "dx": 0,
-    "dy": -1
    }
   },
   {
@@ -5661,7 +5557,7 @@
     "cat": "",
     "x": 100,
     "y": -200,
-    "title": "hiddenParent",
+    "title": "",
     "code": "",
     "width": 42,
     "minh": 16,
@@ -5682,12 +5578,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "hidden",
     "order": 54,
-    "titleId": "hiddenParent-title",
     "look": {
      "own": {},
      "resolved": {
@@ -5703,21 +5600,38 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "hiddenParent-title",
-   "parent": "hiddenParent",
+   "id": "title0-title",
+   "parent": "title0",
    "order": 0,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
+   "text": "Title 0",
+   "code": "code",
+   "node": {
+    "id": "title0-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": 4.8005,
+    "title": "Title 0",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
      "fill": "none",
      "border": "none",
      "weight": "thin",
@@ -5729,12 +5643,698 @@
      "markCorner": "ne",
      "markSize": "small",
      "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title0",
+    "slot": "top-left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
     }
-   },
+   }
+  },
+  {
+   "id": "title1-title",
+   "parent": "title1",
+   "order": 0,
+   "slot": "top",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 1",
+   "code": "code",
+   "node": {
+    "id": "title1-title",
+    "kind": "label",
+    "cat": "",
+    "x": 40,
+    "y": 4.8005,
+    "title": "Title 1",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title1",
+    "slot": "top",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title2-title",
+   "parent": "title2",
+   "order": 0,
+   "slot": "top-right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 2",
+   "code": "code",
+   "node": {
+    "id": "title2-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": 4.8005,
+    "title": "Title 2",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title2",
+    "slot": "top-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title3-title",
+   "parent": "title3",
+   "order": 0,
+   "slot": "left",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 3",
+   "code": "code",
+   "node": {
+    "id": "title3-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": -28,
+    "title": "Title 3",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title3",
+    "slot": "left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title4-title",
+   "parent": "title4",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 4",
+   "code": "code",
+   "node": {
+    "id": "title4-title",
+    "kind": "label",
+    "x": 40,
+    "y": -28,
+    "title": "Title 4",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title4",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title5-title",
+   "parent": "title5",
+   "order": 0,
+   "slot": "right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 5",
+   "code": "code",
+   "node": {
+    "id": "title5-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": -28,
+    "title": "Title 5",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title5",
+    "slot": "right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title6-title",
+   "parent": "title6",
+   "order": 0,
+   "slot": "bottom-left",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 6",
+   "code": "code",
+   "node": {
+    "id": "title6-title",
+    "kind": "label",
+    "cat": "",
+    "x": 0,
+    "y": -60.8005,
+    "title": "Title 6",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title6",
+    "slot": "bottom-left",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title7-title",
+   "parent": "title7",
+   "order": 0,
+   "slot": "bottom",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 7",
+   "code": "code",
+   "node": {
+    "id": "title7-title",
+    "kind": "label",
+    "cat": "",
+    "x": 40,
+    "y": -60.8005,
+    "title": "Title 7",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title7",
+    "slot": "bottom",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "title8-title",
+   "parent": "title8",
+   "order": 0,
+   "slot": "bottom-right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Title 8",
+   "code": "code",
+   "node": {
+    "id": "title8-title",
+    "kind": "label",
+    "cat": "",
+    "x": 80,
+    "y": -60.8005,
+    "title": "Title 8",
+    "code": "code",
+    "width": 30,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "title8",
+    "slot": "bottom-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "parent-title",
+   "parent": "parent",
+   "order": 0,
+   "slot": "bottom-right",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Parent",
+   "code": "",
+   "node": {
+    "id": "parent-title",
+    "kind": "label",
+    "cat": "",
+    "x": 35,
+    "y": -220.72,
+    "title": "Parent",
+    "code": "",
+    "width": 84,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "parent",
+    "slot": "bottom-right",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "child-title",
+   "parent": "child",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Child",
+   "code": "",
+   "node": {
+    "id": "child-title",
+    "kind": "label",
+    "x": 4.2,
+    "y": -192.2,
+    "title": "Child",
+    "code": "",
+    "width": 20,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "child",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "hiddenParent-title",
+   "parent": "hiddenParent",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
    "text": "hiddenParent",
    "code": "",
-   "role": "title",
-   "treeParent": "hiddenParent"
+   "node": {
+    "id": "hiddenParent-title",
+    "kind": "label",
+    "x": 100,
+    "y": -200,
+    "title": "hiddenParent",
+    "code": "",
+    "width": 42,
+    "minh": 0,
+    "layer": "hidden",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hiddenParent",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ]
 }

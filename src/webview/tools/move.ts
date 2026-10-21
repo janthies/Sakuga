@@ -1,8 +1,9 @@
+import { slotAt } from '../../core/model/slots';
 import { guides } from './guides';
 import { fine } from './util';
 import type { CanvasEvent, Op, Step, Tool, ToolCtx } from './types';
 
-// Drag boxes: grid snap, Shift locks the axis, Ctrl turns grid and guides off, Alt copies.
+// Drag boxes: grid snap, Shift locks the axis, Ctrl turns grid and guides off; drops choose parent slots.
 export class MoveTool implements Tool {
 	overlay: any;
 	constructor(
@@ -10,7 +11,7 @@ export class MoveTool implements Tool {
 		e: CanvasEvent,
 		orig: Map<string, any>,
 	) {
-		this.overlay = { move: true, x: e.p.x, y: e.p.y, orig, dx: 0, dy: 0, copy: e.mods.alt, target: null };
+		this.overlay = { move: true, x: e.p.x, y: e.p.y, orig, dx: 0, dy: 0, copy: false, target: null };
 	}
 	down(): Step {
 		return {};
@@ -42,28 +43,30 @@ export class MoveTool implements Tool {
 		}
 		d.dx = dx;
 		d.dy = dy;
-		d.target = e.mods.alt || d.copy ? null : c.dropAnchor(p, [...d.orig.keys()]);
+		d.target = c.dropAnchor(p, [...d.orig.keys()]);
 		const nodes: any[] = [],
-			lines: any[] = [];
+			lines: any[] = [],
+			slots: any[] = [];
 		for (const [id, o] of d.orig as Map<string, any>) {
 			const n = c.byId(id);
+			const item = c.items?.find((i) => i.id === id),
+				parent = c.items?.find((i) => i.id === item?.parent);
+			const parentSelected = [...d.orig.keys()].some((other) => c.descendant(id, other));
+			if (parent?.kind === 'Shape' && !parentSelected) {
+				const p = c.byId(parent.id);
+				slots.push({ id, slot: slotAt({ ...p, ...c.layout(p) }, { x: o.x + dx, y: o.y + dy }) });
+				continue;
+			}
 			if (o.line) {
 				lines.push({ id, start: [o.x + dx, o.y + dy], end: [o.line.end[0] + dx, o.line.end[1] + dy] });
 				continue;
 			}
 			if (!n) continue;
-			const item: any = { id, x: d.copy ? o.x : o.x + dx, y: d.copy ? o.y : o.y + dy };
-			if (o.attachment && !d.copy) {
-				const parentSelected = [...d.orig.keys()].some((other) => c.descendant(n.id, other));
-				item.attachment = {
-					...o.attachment,
-					dx: o.attachment.dx + (parentSelected ? 0 : dx),
-					dy: o.attachment.dy + (parentSelected ? 0 : dy),
-				};
-			}
-			nodes.push(item);
+			const previewNode: any = { id, x: d.copy ? o.x : o.x + dx, y: d.copy ? o.y : o.y + dy };
+
+			nodes.push(previewNode);
 		}
-		return { preview: { nodes, lines, place: true } };
+		return { preview: { nodes, lines, slots, place: true } };
 	}
 	up(e: CanvasEvent): Step {
 		const d = this.overlay,
@@ -76,7 +79,10 @@ export class MoveTool implements Tool {
 		}
 		const roots = ids.filter((id) => !ids.some((parent) => c.descendant(id, parent)));
 		const ops: Op[] = roots.map((id) => {
-			const n = c.byId(id);
+			const n = c.byId(id),
+				item = c.items?.find((i) => i.id === id),
+				parent = c.items?.find((i) => i.id === item?.parent);
+			if (parent?.kind === 'Shape') return { op: 'slot', id, slot: item?.slot };
 			return {
 				op: 'move',
 				id,
@@ -93,16 +99,20 @@ export class MoveTool implements Tool {
 				target = null;
 			}
 		}
-		if (target && !e.mods.alt) {
+		if (target) {
 			for (const id of ids) {
 				if (
 					!c.byId(id) ||
-					c.byId(id).attachment?.parent === target.parent.id ||
+					(!e.mods.alt && c.items?.find((i) => i.id === c.items?.find((i) => i.id === id)?.parent)?.kind === 'Shape') ||
+					c.items?.find((i) => i.id === id)?.parent === target.parent.id ||
 					ids.some((parent) => c.descendant(id, parent))
 				) {
 					continue;
 				}
-				ops.push({ op: 'attach', id, attachment: c.attachmentFor(c.byId(id), target.parent, target.anchor) });
+				ops.push(
+					{ op: 'reparent', id, newParent: target.parent.id },
+					{ op: 'slot', id, slot: slotAt({ ...target.parent, ...c.layout(target.parent) }, e.p) },
+				);
 			}
 		}
 		return { commit: { op: 'batch', ops } };

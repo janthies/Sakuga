@@ -40,6 +40,7 @@ export function initCommandsMessages() {
 		}
 
 		store.figureFont = m.font || 'small';
+		store.outerGap = m.outerGap ?? 1;
 		showText(m.text);
 		for (const id of store.selectedLayers) {
 			if (!(m.layers || []).some((l) => l.id === id)) {

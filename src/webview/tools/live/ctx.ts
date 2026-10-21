@@ -1,7 +1,7 @@
 import { geo } from '../../store/geometry';
 import { lineLabel } from '../../../core/geometry/line-geometry';
 import { store } from '../../store/store';
-import { attachmentFor, byId, catOf, descendant, layout, nodeAt, snap } from '../../store/model';
+import { byId, catOf, descendant, layout, nodeAt, snap } from '../../store/model';
 import { newId, selectLayer } from '../../store/layers';
 import { tex } from '../../store/constants';
 import { edgeGeom } from '../../render/edges';
@@ -31,7 +31,7 @@ export const liveCtx: ToolCtx = {
 		const parent = store.items.find((i) => i.id === item.parent);
 		const g =
 			parent?.kind === 'Line'
-				? lineLabel(parent.line, item.text, item.placement, store.figureFont)
+				? lineLabel(parent.line, item.text, item.placement, store.figureFont, store.outerGap)
 				: parent?.kind === 'Connector'
 					? geo().label(parent.connector, item.placement, item.text)
 					: undefined;
@@ -62,7 +62,6 @@ export const liveCtx: ToolCtx = {
 	snap,
 	nodeAt,
 	descendant,
-	attachmentFor,
 	edgeGeom,
 	endpointObject,
 	endpointTarget,

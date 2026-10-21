@@ -42,7 +42,7 @@ export class Session {
 			this.write(t.serialize(fig));
 		} else if (m.type === 'paste') {
 			const fig = t.parse(this.doc);
-			const { ops, ids } = t.pasteOps(fig, m.text, m.dx, m.dy);
+			const { ops, ids } = t.pasteOps(fig, m.text, m.dx, m.dy, m.layer);
 			if (ids.length) {
 				t.apply(fig, {
 					op: 'batch',
@@ -186,7 +186,7 @@ export class Session {
 	}
 	/** The canvas element of an object. */
 	node(id: string) {
-		return this.svg.querySelector(`[data-node="${id}"]`);
+		return this.svg.querySelector(`[data-node="${id}"],[data-text="${id}"]`);
 	}
 	/** All elements in the document matching a selector. */
 	all(sel: string): any[] {

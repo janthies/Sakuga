@@ -36,5 +36,5 @@ export function layout(n: NodeLike, font = 'small'): Size {
 		w += r * (3 - c);
 		h = r * 2 + 0.158;
 	}
-	return { w, h, lines: ls };
+	return { w: n.derivedRect?.w ?? w, h: n.derivedRect?.h ?? h, lines: n.derivedRect?.lines ?? ls };
 }

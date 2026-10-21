@@ -21,6 +21,7 @@ export function geo() {
 			key: {
 				rev: store.rev,
 				nodes: store.nodes,
+				gap: store.outerGap,
 				lines: store.lines,
 				edges: store.edges,
 				groups: store.groups,
@@ -30,6 +31,7 @@ export function geo() {
 			},
 			geometry: new FigureGeometry({
 				nodes: store.nodes,
+				gap: store.outerGap,
 				lines: store.lines,
 				edges: store.edges,
 				groups: store.groups,

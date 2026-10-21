@@ -162,14 +162,15 @@ test('Lines have two endpoints, Text children, connector ports and fitted frame 
 
 test('Text identities, title replacement, detach and sibling order survive saves', () => {
 	const f = parse(source);
-	apply(f, { op: 'addText', id: 'new-title', text: 'New', code: 'new()', parent: 'a', index: 0 });
+	apply(f, { op: 'addText', id: 'new-title', text: 'New', code: 'new()', parent: 'a', index: 0, slot: 'centre' });
 	assert.equal(titleOf(f, 'a')?.id, 'new-title');
-	assert.equal(node(f, 'a').title, 'New');
+	assert.equal(node(f, 'a').title, '');
+	assert.equal(node(f, 'new-title').title, 'New');
 	assert.ok(childrenOf(f, 'a').some((i) => i.kind === 'Text' && i.text === 'A'));
 	const back = parse(serialize(f));
 	assert.equal(titleOf(back, 'a')?.id, 'new-title');
 	apply(back, { op: 'text', id: 'new-title', text: 'Edited' });
-	assert.equal(node(back, 'a').title, 'Edited');
+	assert.equal(node(back, 'new-title').title, 'Edited');
 	apply(back, { op: 'detach', id: 'new-title' });
 	assert.equal(itemById(back, 'new-title')?.parent, 'inner');
 	assert.equal(node(back, 'new-title').title, 'Edited');
@@ -210,16 +211,14 @@ test('layers select the whole subtree and moving/duplicating layers preserves th
 	assert.equal(itemsOfLayer(f, 'copy').length, 0);
 });
 
-test('legacy cross-layer attachments become free items without changing their appearance', () => {
-	const f = parse(String.raw`% sakuga layer shown {Shown}
-% sakuga layer hidden {Hidden} hidden
-\begin{tikzpicture}
-% sakuga hidden \node[sg box,sg layer=hidden] (parent) at (10,20) {Parent};
-\node[sg label,sg layer=shown] (visible) at ([shift={(2mm,3mm)}]parent.center) {Visible};
-\end{tikzpicture}`);
-	assert.equal(itemById(f, 'visible')?.parent, 'shown');
-	assert.deepEqual([node(f, 'visible').x, node(f, 'visible').y], [12, 23]);
-	assert.equal(isHidden(f, node(f, 'visible')), false);
+test('legacy attachments inherit the parent layer and migrate to slots', () => {
+	const f = parse(String.raw`% sakuga layer back {Back}
+% sakuga layer front {Front}
+\node[sg shape,sg layer=back] (a) at (10,20) {A};
+\node[sg text,sg layer=front,anchor=center] (child) at ([shift={(2mm,3mm)}]a.center) {C};`);
+	assert.equal(itemById(f, 'child')?.parent, 'a');
+	assert.ok(node(f, 'child').slot);
+	assert.equal(node(f, 'child').layer, 'back');
 });
 
 test('reparent index determines sibling drawing order and survives serialization', () => {

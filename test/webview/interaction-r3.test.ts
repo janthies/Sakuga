@@ -60,7 +60,7 @@ test('wheel opens without a document change, creates at the pointer, and Ctrl ch
 	assert.equal(wheel.hidden, true);
 });
 
-test('box label stays part of its box on repeated clicks; layer click selects its items', () => {
+test('second click selects the centre Label; Escape selects its box; layer click selects its items', () => {
 	const s = new Session(
 		figure([
 			['a', 0, 0],
@@ -73,9 +73,12 @@ test('box label stays part of its box on repeated clicks; layer click selects it
 	assert.deepEqual(s.selection.nodes, ['a']);
 	s.down(0, 0, title());
 	s.up(0, 0);
+	assert.deepEqual(s.selection.nodes, ['a-title']);
+	s.key('Escape');
 	assert.deepEqual(s.selection.nodes, ['a']);
 	s.key('Escape');
 	assert.deepEqual(s.selection.nodes, []);
+
 	s.click(s.document.querySelector('.container-layer'));
 	assert.ok(s.selection.nodes.includes('a') && s.selection.nodes.includes('b'));
 });
@@ -92,7 +95,7 @@ test('Shift+Enter stores a TeX line break and Enter commits a canvas title', () 
 	);
 	input.value += 'Second';
 	s.editKey('Enter');
-	assert.equal(t.nodes(s.fig())[0].title, 'First\\\\Second');
+	assert.equal(t.nodes(s.fig()).find((n) => n.id === 'a-title').title, 'First\\\\Second');
 	assert.ok(s.doc.includes('align=center'));
 });
 
@@ -140,7 +143,7 @@ test('an attached icon selects immediately, moves independently, and Escape clim
 	s.up(8, 4, { ctrlKey: true });
 	const nodes = t.nodes(s.fig());
 	assert.equal(nodes.find((n: any) => n.id === 'parent').x, 0);
-	assert.equal(nodes.find((n: any) => n.id === 'child').attachment.dx, 8);
+	assert.equal(nodes.find((n: any) => n.id === 'child').slot, 'right');
 	s.key('Escape');
 	assert.deepEqual(s.selection.nodes, ['parent']);
 	s.key('Escape');
@@ -173,7 +176,7 @@ test('a child selected before its parent moves once with the parent', () => {
 	const nodes = t.nodes(s.fig());
 	assert.equal(nodes.find((n: any) => n.id === 'parent').x, 12);
 	assert.equal(nodes.find((n: any) => n.id === 'child').x, 12);
-	assert.equal(nodes.find((n: any) => n.id === 'child').attachment.dx, 0);
+	assert.equal(nodes.find((n: any) => n.id === 'child').slot, 'centre');
 });
 
 test('the context menu sends the selected box to the back with one command', () => {

@@ -1,3 +1,5 @@
+import { childrenOf, itemById } from '../model/tree-queries';
+import { slotRect } from '../geometry/slot-layout';
 import { categoryHeader, themeHeader } from './look';
 // Writing a figure back to TikZ.
 import { resolvePorts } from '../geometry/ports';
@@ -9,7 +11,7 @@ import { syncTree, lineItems } from '../model/tree';
 import { groupsBlock, legendBlock, pictureFont, themeBlock } from './blocks';
 import { edgeLine } from './edge-line';
 import { groupOptions } from './group';
-import { attachedIcons, hiddenReference, nodeLine } from './node-line';
+import { nodeLine } from './node-line';
 import { nodeIcon, resolveAttachments } from '../geometry/boxes';
 import { geometryOf } from '../geometry/figure-geometry';
 import { FigNode, Figure, Line } from '../model/figure';
@@ -18,9 +20,21 @@ import { settle } from '../styles/resolve';
 
 // The \node line of a box.
 export function nodeSource(fig: Figure, n: FigNode): string {
+	const label = childrenOf(fig, n.id).find((i) => i.kind === 'Text' && i.slot === 'centre');
+	const b = slotRect(n);
 	return nodeLine(
 		{
 			...n,
+			...(n.kind === 'label' && b?.textWidth ? { width: b.textWidth } : {}),
+			...(label?.kind === 'Text'
+				? { title: label.text, code: label.code || '', codeFont: label.node?.codeFont, titleHidden: label.hidden }
+				: {}),
+			...(!n.kind && b
+				? {
+						minh: b.h,
+						width: !n.style?.shape || ['rectangle', 'rounded', 'pill'].includes(n.style.shape) ? b.w - 2.2675 : n.width,
+					}
+				: {}),
 			iconPosition: n.iconPosition || (nodeIcon(fig, n) && n.cat ? 'nw' : undefined),
 			style: n.style,
 			hidden: isHidden(fig, n),
@@ -30,6 +44,7 @@ export function nodeSource(fig: Figure, n: FigNode): string {
 		!!nodeIcon(fig, n),
 		opacity(nodeLayer(fig, n).opacity),
 		fig,
+		label?.kind === 'Text' ? label.node : undefined,
 	);
 }
 
@@ -111,11 +126,14 @@ export function serialize(fig: Figure): string {
 				case 'line':
 					return [lineSource(fig, l.line), ...lineReference(fig, l.line)];
 				case 'node':
-					return [
-						nodeSource(fig, l.n),
-						...hiddenReference(fig, l.n),
-						...(nodeIcon(fig, l.n) && l.n.kind !== 'icon' && !isHidden(fig, l.n) ? attachedIcons(fig, [l.n]) : []),
-					];
+					if (
+						l.n.kind === 'label' &&
+						l.n.slot === 'centre' &&
+						itemById(fig, l.n.treeParent || '')?.kind === 'Shape' &&
+						childrenOf(fig, l.n.treeParent!).find((i) => i.kind === 'Text' && i.slot === 'centre')?.id === l.n.id
+					)
+						return [];
+					return [nodeSource(fig, l.n)];
 				case 'edge': {
 					const hiddenGroup = groups(fig).some(
 						(g) => (g.id === l.e.from || g.id === l.e.to) && groupMembers(fig, g.id).every((n) => isHidden(fig, n)),
@@ -146,7 +164,7 @@ export function serialize(fig: Figure): string {
 				case 'theme':
 					return themeBlock(fig);
 				case 'icons':
-					return attachedIcons(fig);
+					return [];
 				case 'legend':
 					return legendBlock(fig);
 				case 'raw':

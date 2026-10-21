@@ -22,7 +22,7 @@ export function pathLabels(path: string): AttachedLabel[] {
 			if (/^pos=/.test(o)) st.pos = +o.slice(4);
 			if (o === 'near start') st.pos = 0.25;
 			if (o === 'near end') st.pos = 0.75;
-			if (['above', 'below', 'left', 'right'].includes(o)) st.side = o;
+			if (/^(above|below|left|right)(?:=|$)/.test(o)) st.side = o.split('=')[0];
 			const shift = /^shift=\{\((-?[\d.]+)(?:mm)?,(-?[\d.]+)(?:mm)?\)\}$/.exec(o);
 			if (shift) {
 				st.dx = +shift[1];

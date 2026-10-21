@@ -1,3 +1,4 @@
+import { geometryOf } from '../../src/core/geometry/figure-geometry';
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { Session } from '../lib/session';
@@ -10,10 +11,7 @@ const sketch = require('../../src/shared').sketch;
 const pkg = require('../../package.json');
 
 test('sketch geometry: alignment, equal edge gaps, key objects, sizes, rigid groups, locks and Tab placement', () => {
-	const layout = (n) => {
-		const [w, h] = t.boxHalf(n);
-		return { w: w * 2, h: h * 2, lines: [n.title] };
-	};
+	const layout = (n) => geometryOf(fig).size(n);
 	const fig = t.parse(t.TEMPLATE);
 	const add = (id, x, y, width = 20, minh = 10, extra = {}) =>
 		t.apply(fig, { op: 'addNode', id, title: id, cat: '', x, y, width, minh, ...extra });
@@ -21,7 +19,7 @@ test('sketch geometry: alignment, equal edge gaps, key objects, sizes, rigid gro
 	add('a', 0, 0, 10);
 	add('b', 30, 12, 20);
 	add('c', 90, -10, 30);
-	const ns = () => t.nodes(fig),
+	const ns = () => t.nodes(fig).filter((n) => !n.kind),
 		ids = ['a', 'b', 'c'];
 	const apply = (batch) => {
 		assert.equal(batch.op, 'batch');
@@ -168,7 +166,7 @@ test('type-to-edit, Tab creation, cancellation, one-batch controls and constrain
 			['second', 50, 0, SEED],
 		]),
 	);
-	const nodes = () => s.hook.state().nodes;
+	const nodes = () => s.hook.state().nodes.filter((n) => !n.kind);
 	// Render invariant of the original harness: the selection only refers to existing nodes.
 	const press = (key: string, mods: any = {}) => {
 		const handled = s.key(key, mods);

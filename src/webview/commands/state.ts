@@ -115,7 +115,7 @@ export const appState: AppState = {
 		store.lastPaste = t;
 		vscode.postMessage({
 			type: 'paste',
-			layer: store.activeLayer,
+			layer: store.selG || store.activeLayer,
 			text: t,
 			dx: 5 * store.pasteCount,
 			dy: -5 * store.pasteCount,

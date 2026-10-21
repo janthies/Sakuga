@@ -38,28 +38,6 @@
         "rx": 0.8786,
         "ry": 0.8786
        }
-      },
-      {
-       "key": "n:g1-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": 0,
-        "y": 29.0879,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "g1-background-title",
-        "parent": "g1-background"
-       }
       }
      ],
      "attrs": {
@@ -83,9 +61,9 @@
         "id": "g1-label"
        },
        "attrs": {
-        "x": -32.4066,
-        "y": 4.0248,
-        "width": 26.7029,
+        "x": -31.7337,
+        "y": 5.4005,
+        "width": 61.9029,
         "height": 4.2175,
         "fill": "transparent"
        }
@@ -103,9 +81,9 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -32.4066,
-        "y": 4.0248,
-        "width": 26.7029,
+        "x": -31.7337,
+        "y": 5.4005,
+        "width": 61.9029,
         "height": 4.2175,
         "rx": 0,
         "ry": 0
@@ -116,8 +94,8 @@
        "kind": "text",
        "text": "attestation module",
        "attrs": {
-        "x": -19.0551,
-        "y": 6.1335,
+        "x": -0.7823,
+        "y": 7.5092,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -162,28 +140,6 @@
         "rx": 0.5272,
         "ry": 0.5272
        }
-      },
-      {
-       "key": "n:g2-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": -3.39,
-        "y": 103.9879,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "g2-background-title",
-        "parent": "g2-background"
-       }
       }
      ],
      "attrs": {
@@ -207,9 +163,9 @@
         "id": "g2-label"
        },
        "attrs": {
-        "x": -39.3866,
-        "y": 80.8248,
-        "width": 26.7029,
+        "x": -38.7137,
+        "y": 82.2005,
+        "width": 69.0829,
         "height": 4.2175,
         "fill": "transparent"
        }
@@ -227,9 +183,9 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -39.3866,
-        "y": 80.8248,
-        "width": 26.7029,
+        "x": -38.7137,
+        "y": 82.2005,
+        "width": 69.0829,
         "height": 4.2175,
         "rx": 0,
         "ry": 0
@@ -240,8 +196,8 @@
        "kind": "text",
        "text": "secure world",
        "attrs": {
-        "x": -26.0351,
-        "y": 82.9335,
+        "x": -4.1723,
+        "y": 84.3092,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -287,28 +243,6 @@
         "rx": 0.8786,
         "ry": 0.8786
        }
-      },
-      {
-       "key": "n:g3-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": -15,
-        "y": 110.5879,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "g3-background-title",
-        "parent": "g3-background"
-       }
       }
      ],
      "attrs": {
@@ -332,9 +266,9 @@
         "id": "g3-label"
        },
        "attrs": {
-        "x": -36.3866,
-        "y": 97.0248,
-        "width": 26.7029,
+        "x": -35.7137,
+        "y": 98.4005,
+        "width": 39.8629,
         "height": 4.2175,
         "fill": "transparent"
        }
@@ -352,9 +286,9 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -36.3866,
-        "y": 97.0248,
-        "width": 26.7029,
+        "x": -35.7137,
+        "y": 98.4005,
+        "width": 39.8629,
         "height": 4.2175,
         "rx": 0,
         "ry": 0
@@ -365,8 +299,8 @@
        "kind": "text",
        "text": "operation",
        "attrs": {
-        "x": -23.0351,
-        "y": 99.1335,
+        "x": -15.7823,
+        "y": 100.5092,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -405,33 +339,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": -3.08,
+        "y": -5.28,
         "width": 60.2675,
-        "height": 6.16,
+        "height": 10.56,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:app:line0",
-       "kind": "text",
-       "text": "Application",
-       "attrs": {
-        "x": 0,
-        "y": 0,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "app-title",
-        "parent": "app"
        }
       }
      ],
@@ -462,53 +374,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": 7.0005,
+        "y": 4.8005,
         "width": 60.2675,
-        "height": 9.999,
+        "height": 14.399,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:att:line0",
-       "kind": "text",
-       "text": "PSA Attestation API",
-       "attrs": {
-        "x": 0,
-        "y": 10.067,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "att-title",
-        "parent": "att"
-       }
-      },
-      {
-       "key": "n:att:code",
-       "kind": "text",
-       "text": "psa_initial_attest_get_token",
-       "attrs": {
-        "x": 0,
-        "y": 13.933,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.1631,
-        "font-family": "Sakuga Mono",
-        "fill": "#858585",
-        "pointer-events": "auto"
-       },
-       "hit": {
-        "k": "text",
-        "id": "att-title",
-        "parent": "att"
        }
       }
      ],
@@ -539,53 +409,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": 19.0005,
+        "y": 16.8005,
         "width": 60.2675,
-        "height": 9.999,
+        "height": 14.399,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:seam:line0",
-       "kind": "text",
-       "text": "Backend interface",
-       "attrs": {
-        "x": 0,
-        "y": 22.067,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "seam-title",
-        "parent": "seam"
-       }
-      },
-      {
-       "key": "n:seam:code",
-       "kind": "text",
-       "text": "attest_backend_get_token",
-       "attrs": {
-        "x": 0,
-        "y": 25.933,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.1631,
-        "font-family": "Sakuga Mono",
-        "fill": "#858585",
-        "pointer-events": "auto"
-       },
-       "hit": {
-        "k": "text",
-        "id": "seam-title",
-        "parent": "seam"
        }
       }
      ],
@@ -616,55 +444,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -29.1337,
-        "y": 29.8248,
+        "y": 27.6248,
         "width": 28.2675,
-        "height": 10.3505,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:swbe:line0",
-       "kind": "text",
-       "text": "Software",
-       "attrs": {
-        "x": -15,
-        "y": 32.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "swbe-title",
-        "parent": "swbe"
-       }
-      },
-      {
-       "key": "n:swbe:line1",
-       "kind": "text",
-       "text": "backend",
-       "attrs": {
-        "x": -15,
-        "y": 37.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "swbe-title",
-        "parent": "swbe"
        }
       }
      ],
@@ -695,33 +479,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 0.8663,
-        "y": 31.92,
+        "y": 29.72,
         "width": 28.2675,
-        "height": 6.16,
+        "height": 10.56,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:teebe:line0",
-       "kind": "text",
-       "text": "TEE backend",
-       "attrs": {
-        "x": 15,
-        "y": 35,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "teebe-title",
-        "parent": "teebe"
        }
       }
      ],
@@ -752,55 +514,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -29.1337,
-        "y": 40.8248,
+        "y": 36.516,
         "width": 28.2675,
-        "height": 10.3505,
+        "height": 18.968,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:nsenc:line0",
-       "kind": "text",
-       "text": "Providers and",
-       "attrs": {
-        "x": -15,
-        "y": 43.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "nsenc-title",
-        "parent": "nsenc"
-       }
-      },
-      {
-       "key": "n:nsenc:line1",
-       "kind": "text",
-       "text": "token encoder",
-       "attrs": {
-        "x": -15,
-        "y": 48.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "nsenc-title",
-        "parent": "nsenc"
        }
       }
      ],
@@ -831,53 +549,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": 69.0005,
+        "y": 66.8005,
         "width": 60.2675,
-        "height": 9.999,
+        "height": 14.399,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:cysapi:line0",
-       "kind": "text",
-       "text": "CryptoService API",
-       "attrs": {
-        "x": 0,
-        "y": 72.067,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "cysapi-title",
-        "parent": "cysapi"
-       }
-      },
-      {
-       "key": "n:cysapi:code",
-       "kind": "text",
-       "text": "CYS_attest_get_token",
-       "attrs": {
-        "x": 0,
-        "y": 75.933,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.1631,
-        "font-family": "Sakuga Mono",
-        "fill": "#858585",
-        "pointer-events": "auto"
-       },
-       "hit": {
-        "k": "text",
-        "id": "cysapi-title",
-        "parent": "cysapi"
        }
       }
      ],
@@ -908,53 +584,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": 84.0005,
+        "y": 81.8005,
         "width": 60.2675,
-        "height": 9.999,
+        "height": 14.399,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:entry:line0",
-       "kind": "text",
-       "text": "Secure entry and dispatch table",
-       "attrs": {
-        "x": 0,
-        "y": 87.067,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "entry-title",
-        "parent": "entry"
-       }
-      },
-      {
-       "key": "n:entry:code",
-       "kind": "text",
-       "text": "tee_secure_entry",
-       "attrs": {
-        "x": 0,
-        "y": 90.933,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.1631,
-        "font-family": "Sakuga Mono",
-        "fill": "#858585",
-        "pointer-events": "auto"
-       },
-       "hit": {
-        "k": "text",
-        "id": "entry-title",
-        "parent": "entry"
        }
       }
      ],
@@ -984,54 +618,12 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -35.1137,
-        "y": 99.0005,
-        "width": 40.2275,
-        "height": 9.999,
+        "x": -36.3126,
+        "y": 96.8005,
+        "width": 42.6252,
+        "height": 14.399,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:hdl:line0",
-       "kind": "text",
-       "text": "Attestation handler",
-       "attrs": {
-        "x": -15,
-        "y": 102.067,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "hdl-title",
-        "parent": "hdl"
-       }
-      },
-      {
-       "key": "n:hdl:code",
-       "kind": "text",
-       "text": "tee_attest_get_token",
-       "attrs": {
-        "x": -15,
-        "y": 105.933,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.1631,
-        "font-family": "Sakuga Mono",
-        "fill": "#858585",
-        "pointer-events": "auto"
-       },
-       "hit": {
-        "k": "text",
-        "id": "hdl-title",
-        "parent": "hdl"
        }
       }
      ],
@@ -1062,55 +654,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -29.1337,
-        "y": 111.8248,
+        "y": 107.516,
         "width": 28.2675,
-        "height": 10.3505,
+        "height": 18.968,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:senc:line0",
-       "kind": "text",
-       "text": "Providers and",
-       "attrs": {
-        "x": -15,
-        "y": 114.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "senc-title",
-        "parent": "senc"
-       }
-      },
-      {
-       "key": "n:senc:line1",
-       "kind": "text",
-       "text": "token encoder",
-       "attrs": {
-        "x": -15,
-        "y": 119.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "senc-title",
-        "parent": "senc"
        }
       }
      ],
@@ -1141,55 +689,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 0.8663,
-        "y": 104.8248,
+        "y": 100.516,
         "width": 28.2675,
-        "height": 10.3505,
+        "height": 18.968,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:ops:line0",
-       "kind": "text",
-       "text": "Crypto and",
-       "attrs": {
-        "x": 15,
-        "y": 107.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ops-title",
-        "parent": "ops"
-       }
-      },
-      {
-       "key": "n:ops:line1",
-       "kind": "text",
-       "text": "RoT operations",
-       "attrs": {
-        "x": 15,
-        "y": 112.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ops-title",
-        "parent": "ops"
        }
       }
      ],
@@ -1220,33 +724,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": 127.92,
+        "y": 125.72,
         "width": 60.2675,
-        "height": 6.16,
+        "height": 10.56,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:drv:line0",
-       "kind": "text",
-       "text": "CC310 driver",
-       "attrs": {
-        "x": 0,
-        "y": 131,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "drv-title",
-        "parent": "drv"
        }
       }
      ],
@@ -1277,15 +759,1209 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -30.1337,
-        "y": 137.92,
+        "y": 135.72,
         "width": 60.2675,
-        "height": 6.16,
+        "height": 10.56,
         "rx": 0.492,
         "ry": 0.492
        }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:app-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "app-title"
+     },
+     "children": [
+      {
+       "key": "n:app-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": -3.08,
+        "width": 57.8675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
       },
       {
-       "key": "n:hw:line0",
+       "key": "n:app-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": -3.08,
+        "width": 57.8675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:app-title:line0",
+       "kind": "text",
+       "text": "Application",
+       "attrs": {
+        "x": 0,
+        "y": 0,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:att-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "att-title"
+     },
+     "children": [
+      {
+       "key": "n:att-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "att-title",
+        "parent": "att"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": 7.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:att-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "att-title",
+        "parent": "att"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": 7.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:att-title:line0",
+       "kind": "text",
+       "text": "PSA Attestation API",
+       "attrs": {
+        "x": 0,
+        "y": 10.067,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "att-title",
+        "parent": "att"
+       }
+      },
+      {
+       "key": "n:att-title:code",
+       "kind": "text",
+       "text": "psa_initial_attest_get_token",
+       "attrs": {
+        "x": 0,
+        "y": 13.933,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "att-title",
+        "parent": "att"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:seam-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "seam-title"
+     },
+     "children": [
+      {
+       "key": "n:seam-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "seam-title",
+        "parent": "seam"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": 19.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:seam-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "seam-title",
+        "parent": "seam"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": 19.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:seam-title:line0",
+       "kind": "text",
+       "text": "Backend interface",
+       "attrs": {
+        "x": 0,
+        "y": 22.067,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "seam-title",
+        "parent": "seam"
+       }
+      },
+      {
+       "key": "n:seam-title:code",
+       "kind": "text",
+       "text": "attest_backend_get_token",
+       "attrs": {
+        "x": 0,
+        "y": 25.933,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "seam-title",
+        "parent": "seam"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:swbe-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "swbe-title"
+     },
+     "children": [
+      {
+       "key": "n:swbe-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "swbe-title",
+        "parent": "swbe"
+       },
+       "attrs": {
+        "x": -27.9337,
+        "y": 29.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:swbe-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "swbe-title",
+        "parent": "swbe"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -27.9337,
+        "y": 29.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:swbe-title:line0",
+       "kind": "text",
+       "text": "Software",
+       "attrs": {
+        "x": -15,
+        "y": 32.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "swbe-title",
+        "parent": "swbe"
+       }
+      },
+      {
+       "key": "n:swbe-title:line1",
+       "kind": "text",
+       "text": "backend",
+       "attrs": {
+        "x": -15,
+        "y": 37.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "swbe-title",
+        "parent": "swbe"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:teebe-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "teebe-title"
+     },
+     "children": [
+      {
+       "key": "n:teebe-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "teebe-title",
+        "parent": "teebe"
+       },
+       "attrs": {
+        "x": 2.0663,
+        "y": 31.92,
+        "width": 25.8675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:teebe-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "teebe-title",
+        "parent": "teebe"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 2.0663,
+        "y": 31.92,
+        "width": 25.8675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:teebe-title:line0",
+       "kind": "text",
+       "text": "TEE backend",
+       "attrs": {
+        "x": 15,
+        "y": 35,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "teebe-title",
+        "parent": "teebe"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:nsenc-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "nsenc-title"
+     },
+     "children": [
+      {
+       "key": "n:nsenc-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
+       },
+       "attrs": {
+        "x": -27.9337,
+        "y": 38.716,
+        "width": 25.8675,
+        "height": 14.568,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:nsenc-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -27.9337,
+        "y": 38.716,
+        "width": 25.8675,
+        "height": 14.568,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:nsenc-title:line0",
+       "kind": "text",
+       "text": "Providers and",
+       "attrs": {
+        "x": -15,
+        "y": 41.7825,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
+       }
+      },
+      {
+       "key": "n:nsenc-title:line1",
+       "kind": "text",
+       "text": "token",
+       "attrs": {
+        "x": -15,
+        "y": 46,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
+       }
+      },
+      {
+       "key": "n:nsenc-title:line2",
+       "kind": "text",
+       "text": "encoder",
+       "attrs": {
+        "x": -15,
+        "y": 50.2175,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "nsenc-title",
+        "parent": "nsenc"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:cysapi-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "cysapi-title"
+     },
+     "children": [
+      {
+       "key": "n:cysapi-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "cysapi-title",
+        "parent": "cysapi"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": 69.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:cysapi-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "cysapi-title",
+        "parent": "cysapi"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": 69.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:cysapi-title:line0",
+       "kind": "text",
+       "text": "CryptoService API",
+       "attrs": {
+        "x": 0,
+        "y": 72.067,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#707A8F",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "cysapi-title",
+        "parent": "cysapi"
+       }
+      },
+      {
+       "key": "n:cysapi-title:code",
+       "kind": "text",
+       "text": "CYS_attest_get_token",
+       "attrs": {
+        "x": 0,
+        "y": 75.933,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "cysapi-title",
+        "parent": "cysapi"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:entry-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "entry-title"
+     },
+     "children": [
+      {
+       "key": "n:entry-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "entry-title",
+        "parent": "entry"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": 84.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:entry-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "entry-title",
+        "parent": "entry"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": 84.0005,
+        "width": 57.8675,
+        "height": 9.999,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:entry-title:line0",
+       "kind": "text",
+       "text": "Secure entry and dispatch table",
+       "attrs": {
+        "x": 0,
+        "y": 87.067,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "entry-title",
+        "parent": "entry"
+       }
+      },
+      {
+       "key": "n:entry-title:code",
+       "kind": "text",
+       "text": "tee_secure_entry",
+       "attrs": {
+        "x": 0,
+        "y": 90.933,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "entry-title",
+        "parent": "entry"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:hdl-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "hdl-title"
+     },
+     "children": [
+      {
+       "key": "n:hdl-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "hdl-title",
+        "parent": "hdl"
+       },
+       "attrs": {
+        "x": -35.1126,
+        "y": 99.0005,
+        "width": 40.2252,
+        "height": 9.999,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:hdl-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "hdl-title",
+        "parent": "hdl"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -35.1126,
+        "y": 99.0005,
+        "width": 40.2252,
+        "height": 9.999,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:hdl-title:line0",
+       "kind": "text",
+       "text": "Attestation handler",
+       "attrs": {
+        "x": -15,
+        "y": 102.067,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "hdl-title",
+        "parent": "hdl"
+       }
+      },
+      {
+       "key": "n:hdl-title:code",
+       "kind": "text",
+       "text": "tee_attest_get_token",
+       "attrs": {
+        "x": -15,
+        "y": 105.933,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.1631,
+        "font-family": "Sakuga Mono",
+        "fill": "#858585",
+        "pointer-events": "auto"
+       },
+       "hit": {
+        "k": "text",
+        "id": "hdl-title",
+        "parent": "hdl"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:senc-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "senc-title"
+     },
+     "children": [
+      {
+       "key": "n:senc-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
+       },
+       "attrs": {
+        "x": -27.9337,
+        "y": 109.716,
+        "width": 25.8675,
+        "height": 14.568,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:senc-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -27.9337,
+        "y": 109.716,
+        "width": 25.8675,
+        "height": 14.568,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:senc-title:line0",
+       "kind": "text",
+       "text": "Providers and",
+       "attrs": {
+        "x": -15,
+        "y": 112.7825,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
+       }
+      },
+      {
+       "key": "n:senc-title:line1",
+       "kind": "text",
+       "text": "token",
+       "attrs": {
+        "x": -15,
+        "y": 117,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
+       }
+      },
+      {
+       "key": "n:senc-title:line2",
+       "kind": "text",
+       "text": "encoder",
+       "attrs": {
+        "x": -15,
+        "y": 121.2175,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "senc-title",
+        "parent": "senc"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:ops-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "ops-title"
+     },
+     "children": [
+      {
+       "key": "n:ops-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
+       },
+       "attrs": {
+        "x": 2.0663,
+        "y": 102.716,
+        "width": 25.8675,
+        "height": 14.568,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:ops-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 2.0663,
+        "y": 102.716,
+        "width": 25.8675,
+        "height": 14.568,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:ops-title:line0",
+       "kind": "text",
+       "text": "Crypto and",
+       "attrs": {
+        "x": 15,
+        "y": 105.7825,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
+       }
+      },
+      {
+       "key": "n:ops-title:line1",
+       "kind": "text",
+       "text": "RoT",
+       "attrs": {
+        "x": 15,
+        "y": 110,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
+       }
+      },
+      {
+       "key": "n:ops-title:line2",
+       "kind": "text",
+       "text": "operations",
+       "attrs": {
+        "x": 15,
+        "y": 114.2175,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ops-title",
+        "parent": "ops"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:drv-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "drv-title"
+     },
+     "children": [
+      {
+       "key": "n:drv-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "drv-title",
+        "parent": "drv"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": 127.92,
+        "width": 57.8675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:drv-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "drv-title",
+        "parent": "drv"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": 127.92,
+        "width": 57.8675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:drv-title:line0",
+       "kind": "text",
+       "text": "CC310 driver",
+       "attrs": {
+        "x": 0,
+        "y": 131,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "drv-title",
+        "parent": "drv"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:hw-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "hw-title"
+     },
+     "children": [
+      {
+       "key": "n:hw-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "hw-title",
+        "parent": "hw"
+       },
+       "attrs": {
+        "x": -28.9337,
+        "y": 137.92,
+        "width": 57.8675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:hw-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "hw-title",
+        "parent": "hw"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -28.9337,
+        "y": 137.92,
+        "width": 57.8675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:hw-title:line0",
        "kind": "text",
        "text": "CC310",
        "attrs": {
@@ -1295,7 +1971,7 @@
         "dominant-baseline": "central",
         "font-size": 3.5146,
         "font-family": "Sakuga Sans",
-        "fill": "#000",
+        "fill": "#858585",
         "pointer-events": "auto",
         "font-weight": "normal",
         "font-style": "normal"
@@ -1321,7 +1997,7 @@
        "kind": "rect",
        "attrs": {
         "x": -39.9137,
-        "y": 151.08,
+        "y": 153.28,
         "width": 3.6,
         "height": 3.6,
         "rx": 0.3515,
@@ -1338,7 +2014,7 @@
        "text": "this work",
        "attrs": {
         "x": -35.3137,
-        "y": 152.88,
+        "y": 155.08,
         "text-anchor": "start",
         "dominant-baseline": "central",
         "font-size": 3.1631,
@@ -1359,7 +2035,7 @@
        "kind": "rect",
        "attrs": {
         "x": -39.9137,
-        "y": 157.08,
+        "y": 159.28,
         "width": 3.6,
         "height": 3.6,
         "rx": 0.3515,
@@ -1376,7 +2052,7 @@
        "text": "CryptoService",
        "attrs": {
         "x": -35.3137,
-        "y": 158.88,
+        "y": 161.08,
         "text-anchor": "start",
         "dominant-baseline": "central",
         "font-size": 3.1631,
@@ -1397,7 +2073,7 @@
        "kind": "rect",
        "attrs": {
         "x": -39.9137,
-        "y": 163.08,
+        "y": 165.28,
         "width": 3.6,
         "height": 3.6,
         "rx": 0.3515,
@@ -1414,7 +2090,7 @@
        "text": "TEE",
        "attrs": {
         "x": -35.3137,
-        "y": 164.88,
+        "y": 167.08,
         "text-anchor": "start",
         "dominant-baseline": "central",
         "font-size": 3.1631,
@@ -1435,7 +2111,7 @@
        "kind": "rect",
        "attrs": {
         "x": -5.9137,
-        "y": 151.08,
+        "y": 153.28,
         "width": 3.6,
         "height": 3.6,
         "rx": 0.3515,
@@ -1452,7 +2128,7 @@
        "text": "RIOT",
        "attrs": {
         "x": -1.3137,
-        "y": 152.88,
+        "y": 155.08,
         "text-anchor": "start",
         "dominant-baseline": "central",
         "font-size": 3.1631,
@@ -1483,7 +2159,7 @@
        "key": "e:0:end",
        "kind": "path",
        "attrs": {
-        "d": "M 0 7.0005 Q 0.18 6.0255 0.6 5.5005 L -0.6 5.5005 Q -0.18 6.0255 0 7.0005 Z",
+        "d": "M 0 4.8005 Q -0.18 5.7755 -0.6 6.3005 L 0.6 6.3005 Q 0.18 5.7755 0 4.8005 Z",
         "fill": "#808080"
        }
       },
@@ -1491,7 +2167,7 @@
        "key": "e:0:line",
        "kind": "path",
        "attrs": {
-        "d": "M 0 3.08 L 0 5.8005",
+        "d": "M 0 5.28 L 0 6.0005",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1503,7 +2179,7 @@
        "key": "e:0:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 0 3.08 L 0 7.0005",
+        "d": "M 0 5.28 L 0 4.8005",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1520,7 +2196,7 @@
         "index": 0
        },
        "attrs": {
-        "d": "M 0 3.08 L 0 7.0005",
+        "d": "M 0 5.28 L 0 4.8005",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1546,7 +2222,7 @@
        "key": "e:1:end",
        "kind": "path",
        "attrs": {
-        "d": "M 0 19.0005 Q 0.18 18.0255 0.6 17.5005 L -0.6 17.5005 Q -0.18 18.0255 0 19.0005 Z",
+        "d": "M 0 16.8005 Q -0.18 17.7755 -0.6 18.3005 L 0.6 18.3005 Q 0.18 17.7755 0 16.8005 Z",
         "fill": "#808080"
        }
       },
@@ -1554,7 +2230,7 @@
        "key": "e:1:line",
        "kind": "path",
        "attrs": {
-        "d": "M 0 16.9995 L 0 17.8005",
+        "d": "M 0 19.1995 L 0 18.0005",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1566,7 +2242,7 @@
        "key": "e:1:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 0 16.9995 L 0 19.0005",
+        "d": "M 0 19.1995 L 0 16.8005",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1583,7 +2259,7 @@
         "index": 1
        },
        "attrs": {
-        "d": "M 0 16.9995 L 0 19.0005",
+        "d": "M 0 19.1995 L 0 16.8005",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1609,7 +2285,7 @@
        "key": "e:2:end",
        "kind": "path",
        "attrs": {
-        "d": "M -7.9428 29.8248 Q -7.0502 29.3933 -6.3784 29.4216 L -7.0881 28.4539 Q -7.263 29.103 -7.9428 29.8248 Z",
+        "d": "M -4.9428 27.6248 Q -5.8355 28.0562 -6.5073 28.028 L -5.7976 28.9956 Q -5.6226 28.3465 -4.9428 27.6248 Z",
         "fill": "#808080"
        }
       },
@@ -1617,7 +2293,7 @@
        "key": "e:2:line",
        "kind": "path",
        "attrs": {
-        "d": "M -6.8175 28.9995 L -6.9752 29.1151",
+        "d": "M -9.8175 31.1995 L -5.9105 28.3344",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1629,7 +2305,7 @@
        "key": "e:2:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M -6.8175 28.9995 L -7.9428 29.8248",
+        "d": "M -9.8175 31.1995 L -4.9428 27.6248",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1646,7 +2322,7 @@
         "index": 2
        },
        "attrs": {
-        "d": "M -6.8175 28.9995 L -7.9428 29.8248",
+        "d": "M -9.8175 31.1995 L -4.9428 27.6248",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1672,7 +2348,7 @@
        "key": "e:3:end",
        "kind": "path",
        "attrs": {
-        "d": "M 10.8 31.92 Q 10.1202 31.1983 9.9452 30.5491 L 9.2356 31.5168 Q 9.9073 31.4886 10.8 31.92 Z",
+        "d": "M 7.8 29.72 Q 8.4798 30.4417 8.6548 31.0909 L 9.3644 30.1232 Q 8.6927 30.1514 7.8 29.72 Z",
         "fill": "#808080"
        }
       },
@@ -1680,7 +2356,7 @@
        "key": "e:3:line",
        "kind": "path",
        "attrs": {
-        "d": "M 6.8175 28.9995 L 9.8323 31.2104",
+        "d": "M 9.8175 31.1995 L 8.7677 30.4296",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1692,7 +2368,7 @@
        "key": "e:3:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 6.8175 28.9995 L 10.8 31.92",
+        "d": "M 9.8175 31.1995 L 7.8 29.72",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1709,7 +2385,7 @@
         "index": 3
        },
        "attrs": {
-        "d": "M 6.8175 28.9995 L 10.8 31.92",
+        "d": "M 9.8175 31.1995 L 7.8 29.72",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1782,7 +2458,7 @@
        "key": "e:4:end",
        "kind": "path",
        "attrs": {
-        "d": "M -15 40.8248 Q -14.82 39.8498 -14.4 39.3248 L -15.6 39.3248 Q -15.18 39.8498 -15 40.8248 Z",
+        "d": "M -15 36.516 Q -15.18 37.491 -15.6 38.016 L -14.4 38.016 Q -14.82 37.491 -15 36.516 Z",
         "fill": "#808080"
        }
       },
@@ -1790,7 +2466,7 @@
        "key": "e:4:line",
        "kind": "path",
        "attrs": {
-        "d": "M -15 40.1752 L -15 39.6248",
+        "d": "M -15 42.3752 L -15 37.716",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1802,7 +2478,7 @@
        "key": "e:4:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M -15 40.1752 L -15 40.8248",
+        "d": "M -15 42.3752 L -15 36.516",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1819,7 +2495,7 @@
         "index": 4
        },
        "attrs": {
-        "d": "M -15 40.1752 L -15 40.8248",
+        "d": "M -15 42.3752 L -15 36.516",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1845,7 +2521,7 @@
        "key": "e:7:end",
        "kind": "path",
        "attrs": {
-        "d": "M 1.9229 69.0005 Q 2.4409 68.1551 3.0214 67.8159 L 1.9014 67.3851 Q 2.1049 68.0259 1.9229 69.0005 Z",
+        "d": "M 2.769 66.8005 Q 3.2871 65.9551 3.8675 65.6159 L 2.7475 65.1851 Q 2.951 65.8259 2.769 66.8005 Z",
         "fill": "#808080"
        }
       },
@@ -1853,7 +2529,7 @@
        "key": "e:7:start",
        "kind": "path",
        "attrs": {
-        "d": "M 13.8154 38.08 Q 13.2974 38.9254 12.7169 39.2646 L 13.8369 39.6954 Q 13.6334 39.0546 13.8154 38.08 Z",
+        "d": "M 12.9692 40.28 Q 12.4512 41.1254 11.8708 41.4646 L 12.9908 41.8954 Q 12.7872 41.2546 12.9692 40.28 Z",
         "fill": "#808080"
        }
       },
@@ -1861,7 +2537,7 @@
        "key": "e:7:line",
        "kind": "path",
        "attrs": {
-        "d": "M 13.3846 39.2 L 2.3537 67.8805",
+        "d": "M 12.5385 41.4 L 3.1998 65.6805",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1873,7 +2549,7 @@
        "key": "e:7:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 13.8154 38.08 L 1.9229 69.0005",
+        "d": "M 12.9692 40.28 L 2.769 66.8005",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1890,7 +2566,7 @@
         "index": 7
        },
        "attrs": {
-        "d": "M 13.8154 38.08 L 1.9229 69.0005",
+        "d": "M 12.9692 40.28 L 2.769 66.8005",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1916,7 +2592,7 @@
        "key": "e:8:end",
        "kind": "path",
        "attrs": {
-        "d": "M 0 84.0005 Q 0.18 83.0255 0.6 82.5005 L -0.6 82.5005 Q -0.18 83.0255 0 84.0005 Z",
+        "d": "M 0 81.8005 Q 0.18 80.8255 0.6 80.3005 L -0.6 80.3005 Q -0.18 80.8255 0 81.8005 Z",
         "fill": "#808080"
        }
       },
@@ -1924,7 +2600,7 @@
        "key": "e:8:line",
        "kind": "path",
        "attrs": {
-        "d": "M 0 78.9995 L 0 82.8005",
+        "d": "M 0 81.1995 L 0 80.6005",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1936,7 +2612,7 @@
        "key": "e:8:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 0 78.9995 L 0 84.0005",
+        "d": "M 0 81.1995 L 0 81.8005",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1953,7 +2629,7 @@
         "index": 8
        },
        "attrs": {
-        "d": "M 0 78.9995 L 0 84.0005",
+        "d": "M 0 81.1995 L 0 81.8005",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1979,7 +2655,7 @@
        "key": "e:9:end",
        "kind": "path",
        "attrs": {
-        "d": "M -10.0005 99.0005 Q -9.1838 98.4383 -8.5156 98.3641 L -9.3641 97.5156 Q -9.4383 98.1838 -10.0005 99.0005 Z",
+        "d": "M -7.8005 96.8005 Q -6.9838 96.2383 -6.3156 96.1641 L -7.1641 95.3156 Q -7.2383 95.9838 -7.8005 96.8005 Z",
         "fill": "#808080"
        }
       },
@@ -1987,7 +2663,7 @@
        "key": "e:9:line",
        "kind": "path",
        "attrs": {
-        "d": "M -4.9995 93.9995 L -9.152 98.152",
+        "d": "M -7.1995 96.1995 L -6.952 95.952",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1999,7 +2675,7 @@
        "key": "e:9:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M -4.9995 93.9995 L -10.0005 99.0005",
+        "d": "M -7.1995 96.1995 L -7.8005 96.8005",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2016,7 +2692,7 @@
         "index": 9
        },
        "attrs": {
-        "d": "M -4.9995 93.9995 L -10.0005 99.0005",
+        "d": "M -7.1995 96.1995 L -7.8005 96.8005",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2042,7 +2718,7 @@
        "key": "e:10:end",
        "kind": "path",
        "attrs": {
-        "d": "M 11.3034 104.8248 Q 10.8832 103.9267 10.9198 103.2554 L 9.9433 103.9529 Q 10.5902 104.136 11.3034 104.8248 Z",
+        "d": "M 8.2257 100.516 Q 7.8055 99.618 7.8421 98.9467 L 6.8656 99.6441 Q 7.5125 99.8272 8.2257 100.516 Z",
         "fill": "#808080"
        }
       },
@@ -2050,7 +2726,7 @@
        "key": "e:10:line",
        "kind": "path",
        "attrs": {
-        "d": "M 3.5711 93.9995 L 10.6059 103.8483",
+        "d": "M 5.1425 96.1995 L 7.5282 99.5395",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2062,7 +2738,7 @@
        "key": "e:10:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 3.5711 93.9995 L 11.3034 104.8248",
+        "d": "M 5.1425 96.1995 L 8.2257 100.516",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2079,7 +2755,7 @@
         "index": 10
        },
        "attrs": {
-        "d": "M 3.5711 93.9995 L 11.3034 104.8248",
+        "d": "M 5.1425 96.1995 L 8.2257 100.516",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2105,7 +2781,7 @@
        "key": "e:11:end",
        "kind": "path",
        "attrs": {
-        "d": "M -15 111.8248 Q -14.82 110.8498 -14.4 110.3248 L -15.6 110.3248 Q -15.18 110.8498 -15 111.8248 Z",
+        "d": "M -15 107.516 Q -15.18 108.491 -15.6 109.016 L -14.4 109.016 Q -14.82 108.491 -15 107.516 Z",
         "fill": "#808080"
        }
       },
@@ -2113,7 +2789,7 @@
        "key": "e:11:line",
        "kind": "path",
        "attrs": {
-        "d": "M -15 108.9995 L -15 110.6248",
+        "d": "M -15 111.1995 L -15 108.716",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2125,7 +2801,7 @@
        "key": "e:11:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M -15 108.9995 L -15 111.8248",
+        "d": "M -15 111.1995 L -15 107.516",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2142,7 +2818,7 @@
         "index": 11
        },
        "attrs": {
-        "d": "M -15 108.9995 L -15 111.8248",
+        "d": "M -15 111.1995 L -15 107.516",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2168,7 +2844,7 @@
        "key": "e:12:end",
        "kind": "path",
        "attrs": {
-        "d": "M -3.3 127.92 Q -3.89 127.1231 -3.9872 126.4579 L -4.806 127.3352 Q -4.1356 127.3863 -3.3 127.92 Z",
+        "d": "M -5.6571 125.72 Q -5.0672 126.5169 -4.97 127.1821 L -4.1512 126.3048 Q -4.8215 126.2537 -5.6571 125.72 Z",
         "fill": "#808080"
        }
       },
@@ -2176,7 +2852,7 @@
        "key": "e:12:line",
        "kind": "path",
        "attrs": {
-        "d": "M -9.4551 122.1752 L -4.1773 127.1012",
+        "d": "M -4.8386 126.484 L -4.7799 126.5388",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2188,7 +2864,7 @@
        "key": "e:12:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M -9.4551 122.1752 L -3.3 127.92",
+        "d": "M -4.8386 126.484 L -5.6571 125.72",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2205,7 +2881,7 @@
         "index": 12
        },
        "attrs": {
-        "d": "M -9.4551 122.1752 L -3.3 127.92",
+        "d": "M -4.8386 126.484 L -5.6571 125.72",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2231,7 +2907,7 @@
        "key": "e:13:end",
        "kind": "path",
        "attrs": {
-        "d": "M 2.2 127.92 Q 2.9132 127.2312 3.5601 127.0481 L 2.5836 126.3507 Q 2.6202 127.022 2.2 127.92 Z",
+        "d": "M 3.7714 125.72 Q 4.4846 125.0312 5.1315 124.8481 L 4.155 124.1507 Q 4.1917 124.822 3.7714 125.72 Z",
         "fill": "#808080"
        }
       },
@@ -2239,7 +2915,7 @@
        "key": "e:13:line",
        "kind": "path",
        "attrs": {
-        "d": "M 11.3034 115.1752 L 2.8975 126.9435",
+        "d": "M 8.2257 119.484 L 4.4689 124.7435",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2251,7 +2927,7 @@
        "key": "e:13:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 11.3034 115.1752 L 2.2 127.92",
+        "d": "M 8.2257 119.484 L 3.7714 125.72",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2268,7 +2944,7 @@
         "index": 13
        },
        "attrs": {
-        "d": "M 11.3034 115.1752 L 2.2 127.92",
+        "d": "M 8.2257 119.484 L 3.7714 125.72",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2294,7 +2970,7 @@
        "key": "e:14:end",
        "kind": "path",
        "attrs": {
-        "d": "M 0 137.92 Q 0.18 136.945 0.6 136.42 L -0.6 136.42 Q -0.18 136.945 0 137.92 Z",
+        "d": "M -30.1337 138.22 Q -31.1087 138.04 -31.6337 137.62 L -31.6337 138.82 Q -31.1087 138.4 -30.1337 138.22 Z",
         "fill": "#808080"
        }
       },
@@ -2302,7 +2978,7 @@
        "key": "e:14:line",
        "kind": "path",
        "attrs": {
-        "d": "M 0 134.08 L 0 136.72",
+        "d": "M -30.1337 133.78 L -29.9308 133.78 C -30.319 133.78 -30.6337 134.0947 -30.6337 134.4829 L -30.6337 137.5171 C -30.6337 137.9053 -30.9485 138.22 -31.3367 138.22 L -31.3337 138.22",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2318,7 +2994,7 @@
         "index": 14
        },
        "attrs": {
-        "d": "M 0 134.08 L 0 137.92",
+        "d": "M -30.1337 133.78 L -29.9308 133.78 C -30.319 133.78 -30.6337 134.0947 -30.6337 134.4829 L -30.6337 137.5171 C -30.6337 137.9053 -30.319 138.22 -29.9308 138.22 L -30.1337 138.22",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,

@@ -48,7 +48,11 @@ test('perf: dragging one box patches only that box, its arrows and its frames', 
 			`nodes ${changed(nodes)}, arrows ${changed(edges)} (of ${edgesOf(node.id)} connected), frames ${changed(frames)}`,
 	);
 	assert.ok(records.length > 0, 'the move is drawn');
-	assert.equal(changed(nodes), 1, 'one box group changes');
+	assert.equal(
+		changed(nodes),
+		1 + state.nodes.filter((n) => n.treeParent === node.id).length,
+		'box and slot children change',
+	);
 	assert.equal(changed(edges), edgesOf(node.id), 'only the arrows that start or end at the box change');
 	assert.ok(
 		touched(records.filter(inScene)).size < total / 5,

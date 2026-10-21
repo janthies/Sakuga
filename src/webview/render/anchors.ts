@@ -9,7 +9,16 @@ export function endpointObject(id: string) {
 	return byId(id) || frameRect(id);
 }
 export function endpointTarget(p: Pt, disableSnap = false): EndpointTarget | null {
-	const n = nodeAt(p, 2);
+	const n = [...store.nodes]
+		.reverse()
+		.find(
+			(n) =>
+				!n.kind &&
+				!n.hidden &&
+				!n.locked &&
+				Math.abs(p.x - n.x) <= layout(n).w / 2 + 2 &&
+				Math.abs(p.y - n.y) <= layout(n).h / 2 + 2,
+		);
 	if (n && n.kind !== 'icon') {
 		const { w, h } = layout(n),
 			choices: [string, number][] = [

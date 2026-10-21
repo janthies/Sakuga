@@ -48,6 +48,7 @@ export function syncTree(fig: Figure): void {
 		id,
 		parent: p.treeParent ?? parent,
 		order: p.order ?? all.length,
+		slot: p.slot,
 		hidden: !!p.hidden,
 		locked: !!p.locked,
 	});
@@ -83,6 +84,12 @@ export function syncTree(fig: Figure): void {
 			order: slot,
 			role: owner.kind === 'Shape' || owner.kind === 'Frame' ? 'title' : 'label',
 			placement,
+			slot:
+				owner.kind === 'Line'
+					? ((((placement?.pos ?? 0.5) < 0.25 ? 'start' : (placement?.pos ?? 0.5) > 0.75 ? 'end' : 'middle') +
+							'-' +
+							(['below', 'right'].includes(placement?.side || '') ? 'below' : 'above')) as any)
+					: undefined,
 			hidden: prior?.hidden ?? placement?.hidden ?? false,
 			locked: prior?.locked ?? placement?.locked ?? false,
 		});
@@ -104,7 +111,6 @@ export function syncTree(fig: Figure): void {
 						}
 					: { ...b, kind: n.kind === 'icon' ? 'Icon' : 'Shape', node: n };
 			all.push(i);
-			if (i.kind === 'Shape') text(i, n.title, n.code, undefined, 0, n.titleId);
 		} else if (l.t === 'group') {
 			const g = l.g;
 			const member = fig.lines.find((x) => x.t === 'node' && x.n.group === g.id);
@@ -118,7 +124,16 @@ export function syncTree(fig: Figure): void {
 			const p = l.line,
 				i: Item = { ...base(p, p.id, p.group || p.layer || fallback), kind: 'Line', line: p };
 			all.push(i);
-			p.labels?.forEach((v, k) => text(i, v.text, '', v.style, k, v.id));
+			p.labels?.forEach((v, k) => {
+				const st = v.style || {};
+				delete st.dx;
+				delete st.dy;
+				delete st.segment;
+				st.pos = (st.pos ?? 0.5) < 0.25 ? 0 : (st.pos ?? 0.5) > 0.75 ? 1 : 0.5;
+				st.side = ['below', 'right'].includes(st.side || '') ? 'below' : 'above';
+				v.style = st;
+				text(i, v.text, '', st, k, v.id);
+			});
 		} else if (l.t === 'edge') {
 			const e = l.e;
 			e.id ||= fresh('connector');
@@ -167,6 +182,8 @@ export function projectTree(fig: Figure): void {
 	for (const i of fig.items || []) {
 		const p = payload(i);
 		p.treeParent = i.parent;
+		if (!['Shape', 'Line'].includes(itemById(fig, i.parent)?.kind || '')) delete i.slot;
+		p.slot = i.slot;
 		p.order = i.order;
 		if (i.kind === 'Connector') {
 			i.connector.fromPort = i.source.port;

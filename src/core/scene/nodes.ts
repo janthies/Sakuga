@@ -53,7 +53,12 @@ function nodePrim(env: Env, n: FigNode): Prim {
 	const alpha = (n.style?.opacity ?? 1) * opacityOf(env.fig.layers, n.layer);
 	const { w, h, lines } = env.size(n);
 	const kids: Prim[] = [];
-	const hit = n.locked ? { hit: { k: 'locked' } as const } : { hit: { k: 'node', id: n.id } as const };
+	const hit =
+		n.kind === 'label' && n.slot === 'centre' && !n.locked
+			? { hit: { k: 'text', id: n.id, parent: n.treeParent || '' } as const }
+			: n.locked
+				? { hit: { k: 'locked' } as const }
+				: { hit: { k: 'node', id: n.id } as const };
 	const klass = n.locked ? 'locked-node' : 'node';
 	const r =
 		n.style?.cornerRadius !== undefined
@@ -114,11 +119,11 @@ function nodePrim(env: Env, n: FigNode): Prim {
 		);
 		kids.push(box, ...decorations(`${key}:box`, n, w, h, box));
 	}
-	if (!n.titleHidden && env.opts.editing !== n.id && n.kind !== 'icon')
+	if (!n.titleHidden && env.opts.editing !== n.id && n.kind !== 'icon' && !!n.title)
 		kids.push(...titleLines(env, n, key, w, h, lines));
 	for (const p of kids)
-		if (p.kind === 'text' && !n.kind && !n.locked) {
-			p.hit = { k: 'text', id: n.titleId || n.id + '-title', parent: n.id };
+		if (p.kind === 'text' && n.kind === 'label' && n.slot === 'centre' && !n.locked) {
+			p.hit = { k: 'text', id: n.id, parent: n.treeParent || '' };
 			p.attrs['pointer-events'] = 'auto';
 		}
 	return prim('g', key, { 'fill-opacity': alpha, 'stroke-opacity': alpha }, { ref, children: kids });
@@ -130,28 +135,10 @@ function titleLines(env: Env, n: FigNode, key: string, w: number, h: number, lin
 	const pitch = ({ 8: 9.5, 9: 11, 10: 12, 10.95: 13.6, 12: 14 } as Record<number, number>)[fpt] * PT,
 		codePitch = pitch - PT;
 	const total = (lines.length - 1) * pitch + (n.code ? codePitch : 0);
-	const pos = n.iconPosition || (env.fig.categories.find((c) => c.key === n.cat)?.icon ? 'nw' : 'left'),
-		name = env.geo.icon(n) ?? '';
-	const shiftX = name ? (pos === 'left' ? 2 : pos === 'right' ? -2 : 0) : 0;
-	const shiftY = name && !['left', 'right'].includes(pos) ? (['sw', 'se'].includes(pos) ? 2 : -2) : 0;
-	if (name) {
-		const x = ['right', 'ne', 'se'].includes(pos) ? n.x + w / 2 - 4 : pos === 'above' ? n.x - 1.5 : n.x - w / 2 + 1;
-		const iy = ['above', 'nw', 'ne'].includes(pos)
-			? n.y + h / 2 - 2.5
-			: ['sw', 'se'].includes(pos)
-				? n.y - h / 2 + 2.5
-				: n.y;
-		out.push(icon(env, `${key}:glyph`, name, x, iy));
-	}
-	const tp = n.titlePosition || 'center';
-	const anchor = tp.includes('west') ? 'start' : tp.includes('east') ? 'end' : 'middle';
-	const tx = n.x + shiftX + (tp.includes('west') ? -n.width / 2 : tp.includes('east') ? n.width / 2 : 0);
-	let y =
-		(tp.includes('north')
-			? n.y + h / 2 - 3.5 * PT - (fpt * PT) / 2
-			: tp.includes('south')
-				? n.y - h / 2 + 3.5 * PT + (fpt * PT) / 2 + total
-				: n.y + total / 2) + shiftY;
+	const anchor = 'middle',
+		tx = n.x;
+	let y = n.y + total / 2;
+
 	lines.forEach((l, i) => {
 		out.push(
 			textPrim(

@@ -27,7 +27,7 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 			t.groups(f),
 			t.edges(f),
 			ids,
-			(n) => text.layout(n, t.fontSize(f)),
+			(n) => geometryOf(f).size(n),
 		);
 	const round = (f) => {
 		const s = t.serialize(f);
@@ -41,31 +41,30 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 	let f = fresh();
 	add(f, 'a', 0, 0, { code: 'tee\\_attest\\_get\\_token', codeFont: 'scriptsize' });
 	let a = t.nodes(f)[0];
-	near(a.width, 33.74);
-	assert.equal(a.wantWidth, 26);
-	assert(t.serialize(f).includes('sg want=26'));
+	const wide = geometryOf(f).size(a).w;
+	assert.equal(a.width, 26);
+	assert.ok(wide > 33.74);
+	assert.equal(t.childrenOf(f, 'a')[0].code, 'tee\\_attest\\_get\\_token');
 	t.apply(f, { op: 'node', id: 'a', codeFont: 'tiny' });
-	near(a.width, 26);
-	assert(!t.serialize(f).includes('sg want='));
-	assert(t.serialize(f).includes('sg code font=tiny'));
+	assert.equal(a.width, 26);
+	assert.ok(geometryOf(f).size(a).w < wide);
 	round(f);
 	t.apply(f, { op: 'node', id: 'a', codeFont: '', code: 'another_very_long_unbreakable_code_line' });
-	assert(a.width > 26);
-	assert.equal(a.wantWidth, 26);
+	assert.ok(geometryOf(f).size(a).w > wide);
+	assert.equal(a.width, 26);
 	t.apply(f, { op: 'node', id: 'a', width: 30 });
-	assert.equal(a.wantWidth, 30);
+	assert.equal(a.width, 30);
 	f = round(f);
 	a = t.nodes(f)[0];
 	t.apply(f, { op: 'node', id: 'a', code: 'short' });
 	near(a.width, 30);
-	assert.equal(a.wantWidth, undefined);
 	t.apply(f, { op: 'node', id: 'a', title: 'averyveryverylongunbreakabletitle' });
-	assert(a.width > 30);
+	assert.ok(geometryOf(f).size(a).w > 30);
 	t.apply(f, { op: 'node', id: 'a', title: 'Short' });
 	near(a.width, 30);
 	// Explicit line breaks are boundaries between words, not printable backslashes.
 	add(f, 'b', 60, 0, { width: 18, title: 'Endorser\\\\IAK' });
-	near(t.nodes(f)[1].width, 18);
+	near(t.nodes(f).find((n) => n.id === 'b').width, 18);
 	const legacy = t.parse(
 		'\\begin{tikzpicture}\n\\node[sg box, text width=42mm] (old) at (0,0) {Short};\n\\end{tikzpicture}',
 	);
@@ -81,7 +80,7 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 	const batch = plan(f);
 	assert.equal(batch.op, 'batch');
 	t.apply(f, batch);
-	let [top, left, right] = t.nodes(f);
+	let [top, left, right] = t.nodes(f).filter((n) => !n.kind);
 	near(layout(left).h, layout(right).h);
 	assert(rect(top).y0 - rect(left).y1 >= 7.98);
 	assert(rect(right).x0 - rect(left).x1 >= 3.98);
@@ -97,13 +96,16 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 	add(f, 'r', 16, -8);
 	add(f, 'below', 0, -20);
 	add(f, 'foot', 0, -32, { kind: 'label', width: 50, title: 'Pinned footnote' });
-	const before = t.nodes(f).map((n) => ({ ...n }));
+	const before = t
+		.nodes(f)
+		.filter((n) => n.kind !== 'label' || !n.slot)
+		.map((n) => ({ ...n }));
 	const push = plan(f, ['t', 'l', 'r']);
 	t.apply(f, push);
 	assert(t.nodes(f).find((n) => n.id === 'below').y < before[3].y);
 	assert(t.nodes(f).find((n) => n.id === 'foot').y < before[4].y);
-	assert(rect(t.nodes(f)[3]).y1 < rect(t.nodes(f)[1]).y0);
-	assert(rect(t.nodes(f)[4]).y1 < rect(t.nodes(f)[3]).y0);
+	assert(rect(t.nodes(f).filter((n) => !n.kind)[3]).y1 < rect(t.nodes(f)[1]).y0);
+	assert(rect(t.nodes(f).filter((n) => !n.slot)[4]).y1 < rect(t.nodes(f).filter((n) => !n.kind)[3]).y0);
 	round(f);
 	// Widening a stacked selection pushes the right neighbour, without pulling it back.
 	f = fresh();
@@ -111,9 +113,9 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 	add(f, 'l', -16, -14);
 	add(f, 'r', 16, -14);
 	add(f, 'right', 52, -14);
-	const oldRight = t.nodes(f)[3].x;
+	const oldRight = t.nodes(f).filter((n) => !n.kind)[3].x;
 	t.apply(f, plan(f, ['t', 'l', 'r']));
-	assert(t.nodes(f)[3].x > oldRight);
+	assert(t.nodes(f).filter((n) => !n.kind)[3].x > oldRight);
 	round(f);
 	// Hidden and locked nodes are excluded; free labels stay unless pushed by growth.
 	f = fresh();
@@ -137,7 +139,7 @@ test('tidy: prototype fixtures, gaps, justification, neighbours/footnotes, conte
 	t.apply(f, { op: 'addGroup', id: 'frame', name: '', frame: 'dashed', padding: 3 });
 	t.apply(f, { op: 'setGroup', ids: ['wrapped'], group: 'frame' });
 	a = t.nodes(f)[0];
-	assert(layout(a).lines.length > 2);
+	assert(geometryOf(f).size(t.nodes(f).find((n) => n.id === 'wrapped-title')).lines.length > 2);
 	const frame = geometryOf(f).frame('frame');
 	near(frame.h, layout(a).h);
 	assert(!t.serialize(f).includes('\\path[sg frame'));
@@ -223,7 +225,7 @@ test('canvas layout equals the serializer box for every shape and font size', ()
 		}
 	// A box inherits the icon of its style, and the icon makes room.
 	const n = { title: 'Category icon title', code: '', width: 20, minh: 0, cat: 'work', iconPosition: 'above' };
-	near(s.hook.layout(n).h, text.layout({ ...n, icon: 'board' }).h, 0.00001);
+	near(s.hook.layout(n).h, text.layout({ ...n, icon: undefined }).h, 0.00001);
 });
 
 test('tidy applies immediately as one batch; holding and hovering never preview or apply', () => {

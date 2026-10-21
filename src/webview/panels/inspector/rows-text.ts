@@ -21,7 +21,15 @@ export function titleRow(c: PanelCtx): RowControls {
 	const nodes = c.sel.nodes;
 	if (!nodes.length) return null;
 	const field = new TextControl({ ariaLabel: 'Title' });
-	field.set(sameOr(nodes.map((n) => titleOf(n.title))));
+	field.set(
+		sameOr(
+			nodes.map((n) =>
+				titleOf(
+					store.nodes.find((i) => i.treeParent === n.id && i.slot === 'centre' && i.kind === 'label')?.title || n.title,
+				),
+			),
+		),
+	);
 	field.onCommit((v) =>
 		post(
 			nodeOps(
@@ -37,7 +45,9 @@ export function codeRow(c: PanelCtx): RowControls {
 	const n = c.sel.node;
 	if (!n) return null;
 	const field = new TextControl({ mono: true, ariaLabel: 'Code' });
-	field.set(show(n.code));
+	field.set(
+		show(store.nodes.find((i) => i.treeParent === n.id && i.slot === 'centre' && i.kind === 'label')?.code || n.code),
+	);
 	field.onCommit((v) => post({ op: 'node', id: n.id, code: tex(v ?? '') }));
 	return field;
 }
@@ -77,12 +87,7 @@ export function widenedNoteRow(c: PanelCtx): RowControls {
 }
 
 export function titlePositionRow(c: PanelCtx): RowControls {
-	const n = c.sel.node;
-	if (!n) return null;
-	const picker = new AnchorPicker({ ...ANCHOR_GRID, ariaLabel: 'Title position' });
-	picker.set(n.titlePosition || 'center');
-	picker.onCommit((titlePosition) => post({ op: 'node', id: n.id, titlePosition: titlePosition! }));
-	return picker;
+	return null;
 }
 
 // The icon of a box or free icon; the empty pick clears it ('none' for a box, so the style icon stays off).
@@ -115,22 +120,7 @@ const ICON_POSITIONS = [
 ];
 
 export function iconPositionRow(c: PanelCtx): RowControls {
-	const boxes = c.sel.nodes.filter(isBox);
-	if (!boxes.length || boxes.length !== c.sel.nodes.length) return null;
-	const select = new SelectControl(
-		ICON_POSITIONS.map(([value, label]) => ({ value, label })),
-		'Icon position',
-	);
-	select.set(sameOr(boxes.map((n) => n.iconPosition || 'left')));
-	select.onCommit((iconPosition) =>
-		post(
-			nodeOps(
-				boxes.map((n) => n.id),
-				{ iconPosition: iconPosition! },
-			),
-		),
-	);
-	return select;
+	return null;
 }
 
 // Whether the box shows its style's icon.

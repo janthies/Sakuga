@@ -53,9 +53,9 @@ export function sequence(s: Session) {
 	assert.equal(move.op, 'label');
 	assert.equal(move.style.pos, 0.25);
 	assert.equal(move.style.side, 'above');
-	assert.ok(move.style.dy);
+	assert.equal(move.style.dy, undefined);
 	assert.match(canonical(), /pos=0.25/);
-	assert.match(canonical(), /shift=\{/);
+	assert.doesNotMatch(drawLine(s), /shift=\{/);
 	// Own colour wins; resetting to inherit follows the changed parent.
 	apply({ op: 'label', index: 0, style: { color: '#123456', bold: true, italic: true, background: false } });
 	canonical();
@@ -106,8 +106,10 @@ export function sequence(s: Session) {
 	apply({ op: 'style', indices: [0], style: { side: 'below', position: 'start' } });
 	apply({ op: 'label', index: 0, style: { side: 'above', pos: 0.75 } });
 	const saved = t.parse(canonical());
-	assert.equal(t.edges(saved)[0].style.side, 'below');
-	assert.equal(t.edges(saved)[0].style.position, 'start');
+	assert.equal(t.edges(saved)[0].style.side, undefined);
+	assert.equal(t.edges(saved)[0].style.position, undefined);
+	assert.equal(t.edges(saved)[0].labelStyle.side, 'above');
+	assert.equal(t.edges(saved)[0].labelStyle.pos, 0.75);
 	const G2 = s.hook.arrowLabelGeom(state(s).edges[0]);
 	// An inspector edit and its document echo retain label selection.
 	s.down(G2.p[0], G2.p[1], label(s, { index: 0 }));

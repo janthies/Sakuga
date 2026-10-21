@@ -1,3 +1,4 @@
+import { defaultSlot, slotAt, BOX_SLOTS, LINE_SLOTS } from '../model/slots';
 import { lineLabel } from '../geometry/line-geometry';
 import { fontSize } from '../model/queries';
 import { inlineText } from './inline-text';
@@ -57,7 +58,8 @@ function textNode(fig: Figure, i: TextItem): FigNode {
 	if (p?.kind === 'Shape') point = [p.node.x, p.node.y];
 	if (p?.kind === 'Frame') point = geo.frameTitle(p.frame)?.p || [0, 0];
 	if (p?.kind === 'Connector') point = geo.label(p.connector, i.placement, i.text)?.p || [0, 0];
-	if (p?.kind === 'Line') point = lineLabel(p.line, i.text, i.placement, fontSize(fig)).p;
+	if (p?.kind === 'Line')
+		point = lineLabel(p.line, i.text, i.placement, fontSize(fig), fig.theme?.kinds?.Shape?.outerGap).p;
 
 	return {
 		id: i.id,
@@ -101,65 +103,22 @@ export function reparent(fig: Figure, id: string, parent: string, index?: number
 		i.node = n;
 		i.role = undefined;
 	}
-	if (
-		i.kind === 'Text' &&
-		(makeTitle || ['Line', 'Connector'].includes(itemById(fig, parent)?.kind || '')) &&
-		inlineText(fig, i, itemById(fig, parent))
-	) {
+	const p = itemById(fig, parent);
+	if (i.kind === 'Text' && (p?.kind === 'Line' || p?.kind === 'Connector') && inlineText(fig, i, p)) {
 		projectTree(fig);
 		syncTree(fig);
 		return;
 	}
-	if (i.kind === 'Shape' || i.kind === 'Icon' || (i.kind === 'Text' && i.node)) {
-		const n = i.node!,
-			p = itemById(fig, parent);
-		if (p?.kind === 'Shape') {
-			const anchors = [
-				'north west',
-				'north',
-				'north east',
-				'west',
-				'center',
-				'east',
-				'south west',
-				'south',
-				'south east',
-			];
-			const anchor = anchors.sort((a, b) => {
-				const u = geometryOf(fig).anchor(p.node, a),
-					v = geometryOf(fig).anchor(p.node, b);
-				return Math.hypot(n.x - u[0], n.y - u[1]) - Math.hypot(n.x - v[0], n.y - v[1]);
-			})[0];
-			const [x, y] = geometryOf(fig).anchor(p.node, anchor);
-			n.attachment = { parent, anchor, ownAnchor: 'center', dx: n.x - x, dy: n.y - y };
-		} else delete n.attachment;
-	}
-	if (i.kind === 'Frame' || i.kind === 'Line') {
-		const p = itemById(fig, parent);
-		if (p?.kind === 'Shape') {
-			const b = i.kind === 'Frame' ? geometryOf(fig).frame(i.id) : { x: i.line.start[0], y: i.line.start[1] };
-			const anchors = [
-				'north west',
-				'north',
-				'north east',
-				'west',
-				'center',
-				'east',
-				'south west',
-				'south',
-				'south east',
-			];
-			if (b) {
-				const anchor = anchors.sort((a, c) => {
-					const u = geometryOf(fig).anchor(p.node, a),
-						v = geometryOf(fig).anchor(p.node, c);
-					return Math.hypot(b.x - u[0], b.y - u[1]) - Math.hypot(b.x - v[0], b.y - v[1]);
-				})[0];
-				const [x, y] = geometryOf(fig).anchor(p.node, anchor);
-				payload(i).attachment = { parent, anchor, ownAnchor: 'center', dx: b.x - x, dy: b.y - y };
-			}
-		} else delete payload(i).attachment;
-	}
+	if (p?.kind === 'Shape')
+		i.slot = defaultSlot(
+			childrenOf(fig, parent)
+				.filter((c) => c.id !== id)
+				.map((c) => c.slot || ''),
+		);
+	else delete i.slot;
+	payload(i).slot = i.slot;
+	delete payload(i).attachment;
+
 	projectTree(fig);
 	syncTree(fig);
 }
@@ -202,11 +161,16 @@ export function moveItem(fig: Figure, id: string, x: number, y: number) {
 				: [0, 0];
 	const dx = x - origin[0],
 		dy = y - origin[1];
-	if ((i.kind === 'Frame' || i.kind === 'Line') && payload(i).attachment) {
-		const a = payload(i).attachment!;
-		a.dx += dx;
-		a.dy += dy;
+	const parent = itemById(fig, i.parent);
+	if (parent?.kind === 'Shape') {
+		const b = geo.node(parent.id);
+		if (b) {
+			i.slot = slotAt(b, { x, y });
+			payload(i).slot = i.slot;
+		}
+		return;
 	}
+
 	for (const c of [i, ...descendants(fig, id)]) {
 		if (c.kind === 'Line') {
 			c.line.start = [c.line.start[0] + dx, c.line.start[1] + dy];
@@ -214,10 +178,6 @@ export function moveItem(fig: Figure, id: string, x: number, y: number) {
 		}
 		const node = 'node' in c ? c.node : undefined;
 		if (node) {
-			if (c === i && node.attachment) {
-				node.attachment.dx += dx;
-				node.attachment.dy += dy;
-			}
 			node.x += dx;
 			node.y += dy;
 		}
@@ -229,10 +189,27 @@ export function moveItem(fig: Figure, id: string, x: number, y: number) {
 }
 export function applyTree(fig: Figure, op: TreeOp) {
 	switch (op.op) {
+		case 'slot': {
+			const i = itemById(fig, op.id),
+				p = i && itemById(fig, i.parent);
+			if (!i) break;
+			const allowed = p?.kind === 'Shape' ? BOX_SLOTS : p?.kind === 'Line' ? LINE_SLOTS : [];
+			if (!(allowed as readonly string[]).includes(op.slot)) throw new Error('Invalid slot');
+			i.slot = op.slot;
+			payload(i).slot = op.slot;
+			if (i.kind === 'Text' && !i.node && p?.kind === 'Line') {
+				const [at, side] = op.slot.split('-');
+				const st = { ...i.placement, pos: at === 'start' ? 0 : at === 'end' ? 1 : 0.5, side };
+				i.placement = st;
+				if (p.line.labels?.[i.order]) p.line.labels[i.order].style = st;
+			}
+			break;
+		}
 		case 'addText': {
 			if (itemById(fig, op.id)) throw new Error('Duplicate item id: ' + op.id);
 			const n: FigNode = {
 				labelPlacement: op.placement,
+				slot: op.slot,
 				id: op.id,
 				kind: 'label',
 				title: op.text,
@@ -253,6 +230,13 @@ export function applyTree(fig: Figure, op: TreeOp) {
 			const i = itemById(fig, op.id);
 			if (i?.kind === 'Text') i.placement = op.placement;
 			reparent(fig, op.id, op.parent, op.index, true);
+			if (op.slot) {
+				const item = itemById(fig, op.id);
+				if (item) {
+					item.slot = op.slot;
+					payload(item).slot = op.slot;
+				}
+			}
 			break;
 		}
 		case 'reparent':
@@ -284,8 +268,18 @@ export function applyTree(fig: Figure, op: TreeOp) {
 			break;
 		case 'line': {
 			const i = itemById(fig, op.id);
+			if (i?.kind === 'Line' && i.slot && (op.start || op.end)) {
+				const a = op.start || i.line.start,
+					b = op.end || i.line.end;
+				i.line.vector = [b[0] - a[0], b[1] - a[1]];
+			}
 			if (i?.kind === 'Line')
-				Object.assign(i.line, Object.fromEntries(Object.entries(op).filter(([k]) => k !== 'op' && k !== 'id')));
+				Object.assign(
+					i.line,
+					Object.fromEntries(
+						Object.entries(op).filter(([k]) => k !== 'op' && k !== 'id' && (!i.slot || !['start', 'end'].includes(k))),
+					),
+				);
 			break;
 		}
 		case 'text': {

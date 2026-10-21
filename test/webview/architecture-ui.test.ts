@@ -90,14 +90,7 @@ test('frame endpoint drops, numeric controls, next step, style transfer and fram
 	s.click(s.button('Colour from source', s.inspector));
 	assert.equal(s.lastOp.ops[0].style.color, t.darkerColor('peach'));
 
-	// Copying a frame endpoint includes the fit-node's membership and hierarchy.
+	// Copying an arrow cannot pull in either endpoint or their ancestors.
 	selectEdge(0);
-	const clip = s.clipboard('copy').text;
-	assert.ok(clip.includes('% sakuga group g '));
-	const target = new Session();
-	target.clipboard('paste', clip);
-	const p = target.fig();
-	assert.equal(t.groups(p).length, 1);
-	assert.equal(t.edges(p).length, 1);
-	assert.equal(t.serialize(t.parse(t.serialize(p))), t.serialize(p));
+	assert.equal(s.clipboard('copy').text, '');
 });

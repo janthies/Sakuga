@@ -56,7 +56,6 @@ class Sim {
 			snap: (v) => Math.round(v),
 			nodeAt,
 			descendant: () => false,
-			attachmentFor: () => ({}),
 			edgeGeom: (e) => ({
 				pts: [[byId(e.from).x, byId(e.from).y], ...(e.waypoints ?? []), [byId(e.to).x, byId(e.to).y]],
 			}),

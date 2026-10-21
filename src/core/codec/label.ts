@@ -12,13 +12,12 @@ export function labelMetrics(text: string, st: LabelStyle | undefined, font: str
 	return `, outer sep=0pt, text height=${h * 0.6}pt, text depth=${h * 0.4}pt`;
 }
 
-export function labelOptions(st: LabelStyle = {}, defaults: LabelStyle = {}): string {
+export function labelOptions(st: LabelStyle = {}, defaults: LabelStyle = {}, gap = 1): string {
 	const v = { ...defaults, ...cleanLabel(st) };
 	return [
 		v.hidden ? 'opacity=0' : '',
 		v.pos !== undefined ? `pos=${v.pos}` : '',
-		v.side || '',
-		v.dx || v.dy ? `shift={(${v.dx || 0}mm,${v.dy || 0}mm)}` : '',
+		v.side ? v.side + '=' + gap + 'mm' : '',
 		v.color ? `text=${fill(v.color)}` : '',
 		`font=\\sffamily\\${v.font || 'small'}${v.bold ? '\\bfseries' : ''}${v.italic ? '\\itshape' : ''}`,
 		v.background === false ? 'fill=none' : v.background === true ? 'fill=white' : '',

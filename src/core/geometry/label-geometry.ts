@@ -17,10 +17,16 @@ export function labelPoint(G: any, st: { pos?: number; segment?: number } = {}):
 				3 * (1 - t) * t * t * G.curve[2][k] +
 				t ** 3 * G.curve[3][k],
 		);
-	const i = Math.max(0, Math.min(G.pts.length - 2, st.segment ?? (G.pts.length === 4 ? 1 : 0))),
-		a = G.pts[i],
-		b = G.pts[i + 1];
-	return a.map((v: number, k: number) => v + (b[k] - v) * t);
+	const lengths = G.pts.slice(1).map((p: Point, i: number) => Math.hypot(p[0] - G.pts[i][0], p[1] - G.pts[i][1]));
+	let distance = Math.max(0, Math.min(1, t)) * lengths.reduce((a: number, b: number) => a + b, 0);
+	for (let j = 0; j < lengths.length; j++) {
+		if (distance <= lengths[j] || j === lengths.length - 1) {
+			const u = lengths[j] ? distance / lengths[j] : 0;
+			return G.pts[j].map((v: number, k: number) => v + (G.pts[j + 1][k] - v) * u);
+		}
+		distance -= lengths[j];
+	}
+	return [...G.pts[0]];
 }
 
 // The label anchor of an arrow that carries a position or side in its style but no label of its own placement.
@@ -56,8 +62,8 @@ export function sideOffset(e: FigEdge, label: Point): Point {
 		h = lines.length * CODE_PT * PT * 1.25,
 		w = Math.max(...lines.map((l) => mm(show(l), CODE_PT))) + (e.style?.step ? 4 : 0);
 	const out: Point = [...label];
-	if (side === 'left' || side === 'right') out[0] += (side === 'right' ? 1 : -1) * (w / 2);
-	else out[1] += (side === 'above' ? 1 : -1) * (h / 2 + PT);
+	if (side === 'left' || side === 'right') out[0] += (side === 'right' ? 1 : -1) * (w / 2 + 1);
+	else out[1] += (side === 'above' ? 1 : -1) * (h / 2 + 1);
 	return out;
 }
 
@@ -77,6 +83,7 @@ export function attachedLabel(
 	st: LabelStyle = e.labelStyle || {},
 	content: string = e.label,
 	step: number | undefined = e.style?.step,
+	gap = 1,
 ): LabelGeom | null {
 	if (!G) return null;
 	const anchor = labelPoint(G, {
@@ -92,9 +99,9 @@ export function attachedLabel(
 			st.side ||
 			e.style?.side ||
 			(G.loop ? { north: 'above', south: 'below', east: 'right', west: 'left' }[G.side as string] : undefined);
-	const p: Point = [anchor[0] + (st.dx || 0), anchor[1] + (st.dy || 0)];
-	if (side === 'left' || side === 'right') p[0] += (side === 'right' ? 1 : -1) * (w / 2);
-	else if (side) p[1] += (side === 'above' ? 1 : -1) * (h / 2 + PT);
+	const p: Point = [...anchor];
+	if (side === 'left' || side === 'right') p[0] += (side === 'right' ? 1 : -1) * (w / 2 + gap);
+	else if (side) p[1] += (side === 'above' ? 1 : -1) * (h / 2 + gap);
 	return { p, anchor, w, h, pt };
 }
 

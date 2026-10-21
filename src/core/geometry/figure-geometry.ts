@@ -1,3 +1,4 @@
+import { measureCandidate } from './measure-candidate';
 // The one geometry of a figure: box sizes, frames, and the path and label position of every arrow.
 // The serializer, the canvas and the clipboard all ask this object, so what the canvas draws is what TikZ gets.
 // An instance answers for one revision of the figure and routes each arrow at most once.
@@ -8,13 +9,14 @@ import { lineItems } from '../model/tree';
 import * as routing from './route';
 import { attachedLabel, frameTitle, pathLabel, sideOffset } from './label-geometry';
 import { resolveRoute } from './resolve';
-import { placeAttached } from './boxes';
+import { slotRect } from './slot-layout';
 import type { Category, FigEdge, FigNode, Figure, Group, LabelStyle } from '../model/figure';
 import type { Obj, Point, Size } from '../model/node';
 import { arrowStyle, categories, edges, fontSize, groups, isHidden, nodes } from '../model/queries';
 import { layout } from '../text';
 
 export interface GeometryInput {
+	gap?: number;
 	lines?: FigLine[];
 	nodes: FigNode[]; // hidden already includes the layer
 	edges: FigEdge[];
@@ -44,6 +46,7 @@ export class FigureGeometry {
 
 	// The icon a box shows: its own, or the one of its style.
 	icon(n: FigNode): string | undefined {
+		if (!n.kind) return undefined;
 		const c = this.input.categories.find((c) => c.key === n.cat);
 		return n.icon === 'none' ? undefined : n.icon === 'category' || (!n.icon && !!c?.icon) ? c?.icon : n.icon;
 	}
@@ -52,6 +55,12 @@ export class FigureGeometry {
 		let s = this.sizes.get(n);
 		if (!s) {
 			s = layout({ ...n, icon: this.icon(n), style: { ...n.style, font: n.style?.font || this.font } });
+			const original = this.input.nodes.find((o) => o.id === n.id);
+			const changed = original && !n.kind && (n.width !== original.width || n.minh !== original.minh);
+			const b = changed
+				? measureCandidate(this.input.nodes, this.input.groups, n, this.font, this.input.gap)
+				: slotRect(n) || n.derivedRect || (original && (slotRect(original) || original.derivedRect));
+			if (b) s = { ...s, w: b.w, h: b.h, lines: b.lines || s.lines };
 			this.sizes.set(n, s);
 		}
 		return s;
@@ -66,10 +75,6 @@ export class FigureGeometry {
 			n.x + (anchor.includes('west') ? -w : anchor.includes('east') ? w : 0),
 			n.y + (anchor.includes('north') ? h : anchor.includes('south') ? -h : 0),
 		];
-	}
-	// Move attached boxes to where their parents put them (the nodes are changed in place).
-	place(list: FigNode[] = this.input.nodes) {
-		placeAttached(list, (n) => this.half(n));
 	}
 
 	// Every box with its size, then every frame the router must avoid.
@@ -91,7 +96,7 @@ export class FigureGeometry {
 			];
 			for (const l of this.input.lines || [])
 				for (const [j, label] of (l.labels || []).entries()) {
-					const { p, w, h } = lineLabel(l, label.text, label.style, this.font);
+					const { p, w, h } = lineLabel(l, label.text, label.style, this.font, this.input.gap);
 					ns.push({
 						...l,
 						id: label.id || l.id + '-label-' + j,
@@ -250,14 +255,15 @@ export class FigureGeometry {
 		content: string = e.label,
 		step: number | undefined = e.style?.step,
 	) {
-		return attachedLabel(e, this.base(e), this.font, st, content, step);
+		return attachedLabel(e, this.base(e), this.font, st, content, step, this.input.gap);
 	}
 }
 
 export function inputOf(fig: Figure): GeometryInput {
 	return {
+		gap: fig.theme?.kinds?.Shape?.outerGap ?? 1,
 		lines: lineItems(fig).map((l) => ({ ...l, hidden: subtreeState(fig, l.id, 'hidden') })),
-		nodes: nodes(fig).map((n) => ({ ...n, hidden: isHidden(fig, n) })),
+		nodes: nodes(fig).map((n) => ({ ...n, derivedRect: slotRect(n), hidden: isHidden(fig, n) })),
 		edges: edges(fig),
 		groups: groups(fig),
 		categories: categories(fig),

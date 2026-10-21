@@ -1,9 +1,10 @@
+import { pathPosition } from '../geometry/path-position';
 import { categoryOption } from './look';
 import { itemOverrides } from '../styles/cascade';
 // Writing arrows.
 import * as routing from '../geometry/route';
 import { toHex } from '../util/hex';
-import { labelMetrics, labelOptions } from './label';
+import { labelMetrics, labelOptions as nativeLabelOptions } from './label';
 import { emitOptions } from './options';
 import { opacityOptions } from './opt-stroke';
 import { FigureGeometry, geometryOf } from '../geometry/figure-geometry';
@@ -13,6 +14,8 @@ import { cleanLabel } from '../styles/appearance';
 import { num } from '../util/num';
 
 export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometryOf(fig)): string {
+	const labelOptions = (st?: LabelStyle, defaults?: LabelStyle) =>
+		nativeLabelOptions(st, defaults, fig.theme?.kinds?.Shape?.outerGap ?? 1);
 	const eown: ObjectStyle | undefined = itemOverrides(e);
 	const o = [
 		'sg conn',
@@ -53,6 +56,12 @@ export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometry
 			: e.style?.step
 				? `\\sgstep{${e.style.step}}`
 				: e.label;
+	const G = geo.special(e);
+	const base = geo.base(e);
+	if (base && !base.curve) {
+		const native = (st: LabelStyle | undefined): LabelStyle => ({ ...st, ...pathPosition(base.pts, st?.pos ?? 0.5) });
+		e = { ...e, labelStyle: native(e.labelStyle), labels: e.labels?.map((l) => ({ ...l, style: native(l.style) })) };
+	}
 	const lbl = (pos: string, extras = true) =>
 		content
 			? ` node[sg label${e.labelStyle ? '' : e.label && e.style?.position ? ', near ' + e.style.position : pos}${e.label && e.style?.side && !e.labelStyle?.side ? ', ' + e.style.side : ''}${labelMetrics(e.label, e.labelStyle, fontSize(fig), e.style?.step)}${labelOptions(e.labelStyle, { font: fontSize(fig), color: e.style?.color || '', pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${content}}${(extras ? e.labels || [] : []).map((l) => ` node[sg label${labelMetrics(l.text, l.style, fontSize(fig))}${labelOptions(l.style, { font: fontSize(fig), color: e.style?.color || '', side: e.style?.side, pos: e.style?.position === 'start' ? 0.25 : e.style?.position === 'end' ? 0.75 : undefined })}] {${l.text}}`).join('')}`
@@ -65,7 +74,6 @@ export function edgeLine(fig: Figure, e: FigEdge, geo: FigureGeometry = geometry
 	const A = a?.kind === 'icon' ? e.from + '-center' : e.from,
 		B = b?.kind === 'icon' ? e.to + '-center' : e.to;
 	let path: string;
-	const G = geo.special(e);
 	if (e.lane !== undefined) o.push(`sg lane=${e.lane}`);
 	if (G && (G.rule || G.loop || G.fixed)) {
 		const objects = geo.objects(),

@@ -32,7 +32,7 @@
     "cat": "",
     "x": 0,
     "y": 0,
-    "title": "Idle",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -53,12 +53,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "idle-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -77,7 +78,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -89,7 +92,7 @@
     "cat": "",
     "x": 45,
     "y": 0,
-    "title": "Ready",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -110,12 +113,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 2,
-    "titleId": "ready-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -134,7 +138,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -146,7 +152,7 @@
     "cat": "",
     "x": 90,
     "y": 0,
-    "title": "Active",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -167,12 +173,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 4,
-    "titleId": "active-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -191,7 +198,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -203,7 +212,7 @@
     "cat": "",
     "x": 90,
     "y": -43,
-    "title": "Done",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -224,12 +233,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "done-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -248,7 +258,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -260,7 +272,7 @@
     "cat": "",
     "x": 45,
     "y": -43,
-    "title": "Error",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -281,12 +293,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 8,
-    "titleId": "error-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -305,7 +318,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -330,11 +345,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "loopOut": 112,
     "loopIn": 68,
     "loopSize": 8,
@@ -352,9 +370,7 @@
     },
     "labelId": "connector-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -363,7 +379,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -391,11 +406,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "right",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "right"
+    },
     "loopOut": 22,
     "loopIn": -22,
     "loopSize": 8,
@@ -413,9 +431,7 @@
     },
     "labelId": "connector-2-label-0",
     "look": {
-     "own": {
-      "side": "right"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -424,7 +440,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "right",
       "opacity": 1,
       "font": "small"
      }
@@ -452,11 +467,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 14,
@@ -470,9 +488,7 @@
     },
     "labelId": "connector-3-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -481,7 +497,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -509,11 +524,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 16,
@@ -527,9 +545,7 @@
     },
     "labelId": "connector-4-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -538,7 +554,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -566,11 +581,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "right",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "right"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 18,
@@ -584,9 +602,7 @@
     },
     "labelId": "connector-5-label-0",
     "look": {
-     "own": {
-      "side": "right"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -595,7 +611,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "right",
       "opacity": 1,
       "font": "small"
      }
@@ -623,11 +638,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 20,
@@ -641,9 +659,7 @@
     },
     "labelId": "connector-6-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -652,7 +668,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -680,11 +695,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "left",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "left"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 22,
@@ -698,9 +716,7 @@
     },
     "labelId": "connector-7-label-0",
     "look": {
-     "own": {
-      "side": "left"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -709,7 +725,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "left",
       "opacity": 1,
       "font": "small"
      }
@@ -739,13 +754,13 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "below",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
     "labelStyle": {
-     "segment": 1
+     "pos": 0.5,
+     "side": "below"
     },
     "fromOffset": 0,
     "toOffset": 0,
@@ -773,9 +788,7 @@
     },
     "labelId": "connector-8-label-0",
     "look": {
-     "own": {
-      "side": "below"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -784,7 +797,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "below",
       "opacity": 1,
       "font": "small"
      }
@@ -799,6 +811,266 @@
   {
    "t": "raw",
    "text": ""
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "idle-title",
+    "kind": "label",
+    "x": 0,
+    "y": 0,
+    "title": "Idle",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "idle",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "ready-title",
+    "kind": "label",
+    "x": 45,
+    "y": 0,
+    "title": "Ready",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "ready",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "active-title",
+    "kind": "label",
+    "x": 90,
+    "y": 0,
+    "title": "Active",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "active",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "done-title",
+    "kind": "label",
+    "x": 90,
+    "y": -43,
+    "title": "Done",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "done",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "error-title",
+    "kind": "label",
+    "x": 45,
+    "y": -43,
+    "title": "Error",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "error",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ],
  "items": [
@@ -814,7 +1086,7 @@
     "cat": "",
     "x": 0,
     "y": 0,
-    "title": "Idle",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -835,12 +1107,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 0,
-    "titleId": "idle-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -859,38 +1132,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "idle-title",
-   "parent": "idle",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Idle",
-   "code": "",
-   "role": "title",
-   "treeParent": "idle"
   },
   {
    "id": "ready",
@@ -904,7 +1151,7 @@
     "cat": "",
     "x": 45,
     "y": 0,
-    "title": "Ready",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -925,12 +1172,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 2,
-    "titleId": "ready-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -949,38 +1197,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "ready-title",
-   "parent": "ready",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Ready",
-   "code": "",
-   "role": "title",
-   "treeParent": "ready"
   },
   {
    "id": "active",
@@ -994,7 +1216,7 @@
     "cat": "",
     "x": 90,
     "y": 0,
-    "title": "Active",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -1015,12 +1237,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 4,
-    "titleId": "active-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -1039,38 +1262,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "active-title",
-   "parent": "active",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Active",
-   "code": "",
-   "role": "title",
-   "treeParent": "active"
   },
   {
    "id": "done",
@@ -1084,7 +1281,7 @@
     "cat": "",
     "x": 90,
     "y": -43,
-    "title": "Done",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -1105,12 +1302,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "done-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -1129,38 +1327,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "done-title",
-   "parent": "done",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Done",
-   "code": "",
-   "role": "title",
-   "treeParent": "done"
   },
   {
    "id": "error",
@@ -1174,7 +1346,7 @@
     "cat": "",
     "x": 45,
     "y": -43,
-    "title": "Error",
+    "title": "",
     "code": "",
     "width": 12,
     "minh": 0,
@@ -1195,12 +1367,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 8,
-    "titleId": "error-title",
     "look": {
      "own": {
       "shape": "circle",
@@ -1219,38 +1392,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "error-title",
-   "parent": "error",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Error",
-   "code": "",
-   "role": "title",
-   "treeParent": "error"
   },
   {
    "id": "connector",
@@ -1277,11 +1424,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "loopOut": 112,
     "loopIn": 68,
     "loopSize": 8,
@@ -1299,9 +1449,7 @@
     },
     "labelId": "connector-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1310,7 +1458,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -1358,6 +1505,10 @@
    "text": "wait",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "above"
+   },
    "treeParent": "connector"
   },
   {
@@ -1385,11 +1536,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "right",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "right"
+    },
     "loopOut": 22,
     "loopIn": -22,
     "loopSize": 8,
@@ -1407,9 +1561,7 @@
     },
     "labelId": "connector-2-label-0",
     "look": {
-     "own": {
-      "side": "right"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1418,7 +1570,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "right",
       "opacity": 1,
       "font": "small"
      }
@@ -1466,6 +1617,10 @@
    "text": "tick",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "right"
+   },
    "treeParent": "connector-2"
   },
   {
@@ -1493,11 +1648,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 14,
@@ -1511,9 +1669,7 @@
     },
     "labelId": "connector-3-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1522,7 +1678,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -1570,6 +1725,10 @@
    "text": "start",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "above"
+   },
    "treeParent": "connector-3"
   },
   {
@@ -1597,11 +1756,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 16,
@@ -1615,9 +1777,7 @@
     },
     "labelId": "connector-4-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1626,7 +1786,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -1674,6 +1833,10 @@
    "text": "accept",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "above"
+   },
    "treeParent": "connector-4"
   },
   {
@@ -1701,11 +1864,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "right",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "right"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 18,
@@ -1719,9 +1885,7 @@
     },
     "labelId": "connector-5-label-0",
     "look": {
-     "own": {
-      "side": "right"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1730,7 +1894,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "right",
       "opacity": 1,
       "font": "small"
      }
@@ -1778,6 +1941,10 @@
    "text": "finish",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "right"
+   },
    "treeParent": "connector-5"
   },
   {
@@ -1805,11 +1972,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "above",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "above"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 20,
@@ -1823,9 +1993,7 @@
     },
     "labelId": "connector-6-label-0",
     "look": {
-     "own": {
-      "side": "above"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1834,7 +2002,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "above",
       "opacity": 1,
       "font": "small"
      }
@@ -1882,6 +2049,10 @@
    "text": "fail",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "above"
+   },
    "treeParent": "connector-6"
   },
   {
@@ -1909,11 +2080,14 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "left",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
+    "labelStyle": {
+     "pos": 0.5,
+     "side": "left"
+    },
     "hidden": false,
     "treeParent": "layer1",
     "order": 22,
@@ -1927,9 +2101,7 @@
     },
     "labelId": "connector-7-label-0",
     "look": {
-     "own": {
-      "side": "left"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -1938,7 +2110,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "left",
       "opacity": 1,
       "font": "small"
      }
@@ -1986,6 +2157,10 @@
    "text": "retry",
    "code": "",
    "role": "label",
+   "placement": {
+    "pos": 0.5,
+    "side": "left"
+   },
    "treeParent": "connector-7"
   },
   {
@@ -2015,13 +2190,13 @@
      "tipWidth": 1.2,
      "start": "none",
      "end": "Latex",
-     "side": "below",
      "opacity": 1,
      "font": "small"
     },
     "extra": [],
     "labelStyle": {
-     "segment": 1
+     "pos": 0.5,
+     "side": "below"
     },
     "fromOffset": 0,
     "toOffset": 0,
@@ -2049,9 +2224,7 @@
     },
     "labelId": "connector-8-label-0",
     "look": {
-     "own": {
-      "side": "below"
-     },
+     "own": {},
      "resolved": {
       "color": "#808080",
       "border": "solid",
@@ -2060,7 +2233,6 @@
       "tipWidth": 1.2,
       "start": "none",
       "end": "Latex",
-      "side": "below",
       "opacity": 1,
       "font": "small"
      }
@@ -2109,9 +2281,310 @@
    "code": "",
    "role": "label",
    "placement": {
-    "segment": 1
+    "pos": 0.5,
+    "side": "below"
    },
    "treeParent": "connector-8"
+  },
+  {
+   "id": "idle-title",
+   "parent": "idle",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Idle",
+   "code": "",
+   "node": {
+    "id": "idle-title",
+    "kind": "label",
+    "x": 0,
+    "y": 0,
+    "title": "Idle",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "idle",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "ready-title",
+   "parent": "ready",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Ready",
+   "code": "",
+   "node": {
+    "id": "ready-title",
+    "kind": "label",
+    "x": 45,
+    "y": 0,
+    "title": "Ready",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "ready",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "active-title",
+   "parent": "active",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Active",
+   "code": "",
+   "node": {
+    "id": "active-title",
+    "kind": "label",
+    "x": 90,
+    "y": 0,
+    "title": "Active",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "active",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "done-title",
+   "parent": "done",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Done",
+   "code": "",
+   "node": {
+    "id": "done-title",
+    "kind": "label",
+    "x": 90,
+    "y": -43,
+    "title": "Done",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "done",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "error-title",
+   "parent": "error",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Error",
+   "code": "",
+   "node": {
+    "id": "error-title",
+    "kind": "label",
+    "x": 45,
+    "y": -43,
+    "title": "Error",
+    "code": "",
+    "width": 12,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#595959",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "error",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#595959",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ]
 }

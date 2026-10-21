@@ -155,9 +155,10 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
-    "titleId": "g1-background-title",
     "look": {
      "own": {
       "cornerRadius": 2.5,
@@ -184,7 +185,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -195,8 +198,8 @@
     "id": "g1-label",
     "title": "attestation module",
     "code": "",
-    "x": -19.0551,
-    "y": -6.1335,
+    "x": -0.7823,
+    "y": -7.5092,
     "width": 26,
     "minh": 0,
     "cat": "",
@@ -222,13 +225,7 @@
      "markColor": "#33333A"
     },
     "kind": "label",
-    "attachment": {
-     "parent": "g1-background",
-     "anchor": "north west",
-     "ownAnchor": "west",
-     "dx": 0.5272,
-     "dy": -1.933
-    },
+    "slot": "top-left",
     "look": {
      "own": {
       "compact": true,
@@ -286,9 +283,10 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
-    "titleId": "g2-background-title",
     "look": {
      "own": {
       "cornerRadius": 1.5,
@@ -311,7 +309,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -322,8 +322,8 @@
     "id": "g2-label",
     "title": "secure world",
     "code": "",
-    "x": -26.0351,
-    "y": -82.9335,
+    "x": -4.1723,
+    "y": -84.3092,
     "width": 26,
     "minh": 0,
     "cat": "",
@@ -349,13 +349,7 @@
      "markColor": "#33333A"
     },
     "kind": "label",
-    "attachment": {
-     "parent": "g2-background",
-     "anchor": "north west",
-     "ownAnchor": "west",
-     "dx": 0.5272,
-     "dy": -1.933
-    },
+    "slot": "top-left",
     "look": {
      "own": {
       "compact": true,
@@ -416,9 +410,10 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
-    "titleId": "g3-background-title",
     "look": {
      "own": {
       "cornerRadius": 2.5,
@@ -447,7 +442,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -458,8 +455,8 @@
     "id": "g3-label",
     "title": "operation",
     "code": "",
-    "x": -23.0351,
-    "y": -99.1335,
+    "x": -15.7823,
+    "y": -100.5092,
     "width": 26,
     "minh": 0,
     "cat": "",
@@ -485,13 +482,7 @@
      "markColor": "#33333A"
     },
     "kind": "label",
-    "attachment": {
-     "parent": "g3-background",
-     "anchor": "north west",
-     "ownAnchor": "west",
-     "dx": 0.5272,
-     "dy": -1.933
-    },
+    "slot": "top-left",
     "look": {
      "own": {
       "compact": true,
@@ -524,7 +515,7 @@
     "cat": "riot",
     "x": 0,
     "y": 0,
-    "title": "Application",
+    "title": "",
     "code": "",
     "width": 58,
     "minh": 0,
@@ -545,12 +536,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "app-title",
     "look": {
      "own": {},
      "resolved": {
@@ -566,7 +558,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -578,8 +572,8 @@
     "cat": "work",
     "x": 0,
     "y": -12,
-    "title": "PSA Attestation API",
-    "code": "psa\\_initial\\_attest\\_get\\_token",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -599,12 +593,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 8,
-    "titleId": "att-title",
     "look": {
      "own": {},
      "resolved": {
@@ -620,7 +615,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -632,8 +629,8 @@
     "cat": "work",
     "x": 0,
     "y": -24,
-    "title": "Backend interface",
-    "code": "attest\\_backend\\_get\\_token",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -653,12 +650,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 10,
-    "titleId": "seam-title",
     "look": {
      "own": {},
      "resolved": {
@@ -674,7 +672,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -686,7 +686,7 @@
     "cat": "work",
     "x": -15,
     "y": -35,
-    "title": "Software backend",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -707,12 +707,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 12,
-    "titleId": "swbe-title",
     "look": {
      "own": {},
      "resolved": {
@@ -728,7 +729,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -740,7 +743,7 @@
     "cat": "work",
     "x": 15,
     "y": -35,
-    "title": "TEE backend",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -761,12 +764,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 14,
-    "titleId": "teebe-title",
     "look": {
      "own": {},
      "resolved": {
@@ -782,7 +786,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -794,7 +800,7 @@
     "cat": "work",
     "x": -15,
     "y": -46,
-    "title": "Providers and token encoder",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -815,12 +821,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 16,
-    "titleId": "nsenc-title",
     "look": {
      "own": {},
      "resolved": {
@@ -836,7 +843,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -848,7 +857,7 @@
     "cat": "riot",
     "x": -15,
     "y": -60,
-    "title": "PSA Crypto",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -869,12 +878,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 18,
-    "titleId": "psac-title",
     "look": {
      "own": {},
      "resolved": {
@@ -890,7 +900,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -902,8 +914,8 @@
     "cat": "cryptoservice",
     "x": 0,
     "y": -74,
-    "title": "CryptoService API",
-    "code": "CYS\\_attest\\_get\\_token",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -923,12 +935,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 20,
-    "titleId": "cysapi-title",
     "look": {
      "own": {},
      "resolved": {
@@ -944,7 +957,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -956,8 +971,8 @@
     "cat": "tee",
     "x": 0,
     "y": -89,
-    "title": "Secure entry and dispatch table",
-    "code": "tee\\_secure\\_entry",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -977,12 +992,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g2",
     "order": 22,
-    "titleId": "entry-title",
     "look": {
      "own": {},
      "resolved": {
@@ -998,7 +1014,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -1010,62 +1028,7 @@
     "cat": "work",
     "x": -15,
     "y": -104,
-    "title": "Attestation handler",
-    "code": "tee\\_attest\\_get\\_token",
-    "wantWidth": 26,
-    "width": 37.96,
-    "minh": 0,
-    "layer": "layer1",
-    "group": "g3",
-    "hidden": false,
-    "locked": false,
-    "style": {
-     "fill": "peach",
-     "color": "#99857A",
-     "border": "solid",
-     "weight": "thin",
-     "lineWidth": 0.45,
-     "shape": "rounded",
-     "font": "small",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    },
-    "extra": [],
-    "treeParent": "g3",
-    "order": 24,
-    "titleId": "hdl-title",
-    "look": {
-     "own": {},
-     "resolved": {
-      "fill": "peach",
-      "color": "#99857A",
-      "border": "solid",
-      "weight": "thin",
-      "lineWidth": 0.45,
-      "shape": "rounded",
-      "font": "small",
-      "compact": false,
-      "opacity": 1,
-      "mark": "none",
-      "markCorner": "ne",
-      "markSize": "small",
-      "markColor": "#33333A"
-     }
-    }
-   }
-  },
-  {
-   "t": "node",
-   "n": {
-    "id": "senc",
-    "cat": "work",
-    "x": -15,
-    "y": -117,
-    "title": "Providers and token encoder",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -1086,12 +1049,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g3",
-    "order": 26,
-    "titleId": "senc-title",
+    "order": 24,
     "look": {
      "own": {},
      "resolved": {
@@ -1107,7 +1071,66 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "senc",
+    "cat": "work",
+    "x": -15,
+    "y": -117,
+    "title": "",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach",
+     "color": "#99857A",
+     "border": "solid",
+     "weight": "thin",
+     "lineWidth": 0.45,
+     "shape": "rounded",
+     "font": "small",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
+    },
+    "extra": [],
+    "treeParent": "g3",
+    "order": 26,
+    "look": {
+     "own": {},
+     "resolved": {
+      "fill": "peach",
+      "color": "#99857A",
+      "border": "solid",
+      "weight": "thin",
+      "lineWidth": 0.45,
+      "shape": "rounded",
+      "font": "small",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -1119,7 +1142,7 @@
     "cat": "tee",
     "x": 15,
     "y": -110,
-    "title": "Crypto and RoT operations",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -1140,12 +1163,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g2",
     "order": 28,
-    "titleId": "ops-title",
     "look": {
      "own": {},
      "resolved": {
@@ -1161,7 +1185,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -1173,7 +1199,7 @@
     "cat": "riot",
     "x": 0,
     "y": -131,
-    "title": "CC310 driver",
+    "title": "",
     "code": "",
     "width": 58,
     "minh": 0,
@@ -1194,12 +1220,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 30,
-    "titleId": "drv-title",
     "look": {
      "own": {},
      "resolved": {
@@ -1215,7 +1242,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -1227,7 +1256,7 @@
     "cat": "riot",
     "x": 0,
     "y": -141,
-    "title": "CC310",
+    "title": "",
     "code": "",
     "width": 58,
     "minh": 0,
@@ -1248,12 +1277,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 32,
-    "titleId": "hw-title",
     "look": {
      "own": {},
      "resolved": {
@@ -1269,7 +1299,9 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
@@ -2069,6 +2101,735 @@
   {
    "t": "raw",
    "text": ""
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "app-title",
+    "kind": "label",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "app",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "att-title",
+    "kind": "label",
+    "x": 0,
+    "y": -12,
+    "title": "PSA Attestation API",
+    "code": "psa\\_initial\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "att",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "seam-title",
+    "kind": "label",
+    "x": 0,
+    "y": -24,
+    "title": "Backend interface",
+    "code": "attest\\_backend\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "seam",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "swbe-title",
+    "kind": "label",
+    "x": -15,
+    "y": -35,
+    "title": "Software backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "swbe",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "teebe-title",
+    "kind": "label",
+    "x": 15,
+    "y": -35,
+    "title": "TEE backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "teebe",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "nsenc-title",
+    "kind": "label",
+    "x": -15,
+    "y": -46,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "nsenc",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "psac-title",
+    "kind": "label",
+    "x": -15,
+    "y": -60,
+    "title": "PSA Crypto",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "psac",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "cysapi-title",
+    "kind": "label",
+    "x": 0,
+    "y": -74,
+    "title": "CryptoService API",
+    "code": "CYS\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#707A8F",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "cysapi",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#707A8F",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "entry-title",
+    "kind": "label",
+    "x": 0,
+    "y": -89,
+    "title": "Secure entry and dispatch table",
+    "code": "tee\\_secure\\_entry",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#7A8566",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "entry",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#7A8566",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "hdl-title",
+    "kind": "label",
+    "x": -15,
+    "y": -104,
+    "title": "Attestation handler",
+    "code": "tee\\_attest\\_get\\_token",
+    "wantWidth": 26,
+    "width": 37.96,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hdl",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "senc-title",
+    "kind": "label",
+    "x": -15,
+    "y": -117,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "senc",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "ops-title",
+    "kind": "label",
+    "x": 15,
+    "y": -110,
+    "title": "Crypto and RoT operations",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#7A8566",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "ops",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#7A8566",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "drv-title",
+    "kind": "label",
+    "x": 0,
+    "y": -131,
+    "title": "CC310 driver",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "drv",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "t": "node",
+   "n": {
+    "id": "hw-title",
+    "kind": "label",
+    "x": 0,
+    "y": -141,
+    "title": "CC310",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
   }
  ],
  "items": [
@@ -2189,9 +2950,10 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
-    "titleId": "g1-background-title",
     "look": {
      "own": {
       "cornerRadius": 2.5,
@@ -2218,43 +2980,18 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "g1-background-title",
-   "parent": "g1-background",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "g1-background"
-  },
-  {
    "id": "g1-label",
    "parent": "g1-background",
    "order": 1,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2264,8 +3001,8 @@
     "id": "g1-label",
     "title": "attestation module",
     "code": "",
-    "x": -19.0551,
-    "y": -6.1335,
+    "x": -0.7823,
+    "y": -7.5092,
     "width": 26,
     "minh": 0,
     "cat": "",
@@ -2291,13 +3028,7 @@
      "markColor": "#33333A"
     },
     "kind": "label",
-    "attachment": {
-     "parent": "g1-background",
-     "anchor": "north west",
-     "ownAnchor": "west",
-     "dx": 0.5272,
-     "dy": -1.933
-    },
+    "slot": "top-left",
     "look": {
      "own": {
       "compact": true,
@@ -2321,13 +3052,6 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "g1-background",
-    "anchor": "north west",
-    "ownAnchor": "west",
-    "dx": 0.5272,
-    "dy": -1.933
    }
   },
   {
@@ -2367,9 +3091,10 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
-    "titleId": "g2-background-title",
     "look": {
      "own": {
       "cornerRadius": 1.5,
@@ -2392,43 +3117,18 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "g2-background-title",
-   "parent": "g2-background",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "g2-background"
-  },
-  {
    "id": "g2-label",
    "parent": "g2-background",
    "order": 1,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2438,8 +3138,8 @@
     "id": "g2-label",
     "title": "secure world",
     "code": "",
-    "x": -26.0351,
-    "y": -82.9335,
+    "x": -4.1723,
+    "y": -84.3092,
     "width": 26,
     "minh": 0,
     "cat": "",
@@ -2465,13 +3165,7 @@
      "markColor": "#33333A"
     },
     "kind": "label",
-    "attachment": {
-     "parent": "g2-background",
-     "anchor": "north west",
-     "ownAnchor": "west",
-     "dx": 0.5272,
-     "dy": -1.933
-    },
+    "slot": "top-left",
     "look": {
      "own": {
       "compact": true,
@@ -2495,13 +3189,6 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "g2-background",
-    "anchor": "north west",
-    "ownAnchor": "west",
-    "dx": 0.5272,
-    "dy": -1.933
    }
   },
   {
@@ -2544,9 +3231,10 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
-    "titleId": "g3-background-title",
     "look": {
      "own": {
       "cornerRadius": 2.5,
@@ -2575,43 +3263,18 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "g3-background-title",
-   "parent": "g3-background",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#595959",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "",
-   "code": "",
-   "role": "title",
-   "treeParent": "g3-background"
-  },
-  {
    "id": "g3-label",
    "parent": "g3-background",
    "order": 1,
+   "slot": "top-left",
    "hidden": false,
    "locked": false,
    "kind": "Text",
@@ -2621,8 +3284,8 @@
     "id": "g3-label",
     "title": "operation",
     "code": "",
-    "x": -23.0351,
-    "y": -99.1335,
+    "x": -15.7823,
+    "y": -100.5092,
     "width": 26,
     "minh": 0,
     "cat": "",
@@ -2648,13 +3311,7 @@
      "markColor": "#33333A"
     },
     "kind": "label",
-    "attachment": {
-     "parent": "g3-background",
-     "anchor": "north west",
-     "ownAnchor": "west",
-     "dx": 0.5272,
-     "dy": -1.933
-    },
+    "slot": "top-left",
     "look": {
      "own": {
       "compact": true,
@@ -2678,13 +3335,6 @@
       "markColor": "#33333A"
      }
     }
-   },
-   "attachment": {
-    "parent": "g3-background",
-    "anchor": "north west",
-    "ownAnchor": "west",
-    "dx": 0.5272,
-    "dy": -1.933
    }
   },
   {
@@ -2699,7 +3349,7 @@
     "cat": "riot",
     "x": 0,
     "y": 0,
-    "title": "Application",
+    "title": "",
     "code": "",
     "width": 58,
     "minh": 0,
@@ -2720,12 +3370,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 6,
-    "titleId": "app-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2741,38 +3392,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "app-title",
-   "parent": "app",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#858585",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Application",
-   "code": "",
-   "role": "title",
-   "treeParent": "app"
   },
   {
    "id": "att",
@@ -2786,8 +3411,8 @@
     "cat": "work",
     "x": 0,
     "y": -12,
-    "title": "PSA Attestation API",
-    "code": "psa\\_initial\\_attest\\_get\\_token",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -2807,12 +3432,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 8,
-    "titleId": "att-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2828,38 +3454,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "att-title",
-   "parent": "att",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#99857A",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "PSA Attestation API",
-   "code": "psa\\_initial\\_attest\\_get\\_token",
-   "role": "title",
-   "treeParent": "att"
   },
   {
    "id": "seam",
@@ -2873,8 +3473,8 @@
     "cat": "work",
     "x": 0,
     "y": -24,
-    "title": "Backend interface",
-    "code": "attest\\_backend\\_get\\_token",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -2894,12 +3494,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 10,
-    "titleId": "seam-title",
     "look": {
      "own": {},
      "resolved": {
@@ -2915,38 +3516,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "seam-title",
-   "parent": "seam",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#99857A",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Backend interface",
-   "code": "attest\\_backend\\_get\\_token",
-   "role": "title",
-   "treeParent": "seam"
   },
   {
    "id": "swbe",
@@ -2960,7 +3535,7 @@
     "cat": "work",
     "x": -15,
     "y": -35,
-    "title": "Software backend",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -2981,12 +3556,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 12,
-    "titleId": "swbe-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3002,38 +3578,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "swbe-title",
-   "parent": "swbe",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#99857A",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Software backend",
-   "code": "",
-   "role": "title",
-   "treeParent": "swbe"
   },
   {
    "id": "teebe",
@@ -3047,7 +3597,7 @@
     "cat": "work",
     "x": 15,
     "y": -35,
-    "title": "TEE backend",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -3068,12 +3618,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 14,
-    "titleId": "teebe-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3089,38 +3640,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "teebe-title",
-   "parent": "teebe",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#99857A",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "TEE backend",
-   "code": "",
-   "role": "title",
-   "treeParent": "teebe"
   },
   {
    "id": "nsenc",
@@ -3134,7 +3659,7 @@
     "cat": "work",
     "x": -15,
     "y": -46,
-    "title": "Providers and token encoder",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -3155,12 +3680,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g1",
     "order": 16,
-    "titleId": "nsenc-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3176,38 +3702,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "nsenc-title",
-   "parent": "nsenc",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#99857A",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Providers and token encoder",
-   "code": "",
-   "role": "title",
-   "treeParent": "nsenc"
   },
   {
    "id": "psac",
@@ -3221,7 +3721,7 @@
     "cat": "riot",
     "x": -15,
     "y": -60,
-    "title": "PSA Crypto",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -3242,12 +3742,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 18,
-    "titleId": "psac-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3263,38 +3764,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "psac-title",
-   "parent": "psac",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#858585",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "PSA Crypto",
-   "code": "",
-   "role": "title",
-   "treeParent": "psac"
   },
   {
    "id": "cysapi",
@@ -3308,8 +3783,8 @@
     "cat": "cryptoservice",
     "x": 0,
     "y": -74,
-    "title": "CryptoService API",
-    "code": "CYS\\_attest\\_get\\_token",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -3329,12 +3804,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 20,
-    "titleId": "cysapi-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3350,38 +3826,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "cysapi-title",
-   "parent": "cysapi",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#707A8F",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "CryptoService API",
-   "code": "CYS\\_attest\\_get\\_token",
-   "role": "title",
-   "treeParent": "cysapi"
   },
   {
    "id": "entry",
@@ -3395,8 +3845,8 @@
     "cat": "tee",
     "x": 0,
     "y": -89,
-    "title": "Secure entry and dispatch table",
-    "code": "tee\\_secure\\_entry",
+    "title": "",
+    "code": "",
     "width": 58,
     "minh": 0,
     "layer": "layer1",
@@ -3416,12 +3866,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g2",
     "order": 22,
-    "titleId": "entry-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3437,38 +3888,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "entry-title",
-   "parent": "entry",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#7A8566",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Secure entry and dispatch table",
-   "code": "tee\\_secure\\_entry",
-   "role": "title",
-   "treeParent": "entry"
   },
   {
    "id": "hdl",
@@ -3482,95 +3907,7 @@
     "cat": "work",
     "x": -15,
     "y": -104,
-    "title": "Attestation handler",
-    "code": "tee\\_attest\\_get\\_token",
-    "wantWidth": 26,
-    "width": 37.96,
-    "minh": 0,
-    "layer": "layer1",
-    "group": "g3",
-    "hidden": false,
-    "locked": false,
-    "style": {
-     "fill": "peach",
-     "color": "#99857A",
-     "border": "solid",
-     "weight": "thin",
-     "lineWidth": 0.45,
-     "shape": "rounded",
-     "font": "small",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    },
-    "extra": [],
-    "treeParent": "g3",
-    "order": 24,
-    "titleId": "hdl-title",
-    "look": {
-     "own": {},
-     "resolved": {
-      "fill": "peach",
-      "color": "#99857A",
-      "border": "solid",
-      "weight": "thin",
-      "lineWidth": 0.45,
-      "shape": "rounded",
-      "font": "small",
-      "compact": false,
-      "opacity": 1,
-      "mark": "none",
-      "markCorner": "ne",
-      "markSize": "small",
-      "markColor": "#33333A"
-     }
-    }
-   }
-  },
-  {
-   "id": "hdl-title",
-   "parent": "hdl",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#99857A",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Attestation handler",
-   "code": "tee\\_attest\\_get\\_token",
-   "role": "title",
-   "treeParent": "hdl"
-  },
-  {
-   "id": "senc",
-   "parent": "g3",
-   "order": 26,
-   "hidden": false,
-   "locked": false,
-   "kind": "Shape",
-   "node": {
-    "id": "senc",
-    "cat": "work",
-    "x": -15,
-    "y": -117,
-    "title": "Providers and token encoder",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -3591,12 +3928,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g3",
-    "order": 26,
-    "titleId": "senc-title",
+    "order": 24,
     "look": {
      "own": {},
      "resolved": {
@@ -3612,38 +3950,74 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
   },
   {
-   "id": "senc-title",
-   "parent": "senc",
-   "order": 0,
+   "id": "senc",
+   "parent": "g3",
+   "order": 26,
    "hidden": false,
    "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
+   "kind": "Shape",
+   "node": {
+    "id": "senc",
+    "cat": "work",
+    "x": -15,
+    "y": -117,
+    "title": "",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "peach",
+     "color": "#99857A",
+     "border": "solid",
      "weight": "thin",
+     "lineWidth": 0.45,
+     "shape": "rounded",
      "font": "small",
-     "textColor": "#99857A",
      "compact": false,
      "opacity": 1,
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
+    },
+    "extra": [],
+    "treeParent": "g3",
+    "order": 26,
+    "look": {
+     "own": {},
+     "resolved": {
+      "fill": "peach",
+      "color": "#99857A",
+      "border": "solid",
+      "weight": "thin",
+      "lineWidth": 0.45,
+      "shape": "rounded",
+      "font": "small",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
+     }
     }
-   },
-   "text": "Providers and token encoder",
-   "code": "",
-   "role": "title",
-   "treeParent": "senc"
+   }
   },
   {
    "id": "ops",
@@ -3657,7 +4031,7 @@
     "cat": "tee",
     "x": 15,
     "y": -110,
-    "title": "Crypto and RoT operations",
+    "title": "",
     "code": "",
     "width": 26,
     "minh": 0,
@@ -3678,12 +4052,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "g2",
     "order": 28,
-    "titleId": "ops-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3699,38 +4074,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "ops-title",
-   "parent": "ops",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#7A8566",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "Crypto and RoT operations",
-   "code": "",
-   "role": "title",
-   "treeParent": "ops"
   },
   {
    "id": "drv",
@@ -3744,7 +4093,7 @@
     "cat": "riot",
     "x": 0,
     "y": -131,
-    "title": "CC310 driver",
+    "title": "",
     "code": "",
     "width": 58,
     "minh": 0,
@@ -3765,12 +4114,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 30,
-    "titleId": "drv-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3786,38 +4136,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "drv-title",
-   "parent": "drv",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#858585",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "CC310 driver",
-   "code": "",
-   "role": "title",
-   "treeParent": "drv"
   },
   {
    "id": "hw",
@@ -3831,7 +4155,7 @@
     "cat": "riot",
     "x": 0,
     "y": -141,
-    "title": "CC310",
+    "title": "",
     "code": "",
     "width": 58,
     "minh": 0,
@@ -3852,12 +4176,13 @@
      "mark": "none",
      "markCorner": "ne",
      "markSize": "small",
-     "markColor": "#33333A"
+     "markColor": "#33333A",
+     "innerPadding": 1.2,
+     "outerGap": 1
     },
     "extra": [],
     "treeParent": "layer1",
     "order": 32,
-    "titleId": "hw-title",
     "look": {
      "own": {},
      "resolved": {
@@ -3873,38 +4198,12 @@
       "mark": "none",
       "markCorner": "ne",
       "markSize": "small",
-      "markColor": "#33333A"
+      "markColor": "#33333A",
+      "innerPadding": 1.2,
+      "outerGap": 1
      }
     }
    }
-  },
-  {
-   "id": "hw-title",
-   "parent": "hw",
-   "order": 0,
-   "hidden": false,
-   "locked": false,
-   "kind": "Text",
-   "look": {
-    "own": {},
-    "resolved": {
-     "fill": "none",
-     "border": "none",
-     "weight": "thin",
-     "font": "small",
-     "textColor": "#858585",
-     "compact": false,
-     "opacity": 1,
-     "mark": "none",
-     "markCorner": "ne",
-     "markSize": "small",
-     "markColor": "#33333A"
-    }
-   },
-   "text": "CC310",
-   "code": "",
-   "role": "title",
-   "treeParent": "hw"
   },
   {
    "id": "connector",
@@ -5026,6 +5325,847 @@
     "port": {
      "side": "auto",
      "position": 0.5
+    }
+   }
+  },
+  {
+   "id": "app-title",
+   "parent": "app",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Application",
+   "code": "",
+   "node": {
+    "id": "app-title",
+    "kind": "label",
+    "x": 0,
+    "y": 0,
+    "title": "Application",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "app",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "att-title",
+   "parent": "att",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "PSA Attestation API",
+   "code": "psa\\_initial\\_attest\\_get\\_token",
+   "node": {
+    "id": "att-title",
+    "kind": "label",
+    "x": 0,
+    "y": -12,
+    "title": "PSA Attestation API",
+    "code": "psa\\_initial\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "att",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "seam-title",
+   "parent": "seam",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Backend interface",
+   "code": "attest\\_backend\\_get\\_token",
+   "node": {
+    "id": "seam-title",
+    "kind": "label",
+    "x": 0,
+    "y": -24,
+    "title": "Backend interface",
+    "code": "attest\\_backend\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "seam",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "swbe-title",
+   "parent": "swbe",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Software backend",
+   "code": "",
+   "node": {
+    "id": "swbe-title",
+    "kind": "label",
+    "x": -15,
+    "y": -35,
+    "title": "Software backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "swbe",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "teebe-title",
+   "parent": "teebe",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "TEE backend",
+   "code": "",
+   "node": {
+    "id": "teebe-title",
+    "kind": "label",
+    "x": 15,
+    "y": -35,
+    "title": "TEE backend",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "teebe",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "nsenc-title",
+   "parent": "nsenc",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Providers and token encoder",
+   "code": "",
+   "node": {
+    "id": "nsenc-title",
+    "kind": "label",
+    "x": -15,
+    "y": -46,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g1",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "nsenc",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "psac-title",
+   "parent": "psac",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "PSA Crypto",
+   "code": "",
+   "node": {
+    "id": "psac-title",
+    "kind": "label",
+    "x": -15,
+    "y": -60,
+    "title": "PSA Crypto",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "psac",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "cysapi-title",
+   "parent": "cysapi",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "CryptoService API",
+   "code": "CYS\\_attest\\_get\\_token",
+   "node": {
+    "id": "cysapi-title",
+    "kind": "label",
+    "x": 0,
+    "y": -74,
+    "title": "CryptoService API",
+    "code": "CYS\\_attest\\_get\\_token",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#707A8F",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "cysapi",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#707A8F",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "entry-title",
+   "parent": "entry",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Secure entry and dispatch table",
+   "code": "tee\\_secure\\_entry",
+   "node": {
+    "id": "entry-title",
+    "kind": "label",
+    "x": 0,
+    "y": -89,
+    "title": "Secure entry and dispatch table",
+    "code": "tee\\_secure\\_entry",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#7A8566",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "entry",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#7A8566",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "hdl-title",
+   "parent": "hdl",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Attestation handler",
+   "code": "tee\\_attest\\_get\\_token",
+   "node": {
+    "id": "hdl-title",
+    "kind": "label",
+    "x": -15,
+    "y": -104,
+    "title": "Attestation handler",
+    "code": "tee\\_attest\\_get\\_token",
+    "wantWidth": 26,
+    "width": 37.96,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hdl",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "senc-title",
+   "parent": "senc",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Providers and token encoder",
+   "code": "",
+   "node": {
+    "id": "senc-title",
+    "kind": "label",
+    "x": -15,
+    "y": -117,
+    "title": "Providers and token encoder",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g3",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#99857A",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "senc",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#99857A",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "ops-title",
+   "parent": "ops",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "Crypto and RoT operations",
+   "code": "",
+   "node": {
+    "id": "ops-title",
+    "kind": "label",
+    "x": 15,
+    "y": -110,
+    "title": "Crypto and RoT operations",
+    "code": "",
+    "width": 26,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "g2",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#7A8566",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "ops",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#7A8566",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "drv-title",
+   "parent": "drv",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "CC310 driver",
+   "code": "",
+   "node": {
+    "id": "drv-title",
+    "kind": "label",
+    "x": 0,
+    "y": -131,
+    "title": "CC310 driver",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "drv",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
+    }
+   }
+  },
+  {
+   "id": "hw-title",
+   "parent": "hw",
+   "order": 0,
+   "slot": "centre",
+   "hidden": false,
+   "locked": false,
+   "kind": "Text",
+   "text": "CC310",
+   "code": "",
+   "node": {
+    "id": "hw-title",
+    "kind": "label",
+    "x": 0,
+    "y": -141,
+    "title": "CC310",
+    "code": "",
+    "width": 58,
+    "minh": 0,
+    "layer": "layer1",
+    "group": "",
+    "hidden": false,
+    "locked": false,
+    "style": {
+     "fill": "none",
+     "border": "none",
+     "weight": "thin",
+     "font": "small",
+     "textColor": "#858585",
+     "compact": false,
+     "opacity": 1,
+     "mark": "none",
+     "markCorner": "ne",
+     "markSize": "small",
+     "markColor": "#33333A"
+    },
+    "extra": [],
+    "treeParent": "hw",
+    "slot": "centre",
+    "order": 0,
+    "look": {
+     "own": {
+      "font": "small"
+     },
+     "resolved": {
+      "fill": "none",
+      "border": "none",
+      "weight": "thin",
+      "font": "small",
+      "textColor": "#858585",
+      "compact": false,
+      "opacity": 1,
+      "mark": "none",
+      "markCorner": "ne",
+      "markSize": "small",
+      "markColor": "#33333A"
+     }
     }
    }
   }

@@ -9,7 +9,7 @@ import {
 	sizeRow,
 	tidyRow,
 } from './rows-common';
-import { attachedToRow, detachRow, offsetRow, ownAnchorRow, parentAnchorRow, placementRow } from './rows-attach';
+import { detachRow, placementRow } from './rows-attach';
 import {
 	arrowLabelRow,
 	endpointsRow,
@@ -101,12 +101,8 @@ const ARRANGE_NODES: RowSpec[] = [
 	TIDY,
 	{ label: 'Position', custom: positionRow },
 	{ label: 'Size', custom: sizeRow, when: (c) => c.sel.mode !== 'frame' },
-	{ label: 'Attached to', custom: attachedToRow },
-	{ label: 'Parent anchor', custom: parentAnchorRow },
-	{ label: 'Own anchor', custom: ownAnchorRow },
-	{ label: 'Offset', custom: offsetRow },
 	{ label: '', custom: detachRow },
-	{ label: 'Placement', custom: placementRow },
+	{ label: 'Place', custom: placementRow },
 ];
 const ARRANGE_ARROWS: RowSpec[] = [
 	{ label: '', custom: resetAutoRow },

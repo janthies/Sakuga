@@ -95,18 +95,7 @@ export function frameTitleAtRow(c: PanelCtx): RowControls {
 }
 
 export function labelOffsetRow(c: PanelCtx): RowControls {
-	if (!c.sel.attached) return null;
-	return (['dx', 'dy'] as const).map((k, i) => {
-		const f = new NumberControl({
-			prefix: i ? 'Y' : 'X',
-			unit: i ? 'mm' : undefined,
-			step: 0.05,
-			ariaLabel: i ? 'Offset Y' : 'Offset X',
-		});
-		f.set(style(c)[k] || 0);
-		f.onCommit((v) => labelChange({ [k]: v ?? 0 }));
-		return f;
-	});
+	return null;
 }
 
 // Back to the preset place, or turn the label into a free label where it stands.

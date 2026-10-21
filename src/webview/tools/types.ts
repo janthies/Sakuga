@@ -56,6 +56,7 @@ export interface Selection {
 export type Op = OpLike;
 /** A change shown on screen before it is committed: node geometry, arrow fields, a label style. */
 export interface PreviewOp {
+	slots?: { id: string; slot: string }[];
 	labels?: { ref: LabelRef; style: any; titlePosition?: string }[];
 	texts?: { id: string; placement: import('../../core/model/figure').LabelStyle }[];
 	lines?: { id: string; start: [number, number]; end: [number, number] }[];
@@ -122,7 +123,6 @@ export interface ToolCtx {
 	snap(v: number): number;
 	nodeAt(p: Point, margin?: number): any;
 	descendant(id: string, parent: string): boolean;
-	attachmentFor(n: any, parent: any, anchor: string): any;
 	edgeGeom(e: any): any;
 	endpointObject(id: string): any;
 	endpointTarget(p: Point, disableSnap?: boolean): any;

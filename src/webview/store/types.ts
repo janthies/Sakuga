@@ -30,6 +30,7 @@ export interface StyleClip {
 }
 
 export interface Store {
+	outerGap: number;
 	items: Item[];
 	lines: FigLine[];
 	rev: number;

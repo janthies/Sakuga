@@ -8,7 +8,13 @@ import { Op } from './types';
 
 // Operations that add the boxes, arrows and categories of a pasted TikZ snippet, with fresh ids,
 // shifted by (dx, dy). Lines that are not Sakuga boxes or arrows are ignored.
-export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { ops: Op[]; ids: string[] } {
+export function pasteOps(
+	fig: Figure,
+	text: string,
+	dx: number,
+	dy: number,
+	parent?: string,
+): { ops: Op[]; ids: string[] } {
 	const src = parse(text);
 	const ops: Op[] = [];
 	const have = new Set(styleDefs(fig).map((d) => d.key));
@@ -58,7 +64,8 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 		map.set(n.id, id);
 		ops.push({
 			op: 'addNode',
-			titlePosition: n.titlePosition,
+			parent: undefined,
+			categoryMarker: n.categoryMarker,
 			id,
 			x: n.x + dx,
 			y: n.y + dy,
@@ -89,18 +96,14 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 			labels: l.labels?.map((v) => ({ ...v, id: undefined })),
 		});
 	}
-	for (const n of nodes(src)) {
-		if (map.has(n.group)) ops.push({ op: 'setGroup', ids: [map.get(n.id)!], group: map.get(n.group)! });
+	for (const i of src.items || []) {
+		const id = map.get(i.id);
+		if (!id) continue;
+		const target = map.get(i.parent) || parent;
+		if (target) ops.push({ op: 'reparent', id, newParent: target });
+		if (i.slot && map.has(i.parent)) ops.push({ op: 'slot', id, slot: i.slot });
 	}
-	for (const n of nodes(src)) {
-		if (n.attachment && map.has(n.attachment.parent)) {
-			ops.push({
-				op: 'attach',
-				id: map.get(n.id)!,
-				attachment: { ...n.attachment, parent: map.get(n.attachment.parent)! },
-			});
-		}
-	}
+
 	for (const e of edges(src)) {
 		const a = map.get(e.from),
 			b = map.get(e.to);
@@ -144,5 +147,8 @@ export function pasteOps(fig: Figure, text: string, dx: number, dy: number): { o
 			});
 		}
 	}
-	return { ops, ids: nodes(src).map((n) => map.get(n.id)!) };
+	return {
+		ops,
+		ids: [...(src.items || [])].filter((i) => map.has(i.id) && !map.has(i.parent)).map((i) => map.get(i.id)!),
+	};
 }

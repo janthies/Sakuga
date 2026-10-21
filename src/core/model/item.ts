@@ -7,6 +7,7 @@ export type { ItemKind } from './item-base';
 import type { TreeState, Endpoint } from './item-base';
 export type { TreeState, Endpoint, Port } from './item-base';
 export interface FigLine extends TreeState {
+	vector?: [number, number];
 	id: string;
 	start: [number, number];
 	end: [number, number];

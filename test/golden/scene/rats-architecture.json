@@ -38,28 +38,6 @@
         "rx": 0.8786,
         "ry": 0.8786
        }
-      },
-      {
-       "key": "n:att-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": 34,
-        "y": 35.567,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "att-background-title",
-        "parent": "att-background"
-       }
       }
      ],
      "attrs": {
@@ -84,7 +62,7 @@
        },
        "attrs": {
         "x": 20.6485,
-        "y": -24.3919,
+        "y": -30.0487,
         "width": 26.7029,
         "height": 13.8827,
         "fill": "transparent"
@@ -104,7 +82,7 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 20.6485,
-        "y": -24.3919,
+        "y": -30.0487,
         "width": 26.7029,
         "height": 13.8827,
         "rx": 0,
@@ -117,7 +95,7 @@
        "text": "Attester",
        "attrs": {
         "x": 34,
-        "y": -21.6681,
+        "y": -27.3249,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 3.5146,
@@ -134,7 +112,7 @@
        "text": "(constrained",
        "attrs": {
         "x": 34,
-        "y": -17.4505,
+        "y": -23.1074,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 3.5146,
@@ -151,7 +129,7 @@
        "text": "device)",
        "attrs": {
         "x": 34,
-        "y": -13.233,
+        "y": -18.8899,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 3.5146,
@@ -196,28 +174,6 @@
         "rx": 0.8786,
         "ry": 0.8786
        }
-      },
-      {
-       "key": "n:nw-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": 34,
-        "y": 0,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "nw-background-title",
-        "parent": "nw-background"
-       }
       }
      ],
      "attrs": {
@@ -241,8 +197,8 @@
         "id": "nw-label"
        },
        "attrs": {
-        "x": -16.4066,
-        "y": -14.0991,
+        "x": -15.7338,
+        "y": -17.0321,
         "width": 26.7029,
         "height": 7.7321,
         "fill": "transparent"
@@ -261,8 +217,8 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -16.4066,
-        "y": -14.0991,
+        "x": -15.7338,
+        "y": -17.0321,
         "width": 26.7029,
         "height": 7.7321,
         "rx": 0,
@@ -274,8 +230,8 @@
        "kind": "text",
        "text": "Normal world",
        "attrs": {
-        "x": -3.0551,
-        "y": -11.9025,
+        "x": -2.3823,
+        "y": -14.8355,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -291,8 +247,8 @@
        "kind": "text",
        "text": "(untrusted)",
        "attrs": {
-        "x": -3.0551,
-        "y": -8.5636,
+        "x": -2.3823,
+        "y": -11.4966,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -337,28 +293,6 @@
         "rx": 0.8786,
         "ry": 0.8786
        }
-      },
-      {
-       "key": "n:sw-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": 34,
-        "y": 34,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "sw-background-title",
-        "parent": "sw-background"
-       }
       }
      ],
      "attrs": {
@@ -382,8 +316,8 @@
         "id": "sw-label"
        },
        "attrs": {
-        "x": -16.4066,
-        "y": 19.9009,
+        "x": -15.7338,
+        "y": 16.9679,
         "width": 26.7029,
         "height": 7.7321,
         "fill": "transparent"
@@ -402,8 +336,8 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -16.4066,
-        "y": 19.9009,
+        "x": -15.7338,
+        "y": 16.9679,
         "width": 26.7029,
         "height": 7.7321,
         "rx": 0,
@@ -415,8 +349,8 @@
        "kind": "text",
        "text": "Secure world (SPE,",
        "attrs": {
-        "x": -3.0551,
-        "y": 22.0975,
+        "x": -2.3823,
+        "y": 19.1645,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -432,8 +366,8 @@
        "kind": "text",
        "text": "TF-M)",
        "attrs": {
-        "x": -3.0551,
-        "y": 25.4364,
+        "x": -2.3823,
+        "y": 22.5034,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -478,28 +412,6 @@
         "rx": 0.8786,
         "ry": 0.8786
        }
-      },
-      {
-       "key": "n:hw-background:line0",
-       "kind": "text",
-       "text": "",
-       "attrs": {
-        "x": 34,
-        "y": 71.5,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "hw-background-title",
-        "parent": "hw-background"
-       }
       }
      ],
      "attrs": {
@@ -523,8 +435,8 @@
         "id": "hw-label"
        },
        "attrs": {
-        "x": -16.4066,
-        "y": 53.9009,
+        "x": -15.7338,
+        "y": 50.9679,
         "width": 26.7029,
         "height": 7.7321,
         "fill": "transparent"
@@ -543,8 +455,8 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": -16.4066,
-        "y": 53.9009,
+        "x": -15.7338,
+        "y": 50.9679,
         "width": 26.7029,
         "height": 7.7321,
         "rx": 0,
@@ -556,8 +468,8 @@
        "kind": "text",
        "text": "Hardware root of",
        "attrs": {
-        "x": -3.0551,
-        "y": 56.0975,
+        "x": -2.3823,
+        "y": 53.1645,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -573,8 +485,8 @@
        "kind": "text",
        "text": "trust",
        "attrs": {
-        "x": -3.0551,
-        "y": 59.4364,
+        "x": -2.3823,
+        "y": 56.5034,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -619,28 +531,6 @@
         "rx": 0.492,
         "ry": 0.492
        }
-      },
-      {
-       "key": "n:app:line0",
-       "kind": "text",
-       "text": "Application",
-       "attrs": {
-        "x": 0,
-        "y": 0,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "app-title",
-        "parent": "app"
-       }
       }
      ],
      "attrs": {
@@ -676,28 +566,6 @@
         "rx": 0.492,
         "ry": 0.492
        }
-      },
-      {
-       "key": "n:rtos:line0",
-       "kind": "text",
-       "text": "RTOS / TCP/IP",
-       "attrs": {
-        "x": 34,
-        "y": 0,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rtos-title",
-        "parent": "rtos"
-       }
       }
      ],
      "attrs": {
@@ -727,55 +595,11 @@
         "stroke-width": 0.4218,
         "class": "node",
         "x": 53.8663,
-        "y": -5.5,
+        "y": -7.3752,
         "width": 28.2675,
-        "height": 11,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:client:line0",
-       "kind": "text",
-       "text": "Attestation",
-       "attrs": {
-        "x": 68,
-        "y": -2.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "client-title",
-        "parent": "client"
-       }
-      },
-      {
-       "key": "n:client:line1",
-       "kind": "text",
-       "text": "client",
-       "attrs": {
-        "x": 68,
-        "y": 2.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "client-title",
-        "parent": "client"
        }
       }
      ],
@@ -806,55 +630,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -14.1337,
-        "y": 28.5,
+        "y": 26.6248,
         "width": 28.2675,
-        "height": 11,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:store:line0",
-       "kind": "text",
-       "text": "Protected",
-       "attrs": {
-        "x": 0,
-        "y": 31.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "store-title",
-        "parent": "store"
-       }
-      },
-      {
-       "key": "n:store:line1",
-       "kind": "text",
-       "text": "storage",
-       "attrs": {
-        "x": 0,
-        "y": 36.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "store-title",
-        "parent": "store"
        }
       }
      ],
@@ -885,55 +665,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 19.8663,
-        "y": 28.5,
+        "y": 26.6248,
         "width": 28.2675,
-        "height": 11,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:crypto:line0",
-       "kind": "text",
-       "text": "Crypto",
-       "attrs": {
-        "x": 34,
-        "y": 31.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "crypto-title",
-        "parent": "crypto"
-       }
-      },
-      {
-       "key": "n:crypto:line1",
-       "kind": "text",
-       "text": "service",
-       "attrs": {
-        "x": 34,
-        "y": 36.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "crypto-title",
-        "parent": "crypto"
        }
       }
      ],
@@ -964,55 +700,11 @@
         "stroke-width": 0.4218,
         "class": "node",
         "x": 53.8663,
-        "y": 28.5,
+        "y": 26.6248,
         "width": 28.2675,
-        "height": 11,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:ias:line0",
-       "kind": "text",
-       "text": "Initial attest.",
-       "attrs": {
-        "x": 68,
-        "y": 31.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ias-title",
-        "parent": "ias"
-       }
-      },
-      {
-       "key": "n:ias:line1",
-       "kind": "text",
-       "text": "service",
-       "attrs": {
-        "x": 68,
-        "y": 36.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ias-title",
-        "parent": "ias"
        }
       }
      ],
@@ -1043,55 +735,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": -14.1337,
-        "y": 62.5,
+        "y": 60.6248,
         "width": 28.2675,
-        "height": 11,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:bl1:line0",
-       "kind": "text",
-       "text": "Boot ROM",
-       "attrs": {
-        "x": 0,
-        "y": 65.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "bl1-title",
-        "parent": "bl1"
-       }
-      },
-      {
-       "key": "n:bl1:line1",
-       "kind": "text",
-       "text": "(BL1)",
-       "attrs": {
-        "x": 0,
-        "y": 70.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "bl1-title",
-        "parent": "bl1"
        }
       }
      ],
@@ -1122,55 +770,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 19.8663,
-        "y": 62.5,
+        "y": 60.6248,
         "width": 28.2675,
-        "height": 11,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:otp:line0",
-       "kind": "text",
-       "text": "OTP / eFuse",
-       "attrs": {
-        "x": 34,
-        "y": 65.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "otp-title",
-        "parent": "otp"
-       }
-      },
-      {
-       "key": "n:otp:line1",
-       "kind": "text",
-       "text": "IAK_priv",
-       "attrs": {
-        "x": 34,
-        "y": 70.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "otp-title",
-        "parent": "otp"
        }
       }
      ],
@@ -1200,56 +804,12 @@
         "stroke-dasharray": "none",
         "stroke-width": 0.1582,
         "class": "node",
-        "x": 53.8663,
-        "y": 62.5,
-        "width": 28.2675,
-        "height": 11,
+        "x": 53.2905,
+        "y": 60.6248,
+        "width": 29.419,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:rec:line0",
-       "kind": "text",
-       "text": "Boot record",
-       "attrs": {
-        "x": 68,
-        "y": 65.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rec-title",
-        "parent": "rec"
-       }
-      },
-      {
-       "key": "n:rec:line1",
-       "kind": "text",
-       "text": "measurements",
-       "attrs": {
-        "x": 68,
-        "y": 70.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rec-title",
-        "parent": "rec"
        }
       }
      ],
@@ -1286,94 +846,6 @@
         "rx": 0.492,
         "ry": 0.492
        }
-      },
-      {
-       "key": "n:ver:line0",
-       "kind": "text",
-       "text": "Verifier",
-       "attrs": {
-        "x": 140,
-        "y": -2.3263,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ver-title",
-        "parent": "ver"
-       }
-      },
-      {
-       "key": "n:ver:line1",
-       "kind": "text",
-       "text": "appraisal policy",
-       "attrs": {
-        "x": 140,
-        "y": 1.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ver-title",
-        "parent": "ver"
-       }
-      },
-      {
-       "key": "n:ver:line2",
-       "kind": "text",
-       "text": "freshness check (N)",
-       "attrs": {
-        "x": 140,
-        "y": 6.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ver-title",
-        "parent": "ver"
-       }
-      },
-      {
-       "key": "n:ver:line3",
-       "kind": "text",
-       "text": "Vrfy(IAK_pub,)",
-       "attrs": {
-        "x": 140,
-        "y": 10.3263,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "ver-title",
-        "parent": "ver"
-       }
       }
      ],
      "attrs": {
@@ -1403,55 +875,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 117.8663,
-        "y": -36,
+        "y": -37.3752,
         "width": 20.2675,
-        "height": 12,
+        "height": 14.7505,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:end:line0",
-       "kind": "text",
-       "text": "Endorser",
-       "attrs": {
-        "x": 128,
-        "y": -32.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "end-title",
-        "parent": "end"
-       }
-      },
-      {
-       "key": "n:end:line1",
-       "kind": "text",
-       "text": "IAK_pub",
-       "attrs": {
-        "x": 128,
-        "y": -27.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "end-title",
-        "parent": "end"
        }
       }
      ],
@@ -1482,55 +910,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 141.8663,
-        "y": -36,
+        "y": -39.484,
         "width": 20.2675,
-        "height": 12,
+        "height": 18.968,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:rvp:line0",
-       "kind": "text",
-       "text": "Ref.\\ value",
-       "attrs": {
-        "x": 152,
-        "y": -32.1088,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rvp-title",
-        "parent": "rvp"
-       }
-      },
-      {
-       "key": "n:rvp:line1",
-       "kind": "text",
-       "text": "provider",
-       "attrs": {
-        "x": 152,
-        "y": -27.8912,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rvp-title",
-        "parent": "rvp"
        }
       }
      ],
@@ -1561,77 +945,11 @@
         "stroke-width": 0.1582,
         "class": "node",
         "x": 120.8663,
-        "y": 59.5,
+        "y": 58.516,
         "width": 38.2675,
-        "height": 17,
+        "height": 18.968,
         "rx": 0.492,
         "ry": 0.492
-       }
-      },
-      {
-       "key": "n:rp:line0",
-       "kind": "text",
-       "text": "Relying party",
-       "attrs": {
-        "x": 140,
-        "y": 63.7825,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rp-title",
-        "parent": "rp"
-       }
-      },
-      {
-       "key": "n:rp:line1",
-       "kind": "text",
-       "text": "fleet backend /",
-       "attrs": {
-        "x": 140,
-        "y": 68,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rp-title",
-        "parent": "rp"
-       }
-      },
-      {
-       "key": "n:rp:line2",
-       "kind": "text",
-       "text": "gateway",
-       "attrs": {
-        "x": 140,
-        "y": 72.2175,
-        "text-anchor": "middle",
-        "dominant-baseline": "central",
-        "font-size": 3.5146,
-        "font-family": "Sakuga Sans",
-        "fill": "#000",
-        "pointer-events": "auto",
-        "font-weight": "normal",
-        "font-style": "normal"
-       },
-       "hit": {
-        "k": "text",
-        "id": "rp-title",
-        "parent": "rp"
        }
       }
      ],
@@ -1790,6 +1108,1298 @@
       "fill-opacity": 1,
       "stroke-opacity": 1
      }
+    },
+    {
+     "key": "n:app-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "app-title"
+     },
+     "children": [
+      {
+       "key": "n:app-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
+       },
+       "attrs": {
+        "x": -12.9337,
+        "y": -3.08,
+        "width": 25.8675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:app-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -12.9337,
+        "y": -3.08,
+        "width": 25.8675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:app-title:line0",
+       "kind": "text",
+       "text": "Application",
+       "attrs": {
+        "x": 0,
+        "y": 0,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#707A8F",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "app-title",
+        "parent": "app"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:rtos-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "rtos-title"
+     },
+     "children": [
+      {
+       "key": "n:rtos-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rtos-title",
+        "parent": "rtos"
+       },
+       "attrs": {
+        "x": 21.0663,
+        "y": -3.08,
+        "width": 25.8675,
+        "height": 6.16,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:rtos-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rtos-title",
+        "parent": "rtos"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 21.0663,
+        "y": -3.08,
+        "width": 25.8675,
+        "height": 6.16,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:rtos-title:line0",
+       "kind": "text",
+       "text": "RTOS / TCP/IP",
+       "attrs": {
+        "x": 34,
+        "y": 0,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#707A8F",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rtos-title",
+        "parent": "rtos"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:client-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "client-title"
+     },
+     "children": [
+      {
+       "key": "n:client-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "client-title",
+        "parent": "client"
+       },
+       "attrs": {
+        "x": 55.0663,
+        "y": -5.1752,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:client-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "client-title",
+        "parent": "client"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 55.0663,
+        "y": -5.1752,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:client-title:line0",
+       "kind": "text",
+       "text": "Attestation",
+       "attrs": {
+        "x": 68,
+        "y": -2.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#707A8F",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "client-title",
+        "parent": "client"
+       }
+      },
+      {
+       "key": "n:client-title:line1",
+       "kind": "text",
+       "text": "client",
+       "attrs": {
+        "x": 68,
+        "y": 2.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#707A8F",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "client-title",
+        "parent": "client"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:store-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "store-title"
+     },
+     "children": [
+      {
+       "key": "n:store-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "store-title",
+        "parent": "store"
+       },
+       "attrs": {
+        "x": -12.9337,
+        "y": 28.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:store-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "store-title",
+        "parent": "store"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -12.9337,
+        "y": 28.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:store-title:line0",
+       "kind": "text",
+       "text": "Protected",
+       "attrs": {
+        "x": 0,
+        "y": 31.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#997A7A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "store-title",
+        "parent": "store"
+       }
+      },
+      {
+       "key": "n:store-title:line1",
+       "kind": "text",
+       "text": "storage",
+       "attrs": {
+        "x": 0,
+        "y": 36.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#997A7A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "store-title",
+        "parent": "store"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:crypto-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "crypto-title"
+     },
+     "children": [
+      {
+       "key": "n:crypto-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "crypto-title",
+        "parent": "crypto"
+       },
+       "attrs": {
+        "x": 21.0663,
+        "y": 28.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:crypto-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "crypto-title",
+        "parent": "crypto"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 21.0663,
+        "y": 28.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:crypto-title:line0",
+       "kind": "text",
+       "text": "Crypto",
+       "attrs": {
+        "x": 34,
+        "y": 31.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#997A7A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "crypto-title",
+        "parent": "crypto"
+       }
+      },
+      {
+       "key": "n:crypto-title:line1",
+       "kind": "text",
+       "text": "service",
+       "attrs": {
+        "x": 34,
+        "y": 36.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#997A7A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "crypto-title",
+        "parent": "crypto"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:ias-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "ias-title"
+     },
+     "children": [
+      {
+       "key": "n:ias-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "ias-title",
+        "parent": "ias"
+       },
+       "attrs": {
+        "x": 55.0663,
+        "y": 28.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:ias-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "ias-title",
+        "parent": "ias"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 55.0663,
+        "y": 28.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:ias-title:line0",
+       "kind": "text",
+       "text": "Initial attest.",
+       "attrs": {
+        "x": 68,
+        "y": 31.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#997A7A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ias-title",
+        "parent": "ias"
+       }
+      },
+      {
+       "key": "n:ias-title:line1",
+       "kind": "text",
+       "text": "service",
+       "attrs": {
+        "x": 68,
+        "y": 36.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#997A7A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ias-title",
+        "parent": "ias"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:bl1-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "bl1-title"
+     },
+     "children": [
+      {
+       "key": "n:bl1-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "bl1-title",
+        "parent": "bl1"
+       },
+       "attrs": {
+        "x": -12.9337,
+        "y": 62.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:bl1-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "bl1-title",
+        "parent": "bl1"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": -12.9337,
+        "y": 62.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:bl1-title:line0",
+       "kind": "text",
+       "text": "Boot ROM",
+       "attrs": {
+        "x": 0,
+        "y": 65.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "bl1-title",
+        "parent": "bl1"
+       }
+      },
+      {
+       "key": "n:bl1-title:line1",
+       "kind": "text",
+       "text": "(BL1)",
+       "attrs": {
+        "x": 0,
+        "y": 70.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "bl1-title",
+        "parent": "bl1"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:otp-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "otp-title"
+     },
+     "children": [
+      {
+       "key": "n:otp-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "otp-title",
+        "parent": "otp"
+       },
+       "attrs": {
+        "x": 21.0663,
+        "y": 62.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:otp-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "otp-title",
+        "parent": "otp"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 21.0663,
+        "y": 62.8248,
+        "width": 25.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:otp-title:line0",
+       "kind": "text",
+       "text": "OTP / eFuse",
+       "attrs": {
+        "x": 34,
+        "y": 65.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "otp-title",
+        "parent": "otp"
+       }
+      },
+      {
+       "key": "n:otp-title:line1",
+       "kind": "text",
+       "text": "IAK_priv",
+       "attrs": {
+        "x": 34,
+        "y": 70.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "otp-title",
+        "parent": "otp"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:rec-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "rec-title"
+     },
+     "children": [
+      {
+       "key": "n:rec-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rec-title",
+        "parent": "rec"
+       },
+       "attrs": {
+        "x": 54.4905,
+        "y": 62.8248,
+        "width": 27.019,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:rec-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rec-title",
+        "parent": "rec"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 54.4905,
+        "y": 62.8248,
+        "width": 27.019,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:rec-title:line0",
+       "kind": "text",
+       "text": "Boot record",
+       "attrs": {
+        "x": 68,
+        "y": 65.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rec-title",
+        "parent": "rec"
+       }
+      },
+      {
+       "key": "n:rec-title:line1",
+       "kind": "text",
+       "text": "measurements",
+       "attrs": {
+        "x": 68,
+        "y": 70.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rec-title",
+        "parent": "rec"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:ver-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "ver-title"
+     },
+     "children": [
+      {
+       "key": "n:ver-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
+       },
+       "attrs": {
+        "x": 122.0663,
+        "y": -5.3928,
+        "width": 35.8675,
+        "height": 18.7855,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:ver-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 122.0663,
+        "y": -5.3928,
+        "width": 35.8675,
+        "height": 18.7855,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:ver-title:line0",
+       "kind": "text",
+       "text": "Verifier",
+       "attrs": {
+        "x": 140,
+        "y": -2.3263,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
+       }
+      },
+      {
+       "key": "n:ver-title:line1",
+       "kind": "text",
+       "text": "appraisal policy",
+       "attrs": {
+        "x": 140,
+        "y": 1.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
+       }
+      },
+      {
+       "key": "n:ver-title:line2",
+       "kind": "text",
+       "text": "freshness check (N)",
+       "attrs": {
+        "x": 140,
+        "y": 6.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
+       }
+      },
+      {
+       "key": "n:ver-title:line3",
+       "kind": "text",
+       "text": "Vrfy(IAK_pub,)",
+       "attrs": {
+        "x": 140,
+        "y": 10.3263,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#7A8566",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "ver-title",
+        "parent": "ver"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:end-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "end-title"
+     },
+     "children": [
+      {
+       "key": "n:end-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "end-title",
+        "parent": "end"
+       },
+       "attrs": {
+        "x": 119.0663,
+        "y": -35.1752,
+        "width": 17.8675,
+        "height": 10.3505,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:end-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "end-title",
+        "parent": "end"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 119.0663,
+        "y": -35.1752,
+        "width": 17.8675,
+        "height": 10.3505,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:end-title:line0",
+       "kind": "text",
+       "text": "Endorser",
+       "attrs": {
+        "x": 128,
+        "y": -32.1088,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "end-title",
+        "parent": "end"
+       }
+      },
+      {
+       "key": "n:end-title:line1",
+       "kind": "text",
+       "text": "IAK_pub",
+       "attrs": {
+        "x": 128,
+        "y": -27.8912,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "end-title",
+        "parent": "end"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:rvp-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "rvp-title"
+     },
+     "children": [
+      {
+       "key": "n:rvp-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
+       },
+       "attrs": {
+        "x": 143.0663,
+        "y": -37.284,
+        "width": 17.8675,
+        "height": 14.568,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:rvp-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 143.0663,
+        "y": -37.284,
+        "width": 17.8675,
+        "height": 14.568,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:rvp-title:line0",
+       "kind": "text",
+       "text": "Ref.\\",
+       "attrs": {
+        "x": 152,
+        "y": -34.2175,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
+       }
+      },
+      {
+       "key": "n:rvp-title:line1",
+       "kind": "text",
+       "text": "value",
+       "attrs": {
+        "x": 152,
+        "y": -30,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
+       }
+      },
+      {
+       "key": "n:rvp-title:line2",
+       "kind": "text",
+       "text": "provider",
+       "attrs": {
+        "x": 152,
+        "y": -25.7825,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#858585",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rvp-title",
+        "parent": "rvp"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
+    },
+    {
+     "key": "n:rp-title",
+     "kind": "g",
+     "ref": {
+      "k": "node",
+      "id": "rp-title"
+     },
+     "children": [
+      {
+       "key": "n:rp-title:area",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
+       },
+       "attrs": {
+        "x": 122.0663,
+        "y": 60.716,
+        "width": 35.8675,
+        "height": 14.568,
+        "fill": "transparent"
+       }
+      },
+      {
+       "key": "n:rp-title:box",
+       "kind": "rect",
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
+       },
+       "attrs": {
+        "fill": "none",
+        "stroke": "none",
+        "stroke-dasharray": "none",
+        "stroke-width": 0.1582,
+        "class": "node",
+        "x": 122.0663,
+        "y": 60.716,
+        "width": 35.8675,
+        "height": 14.568,
+        "rx": 0,
+        "ry": 0
+       }
+      },
+      {
+       "key": "n:rp-title:line0",
+       "kind": "text",
+       "text": "Relying party",
+       "attrs": {
+        "x": 140,
+        "y": 63.7825,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
+       }
+      },
+      {
+       "key": "n:rp-title:line1",
+       "kind": "text",
+       "text": "fleet backend /",
+       "attrs": {
+        "x": 140,
+        "y": 68,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
+       }
+      },
+      {
+       "key": "n:rp-title:line2",
+       "kind": "text",
+       "text": "gateway",
+       "attrs": {
+        "x": 140,
+        "y": 72.2175,
+        "text-anchor": "middle",
+        "dominant-baseline": "central",
+        "font-size": 3.5146,
+        "font-family": "Sakuga Sans",
+        "fill": "#99857A",
+        "pointer-events": "auto",
+        "font-weight": "normal",
+        "font-style": "normal"
+       },
+       "hit": {
+        "k": "text",
+        "id": "rp-title",
+        "parent": "rp"
+       }
+      }
+     ],
+     "attrs": {
+      "fill-opacity": 1,
+      "stroke-opacity": 1
+     }
     }
    ],
    "attrs": {}
@@ -1810,7 +2420,7 @@
        "key": "e:0:end",
        "kind": "path",
        "attrs": {
-        "d": "M 68 28.5 Q 68.18 27.525 68.6 27 L 67.4 27 Q 67.82 27.525 68 28.5 Z",
+        "d": "M 68 26.6248 Q 68.18 25.6498 68.6 25.1248 L 67.4 25.1248 Q 67.82 25.6498 68 26.6248 Z",
         "fill": "#808080"
        }
       },
@@ -1818,7 +2428,7 @@
        "key": "e:0:line",
        "kind": "path",
        "attrs": {
-        "d": "M 68 5.5 L 68 27.3",
+        "d": "M 68 7.3752 L 68 25.4248",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -1830,7 +2440,7 @@
        "key": "e:0:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 68 5.5 L 68 28.5",
+        "d": "M 68 7.3752 L 68 26.6248",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -1847,7 +2457,7 @@
         "index": 0
        },
        "attrs": {
-        "d": "M 68 5.5 L 68 28.5",
+        "d": "M 68 7.3752 L 68 26.6248",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -1987,7 +2597,7 @@
        "kind": "rect",
        "attrs": {
         "x": 47.9893,
-        "y": 28.6339,
+        "y": 29.4854,
         "width": 6.0215,
         "height": 3.5146,
         "fill": "#fff",
@@ -2000,7 +2610,7 @@
        "text": "sign",
        "attrs": {
         "x": 51,
-        "y": 30.3912,
+        "y": 31.2427,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2022,7 +2632,7 @@
        },
        "attrs": {
         "x": 47.9893,
-        "y": 28.6339,
+        "y": 29.4854,
         "width": 6.0215,
         "height": 3.5146,
         "fill": "transparent",
@@ -2047,7 +2657,7 @@
        "key": "e:2:end",
        "kind": "path",
        "attrs": {
-        "d": "M 34 39.5 Q 33.82 40.475 33.4 41 L 34.6 41 Q 34.18 40.475 34 39.5 Z",
+        "d": "M 34 41.3752 Q 33.82 42.3502 33.4 42.8752 L 34.6 42.8752 Q 34.18 42.3502 34 41.3752 Z",
         "fill": "#808080"
        }
       },
@@ -2055,7 +2665,7 @@
        "key": "e:2:line",
        "kind": "path",
        "attrs": {
-        "d": "M 34 62.5 L 34 40.7",
+        "d": "M 34 60.6248 L 34 42.5752",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2067,7 +2677,7 @@
        "key": "e:2:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 34 62.5 L 34 39.5",
+        "d": "M 34 60.6248 L 34 41.3752",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2084,7 +2694,7 @@
         "index": 2
        },
        "attrs": {
-        "d": "M 34 62.5 L 34 39.5",
+        "d": "M 34 60.6248 L 34 41.3752",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2157,7 +2767,7 @@
        "key": "e:3:end",
        "kind": "path",
        "attrs": {
-        "d": "M 68 39.5 Q 67.82 40.475 67.4 41 L 68.6 41 Q 68.18 40.475 68 39.5 Z",
+        "d": "M 68 41.3752 Q 67.82 42.3502 67.4 42.8752 L 68.6 42.8752 Q 68.18 42.3502 68 41.3752 Z",
         "fill": "#808080"
        }
       },
@@ -2165,7 +2775,7 @@
        "key": "e:3:line",
        "kind": "path",
        "attrs": {
-        "d": "M 68 62.5 L 68 40.7",
+        "d": "M 68 60.6248 L 68 42.5752",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2177,7 +2787,7 @@
        "key": "e:3:blocked",
        "kind": "path",
        "attrs": {
-        "d": "M 68 62.5 L 68 39.5",
+        "d": "M 68 60.6248 L 68 41.3752",
         "fill": "none",
         "stroke": "#d33",
         "stroke-width": 2,
@@ -2194,7 +2804,7 @@
         "index": 3
        },
        "attrs": {
-        "d": "M 68 62.5 L 68 39.5",
+        "d": "M 68 60.6248 L 68 41.3752",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2267,7 +2877,7 @@
        "key": "e:4:end",
        "kind": "path",
        "attrs": {
-        "d": "M 68 73.5 Q 67.82 74.475 67.4 75 L 68.6 75 Q 68.18 74.475 68 73.5 Z",
+        "d": "M 68 75.3752 Q 67.82 76.3502 67.4 76.8752 L 68.6 76.8752 Q 68.18 76.3502 68 75.3752 Z",
         "fill": "#a6a6a6"
        }
       },
@@ -2275,7 +2885,7 @@
        "key": "e:4:line",
        "kind": "path",
        "attrs": {
-        "d": "M 0 73.5 L 0 79.7971 C 0 80.1853 0.3147 80.5 0.7029 80.5 L 67.2971 80.5 C 67.6853 80.5 68 80.1853 68 79.7971 L 68 74.7",
+        "d": "M 0 75.3752 L 0 81.6723 C 0 82.0605 0.3147 82.3752 0.7029 82.3752 L 67.2971 82.3752 C 67.6853 82.3752 68 82.0605 68 81.6723 L 68 76.5752",
         "fill": "none",
         "stroke": "#a6a6a6",
         "stroke-width": 0.1582,
@@ -2291,7 +2901,7 @@
         "index": 4
        },
        "attrs": {
-        "d": "M 0 73.5 L 0 79.7971 C 0 80.1853 0.3147 80.5 0.7029 80.5 L 67.2971 80.5 C 67.6853 80.5 68 80.1853 68 79.7971 L 68 73.5",
+        "d": "M 0 75.3752 L 0 81.6723 C 0 82.0605 0.3147 82.3752 0.7029 82.3752 L 67.2971 82.3752 C 67.6853 82.3752 68 82.0605 68 81.6723 L 68 75.3752",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2304,7 +2914,7 @@
        "kind": "rect",
        "attrs": {
         "x": 18.185,
-        "y": 78.7427,
+        "y": 80.6179,
         "width": 31.63,
         "height": 3.5146,
         "fill": "#fff",
@@ -2317,7 +2927,7 @@
        "text": "measures BL2 + images",
        "attrs": {
         "x": 34,
-        "y": 80.5,
+        "y": 82.3752,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2339,7 +2949,7 @@
        },
        "attrs": {
         "x": 18.185,
-        "y": 78.7427,
+        "y": 80.6179,
         "width": 31.63,
         "height": 3.5146,
         "fill": "transparent",
@@ -2372,7 +2982,7 @@
        "key": "e:5:line",
        "kind": "path",
        "attrs": {
-        "d": "M 129.5 -24 L 129.5 -11.2",
+        "d": "M 129.5 -22.6248 L 129.5 -11.2",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2388,7 +2998,7 @@
         "index": 5
        },
        "attrs": {
-        "d": "M 129.5 -24 L 129.5 -10",
+        "d": "M 129.5 -22.6248 L 129.5 -10",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2400,8 +3010,8 @@
        "key": "e:5:lm:bg",
        "kind": "rect",
        "attrs": {
-        "x": 109.7537,
-        "y": -18.7573,
+        "x": 108.7537,
+        "y": -18.0697,
         "width": 19.7463,
         "height": 3.5146,
         "fill": "#fff",
@@ -2413,8 +3023,8 @@
        "kind": "text",
        "text": "endorsements",
        "attrs": {
-        "x": 119.6269,
-        "y": -17,
+        "x": 118.6269,
+        "y": -16.3124,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2435,8 +3045,8 @@
         }
        },
        "attrs": {
-        "x": 109.7537,
-        "y": -18.7573,
+        "x": 108.7537,
+        "y": -18.0697,
         "width": 19.7463,
         "height": 3.5146,
         "fill": "transparent",
@@ -2469,7 +3079,7 @@
        "key": "e:6:line",
        "kind": "path",
        "attrs": {
-        "d": "M 150.5 -24 L 150.5 -11.2",
+        "d": "M 150.5 -20.516 L 150.5 -11.2",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2485,7 +3095,7 @@
         "index": 6
        },
        "attrs": {
-        "d": "M 150.5 -24 L 150.5 -10",
+        "d": "M 150.5 -20.516 L 150.5 -10",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2497,8 +3107,8 @@
        "key": "e:6:lm:bg",
        "kind": "rect",
        "attrs": {
-        "x": 150.5,
-        "y": -18.7573,
+        "x": 151.5,
+        "y": -17.0153,
         "width": 19.6845,
         "height": 3.5146,
         "fill": "#fff",
@@ -2510,8 +3120,8 @@
        "kind": "text",
        "text": "golden hashes",
        "attrs": {
-        "x": 160.3422,
-        "y": -17,
+        "x": 161.3422,
+        "y": -15.258,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2532,8 +3142,8 @@
         }
        },
        "attrs": {
-        "x": 150.5,
-        "y": -18.7573,
+        "x": 151.5,
+        "y": -17.0153,
         "width": 19.6845,
         "height": 3.5146,
         "fill": "transparent",
@@ -2558,7 +3168,7 @@
        "key": "e:7:end",
        "kind": "path",
        "attrs": {
-        "d": "M 87.9337 -4.1129 Q 88.8744 -3.7994 89.336 -3.3106 L 89.5025 -4.499 Q 88.9243 -4.1559 87.9337 -4.1129 Z",
+        "d": "M 87.9337 -6.9413 Q 88.8451 -6.5509 89.2646 -6.0255 L 89.5291 -7.196 Q 88.9244 -6.902 87.9337 -6.9413 Z",
         "fill": "#808080"
        }
       },
@@ -2566,7 +3176,7 @@
        "key": "e:7:line",
        "kind": "path",
        "attrs": {
-        "d": "M 120.8663 0.5 L 89.1221 -3.9464",
+        "d": "M 120.8663 0.5 L 89.1042 -6.6769",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2582,7 +3192,7 @@
         "index": 7
        },
        "attrs": {
-        "d": "M 120.8663 0.5 L 87.9337 -4.1129",
+        "d": "M 120.8663 0.5 L 87.9337 -6.9413",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2595,7 +3205,7 @@
        "kind": "rect",
        "attrs": {
         "x": 96.3906,
-        "y": -5.7579,
+        "y": -7.8207,
         "width": 16.0188,
         "height": 3.6,
         "fill": "#fff",
@@ -2608,7 +3218,7 @@
        "text": "nonce N",
        "attrs": {
         "x": 106.6,
-        "y": -3.9579,
+        "y": -6.0207,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2624,7 +3234,7 @@
        "kind": "circle",
        "attrs": {
         "cx": 98.1906,
-        "cy": -3.9579,
+        "cy": -6.0207,
         "r": 1.8,
         "fill": "#808080",
         "pointer-events": "none"
@@ -2636,7 +3246,7 @@
        "text": "1",
        "attrs": {
         "x": 98.1906,
-        "y": -3.9579,
+        "y": -6.0207,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2658,7 +3268,7 @@
        },
        "attrs": {
         "x": 96.3906,
-        "y": -5.7579,
+        "y": -7.8207,
         "width": 16.0188,
         "height": 3.6,
         "fill": "transparent",
@@ -2683,7 +3293,7 @@
        "key": "e:8:end",
        "kind": "path",
        "attrs": {
-        "d": "M 120.8663 7.5 Q 119.9256 7.1865 119.464 6.6977 L 119.2975 7.8861 Q 119.8757 7.543 120.8663 7.5 Z",
+        "d": "M 120.8663 7.5 Q 119.9549 7.1095 119.5354 6.5842 L 119.2709 7.7546 Q 119.8756 7.4607 120.8663 7.5 Z",
         "fill": "#808080"
        }
       },
@@ -2691,7 +3301,7 @@
        "key": "e:8:line",
        "kind": "path",
        "attrs": {
-        "d": "M 87.9337 2.8871 L 119.6779 7.3335",
+        "d": "M 87.9337 0.0587 L 119.6958 7.2355",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2707,7 +3317,7 @@
         "index": 8
        },
        "attrs": {
-        "d": "M 87.9337 2.8871 L 120.8663 7.5",
+        "d": "M 87.9337 0.0587 L 120.8663 7.5",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2719,8 +3329,8 @@
        "key": "e:8:lm:bg",
        "kind": "rect",
        "attrs": {
-        "x": 95.7856,
-        "y": 7.045,
+        "x": 93.7856,
+        "y": 4.7793,
         "width": 21.2289,
         "height": 7.0292,
         "fill": "#fff",
@@ -2732,8 +3342,8 @@
        "kind": "text",
        "text": "evidence",
        "attrs": {
-        "x": 108.6,
-        "y": 8.8023,
+        "x": 106.6,
+        "y": 6.5366,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2749,8 +3359,8 @@
        "kind": "text",
        "text": "(EAT / COSE)",
        "attrs": {
-        "x": 108.6,
-        "y": 12.3169,
+        "x": 106.6,
+        "y": 10.0512,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2765,8 +3375,8 @@
        "key": "e:8:lm:badge",
        "kind": "circle",
        "attrs": {
-        "cx": 97.5856,
-        "cy": 10.5596,
+        "cx": 95.5856,
+        "cy": 8.2939,
         "r": 1.8,
         "fill": "#808080",
         "pointer-events": "none"
@@ -2777,8 +3387,8 @@
        "kind": "text",
        "text": "2",
        "attrs": {
-        "x": 97.5856,
-        "y": 10.5596,
+        "x": 95.5856,
+        "y": 8.2939,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2799,8 +3409,8 @@
         }
        },
        "attrs": {
-        "x": 95.7856,
-        "y": 7.045,
+        "x": 93.7856,
+        "y": 4.7793,
         "width": 21.2289,
         "height": 7.0292,
         "fill": "transparent",
@@ -2825,7 +3435,7 @@
        "key": "e:9:end",
        "kind": "path",
        "attrs": {
-        "d": "M 140 59.5 Q 140.18 58.525 140.6 58 L 139.4 58 Q 139.82 58.525 140 59.5 Z",
+        "d": "M 140 58.516 Q 140.18 57.541 140.6 57.016 L 139.4 57.016 Q 139.82 57.541 140 58.516 Z",
         "fill": "#808080"
        }
       },
@@ -2833,7 +3443,7 @@
        "key": "e:9:line",
        "kind": "path",
        "attrs": {
-        "d": "M 140 18 L 140 58.3",
+        "d": "M 140 18 L 140 57.316",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2849,7 +3459,7 @@
         "index": 9
        },
        "attrs": {
-        "d": "M 140 18 L 140 59.5",
+        "d": "M 140 18 L 140 58.516",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -2861,8 +3471,8 @@
        "key": "e:9:lm:bg",
        "kind": "rect",
        "attrs": {
-        "x": 140,
-        "y": 35.2354,
+        "x": 141,
+        "y": 34.7434,
         "width": 19.2547,
         "height": 7.0292,
         "fill": "#fff",
@@ -2874,8 +3484,8 @@
        "kind": "text",
        "text": "attestation",
        "attrs": {
-        "x": 151.8273,
-        "y": 36.9927,
+        "x": 152.8273,
+        "y": 36.5007,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2891,8 +3501,8 @@
        "kind": "text",
        "text": "result",
        "attrs": {
-        "x": 151.8273,
-        "y": 40.5073,
+        "x": 152.8273,
+        "y": 40.0153,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2907,8 +3517,8 @@
        "key": "e:9:lm:badge",
        "kind": "circle",
        "attrs": {
-        "cx": 141.8,
-        "cy": 38.75,
+        "cx": 142.8,
+        "cy": 38.258,
         "r": 1.8,
         "fill": "#808080",
         "pointer-events": "none"
@@ -2919,8 +3529,8 @@
        "kind": "text",
        "text": "3",
        "attrs": {
-        "x": 141.8,
-        "y": 38.75,
+        "x": 142.8,
+        "y": 38.258,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -2941,8 +3551,8 @@
         }
        },
        "attrs": {
-        "x": 140,
-        "y": 35.2354,
+        "x": 141,
+        "y": 34.7434,
         "width": 19.2547,
         "height": 7.0292,
         "fill": "transparent",
@@ -2967,7 +3577,7 @@
        "key": "e:10:end",
        "kind": "path",
        "attrs": {
-        "d": "M 87.9337 63.3871 Q 88.8744 63.7006 89.336 64.1894 L 89.5025 63.001 Q 88.9243 63.3441 87.9337 63.3871 Z",
+        "d": "M 87.9337 60.5587 Q 88.8451 60.9491 89.2646 61.4745 L 89.5291 60.304 Q 88.9244 60.598 87.9337 60.5587 Z",
         "fill": "#808080"
        }
       },
@@ -2975,7 +3585,7 @@
        "key": "e:10:line",
        "kind": "path",
        "attrs": {
-        "d": "M 120.8663 68 L 89.1221 63.5536",
+        "d": "M 120.8663 68 L 89.1042 60.8231",
         "fill": "none",
         "stroke": "#808080",
         "stroke-width": 0.1582,
@@ -2991,7 +3601,7 @@
         "index": 10
        },
        "attrs": {
-        "d": "M 120.8663 68 L 87.9337 63.3871",
+        "d": "M 120.8663 68 L 87.9337 60.5587",
         "fill": "none",
         "stroke": "transparent",
         "stroke-width": 10,
@@ -3004,7 +3614,7 @@
        "kind": "rect",
        "attrs": {
         "x": 94.6203,
-        "y": 58.3129,
+        "y": 56.2501,
         "width": 19.5594,
         "height": 7.0292,
         "fill": "#fff",
@@ -3017,7 +3627,7 @@
        "text": "grant /",
        "attrs": {
         "x": 106.6,
-        "y": 60.0702,
+        "y": 58.0074,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -3034,7 +3644,7 @@
        "text": "quarantine",
        "attrs": {
         "x": 106.6,
-        "y": 63.5848,
+        "y": 61.522,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -3050,7 +3660,7 @@
        "kind": "circle",
        "attrs": {
         "cx": 96.4203,
-        "cy": 61.8275,
+        "cy": 59.7647,
         "r": 1.8,
         "fill": "#808080",
         "pointer-events": "none"
@@ -3062,7 +3672,7 @@
        "text": "4",
        "attrs": {
         "x": 96.4203,
-        "y": 61.8275,
+        "y": 59.7647,
         "text-anchor": "middle",
         "dominant-baseline": "central",
         "font-size": 2.8117,
@@ -3084,7 +3694,7 @@
        },
        "attrs": {
         "x": 94.6203,
-        "y": 58.3129,
+        "y": 56.2501,
         "width": 19.5594,
         "height": 7.0292,
         "fill": "transparent",

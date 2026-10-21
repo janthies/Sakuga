@@ -1,3 +1,7 @@
+import { reparent, detach } from './tree';
+import { payload } from '../model/tree';
+import { childrenOf } from '../model/tree-queries';
+import { legacySlot } from '../model/slots';
 // Operations on boxes and the arrows between them.
 import { itemById } from '../model/tree-queries';
 import { ANCHORS, DEFAULT_WIDTH } from '../model/constants';
@@ -11,50 +15,23 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 	const node = (id: string) => nodes(fig).find((n) => n.id === id);
 	switch (op.op) {
 		case 'attach': {
-			const n = node(op.id),
-				a = op.attachment;
-			if (!n) {
-				break;
-			}
-			if (!a) {
-				delete n.attachment;
-				break;
-			}
-			let p = node(a.parent);
-			const seen = new Set([n.id]);
-			while (p && !seen.has(p.id)) {
-				seen.add(p.id);
-				p = p.attachment ? node(p.attachment.parent) : undefined;
-			}
-			if (
-				!p &&
-				node(a.parent) &&
-				!node(a.parent)!.kind &&
-				ANCHORS.includes(a.anchor) &&
-				ANCHORS.includes(a.ownAnchor) &&
-				Number.isFinite(a.dx) &&
-				Number.isFinite(a.dy)
-			) {
-				n.attachment = { ...a };
-			}
-			break;
-		}
-		case 'move': {
-			const n = node(op.id);
-			if (n) {
-				if (n.attachment) {
-					n.attachment.dx += op.x - n.x;
-					n.attachment.dy += op.y - n.y;
+			if (op.attachment) {
+				reparent(fig, op.id, op.attachment.parent);
+				const i = itemById(fig, op.id);
+				if (i) {
+					i.slot = legacySlot(op.attachment.anchor, op.attachment.ownAnchor, op.attachment.dx, op.attachment.dy);
+					payload(i).slot = i.slot;
 				}
-				n.x = op.x;
-				n.y = op.y;
-			}
+			} else detach(fig, op.id);
 			break;
 		}
 		case 'addNode':
 			insert(fig, {
 				t: 'node',
 				n: {
+					categoryMarker: op.categoryMarker,
+					treeParent: op.parent,
+					slot: op.slot,
 					wantWidth: op.wantWidth,
 					codeFont: op.codeFont,
 					titlePosition: op.titlePosition,
@@ -147,7 +124,11 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 			const n = node(op.id);
 			if (n) {
 				if (op.titlePosition !== undefined && ANCHORS.includes(op.titlePosition)) {
-					n.titlePosition = op.titlePosition;
+					const label = childrenOf(fig, n.id).find((i) => i.kind === 'Text');
+					if (label) {
+						label.slot = legacySlot(op.titlePosition);
+						payload(label).slot = label.slot;
+					}
 				}
 				if (op.icon !== undefined) {
 					n.icon = op.icon;
@@ -156,10 +137,14 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 					n.iconPosition = op.iconPosition;
 				}
 				if (op.title !== undefined) {
-					n.title = op.title;
+					const label = childrenOf(fig, n.id).find((i) => i.kind === 'Text' && i.slot === 'centre');
+					if (!n.kind && label?.kind === 'Text' && label.node) label.node.title = op.title;
+					else n.title = op.title;
 				}
 				if (op.code !== undefined) {
-					n.code = op.code;
+					const label = childrenOf(fig, n.id).find((i) => i.kind === 'Text' && i.slot === 'centre');
+					if (!n.kind && label?.kind === 'Text' && label.node) label.node.code = op.code;
+					else n.code = op.code;
 				}
 				if (op.cat !== undefined) n.cat = op.cat;
 				if (op.width !== undefined && op.width > 0) {
@@ -167,7 +152,11 @@ export function applyNode(fig: Figure, op: NodeOp, run: Run): void {
 					delete n.wantWidth;
 				}
 				if (op.wantWidth !== undefined && op.wantWidth > 0) n.wantWidth = op.wantWidth;
-				if (op.codeFont !== undefined) n.codeFont = op.codeFont || undefined;
+				if (op.codeFont !== undefined) {
+					const label = childrenOf(fig, n.id).find((i) => i.kind === 'Text' && i.slot === 'centre');
+					if (!n.kind && label?.kind === 'Text' && label.node) label.node.codeFont = op.codeFont || undefined;
+					else n.codeFont = op.codeFont || undefined;
+				}
 				if (op.minh !== undefined && op.minh >= 0) {
 					n.minh = op.minh;
 				}

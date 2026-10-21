@@ -3,8 +3,10 @@ import type { FigLine, Endpoint } from '../model/item';
 import { AttachedLabel, Attachment, Figure, LabelStyle, ObjectStyle, StyleKind } from '../model/figure';
 
 export type TreeOp =
+	| { op: 'slot'; id: string; slot: import('../model/slots').Slot }
 	| {
 			op: 'addText';
+			slot?: import('../model/slots').Slot;
 			id: string;
 			text: string;
 			code?: string;
@@ -60,6 +62,9 @@ export type Op =
 	| { op: 'move'; id: string; x: number; y: number }
 	| {
 			op: 'addNode';
+			categoryMarker?: boolean;
+			slot?: import('../model/slots').Slot;
+			parent?: string;
 			wantWidth?: number;
 			codeFont?: string;
 			titlePosition?: string;

@@ -1,3 +1,4 @@
+import { SlotTool } from './slot';
 import { MoveTool } from './move';
 import { LabelTool } from './label';
 import { InlineTextTool } from './inline-text';
@@ -10,6 +11,17 @@ export class SelectionMoveTool implements Tool {
 	private tools: Tool[] = [];
 	constructor(c: ToolCtx, e: CanvasEvent, selection: Selection) {
 		const ids = movable(c, selection.nodes);
+		if (selection.nodes.size === 1) {
+			const id = [...selection.nodes][0],
+				item = c.items?.find((i) => i.id === id),
+				parent = c.items?.find((i) => i.id === item?.parent);
+			if (parent?.kind === 'Shape' || parent?.kind === 'Line') {
+				const tool = new SlotTool(c, id, parent.id);
+				this.tools = [tool];
+				this.overlay = tool.overlay;
+				return;
+			}
+		}
 		if (ids.length) {
 			const move = new MoveTool(c, e, origins(c, ids));
 			this.tools.push(move);
@@ -43,6 +55,7 @@ export class SelectionMoveTool implements Tool {
 		for (const tool of this.tools) {
 			const p = tool.move(e).preview;
 			if (!p) continue;
+			if (p.slots) preview.slots = [...(preview.slots || []), ...p.slots];
 			if (p.nodes) preview.nodes = [...(preview.nodes || []), ...p.nodes];
 			if (p.lines) preview.lines = [...(preview.lines || []), ...p.lines];
 			if (p.texts) preview.texts = [...(preview.texts || []), ...p.texts];

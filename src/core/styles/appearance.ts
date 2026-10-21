@@ -5,7 +5,8 @@ import { Group, LabelStyle } from '../model/figure';
 export function cleanLabel(st: LabelStyle = {}): LabelStyle {
 	const out: any = {};
 	const defaults: any = { pos: 0.5, dx: 0, dy: 0, side: '', font: '', color: '' };
-	for (const [k, v] of Object.entries(st)) if (v !== undefined && v !== null && v !== defaults[k]) out[k] = v;
+	for (const [k, v] of Object.entries(st))
+		if (!['dx', 'dy', 'segment'].includes(k) && v !== undefined && v !== null && v !== defaults[k]) out[k] = v;
 	return out;
 }
 

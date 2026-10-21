@@ -44,16 +44,16 @@ test('marker exclusivity, independent surface defaults, migration and category d
 	assert.equal(cat.color, undefined);
 	assert.equal(cat.fill, 'green');
 	assert.equal(n(f, 'a').style?.font, 'large');
-	assert.equal(nodeIcon(f, n(f, 'a')), 'shield');
+	assert.ok(childrenOf(f, 'a').some((i) => i.kind === 'Icon' && i.node.icon === 'shield'));
 	apply(f, { op: 'reparent', id: 'b', newParent: 'a' });
-	assert.deepEqual([n(f, 'b').x, n(f, 'b').y], [60, 0]);
+	assert.equal(n(f, 'b').slot, 'below');
 	assert.doesNotMatch(serialize(f), /category .*font=|category .*text=/);
 	assert.match(serialize(f), /category work \{Work\} icon=shield fill=green/);
 	const before = { ...n(f, 'a').style };
 	apply(f, { op: 'categoryDelete', key: 'work' });
 	assert.deepEqual(n(f, 'a').style, before);
 	assert.equal(n(f, 'a').cat, '');
-	assert.equal(n(f, 'a').icon, 'shield');
+	assert.ok(childrenOf(f, 'a').some((i) => i.kind === 'Icon' && i.node.icon === 'shield'));
 	roundtrip(f);
 	const fresh = parse(source);
 	apply(fresh, { op: 'categoryAdd', category: { key: 'icon', name: 'Icon', icon: 'shield' } });
@@ -99,7 +99,7 @@ test('all nesting combinations keep placement, move with box parents and detach 
 	apply(f, { op: 'addGroup', id: 'outer', name: 'Outer' });
 	apply(f, { op: 'reparent', id: 'a', newParent: 'outer' });
 	apply(f, { op: 'reparent', id: 'b', newParent: 'a' });
-	assert.deepEqual([n(f, 'b').x, n(f, 'b').y], [60, 0]);
+	assert.equal(n(f, 'b').slot, 'below');
 	assert.notEqual(n(f, 'b').attachment?.anchor, 'center');
 	apply(f, { op: 'addGroup', id: 'inner', name: 'Inner' });
 	apply(f, { op: 'reparent', id: 'c', newParent: 'inner' });

@@ -18,7 +18,9 @@ export function houseValues(kind: ItemKind): Record<string, any> {
 	for (const d of defsOf(schemaKind[kind])) values[d.key] = defaultOf(d, values);
 	return {
 		...values,
-		...(kind === 'Shape' ? { fill: 'white', color: '#9E9E9E', font: 'small', lineWidth: 0.45 } : {}),
+		...(kind === 'Shape'
+			? { fill: 'white', color: '#9E9E9E', font: 'small', lineWidth: 0.45, innerPadding: 1.2, outerGap: 1 }
+			: {}),
 		...(kind === 'Text' || kind === 'Icon'
 			? { fill: 'none', border: 'none', textColor: kind === 'Icon' ? '#666666' : '#595959', font: 'small' }
 			: {}),

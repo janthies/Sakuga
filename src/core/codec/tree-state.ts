@@ -3,7 +3,7 @@ import { emitOptions, readOptions } from './options';
 // Geometry and content stay in ordinary TikZ nodes and paths.
 import type { Figure } from '../model/figure';
 import { payload, projectTree, syncTree } from '../model/tree';
-import { itemById } from '../model/tree-queries';
+import { itemById, childrenOf } from '../model/tree-queries';
 import { num } from '../util/num';
 import { fromHex, toHex } from '../util/hex';
 
@@ -29,8 +29,8 @@ function unwritten(i: import('../model/item').Item) {
 function preciseGeometry(i: import('../model/item').Item) {
 	const n = 'node' in i ? i.node : undefined;
 	const values: Record<string, number> = n
-		? { ...(n.attachment ? {} : { x: n.x, y: n.y }), minh: n.minh }
-		: i.kind === 'Line'
+		? { ...(n.slot ? {} : { x: n.x, y: n.y }), minh: n.minh }
+		: i.kind === 'Line' && !i.slot
 			? { x1: i.line.start[0], y1: i.line.start[1], x2: i.line.end[0], y2: i.line.end[1] }
 			: {};
 	const geometry = Object.fromEntries(Object.entries(values).filter(([, v]) => +num(v) !== v));
@@ -48,12 +48,28 @@ export function treeState(fig: Figure): string {
 						id: i.id,
 						kind: i.kind,
 						parent: i.parent,
-						attachment: payload(i).attachment,
+						slot: i.slot,
+						...(i.kind === 'Line' && i.slot ? { vector: i.line.vector } : {}),
+						...('node' in i && i.node?.categoryMarker ? { categoryMarker: true } : {}),
+						...(!('node' in i && i.node)
+							? {}
+							: {
+									size: {
+										width: i.node!.width,
+										minh: i.node!.minh,
+										codeFont: i.node!.codeFont,
+										emittedHeight: i.node!.derivedRect?.h,
+										emittedWidth: i.node!.derivedRect?.w ? i.node!.derivedRect!.w - 2.2675 : i.node!.width,
+									},
+								}),
 						...preciseGeometry(i),
 						order: i.order,
 						hidden: i.hidden,
 						locked: i.locked,
 						...unwritten(i),
+						...(i.kind === 'Text' && i.slot === 'centre'
+							? { cat: payload(i).cat, overrides: payload(i).look?.own }
+							: {}),
 						...(i.kind === 'Text' && !i.node ? { cat: i.cat, overrides: i.look?.own } : {}),
 						...(i.kind === 'Frame' ? { cat: i.frame.cat, overrides: i.frame.look?.own } : {}),
 						...(i.kind === 'Connector' ? { source: i.source, target: i.target } : {}),
@@ -67,11 +83,23 @@ export function readTreeState(fig: Figure, value: string) {
 	for (const r of records) {
 		let i = itemById(fig, r.id);
 		if (!i && r.kind === 'Text') {
-			i = fig.items?.find((v) => v.kind === 'Text' && !v.node && v.parent === r.parent && v.order === r.order);
-			if (i) i.id = r.id;
+			i = fig.items?.find(
+				(v) =>
+					v.kind === 'Text' &&
+					v.parent === r.parent &&
+					(r.slot === 'centre' ? v.slot === 'centre' : v.order === r.order),
+			);
+			if (i) {
+				i.id = r.id;
+				if ('node' in i && i.node) i.node.id = r.id;
+			}
 		}
 		if (!i) continue;
 		if (r.parent && (i.kind === 'Frame' || i.kind === 'Line' || (i.kind === 'Text' && !i.node))) i.parent = r.parent;
+		if (r.slot) {
+			i.slot = r.slot;
+			payload(i).slot = r.slot;
+		}
 		if (r.attachment) {
 			const a = payload(i).attachment,
 				saved = r.attachment;
@@ -88,10 +116,14 @@ export function readTreeState(fig: Figure, value: string) {
 		// Root frame layers have no legacy group-header field, so they live here.
 		if (i.kind === 'Frame' && !i.frame.parent && fig.lines.some((l) => l.t === 'layer' && l.layer.id === r.parent))
 			i.parent = r.parent;
-		if ((i.kind === 'Text' && !i.node) || i.kind === 'Frame') {
+		if ((i.kind === 'Text' && (!i.node || i.slot === 'centre')) || i.kind === 'Frame') {
 			const p = payload(i);
 			p.cat = r.cat;
-			if (r.overrides) p.look = { own: r.overrides, resolved: i.kind === 'Frame' ? { ...i.frame } : {} };
+			if (r.overrides)
+				p.look = {
+					own: r.overrides,
+					resolved: i.kind === 'Frame' ? { ...i.frame } : i.kind === 'Text' && i.node ? { ...i.node.style } : {},
+				};
 		}
 		if ((r.defaults || r.implicit) && i.kind !== 'Frame' && !(i.kind === 'Text' && !i.node)) {
 			const p = payload(i);
@@ -100,7 +132,15 @@ export function readTreeState(fig: Figure, value: string) {
 				p.look.own = { ...r.defaults, ...p.look.own };
 			}
 		}
+		if (i.kind === 'Line' && r.vector) i.line.vector = r.vector;
 		const geometry = r.geometry || {};
+		if (r.categoryMarker && 'node' in i && i.node) i.node.categoryMarker = true;
+		if (r.size && 'node' in i && i.node) {
+			if (i.slot || Math.abs(i.node.width - (r.size.emittedWidth ?? r.size.width)) <= 0.0051)
+				i.node.width = r.size.width;
+			if (i.slot || Math.abs(i.node.minh - (r.size.emittedHeight ?? r.size.minh)) <= 0.0051) i.node.minh = r.size.minh;
+			i.node.codeFont = r.size.codeFont;
+		}
 		const close = (a: number, b: number) => Math.abs(a - b) <= 0.0051;
 		const n = 'node' in i ? i.node : undefined;
 		if (n) {

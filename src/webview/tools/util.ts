@@ -43,7 +43,7 @@ export function origins(c: ToolCtx, ids: string[]) {
 				const l = c.lines!.find((l) => l.id === id)!;
 				return [id, { x: l.start[0], y: l.start[1], line: { start: [...l.start], end: [...l.end] } }];
 			}
-			return [id, { x: n.x, y: n.y, attachment: n.attachment && { ...n.attachment } }];
+			return [id, { x: n.x, y: n.y }];
 		}),
 	);
 }

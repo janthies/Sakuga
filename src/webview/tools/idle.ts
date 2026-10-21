@@ -159,7 +159,13 @@ export class IdleTool implements Tool {
 			case 'text': {
 				const item = c.items?.find((i) => i.id === hit.id),
 					parent = c.items?.find((i) => i.id === hit.parent);
-				if (item?.kind === 'Text' && item.role === 'title' && parent?.kind === 'Shape')
+				if (
+					item?.kind === 'Text' &&
+					item.slot === 'centre' &&
+					parent?.kind === 'Shape' &&
+					!sel.nodes.has(parent.id) &&
+					!sel.nodes.has(item.id)
+				)
 					return this.down({ ...e, hit: { k: 'node', id: parent.id } });
 				if (parent?.kind === 'Frame') return this.down({ ...e, hit: { k: 'group', id: parent.id } });
 				if (c.byId(hit.id)) return this.down({ ...e, hit: { k: 'node', id: hit.id } });
@@ -275,7 +281,12 @@ export class IdleTool implements Tool {
 		}
 	}
 	editNode(id: string): Step {
-		return this.c.byId(id) ? new TextEditTool(this.c, { kind: 'node', id }).open() : { render: false };
+		const label = this.c.items?.find((i) => i.parent === id && i.kind === 'Text' && i.slot === 'centre');
+		return label
+			? new TextEditTool(this.c, { kind: 'text', id: label.id }).open()
+			: this.c.byId(id)
+				? new TextEditTool(this.c, { kind: 'node', id }).open()
+				: { render: false };
 	}
 	editEdge(index: number): Step {
 		const ed = this.c.edges[index];

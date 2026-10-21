@@ -25,6 +25,7 @@ export function makeEnv(fig: SceneInput, ctx: SceneCtx, opts: SceneOpts): Env {
 		ctx.geometry ??
 		new FigureGeometry({
 			nodes: fig.nodes,
+			gap: fig.outerGap,
 			lines: fig.lines,
 			edges: fig.edges,
 			groups: fig.groups,

@@ -65,9 +65,9 @@ export function applyLook(fig: Figure, op: LookOp) {
 			p.look = { own, resolved: { ...own } };
 			if ('node' in i && i.node) {
 				i.node.style = { ...own };
-				if ((!i.node.icon || i.node.icon === 'category') && i.kind === 'Shape') {
-					i.node.icon = findStyle(fig, op.key)?.icon;
-					if (i.node.icon) i.node.iconPosition ||= 'nw';
+				if (i.kind === 'Shape') {
+					const marker = fig.lines.find((l) => l.t === 'node' && l.n.treeParent === i.id && l.n.categoryMarker);
+					if (marker?.t === 'node') marker.n.categoryMarker = false;
 				}
 			} else if (i.kind === 'Line') i.line.style = { ...own };
 			else if (i.kind === 'Connector') i.connector.style = { ...own };

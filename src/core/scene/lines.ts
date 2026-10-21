@@ -34,7 +34,7 @@ export function linePrims(env: Env): Prim[] {
 					{
 						p: [x, y],
 						pt,
-					} = lineLabel(l, label.text, st, env.fig.font);
+					} = lineLabel(l, label.text, st, env.fig.font, env.fig.outerGap);
 				label.text.split('\\\\').forEach((s, k, all) =>
 					kids.push(
 						textPrim(

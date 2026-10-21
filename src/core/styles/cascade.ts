@@ -85,7 +85,6 @@ export function resolveLook(fig: Figure, item: Item | string): Record<string, Re
 }
 export function projectLook(fig: Figure): void {
 	for (const i of fig.items || []) {
-		if (i.kind === 'Shape' && categories(fig).some((c) => c.key === i.node.cat && c.icon)) i.node.iconPosition ||= 'nw';
 		const p = payload(i),
 			own = ownValues(i);
 		const resolved = Object.fromEntries(Object.entries(resolveLook(fig, i)).map(([k, v]) => [k, v.value]));

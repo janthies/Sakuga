@@ -1,3 +1,5 @@
+import { readRelative } from './relative';
+import { migratePlacement } from '../geometry/placement-migration';
 import { readTheme, readCategory, readCategoryOption } from './look';
 import { migrateCategories, migrateFrames, migrateLooks } from '../styles/migrate';
 // Reading a figure file into the model.
@@ -62,24 +64,9 @@ export function parse(text: string): Figure {
 			lines.push({ t: 'tree' });
 			continue;
 		}
-		const relative =
-			/at \(\[shift=\{\((-?[\d.]+)(?:mm)?,\s*(-?[\d.]+)(?:mm)?\)\}\]([\w-]+)\.(north west|north east|south west|south east|north|south|east|west|center)\)/.exec(
-				line,
-			);
-		const own =
-			/(?:\[|,\s*)anchor=(north west|north east|south west|south east|north|south|east|west|center)(?=,|\])/.exec(line);
-		const attachment: Attachment | undefined = relative
-			? {
-					parent: relative[3],
-					anchor: relative[4],
-					ownAnchor: own?.[1] || 'center',
-					dx: +relative[1],
-					dy: +relative[2],
-				}
-			: undefined;
-		if (relative) {
-			line = line.replace(relative[0], 'at (0,0)');
-		}
+		const relative = readRelative(line),
+			attachment = relative.attachment;
+		line = relative.line;
 		let m = LAYER.exec(line);
 		if (m) {
 			lines.push({
@@ -114,19 +101,6 @@ export function parse(text: string): Figure {
 		}
 		m = PIC.exec(line);
 		if (m) {
-			// Pics use their origin, so the emitted shift already accounts for the own anchor.
-			if (attachment) {
-				attachment.dx += attachment.ownAnchor.includes('west')
-					? -+m[6] / 2
-					: attachment.ownAnchor.includes('east')
-						? +m[6] / 2
-						: 0;
-				attachment.dy += attachment.ownAnchor.includes('north')
-					? +m[7] / 2
-					: attachment.ownAnchor.includes('south')
-						? -+m[7] / 2
-						: 0;
-			}
 			const o = opts(m[1]),
 				value = (key: string) => o.find((v) => v.startsWith(key + '='))?.slice(key.length + 1) || '';
 			lines.push({
@@ -171,6 +145,8 @@ export function parse(text: string): Figure {
 			const layer = o.find((x) => /^sg layer\s*=/.test(x));
 			const g = o.find((x) => /^sg in\s*=/.test(x));
 			let content = /^\\sgcontent\{[\w-]+\}\{[\d.]+\}\{([\s\S]*)\}$/.exec(m[5])?.[1] ?? m[5];
+			const inline = /^\\sglabeltext\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}\{([\s\S]*)\}$/.exec(content);
+			if (inline) content = inline[1];
 			const positioned =
 				/^\\parbox\[c\]\[([\d.]+)mm\]\[([tcb])\]\{[\d.]+mm\}\{\\(raggedright|centering|raggedleft) ([\s\S]*)\}$/.exec(
 					content,
@@ -280,15 +256,9 @@ export function parse(text: string): Figure {
 		}
 	}
 	for (const n of nodes(fig)) normalizeWidth(fig, n);
-	resolveAttachments(fig);
-	// Legacy attachments could cross layers. Preserve their appearance by freeing
-	// the child at its resolved position when its explicit layer differs.
-	if (!tree)
-		for (const n of nodes(fig)) {
-			const parent = n.attachment && nodes(fig).find((p) => p.id === n.attachment!.parent);
-			if (parent && n.layer && nodeLayer(fig, n).id !== nodeLayer(fig, parent).id) delete n.attachment;
-		}
+
 	settle(fig);
+	migratePlacement(fig);
 	syncTree(fig);
 	if (tree) {
 		readTreeState(fig, tree);
@@ -296,8 +266,10 @@ export function parse(text: string): Figure {
 	} else migratePorts(fig);
 	migrateCategories(fig);
 	migrateFrames(fig);
+	migratePlacement(fig);
 	settle(fig);
 	for (const n of nodes(fig)) normalizeWidth(fig, n);
+
 	resolveAttachments(fig);
 	return fig;
 }

@@ -17,6 +17,7 @@ function sceneNow() {
 	return buildScene(
 		{
 			nodes: store.nodes,
+			outerGap: store.outerGap,
 			lines: store.lines,
 			edges: store.edges,
 			groups: store.groups,

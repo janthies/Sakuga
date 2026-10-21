@@ -1,3 +1,6 @@
+import { itemById } from '../model/tree-queries';
+import { slotCell } from '../model/slots';
+import { INNER_PADDING, OUTER_GAP, slotRect } from '../geometry/slot-layout';
 import { categoryOption } from './look';
 import { itemOverrides } from '../styles/cascade';
 // Writing boxes: the node line, its hidden reference and attached icons.
@@ -7,31 +10,65 @@ import { anchorPoint, boxHalf, nodeIcon } from '../geometry/boxes';
 import { DEFAULT_WIDTH } from '../model/constants';
 import { FigNode, Figure, ObjectStyle } from '../model/figure';
 import { findStyle, fontSize, isHidden, nodeOpacity, nodeStyleKind, nodes, smallerFont } from '../model/queries';
+import { fill } from '../model/colour';
 import { num } from '../util/num';
 
-function coordinate(n: FigNode): string {
-	const a = n.attachment;
-	const [ox, oy] = a && n.kind === 'icon' ? anchorPoint({ ...n, x: 0, y: 0 }, a.ownAnchor) : [0, 0];
-	return a
-		? `([shift={(${num(a.dx - ox)}mm,${num(a.dy - oy)}mm)}]${a.parent}.${a.anchor})`
-		: `(${num(n.x)},${num(n.y)})`;
+function ownAnchor(n: FigNode): string {
+	if (!n.slot || n.kind === 'icon') return 'center';
+	const [c, r] = slotCell(n.slot);
+	return (
+		[
+			r === 0 ? 'south' : r === 4 ? 'north' : r === 1 ? 'north' : r === 3 ? 'south' : '',
+			c === 0 ? 'east' : c === 4 ? 'west' : c === 1 ? 'west' : c === 3 ? 'east' : '',
+		]
+			.filter(Boolean)
+			.join(' ') || 'center'
+	);
+}
+function coordinate(n: FigNode, fig?: Figure): string {
+	if (n.slot && n.treeParent && (!fig || itemById(fig, n.treeParent)?.kind === 'Shape')) {
+		const [c, r] = slotCell(n.slot),
+			anchor =
+				[r <= 1 ? 'north' : r >= 3 ? 'south' : '', c <= 1 ? 'west' : c >= 3 ? 'east' : ''].filter(Boolean).join(' ') ||
+				'center';
+		const p = fig && itemById(fig, n.treeParent),
+			b = p?.kind === 'Shape' ? slotRect(p.node) : undefined;
+		const a = b
+			? [b.x + (c <= 1 ? -b.w / 2 : c >= 3 ? b.w / 2 : 0), b.y + (r <= 1 ? b.h / 2 : r >= 3 ? -b.h / 2 : 0)]
+			: [0, 0];
+		const own = ownAnchor(n),
+			size = fig ? slotRect(nodes(fig).find((v) => v.id === n.id)!) : undefined;
+		const w = size?.w || boxHalf(n)[0] * 2,
+			h = size?.h || boxHalf(n)[1] * 2;
+		const dx = n.x - a[0] + (own.includes('west') ? -w / 2 : own.includes('east') ? w / 2 : 0),
+			dy = n.y - a[1] + (own.includes('north') ? h / 2 : own.includes('south') ? -h / 2 : 0);
+		return `([shift={(${num(dx)}mm,${num(dy)}mm)}]${n.treeParent}.${anchor})`;
+	}
+	return `(${num(n.x)},${num(n.y)})`;
 }
 
-export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, layerOpacity = 1, fig?: Figure): string {
+export function nodeLine(
+	n: FigNode,
+	figureFont = 'small',
+	hasIcon = !!n.icon,
+	layerOpacity = 1,
+	fig?: Figure,
+	inlineLabel?: FigNode,
+): string {
 	if (n.kind === 'icon') {
 		const o = [
 			'sg icon',
 			...categoryOption(n.cat, 'Icon'),
 			...emitOptions(itemOverrides(n)),
 			`pic text={${n.title}}`,
-			...(n.attachment ? [`anchor=${n.attachment.ownAnchor}`] : []),
+
 			...(n.layer ? [`sg layer=${n.layer}`] : []),
 			...(n.group ? [`sg in=${n.group}`] : []),
 			...(n.locked ? ['sg locked'] : []),
 			...opacityOptions(n.style?.opacity, layerOpacity),
 			...n.extra,
 		];
-		const line = `\\pic[${o.join(', ')}] (${n.id}) at ${coordinate(n)} {sg object={${n.icon || ''}}{${num(n.width)}}{${num(n.minh || n.width)}}};`;
+		const line = `\\pic[${o.join(', ')}] (${n.id}) at ${coordinate(n, fig)} {sg object={${n.icon || ''}}{${num(n.width)}}{${num(n.minh || n.width)}}};`;
 		return n.hidden ? `% sakuga hidden ${line}` : line;
 	}
 	const def = fig && n.cat && nodeStyleKind(n) ? findStyle(fig, n.cat, nodeStyleKind(n)!) : undefined;
@@ -46,9 +83,7 @@ export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, l
 	if (n.kind === 'label' && own?.border && own.border !== 'none') {
 		o.push('draw=black!38');
 	}
-	if (n.attachment && n.kind !== 'icon') {
-		o.push(`anchor=${n.attachment.ownAnchor}`);
-	}
+	if (n.slot) o.push(`anchor=${ownAnchor(n)}`);
 	if (n.wantWidth !== undefined && n.wantWidth !== n.width) o.push(`sg want=${n.wantWidth}`);
 	if (n.codeFont && n.codeFont !== smallerFont(n.style?.font || figureFont)) o.push(`sg code font=${n.codeFont}`);
 	if (n.width !== DEFAULT_WIDTH) {
@@ -74,9 +109,6 @@ export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, l
 			`sg icon height=${num(boxHalf({ ...n, icon: 'active', style: { ...n.style, shape: '', font: n.style?.font || figureFont } })[1] * 2 - (0.45 * 25.4) / 72.27)}`,
 		);
 	}
-	if (n.iconPosition) {
-		o.push(`sg icon position=${n.iconPosition}`);
-	}
 	if (n.style?.compact) {
 		const body =
 			(boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2 - (2 * 25.4) / 72.27) /
@@ -85,77 +117,14 @@ export function nodeLine(n: FigNode, figureFont = 'small', hasIcon = !!n.icon, l
 	}
 	const title = n.kind === 'label' && n.style?.step ? `\\sglabel{${n.style.step}}{${n.title}}` : n.title;
 	let content = n.code ? `${title}\\\\[-1pt]\\sgcode{${n.code}}` : title;
-	if (n.titlePosition && n.titlePosition !== 'center') {
-		const pos = n.titlePosition,
-			h =
-				boxHalf({ ...n, icon: undefined, style: { ...n.style, shape: '', font: n.style?.font || figureFont } })[1] * 2 -
-				(7.45 * 25.4) / 72.27;
-		content = `\\parbox[c][${num(h)}mm][${pos.includes('north') ? 't' : pos.includes('south') ? 'b' : 'c'}]{${num(n.width)}mm}{\\${pos.includes('west') ? 'raggedright' : pos.includes('east') ? 'raggedleft' : 'centering'} ${content}}`;
+
+	if (inlineLabel) {
+		const st = inlineLabel.style || {},
+			b = slotRect(inlineLabel);
+		content = `\\sglabeltext{${st.font || figureFont}}{${fill(st.textColor || 'black')}}{${st.text?.startsWith('bold') ? 'bfseries' : 'mdseries'}}{${st.text?.includes('italic') ? 'itshape' : 'upshape'}}{${num(b?.textWidth || inlineLabel.width)}}{${content}}`;
 	}
 	if (n.titleHidden) content = `\\phantom{${content}}`;
 	const label = hasIcon ? `\\sgcontent{${n.iconPosition || 'left'}}{${n.width}}{${content}}` : content;
-	const line = `\\node[${[...o, ...emitOptions(own, { forceDefaults: true, height: boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2, thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity, layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n)} {${label}};`;
+	const line = `\\node[${[...o, ...emitOptions(own, { forceDefaults: true, height: boxHalf({ ...n, style: { ...n.style, font: n.style?.font || figureFont } })[1] * 2, thin: !!def && (def.props.lineWidth !== undefined || (!!def.props.weight && def.props.weight !== 'thin')), redraw: !!def && def.kind === 'box' && def.props.border === 'none' }), ...opacityOptions(n.style?.opacity, layerOpacity), ...n.extra].join(', ')}] (${n.id}) at ${coordinate(n, fig)} {${label}};`;
 	return n.hidden ? `% sakuga hidden ${line}` : line;
-}
-
-export function hiddenReference(fig: Figure, n: FigNode): string[] {
-	if (!isHidden(fig, n)) {
-		return [];
-	}
-	const descendants = (id: string, seen = new Set<string>()): boolean => {
-		if (seen.has(id)) {
-			return false;
-		}
-		seen.add(id);
-		return nodes(fig).some(
-			(child) => child.attachment?.parent === id && (!isHidden(fig, child) || descendants(child.id, seen)),
-		);
-	};
-	if (!descendants(n.id)) {
-		return [];
-	}
-	return [
-		'% sakuga icons begin (generated anchor for hidden parent)',
-		nodeLine(
-			{ ...n, hidden: false, extra: [...n.extra, 'opacity=0', 'overlay'] },
-			fontSize(fig),
-			!!nodeIcon(fig, n),
-			1,
-			fig,
-		),
-		'% sakuga icons end',
-	];
-}
-
-export function attachedIcons(fig: Figure, objects = nodes(fig)): string[] {
-	const out = ['% sakuga icons begin (generated)'];
-	for (const n of objects) {
-		if (!nodeIcon(fig, n) || n.kind === 'icon' || isHidden(fig, n)) {
-			continue;
-		}
-		const name = nodeIcon(fig, n);
-		if (!name) {
-			continue;
-		}
-		const p = n.iconPosition || (n.cat && nodeIcon(fig, n) ? 'nw' : 'left');
-		const anchor =
-			(
-				{
-					left: 'west',
-					right: 'east',
-					above: 'north',
-					nw: 'north west',
-					ne: 'north east',
-					sw: 'south west',
-					se: 'south east',
-				} as Record<string, string>
-			)[p] || 'west';
-		const x = ['right', 'ne', 'se'].includes(p) ? -4 : p === 'above' ? -1.5 : 1;
-		const y = ['above', 'nw', 'ne'].includes(p) ? -1 : ['sw', 'se'].includes(p) ? 4 : 1.5;
-		out.push(
-			`\\pic${nodeOpacity(fig, n) !== 1 ? `[${opacityOptions(nodeOpacity(fig, n)).join(', ')}]` : ''} at ([xshift=${x}mm,yshift=${y}mm]${n.id}.${anchor}) {sg icon/${name}};`,
-		);
-	}
-	out.push('% sakuga icons end');
-	return out;
 }

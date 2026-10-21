@@ -1,3 +1,4 @@
+import { migratePlacement } from '../geometry/placement-migration';
 import { applyLook } from './look';
 // Applying an operation to a figure: dispatch to the family handlers, then settle styles, widths and attachments.
 import { migratePorts } from '../geometry/migrate-ports';
@@ -39,6 +40,7 @@ export function apply(fig: Figure, op: Op): void {
 		case 'categoryDelete':
 			applyLook(fig, op);
 			break;
+		case 'slot':
 		case 'addText':
 		case 'reparent':
 		case 'detach':
@@ -136,6 +138,7 @@ export function apply(fig: Figure, op: Op): void {
 		)
 			delete n.treeParent;
 	for (const [g, parent] of oldGroups) if (g.parent !== parent && op.op === 'groupProps') delete g.treeParent;
+	migratePlacement(fig);
 	syncTree(fig);
 	settle(fig);
 	for (const n of nodes(fig)) normalizeWidth(fig, n);
