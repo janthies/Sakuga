@@ -24,9 +24,11 @@ export interface SessionDeps extends ExportDeps {
 export function openFigure(deps: SessionDeps): Disposable {
 	const { doc, view, clipboard, ui } = deps;
 	const send = (message: ToWebview<Icon>) => view.post(message);
-	const sendState = () => send({ ...viewModel(doc.text()), sourceFile: doc.path.split('/').pop() });
+	const defaults = () => ({ width: deps.settings.get('export.width'), font: deps.settings.get('export.font') });
+	const readFigure = () => parse(doc.text(), defaults());
+	const sendState = () => send({ ...viewModel(doc.text(), defaults()), sourceFile: doc.path.split('/').pop() });
 	const edit = (change: (fig: ReturnType<typeof parse>) => void) => {
-		const fig = parse(doc.text());
+		const fig = readFigure();
 		change(fig);
 		return writeDocument(doc, serialize(fig));
 	};
@@ -44,7 +46,7 @@ export function openFigure(deps: SessionDeps): Disposable {
 				sendState();
 				break;
 			case 'deleteCategory': {
-				const fig = parse(doc.text());
+				const fig = readFigure();
 				const category = fig.lines.find((l) => l.t === 'style' && l.s.key === msg.key);
 				if (
 					category?.t === 'style' &&
@@ -60,21 +62,21 @@ export function openFigure(deps: SessionDeps): Disposable {
 				ui.log(`webview: ${msg.text}`);
 				break;
 			case 'exportSvg':
-				await exportSvg(deps, doc, serialize(parse(doc.text())));
+				await exportSvg(deps, doc, serialize(readFigure()));
 				break;
 			case 'copyText':
 				await clipboard.writeText(msg.text);
 				ui.status('Sakuga: preamble copied', 2000);
 				break;
 			case 'copy':
-				await clipboard.writeText(serialize(parse(doc.text())));
+				await clipboard.writeText(serialize(readFigure()));
 				ui.status('Sakuga: TikZ copied', 2000);
 				break;
 			case 'text':
 				await writeDocument(doc, msg.text);
 				break;
 			case 'paste': {
-				const fig = parse(doc.text());
+				const fig = readFigure();
 				const { ops, ids } = pasteOps(fig, msg.text, msg.dx, msg.dy, msg.layer);
 				if (ids.length) {
 					apply(fig, { op: 'batch', ops: ops.map((op) => (op.op === 'addNode' ? { ...op, layer: msg.layer } : op)) });
@@ -86,7 +88,11 @@ export function openFigure(deps: SessionDeps): Disposable {
 		}
 	};
 
-	const subscriptions = [doc.onChange(sendState), view.onMessage((m) => void handle(m as ToHost<Op>))];
+	const subscriptions = [
+		doc.onChange(sendState),
+		deps.settings.onChange(sendState),
+		view.onMessage((m) => void handle(m as ToHost<Op>)),
+	];
 	if (doc.text().trim() === '') {
 		void writeDocument(doc, serialize(parse(TEMPLATE)));
 	}

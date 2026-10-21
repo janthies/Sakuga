@@ -47,7 +47,7 @@ export function page(env: PageEnv, settings: Pick<Settings, 'preamble'>): string
 	</aside>
 	<div id="desk">
 		<svg id="canvas" aria-label="Figure canvas"></svg>
-		<div id="zoombar"><span id="zi-size"></span><span class="vsep"></span><span id="zi-zoom" title="100 % is true size on screen"></span><button id="fitw" title="Fit the whole figure">Fit</button></div>
+		<div id="zoombar"><span id="zi-size"></span><button id="target-band" title="Toggle target-width band" aria-label="Toggle target-width band" aria-pressed="false">↔</button><span id="export-warning"></span><span class="vsep"></span><span id="zi-zoom" title="100 % is true size on screen"></span><button id="fitw" title="Fit the whole figure">Fit</button></div>
 	</div>
 	<aside id="sidebar" data-tab="figure">
 		<div id="inspector"></div>

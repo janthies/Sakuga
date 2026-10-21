@@ -40,6 +40,7 @@ export function initCommandsMessages() {
 		}
 
 		store.figure = m.figure || { place: 't', label: '', caption: '' };
+		store.exportTarget = m.exportTarget || { width: 146, font: 'small' };
 		store.figureFont = m.font || 'small';
 		store.outerGap = m.outerGap ?? 1;
 		showText(m.text);

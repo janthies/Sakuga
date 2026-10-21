@@ -1,3 +1,4 @@
+import { exportRow } from './export';
 import { SIZE_LABEL, sizes } from '../../store/constants';
 import { post } from '../../store/model';
 import { saveState } from '../../store/prefs';
@@ -23,7 +24,7 @@ function fontRow(): RowControls {
 		'Font size',
 	);
 	control.set(store.figureFont);
-	control.onCommit((fontSize) => post({ op: 'themeEdit', fontSize: fontSize! }));
+	control.onCommit((fontSize) => post({ op: 'export', font: fontSize! }));
 	return control;
 }
 function arrowsRow(): RowControls {
@@ -62,7 +63,7 @@ export const FIGURE: SectionSpec[] = [
 		title: 'Figure settings',
 		collapsed: true,
 		rows: [
-			{ label: 'Export target', custom: () => new Block(h('span', 'empty', {}, '—')) },
+			{ label: 'Export target', custom: exportRow },
 			{ label: 'Font size', custom: fontRow },
 			{ label: 'Arrow route', custom: arrowsRow },
 			{ label: 'Palette', custom: paletteRow },

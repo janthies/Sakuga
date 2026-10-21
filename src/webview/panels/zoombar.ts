@@ -1,3 +1,7 @@
+import { exportTextPt } from '../../core/model/export';
+import { naturalWidth } from '../../core/geometry/export';
+import { geo } from '../store/geometry';
+import { renderView } from '../render/scene';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { resetToAuto } from '../commands/styles';
@@ -8,7 +12,6 @@ import { buildRow } from './inspector/build';
 import { ARROW_MORE } from './inspector/specs';
 import type { Selection } from './inspector/selection';
 import { ObjectSubject } from './inspector/subject';
-import { contentBox } from '../render/boxes';
 
 export function showToolbar(i: number, G: { label: number[] }) {
 	const e = store.edges[i];
@@ -91,10 +94,20 @@ export function updateZoombar() {
 	if (!z) {
 		return;
 	}
-	const C = contentBox();
-	document.getElementById('zi-size')!.textContent = store.nodes.length
-		? `Figure ${Math.round(C.x1 - C.x0)} \u00d7 ${Math.round(C.y1 - C.y0)} mm`
-		: 'Empty figure';
+	const pt = exportTextPt(store.exportTarget, naturalWidth(geo()), store.figureFont);
+	const label = document.getElementById('zi-size')!;
+	label.textContent = `export ${store.exportTarget.width} mm · text ${Math.round(pt * 10) / 10} pt`;
+	label.style.color = pt < 7 ? 'var(--vscode-editorWarning-foreground, #b78000)' : '';
+	const warning = document.getElementById('export-warning');
+	if (warning) warning.textContent = pt < 7 ? 'does not fit this width legibly: use full width or rearrange' : '';
+	const toggle = document.getElementById('target-band');
+	if (toggle) {
+		toggle.setAttribute('aria-pressed', String(store.targetBand));
+		toggle.onclick = () => {
+			store.targetBand = !store.targetBand;
+			renderView();
+		};
+	}
 	document.getElementById('zi-zoom')!.textContent = `${Math.round((store.view.s / PX_PER_MM) * 100)} %`;
 }
 calls.updateZoombar = updateZoombar;

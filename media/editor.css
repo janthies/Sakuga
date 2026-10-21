@@ -1929,3 +1929,17 @@ select:focus {
 	opacity: 0.65;
 	font-size: 11px;
 }
+
+.export-target {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+	min-width: 0;
+}
+.export-target > * {
+	min-width: 0;
+	flex: 1 1 90px;
+}
+#export-warning {
+	color: var(--vscode-editorWarning-foreground, #b78000);
+}

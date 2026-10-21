@@ -93,7 +93,7 @@ export function migratePlacement(fig: Figure, markers = true) {
 					order: 0,
 					icon: undefined,
 					look: undefined,
-					style: { font: n.style?.font, text: n.style?.text, textColor: n.style?.textColor },
+					style: { font: n.look ? n.look.own.font : n.style?.font, text: n.style?.text, textColor: n.style?.textColor },
 					hidden: !!n.titleHidden,
 				};
 				delete label.titleId;

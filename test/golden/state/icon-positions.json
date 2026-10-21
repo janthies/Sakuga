@@ -1,5 +1,9 @@
 {
  "type": "state",
+ "exportTarget": {
+  "width": 146,
+  "font": "small"
+ },
  "outerGap": 1,
  "text": "% Sakuga figure\n% sakuga style box work {this work} peach icon=board legend\n% sakuga legend on\n% sakuga group iconGroup {} dashed grey\n% sakuga tree 5b7b226964223a2266726565222c226b696e64223a2249636f6e222c22706172656e74223a2269636f6e47726f7570222c226f72646572223a31382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e47726f7570222c226b696e64223a224672616d65222c22706172656e74223a226c6179657231222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e47726f75702d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2269636f6e47726f7570222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e68657269746564222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e686572697465642d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22696e68657269746564222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e30222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e30222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e31222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e31222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e32222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e32222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e33222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e33222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e34222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e342d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e34222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e35222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e352d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e35222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e36222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706f736974696f6e362d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706f736974696f6e36222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d5d\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\tikzset{sg icon stroke/.style={draw=black!60,line width=0.6pt,line cap=round,line join=round}}\n\\tikzset{pics/sg object/.style n args={3}{code={\\path (-#2/2,-#3/2) rectangle (#2/2,#3/2);\\node[anchor=center,inner sep=0pt,outer sep=0pt,minimum width=#2mm,minimum height=#3mm] (-center) at (0,0) {};\\if\\relax\\detokenize{#1}\\relax\\else\\pic[xscale=#2/3,yscale=#3/3] at (-#2/2,#3/2) {sg icon/#1};\\fi\\node[anchor=west,inner sep=0pt,align=left] (-label) at (#2/2+1,0) {\\tikzpictext};}}}\n\\def\\sgicon#1{\\tikz[baseline=-0.3pt]{\\path[use as bounding box] (0,0) rectangle (8.544pt,8.544pt);\\pic at (0,8.544pt) {sg icon/#1};}}\n\\tikzset{sg icon/board/.pic={\\begin{scope}[x=1pt,y=1pt,scale=0.355659449,yscale=-1,sg icon stroke]\\draw svg \"M4 4h16v16H4z\";\\draw svg \"M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4\";\\end{scope}}}\n\\definecolor{sgc454545}{HTML}{454545}\n\\definecolor{sgc737373}{HTML}{737373}\n\\definecolor{sgc858585}{HTML}{858585}\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  sg style/work/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\\sffamily\\scriptsize,fill=white,inner sep=1pt},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=6, sg icon position=left] (position0) at (0,0) {\\sgcontent{left}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=1mm,yshift=1.5mm]position0.west) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=above] (position1) at (40,0) {\\sgcontent{above}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=-1.5mm,yshift=-1mm]position1.north) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=6, sg icon position=right] (position2) at (80,0) {\\sgcontent{right}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=-4mm,yshift=1.5mm]position2.east) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=nw] (position3) at (0,-22) {\\sgcontent{nw}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=1mm,yshift=-1mm]position3.north west) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=ne] (position4) at (40,-22) {\\sgcontent{ne}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=-4mm,yshift=-1mm]position4.north east) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=sw] (position5) at (80,-22) {\\sgcontent{sw}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=1mm,yshift=4mm]position5.south west) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=board, sg icon height=10, sg icon position=se] (position6) at (0,-44) {\\sgcontent{se}{26}{Title}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=-4mm,yshift=4mm]position6.south east) {sg icon/board};\n% sakuga icons end\n\\node[sg shape, sg style/work, sg layer=layer1, sg icon=category, sg icon height=10, sg icon position=above] (inherited) at (40,-44) {\\sgcontent{above}{26}{Category}};\n% sakuga icons begin (generated)\n\\pic at ([xshift=-1.5mm,yshift=-1mm]inherited.north) {sg icon/board};\n% sakuga icons end\n\\pic[pic text={Free icon}, sg layer=layer1, sg in=iconGroup] (free) at (80,-44) {sg object={board}{8}{10}};\n% sakuga groups begin (generated from the group lines)\n\\begin{scope}[on background layer]\n\\node[sg frame, inner sep=0pt, outer sep=0pt, fit={(73.2,-51.8) (86.8,-36.2)}] (iconGroup) {};\n\\path[sg frame dashed, fill=none, draw=sgc737373, dash pattern=on 9pt off 3pt, line cap=butt, line width=0.7pt] (iconGroup.south west) rectangle (iconGroup.north east);\n\\end{scope}\n% sakuga groups end\n% sakuga legend begin (generated)\n\\begin{scope}[shift={(current bounding box.south west)}]\n\\node[sg swatch, fill=sgPeach, anchor=north west] at (0,-7) {};\n\\node[anchor=west, inner sep=0pt, font=\\sffamily\\footnotesize] at (4.6,-8.8) {\\sgicon{board}\\ this work};\n\\end{scope}\n% sakuga legend end\n\\end{tikzpicture}\n",
  "items": [
@@ -699,9 +703,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -817,9 +819,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -935,9 +935,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -1053,9 +1051,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -1171,9 +1167,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -1289,9 +1283,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -1407,9 +1399,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -1525,9 +1515,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -2707,9 +2695,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -2738,9 +2724,7 @@
      0
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position0-icon",
@@ -2835,9 +2819,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -2866,9 +2848,7 @@
      0
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position1-icon",
@@ -2963,9 +2943,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -2994,9 +2972,7 @@
      0
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position2-icon",
@@ -3091,9 +3067,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -3122,9 +3096,7 @@
      -22
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position3-icon",
@@ -3219,9 +3191,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -3250,9 +3220,7 @@
      -22
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position4-icon",
@@ -3347,9 +3315,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -3378,9 +3344,7 @@
      -22
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position5-icon",
@@ -3475,9 +3439,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -3506,9 +3468,7 @@
      -44
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position6-icon",
@@ -3603,9 +3563,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -3634,9 +3592,7 @@
      -44
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "position0-marker",

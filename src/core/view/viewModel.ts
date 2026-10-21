@@ -1,3 +1,4 @@
+import { exportTarget, type ExportTarget } from '../model/export';
 import { slotRect } from '../geometry/slot-layout';
 import { items, subtreeState } from '../model/tree-queries';
 import { lineItems } from '../model/tree';
@@ -22,10 +23,11 @@ import { overrideKeys, sharedOverrides } from '../styles/resolve';
 import { parse } from '../codec/parse';
 
 // The derived snapshot the host sends to the webview (the 'state' message): pure, text in, plain data out.
-export function viewModel(text: string) {
-	const fig = parse(text);
+export function viewModel(text: string, defaults?: ExportTarget) {
+	const fig = parse(text, defaults);
 	return {
 		type: 'state' as const,
+		exportTarget: exportTarget(fig),
 		figure: fig.figure,
 		outerGap: fig.theme?.kinds?.Shape?.outerGap ?? 1,
 		text,

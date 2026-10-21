@@ -1,3 +1,5 @@
+import { readExport, unscaleSource } from './export';
+import type { ExportTarget } from '../model/export';
 import { readRelative } from './relative';
 import { migratePlacement } from '../geometry/placement-migration';
 import { readTheme, readCategory, readCategoryOption } from './look';
@@ -19,9 +21,10 @@ import { Attachment, Figure, Line, StyleKind } from '../model/figure';
 import { nodeLayer, nodes, opacity } from '../model/queries';
 import { settle } from '../styles/resolve';
 
-export function parse(text: string): Figure {
+export function parse(text: string, defaults?: ExportTarget): Figure {
 	const lines: Line[] = [];
-	const fig: Figure = { lines };
+	const fig: Figure = { lines, ...(defaults ? { exportDefaults: defaults } : {}) };
+	text = unscaleSource(text);
 	let tree = '';
 	const individuallyHidden = new Set<string>();
 	const labelKeys = new Set(Array.from(text.matchAll(/^%\s*sakuga style label\s+([\w-]+)/gm), (m) => m[1]));
@@ -53,7 +56,7 @@ export function parse(text: string): Figure {
 			fig.figure = { place: figureHeader[1], label: figureHeader[2], caption: figureHeader[3] };
 			continue;
 		}
-		if (readTheme(fig, line)) continue;
+		if (readExport(fig, line) || readTheme(fig, line)) continue;
 		const category = readCategory(line);
 		if (category) {
 			lines.push({ t: 'style', s: category });

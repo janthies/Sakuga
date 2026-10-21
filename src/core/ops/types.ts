@@ -161,6 +161,7 @@ export type Op =
 	  }
 	| { op: 'arrows'; style: string }
 	| { op: 'sheet'; width: number }
+	| { op: 'export'; width?: number; font?: string }
 	| { op: 'addLayer'; id: string; name: string }
 	| { op: 'layerProps'; id: string; name?: string; hidden?: boolean; locked?: boolean; opacity?: number }
 	| { op: 'deleteLayer'; id: string }
@@ -242,7 +243,7 @@ export type Op =
 	| { op: 'resetStyle'; ids?: string[]; indices?: number[]; keys?: string[] }
 	| { op: 'batch'; ops: Op[] };
 
-export type FigureOp = Extract<Op, { op: 'sheet' | 'font' | 'arrows' | 'legend' | 'figure' }>;
+export type FigureOp = Extract<Op, { op: 'export' | 'sheet' | 'font' | 'arrows' | 'legend' | 'figure' }>;
 export type LabelOp = Extract<Op, { op: 'label' | 'detachLabel' | 'attachLabel' }>;
 export type StyleOp = Extract<
 	Op,

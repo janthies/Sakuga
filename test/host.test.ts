@@ -108,7 +108,10 @@ test('exportSvg builds the .tex, runs the runner and writes the SVG; a failure i
 test('buildTex has the thesis fonts, the preamble and the figure between the document tags', () => {
 	const tex = buildTex('\\begin{tikzpicture}\\end{tikzpicture}', '\\usetikzlibrary{fit}', 'C:\\media');
 	assert.match(tex, /\\setsansfont\{OpenSans-Regular\.ttf\}\[Path=C:\/media\/, AutoFakeBold=2, AutoFakeSlant=0\.2\]/);
-	assert.match(tex, /\\usetikzlibrary\{fit\}\n\\begin\{document\}\n\\begin\{tikzpicture\}/);
+	assert.match(
+		tex,
+		/\\usetikzlibrary\{fit\}\n\\begin\{document\}\n\\setlength\{\\linewidth\}\{146mm\}\n\\begin\{tikzpicture\}/,
+	);
 	assert.ok(tex.endsWith('\\end{document}\n'));
 });
 

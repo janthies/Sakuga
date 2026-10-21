@@ -5,6 +5,8 @@ const saved = (): { grid?: number; recentColors?: string[]; tab?: string } => vs
 
 // The one store: everything the old closure kept in `let` variables.
 export const store: Store = {
+	exportTarget: { width: 146, font: 'small' },
+	targetBand: false,
 	outerGap: 1,
 	figure: { place: 't', label: '', caption: '' },
 	rev: 0,

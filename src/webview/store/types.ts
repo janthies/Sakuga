@@ -31,6 +31,8 @@ export interface StyleClip {
 }
 
 export interface Store {
+	exportTarget: import('../../core/model/export').ExportTarget;
+	targetBand: boolean;
 	outerGap: number;
 	figure: { place: string; label: string; caption: string };
 	items: Item[];

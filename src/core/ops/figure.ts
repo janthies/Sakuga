@@ -12,10 +12,12 @@ export function applyFigure(fig: Figure, op: FigureOp, run: Run): void {
 			fig.figure = { place: 't', label: '', caption: '', ...fig.figure, ...patch };
 			break;
 		}
+		case 'export':
 		case 'sheet': {
-			if (!Number.isFinite(op.width) || op.width < 50 || op.width > 400) break;
-			fig.lines = fig.lines.filter((l) => !(l.t === 'raw' && /^%\s*sakuga sheet\s+/.test(l.text)));
-			if (op.width !== 146) fig.lines.unshift({ t: 'raw', text: `% sakuga sheet ${op.width}` });
+			fig.export ||= {};
+			if (op.width !== undefined && Number.isFinite(op.width) && op.width >= 1 && op.width <= 1000)
+				fig.export.width = op.width;
+			if (op.op === 'export' && op.font && FONT_SIZES.includes(op.font)) fig.export.font = op.font;
 			break;
 		}
 		case 'font':

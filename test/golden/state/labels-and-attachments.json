@@ -1,5 +1,9 @@
 {
  "type": "state",
+ "exportTarget": {
+  "width": 146,
+  "font": "small"
+ },
  "outerGap": 1,
  "text": "% Sakuga figure\n% sakuga style box work {this work} peach legend\n% sakuga legend off\n% sakuga layer layer1 {Layer 1}\n% sakuga layer hidden {Hidden} hidden\n% sakuga tree 5b7b226964223a226368696c64222c226b696e64223a225368617065222c22706172656e74223a22706172656e74222c226f72646572223a35312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226368696c642d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226368696c64222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22667265654c6162656c222c226b696e64223a2254657874222c22706172656e74223a226c6179657231222c226f72646572223a32342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226772616e646368696c64222c226b696e64223a2254657874222c22706172656e74223a226368696c64222c226f72646572223a35332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2268696464656e506172656e74222c226b696e64223a225368617065222c22706172656e74223a2268696464656e222c226f72646572223a35342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2268696464656e506172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a2268696464656e506172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e30222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a32372c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e31222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e32222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e33222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e34222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e35222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e36222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e37222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34372c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2269636f6e38222c226b696e64223a2249636f6e222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a35302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646530222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a32352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646531222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a32382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646532222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646533222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646534222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33372c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646535222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a33392c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646536222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a34322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646537222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a34352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22696e7369646538222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a34382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226c6162656c506172656e74222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226c6162656c506172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226c6162656c506172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646530222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a32362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646531222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a32392c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646532222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646533222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a33352c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646535222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646536222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646537222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f75747369646538222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a34392c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f757473696465506172656e74222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a32322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226f757473696465506172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226f757473696465506172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706172656e74222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a32302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a22706172656e742d7469746c65222c226b696e64223a2254657874222c22706172656e74223a22706172656e74222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6530222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6530222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6531222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6531222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6532222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6532222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6533222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6533222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6534222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a382c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65342d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6534222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6535222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65352d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6535222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6536222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65362d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6536222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6537222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65372d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6537222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c6538222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c226f72646572223a31362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a227469746c65382d7469746c65222c226b696e64223a2254657874222c22706172656e74223a227469746c6538222c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a2276697369626c654368696c64222c226b696e64223a2254657874222c22706172656e74223a226c6179657231222c226f72646572223a35362c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d5d\n\\begin{tikzpicture}[x=1mm, y=1mm, font=\\sffamily\\small]\n% sakuga theme begin (generated from the style lines above)\n\\tikzset{sg icon stroke/.style={draw=black!60,line width=0.6pt,line cap=round,line join=round}}\n\\tikzset{pics/sg object/.style n args={3}{code={\\path (-#2/2,-#3/2) rectangle (#2/2,#3/2);\\node[anchor=center,inner sep=0pt,outer sep=0pt,minimum width=#2mm,minimum height=#3mm] (-center) at (0,0) {};\\if\\relax\\detokenize{#1}\\relax\\else\\pic[xscale=#2/3,yscale=#3/3] at (-#2/2,#3/2) {sg icon/#1};\\fi\\node[anchor=west,inner sep=0pt,align=left] (-label) at (#2/2+1,0) {\\tikzpictext};}}}\n\\def\\sgicon#1{\\tikz[baseline=-0.3pt]{\\path[use as bounding box] (0,0) rectangle (8.544pt,8.544pt);\\pic at (0,8.544pt) {sg icon/#1};}}\n\\tikzset{sg icon/board/.pic={\\begin{scope}[x=1pt,y=1pt,scale=0.355659449,yscale=-1,sg icon stroke]\\draw svg \"M4 4h16v16H4z\";\\draw svg \"M8 8h6v6H8z M14 11h3v6h-6v3 M4 11h4\";\\end{scope}}}\n\\definecolor{sgc2468AC}{HTML}{2468AC}\n\\definecolor{sgBlue}{HTML}{BBCCEE}\n\\definecolor{sgGreen}{HTML}{CCDDAA}\n\\definecolor{sgPeach}{HTML}{FFDDCC}\n\\definecolor{sgGrey}{HTML}{DDDDDD}\n\\definecolor{sgYellow}{HTML}{EEEEBB}\n\\definecolor{sgCyan}{HTML}{CCEEFF}\n\\definecolor{sgRed}{HTML}{FFCCCC}\n\\definecolor{palRose}{HTML}{CC6677}\n\\definecolor{black}{HTML}{000000}\n\\def\\sgcontent#1#2#3{\\def\\sgpos{#1}\\def\\sgleft{left}\\def\\sgright{right}\\def\\sgsw{sw}\\def\\sgse{se}\\ifx\\sgpos\\sgleft\\makebox[#2mm][r]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgright\\makebox[#2mm][l]{\\parbox{\\dimexpr#2mm-4mm\\relax}{\\centering#3}}\\else\\ifx\\sgpos\\sgsw\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\ifx\\sgpos\\sgse\\parbox{#2mm}{\\centering#3\\par\\vspace*{4mm}}\\else\\parbox{#2mm}{\\vspace*{4mm}\\centering#3}\\fi\\fi\\fi\\fi}\n\\def\\sgcodesize{}\\tikzset{sg want/.style={},sg code font/.code={\\def\\sgcodesize{\\csname#1\\endcsname}}}\n\\def\\sgcode#1{{\\ifdim\\csname f@size\\endcsname pt<9pt\\tiny\\else\\ifdim\\csname f@size\\endcsname pt<10pt\\scriptsize\\else\\ifdim\\csname f@size\\endcsname pt<10.5pt\\footnotesize\\else\\ifdim\\csname f@size\\endcsname pt<11.5pt\\small\\else\\normalsize\\fi\\fi\\fi\\fi\\sgcodesize\\ttfamily\\textcolor{black!48}{#1}}}\n\\def\\sgstep#1{\\tikz[baseline=-0.6ex]\\node[circle,fill=.,text=white,font=\\sffamily\\bfseries\\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}\n\\def\\sglabel#1#2{\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\sgstep{#1}}\\hspace{0.8mm}\\raisebox{\\dimexpr\\depth/2-\\height/2\\relax}{\\shortstack{#2}}}\n\\tikzset{\n  sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,\n    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},\n  sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},\n  sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},\n  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},\n  sg style/work/.style={sg box, fill=sgPeach},\n  arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},\n  head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},\n  head none/.style={-},\n  sg label/.style={align=center,text width={},draw=none,rounded corners=0pt,text=black!65,font=\\sffamily\\scriptsize,fill=white,inner sep=1pt},\n  sg elabel/.style={align=center, text=black!65, font=\\sffamily\\scriptsize, fill=white, inner sep=1pt},\n  sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},\n  sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},\n  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},\n  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},\n  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},\n  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},\n  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},\n  sg frame none/.style={inner sep=0pt},\n  sg glabel/.style={font=\\sffamily\\scriptsize, text=black!55, inner sep=1.5pt},\n  arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},\n  sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,\n    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},\n}\n% sakuga theme end\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title0) at (0,0) {\\parbox[c][19.38mm][t]{30mm}{\\raggedright Title 0\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title1) at (40,0) {\\parbox[c][19.38mm][t]{30mm}{\\centering Title 1\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title2) at (80,0) {\\parbox[c][19.38mm][t]{30mm}{\\raggedleft Title 2\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title3) at (0,-28) {\\parbox[c][19.38mm][c]{30mm}{\\raggedright Title 3\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title4) at (40,-28) {Title 4\\\\[-1pt]\\sgcode{code}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title5) at (80,-28) {\\parbox[c][19.38mm][c]{30mm}{\\raggedleft Title 5\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title6) at (0,-56) {\\parbox[c][19.38mm][b]{30mm}{\\raggedright Title 6\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title7) at (40,-56) {\\parbox[c][19.38mm][b]{30mm}{\\centering Title 7\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=30mm, minimum height=22mm, sg layer=layer1] (title8) at (80,-56) {\\parbox[c][19.38mm][b]{30mm}{\\raggedleft Title 8\\\\[-1pt]\\sgcode{code}}};\n\\node[sg shape, text width=84mm, minimum height=74mm, sg layer=layer1] (labelParent) at (35,-125) {};\n\\node[sg shape, text width=84mm, minimum height=40mm, sg layer=layer1] (parent) at (35,-205) {\\parbox[c][37.38mm][b]{84mm}{\\raggedleft Parent}};\n\\node[sg shape, text width=70mm, minimum height=64mm, sg layer=layer1] (outsideParent) at (165,-125) {};\n\\node[sg text, sg label height=6.835893178358932, draw=black!38, text width=24mm, sg layer=layer1, text=sgc2468AC, solid, font=\\sffamily\\large] (freeLabel) at (110,0) {Free label};\n\\node[sg text, sg label height=6.16, anchor=north west, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside0) at ([shift={(2mm,-2mm)}]labelParent.north west) {In 0};\n\\node[sg text, sg label height=6.16, anchor=south east, text width=12mm, sg layer=layer1] (outside0) at ([shift={(-2mm,2mm)}]outsideParent.north west) {Out 0};\n\\pic[pic text={}, anchor=north west, sg layer=layer1] (icon0) at ([shift={(13mm,-14mm)}]outsideParent.north west) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=north, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside1) at ([shift={(0mm,-2mm)}]labelParent.north) {In 1};\n\\node[sg text, sg label height=6.16, anchor=south, text width=12mm, sg layer=layer1] (outside1) at ([shift={(0mm,2mm)}]outsideParent.north) {Out 1};\n\\pic[pic text={}, anchor=north, sg layer=layer1] (icon1) at ([shift={(0mm,-14mm)}]outsideParent.north) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=north east, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside2) at ([shift={(-2mm,-2mm)}]labelParent.north east) {In 2};\n\\node[sg text, sg label height=6.16, anchor=south west, text width=12mm, sg layer=layer1] (outside2) at ([shift={(2mm,2mm)}]outsideParent.north east) {Out 2};\n\\pic[pic text={}, anchor=north east, sg layer=layer1] (icon2) at ([shift={(-13mm,-14mm)}]outsideParent.north east) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=west, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside3) at ([shift={(2mm,0mm)}]labelParent.west) {In 3};\n\\node[sg text, sg label height=6.16, anchor=east, text width=12mm, sg layer=layer1] (outside3) at ([shift={(-2mm,0mm)}]outsideParent.west) {Out 3};\n\\pic[pic text={}, anchor=west, sg layer=layer1] (icon3) at ([shift={(13mm,0mm)}]outsideParent.west) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=center, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside4) at ([shift={(0mm,0mm)}]labelParent.center) {In 4};\n\\pic[pic text={}, anchor=center, sg layer=layer1] (icon4) at ([shift={(0mm,0mm)}]outsideParent.center) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=east, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside5) at ([shift={(-2mm,0mm)}]labelParent.east) {In 5};\n\\node[sg text, sg label height=6.16, anchor=west, text width=12mm, sg layer=layer1] (outside5) at ([shift={(2mm,0mm)}]outsideParent.east) {Out 5};\n\\pic[pic text={}, anchor=east, sg layer=layer1] (icon5) at ([shift={(-13mm,0mm)}]outsideParent.east) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=south west, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside6) at ([shift={(2mm,2mm)}]labelParent.south west) {In 6};\n\\node[sg text, sg label height=6.16, anchor=north east, text width=12mm, sg layer=layer1] (outside6) at ([shift={(-2mm,-2mm)}]outsideParent.south west) {Out 6};\n\\pic[pic text={}, anchor=south west, sg layer=layer1] (icon6) at ([shift={(13mm,14mm)}]outsideParent.south west) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, draw=black!38, anchor=south, text width=12mm, sg layer=layer1, text=palRose, solid, font=\\sffamily\\scriptsize] (inside7) at ([shift={(0mm,2mm)}]labelParent.south) {In 7};\n\\node[sg text, sg label height=6.16, anchor=north, text width=12mm, sg layer=layer1] (outside7) at ([shift={(0mm,-2mm)}]outsideParent.south) {Out 7};\n\\pic[pic text={}, anchor=south, sg layer=layer1] (icon7) at ([shift={(0mm,14mm)}]outsideParent.south) {sg object={board}{6}{8}};\n\\node[sg text, sg label height=6.16, anchor=south east, text width=12mm, sg layer=layer1, text=palRose, font=\\sffamily\\scriptsize] (inside8) at ([shift={(-2mm,2mm)}]labelParent.south east) {In 8};\n\\node[sg text, sg label height=6.16, anchor=north west, text width=12mm, sg layer=layer1] (outside8) at ([shift={(2mm,-2mm)}]outsideParent.south east) {Out 8};\n\\pic[pic text={}, anchor=south east, sg layer=layer1] (icon8) at ([shift={(-13mm,14mm)}]outsideParent.south east) {sg object={board}{6}{8}};\n\\node[sg shape, anchor=north west, text width=20mm, minimum height=12mm, sg layer=layer1] (child) at ([shift={(1.5mm,-1.5mm)}]parent.north west) {Child};\n\\node[sg text, sg label height=6.16, anchor=north, text width=12mm, sg layer=layer1] (grandchild) at ([shift={(0mm,-1mm)}]child.south) {Nested};\n\\node[sg text, sg label height=6.16, text width=14mm, sg layer=layer1] (visibleChild) at (88,-197.08) {Visible};\n% sakuga hidden \\node[sg shape, text width=42mm, minimum height=16mm, sg layer=hidden] (hiddenParent) at (100,-200) {hiddenParent};\n\\end{tikzpicture}\n",
  "items": [
@@ -2647,9 +2651,7 @@
     "slot": "top-left",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -2708,9 +2710,7 @@
     "slot": "top",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -2769,9 +2769,7 @@
     "slot": "top-right",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -2830,9 +2828,7 @@
     "slot": "left",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -2890,9 +2886,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -2951,9 +2945,7 @@
     "slot": "right",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -3012,9 +3004,7 @@
     "slot": "bottom-left",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -3073,9 +3063,7 @@
     "slot": "bottom",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -3134,9 +3122,7 @@
     "slot": "bottom-right",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -3195,9 +3181,7 @@
     "slot": "bottom-right",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -3255,9 +3239,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -3315,9 +3297,7 @@
     "slot": "centre",
     "order": 0,
     "look": {
-     "own": {
-      "font": "small"
-     },
+     "own": {},
      "resolved": {
       "fill": "none",
       "border": "none",
@@ -5895,9 +5875,7 @@
    "slot": "bottom-right",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -5926,9 +5904,7 @@
      -223.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "child-title",
@@ -5961,9 +5937,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -5992,9 +5966,7 @@
      -192.2
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "visibleChild",
@@ -6076,9 +6048,7 @@
    "slot": "top-left",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6107,9 +6077,7 @@
      9.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title1-title",
@@ -6143,9 +6111,7 @@
    "slot": "top",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6174,9 +6140,7 @@
      9.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title2-title",
@@ -6210,9 +6174,7 @@
    "slot": "top-right",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6241,9 +6203,7 @@
      9.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title3-title",
@@ -6277,9 +6237,7 @@
    "slot": "left",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6308,9 +6266,7 @@
      -28
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title4-title",
@@ -6343,9 +6299,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6374,9 +6328,7 @@
      -28
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title5-title",
@@ -6410,9 +6362,7 @@
    "slot": "right",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6441,9 +6391,7 @@
      -28
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title6-title",
@@ -6477,9 +6425,7 @@
    "slot": "bottom-left",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6508,9 +6454,7 @@
      -65.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title7-title",
@@ -6544,9 +6488,7 @@
    "slot": "bottom",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6575,9 +6517,7 @@
      -65.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "title8-title",
@@ -6611,9 +6551,7 @@
    "slot": "bottom-right",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6642,9 +6580,7 @@
      -65.8
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   },
   {
    "id": "child",
@@ -6875,9 +6811,7 @@
    "slot": "centre",
    "order": 0,
    "look": {
-    "own": {
-     "font": "small"
-    },
+    "own": {},
     "resolved": {
      "fill": "none",
      "border": "none",
@@ -6906,9 +6840,7 @@
      -200
     ]
    },
-   "overrides": [
-    "font"
-   ]
+   "overrides": []
   }
  ],
  "edges": [],

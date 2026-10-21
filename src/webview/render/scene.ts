@@ -11,7 +11,13 @@ export const renderer = createRenderer(svg);
 
 function viewNow() {
 	const r = svg.getBoundingClientRect();
-	return { ...store.view, width: r.width, height: r.height, grid: store.grid };
+	return {
+		...store.view,
+		width: r.width,
+		height: r.height,
+		grid: store.grid,
+		targetWidth: store.targetBand ? store.exportTarget.width : undefined,
+	};
 }
 function sceneNow() {
 	return buildScene(

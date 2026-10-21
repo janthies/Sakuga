@@ -1,11 +1,13 @@
 // Queries on a figure: its objects, layers, styles, font and opacity.
+import { exportTarget } from './export';
 import { itemById, layerOf, subtreeState, descendants, orderedSiblings } from './tree-queries';
 import { Category, FigEdge, FigNode, Figure, Layer, StyleKind } from './figure';
 
 export const fontSize = (fig: Figure) =>
+	fig.export?.font ||
 	fig.theme?.fontSize ||
 	fig.lines.flatMap((l) => (l.t === 'raw' && /^% sakuga font /.test(l.text) ? [l.text.slice(14)] : []))[0] ||
-	'small';
+	exportTarget(fig).font;
 
 export const smallerFont = (size: string) =>
 	({ scriptsize: 'tiny', footnotesize: 'scriptsize', small: 'footnotesize', normalsize: 'small', large: 'normalsize' })[

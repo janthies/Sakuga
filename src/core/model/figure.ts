@@ -20,6 +20,8 @@ export type Line =
 	| { t: 'raw'; text: string };
 
 export interface Figure {
+	export?: Partial<import('./export').ExportTarget>;
+	exportDefaults?: import('./export').ExportTarget;
 	figure?: { place: string; label: string; caption: string };
 	theme?: import('./look').Theme;
 	items?: Item[];

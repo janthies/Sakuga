@@ -1,16 +1,26 @@
+import { parse } from '../core/codec/parse';
+import { exportTarget, documentPt } from '../core/model/export';
 import type { DocumentPort, FilePort, SettingsPort, TexRunner, UiPort } from './ports';
 
 // The LaTeX file for the export: the look of the thesis (Open Sans, Courier, 11 pt).
-export function buildTex(tikz: string, preamble: string, fontsDir: string): string {
+export function buildTex(
+	tikz: string,
+	preamble: string,
+	fontsDir: string,
+	defaults?: import('../core/model/export').ExportTarget,
+): string {
+	const target = exportTarget(parse(tikz, defaults));
 	const fonts = fontsDir.replace(/\\/g, '/');
 	return [
-		'\\documentclass[11pt, border=1mm]{standalone}',
+		`\\documentclass[${documentPt(target.width)}pt, border=1mm]{standalone}`,
 		'\\usepackage{fontspec}',
 		`\\setsansfont{OpenSans-Regular.ttf}[Path=${fonts}/, AutoFakeBold=2, AutoFakeSlant=0.2]`,
 		`\\setmonofont{texgyrecursor-regular.otf}[Path=${fonts}/]`,
 		'\\usepackage{tikz}',
+		'\\usepackage{graphicx}',
 		preamble,
 		'\\begin{document}',
+		`\\setlength{\\linewidth}{${target.width}mm}`,
 		tikz,
 		'\\end{document}',
 		'',
@@ -32,7 +42,10 @@ export async function exportSvg(deps: ExportDeps, doc: DocumentPort, tikz: strin
 	if (!target) {
 		return;
 	}
-	const tex = buildTex(tikz, deps.settings.get('preamble'), deps.fontsDir);
+	const tex = buildTex(tikz, deps.settings.get('preamble'), deps.fontsDir, {
+		width: deps.settings.get('export.width'),
+		font: deps.settings.get('export.font'),
+	});
 	await deps.ui.progress('Sakuga: exporting SVG', async () => {
 		const result = await deps.tex.run({
 			tex,

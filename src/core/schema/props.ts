@@ -159,7 +159,7 @@ export const PROPS: PropDef[] = [
 		default: 1.5,
 		styleable: true,
 		travel: 'tips',
-		length: 'geometry',
+		length: 'stroke',
 		ui: ui('tips', 'Tip length'),
 	},
 	{
@@ -169,7 +169,7 @@ export const PROPS: PropDef[] = [
 		default: 1.2,
 		styleable: true,
 		travel: 'tips',
-		length: 'geometry',
+		length: 'stroke',
 		ui: ui('tips', 'Tip width'),
 	},
 	{

@@ -1,3 +1,4 @@
+import { adaptivePaste, exportHeader } from './export';
 import { childrenOf, itemById } from '../model/tree-queries';
 import { slotRect } from '../geometry/slot-layout';
 import { categoryHeader, themeHeader } from './look';
@@ -119,62 +120,66 @@ export function serialize(fig: Figure): string {
 		lines.splice(at < 0 ? 0 : at, 0, { t: 'tree' });
 	}
 	const geo = geometryOf(fig);
-	return [
-		...(fig.figure
-			? [`% sakuga figure place=${fig.figure.place} label=${fig.figure.label} caption={${fig.figure.caption}}`]
-			: []),
-		...themeHeader(fig),
-		...lines.flatMap((l) => {
-			switch (l.t) {
-				case 'tree':
-					return [treeState(fig)];
-				case 'line':
-					return [lineSource(fig, l.line), ...lineReference(fig, l.line)];
-				case 'node':
-					if (
-						l.n.kind === 'label' &&
-						l.n.slot === 'centre' &&
-						itemById(fig, l.n.treeParent || '')?.kind === 'Shape' &&
-						childrenOf(fig, l.n.treeParent!).find((i) => i.kind === 'Text' && i.slot === 'centre')?.id === l.n.id
-					)
+	return adaptivePaste(
+		[
+			...exportHeader(fig),
+			...(fig.figure
+				? [`% sakuga figure place=${fig.figure.place} label=${fig.figure.label} caption={${fig.figure.caption}}`]
+				: []),
+			...themeHeader(fig),
+			...lines.flatMap((l) => {
+				switch (l.t) {
+					case 'tree':
+						return [treeState(fig)];
+					case 'line':
+						return [lineSource(fig, l.line), ...lineReference(fig, l.line)];
+					case 'node':
+						if (
+							l.n.kind === 'label' &&
+							l.n.slot === 'centre' &&
+							itemById(fig, l.n.treeParent || '')?.kind === 'Shape' &&
+							childrenOf(fig, l.n.treeParent!).find((i) => i.kind === 'Text' && i.slot === 'centre')?.id === l.n.id
+						)
+							return [];
+						return [nodeSource(fig, l.n)];
+					case 'edge': {
+						const hiddenGroup = groups(fig).some(
+							(g) => (g.id === l.e.from || g.id === l.e.to) && groupMembers(fig, g.id).every((n) => isHidden(fig, n)),
+						);
+						const hid =
+							subtreeState(fig, l.e.id!, 'hidden') ||
+							hiddenGroup ||
+							[l.e.from, l.e.to].some((id) => subtreeState(fig, id, 'hidden')) ||
+							nodes(fig).some((n) => isHidden(fig, n) && (n.id === l.e.from || n.id === l.e.to));
+						return [hid ? `% sakuga hidden ${edgeLine(fig, l.e, geo)}` : edgeLine(fig, l.e, geo)];
+					}
+					case 'layer':
+						return [
+							`% sakuga layer ${l.layer.id} {${l.layer.name}}${l.layer.hidden ? ' hidden' : ''}${l.layer.locked ? ' locked' : ''}${opacity(l.layer.opacity) !== 1 ? ` opacity=${opacity(l.layer.opacity)}` : ''}`,
+						];
+					case 'group':
+						return [
+							`${subtreeState(fig, l.g.id, 'hidden') ? '% sakuga hidden ' : ''}% sakuga group ${l.g.id} {${l.g.name}} ${l.g.frame} ${l.g.color}${l.g.parent ? ` in=${l.g.parent}` : ''}${groupOptions(l.g)}`,
+						];
+					case 'groups':
+						return groupsBlock(fig);
+					case 'arrowsflag':
+						return [`% sakuga arrows ${l.style}`];
+					case 'style':
+						return [categoryHeader(l.s)];
+					case 'legendflag':
+						return [`% sakuga legend ${l.on ? 'on' : 'off'}`];
+					case 'theme':
+						return themeBlock(fig);
+					case 'icons':
 						return [];
-					return [nodeSource(fig, l.n)];
-				case 'edge': {
-					const hiddenGroup = groups(fig).some(
-						(g) => (g.id === l.e.from || g.id === l.e.to) && groupMembers(fig, g.id).every((n) => isHidden(fig, n)),
-					);
-					const hid =
-						subtreeState(fig, l.e.id!, 'hidden') ||
-						hiddenGroup ||
-						[l.e.from, l.e.to].some((id) => subtreeState(fig, id, 'hidden')) ||
-						nodes(fig).some((n) => isHidden(fig, n) && (n.id === l.e.from || n.id === l.e.to));
-					return [hid ? `% sakuga hidden ${edgeLine(fig, l.e, geo)}` : edgeLine(fig, l.e, geo)];
+					case 'legend':
+						return legendBlock(fig);
+					case 'raw':
+						return [l.text.includes('\\begin{tikzpicture}') ? pictureFont(l.text, fontSize(fig)) : l.text];
 				}
-				case 'layer':
-					return [
-						`% sakuga layer ${l.layer.id} {${l.layer.name}}${l.layer.hidden ? ' hidden' : ''}${l.layer.locked ? ' locked' : ''}${opacity(l.layer.opacity) !== 1 ? ` opacity=${opacity(l.layer.opacity)}` : ''}`,
-					];
-				case 'group':
-					return [
-						`${subtreeState(fig, l.g.id, 'hidden') ? '% sakuga hidden ' : ''}% sakuga group ${l.g.id} {${l.g.name}} ${l.g.frame} ${l.g.color}${l.g.parent ? ` in=${l.g.parent}` : ''}${groupOptions(l.g)}`,
-					];
-				case 'groups':
-					return groupsBlock(fig);
-				case 'arrowsflag':
-					return [`% sakuga arrows ${l.style}`];
-				case 'style':
-					return [categoryHeader(l.s)];
-				case 'legendflag':
-					return [`% sakuga legend ${l.on ? 'on' : 'off'}`];
-				case 'theme':
-					return themeBlock(fig);
-				case 'icons':
-					return [];
-				case 'legend':
-					return legendBlock(fig);
-				case 'raw':
-					return [l.text.includes('\\begin{tikzpicture}') ? pictureFont(l.text, fontSize(fig)) : l.text];
-			}
-		}),
-	].join('\n');
+			}),
+		].join('\n'),
+		fig,
+	);
 }

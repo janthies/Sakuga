@@ -152,7 +152,31 @@
 				"key": "alt+t",
 				"when": "activeCustomEditorId == sakuga.figure && webviewFocus"
 			}
-		]
+		],
+		"configuration": {
+			"title": "Sakuga",
+			"properties": {
+				"sakuga.export.width": {
+					"type": "number",
+					"default": 146,
+					"minimum": 1,
+					"maximum": 1000,
+					"description": "Default figure export width in mm."
+				},
+				"sakuga.export.font": {
+					"type": "string",
+					"default": "small",
+					"enum": [
+						"scriptsize",
+						"footnotesize",
+						"small",
+						"normalsize",
+						"large"
+					],
+					"description": "Default figure export font."
+				}
+			}
+		}
 	},
 	"scripts": {
 		"compile": "node scripts/build.cjs",

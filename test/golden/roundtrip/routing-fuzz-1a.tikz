@@ -1,7 +1,12 @@
 % Sakuga figure
 % sakuga category work {this work} color=peach
-% sakuga tree 5b7b226964223a22636f6e6e6563746f72222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a226e30222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a226e31222c22706f7274223a7b2273696465223a22736f757468222c22706f736974696f6e223a302e383431363931383936373035323533387d7d7d2c7b226964223a226e30222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a33332c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a33337d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e30222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a33332c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a33302e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b22666f6e74223a22736d616c6c227d7d2c7b226964223a226e31222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a32332c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a32337d2c226f72646572223a312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e31222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a32332c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a32302e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b22666f6e74223a22736d616c6c227d7d2c7b226964223a226e32222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a32382c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a32387d2c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e32222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a32382c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a32352e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b22666f6e74223a22736d616c6c227d7d2c7b226964223a226e33222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a32392c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a32397d2c226f72646572223a332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e33222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a32392c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a32362e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b22666f6e74223a22736d616c6c227d7d5d
-\begin{tikzpicture}[x=1mm, y=1mm, font=\sffamily\small]
+% sakuga tree 5b7b226964223a22636f6e6e6563746f72222c226b696e64223a22436f6e6e6563746f72222c22706172656e74223a226c6179657231222c226f72646572223a342c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22736f75726365223a7b226964223a226e30222c22706f7274223a7b2273696465223a226175746f222c22706f736974696f6e223a302e357d7d2c22746172676574223a7b226964223a226e31222c22706f7274223a7b2273696465223a22736f757468222c22706f736974696f6e223a302e383431363931383936373035323533387d7d7d2c7b226964223a226e30222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a33332c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a33337d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e302d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e30222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a33332c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a33302e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b7d7d2c7b226964223a226e31222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a32332c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a32337d2c226f72646572223a312c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e312d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e31222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a32332c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a32302e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b7d7d2c7b226964223a226e32222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a32382c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a32387d2c226f72646572223a322c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e322d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e32222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a32382c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a32352e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b7d7d2c7b226964223a226e33222c226b696e64223a225368617065222c22706172656e74223a226c6179657231222c2273697a65223a7b227769647468223a32392c226d696e68223a302c22656d6974746564486569676874223a31302e35362c22656d69747465645769647468223a32397d2c226f72646572223a332c2268696464656e223a66616c73652c226c6f636b6564223a66616c73657d2c7b226964223a226e332d7469746c65222c226b696e64223a2254657874222c22706172656e74223a226e33222c22736c6f74223a2263656e747265222c2273697a65223a7b227769647468223a32392c226d696e68223a302c22656d6974746564486569676874223a362e31362c22656d69747465645769647468223a32362e367d2c226f72646572223a302c2268696464656e223a66616c73652c226c6f636b6564223a66616c73652c22636174223a22222c226f7665727269646573223a7b7d7d5d
+% sakuga sizing begin
+\ifdefined\sgu\else\newdimen\sgu\fi
+\pgfmathsetlength\sgu{max(0.8,min(1,\linewidth/(70.07mm)))*1mm}
+\def\sgfont{\small}\sbox0{%
+% sakuga sizing end
+\begin{tikzpicture}[x=\sgu, y=\sgu, font=\sffamily\sgfont]
 % sakuga theme begin (generated from the style lines above)
 \definecolor{sgc595959}{HTML}{595959}
 \definecolor{sgc808080}{HTML}{808080}
@@ -16,18 +21,18 @@
 \definecolor{sgRed}{HTML}{FFCCCC}
 \definecolor{palRose}{HTML}{CC6677}
 \definecolor{black}{HTML}{000000}
-\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2mm][r]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2mm][l]{\parbox{\dimexpr#2mm-4mm\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\ifx\sgpos\sgse\parbox{#2mm}{\centering#3\par\vspace*{4mm}}\else\parbox{#2mm}{\vspace*{4mm}\centering#3}\fi\fi\fi\fi}
-\def\sglabeltext#1#2#3#4#5#6{\parbox{#5mm}{\centering\sffamily\csname#1\endcsname\color{#2}\csname#3\endcsname\csname#4\endcsname #6}}
+\def\sgcontent#1#2#3{\def\sgpos{#1}\def\sgleft{left}\def\sgright{right}\def\sgsw{sw}\def\sgse{se}\ifx\sgpos\sgleft\makebox[#2\sgu][r]{\parbox{\dimexpr#2\sgu-4\sgu\relax}{\centering#3}}\else\ifx\sgpos\sgright\makebox[#2\sgu][l]{\parbox{\dimexpr#2\sgu-4\sgu\relax}{\centering#3}}\else\ifx\sgpos\sgsw\parbox{#2\sgu}{\centering#3\par\vspace*{4\sgu}}\else\ifx\sgpos\sgse\parbox{#2\sgu}{\centering#3\par\vspace*{4\sgu}}\else\parbox{#2\sgu}{\vspace*{4\sgu}\centering#3}\fi\fi\fi\fi}
+\def\sglabeltext#1#2#3#4#5#6{\parbox{#5\sgu}{\centering\sffamily\csname#1\endcsname\color{#2}\csname#3\endcsname\csname#4\endcsname #6}}
 \def\sgcodesize{}\tikzset{sg want/.style={},sg code font/.code={\def\sgcodesize{\csname#1\endcsname}}}
-\def\sgcode#1{{\ifdim\csname f@size\endcsname pt<9pt\tiny\else\ifdim\csname f@size\endcsname pt<10pt\scriptsize\else\ifdim\csname f@size\endcsname pt<10.5pt\footnotesize\else\ifdim\csname f@size\endcsname pt<11.5pt\small\else\normalsize\fi\fi\fi\fi\sgcodesize\ttfamily\textcolor{black!48}{#1}}}
-\def\sgstep#1{\tikz[baseline=-0.6ex]\node[circle,fill=.,text=white,font=\sffamily\bfseries\scriptsize,inner sep=1pt,minimum size=3.6mm]{#1};}
-\def\sglabel#1#2{\raisebox{\dimexpr\depth/2-\height/2\relax}{\sgstep{#1}}\hspace{0.8mm}\raisebox{\dimexpr\depth/2-\height/2\relax}{\shortstack{#2}}}
+\def\sgcode#1{{\footnotesize\sgcodesize\ttfamily\textcolor{black!48}{#1}}}
+\def\sgstep#1{\tikz[baseline=-0.6ex]\node[circle,fill=.,text=white,font=\sffamily\bfseries\scriptsize,inner sep=1pt,minimum size=3.6\sgu]{#1};}
+\def\sglabel#1#2{\raisebox{\dimexpr\depth/2-\height/2\relax}{\sgstep{#1}}\hspace{0.8\sgu}\raisebox{\dimexpr\depth/2-\height/2\relax}{\shortstack{#2}}}
 \tikzset{
   sg box/.style={draw=black!38, line width=0.45pt, rounded corners=1.4pt, align=center,
-    inner xsep=3pt, inner ysep=3.5pt, minimum height=6mm, text width=26mm, fill=white},
+    inner xsep=3pt, inner ysep=3.5pt, minimum height=6\sgu, text width=26\sgu, fill=white},
   sg shape/.style={sg box}, sg text/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg conn/.style={arr}, sg line/.style={draw=black!50,line width=0.45pt}, sg frame/.style={}, sg id/.style={},
   sg compact/.style={inner xsep=1pt, inner ysep=1pt, minimum height=0pt},
-  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1mm-0.45pt}},
+  sg label/.style={sg box, draw=none, fill=none, rounded corners=0pt}, sg label height/.style={minimum height={#1\sgu-0.45pt}},
   arr/.style={-{Latex[length=1.5mm, width=1.2mm]}, draw=black!50, line width=0.45pt, rounded corners=2pt},
   head both/.style={{Latex[length=1.5mm, width=1.2mm]}-{Latex[length=1.5mm, width=1.2mm]}},
   head none/.style={-},
@@ -35,16 +40,16 @@
   sg elabel/.style={align=center, text=black!65, font=\sffamily\scriptsize, fill=white, inner sep=1pt},
   sg labels/.style={}, sg label side/.style={}, sg label position/.style={}, sg step/.style={}, sg lane/.style={}, sg line width/.style={}, sg tip length/.style={}, sg tip width/.style={}, sg route/.style={}, sg mid/.style={}, sg bend/.style={}, sg implicit from/.style={}, sg implicit to/.style={},
   sg straight/.style={}, sg manhattan/.style={}, sg curved/.style={}, sg fixed/.style={},
-  sg icon height/.style={minimum height=#1mm}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},
-  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8mm},
-  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8mm},
-  sg frame region/.style={rounded corners=1.5pt, inner sep=3mm},
-  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3mm},
+  sg icon height/.style={minimum height=#1\sgu}, sg icon/.style={}, sg icon position/.style={}, sg in/.style={}, sg layer/.style={}, sg hidden/.style={}, sg locked/.style={}, sg opacity/.style={},
+  sg frame dashed/.style={draw=black!55, line width=0.7pt, dash pattern=on 9pt off 3pt, rounded corners=2.5pt, inner sep=2.8\sgu},
+  sg frame dotted/.style={draw=black!55, line width=1.5pt, line cap=round, dash pattern=on 0pt off 4.5pt, rounded corners=2.5pt, inner sep=1.8\sgu},
+  sg frame region/.style={rounded corners=1.5pt, inner sep=3\sgu},
+  sg frame solid/.style={draw=black!55, line width=0.7pt, rounded corners=2.5pt, inner sep=3\sgu},
   sg frame none/.style={inner sep=0pt},
   sg glabel/.style={font=\sffamily\scriptsize, text=black!55, inner sep=1.5pt},
   arr-dashed/.style={arr, draw=black!35, dash pattern=on 1.4pt off 1.4pt},
   sg swatch/.style={draw=black!38, line width=0.45pt, rounded corners=1pt,
-    minimum width=3.6mm, minimum height=3.6mm, inner sep=0pt},
+    minimum width=3.6\sgu, minimum height=3.6\sgu, inner sep=0pt},
   cat-work-shape/.style={fill=sgPeach, draw=sgc99857A, solid},
   cat-work-conn/.style={draw=sgc99857A, solid},
   cat-work-line/.style={draw=sgc99857A, solid},
@@ -52,9 +57,10 @@
   cat-work-icon/.style={text=sgc99857A, sg icon stroke/.append style={draw=sgc99857A}},
 }
 % sakuga theme end
-\node[sg shape, text width=33mm, minimum height=10.56mm, sg layer=layer1] (n0) at (68,23) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{30.6}{Box}};
-\node[sg shape, text width=23mm, minimum height=10.56mm, sg layer=layer1] (n1) at (60,58) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{20.6}{Box}};
-\node[sg shape, text width=28mm, minimum height=10.56mm, sg layer=layer1] (n2) at (90,62) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{25.6}{Box}};
-\node[sg shape, text width=29mm, minimum height=10.56mm, sg layer=layer1] (n3) at (51,24) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{26.6}{Box}};
-\draw[sg conn, sg id=connector, sg route=auto, sg implicit from] ([xshift=0.6337mm]n0.north) -- ([xshift=0.6337mm]n0.north |- 0,40.5) -| ([xshift=8.6337mm]n1.south);
-\end{tikzpicture}
+\node[sg shape, text width=33\sgu, minimum height=10.56\sgu, sg layer=layer1] (n0) at (68,23) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{30.6}{Box}};
+\node[sg shape, text width=23\sgu, minimum height=10.56\sgu, sg layer=layer1] (n1) at (60,58) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{20.6}{Box}};
+\node[sg shape, text width=28\sgu, minimum height=10.56\sgu, sg layer=layer1] (n2) at (90,62) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{25.6}{Box}};
+\node[sg shape, text width=29\sgu, minimum height=10.56\sgu, sg layer=layer1] (n3) at (51,24) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{26.6}{Box}};
+\draw[sg conn, sg id=connector, sg route=auto, sg implicit from] ([xshift=0.6337\sgu]n0.north) -- ([xshift=0.6337\sgu]n0.north |- 0,40.5) -| ([xshift=8.6337\sgu]n1.south);
+\end{tikzpicture}}%
+\ifdim\wd0>\linewidth\resizebox{\linewidth}{!}{\usebox0}\else\usebox0\fi % sakuga sizing finish

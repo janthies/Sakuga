@@ -13,6 +13,7 @@ export interface View {
 	height: number;
 	/** Grid pitch in mm; the dots show when they are at least 10 px apart. */
 	grid: number;
+	targetWidth?: number;
 }
 // Overlay primitives are in screen pixels and rebuilt from the store state on every draw.
 export type Overlay = Prim[];
@@ -48,7 +49,26 @@ export function createRenderer(svg: SVGElement): Renderer {
 			viewEl.setAttribute('transform', t);
 			transform = t;
 		}
-		grid.patch(gridPrims(view));
+		grid.patch([
+			...(view.targetWidth
+				? [
+						{
+							key: 'target-band',
+							kind: 'rect' as const,
+							attrs: {
+								x: view.ox,
+								y: 0,
+								width: view.targetWidth * view.s,
+								height: view.height,
+								fill: '#698ab4',
+								opacity: 0.06,
+								'pointer-events': 'none',
+							},
+						},
+					]
+				: []),
+			...gridPrims(view),
+		]);
 		over.patch(overlay);
 	}
 	return {

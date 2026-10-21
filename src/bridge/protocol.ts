@@ -17,6 +17,7 @@ export type ViewStyle = StyleDef & { line?: string };
 
 /** The derived snapshot of the document (see core/view/viewModel.ts). */
 export interface StateMessage {
+	exportTarget?: import('../core/model/export').ExportTarget;
 	outerGap?: number;
 	sourceFile?: string;
 	figure?: { place: string; label: string; caption: string };
