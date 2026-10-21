@@ -72,7 +72,9 @@ export function openField(target: EditTarget) {
 			height: `${6 * store.view.s}px`,
 		});
 	}
-	input.value = show(n.title.split('\\\\').join(' / '));
+	const label = store.items.find((i) => i.parent === n.id && i.kind === 'Text' && i.slot === 'centre');
+	const text = label?.kind === 'Text' ? label.text : n.title;
+	input.value = show(text.split('\\\\').join(' / '));
 }
 // After the redraw: focus the field, select its text, or put the caret behind a typed first character.
 export function focusField(text?: string) {

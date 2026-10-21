@@ -3783,7 +3783,11 @@
      "(constrained",
      "device)"
     ],
-    "textWidth": 26
+    "textWidth": 26,
+    "origin": [
+     34,
+     16.1661
+    ]
    },
    "overrides": [
     "compact",
@@ -3944,7 +3948,11 @@
      "Normal world",
      "(untrusted)"
     ],
-    "textWidth": 26
+    "textWidth": 26,
+    "origin": [
+     -15.7337,
+     9.3
+    ]
    },
    "overrides": [
     "compact",
@@ -4105,7 +4113,11 @@
      "Secure world (SPE,",
      "TF-M)"
     ],
-    "textWidth": 26
+    "textWidth": 26,
+    "origin": [
+     -15.7337,
+     -24.7
+    ]
    },
    "overrides": [
     "compact",
@@ -4266,7 +4278,11 @@
      "Hardware root of",
      "trust"
     ],
-    "textWidth": 26
+    "textWidth": 26,
+    "origin": [
+     -15.7337,
+     -58.7
+    ]
    },
    "overrides": [
     "compact",
@@ -5343,7 +5359,11 @@
     "lines": [
      "Application"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     0,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -5405,7 +5425,11 @@
     "lines": [
      "RTOS / TCP/IP"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     34,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -5468,7 +5492,11 @@
      "Attestation",
      "client"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     68,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -5531,7 +5559,11 @@
      "Protected",
      "storage"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     0,
+     -34
+    ]
    },
    "overrides": [
     "font"
@@ -5594,7 +5626,11 @@
      "Crypto",
      "service"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     34,
+     -34
+    ]
    },
    "overrides": [
     "font"
@@ -5657,7 +5693,11 @@
      "Initial attest.",
      "service"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     68,
+     -34
+    ]
    },
    "overrides": [
     "font"
@@ -5720,7 +5760,11 @@
      "Boot ROM",
      "(BL1)"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     0,
+     -68
+    ]
    },
    "overrides": [
     "font"
@@ -5783,7 +5827,11 @@
      "OTP / eFuse",
      "IAK_priv"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     34,
+     -68
+    ]
    },
    "overrides": [
     "font"
@@ -5846,7 +5894,11 @@
      "Boot record",
      "measurements"
     ],
-    "textWidth": 24.7515
+    "textWidth": 24.7515,
+    "origin": [
+     68,
+     -68
+    ]
    },
    "overrides": [
     "font"
@@ -5911,7 +5963,11 @@
      "freshness check (N)",
      "Vrfy(IAK_pub,)"
     ],
-    "textWidth": 33.6
+    "textWidth": 33.6,
+    "origin": [
+     140,
+     -4
+    ]
    },
    "overrides": [
     "font"
@@ -5974,7 +6030,11 @@
      "Endorser",
      "IAK_pub"
     ],
-    "textWidth": 15.6
+    "textWidth": 15.6,
+    "origin": [
+     128,
+     30
+    ]
    },
    "overrides": [
     "font"
@@ -6038,7 +6098,11 @@
      "value",
      "provider"
     ],
-    "textWidth": 15.6
+    "textWidth": 15.6,
+    "origin": [
+     152,
+     30
+    ]
    },
    "overrides": [
     "font"
@@ -6102,7 +6166,11 @@
      "fleet backend /",
      "gateway"
     ],
-    "textWidth": 33.6
+    "textWidth": 33.6,
+    "origin": [
+     140,
+     -68
+    ]
    },
    "overrides": [
     "font"

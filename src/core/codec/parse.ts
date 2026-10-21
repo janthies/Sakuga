@@ -145,6 +145,7 @@ export function parse(text: string): Figure {
 			const layer = o.find((x) => /^sg layer\s*=/.test(x));
 			const g = o.find((x) => /^sg in\s*=/.test(x));
 			let content = /^\\sgcontent\{[\w-]+\}\{[\d.]+\}\{([\s\S]*)\}$/.exec(m[5])?.[1] ?? m[5];
+			if (content.startsWith('\\phantom{') && content.endsWith('}')) content = content.slice(9, -1);
 			const inline = /^\\sglabeltext\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}\{[^}]*\}\{([\s\S]*)\}$/.exec(content);
 			if (inline) content = inline[1];
 			const positioned =
@@ -258,7 +259,7 @@ export function parse(text: string): Figure {
 	for (const n of nodes(fig)) normalizeWidth(fig, n);
 
 	settle(fig);
-	migratePlacement(fig);
+	migratePlacement(fig, !tree);
 	syncTree(fig);
 	if (tree) {
 		readTreeState(fig, tree);

@@ -3492,7 +3492,11 @@
     "lines": [
      "attestation module"
     ],
-    "textWidth": 61.2
+    "textWidth": 61.2,
+    "origin": [
+     -31.7337,
+     -5.4005
+    ]
    },
    "overrides": [
     "compact",
@@ -3644,7 +3648,11 @@
     "lines": [
      "secure world"
     ],
-    "textWidth": 68.38
+    "textWidth": 68.38,
+    "origin": [
+     -38.7137,
+     -82.2005
+    ]
    },
    "overrides": [
     "compact",
@@ -3808,7 +3816,11 @@
     "lines": [
      "operation"
     ],
-    "textWidth": 39.16
+    "textWidth": 39.16,
+    "origin": [
+     -35.7137,
+     -98.4005
+    ]
    },
    "overrides": [
     "compact",
@@ -4784,7 +4796,11 @@
     "lines": [
      "Application"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -4846,7 +4862,11 @@
     "lines": [
      "PSA Attestation API"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     -12
+    ]
    },
    "overrides": [
     "font"
@@ -4908,7 +4928,11 @@
     "lines": [
      "Backend interface"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     -24
+    ]
    },
    "overrides": [
     "font"
@@ -4971,7 +4995,11 @@
      "Software",
      "backend"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     -15,
+     -35
+    ]
    },
    "overrides": [
     "font"
@@ -5033,7 +5061,11 @@
     "lines": [
      "TEE backend"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     15,
+     -35
+    ]
    },
    "overrides": [
     "font"
@@ -5097,7 +5129,11 @@
      "token",
      "encoder"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     -15,
+     -46
+    ]
    },
    "overrides": [
     "font"
@@ -5159,7 +5195,11 @@
     "lines": [
      "PSA Crypto"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     -15,
+     -60
+    ]
    },
    "overrides": [
     "font"
@@ -5221,7 +5261,11 @@
     "lines": [
      "CryptoService API"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     -74
+    ]
    },
    "overrides": [
     "font"
@@ -5283,7 +5327,11 @@
     "lines": [
      "Secure entry and dispatch table"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     -89
+    ]
    },
    "overrides": [
     "font"
@@ -5346,7 +5394,11 @@
     "lines": [
      "Attestation handler"
     ],
-    "textWidth": 37.9577
+    "textWidth": 37.9577,
+    "origin": [
+     -15,
+     -104
+    ]
    },
    "overrides": [
     "font"
@@ -5410,7 +5462,11 @@
      "token",
      "encoder"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     -15,
+     -117
+    ]
    },
    "overrides": [
     "font"
@@ -5474,7 +5530,11 @@
      "RoT",
      "operations"
     ],
-    "textWidth": 23.6
+    "textWidth": 23.6,
+    "origin": [
+     15,
+     -110
+    ]
    },
    "overrides": [
     "font"
@@ -5536,7 +5596,11 @@
     "lines": [
      "CC310 driver"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     -131
+    ]
    },
    "overrides": [
     "font"
@@ -5598,7 +5662,11 @@
     "lines": [
      "CC310"
     ],
-    "textWidth": 55.6
+    "textWidth": 55.6,
+    "origin": [
+     0,
+     -141
+    ]
    },
    "overrides": [
     "font"

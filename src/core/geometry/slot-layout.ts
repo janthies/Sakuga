@@ -1,3 +1,4 @@
+import { groupFootprint, localOrigin } from './slot-groups';
 import { positionInSlot } from './slot-position';
 import type { Figure, FigNode } from '../model/figure';
 import { nodes, fontSize } from '../model/queries';
@@ -9,6 +10,7 @@ import { layout, need } from '../text';
 export const INNER_PADDING = 1.2;
 export const OUTER_GAP = 1;
 export interface SlotRect {
+	origin?: [number, number];
 	x: number;
 	y: number;
 	w: number;
@@ -22,9 +24,11 @@ const owners = new WeakMap<FigNode, Figure>(),
 const signature = (fig: Figure) =>
 	JSON.stringify([
 		fig.theme,
+		(fig.items || []).map((i) => (i.kind === 'Frame' ? i.frame.pin : i.kind === 'Line' ? i.line : undefined)),
 		(fig.items || []).map((i) => [i.id, i.parent, i.slot, i.order]),
 		nodes(fig).map((n) => [n.id, n.width, n.minh, n.title, n.code, n.codeFont, n.style, n.x, n.y]),
 	]);
+export const slotFrame = (g: import('../model/figure').Group) => rectangles.get(g);
 export function slotRect(n: FigNode) {
 	const fig = owners.get(n);
 	if (fig && revisions.get(fig) !== signature(fig)) layoutSlots(fig);
@@ -46,6 +50,13 @@ export function layoutSlots(fig: Figure) {
 				v = l.vector || [l.end[0] - l.start[0], l.end[1] - l.start[1]],
 				b = { x: (l.start[0] + l.end[0]) / 2, y: (l.start[1] + l.end[1]) / 2, w: Math.abs(v[0]), h: Math.abs(v[1]) };
 			sized.set(id, b);
+			return b;
+		}
+		if (i?.kind === 'Frame' && !visiting.has(id)) {
+			visiting.add(id);
+			const b = groupFootprint(fig, i, size);
+			sized.set(id, b);
+			visiting.delete(id);
 			return b;
 		}
 		if (!i || !n || visiting.has(id)) return { x: 0, y: 0, w: 0, h: 0 };
@@ -97,6 +108,24 @@ export function layoutSlots(fig: Figure) {
 		if (done.has(id)) return b;
 		const i = itemById(fig, id),
 			n = i && 'node' in i ? i.node : undefined;
+		if (i?.kind === 'Frame') {
+			done.add(id);
+			const parent = itemById(fig, i.parent);
+			if (parent?.kind === 'Shape' && i.slot) {
+				const p = place(parent.id),
+					siblings = childrenOf(fig, parent.id).filter((k) => k.slot === i.slot);
+				const prior = siblings
+					.slice(
+						0,
+						siblings.findIndex((k) => k.id === id),
+					)
+					.map((k) => size(k.id));
+				Object.assign(b, positionInSlot(b, p, i.slot, prior, [], pad, gap));
+			}
+			if (parent?.kind === 'Shape' && i.slot) rectangles.set(i.frame, b);
+			else rectangles.delete(i.frame);
+			return b;
+		}
 		if (i?.kind === 'Line') {
 			const l = i.line,
 				parent = itemById(fig, i.parent);
@@ -113,6 +142,30 @@ export function layoutSlots(fig: Figure) {
 					start: { configurable: true, enumerable: true, get: () => [b.x - v[0] / 2, b.y - v[1] / 2], set: () => {} },
 					end: { configurable: true, enumerable: true, get: () => [b.x + v[0] / 2, b.y + v[1] / 2], set: () => {} },
 				});
+			} else if (localOrigin(fig, i, place) && l.local) {
+				const origin = localOrigin(fig, i, place)!;
+				const v = l.vector || [l.end[0] - l.start[0], l.end[1] - l.start[1]];
+				l.vector = [v[0], v[1]];
+				for (const [key, sign] of [
+					['start', -1],
+					['end', 1],
+				] as const)
+					Object.defineProperty(l, key, {
+						configurable: true,
+						enumerable: true,
+						get: () => [
+							origin.x + l.local!.x + (sign * l.vector![0]) / 2,
+							origin.y + l.local!.y + (sign * l.vector![1]) / 2,
+						],
+						set: (point: number[]) => {
+							const other = key === 'start' ? l.end : l.start;
+							l.local!.x = (point[0] + other[0]) / 2 - origin.x;
+							l.local!.y = (point[1] + other[1]) / 2 - origin.y;
+							l.vector = [(point[0] - other[0]) * sign, (point[1] - other[1]) * sign];
+						},
+					});
+				b.x = origin.x + l.local.x;
+				b.y = origin.y + l.local.y;
 			} else {
 				const start = [...l.start],
 					end = [...l.end];
@@ -149,6 +202,27 @@ export function layoutSlots(fig: Figure) {
 				});
 		} else {
 			// Detachment materialises the last computed position before removing the cache.
+			const origin = localOrigin(fig, i, place);
+			if (origin && n.local) {
+				for (const k of ['x', 'y'] as const)
+					Object.defineProperty(n, k, {
+						configurable: true,
+						enumerable: true,
+						get: () => origin[k] + n.local![k],
+						set: (v: number) => {
+							n.local![k] = v - origin[k];
+						},
+					});
+				b.x = n.x;
+				b.y = n.y;
+				if (i.kind === 'Shape') rectangles.set(n, b);
+				Object.defineProperty(n, 'derivedRect', {
+					configurable: true,
+					enumerable: false,
+					get: () => rectangles.get(n),
+				});
+				return b;
+			}
 			const old = Object.getOwnPropertyDescriptor(n, 'x')?.get ? rectangles.get(n) : undefined;
 			const x = old?.x ?? n.x ?? 0,
 				y = old?.y ?? n.y ?? 0;
@@ -165,4 +239,6 @@ export function layoutSlots(fig: Figure) {
 		return b;
 	};
 	for (const i of fig.items || []) place(i.id);
+	for (const n of ns) owners.set(n, fig);
+	revisions.set(fig, signature(fig));
 }

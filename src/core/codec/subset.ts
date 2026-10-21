@@ -1,3 +1,5 @@
+import { edgeLine } from './edge-line';
+import { edges } from '../model/queries';
 import { geometryOf } from '../geometry/figure-geometry';
 import { lineLabel } from '../geometry/line-geometry';
 import { fontSize } from '../model/queries';
@@ -85,5 +87,9 @@ export function serializeSubset(fig: Figure, refs: ObjectRef[]): string {
 				i.node.layer = 'layer1';
 			}
 		}
-	return serialize(copy).replace(/% sakuga legend begin[^\n]*\n[\s\S]*?% sakuga legend end/g, '');
+	const explicit = refs.flatMap((r) => (r.k === 'edge' ? [edges(fig)[r.index]].filter(Boolean) : []));
+	return [
+		serialize(copy).replace(/% sakuga legend begin[^\n]*\n[\s\S]*?% sakuga legend end/g, ''),
+		...explicit.filter((e) => !ids.has(e.id!)).map((e) => edgeLine(fig, e)),
+	].join('\n');
 }

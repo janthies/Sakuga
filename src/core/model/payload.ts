@@ -82,7 +82,15 @@ export interface Attachment {
 
 export interface FigNode extends TreeState {
 	categoryMarker?: boolean;
-	derivedRect?: { x: number; y: number; w: number; h: number; lines?: string[]; textWidth?: number };
+	derivedRect?: {
+		origin?: [number, number];
+		x: number;
+		y: number;
+		w: number;
+		h: number;
+		lines?: string[];
+		textWidth?: number;
+	};
 	titleId?: string;
 	titleHidden?: boolean;
 	labelPlacement?: LabelStyle;

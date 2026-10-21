@@ -1,5 +1,8 @@
 export type ItemKind = 'Shape' | 'Frame' | 'Text' | 'Icon' | 'Line' | 'Connector';
 export interface TreeState {
+	/** Entry footprint and member coordinates in a pinned group. */
+	pin?: [number, number];
+	local?: { parent: string; x: number; y: number };
 	slot?: import('./slots').Slot;
 	attachment?: { parent: string; anchor: string; ownAnchor: string; dx: number; dy: number };
 	cat?: string;

@@ -118,16 +118,26 @@ test('all nesting combinations keep placement, move with box parents and detach 
 	])
 		assert.equal(itemById(back, id)?.parent, parent);
 	const old = [n(back, 'c').x, n(back, 'c').y],
-		start = [...lineItems(back)[0].start];
-	apply(back, { op: 'move', id: 'b', x: 65, y: 7 });
-	assert.deepEqual([n(back, 'c').x, n(back, 'c').y], [old[0] + 5, old[1] + 7]);
-	assert.deepEqual(lineItems(back)[0].start, [start[0] + 5, start[1] + 7]);
+		start = [...lineItems(back)[0].start],
+		origin = [n(back, 'b').x, n(back, 'b').y];
+	apply(back, { op: 'slot', id: 'b', slot: 'outside-right' });
+	const dx = n(back, 'b').x - origin[0],
+		dy = n(back, 'b').y - origin[1];
+	for (const [actual, expected] of [
+		[
+			[n(back, 'c').x, n(back, 'c').y],
+			[old[0] + dx, old[1] + dy],
+		],
+		[lineItems(back)[0].start, [start[0] + dx, start[1] + dy]],
+	])
+		actual.forEach((v, k) => assert.ok(Math.abs(v - expected[k]) < 1e-12));
 	apply(back, { op: 'ungroup', id: 'b' });
 	assert.equal(itemById(back, 'b')?.parent, 'outer');
-	const point = [n(back, 'c').x, n(back, 'c').y];
+	const outsidePoint = [n(back, 'a').x, n(back, 'a').y];
 	apply(back, { op: 'ungroup', id: 'inner' });
 	assert.equal(itemById(back, 'c')?.parent, 'b');
-	assert.deepEqual([n(back, 'c').x, n(back, 'c').y], point);
+	assert.ok(n(back, 'c').slot);
+	assert.deepEqual([n(back, 'a').x, n(back, 'a').y], outsidePoint);
 	back = roundtrip(back);
 	assert.equal(itemById(back, 'c')?.parent, 'b');
 });

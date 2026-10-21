@@ -7,6 +7,9 @@ import { itemById, childrenOf } from '../model/tree-queries';
 import { num } from '../util/num';
 import { fromHex, toHex } from '../util/hex';
 
+const sorted = (o?: Record<string, any>) =>
+	o && Object.fromEntries(Object.entries(o).sort(([a], [b]) => a.localeCompare(b)));
+
 function unwritten(i: import('../model/item').Item) {
 	if (i.kind === 'Frame' || (i.kind === 'Text' && !i.node)) return {};
 	const own = payload(i).look?.own || {};
@@ -49,6 +52,8 @@ export function treeState(fig: Figure): string {
 						kind: i.kind,
 						parent: i.parent,
 						slot: i.slot,
+						...(payload(i).local ? { local: payload(i).local } : {}),
+						...(i.kind === 'Frame' && i.frame.pin ? { pin: i.frame.pin } : {}),
 						...(i.kind === 'Line' && i.slot ? { vector: i.line.vector } : {}),
 						...('node' in i && i.node?.categoryMarker ? { categoryMarker: true } : {}),
 						...(!('node' in i && i.node)
@@ -58,7 +63,7 @@ export function treeState(fig: Figure): string {
 										width: i.node!.width,
 										minh: i.node!.minh,
 										codeFont: i.node!.codeFont,
-										emittedHeight: i.node!.derivedRect?.h,
+										emittedHeight: i.kind === 'Icon' ? i.node!.minh || i.node!.width : i.node!.derivedRect?.h,
 										emittedWidth: i.node!.derivedRect?.w ? i.node!.derivedRect!.w - 2.2675 : i.node!.width,
 									},
 								}),
@@ -68,10 +73,10 @@ export function treeState(fig: Figure): string {
 						locked: i.locked,
 						...unwritten(i),
 						...(i.kind === 'Text' && i.slot === 'centre'
-							? { cat: payload(i).cat, overrides: payload(i).look?.own }
+							? { cat: payload(i).cat, overrides: sorted(payload(i).look?.own) }
 							: {}),
-						...(i.kind === 'Text' && !i.node ? { cat: i.cat, overrides: i.look?.own } : {}),
-						...(i.kind === 'Frame' ? { cat: i.frame.cat, overrides: i.frame.look?.own } : {}),
+						...(i.kind === 'Text' && !i.node ? { cat: i.cat, overrides: sorted(i.look?.own) } : {}),
+						...(i.kind === 'Frame' ? { cat: i.frame.cat, overrides: sorted(i.frame.look?.own) } : {}),
 						...(i.kind === 'Connector' ? { source: i.source, target: i.target } : {}),
 					})),
 			),
@@ -80,12 +85,14 @@ export function treeState(fig: Figure): string {
 }
 export function readTreeState(fig: Figure, value: string) {
 	const records: any[] = JSON.parse(fromHex(value));
+	const savedIds = new Set(records.map((r) => r.id));
 	for (const r of records) {
 		let i = itemById(fig, r.id);
 		if (!i && r.kind === 'Text') {
 			i = fig.items?.find(
 				(v) =>
 					v.kind === 'Text' &&
+					!savedIds.has(v.id) &&
 					v.parent === r.parent &&
 					(r.slot === 'centre' ? v.slot === 'centre' : v.order === r.order),
 			);
@@ -95,6 +102,8 @@ export function readTreeState(fig: Figure, value: string) {
 			}
 		}
 		if (!i) continue;
+		if (r.local) payload(i).local = r.local;
+		if (i.kind === 'Frame' && r.pin) i.frame.pin = r.pin;
 		if (r.parent && (i.kind === 'Frame' || i.kind === 'Line' || (i.kind === 'Text' && !i.node))) i.parent = r.parent;
 		if (r.slot) {
 			i.slot = r.slot;

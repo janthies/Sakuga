@@ -80,7 +80,12 @@ export function planTidy(
 		for (const it of [...items].sort((p, q) => O.get(p)[a0] - O.get(q)[a0])) {
 			const r = O.get(it),
 				last = out[out.length - 1];
-			if (last && r[a0] < last.hi - 1.0) {
+			const sameBand =
+				last &&
+				(a0 === 'y0'
+					? Math.abs(r[a0] + r[a1] - last.lo - last.hi) <= Math.max(r[a1] - r[a0], last.hi - last.lo)
+					: r[a0] < last.hi - 1.0);
+			if (sameBand) {
 				last.items.push(it);
 				last.hi = Math.max(last.hi, r[a1]);
 			} else out.push({ items: [it], lo: r[a0], hi: r[a1] });

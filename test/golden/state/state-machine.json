@@ -1929,7 +1929,11 @@
     "lines": [
      "Idle"
     ],
-    "textWidth": 9.6
+    "textWidth": 9.6,
+    "origin": [
+     0,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -1991,7 +1995,11 @@
     "lines": [
      "Ready"
     ],
-    "textWidth": 10.0238
+    "textWidth": 10.0238,
+    "origin": [
+     45,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -2053,7 +2061,11 @@
     "lines": [
      "Active"
     ],
-    "textWidth": 9.7595
+    "textWidth": 9.7595,
+    "origin": [
+     90,
+     0
+    ]
    },
    "overrides": [
     "font"
@@ -2115,7 +2127,11 @@
     "lines": [
      "Done"
     ],
-    "textWidth": 9.6
+    "textWidth": 9.6,
+    "origin": [
+     90,
+     -43
+    ]
    },
    "overrides": [
     "font"
@@ -2177,7 +2193,11 @@
     "lines": [
      "Error"
     ],
-    "textWidth": 9.6
+    "textWidth": 9.6,
+    "origin": [
+     45,
+     -43
+    ]
    },
    "overrides": [
     "font"

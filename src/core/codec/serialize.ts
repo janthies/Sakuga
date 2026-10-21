@@ -53,10 +53,15 @@ export function serialize(fig: Figure): string {
 	settle(fig);
 	resolveAttachments(fig);
 	resolvePorts(fig);
+	const inline = (n: FigNode) =>
+		n.kind === 'label' &&
+		n.slot === 'centre' &&
+		itemById(fig, n.treeParent || '')?.kind === 'Shape' &&
+		childrenOf(fig, n.treeParent!).find((i) => i.kind === 'Text' && i.slot === 'centre')?.id === n.id;
 	const ordered: FigNode[] = [],
 		visited = new Set<string>();
 	const visit = (n: FigNode) => {
-		if (visited.has(n.id)) {
+		if (inline(n) || visited.has(n.id)) {
 			return;
 		}
 		visited.add(n.id);
@@ -77,7 +82,7 @@ export function serialize(fig: Figure): string {
 		nextLine = 0;
 	const freeLines = lineItems(fig);
 	const lines: Line[] = fig.lines
-		.filter((l) => l.t !== 'edge' && l.t !== 'groups' && l.t !== 'icons')
+		.filter((l) => l.t !== 'edge' && l.t !== 'groups' && l.t !== 'icons' && !(l.t === 'node' && inline(l.n)))
 		.map((l) =>
 			l.t === 'node'
 				? { t: 'node', n: ordered[nextNode++] }

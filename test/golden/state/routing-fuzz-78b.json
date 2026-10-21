@@ -889,7 +889,11 @@
     "lines": [
      "Box"
     ],
-    "textWidth": 27.6
+    "textWidth": 27.6,
+    "origin": [
+     30,
+     50
+    ]
    },
    "overrides": [
     "font"
@@ -952,7 +956,11 @@
     "lines": [
      "Box"
     ],
-    "textWidth": 24.6
+    "textWidth": 24.6,
+    "origin": [
+     96,
+     20
+    ]
    },
    "overrides": [
     "font"
@@ -1015,7 +1023,11 @@
     "lines": [
      "Box"
     ],
-    "textWidth": 24.6
+    "textWidth": 24.6,
+    "origin": [
+     68,
+     8
+    ]
    },
    "overrides": [
     "font"
@@ -1078,7 +1090,11 @@
     "lines": [
      "Box"
     ],
-    "textWidth": 16.6
+    "textWidth": 16.6,
+    "origin": [
+     91,
+     1
+    ]
    },
    "overrides": [
     "font"

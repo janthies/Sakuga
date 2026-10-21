@@ -56,6 +56,5 @@
 \node[sg shape, text width=33mm, minimum height=10.56mm, sg layer=layer1] (n1) at (17,80) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{30.6}{Box}};
 \node[sg shape, text width=27mm, minimum height=10.56mm, sg layer=layer1] (n2) at (10,50) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{24.6}{Box}};
 \node[sg shape, text width=15.999999999999998mm, minimum height=10.56mm, sg layer=layer1] (n3) at (32,29) {\sglabeltext{small}{sgc595959}{mdseries}{upshape}{13.6}{Box}};
-\end{tikzpicture}
-
 \draw[sg conn, sg id=connector, sg route=auto] (n0.north) -- (n1.south);
+\end{tikzpicture}

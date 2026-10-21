@@ -1,3 +1,5 @@
+import { releaseGroup } from '../../core/geometry/slot-groups';
+import { payload } from '../../core/model/tree';
 import { layoutSlots, slotRect } from '../../core/geometry/slot-layout';
 import type { Figure } from '../../core/model/figure';
 import type { PreviewOp } from './types';
@@ -29,7 +31,11 @@ export function applyPreview(m: PreviewModel, p: PreviewOp): void {
 	for (const v of p.slots || []) {
 		const i = m.items?.find((i) => i.id === v.id),
 			n = m.nodes.find((n) => n.id === v.id);
-		if (i) i.slot = v.slot as any;
+		if (i?.kind === 'Frame') releaseGroup({ items: m.items, lines: [] }, i.id);
+		if (i) {
+			i.slot = v.slot as any;
+			payload(i).slot = i.slot;
+		}
 		if (n) n.slot = v.slot;
 		if (i?.kind === 'Text' && !i.node) {
 			const l = m.lines?.find((l) => l.id === i.parent),

@@ -1,10 +1,11 @@
+import { releaseGroup } from '../geometry/slot-groups';
 import { defaultSlot, slotAt, BOX_SLOTS, LINE_SLOTS } from '../model/slots';
 import { lineLabel } from '../geometry/line-geometry';
 import { fontSize } from '../model/queries';
 import { inlineText } from './inline-text';
 import type { Figure, FigNode } from '../model/figure';
 import type { Item, TextItem } from '../model/item';
-import { childrenOf, descendants, itemById, layerOf } from '../model/tree-queries';
+import { childrenOf, descendants, itemById, layerOf, ancestors } from '../model/tree-queries';
 import { payload, projectTree, setParent, syncTree } from '../model/tree';
 import { insert } from '../model/lines';
 import { geometryOf } from '../geometry/figure-geometry';
@@ -88,6 +89,7 @@ export function reparent(fig: Figure, id: string, parent: string, index?: number
 		originalOrder = i.order;
 	const wasInline = i.kind === 'Text' && !i.node;
 	const free = i.kind === 'Text' && wasInline ? textNode(fig, i) : undefined;
+	releaseGroup(fig, id);
 	setParent(fig, id, parent, index);
 	if (i.kind === 'Text' && wasInline) {
 		const newOrder = i.order;
@@ -126,10 +128,6 @@ export function detach(fig: Figure, id: string) {
 	syncTree(fig);
 	const i = itemById(fig, id),
 		p = i && itemById(fig, i.parent);
-	if (i?.kind === 'Frame') {
-		ungroup(fig, id);
-		return;
-	}
 	if (p) reparent(fig, id, p.parent);
 }
 export function ungroup(fig: Figure, id: string) {
@@ -165,6 +163,7 @@ export function moveItem(fig: Figure, id: string, x: number, y: number) {
 	if (parent?.kind === 'Shape') {
 		const b = geo.node(parent.id);
 		if (b) {
+			releaseGroup(fig, i.id);
 			i.slot = slotAt(b, { x, y });
 			payload(i).slot = i.slot;
 		}
@@ -172,6 +171,7 @@ export function moveItem(fig: Figure, id: string, x: number, y: number) {
 	}
 
 	for (const c of [i, ...descendants(fig, id)]) {
+		if (c !== i && (c.slot || ancestors(fig, c.id).some((a) => a.id !== id && a.slot))) continue;
 		if (c.kind === 'Line') {
 			c.line.start = [c.line.start[0] + dx, c.line.start[1] + dy];
 			c.line.end = [c.line.end[0] + dx, c.line.end[1] + dy];
@@ -195,6 +195,7 @@ export function applyTree(fig: Figure, op: TreeOp) {
 			if (!i) break;
 			const allowed = p?.kind === 'Shape' ? BOX_SLOTS : p?.kind === 'Line' ? LINE_SLOTS : [];
 			if (!(allowed as readonly string[]).includes(op.slot)) throw new Error('Invalid slot');
+			releaseGroup(fig, i.id);
 			i.slot = op.slot;
 			payload(i).slot = op.slot;
 			if (i.kind === 'Text' && !i.node && p?.kind === 'Line') {

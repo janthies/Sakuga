@@ -7,7 +7,7 @@ import { syncTree } from '../model/tree';
 import { childrenOf } from '../model/tree-queries';
 import { legacySlot } from '../model/slots';
 
-export function migratePlacement(fig: Figure) {
+export function migratePlacement(fig: Figure, markers = true) {
 	const ns = nodes(fig),
 		used = new Set(ns.map((n) => n.id));
 	const fresh = (base: string) => {
@@ -37,10 +37,12 @@ export function migratePlacement(fig: Figure) {
 	};
 	for (const n of ns) oldRect(n);
 	for (const n of ns) {
-		if (!n.kind) {
+		if (!n.kind && markers) {
 			const name = categories(fig).find((c) => c.key === n.cat)?.icon;
 			const marker = ns.find(
-				(v) => v.treeParent === n.id && (v.categoryMarker || (!!name && v.id === n.id + '-marker')),
+				(v) =>
+					(v.treeParent === n.id || v.attachment?.parent === n.id) &&
+					(v.categoryMarker || (!!name && v.id === n.id + '-marker')),
 			);
 			if (marker) marker.categoryMarker = true;
 			if (name && n.icon !== 'none') {

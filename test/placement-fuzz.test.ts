@@ -1,8 +1,23 @@
 import { test } from 'node:test';
 import * as assert from 'node:assert/strict';
 import { inputs } from './lib/env';
-import { parse, serialize, apply, nodes, items, descendants, itemById, layers, edges, TEMPLATE } from '../src/core';
+import {
+	parse,
+	serialize,
+	apply,
+	nodes,
+	items,
+	descendants,
+	itemById,
+	layers,
+	edges,
+	TEMPLATE,
+	ancestors,
+	childrenOf,
+} from '../src/core';
 import { geometryOf } from '../src/core/geometry/figure-geometry';
+import { slotCell } from '../src/core/model/slots';
+import { slotFrame } from '../src/core/geometry/slot-layout';
 import type { Figure } from '../src/core/model/figure';
 import type { Op } from '../src/core/ops/types';
 
@@ -10,8 +25,23 @@ function snapshot(f: Figure) {
 	const g = geometryOf(f);
 	return new Map(
 		items(f).flatMap((i) => {
-			const b = i.kind === 'Frame' ? g.frame(i.id) : g.node(i.id);
-			if (b) return [[i.id, { p: [b.x, b.y], size: [b.w, b.h], parent: i.parent }] as const];
+			// Free groups have bounds, not a stored position. Pinned groups have a stable slot origin.
+			const b = i.kind === 'Frame' ? slotFrame(i.frame) : g.node(i.id);
+			if (b)
+				return [
+					[
+						i.id,
+						{
+							p: ('node' in i && i.node?.derivedRect?.origin) || b.origin || [b.x, b.y],
+							center: [b.x, b.y],
+							size: [b.w, b.h],
+							parent: i.parent,
+							slot: i.slot,
+							order: i.order,
+							ancestors: ancestors(f, i.id).map((a) => a.id),
+						},
+					] as const,
+				];
 			return [];
 		}),
 	);
@@ -52,14 +82,15 @@ test('seeded placement invariant: examples and generated trees, ops and round tr
 			e.labelStyle = undefined;
 			e.labels = [];
 		}
-		const undo: string[] = [],
-			redo: string[] = [];
+		type Saved = { text: string; positions: ReturnType<typeof snapshot> };
+		const undo: Saved[] = [],
+			redo: Saved[] = [];
 		for (let step = 0; step < 96; step++) {
 			const ns = nodes(f),
 				n = ns[Math.floor(rand() * ns.length)];
 			if (!n) break;
 			const before = snapshot(f),
-				target = n.id,
+				target = step % 12 === 3 ? 'fuzz' + step : n.id,
 				exempt = new Set([target, ...descendants(f, target).map((i) => i.id)]);
 			const choice = step % 12;
 			let op: Op;
@@ -98,8 +129,12 @@ test('seeded placement invariant: examples and generated trees, ops and round tr
 					const from = choice === 9 ? undo : redo,
 						to = choice === 9 ? redo : undo;
 					if (from.length) {
-						to.push(serialize(f));
-						f = parse(from.pop()!);
+						to.push({ text: serialize(f), positions: before });
+						const saved = from.pop()!;
+						f = parse(saved.text);
+						const restored = snapshot(f);
+						for (const [id, b] of saved.positions)
+							assert.deepEqual(restored.get(id)?.center, b.center, input.name + ' undo/redo ' + id);
 					}
 					// Undo/redo restores the entire document, so compare to that document's positions.
 					continue;
@@ -108,13 +143,13 @@ test('seeded placement invariant: examples and generated trees, ops and round tr
 					const round = parse(serialize(f)),
 						after = snapshot(round);
 					for (const [id, b] of before)
-						if (after.has(id) && JSON.stringify(after.get(id)!.p) !== JSON.stringify(b.p))
+						if (after.has(id) && JSON.stringify(after.get(id)!.center) !== JSON.stringify(b.center))
 							failures.push(input.name + ': roundtrip ' + id + ' ' + JSON.stringify([b.p, after.get(id)!.p]));
 					f = round;
 					continue;
 				}
 			}
-			if (choice === 8) undo.push(serialize(f));
+			undo.push({ text: serialize(f), positions: before });
 			redo.length = 0;
 			apply(f, op);
 			const after = snapshot(f),
@@ -128,7 +163,18 @@ test('seeded placement invariant: examples and generated trees, ops and round tr
 				);
 			for (const [id, b] of before) {
 				const a = after.get(id);
-				if (!a || exempt.has(id) || resized.has(b.parent) || itemById(f, id)?.kind === 'Frame') continue;
+				if (!a || exempt.has(id) || b.ancestors.some((p) => resized.has(p))) continue;
+				// Only later siblings in the target's old or new slot may shift, on its stacking axis.
+				const oldTarget = before.get(target),
+					newTarget = after.get(target);
+				const stacked = [oldTarget, newTarget].some(
+					(t) => t && t.slot && b.parent === t.parent && b.slot === t.slot && b.order > t.order,
+				);
+				if (stacked && b.slot) {
+					const [c, r] = slotCell(b.slot);
+					const fixedAxis = (c === 0 || c === 4) && r > 0 && r < 4 ? 1 : 0;
+					if (a.p[fixedAxis] === b.p[fixedAxis]) continue;
+				}
 				if (JSON.stringify(a.p) !== JSON.stringify(b.p))
 					failures.push(input.name + ': ' + op.op + ' ' + target + ' moved ' + id + ' ' + JSON.stringify([b.p, a.p]));
 			}

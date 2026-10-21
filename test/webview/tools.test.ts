@@ -158,14 +158,14 @@ test('shift locks the drag to one axis, ctrl turns the grid off', () => {
 	assert.deepEqual([s.nodes[0].x, s.nodes[0].y], [12.3, 3.1]);
 });
 
-test('alt+drag leaves the original and commits the duplicate', () => {
+test('alt+drag moves the item for structural placement', () => {
 	const s = two();
 	s.down(0, 0, { k: 'node', id: 'a' }, { alt: true });
 	s.move(20, 0, { alt: true });
-	assert.equal(s.nodes[0].x, 0, 'the original stays while the copy is dragged');
+	assert.equal(s.nodes[0].x, 20, 'Alt drag moves the selected item');
 	const step = s.up(20, 0, { alt: true });
-	assert.deepEqual(step.pendingSelect, ['copy']);
-	assert.deepEqual(s.commits[0].ops, [{ op: 'addNode', x: 20, y: 0 }]);
+	assert.equal(step.pendingSelect, undefined);
+	assert.deepEqual(s.commits[0].ops, [{ op: 'move', id: 'a', x: 20, y: 0 }]);
 });
 
 test('a drag that does not move sends nothing', () => {
