@@ -16,7 +16,11 @@ export function completeOrder(ns: ViewNode[], gs: Group[]) {
 	return [...ns.map((n) => n.id).filter((id) => !front.includes(id)), ...front.reverse()];
 }
 export function selectedRoots() {
-	const selected = new Set([...(store.selG ? [store.selG] : []), ...store.selN]);
+	const selected = new Set([
+		...(store.selG ? [store.selG] : []),
+		...store.selN,
+		...[...store.selE].map((i) => store.edges[i]?.id).filter((id): id is string => !!id),
+	]);
 	return [...selected].filter((id) => {
 		let item = store.items.find((i) => i.id === id);
 		const seen = new Set<string>();
@@ -29,22 +33,33 @@ export function selectedRoots() {
 	});
 }
 export function selectLayer(id: string, toggle = false) {
-	const group = groupById(id),
-		ids = group ? members(id) : [id];
+	const group = groupById(id);
+	const inside = (key: string) => {
+		let item = store.items.find((i) => i.id === key);
+		const seen = new Set<string>();
+		while (item && !seen.has(item.id)) {
+			if (item.parent === id) return true;
+			seen.add(item.id);
+			item = store.items.find((i) => i.id === item!.parent);
+		}
+		return false;
+	};
+	const selected = group ? store.items.filter((i) => inside(i.id)) : store.items.filter((i) => i.id === id);
+	const remove = toggle && (group ? store.selG === id : store.selN.has(id));
 	if (!toggle) {
 		store.selN = new Set();
+		store.selE.clear();
 	}
-	const remove = toggle && (group ? store.selG === id : store.selN.has(id));
-	for (const key of ids.filter((key) => byId(key) && !byId(key)!.hidden && !byId(key)!.locked)) {
-		if (remove) {
-			store.selN.delete(key);
-		} else {
-			store.selN.add(key);
-		}
+	for (const i of selected.filter((i) => !i.hidden && !i.locked)) {
+		if (i.kind === 'Connector') {
+			const index = store.edges.findIndex((e) => e.id === i.id);
+			if (remove) store.selE.delete(index);
+			else if (index >= 0) store.selE.add(index);
+		} else if (remove) store.selN.delete(i.id);
+		else store.selN.add(i.id);
 	}
-	store.selG = group && !remove && ids.some((key) => byId(key) && !byId(key)!.hidden && !byId(key)!.locked) ? id : null;
+	store.selG = group && !remove ? id : null;
 	store.keyObject = toggle && !remove ? id : null;
-	store.selE = new Set();
 }
 export function dropLayers(target: string, above: boolean, into = true) {
 	// A layer-row drag ({ layer }) is dropped by the layer panel itself.
@@ -87,7 +102,12 @@ export function moveToLayer(ids: string[], layer: string) {
 	if (!ids.length) {
 		return;
 	}
-	post({ op: 'batch', ops: [{ op: 'setLayer', ids, layer }] });
+	post({
+		op: 'batch',
+		ops: [
+			{ op: 'setLayer', ids: ids.filter((id) => store.items.find((i) => i.id === id)?.kind !== 'Connector'), layer },
+		],
+	});
 	store.activeLayer = layer;
 }
 export function slug(name: string, except?: string) {

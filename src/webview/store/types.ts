@@ -14,6 +14,7 @@ export type NodeSelection = Set<string> & { label?: LabelRef };
 
 /** What copying a style keeps; each part is filled by the kind of object that was copied. */
 export interface StyleClip {
+	itemStyle?: Record<string, any>;
 	labelStyle?: Record<string, any>;
 	groupStyle?: Record<string, any>;
 	nodeStyle?: Record<string, any>;

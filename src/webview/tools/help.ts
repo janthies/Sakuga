@@ -5,7 +5,7 @@ export const GESTURE_HELP: { at: number; keys: string; text: string }[] = [
 	{ at: 2, keys: 'Drag on empty space', text: 'select with a rectangle' },
 	{ at: 3, keys: 'Ctrl+click / Shift+click', text: 'toggle selection; set alignment reference' },
 	{ at: 5, keys: 'Shift+drag', text: 'move horizontally or vertically only' },
-	{ at: 6, keys: 'Alt+drag', text: 'copy' },
+	{ at: 6, keys: 'Alt+drag', text: 'reparent into a box or group; detach onto empty canvas' },
 	{ at: 17, keys: 'Shift+drag a corner', text: 'scale the selection evenly' },
 	{ at: 18, keys: 'Ctrl after you start dragging', text: 'no grid, no guides' },
 	{ at: 21, keys: 'Esc in a new empty box', text: 'cancel box and arrow' },

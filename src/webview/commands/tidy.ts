@@ -1,3 +1,7 @@
+import { arrangeInParent } from '../../core/layout/parent-arrange';
+import { selectedRoots } from '../store/layers';
+import { parse } from '../../core/codec/parse';
+import { src } from '../platform/dom';
 import * as coreSketch from '../../core/layout/sketch';
 import { store } from '../store/store';
 import { byId, groupById, layout, members, post } from '../store/model';
@@ -15,6 +19,11 @@ export function applyTidy() {
 }
 // Align, distribute or equalise the selected boxes, about the reference box if one is set.
 export function arrange(command: string) {
+	const inParent = arrangeInParent(parse(src.value), selectedRoots(), command);
+	if (inParent) {
+		if (inParent.op === 'batch' && inParent.ops.length) post(safeArrange(inParent));
+		return;
+	}
 	const ids = [...store.selN].filter((id) => byId(id) && !byId(id)!.locked && !byId(id)!.hidden);
 	if (ids.length < 2) {
 		return;

@@ -1,3 +1,4 @@
+import { ReparentTool } from './reparent';
 import { SlotTool } from './slot';
 import { MoveTool } from './move';
 import { LabelTool } from './label';
@@ -10,6 +11,12 @@ export class SelectionMoveTool implements Tool {
 	readonly overlay: any;
 	private tools: Tool[] = [];
 	constructor(c: ToolCtx, e: CanvasEvent, selection: Selection) {
+		if (e.mods.alt) {
+			const tool = new ReparentTool(c, e, selection);
+			this.tools = [tool];
+			this.overlay = tool.overlay;
+			return;
+		}
 		const group = c.items?.find((i) => i.id === selection.group);
 		const groupParent = c.items?.find((i) => i.id === group?.parent);
 		if (group?.kind === 'Frame' && groupParent?.kind === 'Shape') {

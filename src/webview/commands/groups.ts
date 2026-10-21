@@ -1,56 +1,47 @@
 import { store } from '../store/store';
-import { completeOrder, selectedRoots } from '../store/layers';
-import { byId, groupById, post } from '../store/model';
+import { selectedRoots } from '../store/layers';
+import { selectedItems } from './interaction';
+import { post } from '../store/model';
 
 export function groupSelection() {
-	const roots = selectedRoots();
-	if (
-		!roots.length ||
-		new Set(
-			[...store.selN].map((id) => byId(id)?.layer || store.lines.find((l) => l.id === id)?.layer || store.activeLayer),
-		).size > 1
-	) {
-		return;
-	}
-	const parents = roots.map((id) => groupById(id)?.parent ?? byId(id)?.group ?? '');
-	const ancestors = (parent: string | undefined) => {
-		const result = [''];
-		while (parent && !result.includes(parent)) {
-			result.unshift(parent);
-			parent = groupById(parent)?.parent;
+	const roots = selectedRoots().filter((id) => store.items.find((i) => i.id === id)?.kind !== 'Connector');
+	if (!roots.length) return;
+	const chain = (id: string) => {
+		const out: string[] = [];
+		let parent = store.items.find((i) => i.id === id)?.parent;
+		while (parent && !out.includes(parent)) {
+			out.push(parent);
+			parent = store.items.find((i) => i.id === parent)?.parent;
 		}
-		return result;
+		return out;
 	};
-	const parent = ancestors(parents[0]).find((p) => parents.every((q) => ancestors(q).includes(p))) || '';
-	let i = 1;
-	while (groupById(`g${i}`) || byId(`g${i}`)) {
-		i++;
-	}
-	const group = {
-		id: `g${i}`,
-		name: `group ${i}`,
-		frame: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'solid' : 'dashed',
-		color: 'grey',
-		parent,
-		fill: 'none',
-		outline: roots.some((id) => groupById(id)?.frame && groupById(id)!.frame !== 'none') ? 'solid' : 'dashed',
-	};
-	const ns = store.nodes.map((n) => ({ ...n, group: roots.includes(n.id) ? group.id : n.group }));
-	const gs = [...store.groups.map((g) => ({ ...g, parent: roots.includes(g.id) ? group.id : g.parent })), group];
-	store.selG = group.id;
+	const parent = chain(roots[0]).find((p) => roots.every((id) => chain(id).includes(p)));
+	if (!parent) return;
+	let n = 1;
+	while (store.items.some((i) => i.id === `g${n}`)) n++;
+	const id = `g${n}`;
+	store.selG = id;
 	post({
 		op: 'batch',
 		ops: [
-			{ op: 'addGroup', ...group },
-			{ op: 'setGroup', ids: roots, group: group.id },
-			{ op: 'reorder', order: completeOrder(ns, gs) },
+			{ op: 'addGroup', id, name: `Group ${n}`, frame: 'none' },
+			{ op: 'reparent', id, newParent: parent },
+			...roots.map((child) => ({ op: 'reparent', id: child, newParent: id })),
 		],
 	});
 }
 export function ungroupSelection() {
-	if (!store.selG) {
-		return;
-	}
-	post({ op: 'ungroup', id: store.selG });
+	const selected = new Set(selectedItems().filter((id) => store.items.find((i) => i.id === id)?.kind !== 'Connector'));
+	const roots = [...selected].filter((id) => {
+		let p = store.items.find((i) => i.id === id)?.parent;
+		const seen = new Set<string>();
+		while (p && !seen.has(p)) {
+			if (selected.has(p)) return false;
+			seen.add(p);
+			p = store.items.find((i) => i.id === p)?.parent;
+		}
+		return true;
+	});
+	if (roots.length) post({ op: 'batch', ops: roots.map((id) => ({ op: 'ungroup', id })) });
 	store.selG = null;
 }

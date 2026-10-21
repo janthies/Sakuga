@@ -1906,3 +1906,26 @@ select:focus {
 #inspector .inherited button {
 	color: var(--muted);
 }
+.layer-disclosure {
+	width: 24px;
+	flex: none;
+}
+.layer-marker {
+	width: 16px;
+	text-align: center;
+	flex: none;
+}
+.layer-row .layer-count {
+	width: 28px;
+	flex: none;
+	text-align: right;
+}
+.canvas-menu button {
+	display: flex;
+	justify-content: space-between;
+	gap: 24px;
+}
+.menu-shortcut {
+	opacity: 0.65;
+	font-size: 11px;
+}

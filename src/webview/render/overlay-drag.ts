@@ -12,6 +12,31 @@ import type { DragOverlay, ViewNode } from '../store/types';
 
 export function dragPrims(o: Out) {
 	const d = store.drag;
+	for (const b of d?.reparentGhosts || [])
+		o.add('rect', {
+			x: px(b.x - b.w / 2),
+			y: py(b.y + b.h / 2),
+			width: b.w * store.view.s,
+			height: b.h * store.view.s,
+			fill: 'var(--sel)',
+			'fill-opacity': 0.1,
+			stroke: 'var(--sel)',
+			'stroke-dasharray': '4 3',
+			'pointer-events': 'none',
+		});
+	if (d?.parentTarget) {
+		const b = d.parentTarget;
+		o.add('rect', {
+			x: px(b.x - b.w / 2),
+			y: py(b.y + b.h / 2),
+			width: b.w * store.view.s,
+			height: b.h * store.view.s,
+			fill: 'none',
+			stroke: 'var(--sel)',
+			'stroke-width': 2,
+			'pointer-events': 'none',
+		});
+	}
 	if (d?.slots) {
 		const { parent: b, slot, line } = d.slots;
 		if (b && !line) {

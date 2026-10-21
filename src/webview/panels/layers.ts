@@ -1,3 +1,4 @@
+import { treeDrop } from './layers-drop';
 import { itemSelected, revealSelection } from './layers-items';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
@@ -59,23 +60,25 @@ function renderLayers1(ctx: LayerCtx): boolean {
 			row.setAttribute('aria-selected', String(selected));
 			row.classList.remove('drop-group', 'drop-above', 'drop-below');
 		}
-		(document.getElementById('group') as HTMLButtonElement).disabled = !store.selN.size && !store.selG;
-		(document.getElementById('ungroup') as HTMLButtonElement).disabled = !store.selG;
+		(document.getElementById('group') as HTMLButtonElement).disabled =
+			!store.selN.size && !store.selG && !store.selN.size && !store.selE.size;
+		(document.getElementById('ungroup') as HTMLButtonElement).disabled =
+			!store.selG && !store.selN.size && !store.selE.size;
 		const del = document.getElementById('delete-selection') as HTMLButtonElement | null;
 		if (del) {
-			const count = store.selN.size + store.selE.size;
+			const count = store.selN.size + store.selE.size + (store.selG ? 1 : 0);
 			del.textContent = store.selectedLayers.size ? 'Delete layer' : count === 1 ? 'Delete object' : 'Delete objects';
 			del.disabled = store.selectedLayers.size ? store.layers.length < 2 : !count;
 			del.title = del.textContent;
 		}
 		const move = document.querySelector<HTMLSelectElement>('#layer-controls select');
 		if (move) {
-			move.disabled = !store.selN.size && !store.selG;
+			move.disabled = !store.selN.size && !store.selG && !store.selN.size && !store.selE.size;
 		}
 	};
 	const signature = JSON.stringify([
-		store.selN.size,
-		store.selE.size,
+		[...store.selN],
+		[...store.selE],
 		store.selG,
 		store.layers,
 		store.nodes.map((n) => [n.id, n.layer, n.group, n.title, n.cat, n.hidden, n.locked]),
@@ -107,7 +110,7 @@ function renderLayers1(ctx: LayerCtx): boolean {
 		row.appendChild(b);
 		return b;
 	};
-	ctx.rename = (name: HTMLElement, obj: { id: string; name: string }, op: string) => {
+	ctx.rename = (name: HTMLElement, obj: { id: string; name: string; parent?: string }, op: string) => {
 		const field = document.createElement('input');
 		field.value = obj.name;
 		name.replaceChildren(field);
@@ -120,7 +123,12 @@ function renderLayers1(ctx: LayerCtx): boolean {
 			}
 			done = true;
 			if (commit && field.value.trim()) {
-				post({ op, id: obj.id, name: field.value.trim() });
+				post({
+					op,
+					id: obj.id,
+					...(obj.parent ? { parent: obj.parent } : {}),
+					[op === 'text' || op === 'addText' ? 'text' : op === 'node' ? 'title' : 'name']: field.value.trim(),
+				});
 			}
 			field.remove();
 			store.layerSignature = '';
@@ -156,7 +164,11 @@ function renderLayers1(ctx: LayerCtx): boolean {
 			const fraction = (ev.clientY - row.getBoundingClientRect().top) / row.offsetHeight;
 			row.classList.remove('drop-group', 'drop-above', 'drop-below');
 			row.classList.add(
-				Array.isArray(drag) && (!target || (groupById(target) && fraction > 0.25 && fraction < 0.75))
+				Array.isArray(drag) &&
+					(!target ||
+						(store.items.some((i) => i.id === target && ['Shape', 'Frame'].includes(i.kind)) &&
+							fraction > 0.25 &&
+							fraction < 0.75))
 					? 'drop-group'
 					: fraction < 0.5
 						? 'drop-above'
@@ -179,46 +191,7 @@ function renderLayers1(ctx: LayerCtx): boolean {
 					post({ op: 'reorderLayers', order });
 				}
 			} else {
-				const ids = drag;
-				if (!ids.length) {
-					store.layerDrag = null;
-					return;
-				}
-				const moving = new Set(ids.flatMap((id) => (groupById(id) ? members(id) : [id])));
-				if (target && (moving.has(target) || ids.includes(target))) {
-					store.layerDrag = null;
-					render();
-					return;
-				}
-				const same = [...moving].every((id) => byId(id)?.layer === layer.id);
-				const fraction = (ev.clientY - row.getBoundingClientRect().top) / row.offsetHeight;
-				const into = !!groupById(target) && fraction > 0.25 && fraction < 0.75;
-				if (target && same) {
-					dropLayers(target, fraction < 0.5, into);
-				} else {
-					const ops: Op[] = [{ op: 'setLayer', ids, layer: layer.id }];
-					if (target) {
-						const parent = groupById(target)
-							? into
-								? target
-								: groupById(target)?.parent || ''
-							: byId(target)?.group || '';
-						ops.push({ op: 'setGroup', ids, group: parent });
-						const order = store.nodes.filter((n) => !moving.has(n.id)).map((n) => n.id);
-						const positions = groupById(target)
-							? order.flatMap((id, i) => (inGroup(byId(id)!, target) ? [i] : []))
-							: [order.indexOf(target)];
-						const at = positions.length
-							? into || fraction < 0.5
-								? Math.max(...positions) + 1
-								: Math.min(...positions)
-							: order.length;
-						order.splice(at, 0, ...store.nodes.filter((n) => moving.has(n.id)).map((n) => n.id));
-						ops.push({ op: 'reorder', order });
-					}
-					post({ op: 'batch', ops });
-				}
-				store.activeLayer = layer.id;
+				treeDrop(drag, layer.id, target, (ev.clientY - row.getBoundingClientRect().top) / (row.offsetHeight || 24));
 			}
 			store.layerDrag = null;
 			render();

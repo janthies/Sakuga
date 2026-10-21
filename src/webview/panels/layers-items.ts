@@ -1,9 +1,10 @@
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { show } from '../store/constants';
-import { selectLayer, selectedRoots } from '../store/layers';
+import { selectLayer, selectedRoots, newId } from '../store/layers';
 import { render } from '../render/scene';
 import { startEdit } from '../tools/live/dispatch';
+import { rowTail, rowMarker } from './layers-controls';
 import type { Item } from '../../core/model/item';
 import type { LayerCtx } from './layers-context';
 import type { Layer } from '../store/types';
@@ -14,6 +15,8 @@ export const itemSelected = (item: Item) =>
 		: store.selN.has(item.id) || store.selG === item.id;
 const names = { Shape: 'Box', Frame: 'Group', Text: 'Label', Icon: 'Icon', Line: 'Line', Connector: 'Arrow' };
 function nameOf(item: Item) {
+	const child = store.items.find((i) => i.parent === item.id && i.kind === 'Text');
+	if ((item.kind === 'Line' || item.kind === 'Connector') && child?.kind === 'Text') return child.text;
 	return item.kind === 'Frame'
 		? item.frame.name
 		: item.kind === 'Text'
@@ -21,7 +24,12 @@ function nameOf(item: Item) {
 			: item.kind === 'Connector'
 				? `${item.source.id} → ${item.target.id}`
 				: 'node' in item
-					? item.node?.title || names[item.kind]
+					? (
+							store.items.find((i) => i.parent === item.id && i.kind === 'Text' && i.slot === 'centre') as
+								import('../../core/model/item').TextItem | undefined
+						)?.text ||
+						item.node?.title ||
+						names[item.kind]
 					: names[item.kind];
 }
 export function renderLayerItems(ctx: LayerCtx, layer: Layer) {
@@ -40,12 +48,19 @@ export function renderLayerItems(ctx: LayerCtx, layer: Layer) {
 					calls.renderLayers();
 				});
 				d.classList.toggle('expanded', !store.collapsed.has(item.id));
+				row.setAttribute('aria-expanded', String(!store.collapsed.has(item.id)));
+			} else {
+				const slot = document.createElement('span');
+				slot.className = 'layer-disclosure';
+				row.append(slot);
 			}
+			rowMarker(row, item.kind, item.cat);
 			const label = document.createElement('span');
 			label.className = 'layer-name';
 			label.textContent = show(nameOf(item)).replace(/\\\\/g, ' ');
 			label.title = names[item.kind];
 			row.append(label);
+			rowTail(ctx, row, item, item.kind === 'Frame' ? children.length : undefined);
 			row.onclick = (e) => {
 				store.selectedLayers.clear();
 				store.activeLayer = layer.id;
@@ -70,7 +85,12 @@ export function renderLayerItems(ctx: LayerCtx, layer: Layer) {
 			};
 			label.ondblclick = () => {
 				if (item.kind === 'Frame') ctx.rename(label, { id: item.id, name: item.frame.name }, 'groupProps');
-				else if (!item.locked && !item.hidden) startEdit(item.id);
+				else if (item.kind === 'Text') ctx.rename(label, { id: item.id, name: item.text }, 'text');
+				else if (item.kind === 'Line' || item.kind === 'Connector') {
+					const labelItem = children.find((i) => i.kind === 'Text');
+					if (labelItem?.kind === 'Text') ctx.rename(label, { id: labelItem.id, name: labelItem.text }, 'text');
+					else ctx.rename(label, { id: newId(), parent: item.id, name: '' }, 'addText');
+				} else if ('node' in item && item.node) ctx.rename(label, { id: item.id, name: nameOf(item) }, 'node');
 			};
 			row.ondragstart = (e) => {
 				e.stopPropagation();

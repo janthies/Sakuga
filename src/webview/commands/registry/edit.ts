@@ -20,8 +20,8 @@ export const editCommands: Command[] = [
 		title: 'Edit label',
 		keys: ['enter', 'f2'],
 		help: { at: 19, keys: 'Enter / F2', text: 'edit existing label' },
-		when: (s) => !!s.one() && !s.one().locked,
-		run: (s) => s.edit(s.one().id),
+		when: (s) => (!!s.one() && !s.one().locked) || !!s.selG || s.ix().length === 1,
+		run: (s) => (s.interaction ? s.interaction('selection.editLabel') : s.edit(s.one().id)),
 	},
 	{
 		id: 'box.type',

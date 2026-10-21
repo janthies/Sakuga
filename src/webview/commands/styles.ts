@@ -1,3 +1,4 @@
+import { payload } from '../../core/model/tree';
 import { store } from '../store/store';
 import { byId, catOf, post } from '../store/model';
 import { darkerColor } from '../render/svg';
@@ -24,6 +25,17 @@ export function copyStyle() {
 			groupStyle: Object.fromEntries(styleable('frame').map((k) => [k, (g as Record<string, any>)[k]])),
 			color: g.frameColor || g.color,
 		};
+		render();
+		return;
+	}
+	if (ids.length && !byId(ids[0])) {
+		const item = store.items.find((i) => i.id === ids[0]);
+		if (item) {
+			const p = payload(item);
+			store.styleClip = {
+				itemStyle: { ...(p.look?.resolved || (p as any).style || (item.kind === 'Text' ? item.placement : {})) },
+			};
+		}
 		render();
 		return;
 	}
@@ -65,10 +77,38 @@ export function pasteStyle() {
 	if (!store.styleClip) {
 		return;
 	}
+	if (store.styleClip.itemStyle) {
+		const ids = [
+			...store.selN,
+			...[...store.selE].map((index) => store.edges[index]?.id).filter((id): id is string => !!id),
+		];
+		post({
+			op: 'batch',
+			ops: ids.flatMap((id) =>
+				Object.entries(store.styleClip!.itemStyle!).map(([prop, value]) => ({ op: 'setOverride', id, prop, value })),
+			),
+		});
+		return;
+	}
 	if (store.selN.label) {
 		const st = store.styleClip.labelStyle || {};
 		labelChange(Object.fromEntries(['font', 'bold', 'italic', 'color', 'background'].map((k) => [k, st[k] ?? null])));
 		return;
+	}
+	const treeOnly = [...store.selN].filter((id) => !byId(id));
+	if (treeOnly.length) {
+		const values = store.styleClip.nodeStyle ||
+			store.styleClip.edgeStyle ||
+			store.styleClip.labelStyle || { color: store.styleClip.color };
+		post({
+			op: 'batch',
+			ops: treeOnly.flatMap((id) =>
+				Object.entries(values)
+					.filter(([, value]) => value !== undefined)
+					.map(([prop, value]) => ({ op: 'setOverride', id, prop, value })),
+			),
+		});
+		if (treeOnly.length === store.selN.size && !store.selE.size) return;
 	}
 	const ops: Op[] = [];
 	const g = typeof store.groups !== 'undefined' && store.groups.find((g) => g.id === store.selG);

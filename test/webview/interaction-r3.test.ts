@@ -44,7 +44,7 @@ test('wheel opens without a document change, creates at the pointer, and Ctrl ch
 	assert.equal(wheel.hidden, false);
 	assert.deepEqual(
 		[...wheel.querySelectorAll('button')].map((b: any) => b.textContent),
-		['Box', 'Label', 'Group', 'Line', 'Icon'],
+		['Box', 'Label', 'Line', 'Icon'],
 	);
 	s.click(s.button('Line', wheel));
 	assert.equal(s.lastOp.op, 'addLine');
@@ -187,7 +187,9 @@ test('the context menu sends the selected box to the back with one command', () 
 		]),
 	);
 	clickNode(s, 'b', 60);
-	s.svg.dispatchEvent(new s.window.MouseEvent('contextmenu', { bubbles: true, cancelable: true, ...s.client(60, 0) }));
+	s.node('b').dispatchEvent(
+		new s.window.MouseEvent('contextmenu', { bubbles: true, cancelable: true, ...s.client(60, 0) }),
+	);
 	s.click(s.button('Send to back', s.document.querySelector('.canvas-menu')));
 	assert.equal(s.lastOp.op, 'batch');
 	assert.equal(s.lastOp.ops[0].id, 'b');

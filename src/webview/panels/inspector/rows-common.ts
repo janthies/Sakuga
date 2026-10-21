@@ -148,14 +148,22 @@ export function tidyRow(): RowControls {
 
 // Align, distribute and equalise the selected boxes, by command id, with a note on the reference box.
 export function alignRow(c: PanelCtx): RowControls {
-	if (c.sel.nodes.length < 2) return null;
+	const roots = selectedRoots(),
+		parent = store.items.find((i) => i.id === store.items.find((i) => i.id === roots[0])?.parent);
+	const common =
+		parent &&
+		['Shape', 'Frame'].includes(parent.kind) &&
+		roots.every((id) => store.items.find((i) => i.id === id)?.parent === parent.id)
+			? parent
+			: undefined;
+	if (c.sel.nodes.length < 2 && !common) return null;
 	const few = coreSketch.units(store.nodes, store.groups, [...store.selN], layout).length < 3;
 	const bar = new Actions(
 		SKETCH_CONTROLS.map(([command, label, key, path]) => ({
 			label,
 			title: `${label} (${key})`,
 			svg: pathGlyph(path),
-			disabled: command.startsWith('distribute') && few,
+			disabled: command.startsWith('distribute') && (common ? roots.length < 2 : few),
 			run: (b) => {
 				b.blur();
 				runCommand(appState, `sketch.${command}`);
@@ -169,7 +177,9 @@ export function alignRow(c: PanelCtx): RowControls {
 		'p',
 		'empty',
 		{},
-		ref ? `Reference: ${show(ref.title) || ref.id}` : 'Shift/Ctrl+click sets a reference',
+		common
+			? `in ${common.kind === 'Frame' ? common.frame.name : common.kind === 'Shape' ? show(store.items.find((i) => i.parent === common.id && i.kind === 'Text' && i.slot === 'centre')?.kind === 'Text' ? (store.items.find((i) => i.parent === common.id && i.kind === 'Text' && i.slot === 'centre') as import('../../../core/model/item').TextItem).text : common.node.title) || common.id : common.id}`
+			: 'to each other',
 	);
 	return new Block(h('div', '', {}, bar.el, note));
 }

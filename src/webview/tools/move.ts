@@ -43,7 +43,7 @@ export class MoveTool implements Tool {
 		}
 		d.dx = dx;
 		d.dy = dy;
-		d.target = c.dropAnchor(p, [...d.orig.keys()]);
+		d.target = e.mods.alt ? c.dropAnchor(p, [...d.orig.keys()]) : null;
 		const nodes: any[] = [],
 			lines: any[] = [],
 			slots: any[] = [];

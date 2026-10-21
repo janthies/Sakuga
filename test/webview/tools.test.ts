@@ -162,7 +162,8 @@ test('alt+drag moves the item for structural placement', () => {
 	const s = two();
 	s.down(0, 0, { k: 'node', id: 'a' }, { alt: true });
 	s.move(20, 0, { alt: true });
-	assert.equal(s.nodes[0].x, 20, 'Alt drag moves the selected item');
+	assert.equal(s.tool.overlay.reparentGhosts[0].x, 20, 'Alt drag shows the item at the drop position');
+	assert.equal(s.nodes[0].x, 0, 'The relation changes only on drop');
 	const step = s.up(20, 0, { alt: true });
 	assert.equal(step.pendingSelect, undefined);
 	assert.deepEqual(s.commits[0].ops, [{ op: 'move', id: 'a', x: 20, y: 0 }]);

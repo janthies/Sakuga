@@ -1,3 +1,4 @@
+import { startEdit, beginEdit } from '../tools/live/dispatch';
 import { store } from '../store/store';
 import { calls } from '../store/calls';
 import { byId } from '../store/model';
@@ -59,7 +60,7 @@ export function interact(action: string, args: any = {}): Op | void {
 		case 'create.text': {
 			const id = newId(),
 				parent = args.attach && ids.length === 1 ? ids[0] : store.activeLayer;
-			if (parent === store.activeLayer) store.pendingEdit = id;
+			store.pendingEdit = id;
 			return { op: 'addText', id, parent, text: 'Label', x: p.x, y: p.y };
 		}
 		case 'create.icon': {
@@ -88,6 +89,27 @@ export function interact(action: string, args: any = {}): Op | void {
 			const id = newId();
 			return { op: 'addLine', id, start: [p.x, p.y], end: [p.x + 20, p.y], layer: store.activeLayer };
 		}
+		case 'selection.editLabel': {
+			const item = store.items.find((i) => i.id === ids[0]);
+			if (item?.kind === 'Connector') {
+				beginEdit({ kind: 'edge', index: store.edges.findIndex((e) => e.id === item.id) });
+				return;
+			}
+			if (item?.kind === 'Frame' || item?.kind === 'Line') {
+				const label = store.items.find((i) => i.parent === item.id && i.kind === 'Text');
+				if (label) startEdit(label.id);
+				else return interact('create.text', { ...args, attach: true });
+				return;
+			}
+			if (item) startEdit(item.id);
+			return;
+		}
+		case 'selection.hide':
+			return { op: 'hide', ids, hidden: true };
+		case 'selection.lock':
+			return { op: 'lock', ids, locked: true };
+		case 'selection.setCategory':
+			return { op: 'batch', ops: ids.map((id) => ({ op: 'setCategory', id, category: args.category })) };
 		case 'selection.detach':
 			return { op: 'batch', ops: ids.map((id) => ({ op: 'detach', id })) };
 		case 'selection.resetLook':

@@ -33,9 +33,9 @@ export const layerCommands: Command[] = [
 	},
 	{
 		id: 'group.ungroup',
-		title: 'Ungroup',
+		title: 'Ungroup / Detach',
 		keys: ['ctrl+shift+g'],
-		help: { at: 10, text: 'ungroup' },
+		help: { at: 10, text: 'ungroup / detach' },
 		when: () => true,
 		run: (s) => s.ungroup(),
 	},

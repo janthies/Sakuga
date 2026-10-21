@@ -25,7 +25,7 @@
 	],
 	[
 		"Alt+drag",
-		"copy"
+		"reparent into a box or group; detach onto empty canvas"
 	],
 	[
 		"Ctrl+D",
@@ -41,7 +41,7 @@
 	],
 	[
 		"Ctrl+Shift+G",
-		"ungroup"
+		"ungroup / detach"
 	],
 	[
 		"Ctrl+C, Ctrl+X, Ctrl+V",

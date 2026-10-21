@@ -1,3 +1,5 @@
+import { rowTail, rowMarker } from './layers-controls';
+import { duplicate } from '../commands/clipboard';
 import { renderLayerItems } from './layers-items';
 import { appState } from '../commands/state';
 import { runCommand } from '../commands/registry';
@@ -22,14 +24,6 @@ export function renderLayers2(ctx: LayerCtx) {
 			row = ctx.makeRow(layer.id, 0);
 		row.classList.add('container-layer');
 		row.classList.toggle('selected', store.selectedLayers.has(layer.id));
-		for (const [prop, on, off] of [
-			['hidden', 'eyeClosed', 'eye'],
-			['locked', 'lock', 'unlock'],
-		] as const) {
-			ctx.button(row, layer[prop] ? on : off, `${layer[prop] ? 'Disable' : 'Enable'} ${prop}`, () =>
-				post({ op: 'layerProps', id: layer.id, [prop]: !layer[prop] }),
-			);
-		}
 		const disclosure = ctx.button(
 			row,
 			'triangle',
@@ -45,14 +39,12 @@ export function renderLayers2(ctx: LayerCtx) {
 		);
 		disclosure.classList.toggle('expanded', store.expandedLayers.has(layer.id));
 		row.setAttribute('aria-expanded', String(store.expandedLayers.has(layer.id)));
+		rowMarker(row, 'Layer');
 		const name = document.createElement('span');
 		name.className = 'layer-name';
 		name.textContent = layer.name;
 		row.appendChild(name);
-		const count = document.createElement('span');
-		count.className = 'layer-count';
-		count.textContent = String(ns.length);
-		row.appendChild(count);
+		rowTail(ctx, row, layer, store.items.filter((i) => i.parent === layer.id).length);
 		row.onclick = (ev) => {
 			runCommand(appState, 'layer.select', { id: layer.id, additive: ev.shiftKey || ev.ctrlKey || ev.metaKey });
 		};
@@ -97,8 +89,12 @@ export function renderLayers3(ctx: LayerCtx) {
 	const dup = document.createElement('button');
 	dup.textContent = 'Duplicate';
 	dup.className = 'lc lc-dup';
-	dup.title = 'Duplicate layer';
+	dup.title = 'Duplicate selection';
 	dup.onclick = () => {
+		if (!store.selectedLayers.size) {
+			duplicate(selectedRoots(), 5, -5);
+			return;
+		}
 		let id = 'layer-copy',
 			i = 2;
 		while (store.layers.some((l) => l.id === id)) {
@@ -143,7 +139,8 @@ export function renderLayers3(ctx: LayerCtx) {
 			post({ op: 'batch', ops: [...store.selectedLayers].map((id) => ({ op: 'deleteLayer', id })) });
 			store.selectedLayers.clear();
 		} else {
-			deleteSelection();
+			if (store.selG || [...store.selN].some((id) => !byId(id))) runCommand(appState, 'selection.delete');
+			else deleteSelection();
 		}
 		render();
 	};
@@ -164,5 +161,6 @@ export function renderLayers3(ctx: LayerCtx) {
 	controls.appendChild(move);
 	ctx.updateSelection();
 	(document.getElementById('group') as HTMLButtonElement).disabled = !store.selN.size && !store.selG;
-	(document.getElementById('ungroup') as HTMLButtonElement).disabled = !store.selG;
+	(document.getElementById('ungroup') as HTMLButtonElement).disabled =
+		!store.selG && !store.selN.size && !store.selE.size;
 }
